@@ -1,0 +1,12 @@
+<view class="payment-reminder _div data-v-dbe639aa" wx:if="{{$root.g0}}">
+    <view class="header _div data-v-dbe639aa">待支付</view>
+    <view class="content _div data-v-dbe639aa">
+        <image class="avatar data-v-dbe639aa" mode="aspectFill" src="{{$root.g1.headUrl}}"></image>
+        <view class="info _div data-v-dbe639aa">
+            <view class="name _p data-v-dbe639aa">{{$root.g2.name}}</view>
+            <view class="_p data-v-dbe639aa">教练已为您预留时段</view>
+            <view class="_p data-v-dbe639aa">请及时支付</view>
+        </view>
+        <view bindtap="__e" class="pay-btn _div data-v-dbe639aa" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}">去支付</view>
+    </view>
+</view>

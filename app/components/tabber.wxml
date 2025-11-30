@@ -1,0 +1,13 @@
+<view class="data-v-5e29ef1e">
+    <view class="nav-wrap data-v-5e29ef1e" style="{{'height:'+tabberHeight+'px'+';'}}">
+        <image bindload="__e" class="backgroundimg data-v-5e29ef1e" data-event-opts="{{[ [ 'load',[ [ 'imgLoaded',['$event'] ] ] ] ]}}" src="{{isBigPic?'../static/img/bg_big.png':'../static/img/bg.png'}}" style="{{style}}"></image>
+        <view bindtap="__e" class="content data-v-5e29ef1e" data-event-opts="{{[ [ 'tap',[ [ 'BackPage',['$event'] ] ] ] ]}}" style="{{'top:'+StatusBar+'px'+';'}}" wx:if="{{isBack}}">
+            <text class="cuIcon-back data-v-5e29ef1e"></text>
+            <slot name="backText"></slot>
+        </view>
+        <view class="content-name data-v-5e29ef1e" style="{{'top:'+StatusBar+'px'+';'}}">
+            <slot name="content"></slot>
+        </view>
+    </view>
+    <image bindload="__e" class="backgroundimg data-v-5e29ef1e" data-event-opts="{{[ [ 'load',[ [ 'imgLoaded',['$event'] ] ] ] ]}}" src="{{isBigPic?'../static/img/bg_big.png':'../static/img/bg.png'}}" style="{{style}}"></image>
+</view>

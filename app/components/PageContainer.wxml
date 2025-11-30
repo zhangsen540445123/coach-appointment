@@ -1,0 +1,5 @@
+<view class="page _div data-v-52a8a67e">
+    <slot></slot>
+    <login-panel bind:__l="__l" class="data-v-52a8a67e vue-ref" data-ref="loginPanel" vueId="6bdf0502-1"></login-panel>
+    <zhixun-adviser bind:__l="__l" class="data-v-52a8a67e vue-ref" data-ref="zhixunAdviser" vueId="6bdf0502-2"></zhixun-adviser>
+</view>

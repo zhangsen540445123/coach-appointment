@@ -1,0 +1,10 @@
+<view class="content data-v-39478c0c">
+    <navbar bind:__l="__l" class="data-v-39478c0c" isBack="{{true}}" vueId="846b12f8-1" vueSlots="{{['content-name']}}">
+        <view class="data-v-39478c0c" slot="content-name">我的收藏</view>
+    </navbar>
+    <view class="btm-list data-v-39478c0c">
+        <scroll-view class="scroll-box data-v-39478c0c" scrollY="{{true}}" showScrollbar="{{false}}">
+            <consultant-item bind:__l="__l" class="list-item data-v-39478c0c" item="{{item}}" vueId="{{'846b12f8-2-'+__i0__}}" wx:for="{{counselorList}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+        </scroll-view>
+    </view>
+</view>

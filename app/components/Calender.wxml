@@ -1,0 +1,33 @@
+<view class="calender-item data-v-3036abb8">
+    <view class="cale-right data-v-3036abb8">
+        <view class="month_list data-v-3036abb8" wx:for="{{$root.l3}}" wx:for-index="__i0__" wx:for-item="consultDate" wx:key="k">
+            <view class="time data-v-3036abb8">{{consultDate.m0}}</view>
+            <view class="table-title data-v-3036abb8">
+                <view class="table-right data-v-3036abb8">
+                    <view class="table-item data-v-3036abb8" wx:for="{{consultDate.l0}}" wx:for-item="week" wx:key="index">
+                        <view class="data-v-3036abb8">{{week.number}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="day-list data-v-3036abb8" wx:for="{{consultDate.l2}}" wx:key="index">
+                <view class="{{['data-v-3036abb8',item.m1?'highlight':'']}}">{{item[$orig].inWeek!=null?'今天':item.m2}}</view>
+                <block wx:if="{{item.m3}}">
+                    <view bindtap="__e" class="day-list-item preview data-v-3036abb8" data-event-opts="{{[ [ 'tap',[ [ '$emit',['clickItem'] ] ] ] ]}}" wx:if="{{mode==='preview'}}">{{'剩余'+item.m4}}</view>
+                    <block wx:else>
+                        <view bindtap="__e" class="{{['data-v-3036abb8','day-list-item',iten[$orig].startTime===value.time&&item[$orig].date===value.date?'small choosed':'unchoosed']}}" data-event-opts="{{[ [ 'tap',[ [ 'chooseTime',['$0','$1'],[ [ ['consultDateList','k',consultDate[$orig].k],['v','',index],['time','',index2,'startTime'] ],[ ['consultDateList','k',consultDate[$orig].k],['v','',index] ] ] ] ] ] ]}}" wx:for="{{item.l1}}" wx:for-index="index2" wx:for-item="iten" wx:key="index2">
+                            <block wx:if="{{iten[$orig].startTime===value.time&&item[$orig].date===value.date}}">
+                                <view class="_p data-v-3036abb8">{{iten[$orig].startTime}}</view>
+                                <view class="_p data-v-3036abb8">-</view>
+                                <view class="_p data-v-3036abb8">{{iten.m5}}</view>
+                            </block>
+                            <view class="_p data-v-3036abb8" wx:else>{{iten[$orig].startTime}}</view>
+                        </view>
+                    </block>
+                </block>
+                <view class="day-list-item data-v-3036abb8" wx:else>
+                    <view class="data-v-3036abb8">已满</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

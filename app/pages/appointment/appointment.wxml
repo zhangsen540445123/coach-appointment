@@ -1,0 +1,155 @@
+<page-container class="data-v-0c52853b vue-ref" data-ref="pageContainer">
+  <view class="content-box _div data-v-0c52853b">
+    <image class="background-private__img _img data-v-0c52853b" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-0c52853b" theme="theme-private" vueId="4f824280-1"></navbar>
+    <view class="page-tab data-v-0c52853b" style="{{'top:'+navbar.height.total+'px'+';'}}">
+      <image class="background-private__img _img data-v-0c52853b" mode="widthFix" src="{{$root.m1}}" style="{{'top:'+-navbar.height.total+'px'+';'}}"></image>
+      <view bindtap="__e" class="{{['tab-item','data-v-0c52853b',current===index?'selected':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'itemClick',[index] ] ] ] ]}}" wx:for="{{tabLists}}" wx:key="index">{{''+item.name+''}}</view>
+    </view>
+    <view class="page-order _div data-v-0c52853b" wx:if="{{$root.g0<=0}}">
+      <view class="page-order__empty _p data-v-0c52853b">暂无订单</view>
+    </view>
+    <view class="page-order _div data-v-0c52853b" wx:else>
+      <view bindtap="__e" class="order-item _div data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="orderId">
+        <view class="content _div data-v-0c52853b">
+          <image alt class="avatar _img data-v-0c52853b" src="{{item[$orig].counselorHeadUrl||item[$orig].headUrl}}"></image>
+          <view class="info _div data-v-0c52853b">
+            <view class="name _p data-v-0c52853b">{{''+(item[$orig].counselorName||item[$orig].name)+''}}<label class="type _span data-v-0c52853b">{{'（'+item.g1+'）'}}</label>
+            </view>
+            <view class="time _p data-v-0c52853b">{{item[$orig].consultDate}}</view>
+          </view>
+          <view class="{{['_p','data-v-0c52853b','status','status--'+item[$orig].orderStatus]}}">{{item.m2}}</view>
+        </view>
+        <view class="footer _div data-v-0c52853b">
+          <view class="delay _p data-v-0c52853b" wx:if="{{item.g2}}">还剩<label class="highlight _span data-v-0c52853b">{{item.g3}}</label>订单自动取消</view>
+          <view class="delay _p data-v-0c52853b" wx:else></view>
+          <view catchtap="__e" class="cancel _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showNote',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g4}}">取消订单</view>
+          <view catchtap="__e" class="check _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g5}}">查看订单</view>
+          <view catchtap="__e" class="renew _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'gotoRenew',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g6}}">续约</view>
+          <view catchtap="__e" class="pay _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'pageSubmit',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item[$orig].orderStatus===0}}">立即支付</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-0c52853b vue-ref" data-ref="cancelDialog" type="dialog" vueId="4f824280-2" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-0c52853b">
+      <view class="dialog-content data-v-0c52853b">
+        <view class="dia-top data-v-0c52853b">
+          <view class="top-flex data-v-0c52853b"></view>
+          <view class="top-mid data-v-0c52853b">提示</view>
+          <view class="top-flex data-v-0c52853b">
+            <image bindtap="__e" class="right-img data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}" src="{{$root.m3}}"></image>
+          </view>
+        </view>
+        <view class="dia-message data-v-0c52853b">确定是要取消此订单吗？</view>
+        <view class="btm-btn data-v-0c52853b">
+          <view bindtap="__e" class="btn-box data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'visitorCancelOrder',['$event'] ] ] ] ]}}">是</view>
+          <view bindtap="__e" class="btn-box data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}">否</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-0c52853b vue-ref" data-ref="noteDialog" type="dialog" vueId="4f824280-3" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-0c52853b">
+      <view class="dialog-content data-v-0c52853b">
+        <view class="dia-top data-v-0c52853b">
+          <view class="top-flex data-v-0c52853b"></view>
+          <view class="top-mid data-v-0c52853b">退费须知</view>
+          <view class="top-flex data-v-0c52853b">
+            <image bindtap="__e" class="right-img data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'noteDialogClose',['$event'] ] ] ] ]}}" src="{{$root.m4}}"></image>
+          </view>
+        </view>
+        <view class="mid-textarea data-v-0c52853b">
+          <view class="data-v-0c52853b">您好，您的本次订单取消需要在约定咨询时间24小时前完成方可退还本次咨询费用，如在约定咨询时间24小时内取消本订单，将照常收取本次咨询费用，请您确认好后再进行本次操作。</view>
+        </view>
+        <view bindtap="__e" class="double-check data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ ['changeType'] ] ] ]}}">
+          <image class="img-radio data-v-0c52853b" src="{{$root.m5}}" wx:if="{{checkStatus===1}}"></image>
+          <image class="img-radio data-v-0c52853b" src="{{$root.m6}}" wx:else></image>
+          <view class="data-v-0c52853b">我已知晓并同意退费须知所有内容</view>
+        </view>
+        <view class="btm-btn data-v-0c52853b">
+          <view bindtap="__e" class="btn-box data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showCancel',['$event'] ] ] ] ]}}">提交</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-0c52853b vue-ref" data-ref="payDialog" type="dialog" vueId="4f824280-4" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-0c52853b">
+      <view class="dialog-content data-v-0c52853b">
+        <view class="dia-top data-v-0c52853b">
+          <view class="top-flex data-v-0c52853b"></view>
+          <view class="top-mid data-v-0c52853b">支付须知</view>
+          <view class="top-flex data-v-0c52853b">
+            <image bindtap="__e" class="right-img data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'payDialogClose',['$event'] ] ] ] ]}}" src="{{$root.m7}}"></image>
+          </view>
+        </view>
+        <view class="mid-textarea data-v-0c52853b">
+          <view class="mid-pro data-v-0c52853b" wx:if="{{tempItem&&tempItem.consultStage==2}}">{{'请您认真查阅'+longServiceText+'、'+serviceText+'内容，并进行勾选确认。'}}</view>
+          <view class="mid-pro data-v-0c52853b" wx:else>{{'请您认真查阅'+consultText+'、'+serviceText+'内容，并进行勾选确认。'}}</view>
+        </view>
+        <view bindtap="__e" class="double-check data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ ['changeType'] ] ] ]}}">
+          <image class="img-radio data-v-0c52853b" src="{{$root.m8}}" wx:if="{{checkStatus===1}}"></image>
+          <image class="img-radio data-v-0c52853b" src="{{$root.m9}}" wx:else></image>
+          <view class="data-v-0c52853b" wx:if="{{tempItem&&tempItem.consultStage==2}}">已阅读并同意<text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[5] ] ] ] ]}}">{{longServiceText}}</text>、<text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[6] ] ] ] ]}}">{{serviceText}}</text>
+          </view>
+          <view class="data-v-0c52853b" wx:else>已阅读并同意<text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[4] ] ] ] ]}}">{{consultText}}</text>、<text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[6] ] ] ] ]}}">{{serviceText}}</text>
+          </view>
+        </view>
+        <view class="btm-btn data-v-0c52853b">
+          <view bindtap="__e" class="btn-box data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showPayS',['$event'] ] ] ] ]}}">提交</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-0c52853b vue-ref" data-ref="mergePayDialog" type="dialog" vueId="4f824280-5" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-0c52853b">
+      <view class="merge_pay_dialog_content data-v-0c52853b">
+        <view class="merge_pay_dialog_top_area data-v-0c52853b">
+          <text class="text data-v-0c52853b">订单确认</text>
+          <image bindtap="__e" class="close_img data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'mergePayDialogClose',['$event'] ] ] ] ]}}" src="{{$root.m10}}"></image>
+        </view>
+        <view class="merge_pay_dialog_mid_area data-v-0c52853b">
+          <view class="data-v-0c52853b">
+            <scroll-view class="item_lists data-v-0c52853b" scrollY="true">
+              <view class="dialog_item data-v-0c52853b" style="{{index>0?'margin-top: 24rpx':''}}" wx:for="{{$root.l1}}" wx:key="index">
+                <text class="data-v-0c52853b" style="text-align:left;">{{'心理咨询: '+item.m11}}</text>
+                <view class="dialog-line data-v-0c52853b"></view>
+                <view class="counselor_item data-v-0c52853b">
+                  <text class="data-v-0c52853b">咨询时间</text>
+                  <text class="data-v-0c52853b">{{item[$orig].consultDate}}</text>
+                </view>
+                <view class="counselor_item data-v-0c52853b">
+                  <text class="data-v-0c52853b">教练</text>
+                  <text class="data-v-0c52853b">{{item[$orig].counselorName}}</text>
+                </view>
+                <view class="counselor_item data-v-0c52853b">
+                  <text class="data-v-0c52853b">订单金额</text>
+                  <text class="data-v-0c52853b">{{item[$orig].payAmount}}</text>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+          <text class="help_text data-v-0c52853b">请在订单详情页内查看教练的联系方式</text>
+          <view class="protocol_area data-v-0c52853b">
+            <view bindtap="__e" class="protocol_checkbox data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'changeProtocolType',['$event'] ] ] ] ]}}">
+              <image class="img-radio data-v-0c52853b" src="{{$root.m12}}" wx:if="{{protocolCheckStatus===1}}"></image>
+              <image class="img-radio data-v-0c52853b" src="{{$root.m13}}" wx:else></image>
+              <text class="data-v-0c52853b" style="margin:0 8rpx;">已阅读并同意</text>
+            </view>
+            <view class="data-v-0c52853b">
+              <text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'gotoProtocolPage',[4] ] ] ] ]}}">{{consultText}}</text>、<text bindtap="__e" class="prop-text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'gotoProtocolPage',[6] ] ] ] ]}}">{{serviceText}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="merge_pay_dialog_bottom_area data-v-0c52853b">
+          <view class="bottom_line data-v-0c52853b"></view>
+          <view class="pay_area data-v-0c52853b">
+            <text class="left_text data-v-0c52853b">{{'共'+$root.g7+'个预约'}}</text>
+            <text class="mid_text data-v-0c52853b">{{'合计: '+totalPrice}}</text>
+            <text bindtap="__e" class="right_text data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'mergePay',['$event'] ] ] ] ]}}">确认支付</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+</page-container>

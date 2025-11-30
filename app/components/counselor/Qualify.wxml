@@ -1,0 +1,4 @@
+<view class="qualify _p data-v-0aa5e760">
+  <image class="icon _img data-v-0aa5e760" src="{{$root.m0}}"></image>
+  <label class="text _span data-v-0aa5e760">{{text}}</label>
+</view>

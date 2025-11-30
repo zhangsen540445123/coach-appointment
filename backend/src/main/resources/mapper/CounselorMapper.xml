@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.CounselorMapper">
+
+    <resultMap id="counselorResultMap" type="com.umxinli.entity.Counselor">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="gender" property="gender"/>
+        <result column="head_url" property="headUrl"/>
+        <result column="head_url_square" property="headUrlSquare"/>
+        <result column="qualifications" property="qualifications" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
+        <result column="directions" property="directions" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
+        <result column="introduction" property="introduction"/>
+        <result column="consult_price" property="consultPrice"/>
+        <result column="service_type" property="serviceType"/>
+        <result column="star_num" property="starNum"/>
+        <result column="consult_type" property="consultType" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
+        <result column="support_online_consult" property="supportOnlineConsult"/>
+        <result column="support_offline_consult" property="supportOfflineConsult"/>
+        <result column="can_consult" property="canConsult"/>
+        <result column="experience_date" property="experienceDate"/>
+        <result column="experience_time" property="experienceTime"/>
+        <result column="city_name" property="cityName"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="selectById" parameterType="Long" resultMap="counselorResultMap">
+        SELECT * FROM counselor WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="counselorResultMap">
+        SELECT * FROM counselor ORDER BY created_at DESC
+    </select>
+
+    <sql id="filterConditions">
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="filter != null">
+                <if test="filter.address != null and filter.address.city != null and filter.address.city != ''">
+                    AND city_name = #{filter.address.city}
+                </if>
+                <if test="filter.serviceType != null and !filter.serviceType.isEmpty()">
+                    AND service_type IN
+                    <foreach item="item" collection="filter.serviceType" open="(" separator="," close=")">
+                        #{item}
+                    </foreach>
+                </if>
+                <if test="filter.sexList != null and !filter.sexList.isEmpty()">
+                    <!-- Assuming a 'gender' column exists on the counselor table -->
+                    AND gender IN
+                    <foreach item="item" collection="filter.sexList" open="(" separator="," close=")">
+                        #{item}
+                    </foreach>
+                </if>
+                <if test="filter.consultWay != null">
+                    <if test="filter.consultWay == 0">
+                        AND support_online_consult = 1
+                    </if>
+                    <if test="filter.consultWay == 1">
+                        AND support_offline_consult = 1
+                    </if>
+                </if>
+                <if test="filter.troubleList != null and !filter.troubleList.isEmpty()">
+                    AND (
+                    <foreach item="item" collection="filter.troubleList" separator=" OR ">
+                        JSON_CONTAINS(directions, CAST(#{item} AS JSON))
+                    </foreach>
+                    )
+                </if>
+            </if>
+        </where>
+    </sql>
+
+    <select id="selectByFilter" resultMap="counselorResultMap">
+        SELECT * FROM counselor
+        <include refid="filterConditions"/>
+        <if test="filter != null and filter.sort != null">
+            <choose>
+                <when test="filter.sort == 1">
+                    ORDER BY star_num DESC
+                </when>
+                <when test="filter.sort == 2">
+                    ORDER BY consult_price ASC
+                </when>
+                <when test="filter.sort == 3">
+                    ORDER BY consult_price DESC
+                </when>
+                <otherwise>
+                    ORDER BY created_at DESC
+                </otherwise>
+            </choose>
+        </if>
+        <if test="filter == null or filter.sort == null">
+            ORDER BY created_at DESC
+        </if>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countByFilter" resultType="Integer">
+        SELECT COUNT(*) FROM counselor
+        <include refid="filterConditions"/>
+    </select>
+
+    <select id="selectFeatured" resultMap="counselorResultMap">
+        SELECT * FROM counselor
+        WHERE can_consult = 1
+        ORDER BY star_num DESC
+        LIMIT #{limit}
+    </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.Counselor">
+        INSERT INTO counselor (
+            id, name, head_url, head_url_square, qualifications, directions,
+            introduction, consult_price, service_type, star_num, consult_type,
+            support_online_consult, support_offline_consult, can_consult,
+            experience_date, experience_time, city_name, created_at, updated_at
+        ) VALUES (
+            #{id}, #{name}, #{headUrl}, #{headUrlSquare}, #{qualifications}, #{directions},
+            #{introduction}, #{consultPrice}, #{serviceType}, #{starNum}, #{consultType},
+            #{supportOnlineConsult}, #{supportOfflineConsult}, #{canConsult},
+            #{experienceDate}, #{experienceTime}, #{cityName}, NOW(), NOW()
+        )
+    </insert>
+
+    <update id="update" parameterType="com.umxinli.entity.Counselor">
+        UPDATE counselor SET
+            name = #{name},
+            head_url = #{headUrl},
+            head_url_square = #{headUrlSquare},
+            qualifications = #{qualifications},
+            directions = #{directions},
+            introduction = #{introduction},
+            consult_price = #{consultPrice},
+            service_type = #{serviceType},
+            star_num = #{starNum},
+            consult_type = #{consultType},
+            support_online_consult = #{supportOnlineConsult},
+            support_offline_consult = #{supportOfflineConsult},
+            can_consult = #{canConsult},
+            experience_date = #{experienceDate},
+            experience_time = #{experienceTime},
+            city_name = #{cityName},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM counselor WHERE id = #{id}
+    </delete>
+</mapper>

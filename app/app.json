@@ -1,0 +1,132 @@
+{
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于就近匹配教练"
+    }
+  },
+  "preloadRule": {
+    "pages/consult/consult": {
+      "network": "all",
+      "packages": [
+        "pages/studio",
+        "pages/filter"
+      ]
+    }
+  },
+  "requiredPrivateInfos": [
+    "getFuzzyLocation",
+    "chooseLocation"
+  ],
+  "componentFramework": "exparser",
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "color": "#402E32",
+    "selectedColor": "#402E32",
+    "list": [
+      {
+        "pagePath": "pages/consult/consult",
+        "text": "预约咨询",
+        "iconPath": "static/img/home/首页_默认@3x.png",
+        "selectedIconPath": "static/img/home/首页_选中@3x.png"
+      },
+      {
+        "pagePath": "pages/appointment/appointment",
+        "text": "我的预约",
+        "iconPath": "static/img/home/预约_默认@3x.png",
+        "selectedIconPath": "static/img/home/预约_选中@3x.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "static/img/home/我的_默认@3x.png",
+        "selectedIconPath": "static/img/home/我的_选中@3x.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/userList/",
+      "pages": [
+        "accountMassage",
+        "userFeedbackLIst",
+        "aboutUm",
+        "userFeedback",
+        "preOrderList",
+        "consultGuide"
+      ]
+    },
+    {
+      "root": "pages/studio/",
+      "pages": [
+        "list",
+        "details"
+      ]
+    },
+    {
+      "root": "pages/information/",
+      "pages": [
+        "informationList",
+        "informationDetail"
+      ]
+    },
+    {
+      "root": "pages/service/",
+      "pages": [
+        "acservice"
+      ]
+    },
+    {
+      "root": "pages/com/",
+      "pages": [
+        "comWxLogin",
+        "showProtocol"
+      ]
+    },
+    {
+      "root": "pages/countryCode/",
+      "pages": [
+        "countryCode"
+      ]
+    },
+    {
+      "root": "pages/filter/",
+      "pages": [
+        "filter"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "pages": [
+    "pages/consult/consult",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/appointment/appointment",
+    "pages/consult/counselor",
+    "pages/consult/appointForm",
+    "pages/consult/confirm",
+    "pages/consult/protocolPage",
+    "pages/consult/payOrder",
+    "pages/consult/certification",
+    "pages/consult/completeInfo",
+    "pages/consult/completeDetail",
+    "pages/consult/orderDetail",
+    "pages/appointment/appointDetail",
+    "pages/appointment/bindVisitor",
+    "pages/appointment/feedback",
+    "pages/user/coupon",
+    "pages/user/couponDetail",
+    "pages/consult/orderDetailCancel",
+    "pages/user/infoEdit",
+    "pages/user/visitorInfo",
+    "pages/user/infoNotice",
+    "pages/user/userFocus",
+    "pages/user/followFWH",
+    "pages/appointment/pendingPayment"
+  ]
+}

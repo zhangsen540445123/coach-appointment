@@ -1,0 +1,17 @@
+.zhixun-adviser.data-v-54ca27f4 {
+  position: relative
+}
+
+.zhixun-adviser__content.data-v-54ca27f4 {
+  height: 710rpx;
+  mix-blend-mode: normal;
+  width: 610rpx
+}
+
+.zhixun-adviser>.qrcode.data-v-54ca27f4 {
+  height: 268rpx;
+  left: 170rpx;
+  position: absolute;
+  top: 280rpx;
+  width: 270rpx
+}

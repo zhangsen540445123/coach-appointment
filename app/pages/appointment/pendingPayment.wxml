@@ -1,0 +1,36 @@
+<view class="page-pending-payment _div data-v-2113b216">
+  <image class="background-private__img _img data-v-2113b216" mode="widthFix" src="{{$root.m0}}"></image>
+  <navbar bind:__l="__l" class="data-v-2113b216" isBack="{{true}}" theme="theme-private" vueId="5c8a976e-1"></navbar>
+  <view class="page__title _p data-v-2113b216">待付款</view>
+  <view class="page__intro _p data-v-2113b216">教练已为您预留以下时间，请及时支付</view>
+  <view class="page__content _div data-v-2113b216" wx:if="{{$root.g0}}">
+    <view class="consultor _div data-v-2113b216">
+      <image alt class="consultor__image _img data-v-2113b216" src="{{$root.g1.headUrl}}"></image>
+      <view class="consultor__content _div data-v-2113b216">
+        <view class="consultor__info _p data-v-2113b216">当前正在预约</view>
+        <view class="consultor__name _p data-v-2113b216">{{$root.g2.name}}</view>
+      </view>
+    </view>
+    <view class="options _div data-v-2113b216">
+      <view bindtap="__e" class="options__all _p data-v-2113b216" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-roundcheckfill options__icon _i data-v-2113b216" wx:if="{{$root.g3===$root.g4}}"></view>
+        <view class="cuIcon-round options__icon _i data-v-2113b216" wx:else></view>全选
+      </view>
+      <view bindtap="__e" class="options__item _div data-v-2113b216" data-event-opts="{{[ [ 'tap',[ [ 'e1',['$event'] ] ] ] ]}}" data-item="{{item[$orig]}}" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="orderId">
+        <view class="cuIcon-roundcheckfill options__icon _i data-v-2113b216" wx:if="{{item.g5}}"></view>
+        <view class="cuIcon-round options__icon _i data-v-2113b216" wx:else></view>
+        <view class="options__item-content _div data-v-2113b216">
+          <view class="time _p data-v-2113b216">{{item[$orig].consultDate}}</view>
+          <view class="info _p data-v-2113b216">{{item.g6+' ｜ ¥ '+item[$orig].payAmount}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page__footer _div data-v-2113b216">
+    <view class="price _div data-v-2113b216">
+      <view class="price__prefix _p data-v-2113b216">共计：</view>
+      <view class="price__value _p data-v-2113b216">{{''+price+''}}</view>
+    </view>
+    <view bindtap="__e" class="payaction _p data-v-2113b216" data-event-opts="{{[ [ 'tap',[ [ 'pay',['$event'] ] ] ] ]}}">立即支付</view>
+  </view>
+</view>

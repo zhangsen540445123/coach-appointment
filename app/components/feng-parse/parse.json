@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "weixin-parse-template": "/components/feng-parse/components/wxParseTemplate0",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}

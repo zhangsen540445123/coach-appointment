@@ -1,0 +1,48 @@
+.zhixun-guide.data-v-99479f8e {
+  align-items: center;
+  background: radial-gradient(77.6% 165.67%at 100% 152.85%, rgba(180, 251, 255, .3)0, rgba(255, 234, 197, .3) 100%);
+  border: 2rpx solid hsla(38, 97%, 89%, .85);
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 82rpx;
+  margin: 40rpx 32rpx 0;
+  mix-blend-mode: normal;
+  padding: 0 20rpx 0 24rpx
+}
+
+.zhixun-guide .name.data-v-99479f8e {
+  color: #333;
+  font-family: AlimamaShuHeiTi-Bold;
+  font-size: 26rpx;
+  font-weight: 800;
+  line-height: 36.4rpx;
+  mix-blend-mode: normal
+}
+
+.zhixun-guide .line.data-v-99479f8e {
+  background-color: #ececec;
+  height: 32rpx;
+  margin: 0 16rpx;
+  mix-blend-mode: normal;
+  width: 0.2rpx
+}
+
+.zhixun-guide .content.data-v-99479f8e {
+  color: #c0821b;
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  font-weight: 400;
+  line-height: 36.4rpx;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: relative
+}
+
+.zhixun-guide .arrow.data-v-99479f8e {
+  height: 24rpx;
+  transform: rotate(-90deg);
+  width: 24rpx
+}

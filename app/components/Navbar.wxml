@@ -1,0 +1,21 @@
+<view class="{{['data-v-1133b7a5','nav-wrap',theme]}}" style="{{'height:'+navbar.height.tab+'px'+';'+'padding-bottom:'+(theme==='theme-home'?'calc(30rpx + '+navbar.height.gap+'px)':navbar.height.gap+'px')+';'}}">
+  <view class="background-private__img bg-container _div data-v-1133b7a5" wx:if="{{$root.g0}}">
+    <image class="bg _img data-v-1133b7a5" mode="widthFix" src="{{$root.m0}}" wx:if="{{theme==='theme-home'}}"></image>
+    <block wx:else>
+      <image class="bg _img data-v-1133b7a5" mode="widthFix" src="{{$root.m1}}" wx:if="{{theme==='theme-private'}}"></image>
+    </block>
+  </view>
+  <view bindtap="__e" class="content data-v-1133b7a5" data-event-opts="{{[ [ 'tap',[ [ 'BackPage',['$event'] ] ] ] ]}}" wx:if="{{isBack}}">
+    <text class="cuIcon-back data-v-1133b7a5"></text>
+    <slot name="backText"></slot>
+  </view>
+  <view class="left-icon data-v-1133b7a5">
+    <slot name="left-icon"></slot>
+  </view>
+  <view class="content-name data-v-1133b7a5">
+    <slot name="content-name"></slot>
+  </view>
+  <view class="content-tip data-v-1133b7a5">
+    <slot name="content-tip"></slot>
+  </view>
+</view>

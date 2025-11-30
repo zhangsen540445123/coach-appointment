@@ -1,0 +1,8 @@
+<view bindtap="__e" class="studio-item _div data-v-903b10fa" data-event-opts="{{[ [ 'tap',[ [ 'gotoStudioDetails',['$0'],['studio'] ] ] ] ]}}">
+  <view class="studio-item__image _div data-v-903b10fa">
+    <image alt class="image _img data-v-903b10fa" mode="heightFix" src="{{studio.studioCoverImgList[0]}}"></image>
+  </view>
+  <view class="studio-item__name _p data-v-903b10fa">{{''+studio.studioName+''}}</view>
+  <view class="studio-item__time _p data-v-903b10fa">{{''+studio.studioOpenTime+''}}</view>
+  <view class="studio-item__address _p data-v-903b10fa" wx:if="{{studio.studioType===0&&studio.summaryAddress}}">{{'地址：'+studio.summaryAddress+''}}</view>
+</view>

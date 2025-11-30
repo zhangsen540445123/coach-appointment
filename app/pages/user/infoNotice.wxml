@@ -1,0 +1,7 @@
+<view class="container data-v-59b3a274">
+    <view bindtap="__e" class="info-item data-v-59b3a274" data-event-opts="{{[ [ 'tap',[ [ 'readInfo',['$0'],[ [ ['infoList','msgId',item.msgId,'msgId'] ] ] ] ] ] ]}}" wx:for="{{infoList}}" wx:for-index="__i0__" wx:key="msgId">
+        <view class="title data-v-59b3a274">{{item.title}}</view>
+        <view class="content data-v-59b3a274">{{item.content}}</view>
+        <view class="red-dot data-v-59b3a274" wx:if="{{item.msgStatus===0}}"></view>
+    </view>
+</view>

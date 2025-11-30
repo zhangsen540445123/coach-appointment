@@ -1,0 +1,33 @@
+<uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-9507d446 vue-ref" data-ref="discountDialog" type="bottom" vueId="0ad1907a-1" vueSlots="{{['default']}}">
+  <view bindtap="__e" class="dialog-filter data-v-9507d446" data-event-opts="{{[ [ 'tap',[ [ 'close',['$event'] ] ] ] ]}}">
+    <view catchtap="__e" class="dialog-content data-v-9507d446" data-event-opts="{{[ [ 'tap',[ [ 'nothing',['$event'] ] ] ] ]}}">
+      <view class="dia-top-filter data-v-9507d446">
+        <view class="top-flex data-v-9507d446">优惠券</view>
+        <view class="top-flex data-v-9507d446">
+          <image bindtap="__e" class="right-img data-v-9507d446" data-event-opts="{{[ [ 'tap',[ [ 'close',['$event'] ] ] ] ]}}" src="{{$root.m0}}"></image>
+        </view>
+      </view>
+      <view class="item-btns data-v-9507d446">
+        <view bindtap="__e" class="left-btn btn-main-border data-v-9507d446" data-event-opts="{{[ [ 'tap',[ [ 'resetCoupons',['$event'] ] ] ] ]}}">重置</view>
+        <view bindtap="__e" class="right-btn data-v-9507d446" data-event-opts="{{[ [ 'tap',[ [ 'submitCoupon',['$event'] ] ] ] ]}}">确定</view>
+      </view>
+      <view class="list-area data-v-9507d446">
+        <view bindtap="__e" class="{{['item-box','data-v-9507d446',current===index?'item-active':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'itemClick',[index] ] ] ] ]}}" wx:for="{{tabLists}}" wx:key="index">
+          <view class="data-v-9507d446">{{''+item.name+''}}<text class="data-v-9507d446" wx:if="{{index===0}}">{{'('+availableCount+')'}}</text>
+            <text class="data-v-9507d446" wx:else>{{'('+unAvailableCount+')'}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="data-v-9507d446">
+        <scroll-view class="scroll-box data-v-9507d446" scrollY="{{true}}">
+          <view class="data-v-9507d446" wx:for="{{couponList}}" wx:key="index">
+            <view bindtap="__e" class="{{['coupon-box','data-v-9507d446',selectCountCode===item.couponDetailId?'coupon-ac':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'couponClick',['$0'],[ [ ['couponList','',index] ] ] ] ] ] ]}}" wx:if="{{isConsultType===item.consultType}}">
+              <view class="data-v-9507d446">{{'¥'+item.amount+'元'}}</view>
+              <view class="data-v-9507d446">可用优惠券</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</uni-popup>

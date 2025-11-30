@@ -1,0 +1,21 @@
+<page-container class="data-v-4021c372 vue-ref" data-ref="pageContainer">
+    <navbar bind:__l="__l" class="data-v-4021c372" isBack="{{true}}" theme="{{isTop?'theme-opacity':'theme-white'}}" vueId="06107a00-1"></navbar>
+    <view class="content-box _div data-v-4021c372" style="{{'margin-top:'+'-'+navbarc.height.total+'px'+';'}}">
+        <image class="_img data-v-4021c372" mode="widthFix" src="{{bg}}" style="width:100vw;vertical-align:top;"></image>
+        <view class="page-content _div data-v-4021c372">
+            <view class="page-filterdrop _div data-v-4021c372" style="{{'top:'+navbarc.height.total+'px'+';'}}">
+                <h-m-filter-dropdown bind:__l="__l" bind:confirm="__e" class="filter_dropdown data-v-4021c372 vue-ref" data-event-opts="{{[ [ '^confirm',[ ['confirm'] ] ] ]}}" data-ref="filterRef" dataFormat="Object" filterData="{{filterData}}" updateMenuName="{{true}}" vueId="06107a00-2"></h-m-filter-dropdown>
+            </view>
+            <view class="data-v-4021c372" id="scroll-item">
+                <view class="btm-list data-v-4021c372">
+                    <scroll-view class="scroll-box data-v-4021c372" scrollY="{{true}}" showScrollbar="{{false}}">
+                        <consultant-item bind:__l="__l" class="data-v-4021c372" item="{{item}}" vueId="{{'06107a00-3-'+__i0__}}" wx:for="{{counselorList}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="__e" class="zhixun-adviser _div data-v-4021c372" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" wx:if="{{$root.g0}}">
+            <image class="zhixun-adviser__logo _img data-v-4021c372" src="{{$root.m0}}"></image>
+        </view>
+    </view>
+</page-container>

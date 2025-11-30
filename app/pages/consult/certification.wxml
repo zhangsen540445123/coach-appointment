@@ -1,0 +1,48 @@
+<view class="content-box data-v-73c0b626">
+    <view class="step-area data-v-73c0b626">
+        <view class="step-cell data-v-73c0b626">
+            <view class="circle-area data-v-73c0b626">
+                <image class="img-done data-v-73c0b626" src="{{$root.m0}}"></image>
+            </view>
+            <view class="gap-line data-v-73c0b626"></view>
+            <view class="circle-area data-v-73c0b626">
+                <view class="step-num data-v-73c0b626">2</view>
+            </view>
+            <view class="gap-line line-block data-v-73c0b626"></view>
+            <view class="circle-area step-block data-v-73c0b626">
+                <view class="step-num data-v-73c0b626">3</view>
+            </view>
+            <view class="gap-line line-block data-v-73c0b626"></view>
+            <view class="circle-area data-v-73c0b626">
+                <view class="step-num data-v-73c0b626">4</view>
+            </view>
+            <view class="gap-line line-block data-v-73c0b626"></view>
+            <view class="circle-area data-v-73c0b626">
+                <view class="step-num data-v-73c0b626">5</view>
+            </view>
+        </view>
+    </view>
+    <view class="step-text data-v-73c0b626">
+        <view class="text-box text-green data-v-73c0b626">支付订单</view>
+        <view class="text-box data-v-73c0b626">实名认证</view>
+        <view class="text-box data-v-73c0b626">完善个人信息</view>
+        <view class="text-box data-v-73c0b626">预约成功</view>
+        <view class="text-box data-v-73c0b626">完成本次咨询</view>
+    </view>
+    <view class="audit-area data-v-73c0b626">
+        <view class="text-note data-v-73c0b626">便于审核通过，请务必填写本人真实证件号码</view>
+    </view>
+    <view class="id-area data-v-73c0b626">
+        <view class="id-item data-v-73c0b626">
+            <view class="data-v-73c0b626">姓名</view>
+            <input bindinput="__e" class="item-input data-v-73c0b626" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','realName','$event',[] ],['formData'] ] ] ] ]}}" maxlength="10" placeholder="请输入您的真实姓名" type="text" value="{{formData.realName}}"></input>
+        </view>
+        <view class="id-item data-v-73c0b626">
+            <view class="data-v-73c0b626">身份证或其他证件</view>
+            <input bindinput="__e" class="item-input data-v-73c0b626" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','idCard','$event',[] ],['formData'] ] ] ] ]}}" maxlength="20" placeholder="请输入您的证件号码" type="text" value="{{formData.idCard}}"></input>
+        </view>
+    </view>
+    <view class="btm-btn data-v-73c0b626">
+        <button bindtap="__e" class="data-v-73c0b626" data-event-opts="{{[ [ 'tap',[ [ 'verifyVisitor',['$event'] ] ] ] ]}}">提交认证</button>
+    </view>
+</view>

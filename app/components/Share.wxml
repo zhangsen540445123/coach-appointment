@@ -1,0 +1,17 @@
+<view class="share _div data-v-7fdec7ee">
+    <view class="title _p data-v-7fdec7ee">分享</view>
+    <view class="list _div data-v-7fdec7ee">
+        <button bindtap="__e" class="share-item data-v-7fdec7ee" data-event-opts="{{[ [ 'tap',[ [ 'share',['$event'] ] ] ] ]}}">
+            <image class="image _img data-v-7fdec7ee" src="{{$root.m0}}"></image>
+            <view class="text _p data-v-7fdec7ee">微信好友</view>
+        </button>
+        <button bindtap="__e" class="share-item data-v-7fdec7ee" data-event-opts="{{[ [ 'tap',[ [ 'share',['$event'] ] ] ] ]}}">
+            <image class="image _img data-v-7fdec7ee" src="{{$root.m1}}"></image>
+            <view class="text _p data-v-7fdec7ee">朋友圈</view>
+        </button>
+        <button bindtap="__e" class="share-item data-v-7fdec7ee" data-event-opts="{{[ [ 'tap',[ [ 'download',['$event'] ] ] ] ]}}">
+            <image class="image _img data-v-7fdec7ee" src="{{$root.m2}}"></image>
+            <view class="text _p data-v-7fdec7ee">保存图片</view>
+        </button>
+    </view>
+</view>

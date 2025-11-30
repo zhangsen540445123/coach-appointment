@@ -1,0 +1,12 @@
+<view class="content-box data-v-2dbd0eba">
+  <view class="item-box data-v-2dbd0eba">
+    <view class="base-title data-v-2dbd0eba">请输入反馈或对教练的留言</view>
+    <view class="check-btn text-box data-v-2dbd0eba">
+      <textarea bindinput="__e" class="textarea-box data-v-2dbd0eba" cursorSpacing="20" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','message','$event',[] ],['formFeedback'] ],[ 'bindTextAreaBlur',['$event'] ] ] ] ]}}" maxlength="500" value="{{formFeedback.message}}"></textarea>
+      <view class="textarea-count data-v-2dbd0eba">{{helpWords+'/500'}}</view>
+    </view>
+  </view>
+  <view class="btm-btn data-v-2dbd0eba">
+    <button bindtap="__e" class="data-v-2dbd0eba" data-event-opts="{{[ [ 'tap',[ [ 'saveVisitorFeedBack',['$event'] ] ] ] ]}}">提交</button>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="uni-file-picker">
+    <view class="uni-file-picker__header" wx:if="{{title}}">
+        <text class="file-title">{{title}}</text>
+        <text class="file-count">{{$root.g0+'/'+limitLength}}</text>
+    </view>
+    <upload-image bind:__l="__l" bind:choose="__e" bind:delFile="__e" bind:uploadFiles="__e" data-event-opts="{{[ [ '^uploadFiles',[ ['uploadFiles'] ] ],[ '^choose',[ ['choose'] ] ],[ '^delFile',[ ['delFile'] ] ] ]}}" delIcon="{{delIcon}}" disablePreview="{{disablePreview}}" filesList="{{filesList}}" imageStyles="{{imageStyles}}" limit="{{limitLength}}" readonly="{{readonly}}" vueId="ddc11690-1" vueSlots="{{['default']}}" wx:if="{{fileMediatype==='image'&&showType==='grid'}}">
+        <slot wx:if="{{$slots.default}}"></slot>
+        <view class="is-add" wx:else>
+            <view class="icon-add"></view>
+            <view class="icon-add rotate"></view>
+        </view>
+    </upload-image>
+    <upload-file bind:__l="__l" bind:choose="__e" bind:delFile="__e" bind:uploadFiles="__e" data-event-opts="{{[ [ '^uploadFiles',[ ['uploadFiles'] ] ],[ '^choose',[ ['choose'] ] ],[ '^delFile',[ ['delFile'] ] ] ]}}" delIcon="{{delIcon}}" filesList="{{filesList}}" listStyles="{{listStyles}}" readonly="{{readonly}}" showType="{{showType}}" vueId="ddc11690-2" vueSlots="{{['default']}}" wx:if="{{fileMediatype!=='image'||showType!=='grid'}}">
+        <slot wx:if="{{$slots.default}}"></slot>
+        <button size="mini" type="primary" wx:else>选择文件</button>
+    </upload-file>
+</view>

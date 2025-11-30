@@ -1,0 +1,47 @@
+<page-container class="data-v-03281493 vue-ref" data-ref="pageContainer">
+  <view class="content-box _div data-v-03281493">
+    <image class="background-private__img data-v-03281493" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-03281493" theme="theme-private" vueId="380011e0-1" vueSlots="{{['left-icon']}}">
+      <view bindtap="__e" class="cuIcon-notice _i data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toInfoList',['$event'] ] ] ] ]}}" slot="left-icon"></view>
+    </navbar>
+    <view class="content-list data-v-03281493">
+      <view bindtap="__e" class="top-card data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toInfoEdit',['$event'] ] ] ] ]}}">
+        <image class="avatar data-v-03281493" src="{{$root.g1.headUrl}}" wx:if="{{$root.g0.headUrl}}"></image>
+        <image class="avatar data-v-03281493" src="{{$root.m1}}" wx:else></image>
+        <view class="content _div data-v-03281493">
+          <view class="name _p data-v-03281493">{{$root.g2}}</view>
+          <view class="mobile _p data-v-03281493">{{$root.g3}}</view>
+        </view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view class="line _p data-v-03281493" style="margin-bottom:29rpx;"></view>
+      <view bindtap="__e" class="item-area _div data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toVisiorInfo',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-peoplelist icon _i data-v-03281493"></view>
+        <view class="text _p data-v-03281493">客户信息</view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view bindtap="__e" class="item-area _div data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'gotoCouponDetail',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-ticket icon _i data-v-03281493"></view>
+        <view class="text _p data-v-03281493">我的卡券</view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view bindtap="__e" class="item-area _div data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toUserFocus',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-favor icon _i data-v-03281493"></view>
+        <view class="text _p data-v-03281493">我的收藏</view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view class="line _p data-v-03281493" style="margin:31rpx 32rpx 17rpx;"></view>
+      <view bindtap="__e" class="item-area _div data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toUserFeedback',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-service icon _i data-v-03281493"></view>
+        <view class="text _p data-v-03281493">给我们反馈</view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view bindtap="__e" class="item-area _div data-v-03281493" data-event-opts="{{[ [ 'tap',[ [ 'toAboutUm',['$event'] ] ] ] ]}}">
+        <view class="cuIcon-service icon _i data-v-03281493"></view>
+        <view class="text _p data-v-03281493">联系客服</view>
+        <view class="cuIcon-right right-arrow _i data-v-03281493"></view>
+      </view>
+      <view class="_p data-v-03281493" style="padding:38rpx 0 0;"></view>
+    </view>
+  </view>
+</page-container>

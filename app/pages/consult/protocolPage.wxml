@@ -1,0 +1,3 @@
+<view class="content-box data-v-02275598">
+    <u-parse bind:__l="__l" class="data-v-02275598" content="{{agreementContent}}" vueId="a67dd83a-1"></u-parse>
+</view>

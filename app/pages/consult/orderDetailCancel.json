@@ -1,0 +1,1 @@
+{"navigationBarTitleText":"订单详情","enablePullDownRefresh":false,"navigationStyle":"custom","usingComponents":{"navbar":"/components/Navbar","order-header":"/components/order/OrderHeader","order-info":"/components/order/OrderInfo","cu-custom":"/colorui/components/cu-custom"}}

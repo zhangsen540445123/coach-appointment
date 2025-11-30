@@ -1,0 +1,14 @@
+<uni-popup bind:__l="__l" class="data-v-51032cf6 vue-ref" data-ref="popup" safeArea="{{true}}" type="bottom" vueId="37cc4019-1" vueSlots="{{['default']}}">
+  <view class="login-panel _div data-v-51032cf6">
+    <image class="logo _img data-v-51032cf6" src="{{$root.m0}}"></image>
+    <view class="title _p data-v-51032cf6">欢迎加入悦行教练</view>
+    <button bindgetphonenumber="__e" class="submitBtn data-v-51032cf6" data-event-opts="{{[ [ 'getphonenumber',[ [ 'getPhoneNumber',['$event'] ] ] ] ]}}" openType="getPhoneNumber" wx:if="{{loginCheckStatus===1}}">手机号一键登录</button>
+    <button bindtap="__e" class="submitBtn data-v-51032cf6" data-event-opts="{{[ [ 'tap',[ [ 'toShowCheck',['$event'] ] ] ] ]}}" wx:else>手机号一键登录</button>
+    <view bindtap="__e" class="double-check data-v-51032cf6" data-event-opts="{{[ [ 'tap',[ ['changeLoginType'] ] ] ]}}">
+      <view class="icon cuIcon-roundcheckfill _i data-v-51032cf6" wx:if="{{loginCheckStatus===1}}"></view>
+      <view class="icon cuIcon-round _i data-v-51032cf6" wx:else></view>
+      <view class="data-v-51032cf6">我同意并签署<text catchtap="__e" class="prop-text data-v-51032cf6" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[2] ] ] ] ]}}">《软件使用协议》</text>、<text catchtap="__e" class="prop-text data-v-51032cf6" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[3] ] ] ] ]}}">《隐私协议》</text>
+      </view>
+    </view>
+  </view>
+</uni-popup>

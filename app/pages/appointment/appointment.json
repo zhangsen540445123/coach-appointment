@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "我的预约",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "onReachBottomDistance": 300,
+  "usingComponents": {
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup",
+    "navbar": "/components/Navbar",
+    "page-container": "/components/PageContainer",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}

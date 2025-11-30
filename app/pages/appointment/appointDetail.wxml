@@ -1,0 +1,60 @@
+<view class="content-box data-v-7c721620">
+  <image class="background-private__img _img data-v-7c721620" mode="widthFix" src="{{$root.m0}}"></image>
+  <navbar bind:__l="__l" class="data-v-7c721620" isBack="{{true}}" theme="theme-private" vueId="7d7b9b4d-1"></navbar>
+  <order-header bind:__l="__l" class="data-v-7c721620" orderDetail="{{orderDetail}}" time="{{$root.g0}}" vueId="7d7b9b4d-2"></order-header>
+  <order-info bind:__l="__l" bind:onClickCoupon="__e" class="data-v-7c721620" counselor="{{userDetail}}" coupon="{{$root.a0}}" data-event-opts="{{[ [ '^onClickCoupon',[ ['e0'] ] ] ]}}" orderDetail="{{orderDetail}}" vueId="7d7b9b4d-3"></order-info>
+  <view class="page-footer _div data-v-7c721620">
+    <view bindtap="__e" class="double-check data-v-7c721620" data-event-opts="{{[ [ 'tap',[ ['changeProtocolType'] ] ] ]}}">
+      <view class="icon cuIcon-roundcheckfill _i data-v-7c721620" wx:if="{{protocolCheckStatus===1}}"></view>
+      <view class="icon cuIcon-round _i data-v-7c721620" wx:else></view>
+      <view class="data-v-7c721620" wx:if="{{orderDetail.consultStage==2}}">已阅读并同意<text bindtap="__e" class="prop-text data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[5] ] ] ] ]}}">{{longServiceText}}</text>、<text bindtap="__e" class="prop-text data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[6] ] ] ] ]}}">{{serviceText}}</text>
+      </view>
+      <view class="data-v-7c721620" wx:else>已阅读并同意<text bindtap="__e" class="prop-text data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[4] ] ] ] ]}}">{{consultText}}</text>、<text bindtap="__e" class="prop-text data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[6] ] ] ] ]}}">{{serviceText}}</text>
+      </view>
+    </view>
+    <view bindtap="__e" class="pay _p data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'pageSubmit',['$0'],['orderDetail'] ] ] ] ]}}">{{'确认支付 ¥'+price}}</view>
+  </view>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-7c721620 vue-ref" data-ref="cancelDialog" type="dialog" vueId="7d7b9b4d-4" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-7c721620">
+      <view class="dialog-content data-v-7c721620">
+        <view class="dia-top data-v-7c721620">
+          <view class="top-flex data-v-7c721620"></view>
+          <view class="top-mid data-v-7c721620">提示</view>
+          <view class="top-flex data-v-7c721620">
+            <image bindtap="__e" class="right-img data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}" src="{{$root.m1}}"></image>
+          </view>
+        </view>
+        <view class="dia-message data-v-7c721620">确定是要取消此订单吗？</view>
+        <view class="btm-btn data-v-7c721620">
+          <view bindtap="__e" class="btn-box text-blue data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'visitorCancelOrder',['$event'] ] ] ] ]}}">是</view>
+          <view bindtap="__e" class="btn-box data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}">否</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-7c721620 vue-ref" data-ref="noteDialog" type="dialog" vueId="7d7b9b4d-5" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-7c721620">
+      <view class="dialog-content data-v-7c721620">
+        <view class="dia-top data-v-7c721620">
+          <view class="top-flex data-v-7c721620"></view>
+          <view class="top-mid data-v-7c721620">退费须知</view>
+          <view class="top-flex data-v-7c721620">
+            <image bindtap="__e" class="right-img data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'noteDialogClose',['$event'] ] ] ] ]}}" src="{{$root.m2}}"></image>
+          </view>
+        </view>
+        <view class="mid-textarea data-v-7c721620">
+          <view class="data-v-7c721620">您好，您的本次订单取消需要在约定咨询时间24小时前完成方可退还本次咨询费用，如在约定咨询时间24小时内取消本订单，将照常收取本次咨询费用，请您确认好后再进行本次操作。</view>
+        </view>
+        <view bindtap="__e" class="double-check data-v-7c721620" data-event-opts="{{[ [ 'tap',[ ['changeType'] ] ] ]}}">
+          <image class="img-radio data-v-7c721620" src="{{$root.m3}}" wx:if="{{checkStatus===1}}"></image>
+          <image class="img-radio data-v-7c721620" src="{{$root.m4}}" wx:else></image>
+          <view class="data-v-7c721620">我已知晓并同意退费须知所有内容</view>
+        </view>
+        <view class="btm-btn data-v-7c721620">
+          <view bindtap="__e" class="btn-box data-v-7c721620" data-event-opts="{{[ [ 'tap',[ [ 'showCancel',['$event'] ] ] ] ]}}">提交</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+  <coupon-dialog bind:__l="__l" bind:change="__e" class="data-v-7c721620 vue-ref" data-event-opts="{{[ [ '^change',[ [ 'selectCoupon',['$0','$event'],['orderDetail.orderId'] ] ] ] ]}}" data-ref="couponDialog" isConsultType="{{orderDetail.consultType}}" vueId="7d7b9b4d-6"></coupon-dialog>
+</view>

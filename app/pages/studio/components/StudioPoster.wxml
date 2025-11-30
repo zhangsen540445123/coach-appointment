@@ -1,0 +1,7 @@
+<uni-popup bind:__l="__l" class="data-v-42d24b35 vue-ref" data-ref="popup" vueId="72a5ef4a-1" vueSlots="{{['default']}}">
+    <view class="container _div data-v-42d24b35">
+        <canvas canvasId="poster-canvas" class="canvas data-v-42d24b35" id="poster-canvas"></canvas>
+        <image alt class="result _img data-v-42d24b35" showMenuByLongpress="{{true}}" src="{{result}}" wx:if="{{result}}"></image>
+    </view>
+    <share bind:__l="__l" class="data-v-42d24b35" shareUrl="{{result}}" vueId="{{'72a5ef4a-2'+','+'72a5ef4a-1'}}"></share>
+</uni-popup>

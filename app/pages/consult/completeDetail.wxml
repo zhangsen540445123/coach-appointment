@@ -1,0 +1,73 @@
+<view class="content-box data-v-78690c71">
+    <image class="background-private__img _img data-v-78690c71" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-78690c71" isBack="{{true}}" theme="theme-private" vueId="c96125c0-1"></navbar>
+    <visitor-header bind:__l="__l" class="data-v-78690c71" time="{{$root.g0}}" vueId="c96125c0-2" wx:if="{{params.orderId}}"></visitor-header>
+    <view class="data-v-78690c71">
+        <view class="item-card data-v-78690c71">
+            <view class="base-title data-v-78690c71">咨询人信息<text class="text-sub data-v-78690c71">真实信息有助于教练准确判断</text>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>真实姓名</view>
+                <view class="right-full data-v-78690c71">
+                    <input bindinput="__e" class="item-input data-v-78690c71" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','name','$event',[] ],['formVisitor'] ] ] ] ]}}" maxlength="20" placeholder="请输入" type="text" value="{{formVisitor.name}}"></input>
+                </view>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>年龄</view>
+                <view class="right-full data-v-78690c71">
+                    <input bindinput="__e" class="item-input data-v-78690c71" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','age','$event',[] ],['formVisitor'] ],[ 'checkAge',['$event'] ] ] ] ]}}" maxlength="3" placeholder="请输入" type="number" value="{{formVisitor.age}}"></input>
+                </view>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>性别</view>
+                <view class="right-full data-v-78690c71">
+                    <uni-data-checkbox bind:__l="__l" bind:change="__e" bind:input="__e" class="data-v-78690c71" data-event-opts="{{[ [ '^change',[ ['sexChange'] ] ],[ '^input',[ [ '__set_model',[ '$0','sex','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{sexType}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.sex}}" vueId="c96125c0-3"></uni-data-checkbox>
+                </view>
+            </view>
+        </view>
+        <view class="item-card data-v-78690c71">
+            <view class="base-title data-v-78690c71">监护人信息<text class="text-sub data-v-78690c71">严格保密，请放心填写</text>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>真实姓名</view>
+                <view class="right-full data-v-78690c71">
+                    <input bindinput="__e" class="item-input data-v-78690c71" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','contactName','$event',[] ],['formVisitor'] ] ] ] ]}}" maxlength="10" placeholder="请输入" type="text" value="{{formVisitor.contactName}}"></input>
+                </view>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>您是Ta的</view>
+                <view class="right-full data-v-78690c71">
+                    <input bindinput="__e" class="item-input data-v-78690c71" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','contactRelation','$event',[] ],['formVisitor'] ] ] ] ]}}" maxlength="10" placeholder="请输入" type="text" value="{{formVisitor.contactRelation}}"></input>
+                </view>
+            </view>
+            <view class="bottom-line data-v-78690c71"></view>
+            <view class="item-area data-v-78690c71">
+                <view class="left-box data-v-78690c71">
+                    <text class="text-red data-v-78690c71">*</text>联系电话</view>
+                <view class="right-full data-v-78690c71">
+                    <input bindinput="__e" class="item-input data-v-78690c71" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','contactMobile','$event',[] ],['formVisitor'] ],[ 'checkContact',['$event'] ] ] ] ]}}" maxlength="11" placeholder="请输入" type="number" value="{{formVisitor.contactMobile}}"></input>
+                </view>
+            </view>
+        </view>
+        <view class="btm-submit data-v-78690c71">
+            <view bindtap="__e" class="double-check data-v-78690c71" data-event-opts="{{[ [ 'tap',[ ['changeType'] ] ] ]}}">
+                <view class="icon cuIcon-roundcheckfill _i data-v-78690c71" wx:if="{{checkStatus===1}}"></view>
+                <view class="icon cuIcon-round _i data-v-78690c71" wx:else></view>
+                <view class="data-v-78690c71">我同意并签署<text catchtap="__e" class="prop-text data-v-78690c71" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[2] ] ] ] ]}}">《软件使用协议》</text>
+                </view>
+            </view>
+            <view bindtap="__e" class="{{['submit-b','data-v-78690c71',!buttomStatus?'btn-disabled':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'saveSubmit',['$event'] ] ] ] ]}}">确定</view>
+            <view bindtap="__e" class="btn-delete data-v-78690c71" data-event-opts="{{[ [ 'tap',[ [ 'deleteVisitor',['$event'] ] ] ] ]}}" wx:if="{{formVisitor&&formVisitor.id}}">删除客户</view>
+        </view>
+    </view>
+</view>

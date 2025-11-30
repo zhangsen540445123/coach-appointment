@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.CarouselMapper">
+
+    <resultMap id="carouselResultMap" type="com.umxinli.entity.Carousel">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="link_url" property="linkUrl"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="selectById" parameterType="Long" resultMap="carouselResultMap">
+        SELECT * FROM carousel WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="carouselResultMap">
+        SELECT * FROM carousel ORDER BY sort_order ASC, created_at DESC
+    </select>
+
+    <select id="selectByStatus" parameterType="Integer" resultMap="carouselResultMap">
+        SELECT * FROM carousel WHERE status = #{status} ORDER BY sort_order ASC, created_at DESC
+    </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.Carousel">
+        INSERT INTO carousel (title, image_url, link_url, sort_order, status, created_at, updated_at)
+        VALUES (#{title}, #{imageUrl}, #{linkUrl}, #{sortOrder}, #{status}, NOW(), NOW())
+    </insert>
+
+    <update id="update" parameterType="com.umxinli.entity.Carousel">
+        UPDATE carousel SET
+            title = #{title},
+            image_url = #{imageUrl},
+            link_url = #{linkUrl},
+            sort_order = #{sortOrder},
+            status = #{status},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM carousel WHERE id = #{id}
+    </delete>
+</mapper>

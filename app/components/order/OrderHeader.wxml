@@ -1,0 +1,7 @@
+<view class="info _div data-v-39b5c25a">
+  <view class="title _div data-v-39b5c25a">{{''+title+''}}
+    <view class="tip _p data-v-39b5c25a" wx:if="{{time&&orderDetail.orderStatus===0}}">还剩<label class="highlight _span data-v-39b5c25a">{{time}}</label>订单自动取消</view>
+  </view>
+  <view class="intro _p data-v-39b5c25a" wx:if="{{time&&orderDetail.orderStatus===1}}">还剩<label class="highlight _span data-v-39b5c25a">{{time}}</label>填写来访信息，逾期未填，将自动取消并退款</view>
+  <view class="intro _p data-v-39b5c25a" wx:else>{{intro}}</view>
+</view>

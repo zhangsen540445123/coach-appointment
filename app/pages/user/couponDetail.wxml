@@ -1,0 +1,30 @@
+<view class="content-box data-v-4eec7644" style="{{'background-image:'+'url('+localImage+')'+';'+'background-size:'+'cover'+';'}}">
+  <view class="content-info data-v-4eec7644">
+    <view class="text-yellow data-v-4eec7644">{{couponDetail.couponName}}</view>
+    <view class="mid-box data-v-4eec7644">
+      <view class="item-box data-v-4eec7644">
+        <view class="data-v-4eec7644" style="display:flex;">
+          <view class="money-type data-v-4eec7644">¥</view>
+          <view class="money-text data-v-4eec7644">{{couponDetail.amount}}</view>
+          <view class="type-text data-v-4eec7644">代金券</view>
+        </view>
+        <view bindtap="__e" class="btn-get data-v-4eec7644" data-event-opts="{{[ [ 'tap',[ [ 'receiveCoupon',['$event'] ] ] ] ]}}" wx:if="{{!btnStatus}}">立即领取</view>
+        <view bindtap="__e" class="btn-get data-v-4eec7644" data-event-opts="{{[ [ 'tap',[ [ 'gotoUse',['$event'] ] ] ] ]}}" wx:else>去使用</view>
+      </view>
+      <view class="btm-text data-v-4eec7644" wx:if="{{couponDetail.consultType===1}}">适用于低价咨询</view>
+      <block wx:else>
+        <view class="btm-text data-v-4eec7644" wx:if="{{couponDetail.consultType===0}}">适用于网络咨询</view>
+        <block wx:else>
+          <view class="btm-text data-v-4eec7644" wx:if="{{couponDetail.consultType===2}}">适用于地面咨询</view>
+          <block wx:else>
+            <view class="btm-text data-v-4eec7644" wx:if="{{couponDetail.consultType===3}}">适用于青少年父母咨询</view>
+          </block>
+        </block>
+      </block>
+    </view>
+  </view>
+  <view class="btm-rule data-v-4eec7644">
+    <view class="data-v-4eec7644">使用规则</view>
+    <text class="data-v-4eec7644">{{couponDetail.ruleContent}}</text>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+<view class="container _div data-v-2f757985">
+  <view bindtap="__e" class="header _div data-v-2f757985" data-event-opts="{{[ [ 'tap',[ [ 'renew',['$event'] ] ] ] ]}}">
+    <image alt class="avatar _img data-v-2f757985" src="{{orderDetail.headUrl}}"></image>
+    <view class="content _div data-v-2f757985" wx:if="{{$root.g0}}">
+      <view class="_p data-v-2f757985">当前正在预约</view>
+      <view class="name _p data-v-2f757985">{{orderDetail.name}}</view>
+    </view>
+    <block wx:else>
+      <view class="content _div data-v-2f757985" wx:if="{{$root.g1}}">
+        <view class="name _p data-v-2f757985">{{orderDetail.name}}</view>
+        <view class="_p data-v-2f757985" wx:if="{{orderDetail.orderSequence}}">{{'第'+orderDetail.orderSequence+'次咨询'}}</view>
+      </view>
+      <view class="content _div data-v-2f757985" wx:else>
+        <view class="name _p data-v-2f757985">{{orderDetail.name}}</view>
+      </view>
+    </block>
+    <view class="icon cuIcon-right _i data-v-2f757985" wx:if="{{$root.g2}}"></view>
+  </view>
+  <view class="date _div data-v-2f757985" wx:if="{{orderDetail.startTimeslot}}">
+    <view class="_div data-v-2f757985">
+      <view class="module-title _p data-v-2f757985">咨询时间（北京时间）</view>
+      <view class="module-content _p data-v-2f757985">{{''+(orderDetail.consultDate||'')+'\n '+$root.m0+'\n        '+(orderDetail.isAm===1?'上午':'下午')+'\n        '+$root.g3+'-'+$root.g4+''}}</view>
+    </view>
+    <view bindtap="__e" class="module-action _div data-v-2f757985" data-event-opts="{{[ [ 'tap',[ [ 'changeTime',['$event'] ] ] ] ]}}" wx:if="{{orderDetail.orderStatus===0}}">修改<view class="icon cuIcon-right _i data-v-2f757985"></view>
+    </view>
+  </view>
+  <view class="visitor _div data-v-2f757985">
+    <view class="_div data-v-2f757985" style="flex:3;">
+      <view class="module-title _p data-v-2f757985">客户</view>
+      <view class="module-content _p data-v-2f757985">{{''+(orderDetail.visitorName||'待填写')+'（'+$root.g5+'）'}}</view>
+    </view>
+    <view class="_div data-v-2f757985" style="flex:2;">
+      <view class="module-title _p data-v-2f757985">咨询方式</view>
+      <view class="module-content _p data-v-2f757985">{{''+$root.g6+''}}</view>
+    </view>
+  </view>
+  <view class="contact _div data-v-2f757985" wx:if="{{contact&&orderDetail.visitorName&&orderDetail.orderStatus===1}}">
+    <view class="_div data-v-2f757985">
+      <view class="module-title _p data-v-2f757985">咨询联系方式</view>
+      <view class="module-content module-content--image _div data-v-2f757985">
+        <image alt bindtap="__e" class="image _img data-v-2f757985" data-event-opts="{{[ [ 'tap',[ ['doContact'] ] ] ]}}" mode="heightFix" src="{{contact.url}}"></image>
+        <view bindtap="__e" class="action _p data-v-2f757985" data-event-opts="{{[ [ 'tap',[ ['doContact'] ] ] ]}}">{{'请添加教练'+contact.text+'，进行咨询'}}
+          <view class="icon cuIcon-right _i data-v-2f757985"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="message _div data-v-2f757985" wx:if="{{counselor&&orderDetail.orderStatus===1}}">
+    <view class="module-title _p data-v-2f757985">教练留言</view>
+    <view class="module-content _p data-v-2f757985" wx:if="{{orderDetail.consultType===2}}">{{counselor.faceMsg}}</view>
+    <view class="module-content _p data-v-2f757985" wx:else>{{counselor.consultMsg}}</view>
+  </view>
+  <view class="address _div data-v-2f757985" wx:if="{{orderDetail.orderStatus===0&&faceToFace}}">
+    <view class="_div data-v-2f757985">
+      <view class="module-title _p data-v-2f757985">咨询地址</view>
+      <view class="module-content _p data-v-2f757985">预约成功后，可见</view>
+    </view>
+  </view>
+  <block wx:else>
+    <view class="address _div data-v-2f757985" wx:if="{{orderDetail.orderStatus===2&&faceToFace}}">
+      <view class="_div data-v-2f757985">
+        <view class="module-title _p data-v-2f757985">咨询地址</view>
+        <view class="module-content _p data-v-2f757985">下次预约后，可见</view>
+      </view>
+    </view>
+    <block wx:else>
+      <view class="address _div data-v-2f757985" wx:if="{{counselor&&orderDetail.orderStatus===1&&faceToFace&&!orderDetail.visitorName}}">
+        <view class="_div data-v-2f757985">
+          <view class="module-title _p data-v-2f757985">咨询地址</view>
+          <view class="module-content _p data-v-2f757985">完善来访信息后可见</view>
+        </view>
+        <view bindtap="__e" class="module-action--highlight _p data-v-2f757985" data-event-opts="{{[ [ 'tap',[ [ 'gotoBindVisitor',['$event'] ] ] ] ]}}">去填写<view class="icon cuIcon-right _i data-v-2f757985"></view>
+        </view>
+      </view>
+      <block wx:else>
+        <view class="address _div data-v-2f757985" wx:if="{{counselor&&orderDetail.orderStatus===1&&faceToFace}}">
+          <view class="_div data-v-2f757985">
+            <view class="module-title _p data-v-2f757985">咨询地址</view>
+            <view class="module-content _p data-v-2f757985">{{studio?studio.address:counselor.address}}</view>
+          </view>
+          <view bindtap="__e" class="module-action--highlight _p data-v-2f757985" data-event-opts="{{[ [ 'tap',[ [ 'openLocation',['$0','$1'],['studio.locationLongitude','studio.locationLatitude'] ] ] ] ]}}" wx:if="{{studio&&studio.locationLongitude&&studio.locationLatitude}}">导航<view class="icon cuIcon-right _i data-v-2f757985"></view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+  <view class="price _div data-v-2f757985">
+    <view class="_div data-v-2f757985">
+      <view class="module-title _p data-v-2f757985">咨询费用</view>
+      <view class="module-content _p data-v-2f757985">{{'¥'+orderDetail.payAmount+''}}<label class="_span data-v-2f757985" wx:if="{{refund}}">{{'（'+refund+'）'}}</label>
+      </view>
+    </view>
+    <view bindtap="__e" class="module-action _p data-v-2f757985" data-event-opts="{{[ [ 'tap',[ [ '$emit',['onClickCoupon'] ] ] ] ]}}" wx:if="{{orderDetail.orderStatus===0&&coupon}}">
+      <block wx:if="{{coupon.value}}">{{'-¥'+coupon.value}}</block>
+      <block wx:else>
+        <block wx:if="{{coupon.userful}}">可选择优惠券</block>
+        <block wx:else>暂无可用优惠券</block>
+      </block>
+      <view class="icon cuIcon-right _i data-v-2f757985"></view>
+    </view>
+  </view>
+  <view class="footer _div data-v-2f757985">{{'下单时间：'+orderDetail.orderCreateTime+''}}</view>
+</view>

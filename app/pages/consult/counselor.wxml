@@ -1,0 +1,155 @@
+<page-container class="content-box data-v-5f0bf7ec vue-ref" data-ref="pageContainer">
+    <navbar bind:__l="__l" class="data-v-5f0bf7ec" isBack="{{true}}" vueId="47ed07ba-1"></navbar>
+    <view class="counselor-picture _div data-v-5f0bf7ec">
+        <view class="counselor-picture__loading _div data-v-5f0bf7ec" wx:if="{{!isFirstSwiperContentLoaded}}">
+            <view class="cuIcon-loading2 icon _i data-v-5f0bf7ec"></view>
+        </view>
+        <swiper bindchange="__e" circular="{{false}}" class="swiper data-v-5f0bf7ec" current="{{userImageListCurrent}}" data-event-opts="{{[ [ 'change',[ [ 'e0',['$event'] ] ] ] ]}}">
+            <swiper-item class="data-v-5f0bf7ec" wx:for="{{userImageList}}" wx:key="image">
+                <view class="counselor-picture__item _div data-v-5f0bf7ec">
+                    <video bindloadedmetadata="__e" class="counselor-picture__video data-v-5f0bf7ec" data-event-opts="{{[ [ 'loadedmetadata',[ [ 'onSwiperContentLoaded',[index] ] ] ] ]}}" mode="heightFix" src="{{item.video}}" wx:if="{{item.video}}"></video>
+                    <block wx:else>
+                        <block wx:if="{{item.image}}">
+                            <image alt class="counselor-picture__bg _img data-v-5f0bf7ec" mode="aspectFill" src="{{item.image}}"></image>
+                            <image alt bindload="__e" class="counselor-picture__image _img data-v-5f0bf7ec" data-event-opts="{{[ [ 'load',[ [ 'onSwiperContentLoaded',[index] ] ] ] ]}}" mode="heightFix" src="{{item.image}}"></image>
+                        </block>
+                    </block>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view class="counselor-picture__number _p data-v-5f0bf7ec">{{''+userImageListCurrent+1+'/'+$root.g0+''}}</view>
+        <view bindtap="__e" class="contact _div data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'e1',['$event'] ] ] ] ]}}">
+            <view class="icon cuIcon-qrcode _i data-v-5f0bf7ec"></view>名片</view>
+    </view>
+    <view class="counselor-info _div data-v-5f0bf7ec">
+        <view class="counselor-info__header _div data-v-5f0bf7ec">
+            <view class="counselor-info__name _p data-v-5f0bf7ec">{{formUserInfo.name}}</view>
+            <view class="counselor-info__sign _p data-v-5f0bf7ec">
+                <qualify bind:__l="__l" class="data-v-5f0bf7ec" text="{{formUserInfo.qualifications[0]}}" vueId="47ed07ba-2"></qualify>
+            </view>
+            <view class="counselor-info__price _p data-v-5f0bf7ec">{{$root.m0}}</view>
+        </view>
+        <view class="counselor-info__type _div data-v-5f0bf7ec">
+            <view class="item _p data-v-5f0bf7ec" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="*this">{{''+item+''}}</view>
+            <view class="_div data-v-5f0bf7ec" style="flex:1;display:flex;justify-content:flex-end;" wx:if="{{$root.g1}}">
+                <view bindtap="__e" class="time _p data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'gotoCheckDate',['$event'] ] ] ] ]}}">查看可约时间<view class="cuIcon-right _i data-v-5f0bf7ec"></view>
+                </view>
+            </view>
+        </view>
+        <view class="counselor-info__content _div data-v-5f0bf7ec" wx:if="{{formUserInfo.cityName}}">
+            <view class="city _div data-v-5f0bf7ec">
+                <view class="cuIcon-locationfill _i data-v-5f0bf7ec" wx:if="{{formUserInfo.cityName}}"></view>{{''+formUserInfo.cityName+''}}</view>
+            <view bindtap="__e" class="time _p data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'gotoCheckDate',['$event'] ] ] ] ]}}" wx:if="{{$root.g2>0}}">查看可约时间<view class="cuIcon-right _i data-v-5f0bf7ec"></view>
+            </view>
+        </view>
+        <view class="counselor-info__exp _div data-v-5f0bf7ec">
+            <image class="bg _img data-v-5f0bf7ec" mode="widthFix" src="{{$root.m1}}"></image>
+            <view class="title _p data-v-5f0bf7ec">咨询经验</view>
+            <view class="content _div data-v-5f0bf7ec">
+                <view class="left _p data-v-5f0bf7ec">从业<label class="highlight _span data-v-5f0bf7ec">{{$root.g3+'年'}}</label>
+                </view>
+                <view class="right _p data-v-5f0bf7ec">个案累计<label class="highlight _span data-v-5f0bf7ec">{{$root.g4+'+小时'}}</label>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="counselor-intro _div data-v-5f0bf7ec">
+        <view class="page-title _div data-v-5f0bf7ec">个人简介</view>
+        <counselor-intro bind:__l="__l" class="data-v-5f0bf7ec" text="{{formUserInfo.introduction}}" vueId="47ed07ba-3" wx:if="{{formUserInfo.introduction}}"></counselor-intro>
+    </view>
+    <view class="page-area _div data-v-5f0bf7ec">
+        <view class="page-title _div data-v-5f0bf7ec">擅长领域</view>
+        <view class="area _div data-v-5f0bf7ec">
+            <view class="area-item data-v-5f0bf7ec" wx:for="{{$root.l1}}" wx:key="index">
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m2}}" wx:if="{{item[$orig].name=='情绪困扰'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m3}}" wx:if="{{item[$orig].name=='婚姻恋爱'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m4}}" wx:if="{{item[$orig].name=='人际关系'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m5}}" wx:if="{{item[$orig].name=='家庭困扰'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m6}}" wx:if="{{item[$orig].name=='个人成长'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m7}}" wx:if="{{item[$orig].name=='学业职场'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m8}}" wx:if="{{item[$orig].name=='亲子教育'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m9}}" wx:if="{{item[$orig].name=='身心健康'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m10}}" wx:if="{{item[$orig].name=='性心理'}}"></image>
+                <view class="area-item-content data-v-5f0bf7ec">
+                    <view class="title data-v-5f0bf7ec">{{item[$orig].name}}</view>
+                    <view class="text data-v-5f0bf7ec">{{item.m11}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page-type _div data-v-5f0bf7ec">
+        <view class="page-title _div data-v-5f0bf7ec">咨询类型</view>
+        <view class="type-list _div data-v-5f0bf7ec">
+            <view class="type-item _p data-v-5f0bf7ec" wx:for="{{$root.l2}}" wx:for-index="__i1__" wx:key="consultType">{{''+item.g5+''}}</view>
+        </view>
+    </view>
+    <view class="page-sect _div data-v-5f0bf7ec">
+        <view class="page-title _div data-v-5f0bf7ec">咨询流派</view>
+        <view class="sect-list _div data-v-5f0bf7ec">
+            <view class="sect-item _p data-v-5f0bf7ec" wx:for="{{formUserInfo.school}}" wx:for-index="__i2__" wx:key="*this">{{item}}</view>
+        </view>
+    </view>
+    <view class="page-train _div data-v-5f0bf7ec">
+        <view class="page-title _div data-v-5f0bf7ec">受训背景</view>
+        <view class="page-train-content _div data-v-5f0bf7ec">
+            <view class="train-item _div data-v-5f0bf7ec" wx:for="{{$root.l3}}" wx:key="index">
+                <view class="content _p data-v-5f0bf7ec">{{item[$orig].content}}</view>
+                <view class="time _p data-v-5f0bf7ec">{{''+item.m12+' - '+item.m13+''}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="page-address _div data-v-5f0bf7ec" wx:if="{{studio}}">
+        <view class="page-title _div data-v-5f0bf7ec">线下工作室</view>
+        <view class="page-address-content _div data-v-5f0bf7ec">
+            <view class="left _div data-v-5f0bf7ec">
+                <view class="address-studio _p data-v-5f0bf7ec">{{studio.studioName}}</view>
+                <view class="address-details _p data-v-5f0bf7ec">{{studio.summaryAddress}}</view>
+            </view>
+            <view class="right _div data-v-5f0bf7ec">
+                <image bindtap="__e" class="_img data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'openLocation',['$0','$1'],['studio.locationLongitude','studio.locationLatitude'] ] ] ] ]}}" src="{{$root.m14}}" wx:if="{{studio.locationLongitude&&studio.locationLatitude}}"></image>
+                <image bindtap="__e" class="_img data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'doCall',['$0'],['studio.concatPhone'] ] ] ] ]}}" src="{{$root.m15}}" wx:if="{{studio.concatPhone}}"></image>
+            </view>
+        </view>
+    </view>
+    <scroll-view class="page-studio data-v-5f0bf7ec" scrollX="true" wx:if="{{$root.g6}}">
+        <view class="page-studio-list _div data-v-5f0bf7ec">
+            <view class="page-studio-item _div data-v-5f0bf7ec" wx:for="{{studio.studioCoverImgList}}" wx:for-index="__i3__" wx:key="*this">
+                <image class="studio-image _img data-v-5f0bf7ec" mode="heightFix" src="{{item}}"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="page-calender _div data-v-5f0bf7ec" id="calender" wx:if="{{$root.g7>0}}">
+        <view class="page-calender-title _div data-v-5f0bf7ec">
+            <view class="page-title _div data-v-5f0bf7ec">可约时间<label class="page-title__tip _span data-v-5f0bf7ec">（北京时间）</label>
+            </view>
+        </view>
+        <calender bind:__l="__l" bind:clickItem="__e" chooseDateTime="{{chooseDateTime}}" class="data-v-5f0bf7ec" consultDateList="{{consultDateList}}" data-event-opts="{{[ [ '^clickItem',[ ['checkConfirm'] ] ] ]}}" mode="preview" vueId="47ed07ba-4"></calender>
+    </view>
+    <view class="page-message _div data-v-5f0bf7ec" wx:if="{{formUserInfo.special}}">
+        <view class="page-message-content _div data-v-5f0bf7ec">
+            <image class="bg _img data-v-5f0bf7ec" src="{{$root.m16}}"></image>
+            <view class="title _p data-v-5f0bf7ec">咨询寄语</view>
+            <view class="text _p data-v-5f0bf7ec">{{formUserInfo.special}}</view>
+        </view>
+    </view>
+    <view class="page-area _div data-v-5f0bf7ec" style="margin-bottom:40rpx;padding-top:0rpx;" wx:if="{{$root.g8}}">
+        <view class="page-title _div data-v-5f0bf7ec">文章列表</view>
+        <view class="area _div data-v-5f0bf7ec">
+            <view bindtap="__e" class="area-item article-item data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'onClickArticle',['$0'],[ [ ['articleList','',idx] ] ] ] ] ] ]}}" wx:for="{{articleList}}" wx:for-index="idx" wx:key="*this">
+                <view class="article-item-content data-v-5f0bf7ec">
+                    <view class="text data-v-5f0bf7ec">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btm-btn data-v-5f0bf7ec" wx:if="{{!loading}}">
+        <view bindtap="__e" class="btm-cs data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'changeUserLike',['$event'] ] ] ] ]}}">
+            <image class="data-v-5f0bf7ec" src="{{userLikeImg}}"></image>
+            <text class="data-v-5f0bf7ec">收藏</text>
+        </view>
+        <view bindtap="__e" class="submit-f data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'e2',['$event'] ] ] ] ]}}" wx:if="{{$root.g9}}">找助理</view>
+        <view bindtap="__e" class="submit-b data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'swithMain',['$event'] ] ] ] ]}}" wx:if="{{canSelect!==1}}">为我推荐【其他教练】</view>
+        <view bindtap="__e" class="submit-b pouper-light data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ ['checkConfirm'] ] ] ]}}" wx:else>立即预约</view>
+    </view>
+    <counselor-poster bind:__l="__l" class="data-v-5f0bf7ec vue-ref" data-ref="counselorPoster" vueId="47ed07ba-5"></counselor-poster>
+</page-container>

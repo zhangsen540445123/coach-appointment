@@ -1,0 +1,193 @@
+<view class="content-box data-v-462077b2">
+    <image class="background-private__img _img data-v-462077b2" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-462077b2" isBack="{{true}}" theme="theme-private" vueId="47474fa3-1"></navbar>
+    <visitor-header bind:__l="__l" class="data-v-462077b2" time="{{$root.g0}}" vueId="47474fa3-2" wx:if="{{params.orderId}}"></visitor-header>
+    <view class="item-card data-v-462077b2">
+        <view class="base-title data-v-462077b2">来访信息<text class="text-sub data-v-462077b2">真实信息有助于教练准确判断</text>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>真实姓名</view>
+            <view class="right-full data-v-462077b2" style="width:40%;">
+                <input bindinput="__e" class="item-input data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','name','$event',[] ],['formVisitor'] ] ] ] ]}}" disabled="{{true}}" maxlength="20" type="text" value="{{formVisitor.name}}"></input>
+            </view>
+            <view bindtap="__e" class="text-orange data-v-462077b2" data-event-opts="{{[ [ 'tap',[ [ 'toOpenVerification',['$event'] ] ] ] ]}}" wx:if="{{isRealName===true}}">更新实名信息<view class="cuIcon-right icon _i data-v-462077b2"></view>
+            </view>
+            <view bindtap="__e" class="text-blue data-v-462077b2" data-event-opts="{{[ [ 'tap',[ [ 'toOpenVerification',['$event'] ] ] ] ]}}" wx:else>去认证<view class="cuIcon-right icon _i data-v-462077b2"></view>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>年龄</view>
+            <view class="right-full data-v-462077b2">
+                <input bindinput="__e" class="item-input data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','age','$event',[] ],['formVisitor'] ] ] ] ]}}" maxlength="20" placeholder="请输入" type="number" value="{{formVisitor.age}}"></input>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>性别</view>
+            <view class="right-full data-v-462077b2">
+                <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','sex','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{sexType}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.sex}}" vueId="47474fa3-3"></uni-data-checkbox>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="data-v-462077b2" wx:if="{{!!formVisitor.mobile}}">
+            <view class="item-area data-v-462077b2">
+                <view class="left-box data-v-462077b2">手机号码</view>
+                <view class="data-v-462077b2" style="width:50%;">
+                    <input bindinput="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','mobile','$event',[] ],['formVisitor'] ],[ 'checkPhone',['$event'] ] ] ] ]}}" disabled="{{true}}" maxlength="20" type="number" value="{{formVisitor.mobile}}"></input>
+                </view>
+            </view>
+            <view class="bottom-line data-v-462077b2"></view>
+        </view>
+    </view>
+    <view class="item-card data-v-462077b2">
+        <view class="base-title data-v-462077b2">紧急联系人<text class="text-sub data-v-462077b2">严格保密，请放心填写</text>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>真实姓名</view>
+            <view class="right-full data-v-462077b2">
+                <input bindinput="__e" class="item-input data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','contactName','$event',[] ],['formVisitor'] ] ] ] ]}}" maxlength="10" placeholder="请输入" type="text" value="{{formVisitor.contactName}}"></input>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>Ta是您的</view>
+            <view class="right-full data-v-462077b2">
+                <picker bindchange="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'change',[ [ 'radioChange',['$event'] ] ] ] ]}}" range="{{partnerShip}}" rangeKey="text" value="{{formVisitor.contactRelation}}">
+                    <view class="picker-text-container _div data-v-462077b2">
+                        <view class="data-v-462077b2" wx:if="{{formVisitor.contactRelation}}">{{formVisitor.contactRelation}}</view>
+                        <view class="gray-place data-v-462077b2" wx:else>请选择</view>
+                        <view class="cuIcon-right _i data-v-462077b2"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>联系电话</view>
+            <view class="right-full data-v-462077b2">
+                <input bindinput="__e" class="item-input data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','contactMobile','$event',[] ],['formVisitor'] ],[ 'checkContact',['$event'] ] ] ] ]}}" maxlength="11" placeholder="请输入" type="number" value="{{formVisitor.contactMobile}}"></input>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+    </view>
+    <view class="item-card data-v-462077b2">
+        <view class="base-title data-v-462077b2">其他信息<text class="text-sub data-v-462077b2">帮助教练了解你并评估你们是否匹配</text>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">现居城市</view>
+            <view class="right-full data-v-462077b2">
+                <picker-address bind:__l="__l" bind:change="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^change',[ ['bindAddress'] ] ] ]}}" vueId="47474fa3-4" vueSlots="{{['default']}}">
+                    <view class="picker-text-container _div data-v-462077b2">
+                        <view class="data-v-462077b2" wx:if="{{formVisitor.otherCity}}">{{formVisitor.otherCity}}</view>
+                        <view class="gray-place data-v-462077b2" wx:else>请选择</view>
+                        <view class="cuIcon-right _i data-v-462077b2"></view>
+                    </view>
+                </picker-address>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">职业</view>
+            <view class="right-full data-v-462077b2">
+                <picker bindchange="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'change',[ [ 'bindCareer',['$event'] ] ] ] ]}}" range="{{career}}" value="{{formVisitor.otherCareer}}">
+                    <view class="picker-text-container _div data-v-462077b2">
+                        <view class="data-v-462077b2" wx:if="{{formVisitor.otherCareer}}">{{formVisitor.otherCareer}}</view>
+                        <view class="gray-place data-v-462077b2" wx:else>请选择</view>
+                        <view class="cuIcon-right _i data-v-462077b2"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">情感状态</view>
+            <view class="right-full data-v-462077b2">
+                <picker bindchange="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'change',[ [ 'bindMarriage',['$event'] ] ] ] ]}}" range="{{marriageData}}" value="{{formVisitor.otherMarrage}}">
+                    <view class="picker-text-container _div data-v-462077b2">
+                        <view class="data-v-462077b2" wx:if="{{formVisitor.otherMarrage}}">{{formVisitor.otherMarrage}}</view>
+                        <view class="gray-place data-v-462077b2" wx:else>请选择</view>
+                        <view class="cuIcon-right _i data-v-462077b2"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="item-area data-v-462077b2">
+            <view class="left-box data-v-462077b2">有无子女</view>
+            <view class="right-full data-v-462077b2">
+                <picker bindchange="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'change',[ [ 'bindChildren',['$event'] ] ] ] ]}}" range="{{childrenData}}" value="{{formVisitor.otherChildren}}">
+                    <view class="picker-text-container _div data-v-462077b2">
+                        <view class="data-v-462077b2" wx:if="{{formVisitor.otherChildren}}">{{formVisitor.otherChildren}}</view>
+                        <view class="gray-place data-v-462077b2" wx:else>请选择</view>
+                        <view class="cuIcon-right _i data-v-462077b2"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="module-area _div data-v-462077b2">
+            <view class="module-area__title _p data-v-462077b2">咨询目标</view>
+            <view class="textarea-content less-content data-v-462077b2">
+                <textarea bindinput="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ 'bindContentIncome',['$event'] ] ] ] ]}}" maxlength="200" placeholder="请填写咨询目标" value="{{formVisitor.otherIncome}}"></textarea>
+            </view>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="module-area _div data-v-462077b2">
+            <view class="module-area__title _p data-v-462077b2">
+                <text class="text-red data-v-462077b2">*</text>是否有精神科服药史或者就医史</view>
+            <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','otherHistory','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{[ {value:1,text:'是'},{value:0,text:'否'} ]}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.otherHistory}}" vueId="47474fa3-5"></uni-data-checkbox>
+            <view class="textarea-content less-content mt32 data-v-462077b2" wx:if="{{formVisitor.otherHistory===1}}">
+                <textarea bindinput="__e" class="data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ 'bindContent',['$event'] ] ] ] ]}}" maxlength="200" placeholder="请填写精神科服药史或者就医史" value="{{formVisitor.otherHistoryDesc}}"></textarea>
+            </view>
+        </view>
+        <view class="cu-bar bg-white margin-top data-v-462077b2" wx:if="{{formVisitor.otherHistory===1}}">
+            <view class="data-v-462077b2">最多上传6张图片</view>
+            <view class="action data-v-462077b2">{{''+$root.g1+'/6'}}</view>
+        </view>
+        <view class="item-images data-v-462077b2" wx:if="{{formVisitor.otherHistory===1}}">
+            <uni-file-picker bind:__l="__l" bind:delete="__e" bind:input="__e" bind:select="__e" class="solids data-v-462077b2 vue-ref" data-event-opts="{{[ [ '^delete',[ ['removeImage'] ] ],[ '^select',[ ['uploadImageList'] ] ],[ '^input',[ [ '__set_model',[ '','tempImageList','$event',[] ] ] ] ] ]}}" data-ref="imagesRef" fileExtname="png,jpg,jpeg" fileMediatype="image" limit="6" mode="grid" value="{{tempImageList}}" vueId="47474fa3-6" vueSlots="{{['default']}}">
+                <text class="cuIcon-cameraadd data-v-462077b2"></text>
+            </uni-file-picker>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="module-area _div data-v-462077b2">
+            <view class="module-area__title _p data-v-462077b2">是否是有弥联合心理学员？</view>
+            <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','otherUm','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{otherUm}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.otherUm}}" vueId="47474fa3-7"></uni-data-checkbox>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="module-area _div data-v-462077b2">
+            <view class="module-area__title _p data-v-462077b2">是否正在一段心理咨询关系中？</view>
+            <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','consultOther','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{isConsultOther}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.consultOther}}" vueId="47474fa3-8"></uni-data-checkbox>
+        </view>
+        <view class="bottom-line data-v-462077b2"></view>
+        <view class="module-area _div data-v-462077b2">
+            <view class="module-area__title _p data-v-462077b2">从什么渠道了解我们的呀？</view>
+            <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','realizeChannel','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{$root.g2}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.realizeChannel}}" vueId="47474fa3-9"></uni-data-checkbox>
+            <view class="module-area__checkboxinput _div data-v-462077b2">
+                <uni-data-checkbox bind:__l="__l" bind:input="__e" class="data-v-462077b2" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','realizeChannel','$event',[] ],['formVisitor'] ] ] ] ]}}" localdata="{{$root.g3}}" selectedColor="rgba(31, 31, 31, 1)" value="{{formVisitor.realizeChannel}}" vueId="47474fa3-10"></uni-data-checkbox>
+                <input bindinput="__e" class="input data-v-462077b2" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','realizeChannelName','$event',[] ],['formVisitor'] ] ] ] ]}}" type="text" value="{{formVisitor.realizeChannelName}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="btm-submit data-v-462077b2">
+        <view bindtap="__e" class="double-check data-v-462077b2" data-event-opts="{{[ [ 'tap',[ ['changeType'] ] ] ]}}">
+            <view class="icon cuIcon-roundcheckfill _i data-v-462077b2" wx:if="{{checkStatus===1}}"></view>
+            <view class="icon cuIcon-round _i data-v-462077b2" wx:else></view>
+            <view class="data-v-462077b2">我同意并签署<text catchtap="__e" class="prop-text data-v-462077b2" data-event-opts="{{[ [ 'tap',[ [ 'showProtocol',[2] ] ] ] ]}}">《软件使用协议》</text>
+            </view>
+        </view>
+        <view bindtap="__e" class="{{['submit-b','data-v-462077b2',!buttomStatus?'btn-disabled':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'saveSubmit',['$event'] ] ] ] ]}}">确定</view>
+        <view bindtap="__e" class="btn-delete data-v-462077b2" data-event-opts="{{[ [ 'tap',[ [ 'deleteVisitor',['$event'] ] ] ] ]}}" wx:if="{{formVisitor&&formVisitor.id}}">删除客户</view>
+    </view>
+    <real-name-verify bind:__l="__l" bind:success="__e" class="data-v-462077b2 vue-ref" data-event-opts="{{[ [ '^success',[ ['onRealNameVerifySuccess'] ] ] ]}}" data-ref="realNameVerify" vueId="47474fa3-11"></real-name-verify>
+</view>

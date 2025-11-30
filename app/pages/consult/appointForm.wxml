@@ -1,0 +1,41 @@
+<view class="content-box data-v-d6a01b1c">
+    <view class="{{['data-v-d6a01b1c',maskStatus?'order-area-full':'']}}">
+        <view class="list-area data-v-d6a01b1c">
+            <view class="item-card data-v-d6a01b1c" wx:for="{{$root.l0}}" wx:key="index">
+                <view class="item-title data-v-d6a01b1c">
+                    <text class="text-red data-v-d6a01b1c">*</text>{{item[$orig].title}}</view>
+                <view bindtap="__e" class="radio-line data-v-d6a01b1c" data-event-opts="{{[ [ 'tap',[ [ 'choseApply',[index] ] ] ] ]}}">
+                    <image class="data-v-d6a01b1c" src="{{item.m0}}" wx:if="{{item[$orig].chosed}}"></image>
+                    <block wx:else>
+                        <image class="data-v-d6a01b1c" src="{{item.m1}}" wx:if="{{!item[$orig].chosed}}"></image>
+                    </block>
+                    <view class="data-v-d6a01b1c">是</view>
+                </view>
+                <view bindtap="__e" class="radio-line data-v-d6a01b1c" data-event-opts="{{[ [ 'tap',[ [ 'cancelWechat',[index] ] ] ] ]}}">
+                    <image class="data-v-d6a01b1c" src="{{item.m2}}" wx:if="{{item[$orig].chosed===false}}"></image>
+                    <block wx:else>
+                        <image class="data-v-d6a01b1c" src="{{item.m3}}" wx:if="{{item[$orig].chosed===null||item[$orig].chosed}}"></image>
+                    </block>
+                    <view class="data-v-d6a01b1c">否</view>
+                </view>
+            </view>
+        </view>
+        <view class="btm-btn data-v-d6a01b1c">
+            <view class="btm-submit data-v-d6a01b1c">
+                <view bindtap="__e" class="submit-b data-v-d6a01b1c" data-event-opts="{{[ [ 'tap',[ [ 'checkForm',['$event'] ] ] ] ]}}">立即预约</view>
+            </view>
+        </view>
+    </view>
+    <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-d6a01b1c vue-ref" data-ref="submitDialog" type="dialog" vueId="a0f5d2e6-1" vueSlots="{{['default']}}">
+        <view class="dialog-box data-v-d6a01b1c">
+            <view class="dialog-content data-v-d6a01b1c">
+                <view class="dia-message data-v-d6a01b1c">
+                    <text class="data-v-d6a01b1c">{{dialogText}}</text>
+                </view>
+                <view class="btm-sbtn data-v-d6a01b1c">
+                    <navigator class="btn-box btn-right data-v-d6a01b1c" openType="exit" target="miniProgram">好的</navigator>
+                </view>
+            </view>
+        </view>
+    </uni-popup>
+</view>

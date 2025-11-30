@@ -1,0 +1,46 @@
+<view class="content-box data-v-14665820">
+    <view class="data-v-14665820" wx:if="{{false}}">
+        <view class="item-money data-v-14665820">
+            <view class="data-v-14665820">订单金额:</view>
+            <view class="data-v-14665820">{{'¥ '+orderInfo.paymentAmount}}</view>
+        </view>
+        <view class="pay-area data-v-14665820">
+            <view class="pay-text data-v-14665820">支付方式</view>
+        </view>
+        <view class="pay-type data-v-14665820">
+            <view class="balance-area data-v-14665820">
+                <view class="img-right data-v-14665820">
+                    <image class="data-v-14665820" src="{{$root.m0}}"></image>
+                </view>
+            </view>
+            <view class="balance-area data-v-14665820">
+                <view class="data-v-14665820">
+                    <view class="data-v-14665820">微信支付</view>
+                </view>
+                <view class="img-right data-v-14665820">
+                    <image class="data-v-14665820" src="{{$root.m1}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="data-v-14665820">
+        <view class="pay-done data-v-14665820">支付成功</view>
+        <view class="btm-area data-v-14665820">
+            <view class="data-v-14665820">订单支付成功</view>
+            <view class="pay-note data-v-14665820">
+                <view class="mid-note data-v-14665820">支付方式</view>
+                <view class="data-v-14665820">微信支付</view>
+            </view>
+            <view class="pay-note data-v-14665820">
+                <view class="mid-note data-v-14665820">支付金额</view>
+                <view class="data-v-14665820">{{'¥'+$root.m2}}</view>
+            </view>
+        </view>
+        <view class="btm-count data-v-14665820">
+            <view class="data-v-14665820">{{timeNum+'秒之后即将进入到信息详情页'}}</view>
+        </view>
+    </view>
+    <view class="btm-btn data-v-14665820">
+        <button bindtap="__e" class="data-v-14665820" data-event-opts="{{[ [ 'tap',[ [ 'saveSubmit',['$event'] ] ] ] ]}}">下一步</button>
+    </view>
+</view>

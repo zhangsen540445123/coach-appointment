@@ -1,0 +1,8 @@
+<view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'play',['$event'] ] ] ] ]}}">
+  <view class="{{['video-video',node.classStr]}}" style="{{'display:inline-block;margin:auto;max-width:100%;'+node.styleStr}}" wx:if="{{!playState}}">
+    <view style="display:flex;width:100%;height:100%;flex-direction:row;justify-content:center;align-items:center;">
+      <image mode="widthFix" src="https://gwbj.tongwenkeji.com/html/static/play.png" style="width:20%;"></image>
+    </view>
+  </view>
+  <video autoplay="{{false}}" class="{{['video-video',node.classStr]}}" src="{{node.attr.src}}" style="{{node.styleStr}}" wx:if="{{playState}}"></video>
+</view>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "qualify": "/components/counselor/Qualify",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}

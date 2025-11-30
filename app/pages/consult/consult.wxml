@@ -1,0 +1,51 @@
+<page-container class="content-box data-v-64ec1c54 vue-ref" data-ref="pageContainer">
+    <image class="background-private__img _img data-v-64ec1c54" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-64ec1c54" theme="theme-home" vueId="f9fa0fb4-1" vueSlots="{{['content-name']}}">
+        <view class="data-v-64ec1c54" slot="content-name">
+            <view class="home-logo _div data-v-64ec1c54">
+                <image class="logo _img data-v-64ec1c54" mode="widthFix" src="{{$root.m1}}"></image>
+                <view class="tip _p data-v-64ec1c54">累计温暖10万+来访用户</view>
+            </view>
+        </view>
+    </navbar>
+    <view class="search-form round data-v-64ec1c54">
+        <text class="cuIcon-search data-v-64ec1c54"></text>
+        <input bindconfirm="__e" bindinput="__e" class="search-form__input data-v-64ec1c54" confirmType="search" data-event-opts="{{[ [ 'confirm',[ [ 'searchCounselorByName',['$event'] ] ] ],[ 'input',[ [ '__set_model',[ '$0','name','$event',[] ],['formData'] ] ] ] ]}}" placeholder="搜索教练姓名" type="text" value="{{formData.name}}"></input>
+    </view>
+    <payment-reminder bind:__l="__l" class="data-v-64ec1c54 vue-ref" data-ref="paymentReminder" vueId="f9fa0fb4-2"></payment-reminder>
+    <view class="page-content _div data-v-64ec1c54">
+        <key-feature-zone bind:__l="__l" class="data-v-64ec1c54" vueId="f9fa0fb4-3"></key-feature-zone>
+        <zhixun-guide bind:__l="__l" class="data-v-64ec1c54" vueId="f9fa0fb4-4"></zhixun-guide>
+        <view class="page-filterdrop _div data-v-64ec1c54" style="{{'top:'+'calc('+navbar.height.total+'px + 30rpx)'+';'}}">
+            <h-m-filter-dropdown bind:__l="__l" bind:confirm="__e" class="filter_dropdown data-v-64ec1c54" data-event-opts="{{[ [ '^confirm',[ ['confirm'] ] ] ]}}" dataFormat="Object" filterData="{{filterData}}" updateMenuName="{{true}}" vueId="f9fa0fb4-5"></h-m-filter-dropdown>
+        </view>
+        <view class="data-v-64ec1c54" id="scroll-item">
+            <view class="btm-list data-v-64ec1c54">
+                <scroll-view class="scroll-box data-v-64ec1c54" scrollY="{{true}}" showScrollbar="{{false}}">
+                    <consultant-item bind:__l="__l" class="data-v-64ec1c54" item="{{item}}" log="{{true}}" vueId="{{'f9fa0fb4-6-'+__i0__}}" wx:for="{{counselorList}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+                    <view class="loadmore _p data-v-64ec1c54" wx:if="{{inLoadmore}}">加载中...</view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="__e" class="zhixun-adviser _div data-v-64ec1c54" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" wx:if="{{$root.g0}}">
+        <image class="zhixun-adviser__logo _img data-v-64ec1c54" src="{{$root.m2}}"></image>
+    </view>
+    <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-64ec1c54 vue-ref" data-ref="toPayDialog" type="dialog" vueId="f9fa0fb4-7" vueSlots="{{['default']}}">
+        <view class="dialog-box data-v-64ec1c54">
+            <view class="dialog-content data-v-64ec1c54">
+                <view class="dia-top data-v-64ec1c54">
+                    <view class="top-flex data-v-64ec1c54"></view>
+                    <view class="top-mid data-v-64ec1c54"></view>
+                    <view class="top-flex data-v-64ec1c54">
+                        <image bindtap="__e" class="right-img data-v-64ec1c54" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}" src="{{$root.m3}}"></image>
+                    </view>
+                </view>
+                <view class="mid-text data-v-64ec1c54">您还有订单尚未支付，请前往支付</view>
+                <view class="btm-btn-dialog data-v-64ec1c54">
+                    <view bindtap="__e" class="btn-box btn-main-color-2 data-v-64ec1c54" data-event-opts="{{[ [ 'tap',[ [ 'gotoFeedback',['$event'] ] ] ] ]}}">去支付</view>
+                </view>
+            </view>
+        </view>
+    </uni-popup>
+</page-container>

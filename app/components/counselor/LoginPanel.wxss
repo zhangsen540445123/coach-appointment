@@ -1,0 +1,72 @@
+.login-panel.data-v-51032cf6 {
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx 16rpx 0 0;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  height: 572rpx
+}
+
+.login-panel>.logo.data-v-51032cf6 {
+  height: 176rpx;
+  margin-top: 36rpx;
+  vertical-align: top;
+  width: 176rpx
+}
+
+.login-panel>.title.data-v-51032cf6 {
+  color: #2a2a2a;
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 56rpx;
+  margin-top: 8rpx
+}
+
+.login-panel>.submitBtn.data-v-51032cf6 {
+  background: var(4.02e+34, #402e32);
+  border-radius: 16rpx;
+  color: #fff;
+  flex: none;
+  font-size: 28rpx;
+  height: 88rpx;
+  justify-content: center;
+  line-height: 32rpx;
+  mix-blend-mode: normal;
+  text-align: center;
+  width: 648rpx
+}
+
+.login-panel .double-check.data-v-51032cf6,
+.login-panel>.submitBtn.data-v-51032cf6 {
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  margin-top: 32rpx
+}
+
+.login-panel .double-check.data-v-51032cf6 {
+  color: #000;
+  font-size: 24rpx;
+  line-height: 44rpx
+}
+
+.login-panel .double-check>.icon.data-v-51032cf6 {
+  font-size: 32rpx;
+  margin-right: 16rpx
+}
+
+.login-panel .double-check>.cuIcon-roundcheckfill.data-v-51032cf6 {
+  color: #9c705a
+}
+
+.login-panel .double-check>.cuIcon-round.data-v-51032cf6 {
+  color: rgba(0, 0, 0, .2)
+}
+
+.login-panel .prop-text.data-v-51032cf6 {
+  color: #9c705a
+}

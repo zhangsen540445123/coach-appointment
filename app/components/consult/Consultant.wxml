@@ -1,0 +1,31 @@
+<view bindtap="__e" class="btm-item data-v-7075394e" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],['item'] ] ] ] ]}}" id="{{'counselor__'+item.counselorId}}">
+  <view class="btm-item__left data-v-7075394e" style="text-align:center;">
+    <image class="data-v-7075394e" mode="widthFix" src="{{item.headUrlSquare}}"></image>
+    <view class="avatar-label _p data-v-7075394e" wx:if="{{item.canConsult!==1}}">暂不接新来访</view>
+    <block wx:else>
+      <view class="avatar-label _p data-v-7075394e" wx:if="{{item.avatarLabel}}">{{''+item.avatarLabel+''}}</view>
+    </block>
+  </view>
+  <view class="btm-right data-v-7075394e">
+    <view class="item-name data-v-7075394e">
+      <view class="item-name__left data-v-7075394e">{{''+item.name+''}}</view>
+      <view class="item-name__center data-v-7075394e">
+        <qualify bind:__l="__l" class="data-v-7075394e" text="{{item.qualifications[0]}}" vueId="469f920d-1"></qualify>
+      </view>
+      <view class="item-name__right data-v-7075394e" wx:if="{{item.cityName}}">
+        <view class="cuIcon-locationfill _i data-v-7075394e"></view>{{''+item.cityName+''}}
+      </view>
+    </view>
+    <view class="btm-intro data-v-7075394e">{{''+item.introduction+''}}</view>
+    <view class="type-area data-v-7075394e">{{'擅长：'+$root.g0+''}}</view>
+    <view class="btm-info data-v-7075394e">{{'从业'+$root.g1+'年 · 咨询经验 '+$root.g2+'+小时'}}</view>
+    <view class="btm-footer data-v-7075394e">
+      <view class="btm-footer__left data-v-7075394e">{{''+$root.g3+''}}</view>
+      <view class="btm-footer__price data-v-7075394e">
+        <view class="symbol data-v-7075394e">￥</view>
+        <view class="price number data-v-7075394e">{{item.consultPrice}}</view>
+        <view class="time data-v-7075394e">/节</view>
+      </view>
+    </view>
+  </view>
+</view>

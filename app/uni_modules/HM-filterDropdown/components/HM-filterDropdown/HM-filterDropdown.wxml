@@ -1,0 +1,94 @@
+<view catchtap="__e" catchtouchmove="__e" class="{{['HMfilterDropdown',maskVisibility?'setDropdownBottom':'']}}" data-event-opts="{{[ [ 'touchmove',[ [ 'discard',['$event'] ] ] ],[ 'tap',[ [ 'discard',['$event'] ] ] ] ]}}" style="{{'top:'+menuTop+'rpx'+';'}}">
+    <view class="nav">
+        <view bindtap="__e" class="{{['first-menu',showPage==index?'on':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'togglePage',[index] ] ] ] ]}}" wx:for="{{menu}}" wx:key="index">
+            <text class="name">{{item.name}}</text>
+            <view class="cuIcon-unfold _i" style="{{'transform:rotate('+triangleDeg[index]+'deg);'}}"></view>
+        </view>
+    </view>
+    <view bindtap="__e" class="{{['mask',isShowMask?'show':'',maskVisibility!=true?'hide':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'hideMenu',[false] ] ] ] ]}}"></view>
+    <view class="{{['sub-menu-class',showPage==page_index?'show':'',pageState[page_index]!=true?'hide':'']}}" wx:for="{{$root.l6}}" wx:for-index="page_index" wx:for-item="page" wx:key="page_index">
+        <block wx:if="{{page.g0}}">
+            <scroll-view class="{{['sub-menu-list',page.g1>1?'first':'',page.g2<=1?'alone':'']}}" scrollIntoView="{{'first_id'+firstScrollInto}}" scrollY="{{true}}">
+                <view bindtap="__e" class="{{['sub-menu',activeMenuArr[page_index][0]==index?'on':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectHierarchyMenu',[page_index,index,null,null] ] ] ] ]}}" id="{{'first_id'+index}}" wx:for="{{page[$orig].submenu}}" wx:for-item="sub" wx:key="value">
+                    <view class="menu-name">
+                        <text>{{sub.name}}</text>
+                        <text class="iconfont selected"></text>
+                    </view>
+                </view>
+            </scroll-view>
+            <block wx:if="{{page[$orig].type=='hierarchy'}}">
+                <scroll-view class="sub-menu-list not-first" scrollIntoView="{{'second_id'+secondScrollInto}}" scrollY="{{true}}" wx:if="{{sub.g3}}" wx:for="{{page.l2}}" wx:for-item="sub" wx:key="value">
+                    <view class="{{['sub-menu',activeMenuArr[page_index][1]==second_index?'on':'']}}" id="{{'second_id'+second_index}}" wx:for="{{sub.l1}}" wx:for-index="second_index" wx:for-item="sub_second" wx:key="value">
+                        <view bindtap="__e" class="menu-name" data-event-opts="{{[ [ 'tap',[ [ 'selectHierarchyMenu',[page_index,'$0',second_index,null],['activeMenuArr.'+page_index+'.__$n0'] ] ] ] ]}}">
+                            <text>{{sub_second[$orig].name}}</text>
+                            <text class="iconfont selected"></text>
+                        </view>
+                        <view class="more-sub-menu" wx:if="{{sub_second.g4}}">
+                            <block wx:for="{{sub_second.l0}}" wx:for-index="sub2_index" wx:for-item="sub2" wx:key="value">
+                                <text catchtap="__e" class="{{[activeMenuArr[page_index][1]==second_index&&activeMenuArr[page_index][2]==sub2_index?'on':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectHierarchyMenu',[page_index,'$0',second_index,sub2_index],['activeMenuArr.'+page_index+'.__$n0'] ] ] ] ]}}" wx:if="{{sub_second[$orig].showAllSub||sub2_index<8}}">{{sub2[$orig].name}}</text>
+                                <text catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'showMoreSub',[second_index] ] ] ] ]}}" wx:if="{{sub2.g5}}">更多<text class="iconfont triangle"></text>
+                                </text>
+                            </block>
+                        </view>
+                    </view>
+                </scroll-view>
+            </block>
+            <block wx:else>
+                <block wx:if="{{page[$orig].type=='hierarchy-column'}}">
+                    <scroll-view class="sub-menu-list not-first" scrollIntoView="{{'second_id'+secondScrollInto}}" scrollY="{{true}}" wx:if="{{sub.g6}}" wx:for="{{page.l3}}" wx:for-item="sub" wx:key="index">
+                        <view class="{{['sub-menu',activeMenuArr[page_index][1]==second_index?'on':'']}}" id="{{'second_id'+second_index}}" wx:for="{{sub[$orig].submenu}}" wx:for-index="second_index" wx:for-item="sub_second" wx:key="second_index">
+                            <view bindtap="__e" class="menu-name" data-event-opts="{{[ [ 'tap',[ [ 'selectHierarchyMenu',[page_index,'$0',second_index,null],['activeMenuArr.'+page_index+'.__$n0'] ] ] ] ]}}">
+                                <text>{{sub_second.name}}</text>
+                            </view>
+                        </view>
+                    </scroll-view>
+                    <block wx:for="{{page.l5}}" wx:for-item="sub" wx:key="index">
+                        <scroll-view class="sub-menu-list not-first third" scrollIntoView="{{'third_id'+thirdScrollInto}}" scrollY="{{true}}" wx:if="{{sub_second.g7}}" wx:for="{{sub.l4}}" wx:for-index="second_index" wx:for-item="sub_second" wx:key="second_index">
+                            <view class="{{['sub-menu',activeMenuArr[page_index][2]==sub2_index?'on':'']}}" id="{{'third_id'+sub2_index}}" wx:for="{{sub_second[$orig].submenu}}" wx:for-index="sub2_index" wx:for-item="sub2" wx:key="sub2_index">
+                                <view bindtap="__e" class="menu-name" data-event-opts="{{[ [ 'tap',[ [ 'selectHierarchyMenu',[page_index,'$0',second_index,sub2_index],['activeMenuArr.'+page_index+'.__$n0'] ] ] ] ]}}">
+                                    <text>{{sub2.name}}</text>
+                                </view>
+                            </view>
+                        </scroll-view>
+                    </block>
+                </block>
+            </block>
+        </block>
+        <view class="filter" wx:if="{{page[$orig].type=='filter'}}">
+            <scroll-view class="menu-box" scrollY="{{true}}">
+                <view class="box" wx:for="{{page[$orig].submenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
+                    <view class="title" wx:if="{{!box.hideName}}">{{box.name}}</view>
+                    <view class="labels">
+                        <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectFilterLabel',[page_index,box_index,label_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">{{label.name}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="btn-box">
+                <view bindtap="__e" class="reset" data-event-opts="{{[ [ 'tap',[ [ 'resetFilterData',[page_index] ] ] ] ]}}">重置</view>
+                <view bindtap="__e" class="submit" data-event-opts="{{[ [ 'tap',[ [ 'setFilterData',[page_index] ] ] ] ]}}">确定</view>
+            </view>
+        </view>
+        <view class="filter" wx:if="{{page[$orig].type=='radio'}}">
+            <scroll-view class="menu-box" scrollY="{{true}}">
+                <view class="box" wx:for="{{page[$orig].submenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
+                    <view class="title" wx:if="{{!box.hideName}}">{{box.name}}</view>
+                    <view class="labels">
+                        <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[page_index,box_index,label_index] ],[ 'setFilterData',[page_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">
+                            <view class="_p" style="display:flex;align-items:center;">
+                                <view class="{{['_i',label.icon,'label__icon']}}" wx:if="{{label.icon}}"></view>{{''+label.name+''}}</view>
+                            <label class="label__tip _span" wx:if="{{label.tip}}">{{label.tip}}</label>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="footer" wx:if="{{page[$orig].name==='城市'}}">
+                <view class="text _p">没有所在的城市？试试<label bindtap="__e" class="highlight _span" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[0,0,1] ],[ 'selectRadioLabel',[3,0,1] ],[ 'setFilterData',[page_index] ] ] ] ]}}">视频咨询</label>
+                </view>
+            </view>
+            <view class="btn-box" wx:if="{{false}}">
+                <view bindtap="__e" class="reset" data-event-opts="{{[ [ 'tap',[ [ 'resetFilterData',[page_index] ] ] ] ]}}">重置</view>
+                <view bindtap="__e" class="submit" data-event-opts="{{[ [ 'tap',[ [ 'setFilterData',[page_index] ] ] ] ]}}">确定</view>
+            </view>
+        </view>
+    </view>
+</view>

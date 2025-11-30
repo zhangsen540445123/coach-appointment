@@ -1,0 +1,24 @@
+<view class="uni-file-picker__container">
+    <view class="file-picker__box" style="{{boxStyle}}" wx:for="{{filesList}}" wx:key="index">
+        <view class="file-picker__box-content" style="{{borderStyle}}">
+            <image catchtap="__e" class="file-image" data-event-opts="{{[ [ 'tap',[ [ 'prviewImage',['$0',index],[ [ ['filesList','',index] ] ] ] ] ] ]}}" mode="aspectFill" src="{{item.url}}"></image>
+            <view catchtap="__e" class="icon-del-box" data-event-opts="{{[ [ 'tap',[ [ 'delFile',[index] ] ] ] ]}}" wx:if="{{delIcon&&!readonly}}">
+                <view class="icon-del"></view>
+                <view class="icon-del rotate"></view>
+            </view>
+            <view class="file-picker__progress" wx:if="{{item.progress&&item.progress!==100||item.progress===0}}">
+                <progress backgroundColor="{{item.errMsg?'#ff5a5f':'#EBEBEB'}}" class="file-picker__progress-item" percent="{{item.progress===-1?0:item.progress}}" strokeWidth="4"></progress>
+            </view>
+            <view catchtap="__e" class="file-picker__mask" data-event-opts="{{[ [ 'tap',[ [ 'uploadFiles',['$0',index],[ [ ['filesList','',index] ] ] ] ] ] ]}}" wx:if="{{item.errMsg}}">点击重试</view>
+        </view>
+    </view>
+    <view class="file-picker__box" style="{{boxStyle}}" wx:if="{{$root.g0}}">
+        <view bindtap="__e" class="file-picker__box-content is-add" data-event-opts="{{[ [ 'tap',[ [ 'choose',['$event'] ] ] ] ]}}" style="{{borderStyle}}">
+            <slot wx:if="{{$slots.default}}"></slot>
+            <block wx:else>
+                <view class="icon-add"></view>
+                <view class="icon-add rotate"></view>
+            </block>
+        </view>
+    </view>
+</view>

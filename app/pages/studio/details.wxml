@@ -1,0 +1,44 @@
+<page-container class="page-studio-details data-v-a87f5706 vue-ref" data-ref="pageContainer">
+    <view class="studio-info _div data-v-a87f5706">
+        <view class="studio-info__swiper _div data-v-a87f5706">
+            <swiper bindchange="__e" circular="{{false}}" class="swiper data-v-a87f5706" current="{{studioCoverImgListIndex}}" data-event-opts="{{[ [ 'change',[ [ 'e0',['$event'] ] ] ] ]}}">
+                <swiper-item class="data-v-a87f5706" wx:for="{{details.studioCoverImgList}}" wx:for-index="__i0__" wx:key="*this">
+                    <view class="wrap _div data-v-a87f5706">
+                        <image alt class="image _img data-v-a87f5706" mode="heightFix" src="{{item}}"></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="number _p data-v-a87f5706" wx:if="{{details.studioCoverImgList}}">{{''+studioCoverImgListIndex+1+'/'+$root.g0+''}}</view>
+        </view>
+        <view bindtap="__e" class="contact _div data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'e1',['$event'] ] ] ] ]}}">
+            <view class="icon cuIcon-qrcode _i data-v-a87f5706"></view>名片</view>
+        <view class="studio-info__name _p data-v-a87f5706">{{details.studioName}}</view>
+        <view class="studio-info__time _p data-v-a87f5706">{{'营业时间：'+details.studioOpenTime}}</view>
+        <view class="studio-info__footer _div data-v-a87f5706" wx:if="{{details.studioType===0&&details.summaryAddress}}">
+            <view class="studio-info__address _p data-v-a87f5706">{{'地址：'+details.summaryAddress+''}}</view>
+            <view bindtap="__e" class="studio-info__navigation _div data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'openLocation',['$event'] ] ] ] ]}}" wx:if="{{details.locationLongitude&&details.locationLatitude}}">
+                <image alt class="icon _img data-v-a87f5706" src="{{$root.m0}}"></image>
+                <view class="text _p data-v-a87f5706">导航</view>
+            </view>
+        </view>
+    </view>
+    <view class="studio-gap _div data-v-a87f5706"></view>
+    <view class="studio-tab _div data-v-a87f5706" id="tab">
+        <content-tab bind:__l="__l" bind:change="__e" class="data-v-a87f5706" data-event-opts="{{[ [ '^change',[ ['e2'] ] ] ]}}" list="{{tabs}}" value="{{tabActive}}" vueId="16b57204-1"></content-tab>
+    </view>
+    <view class="studio-intro _div data-v-a87f5706" id="details">
+        <mp-html bind:__l="__l" class="data-v-a87f5706" content="{{details.studioDetail}}" vueId="16b57204-2"></mp-html>
+    </view>
+    <view class="studio-consultant _div data-v-a87f5706" id="recommends" wx:if="{{$root.g1>0}}">
+        <view class="studio-consultant__title _p data-v-a87f5706">教练</view>
+        <view class="studio-consultant__list _div data-v-a87f5706">
+            <consultant-item bind:__l="__l" class="list-item data-v-a87f5706" item="{{item}}" vueId="{{'16b57204-3-'+__i1__}}" wx:for="{{consultorList}}" wx:for-index="__i1__" wx:key="counselorId"></consultant-item>
+        </view>
+    </view>
+    <view class="_div data-v-a87f5706" style="height:200rpx;"></view>
+    <view class="studio-footer _div data-v-a87f5706">
+        <view bindtap="__e" class="studio-footer__contact _p data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'e3',['$event'] ] ] ] ]}}" wx:if="{{$root.g2}}">联系助理</view>
+        <view bindtap="__e" class="studio-footer__mobile _p data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'call',['$event'] ] ] ] ]}}" wx:if="{{details.concatPhone}}">电话预约</view>
+    </view>
+    <studio-poster bind:__l="__l" class="data-v-a87f5706 vue-ref" data-ref="studioPoster" vueId="16b57204-4"></studio-poster>
+</page-container>

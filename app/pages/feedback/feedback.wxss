@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.feedback-title {
+  font-size: 36rpx;
+  color: #333;
+  margin-bottom: 40rpx;
+  align-self: flex-start;
+}
+
+.textarea-wrap {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.feedback-textarea {
+  width: 100%;
+  height: 400rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333;
+}
+
+.char-counter {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 60rpx;
+  background-color: #52c4b3; /* A teal color similar to the screenshot */
+  color: #fff;
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  border: none;
+}
+
+.submit-btn:active {
+  background-color: #45a696;
+}

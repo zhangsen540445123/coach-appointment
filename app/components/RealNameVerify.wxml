@@ -1,0 +1,36 @@
+<view class="_div data-v-e9d5bab4">
+    <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-e9d5bab4 vue-ref" data-ref="registerDialog" type="dialog" vueId="47c6dc69-1" vueSlots="{{['default']}}">
+        <view class="dialog-box data-v-e9d5bab4">
+            <view class="title _p data-v-e9d5bab4">手机号实名认证</view>
+            <view class="tip _p data-v-e9d5bab4">为了保证您的合法权益，请完成实名认证</view>
+            <view class="input-container _div data-v-e9d5bab4">
+                <input adjustPosition="{{true}}" bindinput="__e" class="input--full data-v-e9d5bab4" cursorSpacing="80rpx" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','name','$event',[] ],['needToRealName'] ] ] ] ]}}" maxlength="11" placeholder="请输入与手机号一致的真实姓名" type="text" value="{{needToRealName.name}}"></input>
+            </view>
+            <view class="input-container _div data-v-e9d5bab4">
+                <view bindtap="__e" class="code data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'chooseCountryCode',['$event'] ] ] ] ]}}">{{'+'+$root.g0}}</view>
+                <input adjustPosition="{{true}}" bindinput="__e" class="input--mobile data-v-e9d5bab4" cursorSpacing="80rpx" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','mobile','$event',[] ],['needToRealName'] ] ] ] ]}}" maxlength="20" placeholder="请填写您的手机号" type="tel" value="{{needToRealName.mobile}}"></input>
+                <view bindtap="__e" class="btn _p data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'getMsgCode',['$event'] ] ] ] ]}}" wx:if="{{showSendCode}}">获取验证码</view>
+                <view class="btn disabled data-v-e9d5bab4" wx:else>{{countMin+'s'}}</view>
+            </view>
+            <view class="input-container _div data-v-e9d5bab4">
+                <input adjustPosition="{{true}}" bindinput="__e" class="input--full data-v-e9d5bab4" cursorSpacing="80rpx" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','valiCode','$event',[] ] ] ] ] ]}}" maxlength="11" placeholder="请输入验证码" type="text" value="{{valiCode}}"></input>
+            </view>
+            <view bindtap="__e" class="confirm _p data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'bindRealName',[0] ] ] ] ]}}">确定</view>
+            <view bindtap="__e" class="change _p data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'toOpenIdCardVerificationDialog',['$event'] ] ] ] ]}}">切换至身份证认证</view>
+        </view>
+    </uni-popup>
+    <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-e9d5bab4 vue-ref" data-ref="idCardRegisterDialog" type="dialog" vueId="47c6dc69-2" vueSlots="{{['default']}}">
+        <view class="dialog-box data-v-e9d5bab4">
+            <view class="title _p data-v-e9d5bab4">身份证号实名认证</view>
+            <view class="tip _p data-v-e9d5bab4">为了保证您的合法权益，请完成实名认证</view>
+            <view class="input-container _div data-v-e9d5bab4">
+                <input adjustPosition="{{true}}" bindinput="__e" class="input--full data-v-e9d5bab4" cursorSpacing="80rpx" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','name','$event',[] ],['needToRealName'] ] ] ] ]}}" maxlength="11" placeholder="请输入真实姓名" type="text" value="{{needToRealName.name}}"></input>
+            </view>
+            <view class="input-container _div data-v-e9d5bab4">
+                <input adjustPosition="{{true}}" bindinput="__e" class="input--full data-v-e9d5bab4" cursorSpacing="80rpx" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','idcard','$event',[] ],['needToRealName'] ] ] ] ]}}" maxlength="20" placeholder="请输入身份证号" type="text" value="{{needToRealName.idcard}}"></input>
+            </view>
+            <view bindtap="__e" class="confirm _p data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'bindRealName',[1] ] ] ] ]}}">确定</view>
+            <view bindtap="__e" class="change _p data-v-e9d5bab4" data-event-opts="{{[ [ 'tap',[ [ 'toOpenPhoneVerificationDialog',['$event'] ] ] ] ]}}">切换至手机号实名认证</view>
+        </view>
+    </uni-popup>
+</view>

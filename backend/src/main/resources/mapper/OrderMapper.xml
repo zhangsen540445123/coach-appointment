@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.OrderMapper">
+
+    <resultMap id="orderResultMap" type="com.umxinli.entity.Order">
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="user_id" property="userId"/>
+        <result column="counselor_id" property="counselorId"/>
+        <result column="consult_type" property="consultType"/>
+        <result column="consult_way" property="consultWay"/>
+        <result column="price" property="price"/>
+        <result column="status" property="status"/>
+        <result column="payment_time" property="paymentTime"/>
+        <result column="consult_time" property="consultTime"/>
+    </resultMap>
+
+    <select id="selectById" parameterType="Long" resultMap="orderResultMap">
+        SELECT * FROM consult_order WHERE id = #{id}
+    </select>
+
+    <update id="updateStatus">
+        UPDATE consult_order SET status = #{status} WHERE id = #{id}
+    </update>
+
+</mapper>

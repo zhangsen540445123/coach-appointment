@@ -1,0 +1,11 @@
+<page-container class="data-v-5124678c vue-ref" data-ref="pageContainer">
+  <image class="background-private__img page-bg _img data-v-5124678c" mode="widthFix" src="{{$root.m0}}"></image>
+  <navbar bind:__l="__l" class="data-v-5124678c" isBack="{{true}}" theme="theme-private" vueId="406397ee-1"></navbar>
+  <view class="content _div data-v-5124678c">
+    <view class="title _p data-v-5124678c">支付成功</view>
+    <view class="text _p data-v-5124678c">为了保障您的合法权益</view>
+    <view class="text _p data-v-5124678c">还剩<label class="highlight _span data-v-5124678c" wx:if="{{params}}">{{$root.g0}}</label>填写并提交「来访信息」</view>
+    <view class="text _p data-v-5124678c">逾期未提交，将自动取消并退款</view>
+    <view bindtap="__e" class="button _p data-v-5124678c" data-event-opts="{{[ [ 'tap',[ [ 'gotoBind',['$event'] ] ] ] ]}}">下一步，去填写</view>
+  </view>
+</page-container>

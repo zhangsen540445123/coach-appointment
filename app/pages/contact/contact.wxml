@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="title">如果您需要任何帮助，请联系我们：</view>
+  <image class="qr-code" src="https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20211115/351753974260_.pic_hd.jpg" mode="aspectFit"></image>
+  <view class="subtitle">微信扫描此二维码添加我们的助理微信</view>
+
+  <view class="protocol-link" bindtap="viewProtocol">
+    <text>查看协议</text>
+    <image class="arrow-icon" src="/static/img/arrow-right.png"></image>
+  </view>
+</view>

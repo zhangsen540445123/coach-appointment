@@ -1,0 +1,6 @@
+<view class="{{['_div','data-v-5bee67f0','intro','toggle--'+status.toggle]}}">
+  <text class="text data-v-5bee67f0">{{text}}</text>
+  <view class="mask _div data-v-5bee67f0" wx:if="{{$root.m0}}"></view>
+  <view bindtap="__e" class="toggle _div data-v-5bee67f0" data-event-opts="{{[ [ 'tap',[ [ 'change',['$event'] ] ] ] ]}}" wx:if="{{$root.m1}}">展示详情<view class="cuIcon-unfold _i data-v-5bee67f0"></view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class="content-box data-v-8282f742">
+    <image class="background-private__img _img data-v-8282f742" mode="widthFix" src="{{$root.m0}}"></image>
+    <navbar bind:__l="__l" class="data-v-8282f742" isBack="{{true}}" theme="theme-private" vueId="325ff299-1"></navbar>
+    <order-header bind:__l="__l" class="data-v-8282f742" orderDetail="{{orderDetail}}" vueId="325ff299-2"></order-header>
+    <order-info bind:__l="__l" class="data-v-8282f742 vue-ref" counselor="{{userDetail}}" data-ref="orderInfo" orderDetail="{{orderDetail}}" vueId="325ff299-3"></order-info>
+    <view class="page-footer _div data-v-8282f742">
+        <view bindtap="__e" class="find _p data-v-8282f742" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" wx:if="{{$refs.orderInfo.hasContact}}">找助理</view>
+        <view bindtap="__e" class="renew _p data-v-8282f742" data-event-opts="{{[ [ 'tap',[ [ 'gotoRenew',['$event'] ] ] ] ]}}">立即续约</view>
+    </view>
+</view>

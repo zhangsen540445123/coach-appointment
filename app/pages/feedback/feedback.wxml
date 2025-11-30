@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="feedback-title">请留下您的宝贵意见</view>
+  <view class="textarea-wrap">
+    <textarea 
+      class="feedback-textarea"
+      placeholder="请输入反馈内容"
+      maxlength="500"
+      bindinput="onInput"
+      value="{{content}}"
+    />
+    <view class="char-counter">{{charCount}}/500</view>
+  </view>
+  <button class="submit-btn" type="primary" bindtap="onSubmit">提交</button>
+</view>

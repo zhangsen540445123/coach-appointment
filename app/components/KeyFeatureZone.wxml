@@ -1,0 +1,6 @@
+<view class="key-feature-zone _div data-v-3550b19d">
+    <view bindtap="__e" class="item _div data-v-3550b19d" data-event-opts="{{[ [ 'tap',[ [ 'onClick',['$0'],[ [ ['list','text',item.text] ] ] ] ] ] ]}}" wx:for="{{list}}" wx:for-index="__i0__" wx:key="text">
+        <image class="icon _img data-v-3550b19d" src="{{item.icon}}"></image>
+        <view class="text _p data-v-3550b19d">{{item.text}}</view>
+    </view>
+</view>

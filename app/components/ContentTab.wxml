@@ -1,0 +1,4 @@
+<view class="content-tab _div data-v-e65b0794">
+    <view bindtap="__e" class="{{['_div','data-v-e65b0794','content-tab__item',item.value===value?'active':'']}}" data-event-opts="{{[ [ 'tap',[ [ '$emit',['change','$0'],[ [ ['list','text',item.text,'value'] ] ] ] ] ] ]}}" wx:for="{{list}}" wx:for-index="__i0__" wx:key="text">{{''+item.text+''}}<image alt src class="content-tab__indicator _img data-v-e65b0794" wx:if="{{item.value===value}}"></image>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+.container.data-v-441afb9c {
+  margin-top: -350rpx;
+  position: relative
+}
+
+.canvas.data-v-441afb9c,
+.result.data-v-441afb9c {
+  height: 738rpx;
+  width: 600rpx
+}
+
+.canvas.data-v-441afb9c {
+  pointer-events: none
+}
+
+.result.data-v-441afb9c {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1
+}

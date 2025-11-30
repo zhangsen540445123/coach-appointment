@@ -1,0 +1,49 @@
+{
+  "info": {
+    "title": "Coaching Platform API",
+    "version": "1.0.0",
+    "description": "API endpoints to be implemented in the backend for the coaching platform frontend."
+  },
+  "apis": [
+    {
+      "path": "/vCounselor/getStarList",
+      "method": "POST",
+      "description": "Retrieves a list of featured coaches (stars). Requires filtering/pagination data in the request body."
+    },
+    {
+      "path": "/visitor/user/getBindMpUrl",
+      "method": "GET",
+      "description": "Gets a URL for binding the user's account to an official public account (e.g., WeChat Official Account)."
+    },
+    {
+      "path": "/orderConsult/getCityList",
+      "method": "GET",
+      "description": "Fetches a list of cities where consultation services are available."
+    },
+    {
+      "path": "/orderConsult/filter",
+      "method": "POST",
+      "description": "Filters the list of coaches based on criteria provided in the request body (e.g., city, specialty, availability)."
+    },
+    {
+      "path": "/orderConsult/getCarousel",
+      "method": "GET",
+      "description": "Gets the list of carousel/banner items to be displayed on the main consultation page."
+    },
+    {
+      "path": "/visitor/order/getOrderInfo",
+      "method": "POST",
+      "description": "Retrieves detailed information for a specific order, identified by an order ID in the request body."
+    },
+    {
+      "path": "/visitor/order/getCanRefundHour",
+      "method": "GET",
+      "description": "Gets the time window (in hours) within which an order is eligible for a refund."
+    },
+    {
+      "path": "/visitor/order/cancel",
+      "method": "POST",
+      "description": "Cancels an order, identified by an order ID in the request body."
+    }
+  ]
+}

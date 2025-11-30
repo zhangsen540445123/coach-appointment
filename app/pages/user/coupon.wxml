@@ -1,0 +1,61 @@
+<view class="content-box data-v-6016921d">
+  <view class="list-area data-v-6016921d">
+    <view bindtap="__e" class="{{['item-box','data-v-6016921d',current===index?'item-active':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'itemClick',[index] ] ] ] ]}}" wx:for="{{tabLists}}" wx:key="index">
+      <view class="data-v-6016921d">{{''+item.name+''}}<text class="data-v-6016921d" wx:if="{{index===0}}">{{'('+availableCount+')'}}</text>
+        <text class="data-v-6016921d" wx:else>{{'('+unAvailableCount+')'}}</text>
+      </view>
+    </view>
+  </view>
+  <view bindtap="__e" class="top-top data-v-6016921d" data-event-opts="{{[ [ 'tap',[ [ 'OpenExchangeCode',['$event'] ] ] ] ]}}">
+    <image class="data-v-6016921d" mode="widthFix" src="{{$root.m0}}"></image>
+    <view class="data-v-6016921d">兑换</view>
+  </view>
+  <view class="list-coupon data-v-6016921d">
+    <view class="item-card data-v-6016921d" wx:for="{{couponList}}" wx:key="index">
+      <view class="item-box data-v-6016921d">
+        <view class="money-type data-v-6016921d">¥</view>
+        <view class="time-money data-v-6016921d">
+          <view class="money-text data-v-6016921d">{{item.amount}}</view>
+          <view class="data-v-6016921d">代金券</view>
+        </view>
+      </view>
+      <view class="item-right data-v-6016921d">
+        <view class="top-stype data-v-6016921d">
+          <view class="data-v-6016921d" wx:if="{{item.used===0}}">可使用</view>
+        </view>
+        <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===0}}">适用于网络咨询</view>
+        <block wx:else>
+          <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===1}}">适用于低价咨询</view>
+          <block wx:else>
+            <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===2}}">适用于地面咨询</view>
+            <block wx:else>
+              <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===3}}">适用于青少年父母咨询</view>
+            </block>
+          </block>
+        </block>
+        <view class="time-box data-v-6016921d">{{'有效期'+item.beginTime+'至'+item.endTime+''}}</view>
+      </view>
+    </view>
+  </view>
+  <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-6016921d vue-ref" data-ref="exchangeCode" type="dialog" vueId="82ce79b6-1" vueSlots="{{['default']}}">
+    <view class="dialog-box data-v-6016921d">
+      <view class="dialog-content data-v-6016921d">
+        <view class="dia-top data-v-6016921d">
+          <view class="top-flex data-v-6016921d"></view>
+          <view class="top-mid data-v-6016921d">输入兑换码</view>
+          <view class="top-flex data-v-6016921d">
+            <image bindtap="__e" class="right-img data-v-6016921d" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}" src="{{$root.m1}}"></image>
+          </view>
+        </view>
+        <view class="item-box data-v-6016921d">
+          <text class="item-left data-v-6016921d">兑换码</text>
+          <input bindinput="__e" class="input-duihuan-box data-v-6016921d" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','exchangeCodeNo','$event',[] ] ] ] ] ]}}" maxlength="17" placeholder="请填写兑换码" type="text" value="{{exchangeCodeNo}}"></input>
+        </view>
+        <view class="btm-btn data-v-6016921d">
+          <view bindtap="__e" class="btn-box btn-main-color-1 data-v-6016921d" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}">取消</view>
+          <view bindtap="__e" class="btn-box btn-main-color-2 data-v-6016921d" data-event-opts="{{[ [ 'tap',[ [ 'bindExchangeCode',['$event'] ] ] ] ]}}">确定</view>
+        </view>
+      </view>
+    </view>
+  </uni-popup>
+</view>

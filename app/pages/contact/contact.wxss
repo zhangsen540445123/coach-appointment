@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+  align-self: flex-start;
+}
+
+.qr-code {
+  width: 500rpx;
+  height: 500rpx;
+  margin-bottom: 30rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 100rpx;
+}
+
+.protocol-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.arrow-icon {
+  width: 16rpx;
+  height: 28rpx;
+}
