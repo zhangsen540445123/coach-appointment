@@ -1,4 +1,5 @@
 *.iml
 /.idea/
 *.log
-/nginx-gate/logs/
+/nginx-gate/logs/access.log
+/nginx-gate/logs/error.log
