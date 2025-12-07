@@ -169,8 +169,7 @@ def main():
         print("\n" + "=" * 80)
         print("[OK] Done!")
         print("=" * 80)
-    
-    return stats
+        return stats
     except Exception as e:
         print(f"[FATAL ERROR] An unexpected error occurred in main: {e}")
         import traceback

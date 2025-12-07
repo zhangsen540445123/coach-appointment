@@ -196,21 +196,21 @@
           },
           computed: {
             buttomStatus: function () {
-              return !!((this.formVisitor.mobile || this.formVisitor.idcard) && this.formVisitor.age && null !== this.formVisitor.sex && this.formVisitor.contactName && this.formVisitor.contactRelation && this.formVisitor.contactMobile && null !== this.formVisitor.otherHistory && this.checkStatus)
+              return !!(this.formVisitor.name && this.formVisitor.age && null !== this.formVisitor.sex)
             },
             channelOptions: function () {
               return [{
                 value: 1,
-                text: "公众号"
+                text: "只管去做成长会"
               }, {
                 value: 2,
-                text: "抖音"
+                text: "公众号"
               }, {
                 value: 3,
-                text: "视频号"
+                text: "悦行活动"
               }, {
                 value: 4,
-                text: "小红书"
+                text: "朋友推荐"
               }, {
                 value: 5,
                 text: "其他"
@@ -371,101 +371,58 @@
             saveSubmit: function () {
               var t = this,
                 o = this;
-              if (console.log("----form:" + JSON.stringify(this.formVisitor)), console.log("checkStatus = " + this.checkStatus), !1 !== this.isRealName)
-                if (this.formVisitor.age)
-                  if (0 !== this.formVisitor.verifyType || this.formVisitor.mobile)
-                    if (null !== this.formVisitor.sex)
-                      if (this.formVisitor.contactName)
-                        if (this.formVisitor.contactRelation)
-                          if (this.formVisitor.contactMobile)
-                            if (null !== this.formVisitor.otherHistory)
-                              if (1 !== this.formVisitor.otherHistory || this.formVisitor.otherHistoryDesc)
-                                if (0 !== this.checkStatus) {
-                                  this.formVisitor.otherHistoryUrl = [];
-                                  for (var i = 0; i < this.countImageList.length; i++) this.formVisitor.otherHistoryUrl.push(this.countImageList[i].url);
-                                  1 !== this.formVisitor.otherHistory && (this.formVisitor.otherHistoryUrl = [], this.formVisitor.otherHistoryDesc = null), (0, u.irequestdata)({
-                                    url: "/visitor/visitorInfo/updateAdultsInfo",
-                                    method: "post",
-                                    data: o.formVisitor,
-                                    success: function () {
-                                      var i = (0, s.default)(r.default.mark((function i(n) {
-                                        var s, l, c;
-                                        return r.default.wrap((function (i) {
-                                          for (;;) switch (i.prev = i.next) {
-                                            case 0:
-                                              if (console.log(n), 200 !== n.data.code) {
-                                                i.next = 15;
-                                                break
-                                              }
-                                              if (e.showToast({
-                                                  title: "提交成功"
-                                                }), !o.params.orderId) {
-                                                i.next = 14;
-                                                break
-                                              }
-                                              return i.next = 6, (0, p.getAdults)(t.loginc.getInfo().userId);
-                                            case 6:
-                                              return s = i.sent, l = (0, a.default)(s, 1), c = l[0], i.next = 11, (0, d.bindVisitorToOrder)(o.params.orderId, c.id);
-                                            case 11:
-                                              e.redirectTo({
-                                                url: "/pages/consult/orderDetail?orderId=".concat(o.params.orderId)
-                                              }), i.next = 15;
-                                              break;
-                                            case 14:
-                                              e.navigateBack({
-                                                delta: 1
-                                              });
-                                            case 15:
-                                            case "end":
-                                              return i.stop()
-                                          }
-                                        }), i)
-                                      })));
-                                      return function (e) {
-                                        return i.apply(this, arguments)
-                                      }
-                                    }(),
-                                    error: function () {}
-                                  })
-                                } else e.showToast({
-                                  title: "请勾选相应协议",
-                                  icon: "none"
-                                });
-              else e.showToast({
-                title: "请填写精神科服药史或者就医史",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请选择是否有精神科服药史或者就医史",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请输入紧急联系人联系方式",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请选择紧急联系人关系",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请输入紧急联系人姓名",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请选择性别",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请输入正确的手机号码",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请输入年龄",
-                icon: "none"
-              });
-              else e.showToast({
-                title: "请先进行实名认证",
-                icon: "none"
+              console.log("----form:" + JSON.stringify(this.formVisitor));
+              if (!this.formVisitor.name) {
+                e.showToast({ title: "请输入真实姓名", icon: "none" });
+                return;
+              }
+              if (!this.formVisitor.age) {
+                e.showToast({ title: "请输入年龄", icon: "none" });
+                return;
+              }
+              if (null === this.formVisitor.sex) {
+                e.showToast({ title: "请选择性别", icon: "none" });
+                return;
+              }
+              (0, u.irequestdata)({
+                url: "/visitor/visitorInfo/updateAdultsInfo",
+                method: "post",
+                data: o.formVisitor,
+                success: function () {
+                  var i = (0, s.default)(r.default.mark((function i(n) {
+                    var s, l, c;
+                    return r.default.wrap((function (i) {
+                      for (;;) switch (i.prev = i.next) {
+                        case 0:
+                          if (console.log(n), 200 !== n.data.code) {
+                            i.next = 15;
+                            break
+                          }
+                          if (e.showToast({ title: "保存成功" }), !o.params.orderId) {
+                            i.next = 14;
+                            break
+                          }
+                          return i.next = 6, (0, p.getAdults)(t.loginc.getInfo().userId);
+                        case 6:
+                          return s = i.sent, l = (0, a.default)(s, 1), c = l[0], i.next = 11, (0, d.bindVisitorToOrder)(o.params.orderId, c.id);
+                        case 11:
+                          e.redirectTo({
+                            url: "/pages/consult/orderDetail?orderId=".concat(o.params.orderId)
+                          }), i.next = 15;
+                          break;
+                        case 14:
+                          e.navigateBack({ delta: 1 });
+                        case 15:
+                        case "end":
+                          return i.stop()
+                      }
+                    }), i)
+                  })));
+                  return function (e) {
+                    return i.apply(this, arguments)
+                  }
+                }(),
+                error: function () {}
               })
             },
             deleteVisitor: function () {

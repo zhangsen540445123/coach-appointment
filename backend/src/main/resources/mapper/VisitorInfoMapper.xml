@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.VisitorInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.umxinli.entity.VisitorInfo">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="other_city" property="otherCity"/>
+        <result column="other_career" property="otherCareer"/>
+        <result column="other_marrage" property="otherMarrage"/>
+        <result column="other_children" property="otherChildren"/>
+        <result column="other_income" property="otherIncome"/>
+        <result column="other_um" property="otherUm"/>
+        <result column="consult_other" property="consultOther"/>
+        <result column="realize_channel" property="realizeChannel"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_id, name, age, sex, other_city, other_career, other_marrage,
+        other_children, other_income, other_um, consult_other, realize_channel,
+        created_at, updated_at
+    </sql>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM visitor_info WHERE user_id = #{userId}
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM visitor_info WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM visitor_info
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (name LIKE CONCAT('%', #{keyword}, '%')
+                     OR other_city LIKE CONCAT('%', #{keyword}, '%')
+                     OR other_career LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY created_at DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countAll" resultType="int">
+        SELECT COUNT(*) FROM visitor_info
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (name LIKE CONCAT('%', #{keyword}, '%')
+                     OR other_city LIKE CONCAT('%', #{keyword}, '%')
+                     OR other_career LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO visitor_info (user_id, name, age, sex, other_city, other_career,
+            other_marrage, other_children, other_income, other_um, consult_other, realize_channel)
+        VALUES (#{userId}, #{name}, #{age}, #{sex}, #{otherCity}, #{otherCareer},
+            #{otherMarrage}, #{otherChildren}, #{otherIncome}, #{otherUm}, #{consultOther}, #{realizeChannel})
+    </insert>
+
+    <update id="update">
+        UPDATE visitor_info SET
+            name = #{name},
+            age = #{age},
+            sex = #{sex},
+            other_city = #{otherCity},
+            other_career = #{otherCareer},
+            other_marrage = #{otherMarrage},
+            other_children = #{otherChildren},
+            other_income = #{otherIncome},
+            other_um = #{otherUm},
+            consult_other = #{consultOther},
+            realize_channel = #{realizeChannel}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM visitor_info WHERE id = #{id}
+    </delete>
+</mapper>
+

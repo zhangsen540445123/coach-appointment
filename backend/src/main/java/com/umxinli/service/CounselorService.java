@@ -8,6 +8,8 @@ import java.util.List;
 public interface CounselorService {
     Counselor getCounselorById(Long id);
     
+    List<Counselor> getAllCounselors();
+
     List<Counselor> getFeaturedCounselors();
 
     CounselorFilterResponse filterCounselors(CounselorFilterRequest request);

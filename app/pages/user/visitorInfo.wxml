@@ -1,23 +1,71 @@
 <view class="content data-v-dd3ed10e">
-    <view class="visitor-list _div data-v-dd3ed10e">
-        <view bindtap="__e" class="{{['_div','data-v-dd3ed10e','visitor-item','selected']}}" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" data-item="{{item}}" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="id">
-            <view class="header _div data-v-dd3ed10e">
-                <view class="text _p data-v-dd3ed10e">{{item.name}}</view>
-                <view class="mark _p data-v-dd3ed10e">{{item.type===0?'成人':'儿童'}}</view>
+    <scroll-view class="form-scroll data-v-dd3ed10e" scroll-y="true">
+        <view class="section-title data-v-dd3ed10e">基本信息</view>
+        <view class="form-group data-v-dd3ed10e">
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e"><text class="required data-v-dd3ed10e">*</text>真实姓名</text>
+                <input class="input data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="realName" placeholder="请输入真实姓名" value="{{$root.g0.realName}}"/>
             </view>
-            <view class="footer _p data-v-dd3ed10e">
-                <label class="_span data-v-dd3ed10e">{{item.sex===1?'男':'女'}}</label>
-                <label class="_span data-v-dd3ed10e">{{item.age+'岁'}}</label>
-                <view class="cuIcon-writefill icon _i data-v-dd3ed10e"></view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e"><text class="required data-v-dd3ed10e">*</text>年龄</text>
+                <input class="input data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="age" placeholder="请输入年龄" type="number" value="{{$root.g0.age}}"/>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e"><text class="required data-v-dd3ed10e">*</text>性别</text>
+                <view class="radio-group data-v-dd3ed10e">
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.gender===1?'active':'']}}" data-event-opts="{{[['tap',[['onGenderSelect',['$event']]]]]}}" data-value="1">男</view>
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.gender===2?'active':'']}}" data-event-opts="{{[['tap',[['onGenderSelect',['$event']]]]]}}" data-value="2">女</view>
+                </view>
             </view>
         </view>
-        <view bindtap="__e" class="visitor-item empty _div data-v-dd3ed10e" data-event-opts="{{[ [ 'tap',[ ['toAdultsInfoEdit'] ] ] ]}}" wx:if="{{$root.g0===0}}">
-            <view class="cuIcon-add icon _i data-v-dd3ed10e"></view>
-            <view class="text _p data-v-dd3ed10e">成人账户</view>
+        <view class="section-title data-v-dd3ed10e">其他信息</view>
+        <view class="form-group data-v-dd3ed10e">
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">现居城市</text>
+                <input class="input data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="city" placeholder="请输入现居城市" value="{{$root.g0.city}}"/>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">职业</text>
+                <input class="input data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="occupation" placeholder="请输入职业" value="{{$root.g0.occupation}}"/>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">情感状态</text>
+                <input class="input data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="emotionalStatus" placeholder="如：单身、恋爱中、已婚等" value="{{$root.g0.emotionalStatus}}"/>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">有无子女</text>
+                <view class="radio-group data-v-dd3ed10e">
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.hasChildren===1?'active':'']}}" data-event-opts="{{[['tap',[['onChildrenSelect',['$event']]]]]}}" data-value="1">是</view>
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.hasChildren===0?'active':'']}}" data-event-opts="{{[['tap',[['onChildrenSelect',['$event']]]]]}}" data-value="0">否</view>
+                </view>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">教练目标</text>
+                <textarea class="textarea data-v-dd3ed10e" bindinput="__e" data-event-opts="{{[['input',[['onInput',['$event']]]]]}}" data-field="coachingGoal" placeholder="请描述您的教练目标" value="{{$root.g0.coachingGoal}}"></textarea>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">是否是只管去做成长会会员</text>
+                <view class="radio-group data-v-dd3ed10e">
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.isGrowthMember===1?'active':'']}}" data-event-opts="{{[['tap',[['onMemberSelect',['$event']]]]]}}" data-value="1">是</view>
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.isGrowthMember===0?'active':'']}}" data-event-opts="{{[['tap',[['onMemberSelect',['$event']]]]]}}" data-value="0">否</view>
+                </view>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">是否有过教练对话</text>
+                <view class="radio-group data-v-dd3ed10e">
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.hasCoachingExp===1?'active':'']}}" data-event-opts="{{[['tap',[['onExpSelect',['$event']]]]]}}" data-value="1">是</view>
+                    <view bindtap="__e" class="{{['radio-item','data-v-dd3ed10e',$root.g0.hasCoachingExp===0?'active':'']}}" data-event-opts="{{[['tap',[['onExpSelect',['$event']]]]]}}" data-value="0">否</view>
+                </view>
+            </view>
+            <view class="form-item data-v-dd3ed10e">
+                <text class="label data-v-dd3ed10e">从什么渠道了解我们</text>
+                <picker bindchange="__e" class="picker data-v-dd3ed10e" data-event-opts="{{[['change',[['onSourceChange',['$event']]]]]}}" range="{{$root.g1}}" value="{{$root.g2}}">
+                    <view class="picker-text data-v-dd3ed10e">{{$root.g0.sourceChannel||'请选择'}}</view>
+                </picker>
+            </view>
         </view>
-        <view bindtap="__e" class="visitor-item empty _div data-v-dd3ed10e" data-event-opts="{{[ [ 'tap',[ ['toChildrenInfoEdit'] ] ] ]}}" wx:if="{{$root.g1===0}}">
-            <view class="cuIcon-add icon _i data-v-dd3ed10e"></view>
-            <view class="text _p data-v-dd3ed10e">未成人账户</view>
-        </view>
+    </scroll-view>
+    <view class="btn-area data-v-dd3ed10e">
+        <button bindtap="__e" class="save-btn data-v-dd3ed10e" data-event-opts="{{[['tap',[['saveForm',['$event']]]]]}}">保存</button>
     </view>
 </view>

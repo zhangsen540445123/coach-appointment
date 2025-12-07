@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.CouponMapper">
+
+    <!-- 分页查询优惠券列表 -->
+    <select id="selectCouponList" resultType="java.util.Map">
+        SELECT
+            id, name, type, discount_amount as discountAmount, min_amount as minAmount,
+            coach_scope as coachScope, coach_ids as coachIds,
+            start_time as startTime, end_time as endTime, status,
+            created_at as createdAt, updated_at as updatedAt
+        FROM coupon
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="type != null">
+                AND type = #{type}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <!-- 统计优惠券数量 -->
+    <select id="countCouponList" resultType="int">
+        SELECT COUNT(*) FROM coupon
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="type != null">
+                AND type = #{type}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+</mapper>
+

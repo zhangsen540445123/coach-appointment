@@ -5,17 +5,21 @@ import com.umxinli.dto.CounselorFilterResponse;
 import com.umxinli.entity.Counselor;
 import com.umxinli.mapper.CounselorMapper;
 import com.umxinli.service.CounselorService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@Slf4j
 @Service
 public class CounselorServiceImpl implements CounselorService {
+
+    private static final Logger log = LoggerFactory.getLogger(CounselorServiceImpl.class);
     
     @Autowired
     private CounselorMapper counselorMapper;
@@ -61,6 +65,8 @@ public class CounselorServiceImpl implements CounselorService {
         Integer total = counselorMapper.countByFilter(request.getName(), request.getFilter());
         int pages = (total + pager.getSize() - 1) / pager.getSize();
         
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         List<CounselorFilterResponse.CounselorInfo> list = new ArrayList<>();
         for (Counselor c : counselors) {
             CounselorFilterResponse.CounselorInfo info = new CounselorFilterResponse.CounselorInfo();
@@ -70,7 +76,27 @@ public class CounselorServiceImpl implements CounselorService {
             info.setHeadUrlSquare(c.getHeadUrlSquare());
             info.setQualifications(c.getQualifications());
             info.setCityName(c.getCityName());
-            info.setDirections(c.getDirections());
+
+            // 将复杂的 directions 对象转换为简单字符串数组（提取 name 属性）
+            Object directions = c.getDirections();
+            if (directions instanceof List) {
+                List<?> dirList = (List<?>) directions;
+                List<String> simpleDirections = new ArrayList<>();
+                for (Object item : dirList) {
+                    if (item instanceof Map) {
+                        Object name = ((Map<?, ?>) item).get("name");
+                        if (name != null) {
+                            simpleDirections.add(name.toString());
+                        }
+                    } else if (item instanceof String) {
+                        simpleDirections.add((String) item);
+                    }
+                }
+                info.setDirections(simpleDirections);
+            } else {
+                info.setDirections(directions);
+            }
+
             info.setIntroduction(c.getIntroduction());
             info.setConsultPrice(c.getConsultPrice());
             info.setServiceType(c.getServiceType());
@@ -79,19 +105,25 @@ public class CounselorServiceImpl implements CounselorService {
             info.setSupportOnlineConsult(c.getSupportOnlineConsult());
             info.setSupportOfflineConsult(c.getSupportOfflineConsult());
             info.setCanConsult(c.getCanConsult());
-            
+
+            // 格式化日期为 yyyy-MM-dd 格式
             CounselorFilterResponse.ExperienceInfo exp = new CounselorFilterResponse.ExperienceInfo();
-            exp.setDate(c.getExperienceDate() != null ? c.getExperienceDate().toString() : "");
+            String dateStr = "";
+            if (c.getExperienceDate() != null) {
+                dateStr = dateFormat.format(c.getExperienceDate());
+            }
+            exp.setDate(dateStr);
             exp.setTime(c.getExperienceTime());
             info.setExperience(exp);
-            
+
             list.add(info);
         }
         
         CounselorFilterResponse response = new CounselorFilterResponse();
         response.setList(list);
+        response.setTotal(total);
         response.setPages(pages);
-        
+
         return response;
     }
 

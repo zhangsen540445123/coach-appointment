@@ -4,7 +4,7 @@
     </navbar>
     <view class="btm-list data-v-39478c0c">
         <scroll-view class="scroll-box data-v-39478c0c" scrollY="{{true}}" showScrollbar="{{false}}">
-            <consultant-item bind:__l="__l" class="list-item data-v-39478c0c" item="{{item}}" vueId="{{'846b12f8-2-'+__i0__}}" wx:for="{{counselorList}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+            <consultant-item bind:__l="__l" class="list-item data-v-39478c0c" item="{{item}}" vueId="{{'846b12f8-2-'+__i0__}}" wx:for="{{$root.g0}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
         </scroll-view>
     </view>
 </view>

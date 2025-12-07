@@ -1,7 +1,9 @@
 package com.umxinli.controller;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -12,23 +14,29 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Slf4j
 @RestController
 @RequestMapping("/file")
 @CrossOrigin
 public class FileController {
 
-    @Value("${file.upload-dir:src/main/resources/static/images}")
+    private static final Logger log = LoggerFactory.getLogger(FileController.class);
+
+    @Value("${file.upload-dir:/upload/images}")
     private String uploadDir;
+
+    // 静态资源目录（打包在jar中的图片）
+    private static final String STATIC_IMAGES_PATH = "static/images/";
 
     /**
      * 获取图片文件
+     * 优先从上传目录查找，如果不存在则从静态资源目录查找
      */
     @GetMapping("/image/{filename}")
     public ResponseEntity<Resource> getImage(@PathVariable String filename) {
@@ -40,21 +48,39 @@ public class FileController {
                 return ResponseEntity.badRequest().build();
             }
 
-            Path filePath = Paths.get(uploadDir, filename);
-            File file = filePath.toFile();
+            // 首先尝试从上传目录查找
+            Path uploadFilePath = Paths.get(uploadDir, filename);
+            File uploadFile = uploadFilePath.toFile();
 
-            if (!file.exists()) {
-                log.warn("File not found: {}", filename);
-                return ResponseEntity.notFound().build();
+            if (uploadFile.exists()) {
+                log.info("Found image in upload directory: {}", filename);
+                Resource resource = new FileSystemResource(uploadFile);
+                String contentType = getContentType(filename);
+
+                return ResponseEntity.ok()
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + filename + "\"")
+                        .contentType(MediaType.parseMediaType(contentType))
+                        .body(resource);
             }
 
-            Resource resource = new FileSystemResource(file);
-            String contentType = getContentType(filename);
+            // 如果上传目录没有，尝试从静态资源目录查找
+            try {
+                ClassPathResource staticResource = new ClassPathResource(STATIC_IMAGES_PATH + filename);
+                if (staticResource.exists()) {
+                    log.info("Found image in static resources: {}", filename);
+                    String contentType = getContentType(filename);
 
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + filename + "\"")
-                    .contentType(MediaType.parseMediaType(contentType))
-                    .body(resource);
+                    return ResponseEntity.ok()
+                            .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + filename + "\"")
+                            .contentType(MediaType.parseMediaType(contentType))
+                            .body(staticResource);
+                }
+            } catch (Exception e) {
+                log.debug("Image not found in static resources: {}", filename);
+            }
+
+            log.warn("File not found: {}", filename);
+            return ResponseEntity.notFound().build();
 
         } catch (Exception e) {
             log.error("Error getting image: {}", filename, e);

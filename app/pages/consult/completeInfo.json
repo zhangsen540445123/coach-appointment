@@ -1,1 +1,14 @@
-{"navigationBarTitleText":"完善信息","enablePullDownRefresh":false,"navigationStyle":"custom","usingComponents":{"uni-data-checkbox":"/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox","picker-address":"/components/pickerAddress/pickerAddress","uni-file-picker":"/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker","navbar":"/components/Navbar","real-name-verify":"/components/RealNameVerify","visitor-header":"/components/visitor/VisitorHeader","cu-custom":"/colorui/components/cu-custom"}}
+{
+  "navigationBarTitleText": "完善信息",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-data-checkbox": "/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox",
+    "picker-address": "/components/pickerAddress/pickerAddress",
+    "uni-file-picker": "/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker",
+    "navbar": "/components/Navbar",
+    "real-name-verify": "/components/RealNameVerify",
+    "visitor-header": "/components/visitor/VisitorHeader",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}

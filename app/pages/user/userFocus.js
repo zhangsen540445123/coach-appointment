@@ -48,11 +48,19 @@
                   }
                 },
                 totalPages: 0,
-                counselorList: []
+                counselorList: [],
+                globalData: null
               }
             },
             onShow: function () {
-              this.getStarList()
+              var n = this,
+                a = e("90c1");
+              setTimeout(function () {
+                n.globalData = (0, a.storeGet)("counselor_info");
+                if (n.globalData && n.globalData.userId) {
+                  n.getStarList()
+                }
+              }, 500)
             },
             methods: {
               getStarList: function () {
@@ -60,12 +68,12 @@
                 (0, o.irequestdata)({
                   url: "/vCounselor/getStarList",
                   method: "post",
-                  data: this.formData,
+                  data: { userId: n.globalData.userId },
                   success: function (t) {
-                    200 === t.data.code && (n.counselorList = t.data.data.list)
+                    200 === t.data.code && (n.counselorList = t.data.data.list || [])
                   },
                   error: function () {
-                    console.log("新增失败")
+                    console.log("获取收藏列表失败")
                   }
                 })
               },
@@ -126,8 +134,14 @@
         return a
       })), e.d(t, "a", (function () {}));
       var o = function () {
-          this.$createElement;
-          this._self._c
+          var n = this;
+          n.$createElement;
+          n._self._c;
+          n.$mp.data = Object.assign({}, {
+            $root: {
+              g0: n.counselorList
+            }
+          })
         },
         a = []
     },

@@ -101,22 +101,26 @@ CREATE TABLE IF NOT EXISTS `global_settings` (
   INDEX idx_key_name (key_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='全局设置表';
 
--- 访客信息表
+-- 客户信息表
 CREATE TABLE IF NOT EXISTS `visitor_info` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '访客信息ID',
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '客户信息ID',
   `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `real_name` VARCHAR(100) COMMENT '真实姓名',
-  `id_card` VARCHAR(50) COMMENT '身份证号',
+  `name` VARCHAR(100) COMMENT '真实姓名',
   `age` INT COMMENT '年龄',
-  `gender` INT COMMENT '性别',
-  `phone` VARCHAR(20) COMMENT '电话',
-  `email` VARCHAR(100) COMMENT '邮箱',
-  `address` VARCHAR(500) COMMENT '地址',
+  `sex` INT COMMENT '性别 0-女 1-男',
+  `other_city` VARCHAR(100) COMMENT '现居城市',
+  `other_career` VARCHAR(100) COMMENT '职业',
+  `other_marrage` VARCHAR(50) COMMENT '情感状态',
+  `other_children` VARCHAR(50) COMMENT '有无子女',
+  `other_income` TEXT COMMENT '教练目标',
+  `other_um` INT DEFAULT 0 COMMENT '是否是只管去做成长会会员 0否 1是',
+  `consult_other` INT DEFAULT 0 COMMENT '是否有过教练对话 0否 1是',
+  `realize_channel` INT COMMENT '来源渠道 1-只管去做成长会 2-公众号 3-悦行活动 4-朋友推荐 5-其他',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_user_id (user_id),
   UNIQUE KEY uk_user_id (user_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='访客信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='客户信息表';
 
 -- 优惠券表
 CREATE TABLE IF NOT EXISTS `coupon` (
@@ -179,6 +183,31 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   INDEX idx_user_id (user_id),
   INDEX idx_order_id (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='反馈表';
+
+-- 管理员用户表
+CREATE TABLE IF NOT EXISTS `admin_user` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '管理员ID',
+  `username` VARCHAR(50) UNIQUE NOT NULL COMMENT '用户名',
+  `password` VARCHAR(255) NOT NULL COMMENT '密码',
+  `real_name` VARCHAR(100) COMMENT '真实姓名',
+  `phone` VARCHAR(20) COMMENT '手机号',
+  `email` VARCHAR(100) COMMENT '邮箱',
+  `avatar` VARCHAR(500) COMMENT '头像URL',
+  `role` INT DEFAULT 1 COMMENT '角色 1-超级管理员 2-教练',
+  `counselor_id` BIGINT COMMENT '关联教练ID',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-正常',
+  `last_login_time` TIMESTAMP COMMENT '最后登录时间',
+  `last_login_ip` VARCHAR(50) COMMENT '最后登录IP',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_username (username),
+  INDEX idx_role (role),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='管理员用户表';
+
+-- 初始化默认管理员账号 (密码: adminadmin, MD5加密)
+INSERT INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`) VALUES
+('admin', 'f6fdffe48c908deb0f4c3bd36c032e72', '系统管理员', 1, 1);
 
 -- 初始化城市数据
 INSERT INTO `city` (`name`, `province`, `value`) VALUES

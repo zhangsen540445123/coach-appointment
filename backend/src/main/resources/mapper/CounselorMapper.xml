@@ -8,19 +8,29 @@
         <result column="gender" property="gender"/>
         <result column="head_url" property="headUrl"/>
         <result column="head_url_square" property="headUrlSquare"/>
-        <result column="qualifications" property="qualifications" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
-        <result column="directions" property="directions" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
+        <result column="video_url" property="videoUrl"/>
+        <result column="image_urls" property="imageUrls" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result column="qualifications" property="qualifications" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result column="directions" property="directions" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
         <result column="introduction" property="introduction"/>
         <result column="consult_price" property="consultPrice"/>
         <result column="service_type" property="serviceType"/>
         <result column="star_num" property="starNum"/>
-        <result column="consult_type" property="consultType" typeHandler="com.alibaba.fastjson.support.spring.FastJsonRedisSerializer"/>
+        <result column="consult_type" property="consultType" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
         <result column="support_online_consult" property="supportOnlineConsult"/>
         <result column="support_offline_consult" property="supportOfflineConsult"/>
         <result column="can_consult" property="canConsult"/>
         <result column="experience_date" property="experienceDate"/>
         <result column="experience_time" property="experienceTime"/>
         <result column="city_name" property="cityName"/>
+        <result column="training" property="training" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result column="special" property="special"/>
+        <result column="school" property="school" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result column="address" property="address"/>
+        <result column="face_msg" property="faceMsg"/>
+        <result column="consult_msg" property="consultMsg"/>
+        <result column="consult" property="consult" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result column="article_list" property="articleList"/>
         <result column="created_at" property="createdAt"/>
         <result column="updated_at" property="updatedAt"/>
     </resultMap>
@@ -70,6 +80,9 @@
                     </foreach>
                     )
                 </if>
+                <if test="filter.direction != null and filter.direction != ''">
+                    AND JSON_SEARCH(directions, 'one', #{filter.direction}, NULL, '$[*].name') IS NOT NULL
+                </if>
             </if>
         </where>
     </sql>
@@ -79,22 +92,29 @@
         <include refid="filterConditions"/>
         <if test="filter != null and filter.sort != null">
             <choose>
-                <when test="filter.sort == 1">
-                    ORDER BY star_num DESC
+                <when test="filter.sort == 0">
+                    <!-- 推荐排序：按星级和创建时间 -->
+                    ORDER BY star_num DESC, created_at DESC
                 </when>
-                <when test="filter.sort == 2">
+                <when test="filter.sort == 1">
+                    <!-- 低价优先 -->
                     ORDER BY consult_price ASC
                 </when>
-                <when test="filter.sort == 3">
+                <when test="filter.sort == 2">
+                    <!-- 高价优先 -->
                     ORDER BY consult_price DESC
                 </when>
+                <when test="filter.sort == 3">
+                    <!-- 近期可预约优先：按最近可预约时间排序 -->
+                    ORDER BY experience_date ASC, created_at DESC
+                </when>
                 <otherwise>
-                    ORDER BY created_at DESC
+                    ORDER BY star_num DESC, created_at DESC
                 </otherwise>
             </choose>
         </if>
         <if test="filter == null or filter.sort == null">
-            ORDER BY created_at DESC
+            ORDER BY star_num DESC, created_at DESC
         </if>
         LIMIT #{limit} OFFSET #{offset}
     </select>
@@ -113,36 +133,58 @@
 
     <insert id="insert" parameterType="com.umxinli.entity.Counselor">
         INSERT INTO counselor (
-            id, name, head_url, head_url_square, qualifications, directions,
-            introduction, consult_price, service_type, star_num, consult_type,
-            support_online_consult, support_offline_consult, can_consult,
-            experience_date, experience_time, city_name, created_at, updated_at
+            id, name, gender, head_url, head_url_square, video_url, image_urls,
+            qualifications, directions, introduction, consult_price, service_type,
+            star_num, consult_type, support_online_consult, support_offline_consult,
+            can_consult, experience_date, experience_time, city_name, training,
+            special, school, address, face_msg, consult_msg, consult, article_list,
+            created_at, updated_at
         ) VALUES (
-            #{id}, #{name}, #{headUrl}, #{headUrlSquare}, #{qualifications}, #{directions},
-            #{introduction}, #{consultPrice}, #{serviceType}, #{starNum}, #{consultType},
+            #{id}, #{name}, #{gender}, #{headUrl}, #{headUrlSquare}, #{videoUrl},
+            #{imageUrls, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            #{qualifications, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            #{directions, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            #{introduction}, #{consultPrice}, #{serviceType}, #{starNum},
+            #{consultType, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
             #{supportOnlineConsult}, #{supportOfflineConsult}, #{canConsult},
-            #{experienceDate}, #{experienceTime}, #{cityName}, NOW(), NOW()
+            #{experienceDate}, #{experienceTime}, #{cityName},
+            #{training, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            #{special}, #{school, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            #{address}, #{faceMsg}, #{consultMsg},
+            #{consult, typeHandler=com.umxinli.handler.FastJsonTypeHandler}, #{articleList},
+            NOW(), NOW()
         )
     </insert>
 
     <update id="update" parameterType="com.umxinli.entity.Counselor">
         UPDATE counselor SET
             name = #{name},
+            gender = #{gender},
             head_url = #{headUrl},
             head_url_square = #{headUrlSquare},
-            qualifications = #{qualifications},
-            directions = #{directions},
+            video_url = #{videoUrl},
+            image_urls = #{imageUrls, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            qualifications = #{qualifications, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            directions = #{directions, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
             introduction = #{introduction},
             consult_price = #{consultPrice},
             service_type = #{serviceType},
             star_num = #{starNum},
-            consult_type = #{consultType},
+            consult_type = #{consultType, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
             support_online_consult = #{supportOnlineConsult},
             support_offline_consult = #{supportOfflineConsult},
             can_consult = #{canConsult},
             experience_date = #{experienceDate},
             experience_time = #{experienceTime},
             city_name = #{cityName},
+            training = #{training, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            special = #{special},
+            school = #{school, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            address = #{address},
+            face_msg = #{faceMsg},
+            consult_msg = #{consultMsg},
+            consult = #{consult, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            article_list = #{articleList},
             updated_at = NOW()
         WHERE id = #{id}
     </update>

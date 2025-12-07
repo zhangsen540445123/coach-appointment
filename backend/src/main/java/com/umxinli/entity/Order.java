@@ -1,15 +1,8 @@
 package com.umxinli.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Order extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
@@ -23,4 +16,99 @@ public class Order extends BaseEntity {
     private Integer status;
     private Date paymentTime;
     private Date consultTime;
+
+    public Order() {}
+
+    public Order(Long id, String orderNo, Long userId, Long counselorId, Integer consultType, Integer consultWay, BigDecimal price, Integer status, Date paymentTime, Date consultTime) {
+        this.id = id;
+        this.orderNo = orderNo;
+        this.userId = userId;
+        this.counselorId = counselorId;
+        this.consultType = consultType;
+        this.consultWay = consultWay;
+        this.price = price;
+        this.status = status;
+        this.paymentTime = paymentTime;
+        this.consultTime = consultTime;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getCounselorId() {
+        return counselorId;
+    }
+
+    public void setCounselorId(Long counselorId) {
+        this.counselorId = counselorId;
+    }
+
+    public Integer getConsultType() {
+        return consultType;
+    }
+
+    public void setConsultType(Integer consultType) {
+        this.consultType = consultType;
+    }
+
+    public Integer getConsultWay() {
+        return consultWay;
+    }
+
+    public void setConsultWay(Integer consultWay) {
+        this.consultWay = consultWay;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getPaymentTime() {
+        return paymentTime;
+    }
+
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
+    public Date getConsultTime() {
+        return consultTime;
+    }
+
+    public void setConsultTime(Date consultTime) {
+        this.consultTime = consultTime;
+    }
 }

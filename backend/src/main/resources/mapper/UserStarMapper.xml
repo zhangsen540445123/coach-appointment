@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.UserStarMapper">
+    
+    <insert id="insert">
+        INSERT IGNORE INTO user_star (user_id, counselor_id) VALUES (#{userId}, #{counselorId})
+    </insert>
+    
+    <delete id="delete">
+        DELETE FROM user_star WHERE user_id = #{userId} AND counselor_id = #{counselorId}
+    </delete>
+    
+    <select id="exists" resultType="int">
+        SELECT COUNT(*) FROM user_star WHERE user_id = #{userId} AND counselor_id = #{counselorId}
+    </select>
+    
+    <select id="selectByUserId" resultType="java.util.Map">
+        SELECT
+            us.counselor_id as counselorId,
+            c.name as name,
+            c.head_url as headUrl,
+            c.head_url_square as headUrlSquare,
+            c.qualifications as qualifications,
+            c.introduction as introduction,
+            c.consult_type as consultType,
+            c.consult_price as consultPrice,
+            c.service_type as serviceType,
+            c.directions as directions,
+            c.consult as consult,
+            c.experience_date as experienceDate,
+            c.experience_time as experienceTime,
+            c.city_name as cityName
+        FROM user_star us
+        LEFT JOIN counselor c ON us.counselor_id = c.id
+        WHERE us.user_id = #{userId}
+        ORDER BY us.created_at DESC
+    </select>
+
+    <!-- 获取教练收藏统计列表 -->
+    <select id="selectCounselorStarStats" resultType="java.util.Map">
+        SELECT
+            c.id as counselorId,
+            c.name as counselorName,
+            c.head_url as headUrl,
+            c.city_name as cityName,
+            COUNT(us.id) as starCount,
+            MAX(us.created_at) as lastStarTime
+        FROM counselor c
+        LEFT JOIN user_star us ON c.id = us.counselor_id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND c.name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        GROUP BY c.id, c.name, c.head_url, c.city_name
+        ORDER BY starCount DESC, c.id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <!-- 获取教练收藏统计总数 -->
+    <select id="countCounselorStarStats" resultType="int">
+        SELECT COUNT(DISTINCT c.id)
+        FROM counselor c
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND c.name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+    </select>
+
+    <!-- 获取某教练的收藏用户列表 -->
+    <select id="selectStarUsersByCounselorId" resultType="java.util.Map">
+        SELECT
+            us.user_id as userId,
+            COALESCE(u.phone, CONCAT('用户', us.user_id)) as userName,
+            u.phone as phone,
+            u.avatar as avatar,
+            us.created_at as starTime
+        FROM user_star us
+        LEFT JOIN user u ON us.user_id = u.id
+        WHERE us.counselor_id = #{counselorId}
+        ORDER BY us.created_at DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <!-- 获取某教练的收藏用户总数 -->
+    <select id="countStarUsersByCounselorId" resultType="int">
+        SELECT COUNT(*)
+        FROM user_star
+        WHERE counselor_id = #{counselorId}
+    </select>
+</mapper>
+

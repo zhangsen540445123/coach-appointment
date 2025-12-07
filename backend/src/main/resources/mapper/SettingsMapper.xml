@@ -13,4 +13,17 @@
         SELECT * FROM global_settings WHERE key_name = #{keyName}
     </select>
 
+    <select id="selectAll" resultMap="settingsResultMap">
+        SELECT * FROM global_settings
+    </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.GlobalSettings">
+        INSERT INTO global_settings (key_name, value, description)
+        VALUES (#{keyName}, #{value}, #{description})
+    </insert>
+
+    <update id="updateByKey">
+        UPDATE global_settings SET value = #{value} WHERE key_name = #{keyName}
+    </update>
+
 </mapper>

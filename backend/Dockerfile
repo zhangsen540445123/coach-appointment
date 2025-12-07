@@ -1,14 +1,35 @@
-FROM openjdk:8-jdk-alpine
+# Single-stage build for Spring Boot application with JDK 21
+# Assumes JAR file is already built locally in target directory
 
-LABEL maintainer="umxinli"
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
 
-ENV APP_HOME=/app \
-    JAVA_OPTS="-Xms512m -Xmx1024m"
+# Install curl for health checks
+RUN apk add --no-cache curl
 
-WORKDIR $APP_HOME
+# Create non-root user for security
+RUN addgroup -g 1001 -S coachapp && \
+    adduser -u 1001 -S coachapp -G coachapp
 
-COPY target/umxinli-backend-1.0.0.jar app.jar
+# Create upload directory and set proper ownership
+RUN mkdir /upload && \
+    chown coachapp:coachapp /upload && \
+    chmod 755 /upload
 
+# Copy the pre-built jar from local target directory
+COPY target/*.jar app.jar
+
+# Change ownership to non-root user
+RUN chown coachapp:coachapp app.jar
+
+# Switch to non-root user
+USER coachapp
+
+# Expose port
 EXPOSE 8080
 
+# Set JVM options for production
+ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseContainerSupport"
+
+# Run the application
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

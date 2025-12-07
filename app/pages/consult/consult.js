@@ -124,7 +124,8 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                   troubleList: [],
                   address: null,
                   sort: null,
-                  consultWay: 0
+                  consultWay: 0,
+                  direction: null
                 },
                 totalPages: 0,
                 orderNo: null,
@@ -174,30 +175,30 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
             },
             methods: {
               confirm: function (e) {
-                var t = e.value[1][0],
-                  n = e.value[0][0][0] || e.value[0][1][0] || "全部---全部",
-                  o = e.value[3][2],
-                  a = function (e, n) {
-                    return t.includes(n) || t.includes(0) ? {
-                      label: e,
-                      value: n
-                    } : null
-                  },
-                  r = [a("情绪困扰", 1), a("婚姻恋爱", 2), a("人际关系", 3), a("家庭困扰", 4), a("个人成长", 5), a("学业职场", 6), a("亲子教育", 7), a("身心健康", 8), a("性心理", 9)].filter((function (e) {
-                    return !!e
-                  })),
-                  i = {
-                    province: n.split("---")[0],
-                    city: n.split("---")[1],
-                    area: "全部"
-                  };
-                Object.values(i).every((function (e) {
-                  return "全部" === e
-                })) && (i = {
-                  province: null,
-                  city: null,
-                  area: null
-                }), this.seachData.consultTypeList = o, this.seachData.serviceType = [], this.seachData.sexList = e.value[3][1], this.seachData.priceList = e.value[2][0], this.seachData.consultTimeList = e.value[3][3], this.seachData.sort = e.value[4][0][0], this.seachData.troubleList = r, this.seachData.address = i, e.value[3][0].includes(0) || 2 === e.value[3][0].length ? this.seachData.consultWay = 0 : this.seachData.consultWay = e.value[3][0][0], this.formData.filter = this.seachData, this.formData.name = null, this.formData.shortcut = null, this.resetIndex(), this.counselorUserList()
+                // 新的筛选结构：[话题方向, 排序]
+                // e.value[0][0][0] = 话题方向值 (null 或 "身心健康" 等)
+                // e.value[1][0][0] = 排序值 (0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先)
+                var direction = e.value[0] && e.value[0][0] ? e.value[0][0][0] : null,
+                    sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
+
+                // 设置筛选条件
+                this.seachData.direction = direction;
+                this.seachData.sort = sortValue;
+                // 清空其他不再使用的筛选条件
+                this.seachData.consultTypeList = [];
+                this.seachData.serviceType = [];
+                this.seachData.sexList = [];
+                this.seachData.priceList = null;
+                this.seachData.consultTimeList = [];
+                this.seachData.troubleList = [];
+                this.seachData.address = null;
+                this.seachData.consultWay = null;
+
+                this.formData.filter = this.seachData;
+                this.formData.name = null;
+                this.formData.shortcut = null;
+                this.resetIndex();
+                this.counselorUserList();
               },
               searchCounselorByName: function () {
                 this.formData.shortcut = null, this.formData.filter = null, this.resetIndex(), this.counselorUserList()

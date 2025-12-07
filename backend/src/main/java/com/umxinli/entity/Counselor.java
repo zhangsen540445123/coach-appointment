@@ -12,8 +12,10 @@ public class Counselor extends BaseEntity {
     private Integer gender;
     private String headUrl;
     private String headUrlSquare;
+    private String videoUrl;
+    private List<String> imageUrls;
     private List<String> qualifications;
-    private List<String> directions;
+    private Object directions; // JSON结构，可以是复杂对象
     private String introduction;
     private BigDecimal consultPrice;
     private Integer serviceType;
@@ -25,171 +27,99 @@ public class Counselor extends BaseEntity {
     private Date experienceDate;
     private String experienceTime;
     private String cityName;
+    private Object training; // JSON数组
+    private String special;
+    private List<String> school;
+    private String address;
+    private String faceMsg;
+    private String consultMsg;
+    private Object consult; // JSON数组
+    private String articleList;
 
     public Counselor() {}
 
-    public Counselor(Long id, String name, Integer gender, String headUrl, String headUrlSquare, List<String> qualifications, List<String> directions, String introduction, BigDecimal consultPrice, Integer serviceType, Integer starNum, List<Integer> consultType, Integer supportOnlineConsult, Integer supportOfflineConsult, Integer canConsult, Date experienceDate, String experienceTime, String cityName) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.headUrl = headUrl;
-        this.headUrlSquare = headUrlSquare;
-        this.qualifications = qualifications;
-        this.directions = directions;
-        this.introduction = introduction;
-        this.consultPrice = consultPrice;
-        this.serviceType = serviceType;
-        this.starNum = starNum;
-        this.consultType = consultType;
-        this.supportOnlineConsult = supportOnlineConsult;
-        this.supportOfflineConsult = supportOfflineConsult;
-        this.canConsult = canConsult;
-        this.experienceDate = experienceDate;
-        this.experienceTime = experienceTime;
-        this.cityName = cityName;
-    }
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Integer getGender() { return gender; }
+    public void setGender(Integer gender) { this.gender = gender; }
 
-    public String getName() {
-        return name;
-    }
+    public String getHeadUrl() { return headUrl; }
+    public void setHeadUrl(String headUrl) { this.headUrl = headUrl; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getHeadUrlSquare() { return headUrlSquare; }
+    public void setHeadUrlSquare(String headUrlSquare) { this.headUrlSquare = headUrlSquare; }
 
-    public Integer getGender() {
-        return gender;
-    }
+    public String getVideoUrl() { return videoUrl; }
+    public void setVideoUrl(String videoUrl) { this.videoUrl = videoUrl; }
 
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
+    public List<String> getImageUrls() { return imageUrls; }
+    public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
 
-    public String getHeadUrl() {
-        return headUrl;
-    }
+    public List<String> getQualifications() { return qualifications; }
+    public void setQualifications(List<String> qualifications) { this.qualifications = qualifications; }
 
-    public void setHeadUrl(String headUrl) {
-        this.headUrl = headUrl;
-    }
+    public Object getDirections() { return directions; }
+    public void setDirections(Object directions) { this.directions = directions; }
 
-    public String getHeadUrlSquare() {
-        return headUrlSquare;
-    }
+    public String getIntroduction() { return introduction; }
+    public void setIntroduction(String introduction) { this.introduction = introduction; }
 
-    public void setHeadUrlSquare(String headUrlSquare) {
-        this.headUrlSquare = headUrlSquare;
-    }
+    public BigDecimal getConsultPrice() { return consultPrice; }
+    public void setConsultPrice(BigDecimal consultPrice) { this.consultPrice = consultPrice; }
 
-    public List<String> getQualifications() {
-        return qualifications;
-    }
+    public Integer getServiceType() { return serviceType; }
+    public void setServiceType(Integer serviceType) { this.serviceType = serviceType; }
 
-    public void setQualifications(List<String> qualifications) {
-        this.qualifications = qualifications;
-    }
+    public Integer getStarNum() { return starNum; }
+    public void setStarNum(Integer starNum) { this.starNum = starNum; }
 
-    public List<String> getDirections() {
-        return directions;
-    }
+    public List<Integer> getConsultType() { return consultType; }
+    public void setConsultType(List<Integer> consultType) { this.consultType = consultType; }
 
-    public void setDirections(List<String> directions) {
-        this.directions = directions;
-    }
+    public Integer getSupportOnlineConsult() { return supportOnlineConsult; }
+    public void setSupportOnlineConsult(Integer supportOnlineConsult) { this.supportOnlineConsult = supportOnlineConsult; }
 
-    public String getIntroduction() {
-        return introduction;
-    }
+    public Integer getSupportOfflineConsult() { return supportOfflineConsult; }
+    public void setSupportOfflineConsult(Integer supportOfflineConsult) { this.supportOfflineConsult = supportOfflineConsult; }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
+    public Integer getCanConsult() { return canConsult; }
+    public void setCanConsult(Integer canConsult) { this.canConsult = canConsult; }
 
-    public BigDecimal getConsultPrice() {
-        return consultPrice;
-    }
+    public Date getExperienceDate() { return experienceDate; }
+    public void setExperienceDate(Date experienceDate) { this.experienceDate = experienceDate; }
 
-    public void setConsultPrice(BigDecimal consultPrice) {
-        this.consultPrice = consultPrice;
-    }
+    public String getExperienceTime() { return experienceTime; }
+    public void setExperienceTime(String experienceTime) { this.experienceTime = experienceTime; }
 
-    public Integer getServiceType() {
-        return serviceType;
-    }
+    public String getCityName() { return cityName; }
+    public void setCityName(String cityName) { this.cityName = cityName; }
 
-    public void setServiceType(Integer serviceType) {
-        this.serviceType = serviceType;
-    }
+    public Object getTraining() { return training; }
+    public void setTraining(Object training) { this.training = training; }
 
-    public Integer getStarNum() {
-        return starNum;
-    }
+    public String getSpecial() { return special; }
+    public void setSpecial(String special) { this.special = special; }
 
-    public void setStarNum(Integer starNum) {
-        this.starNum = starNum;
-    }
+    public List<String> getSchool() { return school; }
+    public void setSchool(List<String> school) { this.school = school; }
 
-    public List<Integer> getConsultType() {
-        return consultType;
-    }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
-    public void setConsultType(List<Integer> consultType) {
-        this.consultType = consultType;
-    }
+    public String getFaceMsg() { return faceMsg; }
+    public void setFaceMsg(String faceMsg) { this.faceMsg = faceMsg; }
 
-    public Integer getSupportOnlineConsult() {
-        return supportOnlineConsult;
-    }
+    public String getConsultMsg() { return consultMsg; }
+    public void setConsultMsg(String consultMsg) { this.consultMsg = consultMsg; }
 
-    public void setSupportOnlineConsult(Integer supportOnlineConsult) {
-        this.supportOnlineConsult = supportOnlineConsult;
-    }
+    public Object getConsult() { return consult; }
+    public void setConsult(Object consult) { this.consult = consult; }
 
-    public Integer getSupportOfflineConsult() {
-        return supportOfflineConsult;
-    }
-
-    public void setSupportOfflineConsult(Integer supportOfflineConsult) {
-        this.supportOfflineConsult = supportOfflineConsult;
-    }
-
-    public Integer getCanConsult() {
-        return canConsult;
-    }
-
-    public void setCanConsult(Integer canConsult) {
-        this.canConsult = canConsult;
-    }
-
-    public Date getExperienceDate() {
-        return experienceDate;
-    }
-
-    public void setExperienceDate(Date experienceDate) {
-        this.experienceDate = experienceDate;
-    }
-
-    public String getExperienceTime() {
-        return experienceTime;
-    }
-
-    public void setExperienceTime(String experienceTime) {
-        this.experienceTime = experienceTime;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
+    public String getArticleList() { return articleList; }
+    public void setArticleList(String articleList) { this.articleList = articleList; }
 }

@@ -1,46 +1,55 @@
 package com.umxinli.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class ApiResponse<T> {
     private Integer code;
     private String msg;
     private T data;
 
+    public ApiResponse() {}
+
+    public ApiResponse(Integer code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     public static <T> ApiResponse<T> success(T data) {
-        return ApiResponse.<T>builder()
-                .code(200)
-                .msg("success")
-                .data(data)
-                .build();
+        return new ApiResponse<>(200, "success", data);
     }
 
     public static <T> ApiResponse<T> success(String msg, T data) {
-        return ApiResponse.<T>builder()
-                .code(200)
-                .msg(msg)
-                .data(data)
-                .build();
+        return new ApiResponse<>(200, msg, data);
     }
 
     public static <T> ApiResponse<T> error(Integer code, String msg) {
-        return ApiResponse.<T>builder()
-                .code(code)
-                .msg(msg)
-                .build();
+        return new ApiResponse<>(code, msg, null);
     }
 
     public static <T> ApiResponse<T> error(String msg) {
-        return ApiResponse.<T>builder()
-                .code(500)
-                .msg(msg)
-                .build();
+        return new ApiResponse<>(500, msg, null);
     }
 }

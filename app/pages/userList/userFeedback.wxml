@@ -1,2 +1,18 @@
-<!--pages/userList/userFeedback.wxml-->
-<text>pages/userList/userFeedback.wxml</text>
+<view class="feedback-page">
+    <view class="header">
+        <text class="title">意见反馈</text>
+        <text class="subtitle">您的反馈对我们非常重要</text>
+    </view>
+
+    <view class="form-area">
+        <view class="form-item">
+            <text class="label">反馈内容</text>
+            <textarea class="textarea" bindinput="onInput" placeholder="请详细描述您的问题或建议..." value="{{content}}" maxlength="500"></textarea>
+            <text class="count">{{content.length}}/500</text>
+        </view>
+    </view>
+
+    <view class="btn-area">
+        <button class="submit-btn" bindtap="submitFeedback">提交反馈</button>
+    </view>
+</view>

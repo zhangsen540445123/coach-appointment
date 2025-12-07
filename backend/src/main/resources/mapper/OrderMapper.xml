@@ -1,26 +1,57 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.umxinli.mapper.OrderMapper">
-
-    <resultMap id="orderResultMap" type="com.umxinli.entity.Order">
+    <resultMap id="BaseResultMap" type="com.umxinli.entity.Order">
         <id column="id" property="id"/>
         <result column="order_no" property="orderNo"/>
         <result column="user_id" property="userId"/>
         <result column="counselor_id" property="counselorId"/>
-        <result column="consult_type" property="consultType"/>
-        <result column="consult_way" property="consultWay"/>
         <result column="price" property="price"/>
         <result column="status" property="status"/>
+        <result column="consult_type" property="consultType"/>
         <result column="payment_time" property="paymentTime"/>
         <result column="consult_time" property="consultTime"/>
+        <result column="created_at" property="createdAt"/>
     </resultMap>
 
-    <select id="selectById" parameterType="Long" resultMap="orderResultMap">
+    <select id="selectById" resultMap="BaseResultMap">
         SELECT * FROM consult_order WHERE id = #{id}
     </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.Order" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO consult_order (order_no, user_id, counselor_id, consult_type, consult_way, price, status, consult_time, created_at)
+        VALUES (#{orderNo}, #{userId}, #{counselorId}, #{consultType}, #{consultWay}, #{price}, #{status}, #{consultTime}, NOW())
+    </insert>
 
     <update id="updateStatus">
         UPDATE consult_order SET status = #{status} WHERE id = #{id}
     </update>
 
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT * FROM consult_order
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countList" resultType="int">
+        SELECT COUNT(*) FROM consult_order
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateConsultTime">
+        UPDATE consult_order SET consult_time = #{consultTime} WHERE id = #{orderId}
+    </update>
+
+    <update id="updateVisitorId">
+        UPDATE consult_order SET visitor_id = #{visitorId} WHERE id = #{orderId}
+    </update>
 </mapper>

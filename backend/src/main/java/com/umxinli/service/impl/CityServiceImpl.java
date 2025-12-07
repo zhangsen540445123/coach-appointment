@@ -3,16 +3,18 @@ package com.umxinli.service.impl;
 import com.umxinli.entity.City;
 import com.umxinli.mapper.CityMapper;
 import com.umxinli.service.CityService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
-@Slf4j
 @Service
 public class CityServiceImpl implements CityService {
+
+    private static final Logger log = LoggerFactory.getLogger(CityServiceImpl.class);
     
     @Autowired
     private CityMapper cityMapper;

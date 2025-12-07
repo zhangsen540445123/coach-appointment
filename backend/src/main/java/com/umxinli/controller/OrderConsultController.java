@@ -6,18 +6,20 @@ import com.umxinli.dto.CounselorFilterResponse;
 import com.umxinli.service.CarouselService;
 import com.umxinli.service.CityService;
 import com.umxinli.service.CounselorService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Slf4j
 @RestController
 @RequestMapping("/orderConsult")
 @CrossOrigin
 public class OrderConsultController {
+
+    private static final Logger log = LoggerFactory.getLogger(OrderConsultController.class);
     
     @Autowired
     private CounselorService counselorService;
