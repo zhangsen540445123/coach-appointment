@@ -38,3 +38,7 @@ INSERT IGNORE INTO `carousel` (`id`, `title`, `image_url`, `link_url`, `sort_ord
 (2, '新用户优惠', '/images/carousel2.jpg', '', 2, 1),
 (3, '专业咨询服务', '/images/carousel3.jpg', '', 3, 1);
 
+-- 初始化默认管理员账号 (密码: adminadmin, MD5加密)
+INSERT INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`) VALUES
+('admin', 'f6fdffe48c908deb0f4c3bd36c032e72', '系统管理员', 1, 1);
+

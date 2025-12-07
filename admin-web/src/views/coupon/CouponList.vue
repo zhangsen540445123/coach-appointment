@@ -66,7 +66,7 @@
               @change="toggleStatus(row)" />
           </template>
         </el-table-column>
-        <el-table-column label="操作" fixed="right" width="280">
+        <el-table-column label="操作" fixed="right" width="320">
           <template #default="{ row }">
             <el-button type="primary" link @click="editCoupon(row)">编辑</el-button>
             <el-button type="success" link @click="showPushDialog(row)">推送</el-button>
@@ -152,9 +152,11 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import request from '@/api/request'
 
+const router = useRouter()
 const loading = ref(false)
 const saving = ref(false)
 const pushing = ref(false)
@@ -201,8 +203,8 @@ const loadData = async () => {
 
 const loadCoaches = async () => {
   try {
-    const res = await request.get('/admin/counselor/list', { params: { page: 1, size: 1000 } })
-    if (res.code === 200) coachList.value = res.data.list || []
+    const res = await request.get('/admin/coupon/coaches')
+    if (res.code === 200) coachList.value = res.data || []
   } catch (e) { console.error(e) }
 }
 
@@ -288,11 +290,11 @@ const pushCoupon = async () => {
 }
 
 const showCodeDialog = (row) => {
-  window.open(`#/coupon/code/${row.id}`, '_blank')
+  router.push(`/coupon/code/${row.id}`)
 }
 
 const viewDistribution = (row) => {
-  window.open(`#/coupon/distribution/${row.id}`, '_blank')
+  router.push(`/coupon/distribution/${row.id}`)
 }
 
 const formatDate = (dateStr) => {

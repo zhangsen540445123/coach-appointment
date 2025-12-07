@@ -1,11 +1,14 @@
 package com.umxinli.admin.controller;
 
 import com.umxinli.dto.ApiResponse;
+import com.umxinli.dto.ApiResponse;
 import com.umxinli.entity.Coupon;
 import com.umxinli.entity.CouponCode;
+import com.umxinli.entity.Counselor;
 import com.umxinli.entity.UserCoupon;
 import com.umxinli.mapper.CouponCodeMapper;
 import com.umxinli.mapper.CouponMapper;
+import com.umxinli.mapper.CounselorMapper;
 import com.umxinli.mapper.UserCouponMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +27,20 @@ public class AdminCouponController {
     private UserCouponMapper userCouponMapper;
     @Autowired
     private CouponCodeMapper couponCodeMapper;
+    @Autowired
+    private CounselorMapper counselorMapper;
 
     // ==================== 优惠券模板管理 ====================
+
+    @GetMapping("/coaches")
+    public ApiResponse<?> getCoachList() {
+        try {
+            List<Counselor> coaches = counselorMapper.selectAll();
+            return ApiResponse.success(coaches);
+        } catch (Exception e) {
+            return ApiResponse.error(500, "获取教练列表失败: " + e.getMessage());
+        }
+    }
 
     @GetMapping("/list")
     public ApiResponse<?> getCouponList(
