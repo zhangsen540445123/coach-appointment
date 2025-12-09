@@ -5,6 +5,13 @@
     <view class="btm-list data-v-39478c0c">
         <scroll-view class="scroll-box data-v-39478c0c" scrollY="{{true}}" showScrollbar="{{false}}">
             <consultant-item bind:__l="__l" class="list-item data-v-39478c0c" item="{{item}}" vueId="{{'846b12f8-2-'+__i0__}}" wx:for="{{$root.g0}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+
+            <!-- 空状态显示 -->
+            <view class="empty-state data-v-39478c0c" wx:if="{{$root.g0.length === 0}}">
+                <view class="empty-icon data-v-39478c0c">📋</view>
+                <view class="empty-text data-v-39478c0c">暂无收藏的教练</view>
+                <view class="empty-tip data-v-39478c0c">快去收藏您喜欢的教练吧~</view>
+            </view>
         </scroll-view>
     </view>
 </view>

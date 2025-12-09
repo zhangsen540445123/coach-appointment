@@ -1,1 +1,29 @@
 .content.data-v-39478c0c{background:#fff;height:100vh}.content .btm-list.data-v-39478c0c{padding-top:64rpx}
+
+/* 空状态样式 */
+.empty-state.data-v-39478c0c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 60rpx;
+  text-align: center;
+}
+
+.empty-icon.data-v-39478c0c {
+  font-size: 120rpx;
+  margin-bottom: 40rpx;
+  opacity: 0.5;
+}
+
+.empty-text.data-v-39478c0c {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+}
+
+.empty-tip.data-v-39478c0c {
+  font-size: 28rpx;
+  color: #999;
+}

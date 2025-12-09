@@ -1,6 +1,14 @@
 <view class="container">
   <view class="title">如果您需要任何帮助，请联系我们：</view>
-  <image class="qr-code" src="{{qrCodeUrl}}" mode="aspectFit" wx:if="{{qrCodeUrl}}"></image>
-  <view class="subtitle">微信扫描此二维码添加客服微信</view>
-  <view class="tip">长按图片可保存到相册</view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 二维码显示 -->
+  <image class="qr-code" src="{{qrCodeUrl}}" mode="aspectFit" wx:if="{{!loading && qrCodeUrl}}" show-menu-by-longpress></image>
+
+  <view class="subtitle" wx:if="{{!loading}}">微信扫描此二维码添加客服微信</view>
+  <view class="tip" wx:if="{{!loading}}">长按图片可保存到相册</view>
 </view>

@@ -65,15 +65,62 @@
             methods: {
               getStarList: function () {
                 var n = this;
+                console.log("=== 开始获取收藏列表 ===");
+                console.log("userId:", n.globalData.userId);
                 (0, o.irequestdata)({
                   url: "/vCounselor/getStarList",
                   method: "post",
                   data: { userId: n.globalData.userId },
                   success: function (t) {
-                    200 === t.data.code && (n.counselorList = t.data.data.list || [])
+                    console.log("=== 收藏列表响应 ===", t);
+                    if (200 === t.data.code) {
+                      var list = t.data.data.list || [];
+                      console.log("原始列表数据:", list);
+
+                      // 处理每个教练数据，将 JSON 字符串字段解析为对象
+                      var processedList = list.map(function(item) {
+                        try {
+                          // 解析 JSON 字符串字段
+                          var directions = item.directions ? JSON.parse(item.directions) : [];
+                          var qualifications = item.qualifications ? JSON.parse(item.qualifications) : [];
+                          var consult = item.consult ? JSON.parse(item.consult) : [];
+
+                          // 提取擅长领域名称
+                          var directionNames = directions.map(function(d) { return d.name; });
+
+                          // 构建 experience 对象
+                          var experience = {
+                            date: item.experienceDate || null,
+                            time: item.experienceTime || null
+                          };
+
+                          return {
+                            counselorId: item.counselorId,
+                            name: item.name,
+                            headUrl: item.headUrl,
+                            headUrlSquare: item.headUrlSquare,
+                            cityName: item.cityName,
+                            introduction: item.introduction,
+                            consultPrice: item.consultPrice,
+                            canConsult: item.canConsult,
+                            avatarLabel: item.avatarLabel,
+                            qualifications: qualifications,
+                            directions: directionNames,
+                            consult: consult,
+                            experience: experience
+                          };
+                        } catch (e) {
+                          console.error("解析教练数据失败:", e, item);
+                          return item;
+                        }
+                      });
+
+                      console.log("处理后的列表数据:", processedList);
+                      n.counselorList = processedList;
+                    }
                   },
-                  error: function () {
-                    console.log("获取收藏列表失败")
+                  error: function (err) {
+                    console.error("=== 获取收藏列表失败 ===", err);
                   }
                 })
               },
