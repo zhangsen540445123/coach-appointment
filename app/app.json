@@ -127,6 +127,8 @@
     "pages/user/infoNotice",
     "pages/user/userFocus",
     "pages/user/followFWH",
-    "pages/appointment/pendingPayment"
+    "pages/appointment/pendingPayment",
+    "pages/feedback/feedback",
+    "pages/contact/contact"
   ]
 }
