@@ -1,1 +1,129 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["pages/user/coupon"],{"30b4":function(a,n,o){o.d(n,"b",(function(){return t})),o.d(n,"c",(function(){return u})),o.d(n,"a",(function(){return e}));var e={uniPopup:function(){return o.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(o.bind(null,"61d1"))}},t=function(){this.$createElement;var a=(this._self._c,o("5dad")),n=o("d344");this.$mp.data=Object.assign({},{$root:{m0:a,m1:n}})},u=[]},"372b":function(a,n,o){o.r(n);var e=o("7458"),t=o.n(e);for(var u in e)["default"].indexOf(u)<0&&function(a){o.d(n,a,(function(){return e[a]}))}(u);n.default=t.a},5573:function(a,n,o){(function(a,n){var e=o("47a9");o("6686"),e(o("3240"));var t=e(o("b42d"));a.__webpack_require_UNI_MP_PLUGIN__=o,n(t.default)}).call(this,o("3223").default,o("df3c").createPage)},7458:function(a,n,o){(function(a){Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var e=o("9359"),t=o("90c1"),u={data:function(){return{list:20,pages:{page:1,pageSize:10},tabLists:[{name:"可使用优惠券",id:0},{name:"不可使用优惠券",id:1}],current:0,availableCoupons:[],availableCount:0,unAvailableCoupons:[],unAvailableCount:0,globalData:null,exchangeCode:!1,exchangeCodeNo:null,formData:{visitoruserId:null}}},computed:{couponList:function(){return 0===this.current?this.availableCoupons:this.unAvailableCoupons}},onPullDownRefresh:function(){},onReachBottom:function(){},onLoad:function(){var a=this,n=this;setTimeout((function(){n.globalData=(0,t.storeGet)("counselor_info"),!1!=!!n.globalData.userId&&(n.formData.visitoruserId=n.globalData.userId,a.myCouponList())}),500)},methods:{itemClick:function(a){this.current=a,this.myCouponList()},dialogClose:function(){this.$refs.exchangeCode.close()},OpenExchangeCode:function(){this.$refs.exchangeCode.open("center")},bindExchangeCode:function(){var n=this,o=this;if(!o.exchangeCodeNo)return a.showToast({title:'请输入兑换码',icon:'none'});(0,e.irequestdata)({url:"/visitor/coupon/exchange",method:"post",data:{code:o.exchangeCodeNo,userId:o.globalData.userId},success:function(e){if(200===e.data.code){n.$refs.exchangeCode.close(),a.showToast({title:'兑换成功',icon:'success'}),o.exchangeCodeNo='',o.myCouponList()}else n.$refs.exchangeCode.close(),a.showToast({title:e.data.msg||'兑换失败',icon:"none",duration:2e3})},error:function(){a.showToast({title:'兑换失败',icon:'none'})}})},myCouponList:function(){var n=this,o=this.current===0?1:0;(0,e.irequestdata)({url:"/visitor/coupon/list",method:"get",data:{userId:n.globalData.userId,valid:o},success:function(a){200===a.data.code?(0===n.current?(n.availableCoupons=a.data.data||[],n.availableCount=n.availableCoupons.length):(n.unAvailableCoupons=a.data.data||[],n.unAvailableCount=n.unAvailableCoupons.length)):(n.availableCoupons=[],n.availableCount=0,n.unAvailableCoupons=[],n.unAvailableCount=0)},error:function(){console.log("获取优惠券失败")}})}}};n.default=u}).call(this,o("df3c").default)},"89de":function(a,n,o){var e=o("e2ab");o.n(e).a},b42d:function(a,n,o){o.r(n);var e=o("30b4"),t=o("372b");for(var u in t)["default"].indexOf(u)<0&&function(a){o.d(n,a,(function(){return t[a]}))}(u);o("89de");var i=o("828b"),l=Object(i.a)(t.default,e.b,e.c,!1,null,"6016921d",null,!1,e.a,void 0);n.default=l.exports},e2ab:function(a,n,o){}},[["5573","common/runtime","common/vendor"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["pages/user/coupon"], {
+    "30b4": function (a, n, o) {
+        o.d(n, "b", (function () {
+            return t
+        })), o.d(n, "c", (function () {
+            return u
+        })), o.d(n, "a", (function () {
+            return e
+        }));
+        var e = {
+            uniPopup: function () {
+                return o.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(o.bind(null, "61d1"))
+            }
+        }, t = function () {
+            this.$createElement;
+            var a = (this._self._c, o("5dad")), n = o("d344");
+            this.$mp.data = Object.assign({}, {$root: {m0: a, m1: n}})
+        }, u = []
+    }, "372b": function (a, n, o) {
+        o.r(n);
+        var e = o("7458"), t = o.n(e);
+        for (var u in e) ["default"].indexOf(u) < 0 && function (a) {
+            o.d(n, a, (function () {
+                return e[a]
+            }))
+        }(u);
+        n.default = t.a
+    }, 5573: function (a, n, o) {
+        (function (a, n) {
+            var e = o("47a9");
+            o("6686"), e(o("3240"));
+            var t = e(o("b42d"));
+            a.__webpack_require_UNI_MP_PLUGIN__ = o, n(t.default)
+        }).call(this, o("3223").default, o("df3c").createPage)
+    }, 7458: function (a, n, o) {
+        (function (a) {
+            Object.defineProperty(n, "__esModule", {value: !0}), n.default = void 0;
+            var e = o("9359"), t = o("90c1"), u = {
+                data: function () {
+                    return {
+                        list: 20,
+                        pages: {page: 1, pageSize: 10},
+                        tabLists: [{name: "可使用优惠券", id: 0}, {name: "不可使用优惠券", id: 1}],
+                        current: 0,
+                        availableCoupons: [],
+                        availableCount: 0,
+                        unAvailableCoupons: [],
+                        unAvailableCount: 0,
+                        globalData: null,
+                        exchangeCode: !1,
+                        exchangeCodeNo: null,
+                        formData: {visitoruserId: null}
+                    }
+                }, computed: {
+                    couponList: function () {
+                        return 0 === this.current ? this.availableCoupons : this.unAvailableCoupons
+                    }
+                }, onPullDownRefresh: function () {
+                }, onReachBottom: function () {
+                }, onLoad: function () {
+                    var a = this, n = this;
+                    setTimeout((function () {
+                        n.globalData = (0, t.storeGet)("counselor_info"), !1 != !!n.globalData.userId && (n.formData.visitoruserId = n.globalData.userId, a.myCouponList())
+                    }), 500)
+                }, methods: {
+                    itemClick: function (a) {
+                        this.current = a, this.myCouponList()
+                    }, dialogClose: function () {
+                        this.$refs.exchangeCode.close()
+                    }, OpenExchangeCode: function () {
+                        this.$refs.exchangeCode.open("center")
+                    }, bindExchangeCode: function () {
+                        var n = this, o = this;
+                        if (!o.exchangeCodeNo) return a.showToast({title: '请输入兑换码', icon: 'none'});
+                        (0, e.irequestdata)({
+                            url: "/visitor/coupon/exchange",
+                            method: "post",
+                            data: {code: o.exchangeCodeNo, userId: o.globalData.userId},
+                            success: function (e) {
+                                if (200 === e.data.code) {
+                                    n.$refs.exchangeCode.close(), a.showToast({
+                                        title: '兑换成功',
+                                        icon: 'success'
+                                    }), o.exchangeCodeNo = '', o.myCouponList()
+                                } else n.$refs.exchangeCode.close(), a.showToast({
+                                    title: e.data.msg || '兑换失败',
+                                    icon: "none",
+                                    duration: 2e3
+                                })
+                            },
+                            error: function () {
+                                a.showToast({title: '兑换失败', icon: 'none'})
+                            }
+                        })
+                    }, myCouponList: function () {
+                        var n = this, o = this.current === 0 ? 1 : 0;
+                        (0, e.irequestdata)({
+                            url: "/visitor/coupon/list",
+                            method: "get",
+                            data: {userId: n.globalData.userId, valid: o},
+                            success: function (a) {
+                                200 === a.data.code ? (0 === n.current ? (n.availableCoupons = a.data.data || [], n.availableCount = n.availableCoupons.length) : (n.unAvailableCoupons = a.data.data || [], n.unAvailableCount = n.unAvailableCoupons.length)) : (n.availableCoupons = [], n.availableCount = 0, n.unAvailableCoupons = [], n.unAvailableCount = 0)
+                            },
+                            error: function () {
+                                console.log("获取优惠券失败")
+                            }
+                        })
+                    }
+                }
+            };
+            n.default = u
+        }).call(this, o("df3c").default)
+    }, "89de": function (a, n, o) {
+        var e = o("e2ab");
+        o.n(e).a
+    }, b42d: function (a, n, o) {
+        o.r(n);
+        var e = o("30b4"), t = o("372b");
+        for (var u in t) ["default"].indexOf(u) < 0 && function (a) {
+            o.d(n, a, (function () {
+                return t[a]
+            }))
+        }(u);
+        o("89de");
+        var i = o("828b"), l = Object(i.a)(t.default, e.b, e.c, !1, null, "6016921d", null, !1, e.a, void 0);
+        n.default = l.exports
+    }, e2ab: function (a, n, o) {
+    }
+}, [["5573", "common/runtime", "common/vendor"]]]);

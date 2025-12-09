@@ -1,1 +1,150 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["components/RealNameVerify"],{"2ab8":function(e,o,n){n.r(o);var t=n("f69d"),i=n.n(t);for(var a in t)["default"].indexOf(a)<0&&function(e){n.d(o,e,(function(){return t[e]}))}(a);o.default=i.a},"3ce1":function(e,o,n){},"6ef7":function(e,o,n){n.r(o);var t=n("f42c"),i=n("2ab8");for(var a in i)["default"].indexOf(a)<0&&function(e){n.d(o,e,(function(){return i[e]}))}(a);n("8a76");var s=n("828b"),l=Object(s.a)(i.default,t.b,t.c,!1,null,"e9d5bab4",null,!1,t.a,void 0);o.default=l.exports},"8a76":function(e,o,n){var t=n("3ce1");n.n(t).a},f42c:function(e,o,n){n.d(o,"b",(function(){return i})),n.d(o,"c",(function(){return a})),n.d(o,"a",(function(){return t}));var t={uniPopup:function(){return n.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(n.bind(null,"61d1"))}},i=function(){this.$createElement;var e=(this._self._c,this.mobileArea.getValue());this.$mp.data=Object.assign({},{$root:{g0:e}})},a=[]},f69d:function(e,o,n){(function(e){var t=n("47a9");Object.defineProperty(o,"__esModule",{value:!0}),o.default=void 0;var i=n("9359"),a=t(n("0ab2")),s=n("1e0d"),l={setup:function(){return{mobileArea:(0,a.default)(),loginc:(0,s.useLogin)()}},data:function(){return{valiCode:null,showSendCode:!0,countMin:"",timer:null,needToRealName:{idcard:null,mobile:null,name:null}}},methods:{open:function(e){this.needToRealName=Object.assign(this.needToRealName,e),this.needToRealName.mobile||(this.needToRealName.mobile=this.loginc.getInfo().mobile),this.$refs.registerDialog.open("bottom")},toOpenIdCardVerificationDialog:function(){this.resetNeedToRealName(),this.$refs.registerDialog.close(),this.$refs.idCardRegisterDialog.open("bottom")},toOpenPhoneVerificationDialog:function(){this.resetNeedToRealName(),this.$refs.idCardRegisterDialog.close(),this.$refs.registerDialog.open("bottom")},chooseCountryCode:function(){e.navigateTo({url:"/pages/countryCode/countryCode"})},resetNeedToRealName:function(){this.needToRealName={idcard:null,mobile:null,name:null},this.mobileArea.resetValue()},clearTimer:function(){null!==this.timer&&clearInterval(this.timer)},getMsgCode:function(){var o=this;this.timer||(this.countMin=60,this.showSendCode=!1,this.timer=setInterval((function(){o.countMin>0&&o.countMin<=60?o.countMin--:(o.showSendCode=!0,clearInterval(o.timer),o.timer=null)}),1e3));var n={mobile:this.needToRealName.mobile,mobileArea:this.mobileArea.getValue()};(0,i.irequestdata)({url:"/visitor/user/sendMsgCode",method:"post",data:n,success:function(o){console.log(o),200===o.data.code&&"success"===o.data.msg?e.showToast({title:"验证码已发送，注意查收",icon:"none"}):e.showToast({title:o.msg,icon:"none"})},error:function(){}})},bindRealName:function(o){var n=this,t={};if(this.needToRealName.name){if(0===o){if(!this.needToRealName.mobile)return void e.showToast({title:"请输入手机号码",icon:"none"});if(!this.needToRealName.mobile)return void e.showToast({title:"请输入验证码",icon:"none"});t={name:this.needToRealName.name,mobile:this.needToRealName.mobile,mobileArea:this.mobileArea.getValue(),code:this.valiCode,verifyType:o}}else{if(!/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(this.needToRealName.idcard))return void e.showToast({title:"请输入符合规定的身份证号",icon:"none"});t={name:this.needToRealName.name,idcard:this.needToRealName.idcard,verifyType:o}}(0,i.irequestdata)({url:"/visitor/visitorInfo/sendRealName",method:"post",data:t,success:function(t){console.log(t),200===t.data.code&&!0===t.data.data?(e.showToast({title:"实名认证成功",icon:"none"}),n.$emit("success",{isRealName:!0,verifyType:o,needToRealName:n.needToRealName}),n.$refs.registerDialog.close(),n.$refs.idCardRegisterDialog.close()):e.showToast({title:t.msg,icon:"none"})},error:function(e){console.log(e)}})}else e.showToast({title:"请输入姓名",icon:"none"})}},beforeDestroy:function(){this.clearTimer()}};o.default=l}).call(this,n("df3c").default)}}]),(global.webpackJsonp=global.webpackJsonp||[]).push(["components/RealNameVerify-create-component",{"components/RealNameVerify-create-component":function(e,o,n){n("df3c").createComponent(n("6ef7"))}},[["components/RealNameVerify-create-component"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["components/RealNameVerify"], {
+    "2ab8": function (e, o, n) {
+        n.r(o);
+        var t = n("f69d"), i = n.n(t);
+        for (var a in t) ["default"].indexOf(a) < 0 && function (e) {
+            n.d(o, e, (function () {
+                return t[e]
+            }))
+        }(a);
+        o.default = i.a
+    }, "3ce1": function (e, o, n) {
+    }, "6ef7": function (e, o, n) {
+        n.r(o);
+        var t = n("f42c"), i = n("2ab8");
+        for (var a in i) ["default"].indexOf(a) < 0 && function (e) {
+            n.d(o, e, (function () {
+                return i[e]
+            }))
+        }(a);
+        n("8a76");
+        var s = n("828b"), l = Object(s.a)(i.default, t.b, t.c, !1, null, "e9d5bab4", null, !1, t.a, void 0);
+        o.default = l.exports
+    }, "8a76": function (e, o, n) {
+        var t = n("3ce1");
+        n.n(t).a
+    }, f42c: function (e, o, n) {
+        n.d(o, "b", (function () {
+            return i
+        })), n.d(o, "c", (function () {
+            return a
+        })), n.d(o, "a", (function () {
+            return t
+        }));
+        var t = {
+            uniPopup: function () {
+                return n.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(n.bind(null, "61d1"))
+            }
+        }, i = function () {
+            this.$createElement;
+            var e = (this._self._c, this.mobileArea.getValue());
+            this.$mp.data = Object.assign({}, {$root: {g0: e}})
+        }, a = []
+    }, f69d: function (e, o, n) {
+        (function (e) {
+            var t = n("47a9");
+            Object.defineProperty(o, "__esModule", {value: !0}), o.default = void 0;
+            var i = n("9359"), a = t(n("0ab2")), s = n("1e0d"), l = {
+                setup: function () {
+                    return {mobileArea: (0, a.default)(), loginc: (0, s.useLogin)()}
+                }, data: function () {
+                    return {
+                        valiCode: null,
+                        showSendCode: !0,
+                        countMin: "",
+                        timer: null,
+                        needToRealName: {idcard: null, mobile: null, name: null}
+                    }
+                }, methods: {
+                    open: function (e) {
+                        this.needToRealName = Object.assign(this.needToRealName, e), this.needToRealName.mobile || (this.needToRealName.mobile = this.loginc.getInfo().mobile), this.$refs.registerDialog.open("bottom")
+                    }, toOpenIdCardVerificationDialog: function () {
+                        this.resetNeedToRealName(), this.$refs.registerDialog.close(), this.$refs.idCardRegisterDialog.open("bottom")
+                    }, toOpenPhoneVerificationDialog: function () {
+                        this.resetNeedToRealName(), this.$refs.idCardRegisterDialog.close(), this.$refs.registerDialog.open("bottom")
+                    }, chooseCountryCode: function () {
+                        e.navigateTo({url: "/pages/countryCode/countryCode"})
+                    }, resetNeedToRealName: function () {
+                        this.needToRealName = {idcard: null, mobile: null, name: null}, this.mobileArea.resetValue()
+                    }, clearTimer: function () {
+                        null !== this.timer && clearInterval(this.timer)
+                    }, getMsgCode: function () {
+                        var o = this;
+                        this.timer || (this.countMin = 60, this.showSendCode = !1, this.timer = setInterval((function () {
+                            o.countMin > 0 && o.countMin <= 60 ? o.countMin-- : (o.showSendCode = !0, clearInterval(o.timer), o.timer = null)
+                        }), 1e3));
+                        var n = {mobile: this.needToRealName.mobile, mobileArea: this.mobileArea.getValue()};
+                        (0, i.irequestdata)({
+                            url: "/visitor/user/sendMsgCode",
+                            method: "post",
+                            data: n,
+                            success: function (o) {
+                                console.log(o), 200 === o.data.code && "success" === o.data.msg ? e.showToast({
+                                    title: "验证码已发送，注意查收",
+                                    icon: "none"
+                                }) : e.showToast({title: o.msg, icon: "none"})
+                            },
+                            error: function () {
+                            }
+                        })
+                    }, bindRealName: function (o) {
+                        var n = this, t = {};
+                        if (this.needToRealName.name) {
+                            if (0 === o) {
+                                if (!this.needToRealName.mobile) return void e.showToast({
+                                    title: "请输入手机号码",
+                                    icon: "none"
+                                });
+                                if (!this.needToRealName.mobile) return void e.showToast({
+                                    title: "请输入验证码",
+                                    icon: "none"
+                                });
+                                t = {
+                                    name: this.needToRealName.name,
+                                    mobile: this.needToRealName.mobile,
+                                    mobileArea: this.mobileArea.getValue(),
+                                    code: this.valiCode,
+                                    verifyType: o
+                                }
+                            } else {
+                                if (!/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(this.needToRealName.idcard)) return void e.showToast({
+                                    title: "请输入符合规定的身份证号",
+                                    icon: "none"
+                                });
+                                t = {name: this.needToRealName.name, idcard: this.needToRealName.idcard, verifyType: o}
+                            }
+                            (0, i.irequestdata)({
+                                url: "/visitor/visitorInfo/sendRealName",
+                                method: "post",
+                                data: t,
+                                success: function (t) {
+                                    console.log(t), 200 === t.data.code && !0 === t.data.data ? (e.showToast({
+                                        title: "实名认证成功",
+                                        icon: "none"
+                                    }), n.$emit("success", {
+                                        isRealName: !0,
+                                        verifyType: o,
+                                        needToRealName: n.needToRealName
+                                    }), n.$refs.registerDialog.close(), n.$refs.idCardRegisterDialog.close()) : e.showToast({
+                                        title: t.msg,
+                                        icon: "none"
+                                    })
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                            })
+                        } else e.showToast({title: "请输入姓名", icon: "none"})
+                    }
+                }, beforeDestroy: function () {
+                    this.clearTimer()
+                }
+            };
+            o.default = l
+        }).call(this, n("df3c").default)
+    }
+}]), (global.webpackJsonp = global.webpackJsonp || []).push(["components/RealNameVerify-create-component", {
+    "components/RealNameVerify-create-component": function (e, o, n) {
+        n("df3c").createComponent(n("6ef7"))
+    }
+}, [["components/RealNameVerify-create-component"]]]);

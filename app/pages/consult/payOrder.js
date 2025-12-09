@@ -1,1 +1,100 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["pages/consult/payOrder"],{"04e7":function(t,e,n){n.d(e,"b",(function(){return a})),n.d(e,"c",(function(){return o})),n.d(e,"a",(function(){}));var a=function(){this.$createElement;var t=(this._self._c,this.checkMoney());this.$mp.data=Object.assign({},{$root:{m0:null,m1:null,m2:t}})},o=[]},5417:function(t,e,n){},6452:function(t,e,n){n.r(e);var a=n("04e7"),o=n("f31c");for(var u in o)["default"].indexOf(u)<0&&function(t){n.d(e,t,(function(){return o[t]}))}(u);n("fd28");var r=n("828b"),i=Object(r.a)(o.default,a.b,a.c,!1,null,"14665820",null,!1,a.a,void 0);e.default=i.exports},8635:function(t,e,n){(function(t,e){var a=n("47a9");n("6686"),a(n("3240"));var o=a(n("6452"));t.__webpack_require_UNI_MP_PLUGIN__=n,e(o.default)}).call(this,n("3223").default,n("df3c").createPage)},9393:function(t,e,n){(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("9359"),o=(n("90c1"),n("9816")),u={data:function(){return{orderInfo:{orderNo:null,paymentAmount:null,consultType:null,fromType:null},timeNum:5,timeCount:null,userName:null,globalData:null}},onLoad:function(e){var n=this;n.timeNum=5,e.orderInfo&&"null"!==e.orderInfo&&(n.orderInfo=JSON.parse(decodeURIComponent(e.orderInfo))),t.login({success:function(e){console.log(e),(0,a.irequestdata)({url:"/visitor/wx/user/"+o.appid+"/login",method:"get",data:{code:e.code,path:"payOrder.vue"},success:function(e){if(console.log(e),200===e.data.code){var a={headUrl:e.data.data.headUrl,sessionKey:e.data.data.sessionKey,userName:e.data.data.userName,openId:e.data.data.openId,userId:e.data.data.userId,auditStatus:e.data.data.auditStatus,authentication:e.data.data.authentication,mobile:e.data.data.mobile};n.globalData=a,t.setStorageSync("counselor_info",a)}},error:function(){}})}}),n.timeCount=setInterval((function(){n.timeNum=n.timeNum-1,1===n.timeNum&&n.saveSubmit()}),1e3)},methods:{checkMoney:function(){return this.orderInfo.paymentAmount>0?this.orderInfo.paymentAmount:0},saveSubmit:function(){clearInterval(this.timeCount);var e=JSON.stringify(this.orderInfo);t.navigateTo({url:"/pages/consult/completeDetail?orderInfo="+encodeURIComponent(e)})}}};e.default=u}).call(this,n("df3c").default)},f31c:function(t,e,n){n.r(e);var a=n("9393"),o=n.n(a);for(var u in a)["default"].indexOf(u)<0&&function(t){n.d(e,t,(function(){return a[t]}))}(u);e.default=o.a},fd28:function(t,e,n){var a=n("5417");n.n(a).a}},[["8635","common/runtime","common/vendor"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["pages/consult/payOrder"], {
+    "04e7": function (t, e, n) {
+        n.d(e, "b", (function () {
+            return a
+        })), n.d(e, "c", (function () {
+            return o
+        })), n.d(e, "a", (function () {
+        }));
+        var a = function () {
+            this.$createElement;
+            var t = (this._self._c, this.checkMoney());
+            this.$mp.data = Object.assign({}, {$root: {m0: null, m1: null, m2: t}})
+        }, o = []
+    }, 5417: function (t, e, n) {
+    }, 6452: function (t, e, n) {
+        n.r(e);
+        var a = n("04e7"), o = n("f31c");
+        for (var u in o) ["default"].indexOf(u) < 0 && function (t) {
+            n.d(e, t, (function () {
+                return o[t]
+            }))
+        }(u);
+        n("fd28");
+        var r = n("828b"), i = Object(r.a)(o.default, a.b, a.c, !1, null, "14665820", null, !1, a.a, void 0);
+        e.default = i.exports
+    }, 8635: function (t, e, n) {
+        (function (t, e) {
+            var a = n("47a9");
+            n("6686"), a(n("3240"));
+            var o = a(n("6452"));
+            t.__webpack_require_UNI_MP_PLUGIN__ = n, e(o.default)
+        }).call(this, n("3223").default, n("df3c").createPage)
+    }, 9393: function (t, e, n) {
+        (function (t) {
+            Object.defineProperty(e, "__esModule", {value: !0}), e.default = void 0;
+            var a = n("9359"), o = (n("90c1"), n("9816")), u = {
+                data: function () {
+                    return {
+                        orderInfo: {orderNo: null, paymentAmount: null, consultType: null, fromType: null},
+                        timeNum: 5,
+                        timeCount: null,
+                        userName: null,
+                        globalData: null
+                    }
+                }, onLoad: function (e) {
+                    var n = this;
+                    n.timeNum = 5, e.orderInfo && "null" !== e.orderInfo && (n.orderInfo = JSON.parse(decodeURIComponent(e.orderInfo))), t.login({
+                        success: function (e) {
+                            console.log(e), (0, a.irequestdata)({
+                                url: "/visitor/wx/user/" + o.appid + "/login",
+                                method: "get",
+                                data: {code: e.code, path: "payOrder.vue"},
+                                success: function (e) {
+                                    if (console.log(e), 200 === e.data.code) {
+                                        var a = {
+                                            headUrl: e.data.data.headUrl,
+                                            sessionKey: e.data.data.sessionKey,
+                                            userName: e.data.data.userName,
+                                            openId: e.data.data.openId,
+                                            userId: e.data.data.userId,
+                                            auditStatus: e.data.data.auditStatus,
+                                            authentication: e.data.data.authentication,
+                                            mobile: e.data.data.mobile
+                                        };
+                                        n.globalData = a, t.setStorageSync("counselor_info", a)
+                                    }
+                                },
+                                error: function () {
+                                }
+                            })
+                        }
+                    }), n.timeCount = setInterval((function () {
+                        n.timeNum = n.timeNum - 1, 1 === n.timeNum && n.saveSubmit()
+                    }), 1e3)
+                }, methods: {
+                    checkMoney: function () {
+                        return this.orderInfo.paymentAmount > 0 ? this.orderInfo.paymentAmount : 0
+                    }, saveSubmit: function () {
+                        clearInterval(this.timeCount);
+                        var e = JSON.stringify(this.orderInfo);
+                        t.navigateTo({url: "/pages/consult/completeDetail?orderInfo=" + encodeURIComponent(e)})
+                    }
+                }
+            };
+            e.default = u
+        }).call(this, n("df3c").default)
+    }, f31c: function (t, e, n) {
+        n.r(e);
+        var a = n("9393"), o = n.n(a);
+        for (var u in a) ["default"].indexOf(u) < 0 && function (t) {
+            n.d(e, t, (function () {
+                return a[t]
+            }))
+        }(u);
+        e.default = o.a
+    }, fd28: function (t, e, n) {
+        var a = n("5417");
+        n.n(a).a
+    }
+}, [["8635", "common/runtime", "common/vendor"]]]);

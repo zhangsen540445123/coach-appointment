@@ -1,1 +1,79 @@
-require("./common/vendor.js"),(global.webpackJsonp=global.webpackJsonp||[]).push([["pages/studio/list"],{"07d5":function(n,e,t){var a=t("506e");t.n(a).a},"3f4b":function(n,e,t){(function(n,e){var a=t("47a9");t("6686"),a(t("3240"));var o=a(t("dfad"));n.__webpack_require_UNI_MP_PLUGIN__=t,e(o.default)}).call(this,t("3223").default,t("df3c").createPage)},"403a":function(n,e,t){t.r(e);var a=t("c199"),o=t.n(a);for(var r in a)["default"].indexOf(r)<0&&function(n){t.d(e,n,(function(){return a[n]}))}(r);e.default=o.a},"506e":function(n,e,t){},c199:function(n,e,t){var a=t("47a9");Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=a(t("7eb4")),r=a(t("ee10")),u=t("c4a0"),c=t("a418"),i=t("99d5"),f={components:{Navbar:function(){Promise.all([t.e("common/vendor"),t.e("components/Navbar")]).then(function(){return resolve(t("8412"))}.bind(null,t)).catch(t.oe)},StudioItem:function(){t.e("components/studio/Item").then(function(){return resolve(t("5f55"))}.bind(null,t)).catch(t.oe)}},setup:function(){var n=(0,u.ref)([]);return(0,c.onReady)((0,r.default)(o.default.mark((function e(){var t;return o.default.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,(0,i.getStudioList)();case 2:t=e.sent,n.value=t.list;case 4:case"end":return e.stop()}}),e)})))),{list:n}}};e.default=f},d01a:function(n,e,t){t.d(e,"b",(function(){return a})),t.d(e,"c",(function(){return o})),t.d(e,"a",(function(){}));var a=function(){this.$createElement;var n=(this._self._c,t("42d6"));this.$mp.data=Object.assign({},{$root:{m0:n}})},o=[]},dfad:function(n,e,t){t.r(e);var a=t("d01a"),o=t("403a");for(var r in o)["default"].indexOf(r)<0&&function(n){t.d(e,n,(function(){return o[n]}))}(r);t("07d5");var u=t("828b"),c=Object(u.a)(o.default,a.b,a.c,!1,null,"22f248b4",null,!1,a.a,void 0);e.default=c.exports}},[["3f4b","common/runtime","common/vendor","pages/studio/common/vendor"]]]);
+require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || []).push([["pages/studio/list"], {
+    "07d5": function (n, e, t) {
+        var a = t("506e");
+        t.n(a).a
+    }, "3f4b": function (n, e, t) {
+        (function (n, e) {
+            var a = t("47a9");
+            t("6686"), a(t("3240"));
+            var o = a(t("dfad"));
+            n.__webpack_require_UNI_MP_PLUGIN__ = t, e(o.default)
+        }).call(this, t("3223").default, t("df3c").createPage)
+    }, "403a": function (n, e, t) {
+        t.r(e);
+        var a = t("c199"), o = t.n(a);
+        for (var r in a) ["default"].indexOf(r) < 0 && function (n) {
+            t.d(e, n, (function () {
+                return a[n]
+            }))
+        }(r);
+        e.default = o.a
+    }, "506e": function (n, e, t) {
+    }, c199: function (n, e, t) {
+        var a = t("47a9");
+        Object.defineProperty(e, "__esModule", {value: !0}), e.default = void 0;
+        var o = a(t("7eb4")), r = a(t("ee10")), u = t("c4a0"), c = t("a418"), i = t("99d5"), f = {
+            components: {
+                Navbar: function () {
+                    Promise.all([t.e("common/vendor"), t.e("components/Navbar")]).then(function () {
+                        return resolve(t("8412"))
+                    }.bind(null, t)).catch(t.oe)
+                }, StudioItem: function () {
+                    t.e("components/studio/Item").then(function () {
+                        return resolve(t("5f55"))
+                    }.bind(null, t)).catch(t.oe)
+                }
+            }, setup: function () {
+                var n = (0, u.ref)([]);
+                return (0, c.onReady)((0, r.default)(o.default.mark((function e() {
+                    var t;
+                    return o.default.wrap((function (e) {
+                        for (; ;) switch (e.prev = e.next) {
+                            case 0:
+                                return e.next = 2, (0, i.getStudioList)();
+                            case 2:
+                                t = e.sent, n.value = t.list;
+                            case 4:
+                            case"end":
+                                return e.stop()
+                        }
+                    }), e)
+                })))), {list: n}
+            }
+        };
+        e.default = f
+    }, d01a: function (n, e, t) {
+        t.d(e, "b", (function () {
+            return a
+        })), t.d(e, "c", (function () {
+            return o
+        })), t.d(e, "a", (function () {
+        }));
+        var a = function () {
+            this.$createElement;
+            var n = (this._self._c, t("42d6"));
+            this.$mp.data = Object.assign({}, {$root: {m0: n}})
+        }, o = []
+    }, dfad: function (n, e, t) {
+        t.r(e);
+        var a = t("d01a"), o = t("403a");
+        for (var r in o) ["default"].indexOf(r) < 0 && function (n) {
+            t.d(e, n, (function () {
+                return o[n]
+            }))
+        }(r);
+        t("07d5");
+        var u = t("828b"), c = Object(u.a)(o.default, a.b, a.c, !1, null, "22f248b4", null, !1, a.a, void 0);
+        e.default = c.exports
+    }
+}, [["3f4b", "common/runtime", "common/vendor", "pages/studio/common/vendor"]]]);

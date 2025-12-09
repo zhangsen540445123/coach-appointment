@@ -1,1 +1,86 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["components/Share"],{"0820":function(e,t,n){},"0b4b":function(e,t,n){n.d(t,"b",(function(){return a})),n.d(t,"c",(function(){return r})),n.d(t,"a",(function(){}));var a=function(){this.$createElement;var e=(this._self._c,n("f9bc")),t=n("e875"),a=n("72f8");this.$mp.data=Object.assign({},{$root:{m0:e,m1:t,m2:a}})},r=[]},"0dba":function(e,t,n){(function(e){var a=n("47a9");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var r=a(n("7eb4")),o=a(n("ee10")),c={props:{shareUrl:String},methods:{auth:function(){return(0,o.default)(r.default.mark((function t(){return r.default.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.next=2,e.authorize({scope:"scope.writePhotosAlbum"});case 2:case"end":return t.stop()}}),t)})))()},share:function(){e.showShareImageMenu({path:this.shareUrl})},download:function(){var t=this;return(0,o.default)(r.default.mark((function n(){return r.default.wrap((function(n){for(;;)switch(n.prev=n.next){case 0:return n.prev=0,n.next=3,t.auth();case 3:e.saveImageToPhotosAlbum({filePath:t.shareUrl}),n.next=9;break;case 6:n.prev=6,n.t0=n.catch(0),e.showToast({icon:"error",title:"保存失败"});case 9:case"end":return n.stop()}}),n,null,[[0,6]])})))()}}};t.default=c}).call(this,n("df3c").default)},"560f":function(e,t,n){var a=n("0820");n.n(a).a},"72d3":function(e,t,n){n.r(t);var a=n("0dba"),r=n.n(a);for(var o in a)["default"].indexOf(o)<0&&function(e){n.d(t,e,(function(){return a[e]}))}(o);t.default=r.a},e72a:function(e,t,n){n.r(t);var a=n("0b4b"),r=n("72d3");for(var o in r)["default"].indexOf(o)<0&&function(e){n.d(t,e,(function(){return r[e]}))}(o);n("560f");var c=n("828b"),u=Object(c.a)(r.default,a.b,a.c,!1,null,"7fdec7ee",null,!1,a.a,void 0);t.default=u.exports}}]),(global.webpackJsonp=global.webpackJsonp||[]).push(["components/Share-create-component",{"components/Share-create-component":function(e,t,n){n("df3c").createComponent(n("e72a"))}},[["components/Share-create-component"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["components/Share"], {
+    "0820": function (e, t, n) {
+    }, "0b4b": function (e, t, n) {
+        n.d(t, "b", (function () {
+            return a
+        })), n.d(t, "c", (function () {
+            return r
+        })), n.d(t, "a", (function () {
+        }));
+        var a = function () {
+            this.$createElement;
+            var e = (this._self._c, n("f9bc")), t = n("e875"), a = n("72f8");
+            this.$mp.data = Object.assign({}, {$root: {m0: e, m1: t, m2: a}})
+        }, r = []
+    }, "0dba": function (e, t, n) {
+        (function (e) {
+            var a = n("47a9");
+            Object.defineProperty(t, "__esModule", {value: !0}), t.default = void 0;
+            var r = a(n("7eb4")), o = a(n("ee10")), c = {
+                props: {shareUrl: String}, methods: {
+                    auth: function () {
+                        return (0, o.default)(r.default.mark((function t() {
+                            return r.default.wrap((function (t) {
+                                for (; ;) switch (t.prev = t.next) {
+                                    case 0:
+                                        return t.next = 2, e.authorize({scope: "scope.writePhotosAlbum"});
+                                    case 2:
+                                    case"end":
+                                        return t.stop()
+                                }
+                            }), t)
+                        })))()
+                    }, share: function () {
+                        e.showShareImageMenu({path: this.shareUrl})
+                    }, download: function () {
+                        var t = this;
+                        return (0, o.default)(r.default.mark((function n() {
+                            return r.default.wrap((function (n) {
+                                for (; ;) switch (n.prev = n.next) {
+                                    case 0:
+                                        return n.prev = 0, n.next = 3, t.auth();
+                                    case 3:
+                                        e.saveImageToPhotosAlbum({filePath: t.shareUrl}), n.next = 9;
+                                        break;
+                                    case 6:
+                                        n.prev = 6, n.t0 = n.catch(0), e.showToast({icon: "error", title: "保存失败"});
+                                    case 9:
+                                    case"end":
+                                        return n.stop()
+                                }
+                            }), n, null, [[0, 6]])
+                        })))()
+                    }
+                }
+            };
+            t.default = c
+        }).call(this, n("df3c").default)
+    }, "560f": function (e, t, n) {
+        var a = n("0820");
+        n.n(a).a
+    }, "72d3": function (e, t, n) {
+        n.r(t);
+        var a = n("0dba"), r = n.n(a);
+        for (var o in a) ["default"].indexOf(o) < 0 && function (e) {
+            n.d(t, e, (function () {
+                return a[e]
+            }))
+        }(o);
+        t.default = r.a
+    }, e72a: function (e, t, n) {
+        n.r(t);
+        var a = n("0b4b"), r = n("72d3");
+        for (var o in r) ["default"].indexOf(o) < 0 && function (e) {
+            n.d(t, e, (function () {
+                return r[e]
+            }))
+        }(o);
+        n("560f");
+        var c = n("828b"), u = Object(c.a)(r.default, a.b, a.c, !1, null, "7fdec7ee", null, !1, a.a, void 0);
+        t.default = u.exports
+    }
+}]), (global.webpackJsonp = global.webpackJsonp || []).push(["components/Share-create-component", {
+    "components/Share-create-component": function (e, t, n) {
+        n("df3c").createComponent(n("e72a"))
+    }
+}, [["components/Share-create-component"]]]);

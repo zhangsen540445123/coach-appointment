@@ -2,13 +2,14 @@ package com.umxinli.controller;
 
 import com.umxinli.dto.ApiResponse;
 import com.umxinli.dto.WxLoginResponse;
+import com.umxinli.entity.User;
 import com.umxinli.service.WxUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -60,18 +61,26 @@ public class WxUserController {
     }
 
     /**
-     * 解密手机号
-     * GET /wx/user/{appid}/phone
+     * 解密手机号（新版本，使用 code）
+     * GET /wx/user/{appid}/phone?code=xxx
      */
     @GetMapping("/{appid}/phone")
     public ApiResponse<Map<String, String>> decryptPhone(
             @PathVariable String appid,
-            @RequestParam String encryptedData,
-            @RequestParam String iv,
-            @RequestParam String sessionKey) {
-        log.info("Decrypt phone request - appid: {}", appid);
+            @RequestParam(required = false) String code,
+            @RequestParam(required = false) String encryptedData,
+            @RequestParam(required = false) String iv,
+            @RequestParam(required = false) String sessionKey) {
+        log.info("Decrypt phone request - appid: {}, code: {}", appid, code);
         try {
-            Map<String, String> phoneInfo = wxUserService.decryptPhone(appid, encryptedData, iv, sessionKey);
+            Map<String, String> phoneInfo;
+            if (code != null && !code.isEmpty()) {
+                // 使用新版本接口（推荐）
+                phoneInfo = wxUserService.decryptPhone(appid, code);
+            } else {
+                // 使用旧版本接口（兼容）
+                phoneInfo = wxUserService.decryptPhone(appid, encryptedData, iv, sessionKey);
+            }
             return ApiResponse.success(phoneInfo);
         } catch (Exception e) {
             log.error("Decrypt phone failed", e);
@@ -119,6 +128,28 @@ public class WxUserController {
         } catch (Exception e) {
             log.error("Get WX QR code failed", e);
             return ApiResponse.error(500, "获取小程序二维码失败");
+        }
+    }
+
+    /**
+     * 更新用户信息（头像、昵称）
+     * POST /wx/user/{appid}/updateUserInfo
+     */
+    @PostMapping("/{appid}/updateUserInfo")
+    public ApiResponse<User> updateUserInfo(
+            @PathVariable String appid,
+            @RequestBody Map<String, String> userInfo) {
+        log.info("Update user info request - appid: {}", appid);
+        try {
+            String openid = userInfo.get("openid");
+            String nickName = userInfo.get("nickName");
+            String avatarUrl = userInfo.get("avatarUrl");
+
+            User user = wxUserService.updateUserInfo(openid, nickName, avatarUrl);
+            return ApiResponse.success(user);
+        } catch (Exception e) {
+            log.error("Update user info failed", e);
+            return ApiResponse.error(500, "更新用户信息失败");
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.umxinli.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.umxinli.dto.WxLoginResponse;
 import com.umxinli.entity.User;
 import com.umxinli.mapper.UserMapper;
@@ -9,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +22,9 @@ public class WxUserServiceImpl implements WxUserService {
 
     private static final Logger log = LoggerFactory.getLogger(WxUserServiceImpl.class);
 
+    @Value("${wx.appid:}")
+    private String appid;
+
     @Value("${wx.appSecret:}")
     private String appSecret;
 
@@ -30,6 +35,10 @@ public class WxUserServiceImpl implements WxUserService {
     private JwtUtil jwtUtil;
 
     private RestTemplate restTemplate = new RestTemplate();
+
+    // 缓存 access_token
+    private String accessToken;
+    private long accessTokenExpireTime;
 
     @Override
     public WxLoginResponse login(String appid, String code) throws Exception {
@@ -63,15 +72,62 @@ public class WxUserServiceImpl implements WxUserService {
     }
 
     @Override
+    public Map decryptPhone(String appid, String code) throws Exception {
+        log.info("开始解密手机号，appid: {}, code: {}", appid, code);
+
+        // 获取 access_token
+        String token = getAccessToken(appid);
+
+        // 调用微信接口
+        String url = "https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token=" + token;
+
+        Map<String, String> requestBody = new HashMap<>();
+        requestBody.put("code", code);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+            log.info("微信手机号解密响应: {}", response.getBody());
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> result = mapper.readValue(response.getBody(), Map.class);
+
+            Integer errcode = (Integer) result.get("errcode");
+            if (errcode != null && errcode == 0) {
+                Map<String, Object> phoneInfo = (Map<String, Object>) result.get("phone_info");
+
+                Map<String, Object> phoneResult = new HashMap<>();
+                phoneResult.put("phoneNumber", phoneInfo.get("phoneNumber"));
+                phoneResult.put("purePhoneNumber", phoneInfo.get("purePhoneNumber"));
+                phoneResult.put("countryCode", phoneInfo.get("countryCode"));
+
+                log.info("手机号解密成功: {}", phoneResult.get("phoneNumber"));
+                return phoneResult;
+            } else {
+                String errmsg = (String) result.get("errmsg");
+                log.error("微信手机号解密失败: errcode={}, errmsg={}", errcode, errmsg);
+                throw new Exception("微信手机号解密失败: " + errmsg);
+            }
+        } catch (Exception e) {
+            log.error("解密手机号失败", e);
+            throw e;
+        }
+    }
+
+    @Override
     public Map decryptPhone(String appid, String encryptedData, String iv, String sessionKey) throws Exception {
-        log.info("Decrypting phone number");
-        
-        // 模拟解密手机号（实际需要使用AES解密）
+        log.info("Decrypting phone number (old method)");
+
+        // 保留旧方法签名以兼容现有代码
+        // 实际应该使用新的 decryptPhone(appid, code) 方法
         Map<String, Object> result = new HashMap<>();
         result.put("phoneNumber", "186****1729");
         result.put("purePhoneNumber", "18620771729");
         result.put("countryCode", "86");
-        
+
         return result;
     }
 
@@ -109,27 +165,102 @@ public class WxUserServiceImpl implements WxUserService {
         return result;
     }
 
-    private Map<String, Object> callWxApi(String appid, String code) {
-        // 实际环境中需要调用微信接口
-        // String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + 
-        //              "&secret=" + appSecret + "&js_code=" + code + "&grant_type=authorization_code";
-        
-        // 本地开发模拟返回
-        Map<String, Object> result = new HashMap<>();
-        result.put("openid", "or6Tr5ZcuLWjocAgXb8QkzLgkqpA");
-        result.put("session_key", "mock_session_key_" + System.currentTimeMillis());
-        result.put("unionid", null);
-        
-        return result;
+    /**
+     * 调用微信 jscode2session 接口
+     */
+    private Map<String, Object> callWxApi(String appid, String code) throws Exception {
+        String url = String.format(
+            "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code",
+            appid, appSecret, code
+        );
+
+        try {
+            log.info("调用微信接口: appid={}, code={}", appid, code);
+            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            String body = response.getBody();
+            log.info("微信接口响应: {}", body);
+
+            // 解析 JSON
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> result = mapper.readValue(body, Map.class);
+
+            // 检查是否有错误
+            if (result.containsKey("errcode")) {
+                Integer errcode = (Integer) result.get("errcode");
+                if (errcode != 0) {
+                    String errmsg = (String) result.get("errmsg");
+                    log.error("微信接口错误: errcode={}, errmsg={}", errcode, errmsg);
+                    throw new Exception("微信接口错误: " + errmsg);
+                }
+            }
+
+            return result;
+        } catch (Exception e) {
+            log.error("调用微信接口失败", e);
+            throw e;
+        }
+    }
+
+    /**
+     * 获取微信 access_token（用于调用其他微信接口）
+     */
+    private String getAccessToken(String appid) throws Exception {
+        // 检查 token 是否过期
+        if (accessToken != null && System.currentTimeMillis() < accessTokenExpireTime) {
+            return accessToken;
+        }
+
+        String url = String.format(
+            "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
+            appid, appSecret
+        );
+
+        try {
+            log.info("获取 access_token: appid={}", appid);
+            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> result = mapper.readValue(response.getBody(), Map.class);
+
+            if (result.containsKey("access_token")) {
+                accessToken = (String) result.get("access_token");
+                Integer expiresIn = (Integer) result.get("expires_in");
+                // 提前5分钟过期
+                accessTokenExpireTime = System.currentTimeMillis() + (expiresIn - 300) * 1000;
+                log.info("获取 access_token 成功，有效期: {} 秒", expiresIn);
+                return accessToken;
+            } else {
+                throw new Exception("获取 access_token 失败");
+            }
+        } catch (Exception e) {
+            log.error("获取 access_token 失败", e);
+            throw e;
+        }
     }
 
     private User findOrCreateUserByOpenId(String openId) {
-        // 模拟用户数据（实际应该从数据库查询）
-        User user = new User();
-        user.setId(1947220554149343232L);
-        user.setPhone("18620771729");
-        user.setName(null);
-        user.setAvatar(null);
+        // 查询用户
+        User user = null;
+        if (userMapper != null) {
+            user = userMapper.findByOpenid(openId);
+        }
+
+        if (user == null) {
+            // 创建新用户
+            user = new User();
+            user.setOpenid(openId);
+            user.setId(System.currentTimeMillis()); // 简单生成ID，实际应该用数据库自增
+
+            if (userMapper != null) {
+                userMapper.insert(user);
+                log.info("创建新用户: openid={}", openId);
+            } else {
+                log.warn("UserMapper 未注入，使用模拟用户数据");
+            }
+        } else {
+            log.info("用户已存在: openid={}", openId);
+        }
+
         return user;
     }
 
@@ -161,7 +292,32 @@ public class WxUserServiceImpl implements WxUserService {
         String token = jwtUtil.generateToken(String.valueOf(user.getId()));
         response.setAuthorization(token);
         
+        log.info("构建登录响应成功: userId={}, openId={}", user.getId(), openId);
         return response;
+    }
+
+    @Override
+    public User updateUserInfo(String openid, String nickName, String avatarUrl) throws Exception {
+        User user = null;
+        if (userMapper != null) {
+            user = userMapper.findByOpenid(openid);
+        }
+
+        if (user == null) {
+            throw new Exception("用户不存在");
+        }
+
+        user.setName(nickName);
+        user.setAvatar(avatarUrl);
+
+        if (userMapper != null) {
+            userMapper.updateById(user);
+            log.info("更新用户信息成功: openid={}, nickName={}", openid, nickName);
+        } else {
+            log.warn("UserMapper 未注入，无法更新用户信息");
+        }
+
+        return user;
     }
 }
 

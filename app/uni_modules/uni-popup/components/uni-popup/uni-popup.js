@@ -1,1 +1,205 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["uni_modules/uni-popup/components/uni-popup/uni-popup"],{"61d1":function(t,o,i){i.r(o);var n=i("c8e3"),e=i("8db1");for(var s in e)["default"].indexOf(s)<0&&function(t){i.d(o,t,(function(){return e[t]}))}(s);i("fadb");var a=i("828b"),p=Object(a.a)(e.default,n.b,n.c,!1,null,"cbb4641e",null,!1,n.a,void 0);o.default=p.exports},"690a":function(t,o,i){},"8db1":function(t,o,i){i.r(o);var n=i("f5b6"),e=i.n(n);for(var s in n)["default"].indexOf(s)<0&&function(t){i.d(o,t,(function(){return n[t]}))}(s);o.default=e.a},c8e3:function(t,o,i){i.d(o,"b",(function(){return e})),i.d(o,"c",(function(){return s})),i.d(o,"a",(function(){return n}));var n={uniTransition:function(){return Promise.all([i.e("common/vendor"),i.e("uni_modules/uni-transition/components/uni-transition/uni-transition")]).then(i.bind(null,"0bee"))}},e=function(){this.$createElement;this._self._c},s=[]},f5b6:function(t,o,i){(function(t){Object.defineProperty(o,"__esModule",{value:!0}),o.default=void 0;var i={name:"uniPopup",components:{},props:{animation:{type:Boolean,default:!0},type:{type:String,default:"center"},maskClick:{type:Boolean,default:!0},backgroundColor:{type:String,default:"none"},safeArea:{type:Boolean,default:!0}},watch:{type:{handler:function(t){this.config[t]&&this[this.config[t]](!0)},immediate:!0},isDesktop:{handler:function(t){this.config[t]&&this[this.config[this.type]](!0)},immediate:!0},maskClick:{handler:function(t){this.mkclick=t},immediate:!0}},data:function(){return{duration:300,ani:[],showPopup:!1,showTrans:!1,popupWidth:0,popupHeight:0,config:{top:"top",bottom:"bottom",center:"center",left:"left",right:"right",message:"top",dialog:"center",share:"bottom"},maskClass:{position:"fixed",bottom:0,top:0,left:0,right:0,backgroundColor:"rgba(0, 0, 0, 0.4)"},transClass:{position:"fixed",left:0,right:0},maskShow:!0,mkclick:!0,popupstyle:this.isDesktop?"fixforpc-top":"top"}},computed:{isDesktop:function(){return this.popupWidth>=500&&this.popupHeight>=500},bg:function(){return""===this.backgroundColor||"none"===this.backgroundColor?"transparent":this.backgroundColor}},mounted:function(){var o=this;!function(){var i=t.getSystemInfoSync(),n=i.windowWidth,e=i.windowHeight,s=i.windowTop,a=i.safeAreaInsets;o.popupWidth=n,o.popupHeight=e+s,o.safeArea?o.safeAreaInsets=a:o.safeAreaInsets=0}()},created:function(){this.mkclick=this.maskClick,this.animation?this.duration=300:this.duration=0,this.messageChild=null,this.clearPropagation=!1},methods:{closeMask:function(){this.maskShow=!1},disableMask:function(){this.mkclick=!1},clear:function(t){t.stopPropagation(),this.clearPropagation=!0},open:function(t){t&&-1!==["top","center","bottom","left","right","message","dialog","share"].indexOf(t)||(t=this.type),this.config[t]?(this[this.config[t]](),this.$emit("change",{show:!0,type:t})):console.error("缺少类型：",t)},close:function(t){var o=this;this.showTrans=!1,this.$emit("change",{show:!1,type:this.type}),clearTimeout(this.timer),this.timer=setTimeout((function(){o.showPopup=!1}),300)},touchstart:function(){this.clearPropagation=!1},onTap:function(){this.clearPropagation||this.mkclick&&this.close()},top:function(t){var o=this;this.popupstyle=this.isDesktop?"fixforpc-top":"top",this.ani=["slide-top"],this.transClass={position:"fixed",left:0,right:0,backgroundColor:this.bg},t||(this.showPopup=!0,this.showTrans=!0,this.$nextTick((function(){o.messageChild&&"message"===o.type&&o.messageChild.timerClose()})))},bottom:function(t){this.popupstyle="bottom",this.ani=["slide-bottom"],this.transClass={position:"fixed",left:0,right:0,bottom:0,paddingBottom:this.safeAreaInsets&&this.safeAreaInsets.bottom||0,backgroundColor:this.bg},t||(this.showPopup=!0,this.showTrans=!0)},center:function(t){this.popupstyle="center",this.ani=["zoom-out","fade"],this.transClass={position:"fixed",display:"flex",flexDirection:"column",bottom:0,left:0,right:0,top:0,justifyContent:"center",alignItems:"center"},t||(this.showPopup=!0,this.showTrans=!0)},left:function(t){this.popupstyle="left",this.ani=["slide-left"],this.transClass={position:"fixed",left:0,bottom:0,top:0,backgroundColor:this.bg,display:"flex",flexDirection:"column"},t||(this.showPopup=!0,this.showTrans=!0)},right:function(t){this.popupstyle="right",this.ani=["slide-right"],this.transClass={position:"fixed",bottom:0,right:0,top:0,backgroundColor:this.bg,display:"flex",flexDirection:"column"},t||(this.showPopup=!0,this.showTrans=!0)}}};o.default=i}).call(this,i("df3c").default)},fadb:function(t,o,i){var n=i("690a");i.n(n).a}}]),(global.webpackJsonp=global.webpackJsonp||[]).push(["uni_modules/uni-popup/components/uni-popup/uni-popup-create-component",{"uni_modules/uni-popup/components/uni-popup/uni-popup-create-component":function(t,o,i){i("df3c").createComponent(i("61d1"))}},[["uni_modules/uni-popup/components/uni-popup/uni-popup-create-component"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["uni_modules/uni-popup/components/uni-popup/uni-popup"], {
+    "61d1": function (t, o, i) {
+        i.r(o);
+        var n = i("c8e3"), e = i("8db1");
+        for (var s in e) ["default"].indexOf(s) < 0 && function (t) {
+            i.d(o, t, (function () {
+                return e[t]
+            }))
+        }(s);
+        i("fadb");
+        var a = i("828b"), p = Object(a.a)(e.default, n.b, n.c, !1, null, "cbb4641e", null, !1, n.a, void 0);
+        o.default = p.exports
+    }, "690a": function (t, o, i) {
+    }, "8db1": function (t, o, i) {
+        i.r(o);
+        var n = i("f5b6"), e = i.n(n);
+        for (var s in n) ["default"].indexOf(s) < 0 && function (t) {
+            i.d(o, t, (function () {
+                return n[t]
+            }))
+        }(s);
+        o.default = e.a
+    }, c8e3: function (t, o, i) {
+        i.d(o, "b", (function () {
+            return e
+        })), i.d(o, "c", (function () {
+            return s
+        })), i.d(o, "a", (function () {
+            return n
+        }));
+        var n = {
+            uniTransition: function () {
+                return Promise.all([i.e("common/vendor"), i.e("uni_modules/uni-transition/components/uni-transition/uni-transition")]).then(i.bind(null, "0bee"))
+            }
+        }, e = function () {
+            this.$createElement;
+            this._self._c
+        }, s = []
+    }, f5b6: function (t, o, i) {
+        (function (t) {
+            Object.defineProperty(o, "__esModule", {value: !0}), o.default = void 0;
+            var i = {
+                name: "uniPopup",
+                components: {},
+                props: {
+                    animation: {type: Boolean, default: !0},
+                    type: {type: String, default: "center"},
+                    maskClick: {type: Boolean, default: !0},
+                    backgroundColor: {type: String, default: "none"},
+                    safeArea: {type: Boolean, default: !0}
+                },
+                watch: {
+                    type: {
+                        handler: function (t) {
+                            this.config[t] && this[this.config[t]](!0)
+                        }, immediate: !0
+                    }, isDesktop: {
+                        handler: function (t) {
+                            this.config[t] && this[this.config[this.type]](!0)
+                        }, immediate: !0
+                    }, maskClick: {
+                        handler: function (t) {
+                            this.mkclick = t
+                        }, immediate: !0
+                    }
+                },
+                data: function () {
+                    return {
+                        duration: 300,
+                        ani: [],
+                        showPopup: !1,
+                        showTrans: !1,
+                        popupWidth: 0,
+                        popupHeight: 0,
+                        config: {
+                            top: "top",
+                            bottom: "bottom",
+                            center: "center",
+                            left: "left",
+                            right: "right",
+                            message: "top",
+                            dialog: "center",
+                            share: "bottom"
+                        },
+                        maskClass: {
+                            position: "fixed",
+                            bottom: 0,
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            backgroundColor: "rgba(0, 0, 0, 0.4)"
+                        },
+                        transClass: {position: "fixed", left: 0, right: 0},
+                        maskShow: !0,
+                        mkclick: !0,
+                        popupstyle: this.isDesktop ? "fixforpc-top" : "top"
+                    }
+                },
+                computed: {
+                    isDesktop: function () {
+                        return this.popupWidth >= 500 && this.popupHeight >= 500
+                    }, bg: function () {
+                        return "" === this.backgroundColor || "none" === this.backgroundColor ? "transparent" : this.backgroundColor
+                    }
+                },
+                mounted: function () {
+                    var o = this;
+                    !function () {
+                        var i = t.getSystemInfoSync(), n = i.windowWidth, e = i.windowHeight, s = i.windowTop,
+                            a = i.safeAreaInsets;
+                        o.popupWidth = n, o.popupHeight = e + s, o.safeArea ? o.safeAreaInsets = a : o.safeAreaInsets = 0
+                    }()
+                },
+                created: function () {
+                    this.mkclick = this.maskClick, this.animation ? this.duration = 300 : this.duration = 0, this.messageChild = null, this.clearPropagation = !1
+                },
+                methods: {
+                    closeMask: function () {
+                        this.maskShow = !1
+                    }, disableMask: function () {
+                        this.mkclick = !1
+                    }, clear: function (t) {
+                        t.stopPropagation(), this.clearPropagation = !0
+                    }, open: function (t) {
+                        t && -1 !== ["top", "center", "bottom", "left", "right", "message", "dialog", "share"].indexOf(t) || (t = this.type), this.config[t] ? (this[this.config[t]](), this.$emit("change", {
+                            show: !0,
+                            type: t
+                        })) : console.error("缺少类型：", t)
+                    }, close: function (t) {
+                        var o = this;
+                        this.showTrans = !1, this.$emit("change", {
+                            show: !1,
+                            type: this.type
+                        }), clearTimeout(this.timer), this.timer = setTimeout((function () {
+                            o.showPopup = !1
+                        }), 300)
+                    }, touchstart: function () {
+                        this.clearPropagation = !1
+                    }, onTap: function () {
+                        this.clearPropagation || this.mkclick && this.close()
+                    }, top: function (t) {
+                        var o = this;
+                        this.popupstyle = this.isDesktop ? "fixforpc-top" : "top", this.ani = ["slide-top"], this.transClass = {
+                            position: "fixed",
+                            left: 0,
+                            right: 0,
+                            backgroundColor: this.bg
+                        }, t || (this.showPopup = !0, this.showTrans = !0, this.$nextTick((function () {
+                            o.messageChild && "message" === o.type && o.messageChild.timerClose()
+                        })))
+                    }, bottom: function (t) {
+                        this.popupstyle = "bottom", this.ani = ["slide-bottom"], this.transClass = {
+                            position: "fixed",
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            paddingBottom: this.safeAreaInsets && this.safeAreaInsets.bottom || 0,
+                            backgroundColor: this.bg
+                        }, t || (this.showPopup = !0, this.showTrans = !0)
+                    }, center: function (t) {
+                        this.popupstyle = "center", this.ani = ["zoom-out", "fade"], this.transClass = {
+                            position: "fixed",
+                            display: "flex",
+                            flexDirection: "column",
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }, t || (this.showPopup = !0, this.showTrans = !0)
+                    }, left: function (t) {
+                        this.popupstyle = "left", this.ani = ["slide-left"], this.transClass = {
+                            position: "fixed",
+                            left: 0,
+                            bottom: 0,
+                            top: 0,
+                            backgroundColor: this.bg,
+                            display: "flex",
+                            flexDirection: "column"
+                        }, t || (this.showPopup = !0, this.showTrans = !0)
+                    }, right: function (t) {
+                        this.popupstyle = "right", this.ani = ["slide-right"], this.transClass = {
+                            position: "fixed",
+                            bottom: 0,
+                            right: 0,
+                            top: 0,
+                            backgroundColor: this.bg,
+                            display: "flex",
+                            flexDirection: "column"
+                        }, t || (this.showPopup = !0, this.showTrans = !0)
+                    }
+                }
+            };
+            o.default = i
+        }).call(this, i("df3c").default)
+    }, fadb: function (t, o, i) {
+        var n = i("690a");
+        i.n(n).a
+    }
+}]), (global.webpackJsonp = global.webpackJsonp || []).push(["uni_modules/uni-popup/components/uni-popup/uni-popup-create-component", {
+    "uni_modules/uni-popup/components/uni-popup/uni-popup-create-component": function (t, o, i) {
+        i("df3c").createComponent(i("61d1"))
+    }
+}, [["uni_modules/uni-popup/components/uni-popup/uni-popup-create-component"]]]);

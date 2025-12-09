@@ -1,1 +1,110 @@
-(global.webpackJsonp=global.webpackJsonp||[]).push([["pages/consult/protocolPage"],{"65b7":function(e,a,t){var n=t("afd4");t.n(n).a},afd4:function(e,a,t){},bbb9:function(e,a,t){t.r(a);var n=t("fa0a"),o=t.n(n);for(var r in n)["default"].indexOf(r)<0&&function(e){t.d(a,e,(function(){return n[e]}))}(r);a.default=o.a},c8f5:function(e,a,t){(function(e,a){var n=t("47a9");t("6686"),n(t("3240"));var o=n(t("d15a"));e.__webpack_require_UNI_MP_PLUGIN__=t,a(o.default)}).call(this,t("3223").default,t("df3c").createPage)},d15a:function(e,a,t){t.r(a);var n=t("ece8"),o=t("bbb9");for(var r in o)["default"].indexOf(r)<0&&function(e){t.d(a,e,(function(){return o[e]}))}(r);t("65b7");var u=t("828b"),c=Object(u.a)(o.default,n.b,n.c,!1,null,"02275598",null,!1,n.a,void 0);a.default=c.exports},ece8:function(e,a,t){t.d(a,"b",(function(){return o})),t.d(a,"c",(function(){return r})),t.d(a,"a",(function(){return n}));var n={uParse:function(){return Promise.all([t.e("common/vendor"),t.e("components/u-parse/u-parse")]).then(t.bind(null,"7413"))}},o=function(){this.$createElement;this._self._c},r=[]},fa0a:function(e,a,t){(function(e){Object.defineProperty(a,"__esModule",{value:!0}),a.default=void 0;var n=t("9359"),o=t("90c1"),r={components:{uParse:function(){Promise.all([t.e("common/vendor"),t.e("components/feng-parse/parse")]).then(function(){return resolve(t("5c39"))}.bind(null,t)).catch(t.oe)}},data:function(){return{titleType:"1",agreementContent:"",globalData:null,userName:"",idCard:"",consultDate:"",counselorName:""}},onLoad:function(e){this.globalData=(0,o.storeGet)("counselor_info"),console.log(this.globalData),this.idCard=this.globalData.idCard?this.globalData.idCard:"",e.value&&"null"!==e.value&&(this.titleType=e.value,this.agreementDetail(e.value)),e.counselorName&&e.consultDate&&(this.consultDate=e.consultDate,this.counselorName=e.counselorName,this.userName=e.userName)},onShow:function(){var a="";switch(this.titleType){case"4":a="心理咨询协议";break;case"5":a="长程心理咨询协议";break;case"2":a="软件使用协议";break;case"3":a="隐私协议";break;case"6":a="知情同意书"}e.setNavigationBarTitle({title:a})},methods:{agreementDetail:function(e){var a=this;(0,n.irequestdata)({url:"/visitor/user/getAgreement",method:"post",data:{agreementId:e},success:function(e){200===e.data.code&&(console.log(e.data.data),a.agreementContent=e.data.data.replace(/userName/g,a.userName).replace(/consultDate/g,a.consultDate).replace(/counselorName/g,a.counselorName))},error:function(){console.log("新增失败")}})}}};a.default=r}).call(this,t("df3c").default)}},[["c8f5","common/runtime","common/vendor"]]]);
+(global.webpackJsonp = global.webpackJsonp || []).push([["pages/consult/protocolPage"], {
+    "65b7": function (e, a, t) {
+        var n = t("afd4");
+        t.n(n).a
+    }, afd4: function (e, a, t) {
+    }, bbb9: function (e, a, t) {
+        t.r(a);
+        var n = t("fa0a"), o = t.n(n);
+        for (var r in n) ["default"].indexOf(r) < 0 && function (e) {
+            t.d(a, e, (function () {
+                return n[e]
+            }))
+        }(r);
+        a.default = o.a
+    }, c8f5: function (e, a, t) {
+        (function (e, a) {
+            var n = t("47a9");
+            t("6686"), n(t("3240"));
+            var o = n(t("d15a"));
+            e.__webpack_require_UNI_MP_PLUGIN__ = t, a(o.default)
+        }).call(this, t("3223").default, t("df3c").createPage)
+    }, d15a: function (e, a, t) {
+        t.r(a);
+        var n = t("ece8"), o = t("bbb9");
+        for (var r in o) ["default"].indexOf(r) < 0 && function (e) {
+            t.d(a, e, (function () {
+                return o[e]
+            }))
+        }(r);
+        t("65b7");
+        var u = t("828b"), c = Object(u.a)(o.default, n.b, n.c, !1, null, "02275598", null, !1, n.a, void 0);
+        a.default = c.exports
+    }, ece8: function (e, a, t) {
+        t.d(a, "b", (function () {
+            return o
+        })), t.d(a, "c", (function () {
+            return r
+        })), t.d(a, "a", (function () {
+            return n
+        }));
+        var n = {
+            uParse: function () {
+                return Promise.all([t.e("common/vendor"), t.e("components/u-parse/u-parse")]).then(t.bind(null, "7413"))
+            }
+        }, o = function () {
+            this.$createElement;
+            this._self._c
+        }, r = []
+    }, fa0a: function (e, a, t) {
+        (function (e) {
+            Object.defineProperty(a, "__esModule", {value: !0}), a.default = void 0;
+            var n = t("9359"), o = t("90c1"), r = {
+                components: {
+                    uParse: function () {
+                        Promise.all([t.e("common/vendor"), t.e("components/feng-parse/parse")]).then(function () {
+                            return resolve(t("5c39"))
+                        }.bind(null, t)).catch(t.oe)
+                    }
+                }, data: function () {
+                    return {
+                        titleType: "1",
+                        agreementContent: "",
+                        globalData: null,
+                        userName: "",
+                        idCard: "",
+                        consultDate: "",
+                        counselorName: ""
+                    }
+                }, onLoad: function (e) {
+                    this.globalData = (0, o.storeGet)("counselor_info"), console.log(this.globalData), this.idCard = this.globalData.idCard ? this.globalData.idCard : "", e.value && "null" !== e.value && (this.titleType = e.value, this.agreementDetail(e.value)), e.counselorName && e.consultDate && (this.consultDate = e.consultDate, this.counselorName = e.counselorName, this.userName = e.userName)
+                }, onShow: function () {
+                    var a = "";
+                    switch (this.titleType) {
+                        case"4":
+                            a = "心理咨询协议";
+                            break;
+                        case"5":
+                            a = "长程心理咨询协议";
+                            break;
+                        case"2":
+                            a = "软件使用协议";
+                            break;
+                        case"3":
+                            a = "隐私协议";
+                            break;
+                        case"6":
+                            a = "知情同意书"
+                    }
+                    e.setNavigationBarTitle({title: a})
+                }, methods: {
+                    agreementDetail: function (e) {
+                        var a = this;
+                        (0, n.irequestdata)({
+                            url: "/visitor/user/getAgreement",
+                            method: "post",
+                            data: {agreementId: e},
+                            success: function (e) {
+                                200 === e.data.code && (console.log(e.data.data), a.agreementContent = e.data.data.replace(/userName/g, a.userName).replace(/consultDate/g, a.consultDate).replace(/counselorName/g, a.counselorName))
+                            },
+                            error: function () {
+                                console.log("新增失败")
+                            }
+                        })
+                    }
+                }
+            };
+            a.default = r
+        }).call(this, t("df3c").default)
+    }
+}, [["c8f5", "common/runtime", "common/vendor"]]]);

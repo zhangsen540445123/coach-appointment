@@ -1,1 +1,186 @@
-require("../../../../@babel/runtime/helpers/Arrayincludes"),(global.webpackJsonp=global.webpackJsonp||[]).push([["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox"],{"0afd":function(t,e,a){a.d(e,"b",(function(){return i})),a.d(e,"c",(function(){return o})),a.d(e,"a",(function(){return n}));var n={uniLoadMore:function(){return a.e("uni_modules/uni-load-more/components/uni-load-more/uni-load-more").then(a.bind(null,"00ed"))}},i=function(){this.$createElement;this._self._c},o=[]},"1c6f":function(t,e,a){a.r(e);var n=a("96d7"),i=a.n(n);for(var o in n)["default"].indexOf(o)<0&&function(t){a.d(e,t,(function(){return n[t]}))}(o);e.default=i.a},"7a2e":function(t,e,a){},"96d7":function(t,e,a){(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a={name:"uniDataChecklist",mixins:[t.mixinDatacom||{}],props:{mode:{type:String,default:"default"},multiple:{type:Boolean,default:!1},value:{type:[Array,String,Number],default:function(){return""}},localdata:{type:Array,default:function(){return[]}},min:{type:[Number,String],default:""},max:{type:[Number,String],default:""},wrap:{type:Boolean,default:!1},icon:{type:String,default:"left"},selectedColor:{type:String,default:"#007aff"},selectedTextColor:{type:String,default:"#333"},emptyText:{type:String,default:"暂无数据"},disabled:{type:Boolean,default:!1},map:{type:Object,default:function(){return{text:"text",value:"value"}}}},watch:{localdata:{handler:function(t){this.range=t,this.dataList=this.getDataList(this.getSelectedValue(t))},deep:!0},mixinDatacomResData:function(t){this.range=t,this.dataList=this.getDataList(this.getSelectedValue(t))},value:function(t){this.dataList=this.getDataList(t),this.formItem&&this.formItem.setValue(t)}},data:function(){return{dataList:[],range:[],contentText:{contentdown:"查看更多",contentrefresh:"加载中",contentnomore:"没有更多"},isLocal:!0,styles:{selectedColor:"#007aff",selectedTextColor:"#333"}}},created:function(){this.form=this.getForm("uniForms"),this.formItem=this.getForm("uniFormsItem"),this.formItem&&this.formItem.name&&(this.rename=this.formItem.name,this.form.inputChildrens.push(this)),this.localdata&&0!==this.localdata.length?(this.isLocal=!0,this.range=this.localdata,this.dataList=this.getDataList(this.getSelectedValue(this.range))):this.collection&&(this.isLocal=!1,this.loadData())},methods:{loadData:function(){var t=this;this.mixinDatacomGet().then((function(e){t.mixinDatacomResData=e.result.data,0===t.mixinDatacomResData.length?(t.isLocal=!1,t.mixinDatacomErrorMessage=t.emptyText):t.isLocal=!0})).catch((function(e){t.mixinDatacomErrorMessage=e.message}))},getForm:function(){for(var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"uniForms",e=this.$parent,a=e.$options.name;a!==t;){if(!(e=e.$parent))return!1;a=e.$options.name}return e},chagne:function(t){var e=this,a=t.detail.value,n={value:[],data:[]};if(this.multiple)this.range.forEach((function(t){a.includes(t[e.map.value]+"")&&(n.value.push(t[e.map.value]),n.data.push(t))}));else{var i=this.range.find((function(t){return t[e.map.value]+""===a}));i&&(n={value:i[this.map.value],data:i})}this.formItem&&this.formItem.setValue(n.value),this.$emit("input",n.value),this.$emit("change",{detail:n}),this.multiple?this.dataList=this.getDataList(n.value,!0):this.dataList=this.getDataList(n.value)},getDataList:function(t){var e=this,a=JSON.parse(JSON.stringify(this.range)),n=[];return this.multiple&&(Array.isArray(t)||(t=[])),a.forEach((function(a,i){if(a.disabled=a.disable||a.disabled||!1,e.multiple)if(t.length>0){var o=t.find((function(t){return t===a[e.map.value]}));a.selected=void 0!==o}else a.selected=!1;else a.selected=t===a[e.map.value];n.push(a)})),this.setRange(n)},setRange:function(t){var e=this,a=t.filter((function(t){return t.selected})),n=Number(this.min)||0,i=Number(this.max)||"";return t.forEach((function(o,l){if(e.multiple){if(a.length<=n)void 0!==a.find((function(t){return t[e.map.value]===o[e.map.value]}))&&(o.disabled=!0);if(a.length>=i&&""!==i)void 0===a.find((function(t){return t[e.map.value]===o[e.map.value]}))&&(o.disabled=!0)}e.setStyles(o,l),t[l]=o})),t},setStyles:function(t,e){t.styleBackgroud=this.setStyleBackgroud(t),t.styleIcon=this.setStyleIcon(t),t.styleIconText=this.setStyleIconText(t),t.styleRightIcon=this.setStyleRightIcon(t)},getSelectedValue:function(t){var e=this;if(!this.multiple)return this.value;var a=[];return t.forEach((function(t){t.selected&&a.push(t[e.map.value])})),this.value.length>0?this.value:a},setStyleBackgroud:function(t){var e={};"list"!==this.mode&&(e["border-color"]=t.selected?this.selectedColor:"#DCDFE6"),"tag"===this.mode&&(e["background-color"]=t.selected?this.selectedColor:"#f5f5f5");var a="";for(var n in e)a+="".concat(n,":").concat(e[n],";");return a},setStyleIcon:function(t){var e={},a="";for(var n in e["background-color"]=t.selected?this.selectedColor:"#fff",e["border-color"]=t.selected?this.selectedColor:"#DCDFE6",!t.selected&&t.disabled&&(e["background-color"]="#F2F6FC",e["border-color"]=t.selected?this.selectedColor:"#DCDFE6"),e)a+="".concat(n,":").concat(e[n],";");return a},setStyleIconText:function(t){var e={},a="";for(var n in"tag"===this.mode?e.color=t.selected?"#fff":"#333":e.color=t.selected?this.selectedColor:"#333",!t.selected&&t.disabled&&(e.color="#999"),e)a+="".concat(n,":").concat(e[n],";");return a},setStyleRightIcon:function(t){var e={},a="";for(var n in"list"===this.mode&&(e["border-color"]=t.selected?this.styles.selectedColor:"#DCDFE6"),e)a+="".concat(n,":").concat(e[n],";");return a}}};e.default=a}).call(this,a("861b").uniCloud)},ccc4:function(t,e,a){var n=a("7a2e");a.n(n).a},eebd:function(t,e,a){a.r(e);var n=a("0afd"),i=a("1c6f");for(var o in i)["default"].indexOf(o)<0&&function(t){a.d(e,t,(function(){return i[t]}))}(o);a("ccc4");var l=a("828b"),s=Object(l.a)(i.default,n.b,n.c,!1,null,null,null,!1,n.a,void 0);e.default=s.exports}}]),(global.webpackJsonp=global.webpackJsonp||[]).push(["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component",{"uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component":function(t,e,a){a("df3c").createComponent(a("eebd"))}},[["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component"]]]);
+require("../../../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = global.webpackJsonp || []).push([["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox"], {
+    "0afd": function (t, e, a) {
+        a.d(e, "b", (function () {
+            return i
+        })), a.d(e, "c", (function () {
+            return o
+        })), a.d(e, "a", (function () {
+            return n
+        }));
+        var n = {
+            uniLoadMore: function () {
+                return a.e("uni_modules/uni-load-more/components/uni-load-more/uni-load-more").then(a.bind(null, "00ed"))
+            }
+        }, i = function () {
+            this.$createElement;
+            this._self._c
+        }, o = []
+    }, "1c6f": function (t, e, a) {
+        a.r(e);
+        var n = a("96d7"), i = a.n(n);
+        for (var o in n) ["default"].indexOf(o) < 0 && function (t) {
+            a.d(e, t, (function () {
+                return n[t]
+            }))
+        }(o);
+        e.default = i.a
+    }, "7a2e": function (t, e, a) {
+    }, "96d7": function (t, e, a) {
+        (function (t) {
+            Object.defineProperty(e, "__esModule", {value: !0}), e.default = void 0;
+            var a = {
+                name: "uniDataChecklist",
+                mixins: [t.mixinDatacom || {}],
+                props: {
+                    mode: {type: String, default: "default"},
+                    multiple: {type: Boolean, default: !1},
+                    value: {
+                        type: [Array, String, Number], default: function () {
+                            return ""
+                        }
+                    },
+                    localdata: {
+                        type: Array, default: function () {
+                            return []
+                        }
+                    },
+                    min: {type: [Number, String], default: ""},
+                    max: {type: [Number, String], default: ""},
+                    wrap: {type: Boolean, default: !1},
+                    icon: {type: String, default: "left"},
+                    selectedColor: {type: String, default: "#007aff"},
+                    selectedTextColor: {type: String, default: "#333"},
+                    emptyText: {type: String, default: "暂无数据"},
+                    disabled: {type: Boolean, default: !1},
+                    map: {
+                        type: Object, default: function () {
+                            return {text: "text", value: "value"}
+                        }
+                    }
+                },
+                watch: {
+                    localdata: {
+                        handler: function (t) {
+                            this.range = t, this.dataList = this.getDataList(this.getSelectedValue(t))
+                        }, deep: !0
+                    }, mixinDatacomResData: function (t) {
+                        this.range = t, this.dataList = this.getDataList(this.getSelectedValue(t))
+                    }, value: function (t) {
+                        this.dataList = this.getDataList(t), this.formItem && this.formItem.setValue(t)
+                    }
+                },
+                data: function () {
+                    return {
+                        dataList: [],
+                        range: [],
+                        contentText: {contentdown: "查看更多", contentrefresh: "加载中", contentnomore: "没有更多"},
+                        isLocal: !0,
+                        styles: {selectedColor: "#007aff", selectedTextColor: "#333"}
+                    }
+                },
+                created: function () {
+                    this.form = this.getForm("uniForms"), this.formItem = this.getForm("uniFormsItem"), this.formItem && this.formItem.name && (this.rename = this.formItem.name, this.form.inputChildrens.push(this)), this.localdata && 0 !== this.localdata.length ? (this.isLocal = !0, this.range = this.localdata, this.dataList = this.getDataList(this.getSelectedValue(this.range))) : this.collection && (this.isLocal = !1, this.loadData())
+                },
+                methods: {
+                    loadData: function () {
+                        var t = this;
+                        this.mixinDatacomGet().then((function (e) {
+                            t.mixinDatacomResData = e.result.data, 0 === t.mixinDatacomResData.length ? (t.isLocal = !1, t.mixinDatacomErrorMessage = t.emptyText) : t.isLocal = !0
+                        })).catch((function (e) {
+                            t.mixinDatacomErrorMessage = e.message
+                        }))
+                    }, getForm: function () {
+                        for (var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "uniForms", e = this.$parent, a = e.$options.name; a !== t;) {
+                            if (!(e = e.$parent)) return !1;
+                            a = e.$options.name
+                        }
+                        return e
+                    }, chagne: function (t) {
+                        var e = this, a = t.detail.value, n = {value: [], data: []};
+                        if (this.multiple) this.range.forEach((function (t) {
+                            a.includes(t[e.map.value] + "") && (n.value.push(t[e.map.value]), n.data.push(t))
+                        })); else {
+                            var i = this.range.find((function (t) {
+                                return t[e.map.value] + "" === a
+                            }));
+                            i && (n = {value: i[this.map.value], data: i})
+                        }
+                        this.formItem && this.formItem.setValue(n.value), this.$emit("input", n.value), this.$emit("change", {detail: n}), this.multiple ? this.dataList = this.getDataList(n.value, !0) : this.dataList = this.getDataList(n.value)
+                    }, getDataList: function (t) {
+                        var e = this, a = JSON.parse(JSON.stringify(this.range)), n = [];
+                        return this.multiple && (Array.isArray(t) || (t = [])), a.forEach((function (a, i) {
+                            if (a.disabled = a.disable || a.disabled || !1, e.multiple) if (t.length > 0) {
+                                var o = t.find((function (t) {
+                                    return t === a[e.map.value]
+                                }));
+                                a.selected = void 0 !== o
+                            } else a.selected = !1; else a.selected = t === a[e.map.value];
+                            n.push(a)
+                        })), this.setRange(n)
+                    }, setRange: function (t) {
+                        var e = this, a = t.filter((function (t) {
+                            return t.selected
+                        })), n = Number(this.min) || 0, i = Number(this.max) || "";
+                        return t.forEach((function (o, l) {
+                            if (e.multiple) {
+                                if (a.length <= n) void 0 !== a.find((function (t) {
+                                    return t[e.map.value] === o[e.map.value]
+                                })) && (o.disabled = !0);
+                                if (a.length >= i && "" !== i) void 0 === a.find((function (t) {
+                                    return t[e.map.value] === o[e.map.value]
+                                })) && (o.disabled = !0)
+                            }
+                            e.setStyles(o, l), t[l] = o
+                        })), t
+                    }, setStyles: function (t, e) {
+                        t.styleBackgroud = this.setStyleBackgroud(t), t.styleIcon = this.setStyleIcon(t), t.styleIconText = this.setStyleIconText(t), t.styleRightIcon = this.setStyleRightIcon(t)
+                    }, getSelectedValue: function (t) {
+                        var e = this;
+                        if (!this.multiple) return this.value;
+                        var a = [];
+                        return t.forEach((function (t) {
+                            t.selected && a.push(t[e.map.value])
+                        })), this.value.length > 0 ? this.value : a
+                    }, setStyleBackgroud: function (t) {
+                        var e = {};
+                        "list" !== this.mode && (e["border-color"] = t.selected ? this.selectedColor : "#DCDFE6"), "tag" === this.mode && (e["background-color"] = t.selected ? this.selectedColor : "#f5f5f5");
+                        var a = "";
+                        for (var n in e) a += "".concat(n, ":").concat(e[n], ";");
+                        return a
+                    }, setStyleIcon: function (t) {
+                        var e = {}, a = "";
+                        for (var n in e["background-color"] = t.selected ? this.selectedColor : "#fff", e["border-color"] = t.selected ? this.selectedColor : "#DCDFE6", !t.selected && t.disabled && (e["background-color"] = "#F2F6FC", e["border-color"] = t.selected ? this.selectedColor : "#DCDFE6"), e) a += "".concat(n, ":").concat(e[n], ";");
+                        return a
+                    }, setStyleIconText: function (t) {
+                        var e = {}, a = "";
+                        for (var n in "tag" === this.mode ? e.color = t.selected ? "#fff" : "#333" : e.color = t.selected ? this.selectedColor : "#333", !t.selected && t.disabled && (e.color = "#999"), e) a += "".concat(n, ":").concat(e[n], ";");
+                        return a
+                    }, setStyleRightIcon: function (t) {
+                        var e = {}, a = "";
+                        for (var n in "list" === this.mode && (e["border-color"] = t.selected ? this.styles.selectedColor : "#DCDFE6"), e) a += "".concat(n, ":").concat(e[n], ";");
+                        return a
+                    }
+                }
+            };
+            e.default = a
+        }).call(this, a("861b").uniCloud)
+    }, ccc4: function (t, e, a) {
+        var n = a("7a2e");
+        a.n(n).a
+    }, eebd: function (t, e, a) {
+        a.r(e);
+        var n = a("0afd"), i = a("1c6f");
+        for (var o in i) ["default"].indexOf(o) < 0 && function (t) {
+            a.d(e, t, (function () {
+                return i[t]
+            }))
+        }(o);
+        a("ccc4");
+        var l = a("828b"), s = Object(l.a)(i.default, n.b, n.c, !1, null, null, null, !1, n.a, void 0);
+        e.default = s.exports
+    }
+}]), (global.webpackJsonp = global.webpackJsonp || []).push(["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component", {
+    "uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component": function (t, e, a) {
+        a("df3c").createComponent(a("eebd"))
+    }
+}, [["uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox-create-component"]]]);
