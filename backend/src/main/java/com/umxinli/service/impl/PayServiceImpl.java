@@ -56,7 +56,7 @@ public class PayServiceImpl implements PayService {
         
         // 模拟微信支付参数（实际需要调用微信支付API）
         Map payParams = new HashMap();
-        payParams.put("appId", "wxacaabacf49f8e4c1");
+        payParams.put("appId", "wxd3578c75e67172b3");
         payParams.put("timeStamp", String.valueOf(System.currentTimeMillis() / 1000));
         payParams.put("nonceStr", UUID.randomUUID().toString().replace("-", ""));
         payParams.put("package", "prepay_id=wx" + System.currentTimeMillis());
@@ -86,7 +86,7 @@ public class PayServiceImpl implements PayService {
         
         // 模拟微信支付参数
         Map payParams = new HashMap();
-        payParams.put("appId", "wxacaabacf49f8e4c1");
+        payParams.put("appId", "wxd3578c75e67172b3");
         payParams.put("timeStamp", String.valueOf(System.currentTimeMillis() / 1000));
         payParams.put("nonceStr", UUID.randomUUID().toString().replace("-", ""));
         payParams.put("package", "prepay_id=wx" + System.currentTimeMillis());

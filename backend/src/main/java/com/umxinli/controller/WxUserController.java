@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -62,21 +62,29 @@ public class WxUserController {
 
     /**
      * 解密手机号（新版本，使用 code）
-     * GET /wx/user/{appid}/phone?code=xxx
+     * GET /wx/user/{appid}/phone?code=xxx&openid=xxx
+     * 如果提供 openid 参数，解密成功后会自动更新用户手机号
      */
     @GetMapping("/{appid}/phone")
     public ApiResponse<Map<String, String>> decryptPhone(
             @PathVariable String appid,
             @RequestParam(required = false) String code,
+            @RequestParam(required = false) String openid,
             @RequestParam(required = false) String encryptedData,
             @RequestParam(required = false) String iv,
             @RequestParam(required = false) String sessionKey) {
-        log.info("Decrypt phone request - appid: {}, code: {}", appid, code);
+        log.info("Decrypt phone request - appid: {}, code: {}, openid: {}", appid, code, openid);
         try {
             Map<String, String> phoneInfo;
             if (code != null && !code.isEmpty()) {
                 // 使用新版本接口（推荐）
-                phoneInfo = wxUserService.decryptPhone(appid, code);
+                // 如果提供了openid，会自动更新用户手机号
+                if (wxUserService instanceof com.umxinli.service.impl.WxUserServiceImpl) {
+                    phoneInfo = ((com.umxinli.service.impl.WxUserServiceImpl) wxUserService)
+                            .decryptPhoneAndUpdate(appid, code, openid);
+                } else {
+                    phoneInfo = wxUserService.decryptPhone(appid, code);
+                }
             } else {
                 // 使用旧版本接口（兼容）
                 phoneInfo = wxUserService.decryptPhone(appid, encryptedData, iv, sessionKey);

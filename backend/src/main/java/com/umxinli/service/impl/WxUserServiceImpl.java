@@ -73,7 +73,17 @@ public class WxUserServiceImpl implements WxUserService {
 
     @Override
     public Map decryptPhone(String appid, String code) throws Exception {
-        log.info("开始解密手机号，appid: {}, code: {}", appid, code);
+        return decryptPhoneAndUpdate(appid, code, null);
+    }
+
+    /**
+     * 解密手机号并可选更新用户信息
+     * @param appid 小程序appid
+     * @param code 手机号授权code
+     * @param openid 用户openid（可选，如果提供则自动更新用户手机号）
+     */
+    public Map decryptPhoneAndUpdate(String appid, String code, String openid) throws Exception {
+        log.info("开始解密手机号，appid: {}, code: {}, openid: {}", appid, code, openid);
 
         // 获取 access_token
         String token = getAccessToken(appid);
@@ -81,18 +91,22 @@ public class WxUserServiceImpl implements WxUserService {
         // 调用微信接口
         String url = "https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token=" + token;
 
+        // 构建 JSON 请求体（手动序列化以确保格式正确）
+        ObjectMapper mapper = new ObjectMapper();
         Map<String, String> requestBody = new HashMap<>();
         requestBody.put("code", code);
+        String jsonBody = mapper.writeValueAsString(requestBody);
+        log.info("请求微信API: url={}, body={}", url, jsonBody);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
+        headers.set("Accept", "application/json");
+        HttpEntity<String> entity = new HttpEntity<>(jsonBody, headers);
 
         try {
             ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
-            log.info("微信手机号解密响应: {}", response.getBody());
+            log.info("微信手机号解密响应: statusCode={}, body={}", response.getStatusCode(), response.getBody());
 
-            ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> result = mapper.readValue(response.getBody(), Map.class);
 
             Integer errcode = (Integer) result.get("errcode");
@@ -105,15 +119,48 @@ public class WxUserServiceImpl implements WxUserService {
                 phoneResult.put("countryCode", phoneInfo.get("countryCode"));
 
                 log.info("手机号解密成功: {}", phoneResult.get("phoneNumber"));
+
+                // 如果提供了openid，自动更新用户手机号
+                if (openid != null && !openid.isEmpty()) {
+                    updateUserPhone(openid, (String) phoneInfo.get("phoneNumber"));
+                }
+
                 return phoneResult;
             } else {
                 String errmsg = (String) result.get("errmsg");
                 log.error("微信手机号解密失败: errcode={}, errmsg={}", errcode, errmsg);
                 throw new Exception("微信手机号解密失败: " + errmsg);
             }
+        } catch (org.springframework.web.client.HttpClientErrorException e) {
+            // 处理 HTTP 错误（如 412 Precondition Failed）
+            log.error("微信API HTTP错误: status={}, body={}", e.getStatusCode(), e.getResponseBodyAsString());
+            if (e.getStatusCode().value() == 412) {
+                throw new Exception("获取手机号权限不足，请确认：1.小程序已完成认证 2.已开通获取手机号能力 3.非个人主体小程序");
+            }
+            throw new Exception("微信API调用失败: " + e.getMessage());
         } catch (Exception e) {
             log.error("解密手机号失败", e);
             throw e;
+        }
+    }
+
+    /**
+     * 更新用户手机号
+     */
+    private void updateUserPhone(String openid, String phone) {
+        try {
+            if (userMapper != null) {
+                User user = userMapper.findByOpenid(openid);
+                if (user != null) {
+                    user.setPhone(phone);
+                    userMapper.updateById(user);
+                    log.info("用户手机号更新成功: openid={}, phone={}", openid, phone);
+                } else {
+                    log.warn("用户不存在，无法更新手机号: openid={}", openid);
+                }
+            }
+        } catch (Exception e) {
+            log.error("更新用户手机号失败: openid={}", openid, e);
         }
     }
 
@@ -169,6 +216,12 @@ public class WxUserServiceImpl implements WxUserService {
      * 调用微信 jscode2session 接口
      */
     private Map<String, Object> callWxApi(String appid, String code) throws Exception {
+        // 检测是否是微信开发者工具的模拟 code（仅用于开发环境调试）
+        if (isMockCode(code)) {
+            log.warn("检测到模拟 code: {}，返回模拟的 openid（仅用于开发环境调试）", code);
+            return createMockWxApiResponse();
+        }
+
         String url = String.format(
             "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code",
             appid, appSecret, code
@@ -199,6 +252,38 @@ public class WxUserServiceImpl implements WxUserService {
             log.error("调用微信接口失败", e);
             throw e;
         }
+    }
+
+    /**
+     * 检测是否是微信开发者工具的模拟 code
+     * 常见的模拟 code 格式：
+     * - "the code is a mock one"
+     * - 以 "mock" 开头或包含 "mock" 的字符串
+     */
+    private boolean isMockCode(String code) {
+        if (code == null || code.isEmpty()) {
+            return false;
+        }
+        String lowerCode = code.toLowerCase();
+        return lowerCode.contains("mock") ||
+               lowerCode.contains("the code is") ||
+               lowerCode.equals("test") ||
+               lowerCode.startsWith("test_");
+    }
+
+    /**
+     * 创建模拟的微信 API 响应（仅用于开发环境调试）
+     * 注意：生产环境应该禁用此功能
+     */
+    private Map<String, Object> createMockWxApiResponse() {
+        Map<String, Object> result = new HashMap<>();
+        // 生成一个稳定的模拟 openid（基于时间戳的后4位，这样每天不同但同一天内稳定）
+        String mockOpenId = "mock_openid_dev_" + (System.currentTimeMillis() / 86400000);
+        result.put("openid", mockOpenId);
+        result.put("session_key", "mock_session_key_" + System.currentTimeMillis());
+        result.put("errcode", 0);
+        log.warn("⚠️ 返回模拟 openid: {} - 请使用真机调试获取真实的 openid", mockOpenId);
+        return result;
     }
 
     /**
@@ -265,9 +350,47 @@ public class WxUserServiceImpl implements WxUserService {
     }
 
     private User findOrCreateUserByPhone(String phone, String openId) {
-        User user = new User();
-        user.setId(1947220554149343232L);
-        user.setPhone(phone);
+        User user = null;
+
+        if (userMapper != null) {
+            // 先通过openid查找用户
+            user = userMapper.findByOpenid(openId);
+
+            if (user == null) {
+                // 再通过手机号查找用户
+                user = userMapper.selectByPhone(phone);
+            }
+        }
+
+        if (user == null) {
+            // 创建新用户
+            user = new User();
+            user.setId(System.currentTimeMillis());
+            user.setPhone(phone);
+            user.setOpenid(openId);
+
+            if (userMapper != null) {
+                userMapper.insert(user);
+                log.info("创建新用户: phone={}, openid={}", phone, openId);
+            }
+        } else {
+            // 更新现有用户的手机号和openid
+            boolean needUpdate = false;
+            if (user.getPhone() == null || !user.getPhone().equals(phone)) {
+                user.setPhone(phone);
+                needUpdate = true;
+            }
+            if (user.getOpenid() == null || !user.getOpenid().equals(openId)) {
+                user.setOpenid(openId);
+                needUpdate = true;
+            }
+
+            if (needUpdate && userMapper != null) {
+                userMapper.updateById(user);
+                log.info("更新用户信息: phone={}, openid={}", phone, openId);
+            }
+        }
+
         return user;
     }
 

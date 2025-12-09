@@ -88,5 +88,5 @@ logging:
 
 # 微信小程序配置
 wx:
-  appid: wx50d0ca2d95535dd8
-  appSecret: 8db445c530aa1d19d9663ec752f60dfd
+  appid: wxd3578c75e67172b3
+  appSecret: 8c08590ae06cc2bcf226035032bdcbfa

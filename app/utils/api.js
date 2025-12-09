@@ -1,0 +1,185 @@
+/**
+ * API 模块 - 封装后端接口调用
+ * 参考 template/goal-manage-miniprogram/services/api.js 实现
+ */
+
+const loginManager = require('./loginManager');
+
+/**
+ * 封装微信小程序请求
+ * @param {Object} options - 请求选项
+ * @returns {Promise<Object>} 响应数据
+ */
+function request(options) {
+  return new Promise((resolve, reject) => {
+    const token = wx.getStorageSync('token');
+    const openid = wx.getStorageSync('openid');
+    
+    const fullUrl = loginManager.BASE_URL + options.url;
+    
+    console.log('发起请求:', fullUrl, options.method, options.data);
+    
+    const requestHeaders = {
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : '',
+      'X-User-Openid': openid || '',
+      ...options.header
+    };
+    
+    wx.request({
+      url: fullUrl,
+      method: options.method || 'GET',
+      data: options.data || {},
+      header: requestHeaders,
+      timeout: options.timeout || 10000,
+      success: (res) => {
+        console.log('请求响应:', res);
+        if (res.statusCode === 200) {
+          if (res.data && res.data.code !== undefined) {
+            if (res.data.code === 200) {
+              resolve(res.data);
+            } else {
+              reject(new Error(res.data.msg || `业务错误: ${res.data.code}`));
+            }
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(new Error(`HTTP错误: ${res.statusCode}`));
+        }
+      },
+      fail: (error) => {
+        console.error('请求失败:', error);
+        reject(error);
+      }
+    });
+  });
+}
+
+/**
+ * 用户相关 API
+ */
+const userApi = {
+  // 微信登录
+  login(code) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/login`,
+      method: 'GET',
+      data: { code: code }
+    });
+  },
+  
+  // 获取会话密钥
+  getSessionKey(code) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/getSessionKey`,
+      method: 'GET',
+      data: { code: code }
+    });
+  },
+  
+  // 解密手机号
+  decryptPhone(code, openid) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/phone`,
+      method: 'GET',
+      data: { code: code, openid: openid }
+    });
+  },
+  
+  // 通过手机号登录
+  loginByPhone(code, mobile, mobileArea) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/loginByPhone`,
+      method: 'GET',
+      data: { code: code, mobile: mobile, mobileArea: mobileArea || '86' }
+    });
+  },
+  
+  // 更新用户信息
+  updateUserInfo(openid, nickName, avatarUrl) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/updateUserInfo`,
+      method: 'POST',
+      data: { openid: openid, nickName: nickName, avatarUrl: avatarUrl }
+    });
+  },
+  
+  // 获取小程序二维码
+  getWxQrCode(scene, page, envVersion, width) {
+    return request({
+      url: `/wx/user/${loginManager.APPID}/getWxQrCode`,
+      method: 'GET',
+      data: { scene: scene, page: page, envVersion: envVersion, width: width }
+    });
+  }
+};
+
+/**
+ * 咨询师相关 API
+ */
+const counselorApi = {
+  // 获取咨询师列表
+  getList(params) {
+    return request({
+      url: '/counselor/list',
+      method: 'GET',
+      data: params
+    });
+  },
+  
+  // 获取咨询师详情
+  getDetail(id) {
+    return request({
+      url: `/counselor/${id}`,
+      method: 'GET'
+    });
+  }
+};
+
+/**
+ * 预约相关 API
+ */
+const appointmentApi = {
+  // 创建预约
+  create(data) {
+    return request({
+      url: '/appointment',
+      method: 'POST',
+      data: data
+    });
+  },
+  
+  // 获取预约列表
+  getList(params) {
+    return request({
+      url: '/appointment/list',
+      method: 'GET',
+      data: params
+    });
+  },
+  
+  // 获取预约详情
+  getDetail(id) {
+    return request({
+      url: `/appointment/${id}`,
+      method: 'GET'
+    });
+  },
+  
+  // 取消预约
+  cancel(id) {
+    return request({
+      url: `/appointment/${id}/cancel`,
+      method: 'PUT'
+    });
+  }
+};
+
+module.exports = {
+  request,
+  userApi,
+  counselorApi,
+  appointmentApi
+};
+

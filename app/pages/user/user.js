@@ -20,7 +20,8 @@
                 }, onShow: function () {
                     var n = this;
                     this.loginc.isLogined() || this.$refs.pageContainer.openLoginPanel(), this.loginc.onlyLogin((function () {
-                        n.getHasInfo(), n.loginc.login()
+                        n.getHasInfo()
+                        // [修复] 移除自动登录调用: n.loginc.login()
                     }))
                 }, methods: {
                     toInfoList: function () {

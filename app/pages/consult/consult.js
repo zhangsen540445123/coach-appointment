@@ -147,11 +147,9 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
               this.filterData = l.default, this.getAddressList(), this.formData.pager.index = 1, this.counselorUserList()
             },
             onShow: function () {
-              this.$refs.paymentReminder && this.$refs.paymentReminder.updateInfo(), setTimeout((function () {
-                (0, f.refreshLoginInfo)().then((function () {})).catch((function (e) {
-                  console.error(e)
-                }))
-              }), 500)
+              // [修复] 预约咨询页面无需登录，移除自动登录调用
+              this.$refs.paymentReminder && this.$refs.paymentReminder.updateInfo()
+              // 原代码已移除: setTimeout(() => refreshLoginInfo(), 500)
             },
             computed: {},
             onReachBottom: function () {

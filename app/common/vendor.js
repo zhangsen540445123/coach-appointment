@@ -1222,9 +1222,11 @@ var e = require("../@babel/runtime/helpers/typeof");
                     }
                     return e.abrupt("return", (0, s.dangerousGetInfo)());
                   case 2:
-                    return e.next = 4, (0, s.dangerousLogin)();
+                    // [修复] 不再自动调用后端登录接口，仅返回空对象
+                    // 原代码: return e.next = 4, (0, s.dangerousLogin)();
+                    console.log("[refreshLoginInfo] 用户未登录，跳过自动登录");
+                    return e.abrupt("return", {});
                   case 4:
-                    return n = e.sent, t.$emit("login_success", n), e.abrupt("return", l(n));
                   case 7:
                   case "end":
                     return e.stop()
@@ -1265,15 +1267,27 @@ var e = require("../@babel/runtime/helpers/typeof");
             }))
           },
           h = function (e, t, n) {
+            // [修复] 支持新版API（使用code参数）和旧版API（使用encryptedData）
             return new Promise((function (o, c) {
-              (0, u.irequestdata)({
-                url: "/wx/user/".concat(i.appid, "/phone"),
-                data: {
+              // 判断是新版还是旧版参数
+              var requestData = {};
+              if (typeof e === 'string' && e.length > 20 && !t && !n) {
+                // 新版API: e 是 phoneCode
+                requestData = { code: e };
+                console.log("[getPhone] 使用新版API, code:", e.substring(0, 20) + "...");
+              } else {
+                // 旧版API: e 是 sessionKey, t 是 encryptedData, n 是 iv
+                requestData = {
                   appid: i.appid,
                   encryptedData: t,
                   iv: n,
                   sessionKey: e
-                },
+                };
+                console.log("[getPhone] 使用旧版API");
+              }
+              (0, u.irequestdata)({
+                url: "/wx/user/".concat(i.appid, "/phone"),
+                data: requestData,
                 method: "get",
                 success: function (e) {
                   e.data && 200 === e.data.code && e.data.data && e.data.data.phoneNumber ? o({
@@ -1314,21 +1328,41 @@ var e = require("../@babel/runtime/helpers/typeof");
           getPhone: h,
           loginByPhone: C,
           loginWithMobileAuth: function (e) {
-            return m().then((function (e) {
-              return p(e)
-            })).then((function (t) {
-              return h(t, e.encryptedData, e.iv)
-            })).then((function (e) {
-              return m().then((function (t) {
-                return d({
-                  code: t
-                }, e)
+            // [修复] 优先使用新版API (e.code)，如果没有则使用旧版API (encryptedData + iv)
+            console.log("[loginWithMobileAuth] 开始登录，参数:", { hasCode: !!e.code, hasEncryptedData: !!e.encryptedData });
+
+            if (e.code) {
+              // 新版API: 直接使用手机号授权返回的 code
+              console.log("[loginWithMobileAuth] 使用新版API, phoneCode:", e.code.substring(0, 20) + "...");
+              return h(e.code).then((function (t) {
+                // t = { mobile, mobileArea }
+                return m().then((function (n) {
+                  return d({ code: n }, t)
+                }))
+              })).then((function (e) {
+                return C(e)
+              })).then((function (e) {
+                return g(e)
               }))
-            })).then((function (e) {
-              return C(e)
-            })).then((function (e) {
-              return g(e)
-            }))
+            } else {
+              // 旧版API: 使用 encryptedData + iv + sessionKey
+              console.log("[loginWithMobileAuth] 使用旧版API");
+              return m().then((function (e) {
+                return p(e)
+              })).then((function (t) {
+                return h(t, e.encryptedData, e.iv)
+              })).then((function (e) {
+                return m().then((function (t) {
+                  return d({
+                    code: t
+                  }, e)
+                }))
+              })).then((function (e) {
+                return C(e)
+              })).then((function (e) {
+                return g(e)
+              }))
+            }
           },
           showMobileAuthDenyDialog: function () {
             t.showModal({
@@ -13145,7 +13179,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       var o = n("5bd7"),
         c = null,
         a = null;
-      o.isProduction ? (c = "wxacaabacf49f8e4c1", a = "http://localhost:8080/api") : o.isDevelopment && (c = "wxacaabacf49f8e4c1", a = "http://localhost:8080/api"), e.exports = {
+      o.isProduction ? (c = "wxd3578c75e67172b3", a = "http://localhost:8080/api") : o.isDevelopment && (c = "wxd3578c75e67172b3", a = "http://localhost:8080/api"), e.exports = {
         baseUrl: a,
         appid: c
       }
