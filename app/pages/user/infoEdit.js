@@ -111,21 +111,24 @@
                     }, getnickname: function (e) {
                         this.formData.nickName = e.detail.value
                     }, getPhoneNumber: function (t) {
-                        console.log("aaa"), console.log(t);
+                        console.log("getPhoneNumber event", t);
                         var o = this;
                         "getPhoneNumber:ok" === t.detail.errMsg ? (0, a.irequestdata)({
                             url: "/wx/user/".concat(n.appid, "/phone"),
                             data: {
-                                appid: n.appid,
-                                encryptedData: t.detail.encryptedData,
-                                iv: t.detail.iv,
-                                sessionKey: o.sessionKey
+                                code: t.detail.code,
+                                // openid: o.openid // Uncomment and provide if openid is available and you want to auto-update
                             },
                             method: "get",
                             success: function (e) {
-                                200 == e.data.code && e.data && e.data.data && e.data.data.phoneNumber && (o.formData.mobile = e.data.data.phoneNumber, o.$forceUpdate())
+                                console.log('getPhoneNumber success', e)
+                                if (200 == e.data.code && e.data && e.data.data && e.data.data.phoneNumber) {
+                                    o.formData.mobile = e.data.data.phoneNumber
+                                    o.$forceUpdate()
+                                }
                             },
-                            error: function () {
+                            error: function (e) {
+                                console.log('getPhoneNumber error', e)
                             }
                         }) : e.showModal({
                             title: "警告",
