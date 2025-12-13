@@ -144,7 +144,7 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
               }
             },
             onLoad: function () {
-              this.filterData = l.default, this.getAddressList(), this.formData.pager.index = 1, this.counselorUserList()
+              this.filterData = l.default, this.formData.pager.index = 1, this.counselorUserList()
             },
             onShow: function () {
               // [修复] 预约咨询页面无需登录，移除自动登录调用
