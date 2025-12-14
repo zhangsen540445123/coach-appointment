@@ -177,6 +177,35 @@ const appointmentApi = {
 };
 
 /**
+ * 筛选配置 API
+ */
+const filterApi = {
+  // 获取筛选配置（话题方向 + 排序选项）
+  getConfig() {
+    return request({
+      url: '/filter/config',
+      method: 'GET'
+    });
+  },
+
+  // 获取话题方向列表
+  getTopicDirections() {
+    return request({
+      url: '/filter/topicDirections',
+      method: 'GET'
+    });
+  },
+
+  // 获取排序选项列表
+  getSortOptions() {
+    return request({
+      url: '/filter/sortOptions',
+      method: 'GET'
+    });
+  }
+};
+
+/**
  * 支付相关 API
  */
 const payApi = {
@@ -240,6 +269,7 @@ module.exports = {
   userApi,
   counselorApi,
   appointmentApi,
-  payApi
+  payApi,
+  filterApi
 };
 
