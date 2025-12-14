@@ -1,5 +1,6 @@
 package com.umxinli.service.impl;
 
+import com.umxinli.dto.OrderDTO;
 import com.umxinli.entity.Order;
 import com.umxinli.mapper.OrderMapper;
 import com.umxinli.service.OrderService;
@@ -50,13 +51,25 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List getOrderList(Integer page, Integer pageSize, Integer status) {
+    public List<Order> getOrderList(Integer page, Integer pageSize, Integer status) {
         log.info("Getting order list - page: {}, pageSize: {}, status: {}", page, pageSize, status);
         try {
             int offset = (page - 1) * pageSize;
             return orderMapper.selectList(offset, pageSize, status);
         } catch (Exception e) {
             log.error("Error getting order list", e);
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<OrderDTO> getOrderListWithCounselor(Integer page, Integer pageSize, Integer status, Long userId) {
+        log.info("Getting order list with counselor - page: {}, pageSize: {}, status: {}, userId: {}", page, pageSize, status, userId);
+        try {
+            int offset = (page - 1) * pageSize;
+            return orderMapper.selectListWithCounselor(offset, pageSize, status, userId);
+        } catch (Exception e) {
+            log.error("Error getting order list with counselor", e);
             return Collections.emptyList();
         }
     }

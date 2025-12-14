@@ -30,7 +30,8 @@ const routes = [
       { path: 'coupon', name: 'CouponList', component: () => import('@/views/coupon/CouponList.vue'), meta: { title: '优惠券管理' } },
       { path: 'coupon/code/:couponId', name: 'CouponCode', component: () => import('@/views/coupon/CouponCode.vue'), meta: { title: '兑换码管理' } },
       { path: 'coupon/distribution/:couponId', name: 'CouponDistribution', component: () => import('@/views/coupon/CouponDistribution.vue'), meta: { title: '发放记录' } },
-      { path: 'settings', name: 'Settings', component: () => import('@/views/settings/Settings.vue'), meta: { title: '系统设置' } }
+      { path: 'settings', name: 'Settings', component: () => import('@/views/settings/Settings.vue'), meta: { title: '系统设置' } },
+      { path: 'settings/wxpay', name: 'WxPaySettings', component: () => import('@/views/settings/WxPaySettings.vue'), meta: { title: '微信支付配置' } }
     ]
   }
 ]
