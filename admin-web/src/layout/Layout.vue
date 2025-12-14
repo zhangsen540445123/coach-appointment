@@ -43,10 +43,14 @@
           <el-icon><Ticket /></el-icon>
           <span>优惠券管理</span>
         </el-menu-item>
-        <el-menu-item index="/settings">
-          <el-icon><Setting /></el-icon>
-          <span>系统设置</span>
-        </el-menu-item>
+        <el-sub-menu index="/settings">
+          <template #title>
+            <el-icon><Setting /></el-icon>
+            <span>系统设置</span>
+          </template>
+          <el-menu-item index="/settings">基本设置</el-menu-item>
+          <el-menu-item index="/settings/wxpay">微信支付配置</el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     <el-container class="main-container">

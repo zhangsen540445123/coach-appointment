@@ -149,7 +149,7 @@ const appointmentApi = {
       data: data
     });
   },
-  
+
   // 获取预约列表
   getList(params) {
     return request({
@@ -158,7 +158,7 @@ const appointmentApi = {
       data: params
     });
   },
-  
+
   // 获取预约详情
   getDetail(id) {
     return request({
@@ -166,7 +166,7 @@ const appointmentApi = {
       method: 'GET'
     });
   },
-  
+
   // 取消预约
   cancel(id) {
     return request({
@@ -176,10 +176,100 @@ const appointmentApi = {
   }
 };
 
+/**
+ * 筛选配置 API
+ */
+const filterApi = {
+  // 获取筛选配置（话题方向 + 排序选项）
+  getConfig() {
+    return request({
+      url: '/filter/config',
+      method: 'GET'
+    });
+  },
+
+  // 获取话题方向列表
+  getTopicDirections() {
+    return request({
+      url: '/filter/topicDirections',
+      method: 'GET'
+    });
+  },
+
+  // 获取排序选项列表
+  getSortOptions() {
+    return request({
+      url: '/filter/sortOptions',
+      method: 'GET'
+    });
+  }
+};
+
+/**
+ * 支付相关 API
+ */
+const payApi = {
+  // 获取价格信息
+  getPrice(data) {
+    return request({
+      url: '/pay/getPrice',
+      method: 'POST',
+      data: data
+    });
+  },
+
+  // 发起支付
+  toPay(orderId, data) {
+    return request({
+      url: `/pay/toPay/${orderId}`,
+      method: 'POST',
+      data: data || {}
+    });
+  },
+
+  // 批量支付
+  toBatchPay(orderIds) {
+    return request({
+      url: '/pay/toBatchPay',
+      method: 'POST',
+      data: { orderIds: orderIds }
+    });
+  },
+
+  // 查询支付状态
+  queryStatus(orderId) {
+    return request({
+      url: `/pay/queryStatus/${orderId}`,
+      method: 'GET'
+    });
+  },
+
+  // 发起微信支付（调用微信支付API）
+  requestWxPayment(payParams) {
+    return new Promise((resolve, reject) => {
+      wx.requestPayment({
+        timeStamp: payParams.timeStamp,
+        nonceStr: payParams.nonceStr,
+        package: payParams.packageValue,
+        signType: payParams.signType,
+        paySign: payParams.paySign,
+        success: (res) => {
+          resolve(res);
+        },
+        fail: (err) => {
+          reject(err);
+        }
+      });
+    });
+  }
+};
+
 module.exports = {
   request,
   userApi,
   counselorApi,
-  appointmentApi
+  appointmentApi,
+  payApi,
+  filterApi
 };
 

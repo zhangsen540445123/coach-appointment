@@ -3,3 +3,4 @@
 *.log
 /nginx-gate/logs/access.log
 /nginx-gate/logs/error.log
+nginx-gate/logs/error.log

@@ -207,14 +207,38 @@ public class VisitorController {
     public ApiResponse getOrderList(@RequestBody Map<String, Object> payload) {
         log.info("Get order list request: {}", payload);
         try {
-            Integer page = (Integer) payload.getOrDefault("page", 1);
-            Integer pageSize = (Integer) payload.getOrDefault("pageSize", 10);
-            Integer status = (Integer) payload.get("status");
+            // 解析分页参数
+            Map<String, Object> pager = (Map<String, Object>) payload.get("pager");
+            Integer page = 1;
+            Integer pageSize = 20;
+            if (pager != null) {
+                page = (Integer) pager.getOrDefault("index", 1);
+                pageSize = (Integer) pager.getOrDefault("size", 20);
+            }
 
-            List<Order> orders = orderService.getOrderList(page, pageSize, status);
+            // 解析状态参数 - 前端 orderStatus: 0全部, 1待支付, 2进行中, 3已完成
+            Integer status = null;
+            if (payload.get("orderStatus") != null) {
+                status = Integer.valueOf(payload.get("orderStatus").toString());
+            }
+
+            // 解析用户ID
+            Long userId = null;
+            if (payload.get("visitoruserId") != null) {
+                userId = Long.valueOf(payload.get("visitoruserId").toString());
+            }
+
+            log.info("Parsed params - page: {}, pageSize: {}, status: {}, userId: {}", page, pageSize, status, userId);
+
+            // 使用新的联表查询方法获取订单列表（包含教练信息）
+            var orders = orderService.getOrderListWithCounselor(page, pageSize, status, userId);
+            int total = orderService.countOrders(status == 0 ? null : status);
+            int pages = (int) Math.ceil((double) total / pageSize);
+
             Map<String, Object> result = new HashMap<>();
             result.put("list", orders);
-            result.put("total", orderService.countOrders(status));
+            result.put("total", total);
+            result.put("pages", pages);
             return ApiResponse.success(result);
         } catch (Exception e) {
             log.error("Error getting order list", e);

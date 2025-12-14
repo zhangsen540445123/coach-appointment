@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.WxPayConfigMapper">
+
+    <resultMap id="BaseResultMap" type="com.umxinli.entity.WxPayConfig">
+        <id column="id" property="id"/>
+        <result column="app_id" property="appId"/>
+        <result column="mch_id" property="mchId"/>
+        <result column="api_key" property="apiKey"/>
+        <result column="api_v3_key" property="apiV3Key"/>
+        <result column="cert_path" property="certPath"/>
+        <result column="private_key_path" property="privateKeyPath"/>
+        <result column="notify_url" property="notifyUrl"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, app_id, mch_id, api_key, api_v3_key, cert_path, private_key_path, notify_url, status, created_at, updated_at
+    </sql>
+
+    <select id="selectEnabled" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM wx_pay_config
+        WHERE status = 1
+        ORDER BY id DESC
+        LIMIT 1
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM wx_pay_config
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO wx_pay_config (app_id, mch_id, api_key, api_v3_key, cert_path, private_key_path, notify_url, status)
+        VALUES (#{appId}, #{mchId}, #{apiKey}, #{apiV3Key}, #{certPath}, #{privateKeyPath}, #{notifyUrl}, #{status})
+    </insert>
+
+    <update id="update">
+        UPDATE wx_pay_config
+        <set>
+            <if test="appId != null">app_id = #{appId},</if>
+            <if test="mchId != null">mch_id = #{mchId},</if>
+            <if test="apiKey != null">api_key = #{apiKey},</if>
+            <if test="apiV3Key != null">api_v3_key = #{apiV3Key},</if>
+            <if test="certPath != null">cert_path = #{certPath},</if>
+            <if test="privateKeyPath != null">private_key_path = #{privateKeyPath},</if>
+            <if test="notifyUrl != null">notify_url = #{notifyUrl},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM wx_pay_config WHERE id = #{id}
+    </delete>
+
+</mapper>
+

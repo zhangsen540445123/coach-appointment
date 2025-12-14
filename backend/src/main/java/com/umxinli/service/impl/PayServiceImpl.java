@@ -1,13 +1,18 @@
 package com.umxinli.service.impl;
 
 import com.umxinli.entity.Order;
+import com.umxinli.entity.PaymentRecord;
+import com.umxinli.entity.WxPayConfig;
 import com.umxinli.mapper.OrderMapper;
+import com.umxinli.mapper.PaymentRecordMapper;
+import com.umxinli.mapper.WxPayConfigMapper;
 import com.umxinli.service.PayService;
+import com.umxinli.util.WxPayUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -16,64 +21,135 @@ import java.util.*;
 public class PayServiceImpl implements PayService {
 
     private static final Logger log = LoggerFactory.getLogger(PayServiceImpl.class);
-
-    @Value("${wx.pay.mchId:}")
-    private String mchId;
-
-    @Value("${wx.pay.apiKey:}")
-    private String apiKey;
+    private static final String UNIFIED_ORDER_URL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+    private static final String ORDER_QUERY_URL = "https://api.mch.weixin.qq.com/pay/orderquery";
 
     @Autowired
     private OrderMapper orderMapper;
 
+    @Autowired
+    private WxPayConfigMapper wxPayConfigMapper;
+
+    @Autowired
+    private PaymentRecordMapper paymentRecordMapper;
+
     @Override
     public Map getPrice(Long counselorId, Integer consultType, Integer consultWay) {
         log.info("Getting price for counselor: {}, type: {}, way: {}", counselorId, consultType, consultWay);
-        
+
         Map result = new HashMap();
-        
-        // 模拟价格计算逻辑
         BigDecimal basePrice = new BigDecimal("200.00");
         BigDecimal discount = new BigDecimal("1.0");
         BigDecimal finalPrice = basePrice.multiply(discount);
-        
+
         result.put("basePrice", basePrice);
         result.put("discount", discount);
         result.put("finalPrice", finalPrice);
         result.put("currency", "CNY");
-        
+
         return result;
     }
 
     @Override
+    @Transactional
     public Map toPay(Long orderId) throws Exception {
         log.info("Processing payment for order: {}", orderId);
-        
+
         Order order = orderMapper.selectById(orderId);
         if (order == null) {
-            throw new Exception("Order not found");
+            throw new Exception("订单不存在");
         }
-        
-        // 模拟微信支付参数（实际需要调用微信支付API）
-        Map payParams = new HashMap();
-        payParams.put("appId", "wxd3578c75e67172b3");
+
+        // 获取微信支付配置
+        WxPayConfig config = wxPayConfigMapper.selectEnabled();
+        if (config == null) {
+            throw new Exception("微信支付未配置");
+        }
+
+        // 支付金额（分）
+        BigDecimal amount = order.getPrice() != null ? order.getPrice() : BigDecimal.ZERO;
+        int totalFee = amount.multiply(new BigDecimal("100")).intValue();
+
+        // 生成商户订单号
+        String outTradeNo = WxPayUtil.generateOutTradeNo();
+
+        // 构建统一下单参数
+        Map<String, String> params = new HashMap<>();
+        params.put("appid", config.getAppId());
+        params.put("mch_id", config.getMchId());
+        params.put("nonce_str", WxPayUtil.generateNonceStr());
+        params.put("body", "教练预约-咨询服务");
+        params.put("out_trade_no", outTradeNo);
+        params.put("total_fee", String.valueOf(totalFee));
+        params.put("spbill_create_ip", "127.0.0.1");
+        params.put("notify_url", config.getNotifyUrl());
+        params.put("trade_type", "JSAPI");
+        params.put("openid", ""); // 需要从用户信息获取
+
+        // 生成签名
+        String sign = WxPayUtil.signMD5(params, config.getApiKey());
+        params.put("sign", sign);
+
+        // 调用微信统一下单API
+        String xmlRequest = WxPayUtil.mapToXml(params);
+        log.info("Unified order request: {}", xmlRequest);
+
+        String xmlResponse = WxPayUtil.httpPost(UNIFIED_ORDER_URL, xmlRequest);
+        log.info("Unified order response: {}", xmlResponse);
+
+        Map<String, String> responseMap = WxPayUtil.xmlToMap(xmlResponse);
+
+        if (!"SUCCESS".equals(responseMap.get("return_code"))) {
+            throw new Exception("微信支付请求失败: " + responseMap.get("return_msg"));
+        }
+
+        if (!"SUCCESS".equals(responseMap.get("result_code"))) {
+            throw new Exception("微信支付下单失败: " + responseMap.get("err_code_des"));
+        }
+
+        String prepayId = responseMap.get("prepay_id");
+
+        // 创建支付记录
+        PaymentRecord record = new PaymentRecord();
+        record.setOrderId(orderId);
+        record.setOrderNo(order.getOrderNo());
+        record.setOutTradeNo(outTradeNo);
+        record.setAmount(amount);
+        record.setStatus(0);
+        paymentRecordMapper.insert(record);
+
+        // 生成小程序调起支付的参数
+        Map<String, String> payParams = new HashMap<>();
+        payParams.put("appId", config.getAppId());
         payParams.put("timeStamp", String.valueOf(System.currentTimeMillis() / 1000));
-        payParams.put("nonceStr", UUID.randomUUID().toString().replace("-", ""));
-        payParams.put("package", "prepay_id=wx" + System.currentTimeMillis());
+        payParams.put("nonceStr", WxPayUtil.generateNonceStr());
+        payParams.put("package", "prepay_id=" + prepayId);
         payParams.put("signType", "MD5");
-        payParams.put("paySign", generatePaySign(payParams));
-        
-        return payParams;
+
+        String paySign = WxPayUtil.signMD5(payParams, config.getApiKey());
+
+        Map result = new HashMap();
+        result.put("appId", payParams.get("appId"));
+        result.put("timeStamp", payParams.get("timeStamp"));
+        result.put("nonceStr", payParams.get("nonceStr"));
+        result.put("packageValue", payParams.get("package"));
+        result.put("signType", payParams.get("signType"));
+        result.put("paySign", paySign);
+        result.put("paymentAmount", amount);
+        result.put("outTradeNo", outTradeNo);
+
+        return result;
     }
 
     @Override
+    @Transactional
     public Map toBatchPay(List orderIds) throws Exception {
         log.info("Processing batch payment for orders: {}", orderIds);
-        
+
         if (orderIds == null || orderIds.isEmpty()) {
-            throw new Exception("No orders to pay");
+            throw new Exception("没有要支付的订单");
         }
-        
+
         // 计算总金额
         BigDecimal totalAmount = BigDecimal.ZERO;
         for (Object obj : orderIds) {
@@ -83,63 +159,106 @@ public class PayServiceImpl implements PayService {
                 totalAmount = totalAmount.add(order.getPrice());
             }
         }
-        
-        // 模拟微信支付参数
-        Map payParams = new HashMap();
-        payParams.put("appId", "wxd3578c75e67172b3");
-        payParams.put("timeStamp", String.valueOf(System.currentTimeMillis() / 1000));
-        payParams.put("nonceStr", UUID.randomUUID().toString().replace("-", ""));
-        payParams.put("package", "prepay_id=wx" + System.currentTimeMillis());
-        payParams.put("signType", "MD5");
-        payParams.put("paySign", generatePaySign(payParams));
-        payParams.put("totalAmount", totalAmount);
-        payParams.put("orderCount", orderIds.size());
-        
-        return payParams;
+
+        // 使用第一个订单ID发起支付
+        Long firstOrderId = Long.valueOf(orderIds.get(0).toString());
+        Map result = toPay(firstOrderId);
+        result.put("totalAmount", totalAmount);
+        result.put("orderCount", orderIds.size());
+
+        return result;
     }
 
     @Override
+    @Transactional
     public boolean handlePayNotify(String xmlData) throws Exception {
         log.info("Handling pay notify: {}", xmlData);
-        
-        // 解析XML并验证签名（实际需要完整实现）
+
+        // 获取微信支付配置
+        WxPayConfig config = wxPayConfigMapper.selectEnabled();
+        if (config == null) {
+            throw new Exception("微信支付未配置");
+        }
+
+        // 解析XML
+        Map<String, String> notifyData = WxPayUtil.xmlToMap(xmlData);
+
+        // 验证签名
+        String sign = notifyData.get("sign");
+        notifyData.remove("sign");
+        String calculatedSign = WxPayUtil.signMD5(notifyData, config.getApiKey());
+
+        if (!calculatedSign.equals(sign)) {
+            log.error("签名验证失败");
+            return false;
+        }
+
+        // 检查支付结果
+        if (!"SUCCESS".equals(notifyData.get("return_code")) ||
+            !"SUCCESS".equals(notifyData.get("result_code"))) {
+            log.error("支付结果异常: {}", notifyData);
+            return false;
+        }
+
+        String outTradeNo = notifyData.get("out_trade_no");
+        String transactionId = notifyData.get("transaction_id");
+
+        // 查询支付记录
+        PaymentRecord record = paymentRecordMapper.selectByOutTradeNo(outTradeNo);
+        if (record == null) {
+            log.error("支付记录不存在: {}", outTradeNo);
+            return false;
+        }
+
+        // 已处理过的不再处理
+        if (record.getStatus() == 1) {
+            log.info("支付已处理: {}", outTradeNo);
+            return true;
+        }
+
+        // 更新支付记录
+        record.setTransactionId(transactionId);
+        record.setStatus(1);
+        record.setPayTime(new Date());
+        record.setNotifyData(xmlData);
+        paymentRecordMapper.update(record);
+
         // 更新订单状态为已支付
-        
+        Order order = orderMapper.selectById(record.getOrderId());
+        if (order != null) {
+            order.setStatus(1); // 已支付
+            order.setPaymentTime(new Date());
+            orderMapper.updateById(order);
+            log.info("订单已支付: orderId={}, transactionId={}", record.getOrderId(), transactionId);
+        }
+
         return true;
     }
 
     @Override
     public Map queryPayStatus(Long orderId) {
         log.info("Querying pay status for order: {}", orderId);
-        
+
         Order order = orderMapper.selectById(orderId);
-        
+        PaymentRecord record = paymentRecordMapper.selectByOrderId(orderId);
+
         Map result = new HashMap();
         if (order != null) {
             result.put("orderId", orderId);
-            result.put("status", order.getStatus());
-            result.put("isPaid", order.getStatus() != null && order.getStatus() >= 2);
+            result.put("orderStatus", order.getStatus());
+            result.put("isPaid", order.getStatus() != null && order.getStatus() >= 1);
         } else {
             result.put("orderId", orderId);
-            result.put("status", -1);
+            result.put("orderStatus", -1);
             result.put("isPaid", false);
         }
-        
+
+        if (record != null) {
+            result.put("paymentStatus", record.getStatus());
+            result.put("transactionId", record.getTransactionId());
+            result.put("payTime", record.getPayTime());
+        }
+
         return result;
     }
-
-    private String generatePaySign(Map params) {
-        // 简化版签名生成（实际需要按微信支付规范实现）
-        StringBuilder sb = new StringBuilder();
-        params.keySet().stream().sorted().forEach(key -> {
-            if (!"paySign".equals(key) && params.get(key) != null) {
-                sb.append(key).append("=").append(params.get(key)).append("&");
-            }
-        });
-        sb.append("key=").append(apiKey);
-        
-        // 实际应该使用MD5加密
-        return UUID.randomUUID().toString().replace("-", "").toUpperCase();
-    }
 }
-
