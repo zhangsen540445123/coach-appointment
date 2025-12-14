@@ -72,6 +72,10 @@ server:
 file:
   upload-dir: /upload/images
 
+# 应用基础URL配置（用于生成完整的资源链接）
+app:
+  base-url: http://localhost:8080
+
 logging:
   level:
     root: INFO

@@ -1,227 +1,351 @@
-(global.webpackJsonp = global.webpackJsonp || []).push([["pages/user/infoEdit"], {
-    "1c01": function (e, t, o) {
-        o.d(t, "b", (function () {
-            return n
-        })), o.d(t, "c", (function () {
-            return i
-        })), o.d(t, "a", (function () {
-            return a
-        }));
-        var a = {
-            uniPopup: function () {
-                return o.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(o.bind(null, "61d1"))
-            }
-        }, n = function () {
-            this.$createElement;
-            var e = (this._self._c, o("d344"));
-            this.$mp.data = Object.assign({}, {$root: {m0: e}})
-        }, i = []
-    }, 4136: function (e, t, o) {
-        var a = o("eaaa");
-        o.n(a).a
-    }, "611d": function (e, t, o) {
-        o.r(t);
-        var a = o("8c9f"), n = o.n(a);
-        for (var i in a) ["default"].indexOf(i) < 0 && function (e) {
-            o.d(t, e, (function () {
-                return a[e]
-            }))
-        }(i);
-        t.default = n.a
-    }, "8c9f": function (e, t, o) {
-        (function (e) {
-            Object.defineProperty(t, "__esModule", {value: !0}), t.default = void 0;
-            var a = o("9359"), n = o("9816"), i = o("90c1"), s = {
-                components: {
-                    Navbar: function () {
-                        Promise.all([o.e("common/vendor"), o.e("components/Navbar")]).then(function () {
-                            return resolve(o("8412"))
-                        }.bind(null, o)).catch(o.oe)
+(global.webpackJsonp = global.webpackJsonp || []).push([
+    ["pages/user/infoEdit"], {
+        "1c01": function(e, t, o) {
+            o.d(t, "b", (function() {
+                return n
+            })), o.d(t, "c", (function() {
+                return i
+            })), o.d(t, "a", (function() {
+                return a
+            }));
+            var a = {
+                    uniPopup: function() {
+                        return o.e("uni_modules/uni-popup/components/uni-popup/uni-popup").then(o.bind(null, "61d1"))
                     }
-                }, data: function () {
-                    return {
-                        computedMarginTop: "".concat(2 * this.StatusBar + 20, "px"),
-                        computedHeight: "calc(100vh - ".concat(2 * this.StatusBar + 20, "px)"),
-                        registerDialog: !1,
-                        formData: {
-                            headUrl: null,
-                            nickName: null,
-                            userId: null,
-                            mobile: null,
-                            mobileArea: null,
-                            inviteId: null
-                        },
-                        verificationPhoneData: {mobileArea: 86, phone: null, msgCode: null},
-                        sessionKey: null,
-                        isInviteTrue: !1,
-                        showSendCode: !0,
-                        countMin: "",
-                        timer: null
-                    }
-                }, onShow: function () {
-                    var e = (0, i.storeGet)("counselor_info");
-                    this.formData.userId = e.userId, this.getUserInfo(), this.getSessionKey()
-                }, methods: {
-                    dialogClose: function () {
-                        this.$refs.registerDialog.close()
-                    }, getUserInfo: function () {
-                        var e = this;
-                        (0, a.irequestdata)({
-                            url: "/visitor/user/showVisitorWechatInfo",
-                            method: "post",
-                            data: {userId: this.formData.userId},
-                            success: function (t) {
-                                console.log(t), 200 === t.data.code && (e.formData.nickName = t.data.data.nickName, e.formData.headUrl = t.data.data.headUrl, e.formData.inviteId = t.data.data.inviteId, e.formData.mobile = t.data.data.mobile, e.formData.mobileArea = t.data.data.mobileArea, t.data.data.inviteId && (e.isInviteTrue = !0))
+                },
+                n = function() {
+                    this.$createElement;
+                    var e = (this._self._c, o("d344"));
+                    this.$mp.data = Object.assign({}, { $root: { m0: e } })
+                },
+                i = []
+        },
+        4136: function(e, t, o) {
+            var a = o("eaaa");
+            o.n(a).a
+        },
+        "611d": function(e, t, o) {
+            o.r(t);
+            var a = o("8c9f"),
+                n = o.n(a);
+            for (var i in a)["default"].indexOf(i) < 0 && function(e) {
+                o.d(t, e, (function() {
+                    return a[e]
+                }))
+            }(i);
+            t.default = n.a
+        },
+        "8c9f": function(e, t, o) {
+            (function(e) {
+                Object.defineProperty(t, "__esModule", { value: !0 }), t.default = void 0;
+                var a = o("9359"),
+                    n = o("9816"),
+                    i = o("90c1"),
+                    s = {
+                        components: {
+                            Navbar: function() {
+                                Promise.all([o.e("common/vendor"), o.e("components/Navbar")]).then(function() {
+                                    return resolve(o("8412"))
+                                }.bind(null, o)).catch(o.oe)
                             }
-                        })
-                    }, getSessionKey: function () {
-                        var t = this;
-                        e.login({
-                            success: function (e) {
+                        },
+                        data: function() {
+                            return {
+                                computedMarginTop: "".concat(2 * this.StatusBar + 20, "px"),
+                                computedHeight: "calc(100vh - ".concat(2 * this.StatusBar + 20, "px)"),
+                                registerDialog: !1,
+                                formData: {
+                                    headUrl: null,
+                                    nickName: null,
+                                    userId: null,
+                                    mobile: null,
+                                    mobileArea: null,
+                                    inviteId: null
+                                },
+                                verificationPhoneData: { mobileArea: 86, phone: null, msgCode: null },
+                                sessionKey: null,
+                                isInviteTrue: !1,
+                                showSendCode: !0,
+                                countMin: "",
+                                timer: null
+                            }
+                        },
+                        onShow: function() {
+                            var e = (0, i.storeGet)("counselor_info");
+                            this.formData.userId = e.userId, this.getUserInfo(), this.getSessionKey()
+                        },
+                        methods: {
+                            dialogClose: function() {
+                                this.$refs.registerDialog.close()
+                            },
+                            getUserInfo: function() {
+                                var e = this;
                                 (0, a.irequestdata)({
-                                    url: "/wx/user/" + n.appid + "/getSessionKey",
+                                    url: "/visitor/user/showVisitorWechatInfo",
+                                    method: "post",
+                                    data: { userId: this.formData.userId },
+                                    success: function(t) {
+                                        console.log("getUserInfo response:", t);
+                                        if (200 === t.data.code) {
+                                            e.formData.nickName = t.data.data.nickName;
+                                            e.formData.headUrl = t.data.data.headUrl;
+                                            e.formData.inviteId = t.data.data.inviteId;
+                                            e.formData.mobile = t.data.data.mobile;
+                                            e.formData.mobileArea = t.data.data.mobileArea;
+                                            if (t.data.data.inviteId) {
+                                                e.isInviteTrue = true;
+                                            }
+                                            console.log("头像URL:", e.formData.headUrl);
+                                        }
+                                    }
+                                })
+                            },
+                            getSessionKey: function() {
+                                var t = this;
+                                e.login({
+                                    success: function(e) {
+                                        (0, a.irequestdata)({
+                                            url: "/wx/user/" + n.appid + "/getSessionKey",
+                                            method: "get",
+                                            data: { code: e.code },
+                                            success: function(e) {
+                                                200 === e.data.code && "success" === e.data.msg && (t.sessionKey = e.data.data)
+                                            }
+                                        })
+                                    }
+                                })
+                            },
+                            onChooseAvatar: function(t) {
+                                console.log("=== onChooseAvatar 被调用 ===", t);
+                                var o = this,
+                                    n = t.detail.avatarUrl;
+                                console.log("avatarUrl:", n);
+
+                                // 防止重复调用
+                                if (o._isUploadingAvatar) {
+                                    console.log("正在上传中，忽略重复调用");
+                                    return;
+                                }
+
+                                if (!n) {
+                                    console.log("avatarUrl 为空，忽略");
+                                    return;
+                                }
+
+                                o._isUploadingAvatar = true;
+
+                                // 1. 立即显示选择的头像（先更新UI，提升用户体验）
+                                o.formData.headUrl = n;
+                                console.log("立即显示头像:", n);
+
+                                // 判断是否是微信第三方远程URL（需要下载后再上传）
+                                // 微信头像URL通常以 https://thirdwx.qlogo.cn 开头
+                                // 本地临时文件通常以 wxfile:// 或 http://tmp/ 开头
+                                var isWxThirdPartyUrl = n && n.indexOf("thirdwx.qlogo.cn") !== -1;
+                                console.log("isWxThirdPartyUrl:", isWxThirdPartyUrl);
+
+                                // 上传文件的函数
+                                var doUpload = function(filePath) {
+                                    console.log("开始上传文件:", filePath);
+                                    (0, a.uploadFile)({
+                                        url: "/file/upload",
+                                        method: "post",
+                                        filePath: filePath,
+                                        name: "file",
+                                        success: function(t) {
+                                            console.log("上传响应:", t);
+                                            o._isUploadingAvatar = false;
+                                            try {
+                                                var result = typeof t.data === 'string' ? JSON.parse(t.data) : t.data;
+                                                if (200 === result.code) {
+                                                    // 上传成功后更新为服务器返回的永久URL
+                                                    o.formData.headUrl = result.data.url;
+                                                    console.log("头像上传成功，更新为服务器URL:", o.formData.headUrl);
+                                                    e.showToast({
+                                                        title: "头像上传成功",
+                                                        icon: "success"
+                                                    });
+                                                } else {
+                                                    console.log("上传返回错误:", result);
+                                                    e.showToast({
+                                                        title: result.msg || "文件上传失败",
+                                                        icon: "none"
+                                                    });
+                                                }
+                                            } catch (err) {
+                                                console.error("解析响应失败:", err);
+                                                e.showToast({
+                                                    title: "文件上传失败",
+                                                    icon: "none"
+                                                });
+                                            }
+                                        },
+                                        error: function(err) {
+                                            console.log("上传失败:", err);
+                                            o._isUploadingAvatar = false;
+                                            e.showToast({
+                                                title: "上传失败，请重试",
+                                                icon: "none"
+                                            });
+                                        }
+                                    });
+                                };
+
+                                // 2. 上传头像到服务器
+                                if (isWxThirdPartyUrl) {
+                                    // 如果是微信第三方头像URL，需要先下载到本地再上传
+                                    console.log("检测到微信第三方头像URL，先下载到本地");
+                                    e.downloadFile({
+                                        url: n,
+                                        success: function(res) {
+                                            console.log("下载成功:", res);
+                                            if (res.statusCode === 200 && res.tempFilePath) {
+                                                doUpload(res.tempFilePath);
+                                            } else {
+                                                console.log("下载失败，保持使用远程URL");
+                                                o._isUploadingAvatar = false;
+                                            }
+                                        },
+                                        fail: function(err) {
+                                            console.log("下载失败:", err);
+                                            o._isUploadingAvatar = false;
+                                        }
+                                    });
+                                } else {
+                                    // 本地临时文件（wxfile:// 或 http://tmp/），直接上传
+                                    console.log("本地临时文件，直接上传");
+                                    doUpload(n);
+                                }
+                            },
+                            getnickname: function(e) {
+                                this.formData.nickName = e.detail.value
+                            },
+                            getPhoneNumber: function(t) {
+                                console.log("getPhoneNumber event", t);
+                                var o = this;
+                                "getPhoneNumber:ok" === t.detail.errMsg ? (0, a.irequestdata)({
+                                    url: "/wx/user/".concat(n.appid, "/phone"),
+                                    data: {
+                                        code: t.detail.code,
+                                        // openid: o.openid // Uncomment and provide if openid is available and you want to auto-update
+                                    },
                                     method: "get",
-                                    data: {code: e.code},
-                                    success: function (e) {
-                                        200 === e.data.code && "success" === e.data.msg && (t.sessionKey = e.data.data)
+                                    success: function(e) {
+                                        console.log('getPhoneNumber success', e)
+                                        if (200 == e.data.code && e.data && e.data.data && e.data.data.phoneNumber) {
+                                            o.formData.mobile = e.data.data.phoneNumber
+                                            o.$forceUpdate()
+                                        }
+                                    },
+                                    error: function(e) {
+                                        console.log('getPhoneNumber error', e)
+                                    }
+                                }) : e.showModal({
+                                    title: "警告",
+                                    content: "绑定手机能够提供更加方便的服务!!!",
+                                    showCancel: !1,
+                                    confirmText: "返回授权",
+                                    success: function(e) {
+                                        e.confirm && console.log("用户拒绝授权！")
+                                    }
+                                })
+                            },
+                            verificationPhone: function() {
+                                this.$refs.registerDialog.open("center")
+                            },
+                            bindMobile: function() {
+                                var e = this,
+                                    t = this;
+                                (0, a.irequestdata)({
+                                    url: "/visitor/user/verificationPhone",
+                                    method: "post",
+                                    data: this.verificationPhoneData,
+                                    success: function(o) {
+                                        console.log(o), 200 === o.data.code && !0 === o.data.data && (t.formData.mobile = t.verificationPhoneData.phone, t.formData.mobileArea = t.verificationPhoneData.mobileArea, e.$refs.registerDialog.close())
+                                    },
+                                    error: function() {}
+                                })
+                            },
+                            chooseCountryCode: function() {
+                                e.navigateTo({ url: "/pages/countryCode/countryCode" })
+                            },
+                            getCountryCode: function(e) {
+                                this.verificationPhoneData.mobileArea = e
+                            },
+                            getMsgCode: function() {
+                                var t = this;
+                                if (!this.verificationPhoneData.phone) return e.showToast({
+                                    title: "请输入手机号",
+                                    icon: "none"
+                                });
+                                this.timer || (this.countMin = 60, this.showSendCode = !1, this.timer = setInterval((function() {
+                                    t.countMin > 0 && t.countMin <= 60 ? t.countMin-- : (t.showSendCode = !0, clearInterval(t.timer), t.timer = null)
+                                }), 1e3));
+                                var o = {
+                                    mobile: this.verificationPhoneData.phone,
+                                    mobileArea: this.verificationPhoneData.mobileArea
+                                };
+                                (0, a.irequestdata)({
+                                    url: "/visitor/user/sendMsgCode",
+                                    method: "post",
+                                    data: o,
+                                    success: function(t) {
+                                        console.log(t), 200 === t.data.code && "success" === t.data.msg ? e.showToast({
+                                            title: "验证码已发送，注意查收",
+                                            icon: "none"
+                                        }) : e.showToast({ title: t.msg, icon: "none" })
+                                    },
+                                    error: function(t) {
+                                        e.showToast({ title: t.msg, icon: "none" })
+                                    }
+                                })
+                            },
+                            submitFrom: function() {
+                                console.log(this.formData), (0, a.irequestdata)({
+                                    url: "/visitor/user/updateVisitorWechatInfo",
+                                    method: "post",
+                                    data: this.formData,
+                                    success: function(t) {
+                                        200 === t.data.code && "success" === t.data.msg ? e.switchTab({ url: "/pages/user/user" }) : e.showToast({
+                                            title: t.msg,
+                                            icon: "none"
+                                        })
+                                    },
+                                    error: function(t) {
+                                        e.showToast({ title: t.msg, icon: "none" })
                                     }
                                 })
                             }
-                        })
-                    }, onChooseAvatar: function (t) {
-                        console.log("e", t);
-                        var o = this, n = t.detail.avatarUrl;
-                        (0, a.uploadFile)({
-                            url: "/resources/upload",
-                            method: "post",
-                            filePath: n,
-                            name: "file",
-                            success: function (t) {
-                                console.log(t);
-                                var a = JSON.parse(t.data);
-                                200 === a.code ? o.formData.headUrl = a.data.url : e.showToast({
-                                    title: "文件上传失败",
-                                    icon: "none"
-                                })
-                            },
-                            error: function () {
-                                console.log("失败")
-                            }
-                        })
-                    }, getnickname: function (e) {
-                        this.formData.nickName = e.detail.value
-                    }, getPhoneNumber: function (t) {
-                        console.log("getPhoneNumber event", t);
-                        var o = this;
-                        "getPhoneNumber:ok" === t.detail.errMsg ? (0, a.irequestdata)({
-                            url: "/wx/user/".concat(n.appid, "/phone"),
-                            data: {
-                                code: t.detail.code,
-                                // openid: o.openid // Uncomment and provide if openid is available and you want to auto-update
-                            },
-                            method: "get",
-                            success: function (e) {
-                                console.log('getPhoneNumber success', e)
-                                if (200 == e.data.code && e.data && e.data.data && e.data.data.phoneNumber) {
-                                    o.formData.mobile = e.data.data.phoneNumber
-                                    o.$forceUpdate()
-                                }
-                            },
-                            error: function (e) {
-                                console.log('getPhoneNumber error', e)
-                            }
-                        }) : e.showModal({
-                            title: "警告",
-                            content: "绑定手机能够提供更加方便的服务!!!",
-                            showCancel: !1,
-                            confirmText: "返回授权",
-                            success: function (e) {
-                                e.confirm && console.log("用户拒绝授权！")
-                            }
-                        })
-                    }, verificationPhone: function () {
-                        this.$refs.registerDialog.open("center")
-                    }, bindMobile: function () {
-                        var e = this, t = this;
-                        (0, a.irequestdata)({
-                            url: "/visitor/user/verificationPhone",
-                            method: "post",
-                            data: this.verificationPhoneData,
-                            success: function (o) {
-                                console.log(o), 200 === o.data.code && !0 === o.data.data && (t.formData.mobile = t.verificationPhoneData.phone, t.formData.mobileArea = t.verificationPhoneData.mobileArea, e.$refs.registerDialog.close())
-                            },
-                            error: function () {
-                            }
-                        })
-                    }, chooseCountryCode: function () {
-                        e.navigateTo({url: "/pages/countryCode/countryCode"})
-                    }, getCountryCode: function (e) {
-                        this.verificationPhoneData.mobileArea = e
-                    }, getMsgCode: function () {
-                        var t = this;
-                        if (!this.verificationPhoneData.phone) return e.showToast({
-                            title: "请输入手机号",
-                            icon: "none"
-                        });
-                        this.timer || (this.countMin = 60, this.showSendCode = !1, this.timer = setInterval((function () {
-                            t.countMin > 0 && t.countMin <= 60 ? t.countMin-- : (t.showSendCode = !0, clearInterval(t.timer), t.timer = null)
-                        }), 1e3));
-                        var o = {
-                            mobile: this.verificationPhoneData.phone,
-                            mobileArea: this.verificationPhoneData.mobileArea
-                        };
-                        (0, a.irequestdata)({
-                            url: "/visitor/user/sendMsgCode",
-                            method: "post",
-                            data: o,
-                            success: function (t) {
-                                console.log(t), 200 === t.data.code && "success" === t.data.msg ? e.showToast({
-                                    title: "验证码已发送，注意查收",
-                                    icon: "none"
-                                }) : e.showToast({title: t.msg, icon: "none"})
-                            },
-                            error: function (t) {
-                                e.showToast({title: t.msg, icon: "none"})
-                            }
-                        })
-                    }, submitFrom: function () {
-                        console.log(this.formData), (0, a.irequestdata)({
-                            url: "/visitor/user/updateVisitorWechatInfo",
-                            method: "post",
-                            data: this.formData,
-                            success: function (t) {
-                                200 === t.data.code && "success" === t.data.msg ? e.switchTab({url: "/pages/user/user"}) : e.showToast({
-                                    title: t.msg,
-                                    icon: "none"
-                                })
-                            },
-                            error: function (t) {
-                                e.showToast({title: t.msg, icon: "none"})
-                            }
-                        })
-                    }
-                }
-            };
-            t.default = s
-        }).call(this, o("df3c").default)
-    }, b36e: function (e, t, o) {
-        (function (e, t) {
-            var a = o("47a9");
-            o("6686"), a(o("3240"));
-            var n = a(o("c67a4"));
-            e.__webpack_require_UNI_MP_PLUGIN__ = o, t(n.default)
-        }).call(this, o("3223").default, o("df3c").createPage)
-    }, c67a4: function (e, t, o) {
-        o.r(t);
-        var a = o("1c01"), n = o("611d");
-        for (var i in n) ["default"].indexOf(i) < 0 && function (e) {
-            o.d(t, e, (function () {
-                return n[e]
-            }))
-        }(i);
-        o("4136");
-        var s = o("828b"), r = Object(s.a)(n.default, a.b, a.c, !1, null, "16bb483b", null, !1, a.a, void 0);
-        t.default = r.exports
-    }, eaaa: function (e, t, o) {
-    }
-}, [["b36e", "common/runtime", "common/vendor"]]]);
+                        }
+                    };
+                t.default = s
+            }).call(this, o("df3c").default)
+        },
+        b36e: function(e, t, o) {
+            (function(e, t) {
+                var a = o("47a9");
+                o("6686"), a(o("3240"));
+                var n = a(o("c67a4"));
+                e.__webpack_require_UNI_MP_PLUGIN__ = o, t(n.default)
+            }).call(this, o("3223").default, o("df3c").createPage)
+        },
+        c67a4: function(e, t, o) {
+            o.r(t);
+            var a = o("1c01"),
+                n = o("611d");
+            for (var i in n)["default"].indexOf(i) < 0 && function(e) {
+                o.d(t, e, (function() {
+                    return n[e]
+                }))
+            }(i);
+            o("4136");
+            var s = o("828b"),
+                r = Object(s.a)(n.default, a.b, a.c, !1, null, "16bb483b", null, !1, a.a, void 0);
+            t.default = r.exports
+        },
+        eaaa: function(e, t, o) {}
+    },
+    [
+        ["b36e", "common/runtime", "common/vendor"]
+    ]
+]);

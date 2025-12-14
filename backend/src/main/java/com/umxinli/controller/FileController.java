@@ -31,6 +31,9 @@ public class FileController {
     @Value("${file.upload-dir:/upload/images}")
     private String uploadDir;
 
+    @Value("${app.base-url:http://localhost:8080}")
+    private String baseUrl;
+
     // 静态资源目录（打包在jar中的图片）
     private static final String STATIC_IMAGES_PATH = "static/images/";
 
@@ -136,11 +139,14 @@ public class FileController {
 
             log.info("File uploaded successfully: {}", filename);
 
+            // 生成完整的URL
+            String fullUrl = baseUrl + "/api/file/image/" + filename;
+
             response.put("code", 200);
             response.put("msg", "success");
             response.put("data", new HashMap<String, Object>() {{
                 put("filename", filename);
-                put("url", "/api/file/image/" + filename);
+                put("url", fullUrl);
                 put("size", file.getSize());
             }});
 
@@ -181,7 +187,7 @@ public class FileController {
                     if (file.isFile() && isImageFile(file.getName())) {
                         Map<String, Object> imageInfo = new HashMap<>();
                         imageInfo.put("filename", file.getName());
-                        imageInfo.put("url", "/api/file/image/" + file.getName());
+                        imageInfo.put("url", baseUrl + "/api/file/image/" + file.getName());
                         imageInfo.put("size", file.length());
                         imageInfo.put("lastModified", file.lastModified());
                         images.add(imageInfo);

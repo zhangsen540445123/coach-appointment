@@ -11,15 +11,18 @@ import com.umxinli.entity.CouponCode;
 import com.umxinli.entity.UserCoupon;
 import com.umxinli.entity.UserFeedback;
 import com.umxinli.mapper.VisitorInfoMapper;
+import com.umxinli.mapper.UserMapper;
 import com.umxinli.mapper.CouponMapper;
 import com.umxinli.mapper.CouponCodeMapper;
 import com.umxinli.mapper.UserCouponMapper;
 import com.umxinli.mapper.UserFeedbackMapper;
+import com.umxinli.entity.User;
 import com.umxinli.service.OrderService;
 import com.umxinli.service.SettingsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -35,6 +38,9 @@ public class VisitorController {
 
     private static final Logger log = LoggerFactory.getLogger(VisitorController.class);
 
+    @Value("${app.base-url:http://localhost:8080}")
+    private String baseUrl;
+
     @Autowired
     private SettingsService settingsService;
 
@@ -43,6 +49,9 @@ public class VisitorController {
 
     @Autowired
     private VisitorInfoMapper visitorInfoMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private CouponMapper couponMapper;
@@ -557,6 +566,93 @@ public class VisitorController {
         } catch (Exception e) {
             log.error("Error submitting feedback", e);
             return ApiResponse.error("提交失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 获取访客微信信息
+     * POST /visitor/user/showVisitorWechatInfo
+     */
+    @PostMapping("/user/showVisitorWechatInfo")
+    public ApiResponse showVisitorWechatInfo(@RequestBody Map<String, Object> payload) {
+        Long userId = payload.get("userId") != null ? Long.valueOf(payload.get("userId").toString()) : null;
+        log.info("Show visitor wechat info request for userId: {}", userId);
+        try {
+            if (userId == null) {
+                return ApiResponse.error("userId is required");
+            }
+
+            User user = userMapper.selectById(userId);
+            if (user == null) {
+                return ApiResponse.error("User not found");
+            }
+
+            Map<String, Object> result = new HashMap<>();
+            result.put("userId", user.getId());
+            result.put("nickName", user.getName());
+
+            // 处理头像URL：如果是相对路径，转换为完整URL
+            String headUrl = user.getAvatar();
+            if (headUrl != null && !headUrl.isEmpty()) {
+                if (!headUrl.startsWith("http://") && !headUrl.startsWith("https://")) {
+                    headUrl = baseUrl + headUrl;
+                }
+            }
+            result.put("headUrl", headUrl);
+
+            result.put("mobile", user.getPhone());
+            result.put("mobileArea", "86");
+            result.put("inviteId", null);
+
+            return ApiResponse.success(result);
+        } catch (Exception e) {
+            log.error("Error getting visitor wechat info", e);
+            return ApiResponse.error("Failed to get visitor wechat info");
+        }
+    }
+
+    /**
+     * 更新访客微信信息
+     * POST /visitor/user/updateVisitorWechatInfo
+     */
+    @PostMapping("/user/updateVisitorWechatInfo")
+    public ApiResponse updateVisitorWechatInfo(@RequestBody Map<String, Object> payload) {
+        log.info("Update visitor wechat info request: {}", payload);
+        try {
+            Long userId = payload.get("userId") != null ? Long.valueOf(payload.get("userId").toString()) : null;
+            String nickName = (String) payload.get("nickName");
+            String headUrl = (String) payload.get("headUrl");
+            String mobile = (String) payload.get("mobile");
+
+            if (userId == null) {
+                return ApiResponse.error("userId is required");
+            }
+
+            User user = userMapper.selectById(userId);
+            if (user == null) {
+                return ApiResponse.error("User not found");
+            }
+
+            // 更新用户信息
+            if (nickName != null) {
+                user.setName(nickName);
+            }
+            if (headUrl != null) {
+                user.setAvatar(headUrl);
+            }
+            if (mobile != null) {
+                user.setPhone(mobile);
+            }
+
+            int result = userMapper.updateById(user);
+            if (result > 0) {
+                return ApiResponse.success("更新成功");
+            } else {
+                return ApiResponse.error("更新失败");
+            }
+        } catch (Exception e) {
+            log.error("Error updating visitor wechat info", e);
+            return ApiResponse.error("更新失败: " + e.getMessage());
         }
     }
 }

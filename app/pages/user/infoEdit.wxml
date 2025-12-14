@@ -6,7 +6,7 @@
         <view class="input-list data-v-16bb483b">
             <view class="input-list-item data-v-16bb483b">
                 <view class="input-item-label data-v-16bb483b">头像</view>
-                <button bindchooseavatar="__e" class="cu-avatar radius bg-gray data-v-16bb483b" data-event-opts="{{[ [ 'chooseavatar',[ [ 'onChooseAvatar',['$event'] ] ] ] ]}}" openType="chooseAvatar" style="{{'background-image: url('+formData.headUrl+');'}}"></button>
+                <button bindchooseavatar="__e" class="cu-avatar radius bg-gray data-v-16bb483b" data-event-opts="{{[ [ 'chooseavatar',[ [ 'onChooseAvatar',['$event'] ] ] ] ]}}" openType="chooseAvatar" style="{{formData.headUrl ? 'background-image: url('+formData.headUrl+');background-size: cover;' : ''}}"></button>
             </view>
             <view class="bottom-line data-v-16bb483b"></view>
             <view class="input-list-item data-v-16bb483b">
