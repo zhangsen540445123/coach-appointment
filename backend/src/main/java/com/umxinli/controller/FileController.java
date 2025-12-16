@@ -31,7 +31,7 @@ public class FileController {
     @Value("${file.upload-dir:/upload/images}")
     private String uploadDir;
 
-    @Value("${app.base-url:http://localhost:8080}")
+    @Value("${app.base-url:https://localhost}")
     private String baseUrl;
 
     // 静态资源目录（打包在jar中的图片）

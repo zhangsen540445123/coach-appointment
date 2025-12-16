@@ -1,4 +1,4 @@
-ï»¿require("../@babel/runtime/helpers/Arrayincludes");
+require("../@babel/runtime/helpers/Arrayincludes");
 var e = require("../@babel/runtime/helpers/typeof");
 (global.webpackJsonp = global.webpackJsonp || []).push([
   ["common/vendor"], {
@@ -191,142 +191,142 @@ var e = require("../@babel/runtime/helpers/typeof");
     },
     "02ea": function (e, t, n) {},
     "0815": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/ä½å›¾.png"
+      e.exports = "https://localhost/api/file/image/Î»Í¼.png"
     },
     "09cc": function (e, t, n) {
       Object.defineProperty(t, "__esModule", {
         value: !0
       }), t.default = void 0, t.default = {
-        pulldown: "î–ˆ",
-        refreshempty: "î‘¡",
-        back: "î‘±",
-        forward: "î‘°",
-        more: "î”‡",
-        "more-filled": "î”·",
-        scan: "î˜’",
-        qq: "î‰¤",
-        weibo: "î‰ ",
-        weixin: "î‰¡",
-        pengyouquan: "î‰¢",
-        loop: "î•¥",
-        refresh: "î‡",
-        "refresh-filled": "î·",
-        arrowthindown: "î–…",
-        arrowthinleft: "î–†",
-        arrowthinright: "î–‡",
-        arrowthinup: "î–„",
-        "undo-filled": "îŸ–",
-        undo: "î†",
-        redo: "î…",
-        "redo-filled": "îŸ™",
-        bars: "î•£",
-        chatboxes: "îˆƒ",
-        camera: "îŒ",
-        "chatboxes-filled": "îˆ³",
-        "camera-filled": "îŸ¯",
-        "cart-filled": "îŸ´",
-        cart: "îŸµ",
-        "checkbox-filled": "î‘‚",
-        checkbox: "îŸº",
-        arrowleft: "î–‚",
-        arrowdown: "î–",
-        arrowright: "î–ƒ",
-        "smallcircle-filled": "î ",
-        arrowup: "î–€",
-        circle: "î‘",
-        "eye-filled": "î•¨",
-        "eye-slash-filled": "î ¢",
-        "eye-slash": "î £",
-        eye: "î ¤",
-        "flag-filled": "î ¥",
-        flag: "î”ˆ",
-        "gear-filled": "î”²",
-        reload: "î‘¢",
-        gear: "î”‚",
-        "hand-thumbsdown-filled": "î »",
-        "hand-thumbsdown": "î ¼",
-        "hand-thumbsup-filled": "î ½",
-        "heart-filled": "î ¾",
-        "hand-thumbsup": "î ¿",
-        heart: "î¡€",
-        home: "î”€",
-        info: "î”„",
-        "home-filled": "î”°",
-        "info-filled": "î”´",
-        "circle-filled": "î‘",
-        "chat-filled": "î¡‡",
-        chat: "î‰£",
-        "mail-open-filled": "î¡",
-        "email-filled": "îˆ±",
-        "mail-open": "î¡",
-        email: "îˆ",
-        checkmarkempty: "î‘²",
-        list: "î•¢",
-        "locked-filled": "î¡–",
-        locked: "î”†",
-        "map-filled": "î¡œ",
-        "map-pin": "î¡",
-        "map-pin-ellipse": "î¡¤",
-        map: "î¤",
-        "minus-filled": "î‘€",
-        "mic-filled": "îŒ²",
-        minus: "î",
-        micoff: "î ",
-        mic: "îŒ‚",
-        clear: "î´",
-        smallcircle: "î¡¨",
-        close: "î„",
-        closeempty: "î‘ ",
-        paperclip: "î•§",
-        paperplane: "î”ƒ",
-        "paperplane-filled": "î¡®",
-        "person-filled": "î„±",
-        "contact-filled": "î„°",
-        person: "î„",
-        contact: "î„€",
-        "images-filled": "î¡º",
-        phone: "îˆ€",
-        images: "î¡»",
-        image: "î£",
-        "image-filled": "î¡·",
-        "location-filled": "îŒ³",
-        location: "îŒƒ",
-        "plus-filled": "î¹",
-        plus: "î‰",
-        plusempty: "î‘¨",
-        "help-filled": "î”µ",
-        help: "î”…",
-        "navigate-filled": "î¢„",
-        navigate: "î”",
-        "mic-slash-filled": "î¢’",
-        search: "î‘¦",
-        settings: "î• ",
-        sound: "î–",
-        "sound-filled": "î¢¡",
-        "spinner-cycle": "î‘¥",
-        "download-filled": "î¢¤",
-        "personadd-filled": "î„²",
-        "videocam-filled": "î¢¯",
-        personadd: "î„‚",
-        upload: "î‚",
-        "upload-filled": "î¢±",
-        starhalf: "î‘£",
-        "star-filled": "î¸",
-        star: "îˆ",
-        trash: "î",
-        "phone-filled": "îˆ°",
-        compose: "î€",
-        videocam: "îŒ€",
-        "trash-filled": "î£œ",
-        download: "îƒ",
-        "chatbubble-filled": "îˆ²",
-        chatbubble: "îˆ‚",
-        "cloud-download": "î£¤",
-        "cloud-upload-filled": "î£¥",
-        "cloud-upload": "î£¦",
-        "cloud-download-filled": "î£©",
-        headphones: "î¢¿",
-        shop: "î˜‰"
+        pulldown: "£B",
+        refreshempty: "ıø",
+        back: "şª",
+        forward: "ş©",
+        more: "¡‚",
+        "more-filled": "¢Q",
+        scan: "¤l",
+        qq: "øÑ",
+        weibo: "øÍ",
+        weixin: "øÎ",
+        pengyouquan: "øÏ",
+        loop: "¢€",
+        refresh: "üü",
+        "refresh-filled": "ıÎ",
+        arrowthindown: "¢ ",
+        arrowthinleft: "£@",
+        arrowthinright: "£A",
+        arrowthinup: "¢Ÿ",
+        "undo-filled": "¨ó",
+        undo: "üû",
+        redo: "üú",
+        "redo-filled": "¨ö",
+        bars: "¢}",
+        chatboxes: "¯Î",
+        camera: "ú²",
+        "chatboxes-filled": "¯ş",
+        "camera-filled": "©‘",
+        "cart-filled": "©—",
+        cart: "©˜",
+        "checkbox-filled": "ıÙ",
+        checkbox: "©",
+        arrowleft: "¢",
+        arrowdown: "¢œ",
+        arrowright: "¢",
+        "smallcircle-filled": "©ğ",
+        arrowup: "¢›",
+        circle: "ı¨",
+        "eye-filled": "¢ƒ",
+        "eye-slash-filled": "ş]",
+        "eye-slash": "ş^",
+        eye: "ş_",
+        "flag-filled": "ş`",
+        flag: "¡ƒ",
+        "gear-filled": "¢L",
+        reload: "ıù",
+        gear: "¡|",
+        "hand-thumbsdown-filled": "şv",
+        "hand-thumbsdown": "şw",
+        "hand-thumbsup-filled": "şx",
+        "heart-filled": "şy",
+        "hand-thumbsup": "şz",
+        heart: "ş{",
+        home: "¡z",
+        info: "¡~",
+        "home-filled": "¢J",
+        "info-filled": "¢N",
+        "circle-filled": "ıØ",
+        "chat-filled": "şƒ",
+        chat: "øĞ",
+        "mail-open-filled": "ş‰",
+        "email-filled": "¯ü",
+        "mail-open": "şŠ",
+        email: "¯Ì",
+        checkmarkempty: "ş«",
+        list: "¢|",
+        "locked-filled": "ş’",
+        locked: "¡",
+        "map-filled": "ş˜",
+        "map-pin": "şš",
+        "map-pin-ellipse": "ş ",
+        map: "û·",
+        "minus-filled": "ı×",
+        "mic-filled": "úã",
+        minus: "ı§",
+        micoff: "û³",
+        mic: "ú³",
+        clear: "ıË",
+        smallcircle: "?",
+        close: "üù",
+        closeempty: "ı÷",
+        paperclip: "¢‚",
+        paperplane: "¡}",
+        "paperplane-filled": "?",
+        "person-filled": "­¸",
+        "contact-filled": "­·",
+        person: "¬æ",
+        contact: "¬å",
+        "images-filled": "?",
+        phone: "¯Ë",
+        images: "?",
+        image: "û¶",
+        "image-filled": "?",
+        "location-filled": "úä",
+        location: "ú´",
+        "plus-filled": "ıĞ",
+        plus: "üş",
+        plusempty: "ş¡",
+        "help-filled": "¢O",
+        help: "¡€",
+        "navigate-filled": "?",
+        navigate: "¡{",
+        "mic-slash-filled": "?",
+        search: "ıı",
+        settings: "¢z",
+        sound: "£J",
+        "sound-filled": "?",
+        "spinner-cycle": "ıü",
+        "download-filled": "?",
+        "personadd-filled": "­¹",
+        "videocam-filled": "?",
+        personadd: "¬ç",
+        upload: "ü÷",
+        "upload-filled": "?",
+        starhalf: "ıú",
+        "star-filled": "ıÏ",
+        star: "üı",
+        trash: "üö",
+        "phone-filled": "¯û",
+        compose: "üõ",
+        videocam: "ú±",
+        "trash-filled": "?",
+        download: "üø",
+        "chatbubble-filled": "¯ı",
+        chatbubble: "¯Í",
+        "cloud-download": "?",
+        "cloud-upload-filled": "?",
+        "cloud-upload": "?",
+        "cloud-download-filled": "?",
+        headphones: "?",
+        shop: "¤c"
       }
     },
     "0ab2": function (e, t, n) {
@@ -450,23 +450,23 @@ var e = require("../@babel/runtime/helpers/typeof");
               gt: ">",
               quot: '"',
               apos: "'",
-              ensp: "â€‚",
-              emsp: "â€ƒ",
-              nbsp: "Â ",
+              ensp: "?",
+              emsp: "?",
+              nbsp: "?",
               semi: ";",
-              ndash: "â€“",
-              mdash: "â€”",
-              middot: "Â·",
-              lsquo: "â€˜",
-              rsquo: "â€™",
-              ldquo: "â€œ",
-              rdquo: "â€",
-              bull: "â€¢",
-              hellip: "â€¦",
-              larr: "â†",
-              uarr: "â†‘",
-              rarr: "â†’",
-              darr: "â†“"
+              ndash: "¨C",
+              mdash: "¡ª",
+              middot: "¡¤",
+              lsquo: "¡®",
+              rsquo: "¡¯",
+              ldquo: "¡°",
+              rdquo: "¡±",
+              bull: "?",
+              hellip: "¡­",
+              larr: "¡û",
+              uarr: "¡ü",
+              rarr: "¡ú",
+              darr: "¡ı"
             },
             tagStyle: {
               address: "font-style:italic",
@@ -917,7 +917,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }).call(this, n("df3c").default, n("3223").default)
     },
     "115a": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/04_qsn@3x.png"
+      e.exports = "https://localhost/api/file/image/04_qsn@3x.png"
     },
     "122b": function (e, t, n) {},
     "12db": function (e, t, n) {
@@ -926,13 +926,13 @@ var e = require("../@babel/runtime/helpers/typeof");
       }), t.default = void 0;
       var o = [{
           value: 0,
-          name: "ä¸é™"
+          name: "²»ÏŞ"
         }, {
           value: 1,
-          name: "è§†é¢‘"
+          name: "ÊÓÆµ"
         }, {
           value: 2,
-          name: "é¢è¯¢"
+          name: "ÃæÑ¯"
         }],
         c = o.reduce((function (e, t) {
           return e[t.value] = t, e
@@ -1222,9 +1222,9 @@ var e = require("../@babel/runtime/helpers/typeof");
                     }
                     return e.abrupt("return", (0, s.dangerousGetInfo)());
                   case 2:
-                    // [ä¿®å¤] ä¸å†è‡ªåŠ¨è°ƒç”¨åç«¯ç™»å½•æ¥å£ï¼Œä»…è¿”å›ç©ºå¯¹è±¡
-                    // åŸä»£ç : return e.next = 4, (0, s.dangerousLogin)();
-                    console.log("[refreshLoginInfo] ç”¨æˆ·æœªç™»å½•ï¼Œè·³è¿‡è‡ªåŠ¨ç™»å½•");
+                    // [ĞŞ¸´] ²»ÔÙ×Ô¶¯µ÷ÓÃºó¶ËµÇÂ¼½Ó¿Ú£¬½ö·µ»Ø¿Õ¶ÔÏó
+                    // Ô­´úÂë: return e.next = 4, (0, s.dangerousLogin)();
+                    console.log("[refreshLoginInfo] ÓÃ»§Î´µÇÂ¼£¬Ìø¹ı×Ô¶¯µÇÂ¼");
                     return e.abrupt("return", {});
                   case 4:
                   case 7:
@@ -1258,7 +1258,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   code: e
                 },
                 success: function (e) {
-                  200 === e.data.code && "success" === e.data.msg ? t(e.data.data) : n("è·å–å¾®ä¿¡ä¼šè¯ä¿¡æ¯å¤±è´¥")
+                  200 === e.data.code && "success" === e.data.msg ? t(e.data.data) : n("»ñÈ¡Î¢ĞÅ»á»°ĞÅÏ¢Ê§°Ü")
                 },
                 error: function (e) {
                   n(e)
@@ -1267,23 +1267,23 @@ var e = require("../@babel/runtime/helpers/typeof");
             }))
           },
           h = function (e, t, n) {
-            // [ä¿®å¤] æ”¯æŒæ–°ç‰ˆAPIï¼ˆä½¿ç”¨codeå‚æ•°ï¼‰å’Œæ—§ç‰ˆAPIï¼ˆä½¿ç”¨encryptedDataï¼‰
+            // [ĞŞ¸´] Ö§³ÖĞÂ°æAPI£¨Ê¹ÓÃcode²ÎÊı£©ºÍ¾É°æAPI£¨Ê¹ÓÃencryptedData£©
             return new Promise((function (o, c) {
-              // åˆ¤æ–­æ˜¯æ–°ç‰ˆè¿˜æ˜¯æ—§ç‰ˆå‚æ•°
+              // ÅĞ¶ÏÊÇĞÂ°æ»¹ÊÇ¾É°æ²ÎÊı
               var requestData = {};
               if (typeof e === 'string' && e.length > 20 && !t && !n) {
-                // æ–°ç‰ˆAPI: e æ˜¯ phoneCode
+                // ĞÂ°æAPI: e ÊÇ phoneCode
                 requestData = { code: e };
-                console.log("[getPhone] ä½¿ç”¨æ–°ç‰ˆAPI, code:", e.substring(0, 20) + "...");
+                console.log("[getPhone] Ê¹ÓÃĞÂ°æAPI, code:", e.substring(0, 20) + "...");
               } else {
-                // æ—§ç‰ˆAPI: e æ˜¯ sessionKey, t æ˜¯ encryptedData, n æ˜¯ iv
+                // ¾É°æAPI: e ÊÇ sessionKey, t ÊÇ encryptedData, n ÊÇ iv
                 requestData = {
                   appid: i.appid,
                   encryptedData: t,
                   iv: n,
                   sessionKey: e
                 };
-                console.log("[getPhone] ä½¿ç”¨æ—§ç‰ˆAPI");
+                console.log("[getPhone] Ê¹ÓÃ¾É°æAPI");
               }
               (0, u.irequestdata)({
                 url: "/wx/user/".concat(i.appid, "/phone"),
@@ -1293,10 +1293,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                   e.data && 200 === e.data.code && e.data.data && e.data.data.phoneNumber ? o({
                     mobile: e.data.data.purePhoneNumber,
                     mobileArea: e.data.data.countryCode
-                  }) : c("è·å–æ‰‹æœºå·ç å¤±è´¥")
+                  }) : c("»ñÈ¡ÊÖ»úºÅÂëÊ§°Ü")
                 },
                 error: function (e) {
-                  c("è·å–æ‰‹æœºå·ç å¤±è´¥:" + e)
+                  c("»ñÈ¡ÊÖ»úºÅÂëÊ§°Ü:" + e)
                 }
               })
             }))
@@ -1308,10 +1308,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                 method: "get",
                 data: d({}, e),
                 success: function (e) {
-                  200 === e.data.code && "success" === e.data.msg && e.data.data && e.data.data.mobile ? t(e) : n("ç™»å½•å¤±è´¥")
+                  200 === e.data.code && "success" === e.data.msg && e.data.data && e.data.data.mobile ? t(e) : n("µÇÂ¼Ê§°Ü")
                 },
                 error: function (e) {
-                  n("ç™»å½•å¤±è´¥:" + e)
+                  n("µÇÂ¼Ê§°Ü:" + e)
                 }
               })
             }))
@@ -1328,12 +1328,12 @@ var e = require("../@babel/runtime/helpers/typeof");
           getPhone: h,
           loginByPhone: C,
           loginWithMobileAuth: function (e) {
-            // [ä¿®å¤] ä¼˜å…ˆä½¿ç”¨æ–°ç‰ˆAPI (e.code)ï¼Œå¦‚æœæ²¡æœ‰åˆ™ä½¿ç”¨æ—§ç‰ˆAPI (encryptedData + iv)
-            console.log("[loginWithMobileAuth] å¼€å§‹ç™»å½•ï¼Œå‚æ•°:", { hasCode: !!e.code, hasEncryptedData: !!e.encryptedData });
+            // [ĞŞ¸´] ÓÅÏÈÊ¹ÓÃĞÂ°æAPI (e.code)£¬Èç¹ûÃ»ÓĞÔòÊ¹ÓÃ¾É°æAPI (encryptedData + iv)
+            console.log("[loginWithMobileAuth] ¿ªÊ¼µÇÂ¼£¬²ÎÊı:", { hasCode: !!e.code, hasEncryptedData: !!e.encryptedData });
 
             if (e.code) {
-              // æ–°ç‰ˆAPI: ç›´æ¥ä½¿ç”¨æ‰‹æœºå·æˆæƒè¿”å›çš„ code
-              console.log("[loginWithMobileAuth] ä½¿ç”¨æ–°ç‰ˆAPI, phoneCode:", e.code.substring(0, 20) + "...");
+              // ĞÂ°æAPI: Ö±½ÓÊ¹ÓÃÊÖ»úºÅÊÚÈ¨·µ»ØµÄ code
+              console.log("[loginWithMobileAuth] Ê¹ÓÃĞÂ°æAPI, phoneCode:", e.code.substring(0, 20) + "...");
               return h(e.code).then((function (t) {
                 // t = { mobile, mobileArea }
                 return m().then((function (n) {
@@ -1345,8 +1345,8 @@ var e = require("../@babel/runtime/helpers/typeof");
                 return g(e)
               }))
             } else {
-              // æ—§ç‰ˆAPI: ä½¿ç”¨ encryptedData + iv + sessionKey
-              console.log("[loginWithMobileAuth] ä½¿ç”¨æ—§ç‰ˆAPI");
+              // ¾É°æAPI: Ê¹ÓÃ encryptedData + iv + sessionKey
+              console.log("[loginWithMobileAuth] Ê¹ÓÃ¾É°æAPI");
               return m().then((function (e) {
                 return p(e)
               })).then((function (t) {
@@ -1366,12 +1366,12 @@ var e = require("../@babel/runtime/helpers/typeof");
           },
           showMobileAuthDenyDialog: function () {
             t.showModal({
-              title: "è­¦å‘Š",
-              content: "ç»‘å®šæ‰‹æœºèƒ½å¤Ÿæä¾›æ›´åŠ æ–¹ä¾¿çš„æœåŠ¡!!!",
+              title: "¾¯¸æ",
+              content: "°ó¶¨ÊÖ»úÄÜ¹»Ìá¹©¸ü¼Ó·½±ãµÄ·şÎñ!!!",
               showCancel: !1,
-              confirmText: "è¿”å›æˆæƒ",
+              confirmText: "·µ»ØÊÚÈ¨",
               success: function (e) {
-                e.confirm && console.log("ç”¨æˆ·æ‹’ç»æˆæƒï¼")
+                e.confirm && console.log("ÓÃ»§¾Ü¾øÊÚÈ¨£¡")
               }
             })
           },
@@ -1382,10 +1382,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                 method: "post",
                 data: {},
                 success: function (n) {
-                  console.log("requestDeleteAccount success", n), 200 === n.data.code && "success" === n.data.msg ? e(n) : t("è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡è¯•")
+                  console.log("requestDeleteAccount success", n), 200 === n.data.code && "success" === n.data.msg ? e(n) : t("ÇëÇóÊ§°Ü£¬ÇëÖØÊÔ")
                 },
                 error: function (e) {
-                  console.log("requestDeleteAccount error", e), t(e && e.data && e.data.msg ? e.data.msg : "è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡è¯•")
+                  console.log("requestDeleteAccount error", e), t(e && e.data && e.data.msg ? e.data.msg : "ÇëÇóÊ§°Ü£¬ÇëÖØÊÔ")
                 }
               })
             }))
@@ -1399,10 +1399,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                   id: e
                 },
                 success: function (e) {
-                  console.log("deleteVisitor success", e), 200 === e.data.code && "success" === e.data.msg ? t(e) : n("è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡è¯•")
+                  console.log("deleteVisitor success", e), 200 === e.data.code && "success" === e.data.msg ? t(e) : n("ÇëÇóÊ§°Ü£¬ÇëÖØÊÔ")
                 },
                 error: function (e) {
-                  console.log("deleteVisitor error", e), n(e && e.data && e.data.msg ? e.data.msg : "è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡è¯•")
+                  console.log("deleteVisitor error", e), n(e && e.data && e.data.msg ? e.data.msg : "ÇëÇóÊ§°Ü£¬ÇëÖØÊÔ")
                 }
               })
             }))
@@ -1411,7 +1411,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }).call(this, n("df3c").default)
     },
     "21e3": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/çŸ©å½¢_2.png"
+      e.exports = "https://localhost/api/file/image/¾ØĞÎ_2.png"
     },
     "22ab": function (e, t, n) {},
     "272c": function (e, t, n) {
@@ -1460,7 +1460,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           return n && 0 !== n.length ? (t.tempFiles.forEach((function (e) {
             var t = r(e.name).ext.toLowerCase(); - 1 !== n.indexOf(t) && (c.push(e), o.push(e.path))
           })), c.length !== t.tempFiles.length && e.showToast({
-            title: "å½“å‰é€‰æ‹©äº†".concat(t.tempFiles.length, "ä¸ªæ–‡ä»¶ ï¼Œ").concat(t.tempFiles.length - c.length, " ä¸ªæ–‡ä»¶æ ¼å¼ä¸æ­£ç¡®"),
+            title: "µ±Ç°Ñ¡ÔñÁË".concat(t.tempFiles.length, "¸öÎÄ¼ş £¬").concat(t.tempFiles.length - c.length, " ¸öÎÄ¼ş¸ñÊ½²»ÕıÈ·"),
             icon: "none",
             duration: 5e3
           }), {
@@ -1602,13 +1602,13 @@ var e = require("../@babel/runtime/helpers/typeof");
     },
     "2a06": function (e, t, n) {},
     "2c36": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/02_dj@3x.png"
+      e.exports = "https://localhost/api/file/image/02_dj@3x.png"
     },
     "2cb5": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å’¨è¯¢é¡¾é—®å¼¹æ¡†@3x.png"
+      e.exports = "https://localhost/api/file/image/×ÉÑ¯¹ËÎÊµ¯¿ò@3x.png"
     },
     "2f29": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å®¶åº­å›°æ‰°@3x.png"
+      e.exports = "https://localhost/api/file/image/¼ÒÍ¥À§ÈÅ@3x.png"
     },
     "320f": function (t, n, o) {
       Object.defineProperty(n, "__esModule", {
@@ -4717,7 +4717,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   VUE_APP_NAME: "consult-visitor-front",
                   VUE_APP_PLATFORM: "mp-weixin",
                   BASE_URL: "/"
-                }).VUE_APP_DEBUG && console.log("[" + +new Date + "][" + (o.is || o.route) + "][" + this._uid + "]å·®é‡æ›´æ–°", JSON.stringify(r)), this.__next_tick_pending = !0, o.setData(r, (function () {
+                }).VUE_APP_DEBUG && console.log("[" + +new Date + "][" + (o.is || o.route) + "][" + this._uid + "]²îÁ¿¸üĞÂ", JSON.stringify(r)), this.__next_tick_pending = !0, o.setData(r, (function () {
                   n.__next_tick_pending = !1, wn(n)
                 }))) : wn(this)
               }
@@ -4886,7 +4886,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }, e.exports.__esModule = !0, e.exports.default = e.exports
     },
     "366a": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å­¦ä¸šèŒåœº@3x.png"
+      e.exports = "https://localhost/api/file/image/Ñ§ÒµÖ°³¡@3x.png"
     },
     "392e": function (e, t, n) {},
     "3a46": function (e, t, n) {
@@ -4904,7 +4904,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.exports = o, t.exports.__esModule = !0, t.exports.default = t.exports
     },
     "3c22": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/æƒ…ç»ªå›°æ‰°@3x.png"
+      e.exports = "https://localhost/api/file/image/ÇéĞ÷À§ÈÅ@3x.png"
     },
     "3d73": function (e, t) {
       e.exports = "/static/img/photo.png"
@@ -4928,10 +4928,10 @@ var e = require("../@babel/runtime/helpers/typeof");
     },
     "3eed": function (e, t, n) {},
     "3eee": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/é¦–é¡µ-2@3x.jpg"
+      e.exports = "https://localhost/api/file/image/Ê×Ò³-2@3x.jpg"
     },
     "42d6": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/èƒŒæ™¯è’™ç‰ˆ@3x.png"
+      e.exports = "https://localhost/api/file/image/±³¾°ÃÉ°æ@3x.png"
     },
     4679: function (e, t, n) {
       (function (e) {
@@ -5010,7 +5010,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }, e.exports.__esModule = !0, e.exports.default = e.exports
     },
     4990: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/zxs_tx@3x.png"
+      e.exports = "https://localhost/api/file/image/zxs_tx@3x.png"
     },
     "4b0e": function (e, t, n) {
       (function (e) {
@@ -5344,7 +5344,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           return new Promise((function (t, r) {
             var u = e.chooseFile;
             if (void 0 !== n && "function" == typeof n.chooseMessageFile && (u = n.chooseMessageFile), "function" != typeof u) return r({
-              errMsg: c + " è¯·æŒ‡å®š type ç±»å‹ï¼Œè¯¥å¹³å°ä»…æ”¯æŒé€‰æ‹© image æˆ– videoã€‚"
+              errMsg: c + " ÇëÖ¸¶¨ type ÀàĞÍ£¬¸ÃÆ½Ì¨½öÖ§³ÖÑ¡Ôñ image »ò video¡£"
             });
             u({
               type: "all",
@@ -5391,7 +5391,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }).call(this, n("df3c").default, n("3223").default, n("861b").uniCloud)
     },
     5814: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/ä¸ªäººæˆé•¿@3x.png"
+      e.exports = "https://localhost/api/file/image/¸öÈË³É³¤@3x.png"
     },
     "5bd7": function (e, t, n) {
       Object.defineProperty(t, "__esModule", {
@@ -5405,14 +5405,14 @@ var e = require("../@babel/runtime/helpers/typeof");
       e.exports = "/static/img/exchange.png"
     },
     "60c7": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/05_gzs@3x.png"
+      e.exports = "https://localhost/api/file/image/05_gzs@3x.png"
     },
     "613d": function (e, t, n) {
       var o = n("8000");
       n.n(o).a
     },
     6228: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/BG@3x.png"
+      e.exports = "https://localhost/api/file/image/BG@3x.png"
     },
     "624a": function (e, t, n) {
       var o = n("47a9");
@@ -5457,13 +5457,13 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.default = {
         strDiscode: function (e) {
           return e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&OElig;|&#338;|&#x152;/g, "Å’")).replace(/&oelig;|&#339;|&#x153;/g, "Å“")).replace(/&Scaron;|&#352;|&#x160;/g, "Å ")).replace(/&scaron;|&#353;|&#x161;/g, "Å¡")).replace(/&Yuml;|&#376;|&#x178;/g, "Å¸")).replace(/&fnof;|&#402;|&#x192;/g, "Æ’")).replace(/&circ;|&#710;|&#x2c6;/g, "Ë†")).replace(/&tilde;|&#732;|&#x2dc;/g, "Ëœ")).replace(/&thinsp;|$#8201;|&#x2009;/g, "<span class='spaceshow'>â€‰</span>")).replace(/&zwnj;|&#8204;|&#x200C;/g, "<span class='spaceshow'>â€Œ</span>")).replace(/&zwj;|$#8205;|&#x200D;/g, "<span class='spaceshow'>â€</span>")).replace(/&lrm;|$#8206;|&#x200E;/g, "<span class='spaceshow'>â€</span>")).replace(/&rlm;|&#8207;|&#x200F;/g, "<span class='spaceshow'>â€</span>")).replace(/&ndash;|&#8211;|&#x2013;/g, "â€“")).replace(/&mdash;|&#8212;|&#x2014;/g, "â€”")).replace(/&lsquo;|&#8216;|&#x2018;/g, "â€˜")).replace(/&rsquo;|&#8217;|&#x2019;/g, "â€™")).replace(/&sbquo;|&#8218;|&#x201a;/g, "â€š")).replace(/&ldquo;|&#8220;|&#x201c;/g, "â€œ")).replace(/&rdquo;|&#8221;|&#x201d;/g, "â€")).replace(/&bdquo;|&#8222;|&#x201e;/g, "â€")).replace(/&dagger;|&#8224;|&#x2020;/g, "â€ ")).replace(/&Dagger;|&#8225;|&#x2021;/g, "â€¡")).replace(/&bull;|&#8226;|&#x2022;/g, "â€¢")).replace(/&hellip;|&#8230;|&#x2026;/g, "â€¦")).replace(/&permil;|&#8240;|&#x2030;/g, "â€°")).replace(/&prime;|&#8242;|&#x2032;/g, "â€²")).replace(/&Prime;|&#8243;|&#x2033;/g, "â€³")).replace(/&lsaquo;|&#8249;|&#x2039;/g, "â€¹")).replace(/&rsaquo;|&#8250;|&#x203a;/g, "â€º")).replace(/&oline;|&#8254;|&#x203e;/g, "â€¾")).replace(/&euro;|&#8364;|&#x20ac;/g, "â‚¬")).replace(/&trade;|&#8482;|&#x2122;/g, "â„¢")).replace(/&larr;|&#8592;|&#x2190;/g, "â†")).replace(/&uarr;|&#8593;|&#x2191;/g, "â†‘")).replace(/&rarr;|&#8594;|&#x2192;/g, "â†’")).replace(/&darr;|&#8595;|&#x2193;/g, "â†“")).replace(/&harr;|&#8596;|&#x2194;/g, "â†”")).replace(/&crarr;|&#8629;|&#x21b5;/g, "â†µ")).replace(/&lceil;|&#8968;|&#x2308;/g, "âŒˆ")).replace(/&rceil;|&#8969;|&#x2309;/g, "âŒ‰")).replace(/&lfloor;|&#8970;|&#x230a;/g, "âŒŠ")).replace(/&rfloor;|&#8971;|&#x230b;/g, "âŒ‹")).replace(/&loz;|&#9674;|&#x25ca;/g, "â—Š")).replace(/&spades;|&#9824;|&#x2660;/g, "â™ ")).replace(/&clubs;|&#9827;|&#x2663;/g, "â™£")).replace(/&hearts;|&#9829;|&#x2665;/g, "â™¥")).replace(/&diams;|&#9830;|&#x2666;/g, "â™¦")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&OElig;|&#338;|&#x152;/g, "?")).replace(/&oelig;|&#339;|&#x153;/g, "?")).replace(/&Scaron;|&#352;|&#x160;/g, "?")).replace(/&scaron;|&#353;|&#x161;/g, "?")).replace(/&Yuml;|&#376;|&#x178;/g, "?")).replace(/&fnof;|&#402;|&#x192;/g, "?")).replace(/&circ;|&#710;|&#x2c6;/g, "?")).replace(/&tilde;|&#732;|&#x2dc;/g, "?")).replace(/&thinsp;|$#8201;|&#x2009;/g, "<span class='spaceshow'>?</span>")).replace(/&zwnj;|&#8204;|&#x200C;/g, "<span class='spaceshow'>?</span>")).replace(/&zwj;|$#8205;|&#x200D;/g, "<span class='spaceshow'>?</span>")).replace(/&lrm;|$#8206;|&#x200E;/g, "<span class='spaceshow'>?</span>")).replace(/&rlm;|&#8207;|&#x200F;/g, "<span class='spaceshow'>?</span>")).replace(/&ndash;|&#8211;|&#x2013;/g, "¨C")).replace(/&mdash;|&#8212;|&#x2014;/g, "¡ª")).replace(/&lsquo;|&#8216;|&#x2018;/g, "¡®")).replace(/&rsquo;|&#8217;|&#x2019;/g, "¡¯")).replace(/&sbquo;|&#8218;|&#x201a;/g, "?")).replace(/&ldquo;|&#8220;|&#x201c;/g, "¡°")).replace(/&rdquo;|&#8221;|&#x201d;/g, "¡±")).replace(/&bdquo;|&#8222;|&#x201e;/g, "?")).replace(/&dagger;|&#8224;|&#x2020;/g, "?")).replace(/&Dagger;|&#8225;|&#x2021;/g, "?")).replace(/&bull;|&#8226;|&#x2022;/g, "?")).replace(/&hellip;|&#8230;|&#x2026;/g, "¡­")).replace(/&permil;|&#8240;|&#x2030;/g, "¡ë")).replace(/&prime;|&#8242;|&#x2032;/g, "¡ä")).replace(/&Prime;|&#8243;|&#x2033;/g, "¡å")).replace(/&lsaquo;|&#8249;|&#x2039;/g, "?")).replace(/&rsaquo;|&#8250;|&#x203a;/g, "?")).replace(/&oline;|&#8254;|&#x203e;/g, "£ş")).replace(/&euro;|&#8364;|&#x20ac;/g, "€")).replace(/&trade;|&#8482;|&#x2122;/g, "?")).replace(/&larr;|&#8592;|&#x2190;/g, "¡û")).replace(/&uarr;|&#8593;|&#x2191;/g, "¡ü")).replace(/&rarr;|&#8594;|&#x2192;/g, "¡ú")).replace(/&darr;|&#8595;|&#x2193;/g, "¡ı")).replace(/&harr;|&#8596;|&#x2194;/g, "?")).replace(/&crarr;|&#8629;|&#x21b5;/g, "?")).replace(/&lceil;|&#8968;|&#x2308;/g, "?")).replace(/&rceil;|&#8969;|&#x2309;/g, "?")).replace(/&lfloor;|&#8970;|&#x230a;/g, "?")).replace(/&rfloor;|&#8971;|&#x230b;/g, "?")).replace(/&loz;|&#9674;|&#x25ca;/g, "?")).replace(/&spades;|&#9824;|&#x2660;/g, "?")).replace(/&clubs;|&#9827;|&#x2663;/g, "?")).replace(/&hearts;|&#9829;|&#x2665;/g, "?")).replace(/&diams;|&#9830;|&#x2666;/g, "?")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;")).replace(/&ensp;|&#8194;|&#x2002;/g, "&ensp;")).replace(/&#12288;|&#x3000;/g, "<span class='spaceshow'>ã€€</span>")).replace(/&emsp;|&#8195;|&#x2003;/g, "&emsp;")).replace(/&quot;|&#34;|&#x22;/g, '"')).replace(/&apos;|&#39;|&#x27;/g, "&apos;")).replace(/&acute;|&#180;|&#xB4;/g, "Â´")).replace(/&times;|&#215;|&#xD7;/g, "Ã—")).replace(/&divide;|&#247;|&#xF7;/g, "Ã·")).replace(/&amp;|&#38;|&#x26;/g, "&amp;")).replace(/&lt;|&#60;|&#x3c;/g, "&lt;")).replace(/&gt;|&#62;|&#x3e;/g, "&gt;")).replace(/&nbsp;|&#32;|&#x20;/g, "<span class='spaceshow'> </span>")).replace(/&ensp;|&#8194;|&#x2002;/g, "<span class='spaceshow'>â€‚</span>")).replace(/&#12288;|&#x3000;/g, "<span class='spaceshow'>ã€€</span>")).replace(/&emsp;|&#8195;|&#x2003;/g, "<span class='spaceshow'>â€ƒ</span>")).replace(/&quot;|&#34;|&#x22;/g, '"')).replace(/&quot;|&#39;|&#x27;/g, "'")).replace(/&acute;|&#180;|&#xB4;/g, "Â´")).replace(/&times;|&#215;|&#xD7;/g, "Ã—")).replace(/&divide;|&#247;|&#xF7;/g, "Ã·")).replace(/&amp;|&#38;|&#x26;/g, "&")).replace(/&lt;|&#60;|&#x3c;/g, "<")).replace(/&gt;|&#62;|&#x3e;/g, ">")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;")).replace(/&ensp;|&#8194;|&#x2002;/g, "&ensp;")).replace(/&#12288;|&#x3000;/g, "<span class='spaceshow'>¡¡</span>")).replace(/&emsp;|&#8195;|&#x2003;/g, "&emsp;")).replace(/&quot;|&#34;|&#x22;/g, '"')).replace(/&apos;|&#39;|&#x27;/g, "&apos;")).replace(/&acute;|&#180;|&#xB4;/g, "¡ä")).replace(/&times;|&#215;|&#xD7;/g, "¡Á")).replace(/&divide;|&#247;|&#xF7;/g, "¡Â")).replace(/&amp;|&#38;|&#x26;/g, "&amp;")).replace(/&lt;|&#60;|&#x3c;/g, "&lt;")).replace(/&gt;|&#62;|&#x3e;/g, "&gt;")).replace(/&nbsp;|&#32;|&#x20;/g, "<span class='spaceshow'> </span>")).replace(/&ensp;|&#8194;|&#x2002;/g, "<span class='spaceshow'>?</span>")).replace(/&#12288;|&#x3000;/g, "<span class='spaceshow'>¡¡</span>")).replace(/&emsp;|&#8195;|&#x2003;/g, "<span class='spaceshow'>?</span>")).replace(/&quot;|&#34;|&#x22;/g, '"')).replace(/&quot;|&#39;|&#x27;/g, "'")).replace(/&acute;|&#180;|&#xB4;/g, "¡ä")).replace(/&times;|&#215;|&#xD7;/g, "¡Á")).replace(/&divide;|&#247;|&#xF7;/g, "¡Â")).replace(/&amp;|&#38;|&#x26;/g, "&")).replace(/&lt;|&#60;|&#x3c;/g, "<")).replace(/&gt;|&#62;|&#x3e;/g, ">")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&Alpha;|&#913;|&#x391;/g, "Î‘")).replace(/&Beta;|&#914;|&#x392;/g, "Î’")).replace(/&Gamma;|&#915;|&#x393;/g, "Î“")).replace(/&Delta;|&#916;|&#x394;/g, "Î”")).replace(/&Epsilon;|&#917;|&#x395;/g, "Î•")).replace(/&Zeta;|&#918;|&#x396;/g, "Î–")).replace(/&Eta;|&#919;|&#x397;/g, "Î—")).replace(/&Theta;|&#920;|&#x398;/g, "Î˜")).replace(/&Iota;|&#921;|&#x399;/g, "Î™")).replace(/&Kappa;|&#922;|&#x39a;/g, "Îš")).replace(/&Lambda;|&#923;|&#x39b;/g, "Î›")).replace(/&Mu;|&#924;|&#x39c;/g, "Îœ")).replace(/&Nu;|&#925;|&#x39d;/g, "Î")).replace(/&Xi;|&#925;|&#x39d;/g, "Î")).replace(/&Omicron;|&#927;|&#x39f;/g, "ÎŸ")).replace(/&Pi;|&#928;|&#x3a0;/g, "Î ")).replace(/&Rho;|&#929;|&#x3a1;/g, "Î¡")).replace(/&Sigma;|&#931;|&#x3a3;/g, "Î£")).replace(/&Tau;|&#932;|&#x3a4;/g, "Î¤")).replace(/&Upsilon;|&#933;|&#x3a5;/g, "Î¥")).replace(/&Phi;|&#934;|&#x3a6;/g, "Î¦")).replace(/&Chi;|&#935;|&#x3a7;/g, "Î§")).replace(/&Psi;|&#936;|&#x3a8;/g, "Î¨")).replace(/&Omega;|&#937;|&#x3a9;/g, "Î©")).replace(/&alpha;|&#945;|&#x3b1;/g, "Î±")).replace(/&beta;|&#946;|&#x3b2;/g, "Î²")).replace(/&gamma;|&#947;|&#x3b3;/g, "Î³")).replace(/&delta;|&#948;|&#x3b4;/g, "Î´")).replace(/&epsilon;|&#949;|&#x3b5;/g, "Îµ")).replace(/&zeta;|&#950;|&#x3b6;/g, "Î¶")).replace(/&eta;|&#951;|&#x3b7;/g, "Î·")).replace(/&theta;|&#952;|&#x3b8;/g, "Î¸")).replace(/&iota;|&#953;|&#x3b9;/g, "Î¹")).replace(/&kappa;|&#954;|&#x3ba;/g, "Îº")).replace(/&lambda;|&#955;|&#x3bb;/g, "Î»")).replace(/&mu;|&#956;|&#x3bc;/g, "Î¼")).replace(/&nu;|&#957;|&#x3bd;/g, "Î½")).replace(/&xi;|&#958;|&#x3be;/g, "Î¾")).replace(/&omicron;|&#959;|&#x3bf;/g, "Î¿")).replace(/&pi;|&#960;|&#x3c0;/g, "Ï€")).replace(/&rho;|&#961;|&#x3c1;/g, "Ï")).replace(/&sigmaf;|&#962;|&#x3c2;/g, "Ï‚")).replace(/&sigma;|&#963;|&#x3c3;/g, "Ïƒ")).replace(/&tau;|&#964;|&#x3c4;/g, "Ï„")).replace(/&upsilon;|&#965;|&#x3c5;/g, "Ï…")).replace(/&phi;|&#966;|&#x3c6;/g, "Ï†")).replace(/&chi;|&#967;|&#x3c7;/g, "Ï‡")).replace(/&psi;|&#968;|&#x3c8;/g, "Ïˆ")).replace(/&omega;|&#969;|&#x3c9;/g, "Ï‰")).replace(/&thetasym;|&#977;|&#x3d1;/g, "Ï‘")).replace(/&upsih;|&#978;|&#x3d2;/g, "Ï’")).replace(/&piv;|&#982;|&#x3d6;/g, "Ï–")).replace(/&middot;|&#183;|&#xb7;/g, "Â·")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&Alpha;|&#913;|&#x391;/g, "¦¡")).replace(/&Beta;|&#914;|&#x392;/g, "¦¢")).replace(/&Gamma;|&#915;|&#x393;/g, "¦£")).replace(/&Delta;|&#916;|&#x394;/g, "¦¤")).replace(/&Epsilon;|&#917;|&#x395;/g, "¦¥")).replace(/&Zeta;|&#918;|&#x396;/g, "¦¦")).replace(/&Eta;|&#919;|&#x397;/g, "¦§")).replace(/&Theta;|&#920;|&#x398;/g, "¦¨")).replace(/&Iota;|&#921;|&#x399;/g, "¦©")).replace(/&Kappa;|&#922;|&#x39a;/g, "¦ª")).replace(/&Lambda;|&#923;|&#x39b;/g, "¦«")).replace(/&Mu;|&#924;|&#x39c;/g, "¦¬")).replace(/&Nu;|&#925;|&#x39d;/g, "¦­")).replace(/&Xi;|&#925;|&#x39d;/g, "¦­")).replace(/&Omicron;|&#927;|&#x39f;/g, "¦¯")).replace(/&Pi;|&#928;|&#x3a0;/g, "¦°")).replace(/&Rho;|&#929;|&#x3a1;/g, "¦±")).replace(/&Sigma;|&#931;|&#x3a3;/g, "¦²")).replace(/&Tau;|&#932;|&#x3a4;/g, "¦³")).replace(/&Upsilon;|&#933;|&#x3a5;/g, "¦´")).replace(/&Phi;|&#934;|&#x3a6;/g, "¦µ")).replace(/&Chi;|&#935;|&#x3a7;/g, "¦¶")).replace(/&Psi;|&#936;|&#x3a8;/g, "¦·")).replace(/&Omega;|&#937;|&#x3a9;/g, "¦¸")).replace(/&alpha;|&#945;|&#x3b1;/g, "¦Á")).replace(/&beta;|&#946;|&#x3b2;/g, "¦Â")).replace(/&gamma;|&#947;|&#x3b3;/g, "¦Ã")).replace(/&delta;|&#948;|&#x3b4;/g, "¦Ä")).replace(/&epsilon;|&#949;|&#x3b5;/g, "¦Å")).replace(/&zeta;|&#950;|&#x3b6;/g, "¦Æ")).replace(/&eta;|&#951;|&#x3b7;/g, "¦Ç")).replace(/&theta;|&#952;|&#x3b8;/g, "¦È")).replace(/&iota;|&#953;|&#x3b9;/g, "¦É")).replace(/&kappa;|&#954;|&#x3ba;/g, "¦Ê")).replace(/&lambda;|&#955;|&#x3bb;/g, "¦Ë")).replace(/&mu;|&#956;|&#x3bc;/g, "¦Ì")).replace(/&nu;|&#957;|&#x3bd;/g, "¦Í")).replace(/&xi;|&#958;|&#x3be;/g, "¦Î")).replace(/&omicron;|&#959;|&#x3bf;/g, "¦Ï")).replace(/&pi;|&#960;|&#x3c0;/g, "¦Ğ")).replace(/&rho;|&#961;|&#x3c1;/g, "¦Ñ")).replace(/&sigmaf;|&#962;|&#x3c2;/g, "?")).replace(/&sigma;|&#963;|&#x3c3;/g, "¦Ò")).replace(/&tau;|&#964;|&#x3c4;/g, "¦Ó")).replace(/&upsilon;|&#965;|&#x3c5;/g, "¦Ô")).replace(/&phi;|&#966;|&#x3c6;/g, "¦Õ")).replace(/&chi;|&#967;|&#x3c7;/g, "¦Ö")).replace(/&psi;|&#968;|&#x3c8;/g, "¦×")).replace(/&omega;|&#969;|&#x3c9;/g, "¦Ø")).replace(/&thetasym;|&#977;|&#x3d1;/g, "?")).replace(/&upsih;|&#978;|&#x3d2;/g, "?")).replace(/&piv;|&#982;|&#x3d6;/g, "?")).replace(/&middot;|&#183;|&#xb7;/g, "¡¤")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&forall;|&#8704;|&#x2200;/g, "âˆ€")).replace(/&part;|&#8706;|&#x2202;/g, "âˆ‚")).replace(/&exist;|&#8707;|&#x2203;/g, "âˆƒ")).replace(/&empty;|&#8709;|&#x2205;/g, "âˆ…")).replace(/&nabla;|&#8711;|&#x2207;/g, "âˆ‡")).replace(/&isin;|&#8712;|&#x2208;/g, "âˆˆ")).replace(/&notin;|&#8713;|&#x2209;/g, "âˆ‰")).replace(/&ni;|&#8715;|&#x220b;/g, "âˆ‹")).replace(/&prod;|&#8719;|&#x220f;/g, "âˆ")).replace(/&sum;|&#8721;|&#x2211;/g, "âˆ‘")).replace(/&minus;|&#8722;|&#x2212;/g, "âˆ’")).replace(/&lowast;|&#8727;|&#x2217;/g, "âˆ—")).replace(/&radic;|&#8730;|&#x221a;/g, "âˆš")).replace(/&prop;|&#8733;|&#x221d;/g, "âˆ")).replace(/&infin;|&#8734;|&#x221e;/g, "âˆ")).replace(/&ang;|&#8736;|&#x2220;/g, "âˆ ")).replace(/&and;|&#8743;|&#x2227;/g, "âˆ§")).replace(/&or;|&#8744;|&#x2228;/g, "âˆ¨")).replace(/&cap;|&#8745;|&#x2229;/g, "âˆ©")).replace(/&cup;|&#8746;|&#x222a;/g, "âˆª")).replace(/&int;|&#8747;|&#x222b;/g, "âˆ«")).replace(/&there4;|&#8756;|&#x2234;/g, "âˆ´")).replace(/&sim;|&#8764;|&#x223c;/g, "âˆ¼")).replace(/&cong;|&#8773;|&#x2245;/g, "â‰…")).replace(/&asymp;|&#8776;|&#x2248;/g, "â‰ˆ")).replace(/&ne;|&#8800;|&#x2260;/g, "â‰ ")).replace(/&le;|&#8804;|&#x2264;/g, "â‰¤")).replace(/&ge;|&#8805;|&#x2265;/g, "â‰¥")).replace(/&sub;|&#8834;|&#x2282;/g, "âŠ‚")).replace(/&sup;|&#8835;|&#x2283;/g, "âŠƒ")).replace(/&nsub;|&#8836;|&#x2284;/g, "âŠ„")).replace(/&sube;|&#8838;|&#x2286;/g, "âŠ†")).replace(/&supe;|&#8839;|&#x2287;/g, "âŠ‡")).replace(/&oplus;|&#8853;|&#x2295;/g, "âŠ•")).replace(/&otimes;|&#8855;|&#x2297;/g, "âŠ—")).replace(/&perp;|&#8869;|&#x22a5;/g, "âŠ¥")).replace(/&sdot;|&#8901;|&#x22c5;/g, "â‹…")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&forall;|&#8704;|&#x2200;/g, "?")).replace(/&part;|&#8706;|&#x2202;/g, "?")).replace(/&exist;|&#8707;|&#x2203;/g, "?")).replace(/&empty;|&#8709;|&#x2205;/g, "?")).replace(/&nabla;|&#8711;|&#x2207;/g, "?")).replace(/&isin;|&#8712;|&#x2208;/g, "¡Ê")).replace(/&notin;|&#8713;|&#x2209;/g, "?")).replace(/&ni;|&#8715;|&#x220b;/g, "?")).replace(/&prod;|&#8719;|&#x220f;/g, "¡Ç")).replace(/&sum;|&#8721;|&#x2211;/g, "¡Æ")).replace(/&minus;|&#8722;|&#x2212;/g, "?")).replace(/&lowast;|&#8727;|&#x2217;/g, "?")).replace(/&radic;|&#8730;|&#x221a;/g, "¡Ì")).replace(/&prop;|&#8733;|&#x221d;/g, "¡Ø")).replace(/&infin;|&#8734;|&#x221e;/g, "¡Ş")).replace(/&ang;|&#8736;|&#x2220;/g, "¡Ï")).replace(/&and;|&#8743;|&#x2227;/g, "¡Ä")).replace(/&or;|&#8744;|&#x2228;/g, "¡Å")).replace(/&cap;|&#8745;|&#x2229;/g, "¡É")).replace(/&cup;|&#8746;|&#x222a;/g, "¡È")).replace(/&int;|&#8747;|&#x222b;/g, "¡Ò")).replace(/&there4;|&#8756;|&#x2234;/g, "¡à")).replace(/&sim;|&#8764;|&#x223c;/g, "¡«")).replace(/&cong;|&#8773;|&#x2245;/g, "?")).replace(/&asymp;|&#8776;|&#x2248;/g, "¡Ö")).replace(/&ne;|&#8800;|&#x2260;/g, "¡Ù")).replace(/&le;|&#8804;|&#x2264;/g, "¡Ü")).replace(/&ge;|&#8805;|&#x2265;/g, "¡İ")).replace(/&sub;|&#8834;|&#x2282;/g, "?")).replace(/&sup;|&#8835;|&#x2283;/g, "?")).replace(/&nsub;|&#8836;|&#x2284;/g, "?")).replace(/&sube;|&#8838;|&#x2286;/g, "?")).replace(/&supe;|&#8839;|&#x2287;/g, "?")).replace(/&oplus;|&#8853;|&#x2295;/g, "¨’")).replace(/&otimes;|&#8855;|&#x2297;/g, "?")).replace(/&perp;|&#8869;|&#x22a5;/g, "¡Í")).replace(/&sdot;|&#8901;|&#x22c5;/g, "?")
           }(e))))
         },
         urlToHttpUrl: function (e, t) {
@@ -5472,7 +5472,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }
     },
     "62ba": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/æ€§å¿ƒç†@3x.png"
+      e.exports = "https://localhost/api/file/image/ĞÔĞÄÀí@3x.png"
     },
     6382: function (e, t, n) {
       var o = n("6454");
@@ -5492,7 +5492,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }, e.exports.__esModule = !0, e.exports.default = e.exports
     },
     6487: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å’¨è¯¢å¯„è¯­bg@3x.png"
+      e.exports = "https://localhost/api/file/image/×ÉÑ¯¼ÄÓïbg@3x.png"
     },
     "65f1": function (e, t, n) {
       Object.defineProperty(t, "__esModule", {
@@ -5501,7 +5501,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         pages: [{
           path: "pages/consult/consult",
           style: {
-            navigationBarTitleText: "é¢„çº¦å’¨è¯¢",
+            navigationBarTitleText: "Ô¤Ô¼×ÉÑ¯",
             navigationStyle: "custom",
             enablePullDownRefresh: !0,
             onReachBottomDistance: 200
@@ -5509,14 +5509,14 @@ var e = require("../@babel/runtime/helpers/typeof");
         }, {
           path: "pages/login/login",
           style: {
-            navigationBarTitleText: "ç™»å½•",
+            navigationBarTitleText: "µÇÂ¼",
             navigationStyle: "custom",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/user",
           style: {
-            navigationBarTitleText: "ä¸ªäººä¸­å¿ƒ",
+            navigationBarTitleText: "¸öÈËÖĞĞÄ",
             navigationStyle: "custom",
             enablePullDownRefresh: !1,
             disableScroll: !0
@@ -5524,7 +5524,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         }, {
           path: "pages/appointment/appointment",
           style: {
-            navigationBarTitleText: "æˆ‘çš„é¢„çº¦",
+            navigationBarTitleText: "ÎÒµÄÔ¤Ô¼",
             enablePullDownRefresh: !0,
             navigationStyle: "custom",
             onReachBottomDistance: 300
@@ -5532,14 +5532,14 @@ var e = require("../@babel/runtime/helpers/typeof");
         }, {
           path: "pages/consult/counselor",
           style: {
-            navigationBarTitleText: "æ•™ç»ƒè¯¦æƒ…",
+            navigationBarTitleText: "½ÌÁ·ÏêÇé",
             navigationStyle: "custom",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/consult/appointForm",
           style: {
-            navigationBarTitleText: "é¢„çº¦ç”³è¯·è¡¨",
+            navigationBarTitleText: "Ô¤Ô¼ÉêÇë±í",
             enablePullDownRefresh: !1
           }
         }, {
@@ -5551,47 +5551,47 @@ var e = require("../@babel/runtime/helpers/typeof");
         }, {
           path: "pages/consult/protocolPage",
           style: {
-            navigationBarTitleText: "åè®®",
+            navigationBarTitleText: "Ğ­Òé",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/consult/payOrder",
           style: {
-            navigationBarTitleText: "æ”¯ä»˜è®¢å•",
+            navigationBarTitleText: "Ö§¸¶¶©µ¥",
             enablePullDownRefresh: !1,
             navigationBarBackgroundColor: "#FFFFFF"
           }
         }, {
           path: "pages/consult/certification",
           style: {
-            navigationBarTitleText: "å®åè®¤è¯",
+            navigationBarTitleText: "ÊµÃûÈÏÖ¤",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/consult/completeInfo",
           style: {
-            navigationBarTitleText: "å®Œå–„ä¿¡æ¯",
+            navigationBarTitleText: "ÍêÉÆĞÅÏ¢",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
         }, {
           path: "pages/consult/completeDetail",
           style: {
-            navigationBarTitleText: "å®Œå–„å„¿ç«¥ä¿¡æ¯",
+            navigationBarTitleText: "ÍêÉÆ¶ùÍ¯ĞÅÏ¢",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
         }, {
           path: "pages/consult/orderDetail",
           style: {
-            navigationBarTitleText: "è®¢å•è¯¦æƒ…",
+            navigationBarTitleText: "¶©µ¥ÏêÇé",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
         }, {
           path: "pages/appointment/appointDetail",
           style: {
-            navigationBarTitleText: "è®¢å•è¯¦æƒ…",
+            navigationBarTitleText: "¶©µ¥ÏêÇé",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
@@ -5605,58 +5605,58 @@ var e = require("../@babel/runtime/helpers/typeof");
         }, {
           path: "pages/appointment/feedback",
           style: {
-            navigationBarTitleText: "åé¦ˆè¡¨",
+            navigationBarTitleText: "·´À¡±í",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/coupon",
           style: {
-            navigationBarTitleText: "æˆ‘çš„ä¼˜æƒ åˆ¸",
+            navigationBarTitleText: "ÎÒµÄÓÅ»İÈ¯",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/couponDetail",
           style: {
-            navigationBarTitleText: "ä¼˜æƒ åˆ¸",
+            navigationBarTitleText: "ÓÅ»İÈ¯",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/consult/orderDetailCancel",
           style: {
-            navigationBarTitleText: "è®¢å•è¯¦æƒ…",
+            navigationBarTitleText: "¶©µ¥ÏêÇé",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
         }, {
           path: "pages/user/infoEdit",
           style: {
-            navigationBarTitleText: "ä¿¡æ¯ç¼–è¾‘",
+            navigationBarTitleText: "ĞÅÏ¢±à¼­",
             navigationStyle: "custom",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/visitorInfo",
           style: {
-            navigationBarTitleText: "å’¨è¯¢äººä¿¡æ¯",
+            navigationBarTitleText: "×ÉÑ¯ÈËĞÅÏ¢",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/infoNotice",
           style: {
-            navigationBarTitleText: "æ¶ˆæ¯é€šçŸ¥",
+            navigationBarTitleText: "ÏûÏ¢Í¨Öª",
             enablePullDownRefresh: !1
           }
         }, {
           path: "pages/user/userFocus",
           style: {
-            navigationBarTitleText: "æˆ‘çš„å…³æ³¨",
+            navigationBarTitleText: "ÎÒµÄ¹Ø×¢",
             enablePullDownRefresh: !1,
             navigationStyle: "custom"
           }
         }, {
           path: "pages/user/followFWH",
           style: {
-            navigationBarTitleText: "è·³è½¬æœåŠ¡å·",
+            navigationBarTitleText: "Ìø×ª·şÎñºÅ",
             enablePullDownRefresh: !1
           }
         }, {
@@ -5672,37 +5672,37 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "accountMassage",
             style: {
-              navigationBarTitleText: "è´¦å·ç®¡ç†",
+              navigationBarTitleText: "ÕËºÅ¹ÜÀí",
               enablePullDownRefresh: !1
             }
           }, {
             path: "userFeedbackLIst",
             style: {
-              navigationBarTitleText: "ç”¨æˆ·åé¦ˆ",
+              navigationBarTitleText: "ÓÃ»§·´À¡",
               enablePullDownRefresh: !1
             }
           }, {
             path: "aboutUm",
             style: {
-              navigationBarTitleText: "å…³äºUMå¿ƒç†",
+              navigationBarTitleText: "¹ØÓÚUMĞÄÀí",
               enablePullDownRefresh: !1
             }
           }, {
             path: "userFeedback",
             style: {
-              navigationBarTitleText: "ç»™æˆ‘ä»¬åé¦ˆ",
+              navigationBarTitleText: "¸øÎÒÃÇ·´À¡",
               enablePullDownRefresh: !1
             }
           }, {
             path: "preOrderList",
             style: {
-              navigationBarTitleText: "åŸå’¨è¯¢è®°å½•",
+              navigationBarTitleText: "Ô­×ÉÑ¯¼ÇÂ¼",
               enablePullDownRefresh: !1
             }
           }, {
             path: "consultGuide",
             style: {
-              navigationBarTitleText: "å’¨è¯¢æŒ‡å—",
+              navigationBarTitleText: "×ÉÑ¯Ö¸ÄÏ",
               enablePullDownRefresh: !1
             }
           }]
@@ -5711,7 +5711,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "list",
             style: {
-              navigationBarTitleText: "çº¿ä¸‹è‡ªè¥å·¥ä½œå®¤",
+              navigationBarTitleText: "ÏßÏÂ×ÔÓª¹¤×÷ÊÒ",
               navigationStyle: "custom",
               enablePullDownRefresh: !1
             }
@@ -5727,7 +5727,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "informationList",
             style: {
-              navigationBarTitleText: "äº†è§£å’¨è¯¢",
+              navigationBarTitleText: "ÁË½â×ÉÑ¯",
               enablePullDownRefresh: !1,
               navigationStyle: "custom",
               disableScroll: !0
@@ -5735,7 +5735,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           }, {
             path: "informationDetail",
             style: {
-              navigationBarTitleText: "å’¨è¯¢è¯¦æƒ…",
+              navigationBarTitleText: "×ÉÑ¯ÏêÇé",
               enablePullDownRefresh: !1
             }
           }]
@@ -5744,7 +5744,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "acservice",
             style: {
-              navigationBarTitleText: "æ´»åŠ¨æœåŠ¡",
+              navigationBarTitleText: "»î¶¯·şÎñ",
               navigationStyle: "custom",
               onReachBottomDistance: 300
             }
@@ -5754,14 +5754,14 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "comWxLogin",
             style: {
-              navigationBarTitleText: "æ‰‹æœºå·å¿«æ·ç™»å½•",
+              navigationBarTitleText: "ÊÖ»úºÅ¿ì½İµÇÂ¼",
               enablePullDownRefresh: !1,
               navigationStyle: "custom"
             }
           }, {
             path: "showProtocol",
             style: {
-              navigationBarTitleText: "æŸ¥çœ‹åè®®",
+              navigationBarTitleText: "²é¿´Ğ­Òé",
               enablePullDownRefresh: !1
             }
           }]
@@ -5770,7 +5770,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           pages: [{
             path: "countryCode",
             style: {
-              navigationBarTitleText: "é€‰æ‹©å›½é™…ç”µè¯åŒºå·",
+              navigationBarTitleText: "Ñ¡Ôñ¹ú¼Êµç»°ÇøºÅ",
               enablePullDownRefresh: !1
             }
           }]
@@ -5806,19 +5806,19 @@ var e = require("../@babel/runtime/helpers/typeof");
           selectedColor: "#402E32",
           list: [{
             pagePath: "pages/consult/consult",
-            iconPath: "static/img/home/é¦–é¡µ_é»˜è®¤@3x.png",
-            selectedIconPath: "static/img/home/é¦–é¡µ_é€‰ä¸­@3x.png",
-            text: "é¢„çº¦å’¨è¯¢"
+            iconPath: "static/img/home/Ê×Ò³_Ä¬ÈÏ@3x.png",
+            selectedIconPath: "static/img/home/Ê×Ò³_Ñ¡ÖĞ@3x.png",
+            text: "Ô¤Ô¼×ÉÑ¯"
           }, {
             pagePath: "pages/appointment/appointment",
-            iconPath: "static/img/home/é¢„çº¦_é»˜è®¤@3x.png",
-            selectedIconPath: "static/img/home/é¢„çº¦_é€‰ä¸­@3x.png",
-            text: "æˆ‘çš„é¢„çº¦"
+            iconPath: "static/img/home/Ô¤Ô¼_Ä¬ÈÏ@3x.png",
+            selectedIconPath: "static/img/home/Ô¤Ô¼_Ñ¡ÖĞ@3x.png",
+            text: "ÎÒµÄÔ¤Ô¼"
           }, {
             pagePath: "pages/user/user",
-            iconPath: "static/img/home/æˆ‘çš„_é»˜è®¤@3x.png",
-            selectedIconPath: "static/img/home/æˆ‘çš„_é€‰ä¸­@3x.png",
-            text: "ä¸ªäººä¸­å¿ƒ"
+            iconPath: "static/img/home/ÎÒµÄ_Ä¬ÈÏ@3x.png",
+            selectedIconPath: "static/img/home/ÎÒµÄ_Ñ¡ÖĞ@3x.png",
+            text: "¸öÈËÖĞĞÄ"
           }]
         }
       }
@@ -6024,7 +6024,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }
     },
     "72f8": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/save@3x.png"
+      e.exports = "https://localhost/api/file/image/save@3x.png"
     },
     "75e3": function (e, t, n) {
       var o = n("a75d");
@@ -7061,7 +7061,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   }, "auth")).then((function (e) {
                     if (!e.result || !e.result.accessToken) throw new ve({
                       code: "AUTH_FAILED",
-                      message: "è·å–accessTokenå¤±è´¥"
+                      message: "»ñÈ¡accessTokenÊ§°Ü"
                     });
                     n.setAccessToken(e.result.accessToken)
                   }))
@@ -7202,13 +7202,13 @@ var e = require("../@babel/runtime/helpers/typeof");
                     success: function (t) {
                       t && t.statusCode < 400 ? e(t) : i(new ve({
                         code: "UPLOAD_FAILED",
-                        message: "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                        message: "ÎÄ¼şÉÏ´«Ê§°Ü"
                       }))
                     },
                     fail: function (e) {
                       i(new ve({
                         code: e.code || "UPLOAD_FAILED",
-                        message: e.message || e.errMsg || "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                        message: e.message || e.errMsg || "ÎÄ¼şÉÏ´«Ê§°Ü"
                       }))
                     }
                   });
@@ -7243,7 +7243,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathå¿…é¡»ä¸ºå­—ç¬¦ä¸²ç±»å‹"
+                          message: "cloudPath±ØĞëÎª×Ö·û´®ÀàĞÍ"
                         });
                       case 3:
                         if (o = o.trim()) {
@@ -7252,7 +7252,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathä¸å¯ä¸ºç©º"
+                          message: "cloudPath²»¿ÉÎª¿Õ"
                         });
                       case 5:
                         if (!/:\/\//.test(o)) {
@@ -7261,7 +7261,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathä¸åˆæ³•"
+                          message: "cloudPath²»ºÏ·¨"
                         });
                       case 7:
                         if (d = y && y.envType || this.config.envType, !(i && ("/" !== o[0] && (o = "/" + o), o.indexOf("\\") > -1))) {
@@ -7270,7 +7270,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "ä½¿ç”¨cloudPathä½œä¸ºè·¯å¾„æ—¶ï¼ŒcloudPathä¸å¯åŒ…å«â€œ\\â€"
+                          message: "Ê¹ÓÃcloudPath×÷ÎªÂ·¾¶Ê±£¬cloudPath²»¿É°üº¬¡°\\¡±"
                         });
                       case 10:
                         return e.next = 12, this.getOSSUploadOptionsFromPath({
@@ -7333,7 +7333,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                       case 33:
                         throw new ve({
                           code: "UPLOAD_FAILED",
-                          message: "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                          message: "ÎÄ¼şÉÏ´«Ê§°Ü"
                         });
                       case 34:
                       case "end":
@@ -7353,7 +7353,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                 return new Promise((function (e, n) {
                   Array.isArray(t) && 0 !== t.length || n(new ve({
                     code: "INVALID_PARAM",
-                    message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯éç©ºçš„å­—ç¬¦ä¸²"
+                    message: "fileListµÄÔªËØ±ØĞëÊÇ·Ç¿ÕµÄ×Ö·û´®"
                   })), e({
                     fileList: t.map((function (e) {
                       return {
@@ -7378,7 +7378,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯éç©ºçš„å­—ç¬¦ä¸²"
+                          message: "fileListµÄÔªËØ±ØĞëÊÇ·Ç¿ÕµÄ×Ö·û´®"
                         });
                       case 3:
                         return o = {
@@ -7520,7 +7520,7 @@ var e = require("../@babel/runtime/helpers/typeof");
 
         function qe() {
           var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
-          return e.replace(/([\s\S]+)\s+(è¯·å‰å¾€äº‘å¼€å‘AIå°åŠ©æ‰‹æŸ¥çœ‹é—®é¢˜ï¼š.*)/, "$1")
+          return e.replace(/([\s\S]+)\s+(ÇëÇ°ÍùÔÆ¿ª·¢AIĞ¡ÖúÊÖ²é¿´ÎÊÌâ£º.*)/, "$1")
         }
 
         function Be() {
@@ -7802,7 +7802,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             function e(t) {
               (0, C.default)(this, e), this._singlePromise = new st, this._cache = Qe(t.env), this._baseURL = "https://".concat(t.env, ".ap-shanghai.tcb-api.tencentcloudapi.com"), this._reqClass = new Ve.adapter.reqClass({
                 timeout: t.timeout,
-                timeoutMsg: "è¯·æ±‚åœ¨".concat(t.timeout / 1e3, "så†…æœªå®Œæˆï¼Œå·²ä¸­æ–­"),
+                timeoutMsg: "ÇëÇóÔÚ".concat(t.timeout / 1e3, "sÄÚÎ´Íê³É£¬ÒÑÖĞ¶Ï"),
                 restrictedMethods: ["post"]
               })
             }
@@ -7862,7 +7862,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_OPERATION",
-                          message: "éåŒ¿åç™»å½•ä¸æ”¯æŒåˆ·æ–° access token"
+                          message: "·ÇÄäÃûµÇÂ¼²»Ö§³ÖË¢ĞÂ access token"
                         });
                       case 3:
                         return e.next = 5, this._singlePromise.run("fetchAccessToken", (0, d.default)(r.default.mark((function e() {
@@ -8014,7 +8014,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               var t, n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
               (0, C.default)(this, e), this.config = n, this._reqClass = new Ve.adapter.reqClass({
                 timeout: this.config.timeout,
-                timeoutMsg: "è¯·æ±‚åœ¨".concat(this.config.timeout / 1e3, "så†…æœªå®Œæˆï¼Œå·²ä¸­æ–­"),
+                timeoutMsg: "ÇëÇóÔÚ".concat(this.config.timeout / 1e3, "sÄÚÎ´Íê³É£¬ÒÑÖĞ¶Ï"),
                 restrictedMethods: ["post"]
               }), this._cache = Qe(this.config.env), this._localCache = (t = this.config.env, Ge[t]), this.oauth = new yt(this.config), ft(this._reqClass, "post", [mt]), ft(this._reqClass, "upload", [mt]), ft(this._reqClass, "download", [mt])
             }
@@ -8125,7 +8125,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                           break
                         }
                         throw new ve({
-                          message: "æœªç™»å½•CloudBase"
+                          message: "Î´µÇÂ¼CloudBase"
                         });
                       case 5:
                         return s = {
@@ -8155,7 +8155,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                       case 20:
                         throw new ve({
                           code: y.data.code,
-                          message: "åˆ·æ–°access tokenå¤±è´¥ï¼š".concat(y.data.code)
+                          message: "Ë¢ĞÂaccess tokenÊ§°Ü£º".concat(y.data.code)
                         });
                       case 21:
                         if (!y.data.access_token) {
@@ -8191,7 +8191,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                           break
                         }
                         throw new ve({
-                          message: "refresh tokenä¸å­˜åœ¨ï¼Œç™»å½•çŠ¶æ€å¼‚å¸¸"
+                          message: "refresh token²»´æÔÚ£¬µÇÂ¼×´Ì¬Òì³£"
                         });
                       case 3:
                         if (a = this._cache.getStore(n), u = this._cache.getStore(o), i = !0, e.t0 = this._shouldRefreshAccessTokenHook, !e.t0) {
@@ -8677,7 +8677,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         });
                       case 16:
                         throw new ve({
-                          message: "åŒ¿åè½¬åŒ–å¤±è´¥"
+                          message: "ÄäÃû×ª»¯Ê§°Ü"
                         });
                       case 17:
                       case "end":
@@ -8748,7 +8748,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         return e.abrupt("return", new Nt(this.config.env));
                       case 15:
                         throw new ve({
-                          message: "è‡ªå®šä¹‰ç™»å½•å¤±è´¥"
+                          message: "×Ô¶¨ÒåµÇÂ¼Ê§°Ü"
                         });
                       case 16:
                       case "end":
@@ -8816,9 +8816,9 @@ var e = require("../@babel/runtime/helpers/typeof");
                       case 22:
                         throw c.code ? new ve({
                           code: c.code,
-                          message: "é‚®ç®±ç™»å½•å¤±è´¥: ".concat(c.message)
+                          message: "ÓÊÏäµÇÂ¼Ê§°Ü: ".concat(c.message)
                         }) : new ve({
-                          message: "é‚®ç®±ç™»å½•å¤±è´¥"
+                          message: "ÓÊÏäµÇÂ¼Ê§°Ü"
                         });
                       case 23:
                       case "end":
@@ -8927,9 +8927,9 @@ var e = require("../@babel/runtime/helpers/typeof");
                       case 23:
                         throw c.code ? new ve({
                           code: c.code,
-                          message: "ç”¨æˆ·åå¯†ç ç™»å½•å¤±è´¥: ".concat(c.message)
+                          message: "ÓÃ»§ÃûÃÜÂëµÇÂ¼Ê§°Ü: ".concat(c.message)
                         }) : new ve({
-                          message: "ç”¨æˆ·åå¯†ç ç™»å½•å¤±è´¥"
+                          message: "ÓÃ»§ÃûÃÜÂëµÇÂ¼Ê§°Ü"
                         });
                       case 24:
                       case "end":
@@ -9052,7 +9052,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                           break
                         }
                         throw new ve({
-                          message: "åŒ¿åç”¨æˆ·ä¸æ”¯æŒç™»å‡ºæ“ä½œ"
+                          message: "ÄäÃûÓÃ»§²»Ö§³ÖµÇ³ö²Ù×÷"
                         });
                       case 2:
                         if (t = this._cache.keys, n = t.refreshTokenKey, o = t.accessTokenKey, c = t.accessTokenExpireKey, a = this._cache.getStore(n)) {
@@ -9347,7 +9347,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             var n = e.fileList;
             if (t = t || Ue(), !n || !Array.isArray(n)) return {
               code: "INVALID_PARAM",
-              message: "fileListå¿…é¡»æ˜¯éç©ºçš„æ•°ç»„"
+              message: "fileList±ØĞëÊÇ·Ç¿ÕµÄÊı×é"
             };
             var o, c = N(n);
             try {
@@ -9355,7 +9355,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                 var a = o.value;
                 if (!a || "string" != typeof a) return {
                   code: "INVALID_PARAM",
-                  message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯éç©ºçš„å­—ç¬¦ä¸²"
+                  message: "fileListµÄÔªËØ±ØĞëÊÇ·Ç¿ÕµÄ×Ö·û´®"
                 }
               }
             } catch (e) {
@@ -9379,7 +9379,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             var n = e.fileList;
             t = t || Ue(), n && Array.isArray(n) || t(null, {
               code: "INVALID_PARAM",
-              message: "fileListå¿…é¡»æ˜¯éç©ºçš„æ•°ç»„"
+              message: "fileList±ØĞëÊÇ·Ç¿ÕµÄÊı×é"
             });
             var o, c = [],
               a = N(n);
@@ -9388,7 +9388,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                 var r = o.value;
                 "object" == (0, s.default)(r) ? (r.hasOwnProperty("fileID") && r.hasOwnProperty("maxAge") || t(null, {
                   code: "INVALID_PARAM",
-                  message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯åŒ…å«fileIDå’ŒmaxAgeçš„å¯¹è±¡"
+                  message: "fileListµÄÔªËØ±ØĞëÊÇ°üº¬fileIDºÍmaxAgeµÄ¶ÔÏó"
                 }), c.push({
                   fileid: r.fileID,
                   max_age: r.maxAge
@@ -9396,7 +9396,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   fileid: r
                 }) : t(null, {
                   code: "INVALID_PARAM",
-                  message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯å­—ç¬¦ä¸²"
+                  message: "fileListµÄÔªËØ±ØĞëÊÇ×Ö·û´®"
                 })
               }
             } catch (e) {
@@ -9475,7 +9475,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }
             if (!o) return Promise.reject(new ve({
               code: "PARAM_ERROR",
-              message: "å‡½æ•°åä¸èƒ½ä¸ºç©º"
+              message: "º¯ÊıÃû²»ÄÜÎª¿Õ"
             }));
             var y = {
               inQuery: a,
@@ -9524,13 +9524,13 @@ var e = require("../@babel/runtime/helpers/typeof");
               value: function (t) {
                 switch (Ve.adapter || (this.requestClient = new Ve.adapter.reqClass({
                     timeout: t.timeout || 5e3,
-                    timeoutMsg: "è¯·æ±‚åœ¨".concat((t.timeout || 5e3) / 1e3, "så†…æœªå®Œæˆï¼Œå·²ä¸­æ–­")
+                    timeoutMsg: "ÇëÇóÔÚ".concat((t.timeout || 5e3) / 1e3, "sÄÚÎ´Íê³É£¬ÒÑÖĞ¶Ï")
                   })), this.config = x(x({}, jt), t), !0) {
                   case this.config.timeout > 6e5:
-                    console.warn("timeoutå¤§äºå¯é…ç½®ä¸Šé™[10åˆ†é’Ÿ]ï¼Œå·²é‡ç½®ä¸ºä¸Šé™æ•°å€¼"), this.config.timeout = 6e5;
+                    console.warn("timeout´óÓÚ¿ÉÅäÖÃÉÏÏŞ[10·ÖÖÓ]£¬ÒÑÖØÖÃÎªÉÏÏŞÊıÖµ"), this.config.timeout = 6e5;
                     break;
                   case this.config.timeout < 100:
-                    console.warn("timeoutå°äºå¯é…ç½®ä¸‹é™[100ms]ï¼Œå·²é‡ç½®ä¸ºä¸‹é™æ•°å€¼"), this.config.timeout = 100
+                    console.warn("timeoutĞ¡ÓÚ¿ÉÅäÖÃÏÂÏŞ[100ms]£¬ÒÑÖØÖÃÎªÏÂÏŞÊıÖµ"), this.config.timeout = 100
                 }
                 return new e(this.config)
               }
@@ -9607,7 +9607,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                           break
                         }
                         throw new ve({
-                          message: "æ‰©å±•".concat(t, " å¿…é¡»å…ˆæ³¨å†Œ")
+                          message: "À©Õ¹".concat(t, " ±ØĞëÏÈ×¢²á")
                         });
                       case 3:
                         return e.next = 5, o.invoke(n, this);
@@ -9888,7 +9888,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             function e(t) {
               if ((0, C.default)(this, e), ["spaceId", "clientSecret"].forEach((function (e) {
                   if (!Object.prototype.hasOwnProperty.call(t, e)) throw new Error("".concat(e, " required"))
-                })), !t.endpoint) throw new Error("é›†ç¾¤ç©ºé—´æœªé…ç½®ApiEndpointï¼Œé…ç½®åéœ€è¦é‡æ–°å…³è”æœåŠ¡ç©ºé—´åç”Ÿæ•ˆ");
+                })), !t.endpoint) throw new Error("¼¯Èº¿Õ¼äÎ´ÅäÖÃApiEndpoint£¬ÅäÖÃºóĞèÒªÖØĞÂ¹ØÁª·şÎñ¿Õ¼äºóÉúĞ§");
               this.config = Object.assign({}, t), this.config.provider = "dcloud", this.config.requestUrl = this.config.endpoint + "/client", this.config.envType = this.config.envType || "public", this.adapter = _e
             }
             return (0, g.default)(e, [{
@@ -10044,7 +10044,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   u = e.onUploadProgress;
                 if (!c) throw new ve({
                   code: "CLOUDPATH_REQUIRED",
-                  message: "cloudPathä¸å¯ä¸ºç©º"
+                  message: "cloudPath²»¿ÉÎª¿Õ"
                 });
                 return this.getUploadFileOptions({
                   cloudPath: c
@@ -10063,13 +10063,13 @@ var e = require("../@babel/runtime/helpers/typeof");
                       success: function (n) {
                         n && n.statusCode < 400 ? e(n) : t(new ve({
                           code: "UPLOAD_FAILED",
-                          message: "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                          message: "ÎÄ¼şÉÏ´«Ê§°Ü"
                         }))
                       },
                       fail: function (e) {
                         t(new ve({
                           code: e.code || "UPLOAD_FAILED",
-                          message: e.message || e.errMsg || "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                          message: e.message || e.errMsg || "ÎÄ¼şÉÏ´«Ê§°Ü"
                         }))
                       }
                     });
@@ -10092,7 +10092,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                       fileID: t
                     }) : c(new ve({
                       code: "UPLOAD_FAILED",
-                      message: "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                      message: "ÎÄ¼şÉÏ´«Ê§°Ü"
                     }))
                   }))
                 }))
@@ -10111,7 +10111,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   if (e.success) return e.result;
                   throw new ve({
                     code: "DELETE_FILE_FAILED",
-                    message: "åˆ é™¤æ–‡ä»¶å¤±è´¥"
+                    message: "É¾³ıÎÄ¼şÊ§°Ü"
                   })
                 }))
               }
@@ -10123,7 +10123,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   n = e.maxAge;
                 if (!Array.isArray(t) || 0 === t.length) throw new ve({
                   code: "INVALID_PARAM",
-                  message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯éç©ºçš„å­—ç¬¦ä¸²"
+                  message: "fileListµÄÔªËØ±ØĞëÊÇ·Ç¿ÕµÄ×Ö·û´®"
                 });
                 var o = {
                   method: "serverless.file.resource.getTempFileURL",
@@ -10143,7 +10143,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   };
                   throw new ve({
                     code: "GET_TEMP_FILE_URL_FAILED",
-                    message: "è·å–ä¸´æ—¶æ–‡ä»¶é“¾æ¥å¤±è´¥"
+                    message: "»ñÈ¡ÁÙÊ±ÎÄ¼şÁ´½ÓÊ§°Ü"
                   })
                 }))
               }
@@ -10324,7 +10324,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             n = t.indexOf("/");
           if (n <= 0) throw new ve({
             code: "INVALID_PARAM",
-            message: "fileIDä¸åˆæ³•"
+            message: "fileID²»ºÏ·¨"
           });
           var o = t.substring(0, n),
             c = t.substring(n + 1);
@@ -10448,13 +10448,13 @@ var e = require("../@babel/runtime/helpers/typeof");
                     success: function (t) {
                       t && t.statusCode < 400 ? e(t) : r(new ve({
                         code: "UPLOAD_FAILED",
-                        message: "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                        message: "ÎÄ¼şÉÏ´«Ê§°Ü"
                       }))
                     },
                     fail: function (e) {
                       r(new ve({
                         code: e.code || "UPLOAD_FAILED",
-                        message: e.message || e.errMsg || "æ–‡ä»¶ä¸Šä¼ å¤±è´¥"
+                        message: e.message || e.errMsg || "ÎÄ¼şÉÏ´«Ê§°Ü"
                       }))
                     }
                   });
@@ -10480,7 +10480,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathå¿…é¡»ä¸ºå­—ç¬¦ä¸²ç±»å‹"
+                          message: "cloudPath±ØĞëÎª×Ö·û´®ÀàĞÍ"
                         });
                       case 3:
                         if (c = c.trim()) {
@@ -10489,7 +10489,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathä¸å¯ä¸ºç©º"
+                          message: "cloudPath²»¿ÉÎª¿Õ"
                         });
                       case 5:
                         if (!/:\/\//.test(c)) {
@@ -10498,7 +10498,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         }
                         throw new ve({
                           code: "INVALID_PARAM",
-                          message: "cloudPathä¸åˆæ³•"
+                          message: "cloudPath²»ºÏ·¨"
                         });
                       case 7:
                         return e.next = 9, Xt({
@@ -10539,10 +10539,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                         return n = t.fileList, e.abrupt("return", new Promise((function (e, t) {
                           (!n || n.length < 0) && e({
                             code: "INVALID_PARAM",
-                            message: "fileListä¸èƒ½ä¸ºç©ºæ•°ç»„"
+                            message: "fileList²»ÄÜÎª¿ÕÊı×é"
                           }), n.length > 50 && e({
                             code: "INVALID_PARAM",
-                            message: "fileListæ•°ç»„é•¿åº¦ä¸èƒ½è¶…è¿‡50"
+                            message: "fileListÊı×é³¤¶È²»ÄÜ³¬¹ı50"
                           });
                           var c, a = [],
                             r = N(n);
@@ -10552,7 +10552,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                                 i = void 0;
                               "string" !== M(u) && e({
                                 code: "INVALID_PARAM",
-                                message: "fileListçš„å…ƒç´ å¿…é¡»æ˜¯éç©ºçš„å­—ç¬¦ä¸²"
+                                message: "fileListµÄÔªËØ±ØĞëÊÇ·Ç¿ÕµÄ×Ö·û´®"
                               });
                               try {
                                 i = en.call(o, u)
@@ -10654,7 +10654,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         }
         var rn = [{
             rule: /fc_function_not_found|FUNCTION_NOT_FOUND/,
-            content: "ï¼Œäº‘å‡½æ•°[{functionName}]åœ¨äº‘ç«¯ä¸å­˜åœ¨ï¼Œè¯·æ£€æŸ¥æ­¤äº‘å‡½æ•°åç§°æ˜¯å¦æ­£ç¡®ä»¥åŠè¯¥äº‘å‡½æ•°æ˜¯å¦å·²ä¸Šä¼ åˆ°æœåŠ¡ç©ºé—´",
+            content: "£¬ÔÆº¯Êı[{functionName}]ÔÚÔÆ¶Ë²»´æÔÚ£¬Çë¼ì²é´ËÔÆº¯ÊıÃû³ÆÊÇ·ñÕıÈ·ÒÔ¼°¸ÃÔÆº¯ÊıÊÇ·ñÒÑÉÏ´«µ½·şÎñ¿Õ¼ä",
             mode: "append"
           }],
           un = /[\\^$.*+?()[\]{}|]/g,
@@ -10820,7 +10820,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
                   return e.appId === a && (e.platform || "").toLowerCase() === i.toLowerCase()
                 }))) return !0;
-              throw console.error("æ­¤åº”ç”¨[appId: ".concat(a, ", platform: ").concat(i, "]ä¸åœ¨äº‘ç«¯é…ç½®çš„å…è®¸è®¿é—®çš„åº”ç”¨åˆ—è¡¨å†…ï¼Œå‚è€ƒï¼šhttps://uniapp.dcloud.net.cn/uniCloud/secure-network.html#verify-client")), gn(Cn)
+              throw console.error("´ËÓ¦ÓÃ[appId: ".concat(a, ", platform: ").concat(i, "]²»ÔÚÔÆ¶ËÅäÖÃµÄÔÊĞí·ÃÎÊµÄÓ¦ÓÃÁĞ±íÄÚ£¬²Î¿¼£ºhttps://uniapp.dcloud.net.cn/uniCloud/secure-network.html#verify-client")), gn(Cn)
             }({
               provider: r,
               spaceId: u,
@@ -10830,7 +10830,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               uniCloudIns: e
             }).wrapVerifyClientCallFunction(n.bind(e))(t) : o(t), Object.defineProperty(c, "result", {
               get: function () {
-                return console.warn("å½“å‰è¿”å›ç»“æœä¸ºPromiseç±»å‹ï¼Œä¸å¯ç›´æ¥è®¿é—®å…¶resultå±æ€§ï¼Œè¯¦æƒ…è¯·å‚è€ƒï¼šhttps://uniapp.dcloud.net.cn/uniCloud/faq?id=promise"), {}
+                return console.warn("µ±Ç°·µ»Ø½á¹ûÎªPromiseÀàĞÍ£¬²»¿ÉÖ±½Ó·ÃÎÊÆäresultÊôĞÔ£¬ÏêÇéÇë²Î¿¼£ºhttps://uniapp.dcloud.net.cn/uniCloud/faq?id=promise"), {}
               }
             }), c.then((function (e) {
               return "undefined" != typeof UTSJSONObject && (e.result = new UTSJSONObject(e.result)), e
@@ -11025,7 +11025,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             key: "set",
             get: function () {
               return this.isCommand ? this.getNextStageFn("set") : function () {
-                throw new Error("JQLç¦æ­¢ä½¿ç”¨setæ–¹æ³•")
+                throw new Error("JQL½ûÖ¹Ê¹ÓÃset·½·¨")
               }
             }
           }, {
@@ -11173,7 +11173,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                         h = m.message,
                         C = m.detail,
                         g = "[System Info]" + h;
-                      C && (g = "".concat(g, "\nè¯¦ç»†ä¿¡æ¯ï¼š").concat(C)), (console[p] || console.log)(g)
+                      C && (g = "".concat(g, "\nÏêÏ¸ĞÅÏ¢£º").concat(C)), (console[p] || console.log)(g)
                     }
                   if (o) return s(new ve({
                     code: o,
@@ -11195,13 +11195,13 @@ var e = require("../@babel/runtime/helpers/typeof");
                   }));
                   for (var v = [{
                       prop: "affectedDocs",
-                      tips: "affectedDocsä¸å†æ¨èä½¿ç”¨ï¼Œè¯·ä½¿ç”¨inserted/deleted/updated/data.lengthæ›¿ä»£"
+                      tips: "affectedDocs²»ÔÙÍÆ¼öÊ¹ÓÃ£¬ÇëÊ¹ÓÃinserted/deleted/updated/data.lengthÌæ´ú"
                     }, {
                       prop: "code",
-                      tips: "codeä¸å†æ¨èä½¿ç”¨ï¼Œè¯·ä½¿ç”¨errCodeæ›¿ä»£"
+                      tips: "code²»ÔÙÍÆ¼öÊ¹ÓÃ£¬ÇëÊ¹ÓÃerrCodeÌæ´ú"
                     }, {
                       prop: "message",
-                      tips: "messageä¸å†æ¨èä½¿ç”¨ï¼Œè¯·ä½¿ç”¨errMsgæ›¿ä»£"
+                      tips: "message²»ÔÙÍÆ¼öÊ¹ÓÃ£¬ÇëÊ¹ÓÃerrMsgÌæ´ú"
                     }], N = function (t) {
                       var n = v[t],
                         o = n.prop,
@@ -11228,7 +11228,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                     }))
                   }(e)
                 }), (function (e) {
-                  return /fc_function_not_found|FUNCTION_NOT_FOUND/g.test(e.message) && console.warn("clientDBæœªåˆå§‹åŒ–ï¼Œè¯·åœ¨webæ§åˆ¶å°ä¿å­˜ä¸€æ¬¡schemaä»¥å¼€å¯clientDB"), s(new ve({
+                  return /fc_function_not_found|FUNCTION_NOT_FOUND/g.test(e.message) && console.warn("clientDBÎ´³õÊ¼»¯£¬ÇëÔÚweb¿ØÖÆÌ¨±£´æÒ»´ÎschemaÒÔ¿ªÆôclientDB"), s(new ve({
                     code: e.code || "SYSTEM_ERROR",
                     message: e.message,
                     requestId: e.requestId
@@ -11267,7 +11267,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             return (0, g.default)(e, [{
               key: "getCloudEnv",
               value: function (e) {
-                if ("string" != typeof e || !e.trim()) throw new Error("getCloudEnvå‚æ•°é”™è¯¯");
+                if ("string" != typeof e || !e.trim()) throw new Error("getCloudEnv²ÎÊı´íÎó");
                 return {
                   $env: e.replace("$cloudEnv_", "")
                 }
@@ -11295,7 +11295,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   t = e.map((function (e) {
                     var t = e.getAction(),
                       n = e.getCommand();
-                    if ("getTemp" !== n.$db[n.$db.length - 1].$method) throw new Error("multiSendåªæ”¯æŒå­å‘½ä»¤å†…ä½¿ç”¨getTemp");
+                    if ("getTemp" !== n.$db[n.$db.length - 1].$method) throw new Error("multiSendÖ»Ö§³Ö×ÓÃüÁîÄÚÊ¹ÓÃgetTemp");
                     return {
                       action: t,
                       command: n
@@ -11308,8 +11308,8 @@ var e = require("../@babel/runtime/helpers/typeof");
               }
             }]), e
           }()),
-          Dn = "tokenæ— æ•ˆï¼Œè·³è½¬ç™»å½•é¡µé¢",
-          Ln = "tokenè¿‡æœŸï¼Œè·³è½¬ç™»å½•é¡µé¢",
+          Dn = "tokenÎŞĞ§£¬Ìø×ªµÇÂ¼Ò³Ãæ",
+          Ln = "token¹ıÆÚ£¬Ìø×ªµÇÂ¼Ò³Ãæ",
           Mn = {
             TOKEN_INVALID_TOKEN_EXPIRED: Ln,
             TOKEN_INVALID_INVALID_CLIENTID: Dn,
@@ -11625,7 +11625,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               return "%" + ("00" + e.charCodeAt(0).toString(16)).slice(-2)
             })).join(""))))
           } catch (n) {
-            throw new Error("è·å–å½“å‰ç”¨æˆ·ä¿¡æ¯å‡ºé”™ï¼Œè¯¦ç»†é”™è¯¯ä¿¡æ¯ä¸ºï¼š" + n.message)
+            throw new Error("»ñÈ¡µ±Ç°ÓÃ»§ĞÅÏ¢³ö´í£¬ÏêÏ¸´íÎóĞÅÏ¢Îª£º" + n.message)
           }
           return e.tokenExpired = 1e3 * e.exp, delete e.exp, delete e.iat, e
         }
@@ -11782,7 +11782,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                   return new Promise((function (e, u) {
                     var i = o.chooseFile;
                     if (void 0 !== c && "function" == typeof c.chooseMessageFile && (i = c.chooseMessageFile), "function" != typeof i) return u({
-                      errMsg: a + " è¯·æŒ‡å®š type ç±»å‹ï¼Œè¯¥å¹³å°ä»…æ”¯æŒé€‰æ‹© image æˆ– videoã€‚"
+                      errMsg: a + " ÇëÖ¸¶¨ type ÀàĞÍ£¬¸ÃÆ½Ì¨½öÖ§³ÖÑ¡Ôñ image »ò video¡£"
                     });
                     i({
                       type: "all",
@@ -12241,7 +12241,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               value: function (e) {
                 var t = {},
                   n = xo[e.provider];
-                if (!n) throw new Error("æœªæä¾›æ­£ç¡®çš„providerå‚æ•°");
+                if (!n) throw new Error("Î´Ìá¹©ÕıÈ·µÄprovider²ÎÊı");
                 return function (e) {
                     e._initPromiseHub || (e._initPromiseHub = new V({
                       createPromise: function () {
@@ -12309,7 +12309,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                           }({
                             customUI: !1,
                             loadingOptions: {
-                              title: "åŠ è½½ä¸­...",
+                              title: "¼ÓÔØÖĞ...",
                               mask: !0
                             },
                             errorOptions: {
@@ -12480,11 +12480,11 @@ var e = require("../@babel/runtime/helpers/typeof");
                                             }
                                           }), e)
                                         })))({
-                                          title: "æç¤º",
+                                          title: "ÌáÊ¾",
                                           content: O,
                                           showCancel: i.retry,
-                                          cancelText: "å–æ¶ˆ",
-                                          confirmText: i.retry ? "é‡è¯•" : "ç¡®å®š"
+                                          cancelText: "È¡Ïû",
+                                          confirmText: i.retry ? "ÖØÊÔ" : "È·¶¨"
                                         });
                                       case 33:
                                         if (S = c.sent, P = S.confirm, !i.retry || !P) {
@@ -12601,7 +12601,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           function () {
             var e, n = J,
               o = {};
-            n && 1 === n.length ? (o = n[0], t.uniCloud = wo = wo.init(o), wo._isDefault = !0) : (e = n && n.length > 0 ? "åº”ç”¨æœ‰å¤šä¸ªæœåŠ¡ç©ºé—´ï¼Œè¯·é€šè¿‡uniCloud.initæ–¹æ³•æŒ‡å®šè¦ä½¿ç”¨çš„æœåŠ¡ç©ºé—´" : "åº”ç”¨æœªå…³è”æœåŠ¡ç©ºé—´ï¼Œè¯·åœ¨uniCloudç›®å½•å³é”®å…³è”æœåŠ¡ç©ºé—´", ["auth", "callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile", "database", "getCurrentUSerInfo", "importObject"].forEach((function (t) {
+            n && 1 === n.length ? (o = n[0], t.uniCloud = wo = wo.init(o), wo._isDefault = !0) : (e = n && n.length > 0 ? "Ó¦ÓÃÓĞ¶à¸ö·şÎñ¿Õ¼ä£¬ÇëÍ¨¹ıuniCloud.init·½·¨Ö¸¶¨ÒªÊ¹ÓÃµÄ·şÎñ¿Õ¼ä" : "Ó¦ÓÃÎ´¹ØÁª·şÎñ¿Õ¼ä£¬ÇëÔÚuniCloudÄ¿Â¼ÓÒ¼ü¹ØÁª·şÎñ¿Õ¼ä", ["auth", "callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile", "database", "getCurrentUSerInfo", "importObject"].forEach((function (t) {
               wo[t] = function () {
                 return console.error(e), Promise.reject(new ve({
                   code: "SYS_ERR",
@@ -12929,7 +12929,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           })).join("")
         })), a(c, "countTimes", (function (e) {
           var t = "";
-          e > 0 ? t = Math.floor(e / 60 / 24) + "å¤©" + Math.floor(e / 60 % 24) + "å°æ—¶" + Math.floor(e % 60) + "åˆ†" : t = 0;
+          e > 0 ? t = Math.floor(e / 60 / 24) + "Ìì" + Math.floor(e / 60 % 24) + "Ğ¡Ê±" + Math.floor(e % 60) + "·Ö" : t = 0;
           return t
         })), a(c, "throttle", (function (e) {
           var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
@@ -12982,7 +12982,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               },
               fail: function () {
                 t.showToast({
-                  title: "ç½‘ç»œç¹å¿™è¯·ç¨åé‡è¯•"
+                  title: "ÍøÂç·±Ã¦ÇëÉÔºóÖØÊÔ"
                 })
               }
             })
@@ -13004,7 +13004,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               },
               fail: function (e) {
                 console.log(e), t.showToast({
-                  title: "è¯·ç¨åé‡è¯•ç½‘ç»œé”™è¯¯!"
+                  title: "ÇëÉÔºóÖØÊÔÍøÂç´íÎó!"
                 })
               }
             })
@@ -13173,13 +13173,13 @@ var e = require("../@babel/runtime/helpers/typeof");
       }).call(this, n("df3c").default)
     },
     "979e": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/03_xx@3x.png"
+      e.exports = "https://localhost/api/file/image/03_xx@3x.png"
     },
     9816: function (e, t, n) {
       var o = n("5bd7"),
         c = null,
         a = null;
-      o.isProduction ? (c = "wxd3578c75e67172b3", a = "http://localhost:8080/api") : o.isDevelopment && (c = "wxd3578c75e67172b3", a = "http://localhost:8080/api"), e.exports = {
+      o.isProduction ? (c = "wxd3578c75e67172b3", a = "https://localhost/api") : o.isDevelopment && (c = "wxd3578c75e67172b3", a = "https://localhost/api"), e.exports = {
         baseUrl: a,
         appid: c
       }
@@ -13248,7 +13248,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.getChilds = i
     },
     "9e37": function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/ç”µè¯@3x.png"
+      e.exports = "https://localhost/api/file/image/µç»°@3x.png"
     },
     "9fc1": function (e, t, n) {
       var o = n("3b2d").default;
@@ -14533,7 +14533,7 @@ var e = require("../@babel/runtime/helpers/typeof");
     },
     a75d: function (e, t, n) {},
     a84c: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/01_jq@3x.png"
+      e.exports = "https://localhost/api/file/image/01_jq@3x.png"
     },
     a91b: function (e, t, n) {
       var o = n("47a9");
@@ -14608,7 +14608,7 @@ var e = require("../@babel/runtime/helpers/typeof");
           },
           r = o.replace(/{(y|m|d|h|i|s|a)+}/g, (function (e, t) {
             var n = a[t];
-            return "a" === t ? ["æ—¥", "ä¸€", "äºŒ", "ä¸‰", "å››", "äº”", "å…­"][n] : (e.length > 0 && n < 10 && (n = "0" + n), n || 0)
+            return "a" === t ? ["ÈÕ", "Ò»", "¶ş", "Èı", "ËÄ", "Îå", "Áù"][n] : (e.length > 0 && n < 10 && (n = "0" + n), n || 0)
           }));
         return r
       }, t.praseStrEmpty = function (e) {
@@ -14708,10 +14708,10 @@ var e = require("../@babel/runtime/helpers/typeof");
       }).VUE_APP_BASE_API
     },
     a92f: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å®šä½@3x.png"
+      e.exports = "https://localhost/api/file/image/¶¨Î»@3x.png"
     },
     ab45: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å’¨è¯¢ç»éªŒ_bg@3x.png"
+      e.exports = "https://localhost/api/file/image/×ÉÑ¯¾­Ñé_bg@3x.png"
     },
     acbb: function (e, t, n) {
       (function (e) {
@@ -14845,7 +14845,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }
     },
     bdc3: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/äº²å­æ•™è‚²@3x.png"
+      e.exports = "https://localhost/api/file/image/Ç××Ó½ÌÓı@3x.png"
     },
     c074: function (e, t, n) {
       var o = n("47a9");
@@ -14977,10 +14977,10 @@ var e = require("../@babel/runtime/helpers/typeof");
       e.exports = n("320f")
     },
     c520: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å©šå§»æ‹çˆ±@3x.png"
+      e.exports = "https://localhost/api/file/image/»éÒöÁµ°®@3x.png"
     },
     cb76: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/äººé™…å…³ç³»@3x.png"
+      e.exports = "https://localhost/api/file/image/ÈË¼Ê¹ØÏµ@3x.png"
     },
     d32f: function (e, t, n) {
       var o = n("47a9");
@@ -14989,258 +14989,258 @@ var e = require("../@babel/runtime/helpers/typeof");
       }), t.default = void 0;
       var c = o(n("af34")),
         a = {
-          name: "å›°æ‰°",
+          name: "À§ÈÅ",
           type: "filter",
           submenu: [{
-            name: "æƒ…ç»ªå›°æ‰°",
+            name: "ÇéĞ÷À§ÈÅ",
             value: 1,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "ç„¦è™‘",
-              value: "ç„¦è™‘"
+              name: "½¹ÂÇ",
+              value: "½¹ÂÇ"
             }, {
-              name: "æ— æ„ä¹‰æ„Ÿ",
-              value: "æ— æ„ä¹‰æ„Ÿ"
+              name: "ÎŞÒâÒå¸Ğ",
+              value: "ÎŞÒâÒå¸Ğ"
             }, {
-              name: "æ˜“æ€’",
-              value: "æ˜“æ€’"
+              name: "Ò×Å­",
+              value: "Ò×Å­"
             }, {
-              name: "å­¤ç‹¬",
-              value: "å­¤ç‹¬"
+              name: "¹Â¶À",
+              value: "¹Â¶À"
             }, {
-              name: "å­•äº§æœŸé—®é¢˜",
-              value: "å­•äº§æœŸé—®é¢˜"
+              name: "ÔĞ²úÆÚÎÊÌâ",
+              value: "ÔĞ²úÆÚÎÊÌâ"
             }, {
-              name: "æ— åŠ©",
-              value: "æ— åŠ©"
+              name: "ÎŞÖú",
+              value: "ÎŞÖú"
             }, {
-              name: "æƒ…ç»ªä¸ç¨³å®š",
-              value: "æƒ…ç»ªä¸ç¨³å®š"
+              name: "ÇéĞ÷²»ÎÈ¶¨",
+              value: "ÇéĞ÷²»ÎÈ¶¨"
             }, {
-              name: "æŠ‘éƒ",
-              value: "æŠ‘éƒ"
+              name: "ÒÖÓô",
+              value: "ÒÖÓô"
             }, {
-              name: "ç©ºè™šæ„Ÿ",
-              value: "ç©ºè™šæ„Ÿ"
+              name: "¿ÕĞé¸Ğ",
+              value: "¿ÕĞé¸Ğ"
             }, {
-              name: "å†…ç–š",
-              value: "å†…ç–š"
+              name: "ÄÚ¾Î",
+              value: "ÄÚ¾Î"
             }]
           }, {
-            name: "å©šå§»æ‹çˆ±",
+            name: "»éÒöÁµ°®",
             value: 2,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "ä¼´ä¾£æ²Ÿé€š",
-              value: "ä¼´ä¾£æ²Ÿé€š"
+              name: "°éÂÂ¹µÍ¨",
+              value: "°éÂÂ¹µÍ¨"
             }, {
-              name: "å®‰å…¨æ„Ÿ",
-              value: "å®‰å…¨æ„Ÿ"
+              name: "°²È«¸Ğ",
+              value: "°²È«¸Ğ"
             }, {
-              name: "å®¶åº­çŸ›ç›¾",
-              value: "å®¶åº­çŸ›ç›¾"
+              name: "¼ÒÍ¥Ã¬¶Ü",
+              value: "¼ÒÍ¥Ã¬¶Ü"
             }, {
-              name: "æ„Ÿæƒ…æ·¡æ¼ ",
-              value: "æ„Ÿæƒ…æ·¡æ¼ "
+              name: "¸ĞÇéµ­Ä®",
+              value: "¸ĞÇéµ­Ä®"
             }, {
-              name: "æ„Ÿæƒ…å˜æ•…",
-              value: "æ„Ÿæƒ…å˜æ•…"
+              name: "¸ĞÇé±ä¹Ê",
+              value: "¸ĞÇé±ä¹Ê"
             }, {
-              name: "æ‹çˆ±æŠ€å·§",
-              value: "æ‹çˆ±æŠ€å·§"
+              name: "Áµ°®¼¼ÇÉ",
+              value: "Áµ°®¼¼ÇÉ"
             }, {
-              name: "å¤«å¦»å…³ç³»",
-              value: "å¤«å¦»å…³ç³»"
+              name: "·òÆŞ¹ØÏµ",
+              value: "·òÆŞ¹ØÏµ"
             }]
           }, {
-            name: "äººé™…å…³ç³»",
+            name: "ÈË¼Ê¹ØÏµ",
             value: 3,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "äººé™…æ²Ÿé€š",
-              value: "äººé™…æ²Ÿé€š"
+              name: "ÈË¼Ê¹µÍ¨",
+              value: "ÈË¼Ê¹µÍ¨"
             }, {
-              name: "è®¨å¥½å‹äººæ ¼",
-              value: "è®¨å¥½å‹äººæ ¼"
+              name: "ÌÖºÃĞÍÈË¸ñ",
+              value: "ÌÖºÃĞÍÈË¸ñ"
             }, {
-              name: "ä¿¡ä»»é—®é¢˜",
-              value: "ä¿¡ä»»é—®é¢˜"
+              name: "ĞÅÈÎÎÊÌâ",
+              value: "ĞÅÈÎÎÊÌâ"
             }, {
-              name: "ç¤¾äº¤å›é¿",
-              value: "ç¤¾äº¤å›é¿"
+              name: "Éç½»»Ø±Ü",
+              value: "Éç½»»Ø±Ü"
             }, {
-              name: "é€‚åº”å›°éš¾",
-              value: "é€‚åº”å›°éš¾"
+              name: "ÊÊÓ¦À§ÄÑ",
+              value: "ÊÊÓ¦À§ÄÑ"
             }, {
-              name: "ä¸ªäººç•Œé™",
-              value: "ä¸ªäººç•Œé™"
+              name: "¸öÈË½çÏŞ",
+              value: "¸öÈË½çÏŞ"
             }]
           }, {
-            name: "å®¶åº­å›°æ‰°",
+            name: "¼ÒÍ¥À§ÈÅ",
             value: 4,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "æˆé•¿åˆ›ä¼¤",
-              value: "æˆé•¿åˆ›ä¼¤"
+              name: "³É³¤´´ÉË",
+              value: "³É³¤´´ÉË"
             }, {
-              name: "å®¶åº­å†²çª",
-              value: "å®¶åº­å†²çª"
+              name: "¼ÒÍ¥³åÍ»",
+              value: "¼ÒÍ¥³åÍ»"
             }, {
-              name: "æˆé•¿æ·é”",
-              value: "æˆé•¿æ·é”"
+              name: "³É³¤¼ÏËø",
+              value: "³É³¤¼ÏËø"
             }, {
-              name: "çˆ¶æ¯æ²Ÿé€š",
-              value: "çˆ¶æ¯æ²Ÿé€š"
+              name: "¸¸Ä¸¹µÍ¨",
+              value: "¸¸Ä¸¹µÍ¨"
             }, {
-              name: "è‚²å„¿åˆ†æ­§",
-              value: "è‚²å„¿åˆ†æ­§"
+              name: "Óı¶ù·ÖÆç",
+              value: "Óı¶ù·ÖÆç"
             }, {
-              name: "å©†åª³å…³ç³»",
-              value: "å©†åª³å…³ç³»"
+              name: "ÆÅÏ±¹ØÏµ",
+              value: "ÆÅÏ±¹ØÏµ"
             }, {
-              name: "ä¸ªäººç©ºé—´",
-              value: "ä¸ªäººç©ºé—´"
+              name: "¸öÈË¿Õ¼ä",
+              value: "¸öÈË¿Õ¼ä"
             }]
           }, {
-            name: "ä¸ªäººæˆé•¿",
+            name: "¸öÈË³É³¤",
             value: 5,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "è‡ªæˆ‘æ¢ç´¢",
-              value: "è‡ªæˆ‘æ¢ç´¢"
+              name: "×ÔÎÒÌ½Ë÷",
+              value: "×ÔÎÒÌ½Ë÷"
             }, {
-              name: "è‡ªæˆ‘å°é—­",
-              value: "è‡ªæˆ‘å°é—­"
+              name: "×ÔÎÒ·â±Õ",
+              value: "×ÔÎÒ·â±Õ"
             }, {
-              name: "å®Œç¾ä¸»ä¹‰",
-              value: "å®Œç¾ä¸»ä¹‰"
+              name: "ÍêÃÀÖ÷Òå",
+              value: "ÍêÃÀÖ÷Òå"
             }, {
-              name: "ç”Ÿæ´»æ„ä¹‰",
-              value: "ç”Ÿæ´»æ„ä¹‰"
+              name: "Éú»îÒâÒå",
+              value: "Éú»îÒâÒå"
             }, {
-              name: "å¥³æ€§æˆé•¿",
-              value: "å¥³æ€§æˆé•¿"
+              name: "Å®ĞÔ³É³¤",
+              value: "Å®ĞÔ³É³¤"
             }, {
-              name: "ç”·æ€§æˆé•¿",
-              value: "ç”·æ€§æˆé•¿"
+              name: "ÄĞĞÔ³É³¤",
+              value: "ÄĞĞÔ³É³¤"
             }, {
-              name: "è·¨æ–‡åŒ–é€‚åº”",
-              value: "è·¨æ–‡åŒ–é€‚åº”"
+              name: "¿çÎÄ»¯ÊÊÓ¦",
+              value: "¿çÎÄ»¯ÊÊÓ¦"
             }]
           }, {
-            name: "å­¦ä¸šèŒåœº",
+            name: "Ñ§ÒµÖ°³¡",
             value: 6,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "å­¦ä¸šå‹åŠ›",
-              value: "å­¦ä¸šå‹åŠ›"
+              name: "Ñ§ÒµÑ¹Á¦",
+              value: "Ñ§ÒµÑ¹Á¦"
             }, {
-              name: "ç®¡ç†å›°éš¾",
-              value: "ç®¡ç†å›°éš¾"
+              name: "¹ÜÀíÀ§ÄÑ",
+              value: "¹ÜÀíÀ§ÄÑ"
             }, {
-              name: "èŒåœºå€¦æ€ ",
-              value: "èŒåœºå€¦æ€ "
+              name: "Ö°³¡¾ëµ¡",
+              value: "Ö°³¡¾ëµ¡"
             }, {
-              name: "èŒä¸šè¿·èŒ«",
-              value: "èŒä¸šè¿·èŒ«"
+              name: "Ö°ÒµÃÔÃ£",
+              value: "Ö°ÒµÃÔÃ£"
             }, {
-              name: "èŒåœºäººé™…å…³ç³»",
-              value: "èŒåœºäººé™…å…³ç³»"
+              name: "Ö°³¡ÈË¼Ê¹ØÏµ",
+              value: "Ö°³¡ÈË¼Ê¹ØÏµ"
             }, {
-              name: "å·¥ä½œå®¶åº­å†²çª",
-              value: "å·¥ä½œå®¶åº­å†²çª"
+              name: "¹¤×÷¼ÒÍ¥³åÍ»",
+              value: "¹¤×÷¼ÒÍ¥³åÍ»"
             }]
           }, {
-            name: "äº²å­æ•™è‚²",
+            name: "Ç××Ó½ÌÓı",
             value: 7,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "äº²å­æ²Ÿé€š",
-              value: "äº²å­æ²Ÿé€š"
+              name: "Ç××Ó¹µÍ¨",
+              value: "Ç××Ó¹µÍ¨"
             }, {
-              name: "é’æ˜¥æœŸ",
-              value: "é’æ˜¥æœŸ"
+              name: "Çà´ºÆÚ",
+              value: "Çà´ºÆÚ"
             }, {
-              name: "ä¸­é«˜è€ƒ",
-              value: "ä¸­é«˜è€ƒ"
+              name: "ÖĞ¸ß¿¼",
+              value: "ÖĞ¸ß¿¼"
             }, {
-              name: "åŒå­¦",
-              value: "åŒå­¦"
+              name: "ÑáÑ§",
+              value: "ÑáÑ§"
             }, {
-              name: "é’å°‘å¹´æŠ‘éƒ",
-              value: "é’å°‘å¹´æŠ‘éƒ"
+              name: "ÇàÉÙÄêÒÖÓô",
+              value: "ÇàÉÙÄêÒÖÓô"
             }, {
-              name: "é’å°‘å¹´ç„¦è™‘",
-              value: "é’å°‘å¹´ç„¦è™‘"
+              name: "ÇàÉÙÄê½¹ÂÇ",
+              value: "ÇàÉÙÄê½¹ÂÇ"
             }]
           }, {
-            name: "èº«å¿ƒå¥åº·",
+            name: "ÉíĞÄ½¡¿µ",
             value: 8,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "å¿ƒç†æ€§ç–¼ç—›",
-              value: "å¿ƒç†æ€§ç–¼ç—›"
+              name: "ĞÄÀíĞÔÌÛÍ´",
+              value: "ĞÄÀíĞÔÌÛÍ´"
             }, {
-              name: "å¼ºè¿«",
-              value: "å¼ºè¿«"
+              name: "Ç¿ÆÈ",
+              value: "Ç¿ÆÈ"
             }, {
-              name: "å¤±çœ å¤šæ¢¦",
-              value: "å¤±çœ å¤šæ¢¦"
+              name: "Ê§Ãß¶àÃÎ",
+              value: "Ê§Ãß¶àÃÎ"
             }, {
-              name: "æˆç˜¾",
-              value: "æˆç˜¾"
+              name: "³Éñ«",
+              value: "³Éñ«"
             }, {
-              name: "è¿›é£Ÿéšœç¢",
-              value: "è¿›é£Ÿéšœç¢"
+              name: "½øÊ³ÕÏ°­",
+              value: "½øÊ³ÕÏ°­"
             }, {
-              name: "åˆ›ä¼¤",
-              value: "åˆ›ä¼¤"
+              name: "´´ÉË",
+              value: "´´ÉË"
             }, {
-              name: "ä¾æ‹",
-              value: "ä¾æ‹"
+              name: "ÒÀÁµ",
+              value: "ÒÀÁµ"
             }, {
-              name: "æ‹–å»¶",
-              value: "æ‹–å»¶"
+              name: "ÍÏÑÓ",
+              value: "ÍÏÑÓ"
             }]
           }, {
-            name: "æ€§å¿ƒç†",
+            name: "ĞÔĞÄÀí",
             value: 9,
             submenu: [{
-              name: "å…¨éƒ¨",
-              value: "å…¨éƒ¨"
+              name: "È«²¿",
+              value: "È«²¿"
             }, {
-              name: "LGBTQå‹å–„å’¨è¯¢",
-              value: "LGBTQå‹å–„å’¨è¯¢"
+              name: "LGBTQÓÑÉÆ×ÉÑ¯",
+              value: "LGBTQÓÑÉÆ×ÉÑ¯"
             }, {
-              name: "æ€§åˆ«è®¤åŒ",
-              value: "æ€§åˆ«è®¤åŒ"
+              name: "ĞÔ±ğÈÏÍ¬",
+              value: "ĞÔ±ğÈÏÍ¬"
             }, {
-              name: "æ€§å¿ƒç†éšœç¢",
-              value: "æ€§å¿ƒç†éšœç¢"
+              name: "ĞÔĞÄÀíÕÏ°­",
+              value: "ĞÔĞÄÀíÕÏ°­"
             }]
           }]
         };
       a.submenu = [{
-        name: "å¤§åˆ†ç±»",
+        name: "´ó·ÖÀà",
         hideName: !0,
         submenu: [{
-          name: "å…¨éƒ¨",
+          name: "È«²¿",
           value: 0
         }].concat((0, c.default)(a.submenu.map((function (e) {
           return {
@@ -15250,60 +15250,60 @@ var e = require("../@babel/runtime/helpers/typeof");
         }))))
       }];
       var r = [{
-        name: "è¯é¢˜æ–¹å‘",
+        name: "»°Ìâ·½Ïò",
         type: "radio",
         submenu: [{
-          name: "è¯é¢˜æ–¹å‘",
+          name: "»°Ìâ·½Ïò",
           hideName: !0,
           submenu: [{
-            name: "å…¨éƒ¨",
+            name: "È«²¿",
             value: null
           }, {
-            name: "èº«å¿ƒå¥åº·",
-            value: "èº«å¿ƒå¥åº·"
+            name: "ÉíĞÄ½¡¿µ",
+            value: "ÉíĞÄ½¡¿µ"
           }, {
-            name: "äººé™…å…³ç³»",
-            value: "äººé™…å…³ç³»"
+            name: "ÈË¼Ê¹ØÏµ",
+            value: "ÈË¼Ê¹ØÏµ"
           }, {
-            name: "å©šå§»æ‹çˆ±",
-            value: "å©šå§»æ‹çˆ±"
+            name: "»éÒöÁµ°®",
+            value: "»éÒöÁµ°®"
           }, {
-            name: "äº²å­æ•™è‚²",
-            value: "äº²å­æ•™è‚²"
+            name: "Ç××Ó½ÌÓı",
+            value: "Ç××Ó½ÌÓı"
           }, {
-            name: "ä¸ªäººæˆé•¿",
-            value: "ä¸ªäººæˆé•¿"
+            name: "¸öÈË³É³¤",
+            value: "¸öÈË³É³¤"
           }, {
-            name: "æƒ…ç»ªå›°æ‰°",
-            value: "æƒ…ç»ªå›°æ‰°"
+            name: "ÇéĞ÷À§ÈÅ",
+            value: "ÇéĞ÷À§ÈÅ"
           }, {
-            name: "å­¦ä¸šèŒåœº",
-            value: "å­¦ä¸šèŒåœº"
+            name: "Ñ§ÒµÖ°³¡",
+            value: "Ñ§ÒµÖ°³¡"
           }, {
-            name: "å®¶åº­å›°æ‰°",
-            value: "å®¶åº­å›°æ‰°"
+            name: "¼ÒÍ¥À§ÈÅ",
+            value: "¼ÒÍ¥À§ÈÅ"
           }, {
-            name: "æ€§å¿ƒç†",
-            value: "æ€§å¿ƒç†"
+            name: "ĞÔĞÄÀí",
+            value: "ĞÔĞÄÀí"
           }]
         }]
       }, {
-        name: "æ’åº",
+        name: "ÅÅĞò",
         type: "radio",
         submenu: [{
-          name: "æ’åºæ–¹å¼",
+          name: "ÅÅĞò·½Ê½",
           hideName: !0,
           submenu: [{
-            name: "æ¨èæ’åº",
+            name: "ÍÆ¼öÅÅĞò",
             value: 0
           }, {
-            name: "ä½ä»·ä¼˜å…ˆ",
+            name: "µÍ¼ÛÓÅÏÈ",
             value: 1
           }, {
-            name: "é«˜ä»·ä¼˜å…ˆ",
+            name: "¸ß¼ÛÓÅÏÈ",
             value: 2
           }, {
-            name: "è¿‘æœŸå¯é¢„çº¦ä¼˜å…ˆ",
+            name: "½üÆÚ¿ÉÔ¤Ô¼ÓÅÏÈ",
             value: 3
           }]
         }]
@@ -15616,10264 +15616,10264 @@ var e = require("../@babel/runtime/helpers/typeof");
         value: !0
       }), t.default = void 0, t.default = [{
         provinceCode: "110000",
-        provinceName: "åŒ—äº¬",
+        provinceName: "±±¾©",
         city: [{
           cityCode: "110000-1",
-          cityName: "åŒ—äº¬å¸‚",
+          cityName: "±±¾©ÊĞ",
           county: [{
             countyCode: "110115",
-            countyName: "å¤§å…´åŒº"
+            countyName: "´óĞËÇø"
           }, {
             countyCode: "110116",
-            countyName: "æ€€æŸ”åŒº"
+            countyName: "»³ÈáÇø"
           }, {
             countyCode: "110105",
-            countyName: "æœé˜³åŒº"
+            countyName: "³¯ÑôÇø"
           }, {
             countyCode: "110229",
-            countyName: "å»¶åº†åŒº"
+            countyName: "ÑÓÇìÇø"
           }, {
             countyCode: "110114",
-            countyName: "æ˜Œå¹³åŒº"
+            countyName: "²ıÆ½Çø"
           }, {
             countyCode: "110108",
-            countyName: "æµ·æ·€åŒº"
+            countyName: "º£µíÇø"
           }, {
             countyCode: "110107",
-            countyName: "çŸ³æ™¯å±±åŒº"
+            countyName: "Ê¯¾°É½Çø"
           }, {
             countyCode: "110112",
-            countyName: "é€šå·åŒº"
+            countyName: "Í¨ÖİÇø"
           }, {
             countyCode: "110228",
-            countyName: "å¯†äº‘åŒº"
+            countyName: "ÃÜÔÆÇø"
           }, {
             countyCode: "110117",
-            countyName: "å¹³è°·åŒº"
+            countyName: "Æ½¹ÈÇø"
           }, {
             countyCode: "110109",
-            countyName: "é—¨å¤´æ²ŸåŒº"
+            countyName: "ÃÅÍ·¹µÇø"
           }, {
             countyCode: "110113",
-            countyName: "é¡ºä¹‰åŒº"
+            countyName: "Ë³ÒåÇø"
           }, {
             countyCode: "110106",
-            countyName: "ä¸°å°åŒº"
+            countyName: "·áÌ¨Çø"
           }, {
             countyCode: "110111",
-            countyName: "æˆ¿å±±åŒº"
+            countyName: "·¿É½Çø"
           }, {
             countyCode: "110101",
-            countyName: "ä¸œåŸåŒº"
+            countyName: "¶«³ÇÇø"
           }, {
             countyCode: "110102",
-            countyName: "è¥¿åŸåŒº"
+            countyName: "Î÷³ÇÇø"
           }]
         }]
       }, {
         provinceCode: "120000",
-        provinceName: "å¤©æ´¥",
+        provinceName: "Ìì½ò",
         city: [{
           cityCode: "120000-1",
-          cityName: "å¤©æ´¥å¸‚",
+          cityName: "Ìì½òÊĞ",
           county: [{
             countyCode: "120103",
-            countyName: "æ²³è¥¿åŒº"
+            countyName: "ºÓÎ÷Çø"
           }, {
             countyCode: "120106",
-            countyName: "çº¢æ¡¥åŒº"
+            countyName: "ºìÇÅÇø"
           }, {
             countyCode: "120223",
-            countyName: "é™æµ·åŒº"
+            countyName: "¾²º£Çø"
           }, {
             countyCode: "120114",
-            countyName: "æ­¦æ¸…åŒº"
+            countyName: "ÎäÇåÇø"
           }, {
             countyCode: "120110",
-            countyName: "ä¸œä¸½åŒº"
+            countyName: "¶«ÀöÇø"
           }, {
             countyCode: "120111",
-            countyName: "è¥¿é’åŒº"
+            countyName: "Î÷ÇàÇø"
           }, {
             countyCode: "120225",
-            countyName: "è“Ÿå·åŒº"
+            countyName: "¼»ÖİÇø"
           }, {
             countyCode: "120116",
-            countyName: "æ»¨æµ·æ–°åŒº"
+            countyName: "±õº£ĞÂÇø"
           }, {
             countyCode: "120113",
-            countyName: "åŒ—è¾°åŒº"
+            countyName: "±±³½Çø"
           }, {
             countyCode: "120115",
-            countyName: "å®å»åŒº"
+            countyName: "±¦ÛæÇø"
           }, {
             countyCode: "120101",
-            countyName: "å’Œå¹³åŒº"
+            countyName: "ºÍÆ½Çø"
           }, {
             countyCode: "120112",
-            countyName: "æ´¥å—åŒº"
+            countyName: "½òÄÏÇø"
           }, {
             countyCode: "120221",
-            countyName: "å®æ²³åŒº"
+            countyName: "ÄşºÓÇø"
           }, {
             countyCode: "120104",
-            countyName: "å—å¼€åŒº"
+            countyName: "ÄÏ¿ªÇø"
           }, {
             countyCode: "120105",
-            countyName: "æ²³åŒ—åŒº"
+            countyName: "ºÓ±±Çø"
           }, {
             countyCode: "120102",
-            countyName: "æ²³ä¸œåŒº"
+            countyName: "ºÓ¶«Çø"
           }]
         }]
       }, {
         provinceCode: "130000",
-        provinceName: "æ²³åŒ—çœ",
+        provinceName: "ºÓ±±Ê¡",
         city: [{
           cityCode: "130400",
-          cityName: "é‚¯éƒ¸å¸‚",
+          cityName: "ºªµ¦ÊĞ",
           county: [{
             countyCode: "130404",
-            countyName: "å¤å…´åŒº"
+            countyName: "¸´ĞËÇø"
           }, {
             countyCode: "130424",
-            countyName: "æˆå®‰å¿"
+            countyName: "³É°²ÏØ"
           }, {
             countyCode: "130403",
-            countyName: "ä¸›å°åŒº"
+            countyName: "´ÔÌ¨Çø"
           }, {
             countyCode: "130402",
-            countyName: "é‚¯å±±åŒº"
+            countyName: "ºªÉ½Çø"
           }, {
             countyCode: "130434",
-            countyName: "é­å¿"
+            countyName: "ÎºÏØ"
           }, {
             countyCode: "130429",
-            countyName: "æ°¸å¹´åŒº"
+            countyName: "ÓÀÄêÇø"
           }, {
             countyCode: "130427",
-            countyName: "ç£å¿"
+            countyName: "´ÅÏØ"
           }, {
             countyCode: "130433",
-            countyName: "é¦†é™¶å¿"
+            countyName: "¹İÌÕÏØ"
           }, {
             countyCode: "130421",
-            countyName: "é‚¯éƒ¸å¿"
+            countyName: "ºªµ¦ÏØ"
           }, {
             countyCode: "130435",
-            countyName: "æ›²å‘¨å¿"
+            countyName: "ÇúÖÜÏØ"
           }, {
             countyCode: "130425",
-            countyName: "å¤§åå¿"
+            countyName: "´óÃûÏØ"
           }, {
             countyCode: "130426",
-            countyName: "æ¶‰å¿"
+            countyName: "ÉæÏØ"
           }, {
             countyCode: "130423",
-            countyName: "ä¸´æ¼³å¿"
+            countyName: "ÁÙÕÄÏØ"
           }, {
             countyCode: "130431",
-            countyName: "é¸¡æ³½å¿"
+            countyName: "¼¦ÔóÏØ"
           }, {
             countyCode: "130406",
-            countyName: "å³°å³°çŸ¿åŒº"
+            countyName: "·å·å¿óÇø"
           }, {
             countyCode: "130430",
-            countyName: "é‚±å¿"
+            countyName: "ÇñÏØ"
           }, {
             countyCode: "130428",
-            countyName: "è‚¥ä¹¡åŒº"
+            countyName: "·ÊÏçÇø"
           }, {
             countyCode: "130432",
-            countyName: "å¹¿å¹³å¿"
+            countyName: "¹ãÆ½ÏØ"
           }, {
             countyCode: "130481",
-            countyName: "æ­¦å®‰å¸‚"
+            countyName: "Îä°²ÊĞ"
           }]
         }, {
           cityCode: "131100",
-          cityName: "è¡¡æ°´å¸‚",
+          cityName: "ºâË®ÊĞ",
           county: [{
             countyCode: "131127",
-            countyName: "æ™¯å¿"
+            countyName: "¾°ÏØ"
           }, {
             countyCode: "131102",
-            countyName: "æ¡ƒåŸåŒº"
+            countyName: "ÌÒ³ÇÇø"
           }, {
             countyCode: "131128",
-            countyName: "é˜œåŸå¿"
+            countyName: "¸·³ÇÏØ"
           }, {
             countyCode: "131125",
-            countyName: "å®‰å¹³å¿"
+            countyName: "°²Æ½ÏØ"
           }, {
             countyCode: "131121",
-            countyName: "æ£å¼ºå¿"
+            countyName: "ÔæÇ¿ÏØ"
           }, {
             countyCode: "131123",
-            countyName: "æ­¦å¼ºå¿"
+            countyName: "ÎäÇ¿ÏØ"
           }, {
             countyCode: "131122",
-            countyName: "æ­¦é‚‘å¿"
+            countyName: "ÎäÒØÏØ"
           }, {
             countyCode: "131181",
-            countyName: "å†€å·åŒº"
+            countyName: "¼½ÖİÇø"
           }, {
             countyCode: "131126",
-            countyName: "æ•…åŸå¿"
+            countyName: "¹Ê³ÇÏØ"
           }, {
             countyCode: "131124",
-            countyName: "é¥¶é˜³å¿"
+            countyName: "ÈÄÑôÏØ"
           }, {
             countyCode: "131182",
-            countyName: "æ·±å·å¸‚"
+            countyName: "ÉîÖİÊĞ"
           }]
         }, {
           cityCode: "130900",
-          cityName: "æ²§å·å¸‚",
+          cityName: "²×ÖİÊĞ",
           county: [{
             countyCode: "130930",
-            countyName: "å­Ÿæ‘å›æ—è‡ªæ²»å¿"
+            countyName: "ÃÏ´å»Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "130923",
-            countyName: "ä¸œå…‰å¿"
+            countyName: "¶«¹âÏØ"
           }, {
             countyCode: "130981",
-            countyName: "æ³Šå¤´å¸‚"
+            countyName: "²´Í·ÊĞ"
           }, {
             countyCode: "130924",
-            countyName: "æµ·å…´å¿"
+            countyName: "º£ĞËÏØ"
           }, {
             countyCode: "130927",
-            countyName: "å—çš®å¿"
+            countyName: "ÄÏÆ¤ÏØ"
           }, {
             countyCode: "130922",
-            countyName: "é’å¿"
+            countyName: "ÇàÏØ"
           }, {
             countyCode: "130902",
-            countyName: "æ–°ååŒº"
+            countyName: "ĞÂ»ªÇø"
           }, {
             countyCode: "130925",
-            countyName: "ç›å±±å¿"
+            countyName: "ÑÎÉ½ÏØ"
           }, {
             countyCode: "130903",
-            countyName: "è¿æ²³åŒº"
+            countyName: "ÔËºÓÇø"
           }, {
             countyCode: "130921",
-            countyName: "æ²§å¿"
+            countyName: "²×ÏØ"
           }, {
             countyCode: "130984",
-            countyName: "æ²³é—´å¸‚"
+            countyName: "ºÓ¼äÊĞ"
           }, {
             countyCode: "130926",
-            countyName: "è‚ƒå®å¿"
+            countyName: "ËàÄşÏØ"
           }, {
             countyCode: "130982",
-            countyName: "ä»»ä¸˜å¸‚"
+            countyName: "ÈÎÇğÊĞ"
           }, {
             countyCode: "130983",
-            countyName: "é»„éª…å¸‚"
+            countyName: "»ÆæèÊĞ"
           }, {
             countyCode: "130928",
-            countyName: "å´æ¡¥å¿"
+            countyName: "ÎâÇÅÏØ"
           }, {
             countyCode: "130929",
-            countyName: "çŒ®å¿"
+            countyName: "Ï×ÏØ"
           }]
         }, {
           cityCode: "130200",
-          cityName: "å”å±±å¸‚",
+          cityName: "ÌÆÉ½ÊĞ",
           county: [{
             countyCode: "130207",
-            countyName: "ä¸°å—åŒº"
+            countyName: "·áÄÏÇø"
           }, {
             countyCode: "130204",
-            countyName: "å¤å†¶åŒº"
+            countyName: "¹ÅÒ±Çø"
           }, {
             countyCode: "130224",
-            countyName: "æ»¦å—å¿"
+            countyName: "ÂĞÄÏÏØ"
           }, {
             countyCode: "130209",
-            countyName: "æ›¹å¦ƒç”¸åŒº"
+            countyName: "²ÜåúµéÇø"
           }, {
             countyCode: "130202",
-            countyName: "è·¯å—åŒº"
+            countyName: "Â·ÄÏÇø"
           }, {
             countyCode: "130208",
-            countyName: "ä¸°æ¶¦åŒº"
+            countyName: "·áÈóÇø"
           }, {
             countyCode: "130203",
-            countyName: "è·¯åŒ—åŒº"
+            countyName: "Â·±±Çø"
           }, {
             countyCode: "130281",
-            countyName: "éµåŒ–å¸‚"
+            countyName: "×ñ»¯ÊĞ"
           }, {
             countyCode: "130205",
-            countyName: "å¼€å¹³åŒº"
+            countyName: "¿ªÆ½Çø"
           }, {
             countyCode: "130283",
-            countyName: "è¿å®‰å¸‚"
+            countyName: "Ç¨°²ÊĞ"
           }, {
             countyCode: "130227",
-            countyName: "è¿è¥¿å¿"
+            countyName: "Ç¨Î÷ÏØ"
           }, {
             countyCode: "130229",
-            countyName: "ç‰ç”°å¿"
+            countyName: "ÓñÌïÏØ"
           }, {
             countyCode: "130225",
-            countyName: "ä¹äº­å¿"
+            countyName: "ÀÖÍ¤ÏØ"
           }, {
             countyCode: "130223",
-            countyName: "æ»¦å·å¸‚"
+            countyName: "ÂĞÖİÊĞ"
           }]
         }, {
           cityCode: "130700",
-          cityName: "å¼ å®¶å£å¸‚",
+          cityName: "ÕÅ¼Ò¿ÚÊĞ",
           county: [{
             countyCode: "130728",
-            countyName: "æ€€å®‰å¿"
+            countyName: "»³°²ÏØ"
           }, {
             countyCode: "130723",
-            countyName: "åº·ä¿å¿"
+            countyName: "¿µ±£ÏØ"
           }, {
             countyCode: "130702",
-            countyName: "æ¡¥ä¸œåŒº"
+            countyName: "ÇÅ¶«Çø"
           }, {
             countyCode: "130732",
-            countyName: "èµ¤åŸå¿"
+            countyName: "³à³ÇÏØ"
           }, {
             countyCode: "130733",
-            countyName: "å´‡ç¤¼åŒº"
+            countyName: "³çÀñÇø"
           }, {
             countyCode: "130727",
-            countyName: "é˜³åŸå¿"
+            countyName: "ÑôÔ­ÏØ"
           }, {
             countyCode: "130731",
-            countyName: "æ¶¿é¹¿å¿"
+            countyName: "äÃÂ¹ÏØ"
           }, {
             countyCode: "130705",
-            countyName: "å®£åŒ–åŒº"
+            countyName: "Ğû»¯Çø"
           }, {
             countyCode: "130722",
-            countyName: "å¼ åŒ—å¿"
+            countyName: "ÕÅ±±ÏØ"
           }, {
             countyCode: "130729",
-            countyName: "ä¸‡å…¨åŒº"
+            countyName: "ÍòÈ«Çø"
           }, {
             countyCode: "130724",
-            countyName: "æ²½æºå¿"
+            countyName: "¹ÁÔ´ÏØ"
           }, {
             countyCode: "130703",
-            countyName: "æ¡¥è¥¿åŒº"
+            countyName: "ÇÅÎ÷Çø"
           }, {
             countyCode: "130706",
-            countyName: "ä¸‹èŠ±å›­åŒº"
+            countyName: "ÏÂ»¨Ô°Çø"
           }, {
             countyCode: "130730",
-            countyName: "æ€€æ¥å¿"
+            countyName: "»³À´ÏØ"
           }, {
             countyCode: "130725",
-            countyName: "å°šä¹‰å¿"
+            countyName: "ÉĞÒåÏØ"
           }, {
             countyCode: "130726",
-            countyName: "è”šå¿"
+            countyName: "ÎµÏØ"
           }, {
             countyCode: "130721",
-            countyName: "å®£åŒ–å¿"
+            countyName: "Ğû»¯ÏØ"
           }]
         }, {
           cityCode: "131000",
-          cityName: "å»ŠåŠå¸‚",
+          cityName: "ÀÈ·»ÊĞ",
           county: [{
             countyCode: "131002",
-            countyName: "å®‰æ¬¡åŒº"
+            countyName: "°²´ÎÇø"
           }, {
             countyCode: "131082",
-            countyName: "ä¸‰æ²³å¸‚"
+            countyName: "ÈıºÓÊĞ"
           }, {
             countyCode: "131025",
-            countyName: "å¤§åŸå¿"
+            countyName: "´ó³ÇÏØ"
           }, {
             countyCode: "131023",
-            countyName: "æ°¸æ¸…å¿"
+            countyName: "ÓÀÇåÏØ"
           }, {
             countyCode: "131028",
-            countyName: "å¤§å‚å›æ—è‡ªæ²»å¿"
+            countyName: "´ó³§»Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "131022",
-            countyName: "å›ºå®‰å¿"
+            countyName: "¹Ì°²ÏØ"
           }, {
             countyCode: "131003",
-            countyName: "å¹¿é˜³åŒº"
+            countyName: "¹ãÑôÇø"
           }, {
             countyCode: "131081",
-            countyName: "éœ¸å·å¸‚"
+            countyName: "°ÔÖİÊĞ"
           }, {
             countyCode: "131026",
-            countyName: "æ–‡å®‰å¿"
+            countyName: "ÎÄ°²ÏØ"
           }, {
             countyCode: "131024",
-            countyName: "é¦™æ²³å¿"
+            countyName: "ÏãºÓÏØ"
           }]
         }, {
           cityCode: "130300",
-          cityName: "ç§¦çš‡å²›å¸‚",
+          cityName: "ÇØ»ÊµºÊĞ",
           county: [{
             countyCode: "130323",
-            countyName: "æŠšå®åŒº"
+            countyName: "¸§ÄşÇø"
           }, {
             countyCode: "130321",
-            countyName: "é’é¾™æ»¡æ—è‡ªæ²»å¿"
+            countyName: "ÇàÁúÂú×å×ÔÖÎÏØ"
           }, {
             countyCode: "130303",
-            countyName: "å±±æµ·å…³åŒº"
+            countyName: "É½º£¹ØÇø"
           }, {
             countyCode: "130304",
-            countyName: "åŒ—æˆ´æ²³åŒº"
+            countyName: "±±´÷ºÓÇø"
           }, {
             countyCode: "130302",
-            countyName: "æµ·æ¸¯åŒº"
+            countyName: "º£¸ÛÇø"
           }, {
             countyCode: "130322",
-            countyName: "æ˜Œé»å¿"
+            countyName: "²ıÀèÏØ"
           }, {
             countyCode: "130324",
-            countyName: "å¢é¾™å¿"
+            countyName: "Â¬ÁúÏØ"
           }]
         }, {
           cityCode: "130500",
-          cityName: "é‚¢å°å¸‚",
+          cityName: "ĞÏÌ¨ÊĞ",
           county: [{
             countyCode: "130533",
-            countyName: "å¨å¿"
+            countyName: "ÍşÏØ"
           }, {
             countyCode: "130532",
-            countyName: "å¹³ä¹¡å¿"
+            countyName: "Æ½ÏçÏØ"
           }, {
             countyCode: "130527",
-            countyName: "å—å’Œå¿"
+            countyName: "ÄÏºÍÏØ"
           }, {
             countyCode: "130521",
-            countyName: "é‚¢å°å¿"
+            countyName: "ĞÏÌ¨ÏØ"
           }, {
             countyCode: "130524",
-            countyName: "æŸä¹¡å¿"
+            countyName: "°ØÏçÏØ"
           }, {
             countyCode: "130522",
-            countyName: "ä¸´åŸå¿"
+            countyName: "ÁÙ³ÇÏØ"
           }, {
             countyCode: "130530",
-            countyName: "æ–°æ²³å¿"
+            countyName: "ĞÂºÓÏØ"
           }, {
             countyCode: "130534",
-            countyName: "æ¸…æ²³å¿"
+            countyName: "ÇåºÓÏØ"
           }, {
             countyCode: "130582",
-            countyName: "æ²™æ²³å¸‚"
+            countyName: "É³ºÓÊĞ"
           }, {
             countyCode: "130531",
-            countyName: "å¹¿å®—å¿"
+            countyName: "¹ã×ÚÏØ"
           }, {
             countyCode: "130525",
-            countyName: "éš†å°§å¿"
+            countyName: "Â¡Ò¢ÏØ"
           }, {
             countyCode: "130529",
-            countyName: "å·¨é¹¿å¿"
+            countyName: "¾ŞÂ¹ÏØ"
           }, {
             countyCode: "130523",
-            countyName: "å†…ä¸˜å¿"
+            countyName: "ÄÚÇğÏØ"
           }, {
             countyCode: "130528",
-            countyName: "å®æ™‹å¿"
+            countyName: "Äş½úÏØ"
           }, {
             countyCode: "130526",
-            countyName: "ä»»å¿"
+            countyName: "ÈÎÏØ"
           }, {
             countyCode: "130581",
-            countyName: "å—å®«å¸‚"
+            countyName: "ÄÏ¹¬ÊĞ"
           }, {
             countyCode: "130535",
-            countyName: "ä¸´è¥¿å¿"
+            countyName: "ÁÙÎ÷ÏØ"
           }, {
             countyCode: "130502",
-            countyName: "æ¡¥ä¸œåŒº"
+            countyName: "ÇÅ¶«Çø"
           }, {
             countyCode: "130503",
-            countyName: "æ¡¥è¥¿åŒº"
+            countyName: "ÇÅÎ÷Çø"
           }]
         }, {
           cityCode: "130100",
-          cityName: "çŸ³å®¶åº„å¸‚",
+          cityName: "Ê¯¼Ò×¯ÊĞ",
           county: [{
             countyCode: "130125",
-            countyName: "è¡Œå”å¿"
+            countyName: "ĞĞÌÆÏØ"
           }, {
             countyCode: "130185",
-            countyName: "é¹¿æ³‰åŒº"
+            countyName: "Â¹ÈªÇø"
           }, {
             countyCode: "130123",
-            countyName: "æ­£å®šå¿"
+            countyName: "Õı¶¨ÏØ"
           }, {
             countyCode: "130107",
-            countyName: "äº•é™‰çŸ¿åŒº"
+            countyName: "¾®Úê¿óÇø"
           }, {
             countyCode: "130102",
-            countyName: "é•¿å®‰åŒº"
+            countyName: "³¤°²Çø"
           }, {
             countyCode: "130184",
-            countyName: "æ–°ä¹å¸‚"
+            countyName: "ĞÂÀÖÊĞ"
           }, {
             countyCode: "130183",
-            countyName: "æ™‹å·å¸‚"
+            countyName: "½úÖİÊĞ"
           }, {
             countyCode: "130128",
-            countyName: "æ·±æ³½å¿"
+            countyName: "ÉîÔóÏØ"
           }, {
             countyCode: "130181",
-            countyName: "è¾›é›†å¸‚"
+            countyName: "ĞÁ¼¯ÊĞ"
           }, {
             countyCode: "130124",
-            countyName: "æ ¾åŸåŒº"
+            countyName: "èï³ÇÇø"
           }, {
             countyCode: "130126",
-            countyName: "çµå¯¿å¿"
+            countyName: "ÁéÊÙÏØ"
           }, {
             countyCode: "130104",
-            countyName: "æ¡¥è¥¿åŒº"
+            countyName: "ÇÅÎ÷Çø"
           }, {
             countyCode: "130130",
-            countyName: "æ— æå¿"
+            countyName: "ÎŞ¼«ÏØ"
           }, {
             countyCode: "130108",
-            countyName: "è£•ååŒº"
+            countyName: "Ô£»ªÇø"
           }, {
             countyCode: "130129",
-            countyName: "èµçš‡å¿"
+            countyName: "ÔŞ»ÊÏØ"
           }, {
             countyCode: "130133",
-            countyName: "èµµå¿"
+            countyName: "ÕÔÏØ"
           }, {
             countyCode: "130182",
-            countyName: "è—åŸåŒº"
+            countyName: "Ş»³ÇÇø"
           }, {
             countyCode: "130127",
-            countyName: "é«˜é‚‘å¿"
+            countyName: "¸ßÒØÏØ"
           }, {
             countyCode: "130132",
-            countyName: "å…ƒæ°å¿"
+            countyName: "ÔªÊÏÏØ"
           }, {
             countyCode: "130131",
-            countyName: "å¹³å±±å¿"
+            countyName: "Æ½É½ÏØ"
           }, {
             countyCode: "130121",
-            countyName: "äº•é™‰å¿"
+            countyName: "¾®ÚêÏØ"
           }, {
             countyCode: "130105",
-            countyName: "æ–°ååŒº"
+            countyName: "ĞÂ»ªÇø"
           }]
         }, {
           cityCode: "130800",
-          cityName: "æ‰¿å¾·å¸‚",
+          cityName: "³ĞµÂÊĞ",
           county: [{
             countyCode: "130803",
-            countyName: "åŒæ»¦åŒº"
+            countyName: "Ë«ÂĞÇø"
           }, {
             countyCode: "130827",
-            countyName: "å®½åŸæ»¡æ—è‡ªæ²»å¿"
+            countyName: "¿í³ÇÂú×å×ÔÖÎÏØ"
           }, {
             countyCode: "130802",
-            countyName: "åŒæ¡¥åŒº"
+            countyName: "Ë«ÇÅÇø"
           }, {
             countyCode: "130826",
-            countyName: "ä¸°å®æ»¡æ—è‡ªæ²»å¿"
+            countyName: "·áÄşÂú×å×ÔÖÎÏØ"
           }, {
             countyCode: "130821",
-            countyName: "æ‰¿å¾·å¿"
+            countyName: "³ĞµÂÏØ"
           }, {
             countyCode: "130828",
-            countyName: "å›´åœºæ»¡æ—è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "Î§³¡Âú×åÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "130822",
-            countyName: "å…´éš†å¿"
+            countyName: "ĞËÂ¡ÏØ"
           }, {
             countyCode: "130825",
-            countyName: "éš†åŒ–å¿"
+            countyName: "Â¡»¯ÏØ"
           }, {
             countyCode: "130823",
-            countyName: "å¹³æ³‰å¸‚"
+            countyName: "Æ½ÈªÊĞ"
           }, {
             countyCode: "130804",
-            countyName: "é¹°æ‰‹è¥å­çŸ¿åŒº"
+            countyName: "Ó¥ÊÖÓª×Ó¿óÇø"
           }, {
             countyCode: "130824",
-            countyName: "æ»¦å¹³å¿"
+            countyName: "ÂĞÆ½ÏØ"
           }]
         }, {
           cityCode: "130600",
-          cityName: "ä¿å®šå¸‚",
+          cityName: "±£¶¨ÊĞ",
           county: [{
             countyCode: "130638",
-            countyName: "é›„å¿"
+            countyName: "ĞÛÏØ"
           }, {
             countyCode: "130625",
-            countyName: "å¾æ°´åŒº"
+            countyName: "ĞìË®Çø"
           }, {
             countyCode: "130682",
-            countyName: "å®šå·å¸‚"
+            countyName: "¶¨ÖİÊĞ"
           }, {
             countyCode: "130631",
-            countyName: "æœ›éƒ½å¿"
+            countyName: "Íû¶¼ÏØ"
           }, {
             countyCode: "130630",
-            countyName: "æ¶æºå¿"
+            countyName: "äµÔ´ÏØ"
           }, {
             countyCode: "130621",
-            countyName: "æ»¡åŸåŒº"
+            countyName: "Âú³ÇÇø"
           }, {
             countyCode: "130626",
-            countyName: "å®šå…´å¿"
+            countyName: "¶¨ĞËÏØ"
           }, {
             countyCode: "130624",
-            countyName: "é˜œå¹³å¿"
+            countyName: "¸·Æ½ÏØ"
           }, {
             countyCode: "130636",
-            countyName: "é¡ºå¹³å¿"
+            countyName: "Ë³Æ½ÏØ"
           }, {
             countyCode: "130627",
-            countyName: "å”å¿"
+            countyName: "ÌÆÏØ"
           }, {
             countyCode: "130623",
-            countyName: "æ¶æ°´å¿"
+            countyName: "äµË®ÏØ"
           }, {
             countyCode: "130629",
-            countyName: "å®¹åŸå¿"
+            countyName: "Èİ³ÇÏØ"
           }, {
             countyCode: "130634",
-            countyName: "æ›²é˜³å¿"
+            countyName: "ÇúÑôÏØ"
           }, {
             countyCode: "130637",
-            countyName: "åšé‡å¿"
+            countyName: "²©Ò°ÏØ"
           }, {
             countyCode: "130622",
-            countyName: "æ¸…è‹‘åŒº"
+            countyName: "ÇåÔ·Çø"
           }, {
             countyCode: "130632",
-            countyName: "å®‰æ–°å¿"
+            countyName: "°²ĞÂÏØ"
           }, {
             countyCode: "130684",
-            countyName: "é«˜ç¢‘åº—å¸‚"
+            countyName: "¸ß±®µêÊĞ"
           }, {
             countyCode: "130633",
-            countyName: "æ˜“å¿"
+            countyName: "Ò×ÏØ"
           }, {
             countyCode: "130628",
-            countyName: "é«˜é˜³å¿"
+            countyName: "¸ßÑôÏØ"
           }, {
             countyCode: "130683",
-            countyName: "å®‰å›½å¸‚"
+            countyName: "°²¹úÊĞ"
           }, {
             countyCode: "130604",
-            countyName: "å—å¸‚åŒº"
+            countyName: "ÄÏÊĞÇø"
           }, {
             countyCode: "130603",
-            countyName: "åŒ—å¸‚åŒº"
+            countyName: "±±ÊĞÇø"
           }, {
             countyCode: "130681",
-            countyName: "æ¶¿å·å¸‚"
+            countyName: "äÃÖİÊĞ"
           }, {
             countyCode: "130635",
-            countyName: "è ¡å¿"
+            countyName: "ó»ÏØ"
           }, {
             countyCode: "130602",
-            countyName: "ç«ç§€åŒº"
+            countyName: "¾ºĞãÇø"
           }, {
             countyCode: "130606",
-            countyName: "è²æ± åŒº"
+            countyName: "Á«³ØÇø"
           }]
         }]
       }, {
         provinceCode: "140000",
-        provinceName: "å±±è¥¿çœ",
+        provinceName: "É½Î÷Ê¡",
         city: [{
           cityCode: "141000",
-          cityName: "ä¸´æ±¾å¸‚",
+          cityName: "ÁÙ·ÚÊĞ",
           county: [{
             countyCode: "141033",
-            countyName: "è’²å¿"
+            countyName: "ÆÑÏØ"
           }, {
             countyCode: "141025",
-            countyName: "å¤å¿"
+            countyName: "¹ÅÏØ"
           }, {
             countyCode: "141034",
-            countyName: "æ±¾è¥¿å¿"
+            countyName: "·ÚÎ÷ÏØ"
           }, {
             countyCode: "141027",
-            countyName: "æµ®å±±å¿"
+            countyName: "¸¡É½ÏØ"
           }, {
             countyCode: "141021",
-            countyName: "æ›²æ²ƒå¿"
+            countyName: "ÇúÎÖÏØ"
           }, {
             countyCode: "141032",
-            countyName: "æ°¸å’Œå¿"
+            countyName: "ÓÀºÍÏØ"
           }, {
             countyCode: "141082",
-            countyName: "éœå·å¸‚"
+            countyName: "»ôÖİÊĞ"
           }, {
             countyCode: "141028",
-            countyName: "å‰å¿"
+            countyName: "¼ªÏØ"
           }, {
             countyCode: "141022",
-            countyName: "ç¿¼åŸå¿"
+            countyName: "Òí³ÇÏØ"
           }, {
             countyCode: "141030",
-            countyName: "å¤§å®å¿"
+            countyName: "´óÄşÏØ"
           }, {
             countyCode: "141081",
-            countyName: "ä¾¯é©¬å¸‚"
+            countyName: "ºîÂíÊĞ"
           }, {
             countyCode: "141002",
-            countyName: "å°§éƒ½åŒº"
+            countyName: "Ò¢¶¼Çø"
           }, {
             countyCode: "141026",
-            countyName: "å®‰æ³½å¿"
+            countyName: "°²ÔóÏØ"
           }, {
             countyCode: "141024",
-            countyName: "æ´ªæ´å¿"
+            countyName: "ºé¶´ÏØ"
           }, {
             countyCode: "141023",
-            countyName: "è¥„æ±¾å¿"
+            countyName: "Ïå·ÚÏØ"
           }, {
             countyCode: "141029",
-            countyName: "ä¹¡å®å¿"
+            countyName: "ÏçÄşÏØ"
           }, {
             countyCode: "141031",
-            countyName: "éš°å¿"
+            countyName: "ÚôÏØ"
           }]
         }, {
           cityCode: "140200",
-          cityName: "å¤§åŒå¸‚",
+          cityName: "´óÍ¬ÊĞ",
           county: [{
             countyCode: "140223",
-            countyName: "å¹¿çµå¿"
+            countyName: "¹ãÁéÏØ"
           }, {
             countyCode: "140203",
-            countyName: "çŸ¿åŒº"
+            countyName: "¿óÇø"
           }, {
             countyCode: "140212",
-            countyName: "æ–°è£åŒº"
+            countyName: "ĞÂÈÙÇø"
           }, {
             countyCode: "140224",
-            countyName: "çµä¸˜å¿"
+            countyName: "ÁéÇğÏØ"
           }, {
             countyCode: "140222",
-            countyName: "å¤©é•‡å¿"
+            countyName: "ÌìÕòÏØ"
           }, {
             countyCode: "140213",
-            countyName: "å¹³åŸåŒº"
+            countyName: "Æ½³ÇÇø"
           }, {
             countyCode: "140227",
-            countyName: "äº‘å·åŒº"
+            countyName: "ÔÆÖİÇø"
           }, {
             countyCode: "140202",
-            countyName: "åŸåŒº"
+            countyName: "³ÇÇø"
           }, {
             countyCode: "140225",
-            countyName: "æµ‘æºå¿"
+            countyName: "»ëÔ´ÏØ"
           }, {
             countyCode: "140221",
-            countyName: "é˜³é«˜å¿"
+            countyName: "Ñô¸ßÏØ"
           }, {
             countyCode: "140211",
-            countyName: "å—éƒŠåŒº"
+            countyName: "ÄÏ½¼Çø"
           }, {
             countyCode: "140214",
-            countyName: "äº‘å†ˆåŒº"
+            countyName: "ÔÆ¸ÔÇø"
           }, {
             countyCode: "140226",
-            countyName: "å·¦äº‘å¿"
+            countyName: "×óÔÆÏØ"
           }]
         }, {
           cityCode: "140700",
-          cityName: "æ™‹ä¸­å¸‚",
+          cityName: "½úÖĞÊĞ",
           county: [{
             countyCode: "140722",
-            countyName: "å·¦æƒå¿"
+            countyName: "×óÈ¨ÏØ"
           }, {
             countyCode: "140721",
-            countyName: "æ¦†ç¤¾å¿"
+            countyName: "ÓÜÉçÏØ"
           }, {
             countyCode: "140728",
-            countyName: "å¹³é¥å¿"
+            countyName: "Æ½Ò£ÏØ"
           }, {
             countyCode: "140723",
-            countyName: "å’Œé¡ºå¿"
+            countyName: "ºÍË³ÏØ"
           }, {
             countyCode: "140726",
-            countyName: "å¤ªè°·å¿"
+            countyName: "Ì«¹ÈÏØ"
           }, {
             countyCode: "140781",
-            countyName: "ä»‹ä¼‘å¸‚"
+            countyName: "½éĞİÊĞ"
           }, {
             countyCode: "140725",
-            countyName: "å¯¿é˜³å¿"
+            countyName: "ÊÙÑôÏØ"
           }, {
             countyCode: "140727",
-            countyName: "ç¥å¿"
+            countyName: "ÆîÏØ"
           }, {
             countyCode: "140724",
-            countyName: "æ˜”é˜³å¿"
+            countyName: "ÎôÑôÏØ"
           }, {
             countyCode: "140702",
-            countyName: "æ¦†æ¬¡åŒº"
+            countyName: "ÓÜ´ÎÇø"
           }, {
             countyCode: "140729",
-            countyName: "çµçŸ³å¿"
+            countyName: "ÁéÊ¯ÏØ"
           }]
         }, {
           cityCode: "140500",
-          cityName: "æ™‹åŸå¸‚",
+          cityName: "½ú³ÇÊĞ",
           county: [{
             countyCode: "140521",
-            countyName: "æ²æ°´å¿"
+            countyName: "ÇßË®ÏØ"
           }, {
             countyCode: "140581",
-            countyName: "é«˜å¹³å¸‚"
+            countyName: "¸ßÆ½ÊĞ"
           }, {
             countyCode: "140524",
-            countyName: "é™µå·å¿"
+            countyName: "Áê´¨ÏØ"
           }, {
             countyCode: "140522",
-            countyName: "é˜³åŸå¿"
+            countyName: "Ñô³ÇÏØ"
           }, {
             countyCode: "140525",
-            countyName: "æ³½å·å¿"
+            countyName: "ÔóÖİÏØ"
           }, {
             countyCode: "140502",
-            countyName: "åŸåŒº"
+            countyName: "³ÇÇø"
           }]
         }, {
           cityCode: "140600",
-          cityName: "æœ”å·å¸‚",
+          cityName: "Ë·ÖİÊĞ",
           county: [{
             countyCode: "140621",
-            countyName: "å±±é˜´å¿"
+            countyName: "É½ÒõÏØ"
           }, {
             countyCode: "140623",
-            countyName: "å³ç‰å¿"
+            countyName: "ÓÒÓñÏØ"
           }, {
             countyCode: "140603",
-            countyName: "å¹³é²åŒº"
+            countyName: "Æ½Â³Çø"
           }, {
             countyCode: "140602",
-            countyName: "æœ”åŸåŒº"
+            countyName: "Ë·³ÇÇø"
           }, {
             countyCode: "140622",
-            countyName: "åº”å¿"
+            countyName: "Ó¦ÏØ"
           }, {
             countyCode: "140624",
-            countyName: "æ€€ä»å¸‚"
+            countyName: "»³ÈÊÊĞ"
           }]
         }, {
           cityCode: "141100",
-          cityName: "å•æ¢å¸‚",
+          cityName: "ÂÀÁºÊĞ",
           county: [{
             countyCode: "141125",
-            countyName: "æŸ³æ—å¿"
+            countyName: "ÁøÁÖÏØ"
           }, {
             countyCode: "141127",
-            countyName: "å²šå¿"
+            countyName: "á°ÏØ"
           }, {
             countyCode: "141122",
-            countyName: "äº¤åŸå¿"
+            countyName: "½»³ÇÏØ"
           }, {
             countyCode: "141128",
-            countyName: "æ–¹å±±å¿"
+            countyName: "·½É½ÏØ"
           }, {
             countyCode: "141129",
-            countyName: "ä¸­é˜³å¿"
+            countyName: "ÖĞÑôÏØ"
           }, {
             countyCode: "141102",
-            countyName: "ç¦»çŸ³åŒº"
+            countyName: "ÀëÊ¯Çø"
           }, {
             countyCode: "141126",
-            countyName: "çŸ³æ¥¼å¿"
+            countyName: "Ê¯Â¥ÏØ"
           }, {
             countyCode: "141182",
-            countyName: "æ±¾é˜³å¸‚"
+            countyName: "·ÚÑôÊĞ"
           }, {
             countyCode: "141130",
-            countyName: "äº¤å£å¿"
+            countyName: "½»¿ÚÏØ"
           }, {
             countyCode: "141124",
-            countyName: "ä¸´å¿"
+            countyName: "ÁÙÏØ"
           }, {
             countyCode: "141181",
-            countyName: "å­ä¹‰å¸‚"
+            countyName: "Ğ¢ÒåÊĞ"
           }, {
             countyCode: "141123",
-            countyName: "å…´å¿"
+            countyName: "ĞËÏØ"
           }, {
             countyCode: "141121",
-            countyName: "æ–‡æ°´å¿"
+            countyName: "ÎÄË®ÏØ"
           }]
         }, {
           cityCode: "140900",
-          cityName: "å¿»å·å¸‚",
+          cityName: "ĞÃÖİÊĞ",
           county: [{
             countyCode: "140902",
-            countyName: "å¿»åºœåŒº"
+            countyName: "ĞÃ¸®Çø"
           }, {
             countyCode: "140922",
-            countyName: "äº”å°å¿"
+            countyName: "ÎåÌ¨ÏØ"
           }, {
             countyCode: "140981",
-            countyName: "åŸå¹³å¸‚"
+            countyName: "Ô­Æ½ÊĞ"
           }, {
             countyCode: "140932",
-            countyName: "åå…³å¿"
+            countyName: "Æ«¹ØÏØ"
           }, {
             countyCode: "140927",
-            countyName: "ç¥æ± å¿"
+            countyName: "Éñ³ØÏØ"
           }, {
             countyCode: "140925",
-            countyName: "å®æ­¦å¿"
+            countyName: "ÄşÎäÏØ"
           }, {
             countyCode: "140924",
-            countyName: "ç¹å³™å¿"
+            countyName: "·±ÖÅÏØ"
           }, {
             countyCode: "140931",
-            countyName: "ä¿å¾·å¿"
+            countyName: "±£µÂÏØ"
           }, {
             countyCode: "140926",
-            countyName: "é™ä¹å¿"
+            countyName: "¾²ÀÖÏØ"
           }, {
             countyCode: "140930",
-            countyName: "æ²³æ›²å¿"
+            countyName: "ºÓÇúÏØ"
           }, {
             countyCode: "140921",
-            countyName: "å®šè¥„å¿"
+            countyName: "¶¨ÏåÏØ"
           }, {
             countyCode: "140923",
-            countyName: "ä»£å¿"
+            countyName: "´úÏØ"
           }, {
             countyCode: "140928",
-            countyName: "äº”å¯¨å¿"
+            countyName: "ÎåÕ¯ÏØ"
           }, {
             countyCode: "140929",
-            countyName: "å²¢å²šå¿"
+            countyName: "á³á°ÏØ"
           }]
         }, {
           cityCode: "140100",
-          cityName: "å¤ªåŸå¸‚",
+          cityName: "Ì«Ô­ÊĞ",
           county: [{
             countyCode: "140107",
-            countyName: "æèŠ±å²­åŒº"
+            countyName: "ĞÓ»¨ÁëÇø"
           }, {
             countyCode: "140109",
-            countyName: "ä¸‡æŸæ—åŒº"
+            countyName: "Íò°ØÁÖÇø"
           }, {
             countyCode: "140105",
-            countyName: "å°åº—åŒº"
+            countyName: "Ğ¡µêÇø"
           }, {
             countyCode: "140181",
-            countyName: "å¤äº¤å¸‚"
+            countyName: "¹Å½»ÊĞ"
           }, {
             countyCode: "140110",
-            countyName: "æ™‹æºåŒº"
+            countyName: "½úÔ´Çø"
           }, {
             countyCode: "140122",
-            countyName: "é˜³æ›²å¿"
+            countyName: "ÑôÇúÏØ"
           }, {
             countyCode: "140108",
-            countyName: "å°–è‰åªåŒº"
+            countyName: "¼â²İÆºÇø"
           }, {
             countyCode: "140121",
-            countyName: "æ¸…å¾å¿"
+            countyName: "ÇåĞìÏØ"
           }, {
             countyCode: "140123",
-            countyName: "å¨„çƒ¦å¿"
+            countyName: "Â¦·³ÏØ"
           }, {
             countyCode: "140106",
-            countyName: "è¿æ³½åŒº"
+            countyName: "Ó­ÔóÇø"
           }]
         }, {
           cityCode: "140300",
-          cityName: "é˜³æ³‰å¸‚",
+          cityName: "ÑôÈªÊĞ",
           county: [{
             countyCode: "140302",
-            countyName: "åŸåŒº"
+            countyName: "³ÇÇø"
           }, {
             countyCode: "140321",
-            countyName: "å¹³å®šå¿"
+            countyName: "Æ½¶¨ÏØ"
           }, {
             countyCode: "140311",
-            countyName: "éƒŠåŒº"
+            countyName: "½¼Çø"
           }, {
             countyCode: "140303",
-            countyName: "çŸ¿åŒº"
+            countyName: "¿óÇø"
           }, {
             countyCode: "140322",
-            countyName: "ç›‚å¿"
+            countyName: "ÓÛÏØ"
           }]
         }, {
           cityCode: "140800",
-          cityName: "è¿åŸå¸‚",
+          cityName: "ÔË³ÇÊĞ",
           county: [{
             countyCode: "140802",
-            countyName: "ç›æ¹–åŒº"
+            countyName: "ÑÎºşÇø"
           }, {
             countyCode: "140829",
-            countyName: "å¹³é™†å¿"
+            countyName: "Æ½Â½ÏØ"
           }, {
             countyCode: "140828",
-            countyName: "å¤å¿"
+            countyName: "ÏÄÏØ"
           }, {
             countyCode: "140825",
-            countyName: "æ–°ç»›å¿"
+            countyName: "ĞÂç­ÏØ"
           }, {
             countyCode: "140830",
-            countyName: "èŠ®åŸå¿"
+            countyName: "ÜÇ³ÇÏØ"
           }, {
             countyCode: "140823",
-            countyName: "é—»å–œå¿"
+            countyName: "ÎÅÏ²ÏØ"
           }, {
             countyCode: "140826",
-            countyName: "ç»›å¿"
+            countyName: "ç­ÏØ"
           }, {
             countyCode: "140822",
-            countyName: "ä¸‡è£å¿"
+            countyName: "ÍòÈÙÏØ"
           }, {
             countyCode: "140821",
-            countyName: "ä¸´çŒ—å¿"
+            countyName: "ÁÙâ¢ÏØ"
           }, {
             countyCode: "140827",
-            countyName: "å£æ›²å¿"
+            countyName: "Ô«ÇúÏØ"
           }, {
             countyCode: "140824",
-            countyName: "ç¨·å±±å¿"
+            countyName: "ğ¢É½ÏØ"
           }, {
             countyCode: "140881",
-            countyName: "æ°¸æµå¸‚"
+            countyName: "ÓÀ¼ÃÊĞ"
           }, {
             countyCode: "140882",
-            countyName: "æ²³æ´¥å¸‚"
+            countyName: "ºÓ½òÊĞ"
           }]
         }, {
           cityCode: "140400",
-          cityName: "é•¿æ²»å¸‚",
+          cityName: "³¤ÖÎÊĞ",
           county: [{
             countyCode: "140428",
-            countyName: "é•¿å­å¿"
+            countyName: "³¤×ÓÏØ"
           }, {
             countyCode: "140430",
-            countyName: "æ²å¿"
+            countyName: "ÇßÏØ"
           }, {
             countyCode: "140426",
-            countyName: "é»åŸå¿"
+            countyName: "Àè³ÇÏØ"
           }, {
             countyCode: "140481",
-            countyName: "æ½åŸå¸‚"
+            countyName: "Âº³ÇÊĞ"
           }, {
             countyCode: "140403",
-            countyName: "æ½å·åŒº"
+            countyName: "ÂºÖİÇø"
           }, {
             countyCode: "140402",
-            countyName: "åŸåŒº"
+            countyName: "³ÇÇø"
           }, {
             countyCode: "140427",
-            countyName: "å£¶å…³å¿"
+            countyName: "ºø¹ØÏØ"
           }, {
             countyCode: "140429",
-            countyName: "æ­¦ä¹¡å¿"
+            countyName: "ÎäÏçÏØ"
           }, {
             countyCode: "140425",
-            countyName: "å¹³é¡ºå¿"
+            countyName: "Æ½Ë³ÏØ"
           }, {
             countyCode: "140421",
-            countyName: "é•¿æ²»å¿"
+            countyName: "³¤ÖÎÏØ"
           }, {
             countyCode: "140424",
-            countyName: "å±¯ç•™å¿"
+            countyName: "ÍÍÁôÏØ"
           }, {
             countyCode: "140431",
-            countyName: "æ²æºå¿"
+            countyName: "ÇßÔ´ÏØ"
           }, {
             countyCode: "140411",
-            countyName: "éƒŠåŒº"
+            countyName: "½¼Çø"
           }, {
             countyCode: "140423",
-            countyName: "è¥„å£å¿"
+            countyName: "ÏåÔ«ÏØ"
           }]
         }]
       }, {
         provinceCode: "150000",
-        provinceName: "å†…è’™å¤è‡ªæ²»åŒº",
+        provinceName: "ÄÚÃÉ¹Å×ÔÖÎÇø",
         city: [{
           cityCode: "150100",
-          cityName: "å‘¼å’Œæµ©ç‰¹å¸‚",
+          cityName: "ºôºÍºÆÌØÊĞ",
           county: [{
             countyCode: "150125",
-            countyName: "æ­¦å·å¿"
+            countyName: "Îä´¨ÏØ"
           }, {
             countyCode: "150124",
-            countyName: "æ¸…æ°´æ²³å¿"
+            countyName: "ÇåË®ºÓÏØ"
           }, {
             countyCode: "150105",
-            countyName: "èµ›ç½•åŒº"
+            countyName: "Èüº±Çø"
           }, {
             countyCode: "150122",
-            countyName: "æ‰˜å…‹æ‰˜å¿"
+            countyName: "ÍĞ¿ËÍĞÏØ"
           }, {
             countyCode: "150121",
-            countyName: "åœŸé»˜ç‰¹å·¦æ——"
+            countyName: "ÍÁÄ¬ÌØ×óÆì"
           }, {
             countyCode: "150102",
-            countyName: "æ–°åŸåŒº"
+            countyName: "ĞÂ³ÇÇø"
           }, {
             countyCode: "150104",
-            countyName: "ç‰æ³‰åŒº"
+            countyName: "ÓñÈªÇø"
           }, {
             countyCode: "150123",
-            countyName: "å’Œæ—æ ¼å°”å¿"
+            countyName: "ºÍÁÖ¸ñ¶ûÏØ"
           }, {
             countyCode: "150103",
-            countyName: "å›æ°‘åŒº"
+            countyName: "»ØÃñÇø"
           }]
         }, {
           cityCode: "150300",
-          cityName: "ä¹Œæµ·å¸‚",
+          cityName: "ÎÚº£ÊĞ",
           county: [{
             countyCode: "150303",
-            countyName: "æµ·å—åŒº"
+            countyName: "º£ÄÏÇø"
           }, {
             countyCode: "150302",
-            countyName: "æµ·å‹ƒæ¹¾åŒº"
+            countyName: "º£²ªÍåÇø"
           }, {
             countyCode: "150304",
-            countyName: "ä¹Œè¾¾åŒº"
+            countyName: "ÎÚ´ïÇø"
           }]
         }, {
           cityCode: "150500",
-          cityName: "é€šè¾½å¸‚",
+          cityName: "Í¨ÁÉÊĞ",
           county: [{
             countyCode: "150502",
-            countyName: "ç§‘å°”æ²åŒº"
+            countyName: "¿Æ¶ûÇßÇø"
           }, {
             countyCode: "150526",
-            countyName: "æ‰é²ç‰¹æ——"
+            countyName: "ÔúÂ³ÌØÆì"
           }, {
             countyCode: "150522",
-            countyName: "ç§‘å°”æ²å·¦ç¿¼åæ——"
+            countyName: "¿Æ¶ûÇß×óÒíºóÆì"
           }, {
             countyCode: "150523",
-            countyName: "å¼€é²å¿"
+            countyName: "¿ªÂ³ÏØ"
           }, {
             countyCode: "150524",
-            countyName: "åº“ä¼¦æ——"
+            countyName: "¿âÂ×Æì"
           }, {
             countyCode: "150525",
-            countyName: "å¥ˆæ›¼æ——"
+            countyName: "ÄÎÂüÆì"
           }, {
             countyCode: "150521",
-            countyName: "ç§‘å°”æ²å·¦ç¿¼ä¸­æ——"
+            countyName: "¿Æ¶ûÇß×óÒíÖĞÆì"
           }, {
             countyCode: "150581",
-            countyName: "éœæ—éƒ­å‹’å¸‚"
+            countyName: "»ôÁÖ¹ùÀÕÊĞ"
           }]
         }, {
           cityCode: "150400",
-          cityName: "èµ¤å³°å¸‚",
+          cityName: "³à·åÊĞ",
           county: [{
             countyCode: "150422",
-            countyName: "å·´æ—å·¦æ——"
+            countyName: "°ÍÁÖ×óÆì"
           }, {
             countyCode: "150429",
-            countyName: "å®åŸå¿"
+            countyName: "Äş³ÇÏØ"
           }, {
             countyCode: "150421",
-            countyName: "é˜¿é²ç§‘å°”æ²æ——"
+            countyName: "°¢Â³¿Æ¶ûÇßÆì"
           }, {
             countyCode: "150423",
-            countyName: "å·´æ—å³æ——"
+            countyName: "°ÍÁÖÓÒÆì"
           }, {
             countyCode: "150425",
-            countyName: "å…‹ä»€å…‹è…¾æ——"
+            countyName: "¿ËÊ²¿ËÌÚÆì"
           }, {
             countyCode: "150426",
-            countyName: "ç¿ç‰›ç‰¹æ——"
+            countyName: "ÎÌÅ£ÌØÆì"
           }, {
             countyCode: "150402",
-            countyName: "çº¢å±±åŒº"
+            countyName: "ºìÉ½Çø"
           }, {
             countyCode: "150430",
-            countyName: "æ•–æ±‰æ——"
+            countyName: "°½ººÆì"
           }, {
             countyCode: "150428",
-            countyName: "å–€å–‡æ²æ——"
+            countyName: "¿¦À®ÇßÆì"
           }, {
             countyCode: "150404",
-            countyName: "æ¾å±±åŒº"
+            countyName: "ËÉÉ½Çø"
           }, {
             countyCode: "150424",
-            countyName: "æ—è¥¿å¿"
+            countyName: "ÁÖÎ÷ÏØ"
           }, {
             countyCode: "150403",
-            countyName: "å…ƒå®å±±åŒº"
+            countyName: "Ôª±¦É½Çø"
           }]
         }, {
           cityCode: "150200",
-          cityName: "åŒ…å¤´å¸‚",
+          cityName: "°üÍ·ÊĞ",
           county: [{
             countyCode: "150203",
-            countyName: "æ˜†éƒ½ä»‘åŒº"
+            countyName: "À¥¶¼ÂØÇø"
           }, {
             countyCode: "150204",
-            countyName: "é’å±±åŒº"
+            countyName: "ÇàÉ½Çø"
           }, {
             countyCode: "150205",
-            countyName: "çŸ³æ‹åŒº"
+            countyName: "Ê¯¹ÕÇø"
           }, {
             countyCode: "150221",
-            countyName: "åœŸé»˜ç‰¹å³æ——"
+            countyName: "ÍÁÄ¬ÌØÓÒÆì"
           }, {
             countyCode: "150222",
-            countyName: "å›ºé˜³å¿"
+            countyName: "¹ÌÑôÏØ"
           }, {
             countyCode: "150223",
-            countyName: "è¾¾å°”ç½•èŒ‚æ˜å®‰è”åˆæ——"
+            countyName: "´ï¶ûº±Ã¯Ã÷°²ÁªºÏÆì"
           }, {
             countyCode: "150206",
-            countyName: "ç™½äº‘é„‚åšçŸ¿åŒº"
+            countyName: "°×ÔÆ¶õ²©¿óÇø"
           }, {
             countyCode: "150202",
-            countyName: "ä¸œæ²³åŒº"
+            countyName: "¶«ºÓÇø"
           }, {
             countyCode: "150207",
-            countyName: "ä¹åŸåŒº"
+            countyName: "¾ÅÔ­Çø"
           }]
         }, {
           cityCode: "150700",
-          cityName: "å‘¼ä¼¦è´å°”å¸‚",
+          cityName: "ºôÂ×±´¶ûÊĞ",
           county: [{
             countyCode: "150721",
-            countyName: "é˜¿è£æ——"
+            countyName: "°¢ÈÙÆì"
           }, {
             countyCode: "150723",
-            countyName: "é„‚ä¼¦æ˜¥è‡ªæ²»æ——"
+            countyName: "¶õÂ×´º×ÔÖÎÆì"
           }, {
             countyCode: "150785",
-            countyName: "æ ¹æ²³å¸‚"
+            countyName: "¸ùºÓÊĞ"
           }, {
             countyCode: "150782",
-            countyName: "ç‰™å…‹çŸ³å¸‚"
+            countyName: "ÑÀ¿ËÊ¯ÊĞ"
           }, {
             countyCode: "150783",
-            countyName: "æ‰å…°å±¯å¸‚"
+            countyName: "ÔúÀ¼ÍÍÊĞ"
           }, {
             countyCode: "150724",
-            countyName: "é„‚æ¸©å…‹æ—è‡ªæ²»æ——"
+            countyName: "¶õÎÂ¿Ë×å×ÔÖÎÆì"
           }, {
             countyCode: "150784",
-            countyName: "é¢å°”å¤çº³å¸‚"
+            countyName: "¶î¶û¹ÅÄÉÊĞ"
           }, {
             countyCode: "150727",
-            countyName: "æ–°å·´å°”è™å³æ——"
+            countyName: "ĞÂ°Í¶û»¢ÓÒÆì"
           }, {
             countyCode: "150726",
-            countyName: "æ–°å·´å°”è™å·¦æ——"
+            countyName: "ĞÂ°Í¶û»¢×óÆì"
           }, {
             countyCode: "150702",
-            countyName: "æµ·æ‹‰å°”åŒº"
+            countyName: "º£À­¶ûÇø"
           }, {
             countyCode: "150703",
-            countyName: "æ‰èµ‰è¯ºå°”åŒº"
+            countyName: "ÔúêãÅµ¶ûÇø"
           }, {
             countyCode: "150781",
-            countyName: "æ»¡æ´²é‡Œå¸‚"
+            countyName: "ÂúÖŞÀïÊĞ"
           }, {
             countyCode: "150725",
-            countyName: "é™ˆå·´å°”è™æ——"
+            countyName: "³Â°Í¶û»¢Æì"
           }, {
             countyCode: "150722",
-            countyName: "è«åŠ›è¾¾ç“¦è¾¾æ–¡å°”æ—è‡ªæ²»æ——"
+            countyName: "ÄªÁ¦´ïÍß´ïÎÓ¶û×å×ÔÖÎÆì"
           }]
         }, {
           cityCode: "152500",
-          cityName: "é”¡æ—éƒ­å‹’ç›Ÿ",
+          cityName: "ÎıÁÖ¹ùÀÕÃË",
           county: [{
             countyCode: "152529",
-            countyName: "æ­£é•¶ç™½æ——"
+            countyName: "ÕıÏâ°×Æì"
           }, {
             countyCode: "152501",
-            countyName: "äºŒè¿æµ©ç‰¹å¸‚"
+            countyName: "¶şÁ¬ºÆÌØÊĞ"
           }, {
             countyCode: "152525",
-            countyName: "ä¸œä¹Œç ç©†æ²æ——"
+            countyName: "¶«ÎÚÖéÄÂÇßÆì"
           }, {
             countyCode: "152524",
-            countyName: "è‹å°¼ç‰¹å³æ——"
+            countyName: "ËÕÄáÌØÓÒÆì"
           }, {
             countyCode: "152523",
-            countyName: "è‹å°¼ç‰¹å·¦æ——"
+            countyName: "ËÕÄáÌØ×óÆì"
           }, {
             countyCode: "152526",
-            countyName: "è¥¿ä¹Œç ç©†æ²æ——"
+            countyName: "Î÷ÎÚÖéÄÂÇßÆì"
           }, {
             countyCode: "152531",
-            countyName: "å¤šä¼¦å¿"
+            countyName: "¶àÂ×ÏØ"
           }, {
             countyCode: "152528",
-            countyName: "é•¶é»„æ——"
+            countyName: "Ïâ»ÆÆì"
           }, {
             countyCode: "152530",
-            countyName: "æ­£è“æ——"
+            countyName: "ÕıÀ¶Æì"
           }, {
             countyCode: "152522",
-            countyName: "é˜¿å·´å˜æ——"
+            countyName: "°¢°Í¸ÂÆì"
           }, {
             countyCode: "152502",
-            countyName: "é”¡æ—æµ©ç‰¹å¸‚"
+            countyName: "ÎıÁÖºÆÌØÊĞ"
           }, {
             countyCode: "152527",
-            countyName: "å¤ªä»†å¯ºæ——"
+            countyName: "Ì«ÆÍËÂÆì"
           }]
         }, {
           cityCode: "152200",
-          cityName: "å…´å®‰ç›Ÿ",
+          cityName: "ĞË°²ÃË",
           county: [{
             countyCode: "152221",
-            countyName: "ç§‘å°”æ²å³ç¿¼å‰æ——"
+            countyName: "¿Æ¶ûÇßÓÒÒíÇ°Æì"
           }, {
             countyCode: "152223",
-            countyName: "æ‰èµ‰ç‰¹æ——"
+            countyName: "ÔúêãÌØÆì"
           }, {
             countyCode: "152201",
-            countyName: "ä¹Œå…°æµ©ç‰¹å¸‚"
+            countyName: "ÎÚÀ¼ºÆÌØÊĞ"
           }, {
             countyCode: "152224",
-            countyName: "çªæ³‰å¿"
+            countyName: "Í»ÈªÏØ"
           }, {
             countyCode: "152222",
-            countyName: "ç§‘å°”æ²å³ç¿¼ä¸­æ——"
+            countyName: "¿Æ¶ûÇßÓÒÒíÖĞÆì"
           }, {
             countyCode: "152202",
-            countyName: "é˜¿å°”å±±å¸‚"
+            countyName: "°¢¶ûÉ½ÊĞ"
           }]
         }, {
           cityCode: "150900",
-          cityName: "ä¹Œå…°å¯Ÿå¸ƒå¸‚",
+          cityName: "ÎÚÀ¼²ì²¼ÊĞ",
           county: [{
             countyCode: "150902",
-            countyName: "é›†å®åŒº"
+            countyName: "¼¯ÄşÇø"
           }, {
             countyCode: "150921",
-            countyName: "å“èµ„å¿"
+            countyName: "×¿×ÊÏØ"
           }, {
             countyCode: "150922",
-            countyName: "åŒ–å¾·å¿"
+            countyName: "»¯µÂÏØ"
           }, {
             countyCode: "150923",
-            countyName: "å•†éƒ½å¿"
+            countyName: "ÉÌ¶¼ÏØ"
           }, {
             countyCode: "150928",
-            countyName: "å¯Ÿå“ˆå°”å³ç¿¼åæ——"
+            countyName: "²ì¹ş¶ûÓÒÒíºóÆì"
           }, {
             countyCode: "150926",
-            countyName: "å¯Ÿå“ˆå°”å³ç¿¼å‰æ——"
+            countyName: "²ì¹ş¶ûÓÒÒíÇ°Æì"
           }, {
             countyCode: "150927",
-            countyName: "å¯Ÿå“ˆå°”å³ç¿¼ä¸­æ——"
+            countyName: "²ì¹ş¶ûÓÒÒíÖĞÆì"
           }, {
             countyCode: "150929",
-            countyName: "å››å­ç‹æ——"
+            countyName: "ËÄ×ÓÍõÆì"
           }, {
             countyCode: "150981",
-            countyName: "ä¸°é•‡å¸‚"
+            countyName: "·áÕòÊĞ"
           }, {
             countyCode: "150925",
-            countyName: "å‡‰åŸå¿"
+            countyName: "Á¹³ÇÏØ"
           }, {
             countyCode: "150924",
-            countyName: "å…´å’Œå¿"
+            countyName: "ĞËºÍÏØ"
           }]
         }, {
           cityCode: "150600",
-          cityName: "é„‚å°”å¤šæ–¯å¸‚",
+          cityName: "¶õ¶û¶àË¹ÊĞ",
           county: [{
             countyCode: "150624",
-            countyName: "é„‚æ‰˜å…‹æ——"
+            countyName: "¶õÍĞ¿ËÆì"
           }, {
             countyCode: "150621",
-            countyName: "è¾¾æ‹‰ç‰¹æ——"
+            countyName: "´ïÀ­ÌØÆì"
           }, {
             countyCode: "150626",
-            countyName: "ä¹Œå®¡æ——"
+            countyName: "ÎÚÉóÆì"
           }, {
             countyCode: "150602",
-            countyName: "ä¸œèƒœåŒº"
+            countyName: "¶«Ê¤Çø"
           }, {
             countyCode: "150603",
-            countyName: "åº·å·´ä»€åŒº"
+            countyName: "¿µ°ÍÊ²Çø"
           }, {
             countyCode: "150623",
-            countyName: "é„‚æ‰˜å…‹å‰æ——"
+            countyName: "¶õÍĞ¿ËÇ°Æì"
           }, {
             countyCode: "150622",
-            countyName: "å‡†æ ¼å°”æ——"
+            countyName: "×¼¸ñ¶ûÆì"
           }, {
             countyCode: "150625",
-            countyName: "æ­é”¦æ——"
+            countyName: "º¼½õÆì"
           }, {
             countyCode: "150627",
-            countyName: "ä¼Šé‡‘éœæ´›æ——"
+            countyName: "ÒÁ½ğ»ôÂåÆì"
           }]
         }, {
           cityCode: "152900",
-          cityName: "é˜¿æ‹‰å–„ç›Ÿ",
+          cityName: "°¢À­ÉÆÃË",
           county: [{
             countyCode: "152923",
-            countyName: "é¢æµçº³æ——"
+            countyName: "¶î¼ÃÄÉÆì"
           }, {
             countyCode: "152921",
-            countyName: "é˜¿æ‹‰å–„å·¦æ——"
+            countyName: "°¢À­ÉÆ×óÆì"
           }, {
             countyCode: "152922",
-            countyName: "é˜¿æ‹‰å–„å³æ——"
+            countyName: "°¢À­ÉÆÓÒÆì"
           }]
         }, {
           cityCode: "150800",
-          cityName: "å·´å½¦æ·–å°”å¸‚",
+          cityName: "°ÍÑåÄ×¶ûÊĞ",
           county: [{
             countyCode: "150802",
-            countyName: "ä¸´æ²³åŒº"
+            countyName: "ÁÙºÓÇø"
           }, {
             countyCode: "150823",
-            countyName: "ä¹Œæ‹‰ç‰¹å‰æ——"
+            countyName: "ÎÚÀ­ÌØÇ°Æì"
           }, {
             countyCode: "150821",
-            countyName: "äº”åŸå¿"
+            countyName: "ÎåÔ­ÏØ"
           }, {
             countyCode: "150826",
-            countyName: "æ­é”¦åæ——"
+            countyName: "º¼½õºóÆì"
           }, {
             countyCode: "150825",
-            countyName: "ä¹Œæ‹‰ç‰¹åæ——"
+            countyName: "ÎÚÀ­ÌØºóÆì"
           }, {
             countyCode: "150824",
-            countyName: "ä¹Œæ‹‰ç‰¹ä¸­æ——"
+            countyName: "ÎÚÀ­ÌØÖĞÆì"
           }, {
             countyCode: "150822",
-            countyName: "ç£´å£å¿"
+            countyName: "íã¿ÚÏØ"
           }]
         }]
       }, {
         provinceCode: "210000",
-        provinceName: "è¾½å®çœ",
+        provinceName: "ÁÉÄşÊ¡",
         city: [{
           cityCode: "211200",
-          cityName: "é“å²­å¸‚",
+          cityName: "ÌúÁëÊĞ",
           county: [{
             countyCode: "211281",
-            countyName: "è°ƒå…µå±±å¸‚"
+            countyName: "µ÷±øÉ½ÊĞ"
           }, {
             countyCode: "211221",
-            countyName: "é“å²­å¿"
+            countyName: "ÌúÁëÏØ"
           }, {
             countyCode: "211224",
-            countyName: "æ˜Œå›¾å¿"
+            countyName: "²ıÍ¼ÏØ"
           }, {
             countyCode: "211223",
-            countyName: "è¥¿ä¸°å¿"
+            countyName: "Î÷·áÏØ"
           }, {
             countyCode: "211282",
-            countyName: "å¼€åŸå¸‚"
+            countyName: "¿ªÔ­ÊĞ"
           }, {
             countyCode: "211202",
-            countyName: "é“¶å·åŒº"
+            countyName: "ÒøÖİÇø"
           }, {
             countyCode: "211204",
-            countyName: "æ¸…æ²³åŒº"
+            countyName: "ÇåºÓÇø"
           }]
         }, {
           cityCode: "210500",
-          cityName: "æœ¬æºªå¸‚",
+          cityName: "±¾ÏªÊĞ",
           county: [{
             countyCode: "210522",
-            countyName: "æ¡“ä»æ»¡æ—è‡ªæ²»å¿"
+            countyName: "»¸ÈÊÂú×å×ÔÖÎÏØ"
           }, {
             countyCode: "210502",
-            countyName: "å¹³å±±åŒº"
+            countyName: "Æ½É½Çø"
           }, {
             countyCode: "210503",
-            countyName: "æºªæ¹–åŒº"
+            countyName: "ÏªºşÇø"
           }, {
             countyCode: "210505",
-            countyName: "å—èŠ¬åŒº"
+            countyName: "ÄÏ·ÒÇø"
           }, {
             countyCode: "210504",
-            countyName: "æ˜å±±åŒº"
+            countyName: "Ã÷É½Çø"
           }, {
             countyCode: "210521",
-            countyName: "æœ¬æºªæ»¡æ—è‡ªæ²»å¿"
+            countyName: "±¾ÏªÂú×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "211400",
-          cityName: "è‘«èŠ¦å²›å¸‚",
+          cityName: "ºùÂ«µºÊĞ",
           county: [{
             countyCode: "211421",
-            countyName: "ç»¥ä¸­å¿"
+            countyName: "ËçÖĞÏØ"
           }, {
             countyCode: "211481",
-            countyName: "å…´åŸå¸‚"
+            countyName: "ĞË³ÇÊĞ"
           }, {
             countyCode: "211403",
-            countyName: "é¾™æ¸¯åŒº"
+            countyName: "Áú¸ÛÇø"
           }, {
             countyCode: "211404",
-            countyName: "å—ç¥¨åŒº"
+            countyName: "ÄÏÆ±Çø"
           }, {
             countyCode: "211422",
-            countyName: "å»ºæ˜Œå¿"
+            countyName: "½¨²ıÏØ"
           }, {
             countyCode: "211402",
-            countyName: "è¿å±±åŒº"
+            countyName: "Á¬É½Çø"
           }]
         }, {
           cityCode: "210100",
-          cityName: "æ²ˆé˜³å¸‚",
+          cityName: "ÉòÑôÊĞ",
           county: [{
             countyCode: "210122",
-            countyName: "è¾½ä¸­åŒº"
+            countyName: "ÁÉÖĞÇø"
           }, {
             countyCode: "210104",
-            countyName: "å¤§ä¸œåŒº"
+            countyName: "´ó¶«Çø"
           }, {
             countyCode: "210105",
-            countyName: "çš‡å§‘åŒº"
+            countyName: "»Ê¹ÃÇø"
           }, {
             countyCode: "210123",
-            countyName: "åº·å¹³å¿"
+            countyName: "¿µÆ½ÏØ"
           }, {
             countyCode: "210124",
-            countyName: "æ³•åº“å¿"
+            countyName: "·¨¿âÏØ"
           }, {
             countyCode: "210181",
-            countyName: "æ–°æ°‘å¸‚"
+            countyName: "ĞÂÃñÊĞ"
           }, {
             countyCode: "210103",
-            countyName: "æ²ˆæ²³åŒº"
+            countyName: "ÉòºÓÇø"
           }, {
             countyCode: "210111",
-            countyName: "è‹å®¶å±¯åŒº"
+            countyName: "ËÕ¼ÒÍÍÇø"
           }, {
             countyCode: "210106",
-            countyName: "é“è¥¿åŒº"
+            countyName: "ÌúÎ÷Çø"
           }, {
             countyCode: "210102",
-            countyName: "å’Œå¹³åŒº"
+            countyName: "ºÍÆ½Çø"
           }, {
             countyCode: "210113",
-            countyName: "æ²ˆåŒ—æ–°åŒº"
+            countyName: "Éò±±ĞÂÇø"
           }, {
             countyCode: "210114",
-            countyName: "äºæ´ªåŒº"
+            countyName: "ÓÚºéÇø"
           }, {
             countyCode: "210112",
-            countyName: "æµ‘å—åŒº"
+            countyName: "»ëÄÏÇø"
           }]
         }, {
           cityCode: "210900",
-          cityName: "é˜œæ–°å¸‚",
+          cityName: "¸·ĞÂÊĞ",
           county: [{
             countyCode: "210905",
-            countyName: "æ¸…æ²³é—¨åŒº"
+            countyName: "ÇåºÓÃÅÇø"
           }, {
             countyCode: "210911",
-            countyName: "ç»†æ²³åŒº"
+            countyName: "Ï¸ºÓÇø"
           }, {
             countyCode: "210921",
-            countyName: "é˜œæ–°è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "¸·ĞÂÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "210902",
-            countyName: "æµ·å·åŒº"
+            countyName: "º£ÖİÇø"
           }, {
             countyCode: "210903",
-            countyName: "æ–°é‚±åŒº"
+            countyName: "ĞÂÇñÇø"
           }, {
             countyCode: "210922",
-            countyName: "å½°æ­¦å¿"
+            countyName: "ÕÃÎäÏØ"
           }, {
             countyCode: "210904",
-            countyName: "å¤ªå¹³åŒº"
+            countyName: "Ì«Æ½Çø"
           }]
         }, {
           cityCode: "210800",
-          cityName: "è¥å£å¸‚",
+          cityName: "Óª¿ÚÊĞ",
           county: [{
             countyCode: "210802",
-            countyName: "ç«™å‰åŒº"
+            countyName: "Õ¾Ç°Çø"
           }, {
             countyCode: "210804",
-            countyName: "é²…é±¼åœˆåŒº"
+            countyName: "öÑÓãÈ¦Çø"
           }, {
             countyCode: "210811",
-            countyName: "è€è¾¹åŒº"
+            countyName: "ÀÏ±ßÇø"
           }, {
             countyCode: "210882",
-            countyName: "å¤§çŸ³æ¡¥å¸‚"
+            countyName: "´óÊ¯ÇÅÊĞ"
           }, {
             countyCode: "210881",
-            countyName: "ç›–å·å¸‚"
+            countyName: "¸ÇÖİÊĞ"
           }, {
             countyCode: "210803",
-            countyName: "è¥¿å¸‚åŒº"
+            countyName: "Î÷ÊĞÇø"
           }]
         }, {
           cityCode: "210300",
-          cityName: "éå±±å¸‚",
+          cityName: "°°É½ÊĞ",
           county: [{
             countyCode: "210304",
-            countyName: "ç«‹å±±åŒº"
+            countyName: "Á¢É½Çø"
           }, {
             countyCode: "210381",
-            countyName: "æµ·åŸå¸‚"
+            countyName: "º£³ÇÊĞ"
           }, {
             countyCode: "210321",
-            countyName: "å°å®‰å¿"
+            countyName: "Ì¨°²ÏØ"
           }, {
             countyCode: "210311",
-            countyName: "åƒå±±åŒº"
+            countyName: "Ç§É½Çø"
           }, {
             countyCode: "210302",
-            countyName: "é“ä¸œåŒº"
+            countyName: "Ìú¶«Çø"
           }, {
             countyCode: "210303",
-            countyName: "é“è¥¿åŒº"
+            countyName: "ÌúÎ÷Çø"
           }, {
             countyCode: "210323",
-            countyName: "å²«å²©æ»¡æ—è‡ªæ²»å¿"
+            countyName: "á¶ÑÒÂú×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "210700",
-          cityName: "é”¦å·å¸‚",
+          cityName: "½õÖİÊĞ",
           county: [{
             countyCode: "210727",
-            countyName: "ä¹‰å¿"
+            countyName: "ÒåÏØ"
           }, {
             countyCode: "210781",
-            countyName: "å‡Œæµ·å¸‚"
+            countyName: "Áèº£ÊĞ"
           }, {
             countyCode: "210711",
-            countyName: "å¤ªå’ŒåŒº"
+            countyName: "Ì«ºÍÇø"
           }, {
             countyCode: "210726",
-            countyName: "é»‘å±±å¿"
+            countyName: "ºÚÉ½ÏØ"
           }, {
             countyCode: "210782",
-            countyName: "åŒ—é•‡å¸‚"
+            countyName: "±±ÕòÊĞ"
           }, {
             countyCode: "210702",
-            countyName: "å¤å¡”åŒº"
+            countyName: "¹ÅËşÇø"
           }, {
             countyCode: "210703",
-            countyName: "å‡Œæ²³åŒº"
+            countyName: "ÁèºÓÇø"
           }]
         }, {
           cityCode: "210400",
-          cityName: "æŠšé¡ºå¸‚",
+          cityName: "¸§Ë³ÊĞ",
           county: [{
             countyCode: "210403",
-            countyName: "ä¸œæ´²åŒº"
+            countyName: "¶«ÖŞÇø"
           }, {
             countyCode: "210411",
-            countyName: "é¡ºåŸåŒº"
+            countyName: "Ë³³ÇÇø"
           }, {
             countyCode: "210404",
-            countyName: "æœ›èŠ±åŒº"
+            countyName: "Íû»¨Çø"
           }, {
             countyCode: "210402",
-            countyName: "æ–°æŠšåŒº"
+            countyName: "ĞÂ¸§Çø"
           }, {
             countyCode: "210421",
-            countyName: "æŠšé¡ºå¿"
+            countyName: "¸§Ë³ÏØ"
           }, {
             countyCode: "210423",
-            countyName: "æ¸…åŸæ»¡æ—è‡ªæ²»å¿"
+            countyName: "ÇåÔ­Âú×å×ÔÖÎÏØ"
           }, {
             countyCode: "210422",
-            countyName: "æ–°å®¾æ»¡æ—è‡ªæ²»å¿"
+            countyName: "ĞÂ±öÂú×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "210200",
-          cityName: "å¤§è¿å¸‚",
+          cityName: "´óÁ¬ÊĞ",
           county: [{
             countyCode: "210213",
-            countyName: "é‡‘å·åŒº"
+            countyName: "½ğÖİÇø"
           }, {
             countyCode: "210202",
-            countyName: "ä¸­å±±åŒº"
+            countyName: "ÖĞÉ½Çø"
           }, {
             countyCode: "210282",
-            countyName: "æ™®å…°åº—åŒº"
+            countyName: "ÆÕÀ¼µêÇø"
           }, {
             countyCode: "210204",
-            countyName: "æ²™æ²³å£åŒº"
+            countyName: "É³ºÓ¿ÚÇø"
           }, {
             countyCode: "210203",
-            countyName: "è¥¿å²—åŒº"
+            countyName: "Î÷¸ÚÇø"
           }, {
             countyCode: "210281",
-            countyName: "ç“¦æˆ¿åº—å¸‚"
+            countyName: "Íß·¿µêÊĞ"
           }, {
             countyCode: "210211",
-            countyName: "ç”˜äº•å­åŒº"
+            countyName: "¸Ê¾®×ÓÇø"
           }, {
             countyCode: "210212",
-            countyName: "æ—…é¡ºå£åŒº"
+            countyName: "ÂÃË³¿ÚÇø"
           }, {
             countyCode: "210224",
-            countyName: "é•¿æµ·å¿"
+            countyName: "³¤º£ÏØ"
           }, {
             countyCode: "210283",
-            countyName: "åº„æ²³å¸‚"
+            countyName: "×¯ºÓÊĞ"
           }]
         }, {
           cityCode: "211000",
-          cityName: "è¾½é˜³å¸‚",
+          cityName: "ÁÉÑôÊĞ",
           county: [{
             countyCode: "211003",
-            countyName: "æ–‡åœ£åŒº"
+            countyName: "ÎÄÊ¥Çø"
           }, {
             countyCode: "211081",
-            countyName: "ç¯å¡”å¸‚"
+            countyName: "µÆËşÊĞ"
           }, {
             countyCode: "211011",
-            countyName: "å¤ªå­æ²³åŒº"
+            countyName: "Ì«×ÓºÓÇø"
           }, {
             countyCode: "211005",
-            countyName: "å¼“é•¿å²­åŒº"
+            countyName: "¹­³¤ÁëÇø"
           }, {
             countyCode: "211004",
-            countyName: "å®ä¼ŸåŒº"
+            countyName: "ºêÎ°Çø"
           }, {
             countyCode: "211021",
-            countyName: "è¾½é˜³å¿"
+            countyName: "ÁÉÑôÏØ"
           }, {
             countyCode: "211002",
-            countyName: "ç™½å¡”åŒº"
+            countyName: "°×ËşÇø"
           }]
         }, {
           cityCode: "210600",
-          cityName: "ä¸¹ä¸œå¸‚",
+          cityName: "µ¤¶«ÊĞ",
           county: [{
             countyCode: "210603",
-            countyName: "æŒ¯å…´åŒº"
+            countyName: "ÕñĞËÇø"
           }, {
             countyCode: "210681",
-            countyName: "ä¸œæ¸¯å¸‚"
+            countyName: "¶«¸ÛÊĞ"
           }, {
             countyCode: "210624",
-            countyName: "å®½ç”¸æ»¡æ—è‡ªæ²»å¿"
+            countyName: "¿íµéÂú×å×ÔÖÎÏØ"
           }, {
             countyCode: "210682",
-            countyName: "å‡¤åŸå¸‚"
+            countyName: "·ï³ÇÊĞ"
           }, {
             countyCode: "210604",
-            countyName: "æŒ¯å®‰åŒº"
+            countyName: "Õñ°²Çø"
           }, {
             countyCode: "210602",
-            countyName: "å…ƒå®åŒº"
+            countyName: "Ôª±¦Çø"
           }]
         }, {
           cityCode: "211300",
-          cityName: "æœé˜³å¸‚",
+          cityName: "³¯ÑôÊĞ",
           county: [{
             countyCode: "211382",
-            countyName: "å‡Œæºå¸‚"
+            countyName: "ÁèÔ´ÊĞ"
           }, {
             countyCode: "211322",
-            countyName: "å»ºå¹³å¿"
+            countyName: "½¨Æ½ÏØ"
           }, {
             countyCode: "211381",
-            countyName: "åŒ—ç¥¨å¸‚"
+            countyName: "±±Æ±ÊĞ"
           }, {
             countyCode: "211303",
-            countyName: "é¾™åŸåŒº"
+            countyName: "Áú³ÇÇø"
           }, {
             countyCode: "211302",
-            countyName: "åŒå¡”åŒº"
+            countyName: "Ë«ËşÇø"
           }, {
             countyCode: "211324",
-            countyName: "å–€å–‡æ²å·¦ç¿¼è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "¿¦À®Çß×óÒíÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "211321",
-            countyName: "æœé˜³å¿"
+            countyName: "³¯ÑôÏØ"
           }]
         }, {
           cityCode: "211100",
-          cityName: "ç›˜é”¦å¸‚",
+          cityName: "ÅÌ½õÊĞ",
           county: [{
             countyCode: "211122",
-            countyName: "ç›˜å±±å¿"
+            countyName: "ÅÌÉ½ÏØ"
           }, {
             countyCode: "211103",
-            countyName: "å…´éš†å°åŒº"
+            countyName: "ĞËÂ¡Ì¨Çø"
           }, {
             countyCode: "211102",
-            countyName: "åŒå°å­åŒº"
+            countyName: "Ë«Ì¨×ÓÇø"
           }, {
             countyCode: "211121",
-            countyName: "å¤§æ´¼åŒº"
+            countyName: "´óÍİÇø"
           }]
         }]
       }, {
         provinceCode: "220000",
-        provinceName: "å‰æ—çœ",
+        provinceName: "¼ªÁÖÊ¡",
         city: [{
           cityCode: "220600",
-          cityName: "ç™½å±±å¸‚",
+          cityName: "°×É½ÊĞ",
           county: [{
             countyCode: "220621",
-            countyName: "æŠšæ¾å¿"
+            countyName: "¸§ËÉÏØ"
           }, {
             countyCode: "220602",
-            countyName: "æµ‘æ±ŸåŒº"
+            countyName: "»ë½­Çø"
           }, {
             countyCode: "220622",
-            countyName: "é–å®‡å¿"
+            countyName: "¾¸ÓîÏØ"
           }, {
             countyCode: "220605",
-            countyName: "æ±ŸæºåŒº"
+            countyName: "½­Ô´Çø"
           }, {
             countyCode: "220681",
-            countyName: "ä¸´æ±Ÿå¸‚"
+            countyName: "ÁÙ½­ÊĞ"
           }, {
             countyCode: "220623",
-            countyName: "é•¿ç™½æœé²œæ—è‡ªæ²»å¿"
+            countyName: "³¤°×³¯ÏÊ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "220500",
-          cityName: "é€šåŒ–å¸‚",
+          cityName: "Í¨»¯ÊĞ",
           county: [{
             countyCode: "220523",
-            countyName: "è¾‰å—å¿"
+            countyName: "»ÔÄÏÏØ"
           }, {
             countyCode: "220521",
-            countyName: "é€šåŒ–å¿"
+            countyName: "Í¨»¯ÏØ"
           }, {
             countyCode: "220581",
-            countyName: "æ¢…æ²³å£å¸‚"
+            countyName: "Ã·ºÓ¿ÚÊĞ"
           }, {
             countyCode: "220502",
-            countyName: "ä¸œæ˜ŒåŒº"
+            countyName: "¶«²ıÇø"
           }, {
             countyCode: "220524",
-            countyName: "æŸ³æ²³å¿"
+            countyName: "ÁøºÓÏØ"
           }, {
             countyCode: "220503",
-            countyName: "äºŒé“æ±ŸåŒº"
+            countyName: "¶şµÀ½­Çø"
           }, {
             countyCode: "220582",
-            countyName: "é›†å®‰å¸‚"
+            countyName: "¼¯°²ÊĞ"
           }]
         }, {
           cityCode: "220700",
-          cityName: "æ¾åŸå¸‚",
+          cityName: "ËÉÔ­ÊĞ",
           county: [{
             countyCode: "220722",
-            countyName: "é•¿å²­å¿"
+            countyName: "³¤ÁëÏØ"
           }, {
             countyCode: "220702",
-            countyName: "å®æ±ŸåŒº"
+            countyName: "Äş½­Çø"
           }, {
             countyCode: "220724",
-            countyName: "æ‰¶ä½™å¸‚"
+            countyName: "·öÓàÊĞ"
           }, {
             countyCode: "220721",
-            countyName: "å‰éƒ­å°”ç½—æ–¯è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "Ç°¹ù¶ûÂŞË¹ÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "220723",
-            countyName: "ä¹¾å®‰å¿"
+            countyName: "Ç¬°²ÏØ"
           }]
         }, {
           cityCode: "220800",
-          cityName: "ç™½åŸå¸‚",
+          cityName: "°×³ÇÊĞ",
           county: [{
             countyCode: "220802",
-            countyName: "æ´®åŒ—åŒº"
+            countyName: "ä¬±±Çø"
           }, {
             countyCode: "220821",
-            countyName: "é•‡èµ‰å¿"
+            countyName: "ÕòêãÏØ"
           }, {
             countyCode: "220822",
-            countyName: "é€šæ¦†å¿"
+            countyName: "Í¨ÓÜÏØ"
           }, {
             countyCode: "220881",
-            countyName: "æ´®å—å¸‚"
+            countyName: "ä¬ÄÏÊĞ"
           }, {
             countyCode: "220882",
-            countyName: "å¤§å®‰å¸‚"
+            countyName: "´ó°²ÊĞ"
           }]
         }, {
           cityCode: "220100",
-          cityName: "é•¿æ˜¥å¸‚",
+          cityName: "³¤´ºÊĞ",
           county: [{
             countyCode: "220105",
-            countyName: "äºŒé“åŒº"
+            countyName: "¶şµÀÇø"
           }, {
             countyCode: "220182",
-            countyName: "æ¦†æ ‘å¸‚"
+            countyName: "ÓÜÊ÷ÊĞ"
           }, {
             countyCode: "220106",
-            countyName: "ç»¿å›­åŒº"
+            countyName: "ÂÌÔ°Çø"
           }, {
             countyCode: "220181",
-            countyName: "ä¹å°åŒº"
+            countyName: "¾ÅÌ¨Çø"
           }, {
             countyCode: "220122",
-            countyName: "å†œå®‰å¿"
+            countyName: "Å©°²ÏØ"
           }, {
             countyCode: "220103",
-            countyName: "å®½åŸåŒº"
+            countyName: "¿í³ÇÇø"
           }, {
             countyCode: "220102",
-            countyName: "å—å…³åŒº"
+            countyName: "ÄÏ¹ØÇø"
           }, {
             countyCode: "220104",
-            countyName: "æœé˜³åŒº"
+            countyName: "³¯ÑôÇø"
           }, {
             countyCode: "220183",
-            countyName: "å¾·æƒ å¸‚"
+            countyName: "µÂ»İÊĞ"
           }, {
             countyCode: "220112",
-            countyName: "åŒé˜³åŒº"
+            countyName: "Ë«ÑôÇø"
           }]
         }, {
           cityCode: "222400",
-          cityName: "å»¶è¾¹æœé²œæ—è‡ªæ²»å·",
+          cityName: "ÑÓ±ß³¯ÏÊ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "222424",
-            countyName: "æ±ªæ¸…å¿"
+            countyName: "ÍôÇåÏØ"
           }, {
             countyCode: "222401",
-            countyName: "å»¶å‰å¸‚"
+            countyName: "ÑÓ¼ªÊĞ"
           }, {
             countyCode: "222404",
-            countyName: "ç²æ˜¥å¸‚"
+            countyName: "çõ´ºÊĞ"
           }, {
             countyCode: "222405",
-            countyName: "é¾™äº•å¸‚"
+            countyName: "Áú¾®ÊĞ"
           }, {
             countyCode: "222402",
-            countyName: "å›¾ä»¬å¸‚"
+            countyName: "Í¼ÃÇÊĞ"
           }, {
             countyCode: "222426",
-            countyName: "å®‰å›¾å¿"
+            countyName: "°²Í¼ÏØ"
           }, {
             countyCode: "222406",
-            countyName: "å’Œé¾™å¸‚"
+            countyName: "ºÍÁúÊĞ"
           }, {
             countyCode: "222403",
-            countyName: "æ•¦åŒ–å¸‚"
+            countyName: "¶Ø»¯ÊĞ"
           }]
         }, {
           cityCode: "220400",
-          cityName: "è¾½æºå¸‚",
+          cityName: "ÁÉÔ´ÊĞ",
           county: [{
             countyCode: "220422",
-            countyName: "ä¸œè¾½å¿"
+            countyName: "¶«ÁÉÏØ"
           }, {
             countyCode: "220402",
-            countyName: "é¾™å±±åŒº"
+            countyName: "ÁúÉ½Çø"
           }, {
             countyCode: "220421",
-            countyName: "ä¸œä¸°å¿"
+            countyName: "¶«·áÏØ"
           }, {
             countyCode: "220403",
-            countyName: "è¥¿å®‰åŒº"
+            countyName: "Î÷°²Çø"
           }]
         }, {
           cityCode: "220300",
-          cityName: "å››å¹³å¸‚",
+          cityName: "ËÄÆ½ÊĞ",
           county: [{
             countyCode: "220381",
-            countyName: "å…¬ä¸»å²­å¸‚"
+            countyName: "¹«Ö÷ÁëÊĞ"
           }, {
             countyCode: "220323",
-            countyName: "ä¼Šé€šæ»¡æ—è‡ªæ²»å¿"
+            countyName: "ÒÁÍ¨Âú×å×ÔÖÎÏØ"
           }, {
             countyCode: "220322",
-            countyName: "æ¢¨æ ‘å¿"
+            countyName: "ÀæÊ÷ÏØ"
           }, {
             countyCode: "220382",
-            countyName: "åŒè¾½å¸‚"
+            countyName: "Ë«ÁÉÊĞ"
           }, {
             countyCode: "220302",
-            countyName: "é“è¥¿åŒº"
+            countyName: "ÌúÎ÷Çø"
           }, {
             countyCode: "220303",
-            countyName: "é“ä¸œåŒº"
+            countyName: "Ìú¶«Çø"
           }]
         }, {
           cityCode: "220200",
-          cityName: "å‰æ—å¸‚",
+          cityName: "¼ªÁÖÊĞ",
           county: [{
             countyCode: "220204",
-            countyName: "èˆ¹è¥åŒº"
+            countyName: "´¬ÓªÇø"
           }, {
             countyCode: "220283",
-            countyName: "èˆ’å…°å¸‚"
+            countyName: "ÊæÀ¼ÊĞ"
           }, {
             countyCode: "220282",
-            countyName: "æ¡¦ç”¸å¸‚"
+            countyName: "èëµéÊĞ"
           }, {
             countyCode: "220202",
-            countyName: "æ˜Œé‚‘åŒº"
+            countyName: "²ıÒØÇø"
           }, {
             countyCode: "220281",
-            countyName: "è›Ÿæ²³å¸‚"
+            countyName: "òÔºÓÊĞ"
           }, {
             countyCode: "220284",
-            countyName: "ç£çŸ³å¸‚"
+            countyName: "ÅÍÊ¯ÊĞ"
           }, {
             countyCode: "220211",
-            countyName: "ä¸°æ»¡åŒº"
+            countyName: "·áÂúÇø"
           }, {
             countyCode: "220203",
-            countyName: "é¾™æ½­åŒº"
+            countyName: "ÁúÌ¶Çø"
           }, {
             countyCode: "220221",
-            countyName: "æ°¸å‰å¿"
+            countyName: "ÓÀ¼ªÏØ"
           }]
         }]
       }, {
         provinceCode: "230000",
-        provinceName: "é»‘é¾™æ±Ÿçœ",
+        provinceName: "ºÚÁú½­Ê¡",
         city: [{
           cityCode: "230400",
-          cityName: "é¹¤å²—å¸‚",
+          cityName: "º×¸ÚÊĞ",
           county: [{
             countyCode: "230406",
-            countyName: "ä¸œå±±åŒº"
+            countyName: "¶«É½Çø"
           }, {
             countyCode: "230407",
-            countyName: "å…´å±±åŒº"
+            countyName: "ĞËÉ½Çø"
           }, {
             countyCode: "230422",
-            countyName: "ç»¥æ»¨å¿"
+            countyName: "Ëç±õÏØ"
           }, {
             countyCode: "230403",
-            countyName: "å·¥å†œåŒº"
+            countyName: "¹¤Å©Çø"
           }, {
             countyCode: "230404",
-            countyName: "å—å±±åŒº"
+            countyName: "ÄÏÉ½Çø"
           }, {
             countyCode: "230421",
-            countyName: "èåŒ—å¿"
+            countyName: "ÂÜ±±ÏØ"
           }, {
             countyCode: "230402",
-            countyName: "å‘é˜³åŒº"
+            countyName: "ÏòÑôÇø"
           }, {
             countyCode: "230405",
-            countyName: "å…´å®‰åŒº"
+            countyName: "ĞË°²Çø"
           }]
         }, {
           cityCode: "230700",
-          cityName: "ä¼Šæ˜¥å¸‚",
+          cityName: "ÒÁ´ºÊĞ",
           county: [{
             countyCode: "230708",
-            countyName: "ç¾æºªåŒº"
+            countyName: "ÃÀÏªÇø"
           }, {
             countyCode: "230705",
-            countyName: "è¥¿æ—åŒº"
+            countyName: "Î÷ÁÖÇø"
           }, {
             countyCode: "230722",
-            countyName: "å˜‰è«å¿"
+            countyName: "¼ÎÒñÏØ"
           }, {
             countyCode: "230709",
-            countyName: "é‡‘å±±å±¯åŒº"
+            countyName: "½ğÉ½ÍÍÇø"
           }, {
             countyCode: "230711",
-            countyName: "ä¹Œé©¬æ²³åŒº"
+            countyName: "ÎÚÂíºÓÇø"
           }, {
             countyCode: "230707",
-            countyName: "æ–°é’åŒº"
+            countyName: "ĞÂÇàÇø"
           }, {
             countyCode: "230702",
-            countyName: "ä¼Šæ˜¥åŒº"
+            countyName: "ÒÁ´ºÇø"
           }, {
             countyCode: "230704",
-            countyName: "å‹å¥½åŒº"
+            countyName: "ÓÑºÃÇø"
           }, {
             countyCode: "230703",
-            countyName: "å—å²”åŒº"
+            countyName: "ÄÏ²íÇø"
           }, {
             countyCode: "230710",
-            countyName: "äº”è¥åŒº"
+            countyName: "ÎåÓªÇø"
           }, {
             countyCode: "230716",
-            countyName: "ä¸Šç”˜å²­åŒº"
+            countyName: "ÉÏ¸ÊÁëÇø"
           }, {
             countyCode: "230712",
-            countyName: "æ±¤æ—ºæ²³åŒº"
+            countyName: "ÌÀÍúºÓÇø"
           }, {
             countyCode: "230781",
-            countyName: "é“åŠ›å¸‚"
+            countyName: "ÌúÁ¦ÊĞ"
           }, {
             countyCode: "230714",
-            countyName: "ä¹Œä¼Šå²­åŒº"
+            countyName: "ÎÚÒÁÁëÇø"
           }, {
             countyCode: "230715",
-            countyName: "çº¢æ˜ŸåŒº"
+            countyName: "ºìĞÇÇø"
           }, {
             countyCode: "230706",
-            countyName: "ç¿ å³¦åŒº"
+            countyName: "´äÂÍÇø"
           }, {
             countyCode: "230713",
-            countyName: "å¸¦å²­åŒº"
+            countyName: "´øÁëÇø"
           }]
         }, {
           cityCode: "230800",
-          cityName: "ä½³æœ¨æ–¯å¸‚",
+          cityName: "¼ÑÄ¾Ë¹ÊĞ",
           county: [{
             countyCode: "230881",
-            countyName: "åŒæ±Ÿå¸‚"
+            countyName: "Í¬½­ÊĞ"
           }, {
             countyCode: "230805",
-            countyName: "ä¸œé£åŒº"
+            countyName: "¶«·çÇø"
           }, {
             countyCode: "230811",
-            countyName: "éƒŠåŒº"
+            countyName: "½¼Çø"
           }, {
             countyCode: "230882",
-            countyName: "å¯Œé”¦å¸‚"
+            countyName: "¸»½õÊĞ"
           }, {
             countyCode: "230828",
-            countyName: "æ±¤åŸå¿"
+            countyName: "ÌÀÔ­ÏØ"
           }, {
             countyCode: "230833",
-            countyName: "æŠšè¿œå¸‚"
+            countyName: "¸§Ô¶ÊĞ"
           }, {
             countyCode: "230804",
-            countyName: "å‰è¿›åŒº"
+            countyName: "Ç°½øÇø"
           }, {
             countyCode: "230803",
-            countyName: "å‘é˜³åŒº"
+            countyName: "ÏòÑôÇø"
           }, {
             countyCode: "230826",
-            countyName: "æ¡¦å·å¿"
+            countyName: "èë´¨ÏØ"
           }, {
             countyCode: "230822",
-            countyName: "æ¡¦å—å¿"
+            countyName: "èëÄÏÏØ"
           }]
         }, {
           cityCode: "230200",
-          cityName: "é½é½å“ˆå°”å¸‚",
+          cityName: "ÆëÆë¹ş¶ûÊĞ",
           county: [{
             countyCode: "230207",
-            countyName: "ç¢¾å­å±±åŒº"
+            countyName: "Äë×ÓÉ½Çø"
           }, {
             countyCode: "230203",
-            countyName: "å»ºååŒº"
+            countyName: "½¨»ªÇø"
           }, {
             countyCode: "230204",
-            countyName: "é“é”‹åŒº"
+            countyName: "Ìú·æÇø"
           }, {
             countyCode: "230208",
-            countyName: "æ¢…é‡Œæ–¯è¾¾æ–¡å°”æ—åŒº"
+            countyName: "Ã·ÀïË¹´ïÎÓ¶û×åÇø"
           }, {
             countyCode: "230230",
-            countyName: "å…‹ä¸œå¿"
+            countyName: "¿Ë¶«ÏØ"
           }, {
             countyCode: "230227",
-            countyName: "å¯Œè£•å¿"
+            countyName: "¸»Ô£ÏØ"
           }, {
             countyCode: "230205",
-            countyName: "æ˜‚æ˜‚æºªåŒº"
+            countyName: "°º°ºÏªÇø"
           }, {
             countyCode: "230221",
-            countyName: "é¾™æ±Ÿå¿"
+            countyName: "Áú½­ÏØ"
           }, {
             countyCode: "230206",
-            countyName: "å¯Œæ‹‰å°”åŸºåŒº"
+            countyName: "¸»À­¶û»ùÇø"
           }, {
             countyCode: "230223",
-            countyName: "ä¾å®‰å¿"
+            countyName: "ÒÀ°²ÏØ"
           }, {
             countyCode: "230225",
-            countyName: "ç”˜å—å¿"
+            countyName: "¸ÊÄÏÏØ"
           }, {
             countyCode: "230229",
-            countyName: "å…‹å±±å¿"
+            countyName: "¿ËÉ½ÏØ"
           }, {
             countyCode: "230281",
-            countyName: "è®·æ²³å¸‚"
+            countyName: "Ú«ºÓÊĞ"
           }, {
             countyCode: "230202",
-            countyName: "é¾™æ²™åŒº"
+            countyName: "ÁúÉ³Çø"
           }, {
             countyCode: "230231",
-            countyName: "æ‹œæ³‰å¿"
+            countyName: "°İÈªÏØ"
           }, {
             countyCode: "230224",
-            countyName: "æ³°æ¥å¿"
+            countyName: "Ì©À´ÏØ"
           }]
         }, {
           cityCode: "230500",
-          cityName: "åŒé¸­å±±å¸‚",
+          cityName: "Ë«Ñ¼É½ÊĞ",
           county: [{
             countyCode: "230524",
-            countyName: "é¥¶æ²³å¿"
+            countyName: "ÈÄºÓÏØ"
           }, {
             countyCode: "230506",
-            countyName: "å®å±±åŒº"
+            countyName: "±¦É½Çø"
           }, {
             countyCode: "230503",
-            countyName: "å²­ä¸œåŒº"
+            countyName: "Áë¶«Çø"
           }, {
             countyCode: "230505",
-            countyName: "å››æ–¹å°åŒº"
+            countyName: "ËÄ·½Ì¨Çø"
           }, {
             countyCode: "230523",
-            countyName: "å®æ¸…å¿"
+            countyName: "±¦ÇåÏØ"
           }, {
             countyCode: "230521",
-            countyName: "é›†è´¤å¿"
+            countyName: "¼¯ÏÍÏØ"
           }, {
             countyCode: "230522",
-            countyName: "å‹è°Šå¿"
+            countyName: "ÓÑÒêÏØ"
           }, {
             countyCode: "230502",
-            countyName: "å°–å±±åŒº"
+            countyName: "¼âÉ½Çø"
           }]
         }, {
           cityCode: "230100",
-          cityName: "å“ˆå°”æ»¨å¸‚",
+          cityName: "¹ş¶û±õÊĞ",
           county: [{
             countyCode: "230109",
-            countyName: "æ¾åŒ—åŒº"
+            countyName: "ËÉ±±Çø"
           }, {
             countyCode: "230127",
-            countyName: "æœ¨å…°å¿"
+            countyName: "Ä¾À¼ÏØ"
           }, {
             countyCode: "230124",
-            countyName: "æ–¹æ­£å¿"
+            countyName: "·½ÕıÏØ"
           }, {
             countyCode: "230103",
-            countyName: "å—å²—åŒº"
+            countyName: "ÄÏ¸ÚÇø"
           }, {
             countyCode: "230183",
-            countyName: "å°šå¿—å¸‚"
+            countyName: "ÉĞÖ¾ÊĞ"
           }, {
             countyCode: "230129",
-            countyName: "å»¶å¯¿å¿"
+            countyName: "ÑÓÊÙÏØ"
           }, {
             countyCode: "230126",
-            countyName: "å·´å½¦å¿"
+            countyName: "°ÍÑåÏØ"
           }, {
             countyCode: "230125",
-            countyName: "å®¾å¿"
+            countyName: "±öÏØ"
           }, {
             countyCode: "230102",
-            countyName: "é“é‡ŒåŒº"
+            countyName: "µÀÀïÇø"
           }, {
             countyCode: "230111",
-            countyName: "å‘¼å…°åŒº"
+            countyName: "ºôÀ¼Çø"
           }, {
             countyCode: "230112",
-            countyName: "é˜¿åŸåŒº"
+            countyName: "°¢³ÇÇø"
           }, {
             countyCode: "230110",
-            countyName: "é¦™åŠåŒº"
+            countyName: "Ïã·»Çø"
           }, {
             countyCode: "230108",
-            countyName: "å¹³æˆ¿åŒº"
+            countyName: "Æ½·¿Çø"
           }, {
             countyCode: "230182",
-            countyName: "åŒåŸåŒº"
+            countyName: "Ë«³ÇÇø"
           }, {
             countyCode: "230123",
-            countyName: "ä¾å…°å¿"
+            countyName: "ÒÀÀ¼ÏØ"
           }, {
             countyCode: "230184",
-            countyName: "äº”å¸¸å¸‚"
+            countyName: "Îå³£ÊĞ"
           }, {
             countyCode: "230104",
-            countyName: "é“å¤–åŒº"
+            countyName: "µÀÍâÇø"
           }, {
             countyCode: "230128",
-            countyName: "é€šæ²³å¿"
+            countyName: "Í¨ºÓÏØ"
           }]
         }, {
           cityCode: "231000",
-          cityName: "ç‰¡ä¸¹æ±Ÿå¸‚",
+          cityName: "Äµµ¤½­ÊĞ",
           county: [{
             countyCode: "231003",
-            countyName: "é˜³æ˜åŒº"
+            countyName: "ÑôÃ÷Çø"
           }, {
             countyCode: "231005",
-            countyName: "è¥¿å®‰åŒº"
+            countyName: "Î÷°²Çø"
           }, {
             countyCode: "231025",
-            countyName: "æ—å£å¿"
+            countyName: "ÁÖ¿ÚÏØ"
           }, {
             countyCode: "231024",
-            countyName: "ä¸œå®å¸‚"
+            countyName: "¶«ÄşÊĞ"
           }, {
             countyCode: "231004",
-            countyName: "çˆ±æ°‘åŒº"
+            countyName: "°®ÃñÇø"
           }, {
             countyCode: "231084",
-            countyName: "å®å®‰å¸‚"
+            countyName: "Äş°²ÊĞ"
           }, {
             countyCode: "231083",
-            countyName: "æµ·æ—å¸‚"
+            countyName: "º£ÁÖÊĞ"
           }, {
             countyCode: "231002",
-            countyName: "ä¸œå®‰åŒº"
+            countyName: "¶«°²Çø"
           }, {
             countyCode: "231085",
-            countyName: "ç©†æ£±å¸‚"
+            countyName: "ÄÂÀâÊĞ"
           }, {
             countyCode: "231081",
-            countyName: "ç»¥èŠ¬æ²³å¸‚"
+            countyName: "Ëç·ÒºÓÊĞ"
           }]
         }, {
           cityCode: "230900",
-          cityName: "ä¸ƒå°æ²³å¸‚",
+          cityName: "ÆßÌ¨ºÓÊĞ",
           county: [{
             countyCode: "230904",
-            countyName: "èŒ„å­æ²³åŒº"
+            countyName: "ÇÑ×ÓºÓÇø"
           }, {
             countyCode: "230921",
-            countyName: "å‹ƒåˆ©å¿"
+            countyName: "²ªÀûÏØ"
           }, {
             countyCode: "230902",
-            countyName: "æ–°å…´åŒº"
+            countyName: "ĞÂĞËÇø"
           }, {
             countyCode: "230903",
-            countyName: "æ¡ƒå±±åŒº"
+            countyName: "ÌÒÉ½Çø"
           }]
         }, {
           cityCode: "231100",
-          cityName: "é»‘æ²³å¸‚",
+          cityName: "ºÚºÓÊĞ",
           county: [{
             countyCode: "231102",
-            countyName: "çˆ±è¾‰åŒº"
+            countyName: "°®»ÔÇø"
           }, {
             countyCode: "231182",
-            countyName: "äº”å¤§è¿æ± å¸‚"
+            countyName: "Îå´óÁ¬³ØÊĞ"
           }, {
             countyCode: "231181",
-            countyName: "åŒ—å®‰å¸‚"
+            countyName: "±±°²ÊĞ"
           }, {
             countyCode: "231124",
-            countyName: "å­™å´å¿"
+            countyName: "ËïÎâÏØ"
           }, {
             countyCode: "231123",
-            countyName: "é€Šå…‹å¿"
+            countyName: "Ñ·¿ËÏØ"
           }, {
             countyCode: "231121",
-            countyName: "å«©æ±Ÿå¿"
+            countyName: "ÄÛ½­ÏØ"
           }]
         }, {
           cityCode: "230600",
-          cityName: "å¤§åº†å¸‚",
+          cityName: "´óÇìÊĞ",
           county: [{
             countyCode: "230605",
-            countyName: "çº¢å²—åŒº"
+            countyName: "ºì¸ÚÇø"
           }, {
             countyCode: "230606",
-            countyName: "å¤§åŒåŒº"
+            countyName: "´óÍ¬Çø"
           }, {
             countyCode: "230623",
-            countyName: "æ—ç”¸å¿"
+            countyName: "ÁÖµéÏØ"
           }, {
             countyCode: "230622",
-            countyName: "è‚‡æºå¿"
+            countyName: "ÕØÔ´ÏØ"
           }, {
             countyCode: "230621",
-            countyName: "è‚‡å·å¿"
+            countyName: "ÕØÖİÏØ"
           }, {
             countyCode: "230624",
-            countyName: "æœå°”ä¼¯ç‰¹è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "¶Å¶û²®ÌØÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "230603",
-            countyName: "é¾™å‡¤åŒº"
+            countyName: "Áú·ïÇø"
           }, {
             countyCode: "230602",
-            countyName: "è¨å°”å›¾åŒº"
+            countyName: "Èø¶ûÍ¼Çø"
           }, {
             countyCode: "230604",
-            countyName: "è®©èƒ¡è·¯åŒº"
+            countyName: "ÈÃºúÂ·Çø"
           }]
         }, {
           cityCode: "232700",
-          cityName: "å¤§å…´å®‰å²­åœ°åŒº",
+          cityName: "´óĞË°²ÁëµØÇø",
           county: [{
             countyCode: "232703",
-            countyName: "æ–°æ—åŒº"
+            countyName: "ĞÂÁÖÇø"
           }, {
             countyCode: "232702",
-            countyName: "æ¾å²­åŒº"
+            countyName: "ËÉÁëÇø"
           }, {
             countyCode: "232701",
-            countyName: "åŠ æ ¼è¾¾å¥‡åŒº"
+            countyName: "¼Ó¸ñ´ïÆæÇø"
           }, {
             countyCode: "232722",
-            countyName: "å¡”æ²³å¿"
+            countyName: "ËşºÓÏØ"
           }, {
             countyCode: "232721",
-            countyName: "å‘¼ç›å¿"
+            countyName: "ºôÂêÏØ"
           }, {
             countyCode: "232704",
-            countyName: "å‘¼ä¸­åŒº"
+            countyName: "ºôÖĞÇø"
           }, {
             countyCode: "232723",
-            countyName: "æ¼ æ²³å¸‚"
+            countyName: "Ä®ºÓÊĞ"
           }]
         }, {
           cityCode: "231200",
-          cityName: "ç»¥åŒ–å¸‚",
+          cityName: "Ëç»¯ÊĞ",
           county: [{
             countyCode: "231281",
-            countyName: "å®‰è¾¾å¸‚"
+            countyName: "°²´ïÊĞ"
           }, {
             countyCode: "231224",
-            countyName: "åº†å®‰å¿"
+            countyName: "Çì°²ÏØ"
           }, {
             countyCode: "231282",
-            countyName: "è‚‡ä¸œå¸‚"
+            countyName: "ÕØ¶«ÊĞ"
           }, {
             countyCode: "231283",
-            countyName: "æµ·ä¼¦å¸‚"
+            countyName: "º£Â×ÊĞ"
           }, {
             countyCode: "231225",
-            countyName: "æ˜æ°´å¿"
+            countyName: "Ã÷Ë®ÏØ"
           }, {
             countyCode: "231222",
-            countyName: "å…°è¥¿å¿"
+            countyName: "À¼Î÷ÏØ"
           }, {
             countyCode: "231223",
-            countyName: "é’å†ˆå¿"
+            countyName: "Çà¸ÔÏØ"
           }, {
             countyCode: "231226",
-            countyName: "ç»¥æ£±å¿"
+            countyName: "ËçÀâÏØ"
           }, {
             countyCode: "231221",
-            countyName: "æœ›å¥å¿"
+            countyName: "Íû¿üÏØ"
           }, {
             countyCode: "231202",
-            countyName: "åŒ—æ—åŒº"
+            countyName: "±±ÁÖÇø"
           }]
         }, {
           cityCode: "230300",
-          cityName: "é¸¡è¥¿å¸‚",
+          cityName: "¼¦Î÷ÊĞ",
           county: [{
             countyCode: "230303",
-            countyName: "æ’å±±åŒº"
+            countyName: "ºãÉ½Çø"
           }, {
             countyCode: "230302",
-            countyName: "é¸¡å† åŒº"
+            countyName: "¼¦¹ÚÇø"
           }, {
             countyCode: "230305",
-            countyName: "æ¢¨æ ‘åŒº"
+            countyName: "ÀæÊ÷Çø"
           }, {
             countyCode: "230321",
-            countyName: "é¸¡ä¸œå¿"
+            countyName: "¼¦¶«ÏØ"
           }, {
             countyCode: "230304",
-            countyName: "æ»´é“åŒº"
+            countyName: "µÎµÀÇø"
           }, {
             countyCode: "230381",
-            countyName: "è™æ—å¸‚"
+            countyName: "»¢ÁÖÊĞ"
           }, {
             countyCode: "230307",
-            countyName: "éº»å±±åŒº"
+            countyName: "ÂéÉ½Çø"
           }, {
             countyCode: "230306",
-            countyName: "åŸå­æ²³åŒº"
+            countyName: "³Ç×ÓºÓÇø"
           }, {
             countyCode: "230382",
-            countyName: "å¯†å±±å¸‚"
+            countyName: "ÃÜÉ½ÊĞ"
           }]
         }]
       }, {
         provinceCode: "310000",
-        provinceName: "ä¸Šæµ·",
+        provinceName: "ÉÏº£",
         city: [{
           cityCode: "310000-1",
-          cityName: "ä¸Šæµ·å¸‚",
+          cityName: "ÉÏº£ÊĞ",
           county: [{
             countyCode: "310115",
-            countyName: "æµ¦ä¸œæ–°åŒº"
+            countyName: "ÆÖ¶«ĞÂÇø"
           }, {
             countyCode: "310110",
-            countyName: "æ¨æµ¦åŒº"
+            countyName: "ÑîÆÖÇø"
           }, {
             countyCode: "310230",
-            countyName: "å´‡æ˜åŒº"
+            countyName: "³çÃ÷Çø"
           }, {
             countyCode: "310113",
-            countyName: "å®å±±åŒº"
+            countyName: "±¦É½Çø"
           }, {
             countyCode: "310114",
-            countyName: "å˜‰å®šåŒº"
+            countyName: "¼Î¶¨Çø"
           }, {
             countyCode: "310109",
-            countyName: "è™¹å£åŒº"
+            countyName: "ºç¿ÚÇø"
           }, {
             countyCode: "310101",
-            countyName: "é»„æµ¦åŒº"
+            countyName: "»ÆÆÖÇø"
           }, {
             countyCode: "310120",
-            countyName: "å¥‰è´¤åŒº"
+            countyName: "·îÏÍÇø"
           }, {
             countyCode: "310118",
-            countyName: "é’æµ¦åŒº"
+            countyName: "ÇàÆÖÇø"
           }, {
             countyCode: "310112",
-            countyName: "é—µè¡ŒåŒº"
+            countyName: "ãÉĞĞÇø"
           }, {
             countyCode: "310105",
-            countyName: "é•¿å®åŒº"
+            countyName: "³¤ÄşÇø"
           }, {
             countyCode: "310104",
-            countyName: "å¾æ±‡åŒº"
+            countyName: "Ğì»ãÇø"
           }, {
             countyCode: "310117",
-            countyName: "æ¾æ±ŸåŒº"
+            countyName: "ËÉ½­Çø"
           }, {
             countyCode: "310106",
-            countyName: "é™å®‰åŒº"
+            countyName: "¾²°²Çø"
           }, {
             countyCode: "310107",
-            countyName: "æ™®é™€åŒº"
+            countyName: "ÆÕÍÓÇø"
           }, {
             countyCode: "310116",
-            countyName: "é‡‘å±±åŒº"
+            countyName: "½ğÉ½Çø"
           }]
         }]
       }, {
         provinceCode: "340000",
-        provinceName: "å®‰å¾½çœ",
+        provinceName: "°²»ÕÊ¡",
         city: [{
           cityCode: "341000",
-          cityName: "é»„å±±å¸‚",
+          cityName: "»ÆÉ½ÊĞ",
           county: [{
             countyCode: "341022",
-            countyName: "ä¼‘å®å¿"
+            countyName: "ĞİÄşÏØ"
           }, {
             countyCode: "341024",
-            countyName: "ç¥é—¨å¿"
+            countyName: "ÆîÃÅÏØ"
           }, {
             countyCode: "341021",
-            countyName: "æ­™å¿"
+            countyName: "ì¨ÏØ"
           }, {
             countyCode: "341003",
-            countyName: "é»„å±±åŒº"
+            countyName: "»ÆÉ½Çø"
           }, {
             countyCode: "341023",
-            countyName: "é»Ÿå¿"
+            countyName: "÷ğÏØ"
           }, {
             countyCode: "341004",
-            countyName: "å¾½å·åŒº"
+            countyName: "»ÕÖİÇø"
           }, {
             countyCode: "341002",
-            countyName: "å±¯æºªåŒº"
+            countyName: "ÍÍÏªÇø"
           }]
         }, {
           cityCode: "340200",
-          cityName: "èŠœæ¹–å¸‚",
+          cityName: "ÎßºşÊĞ",
           county: [{
             countyCode: "340208",
-            countyName: "ä¸‰å±±åŒº"
+            countyName: "ÈıÉ½Çø"
           }, {
             countyCode: "340222",
-            countyName: "ç¹æ˜Œå¿"
+            countyName: "·±²ıÏØ"
           }, {
             countyCode: "340207",
-            countyName: "é¸ æ±ŸåŒº"
+            countyName: "ğ¯½­Çø"
           }, {
             countyCode: "340221",
-            countyName: "èŠœæ¹–å¿"
+            countyName: "ÎßºşÏØ"
           }, {
             countyCode: "340202",
-            countyName: "é•œæ¹–åŒº"
+            countyName: "¾µºşÇø"
           }, {
             countyCode: "340203",
-            countyName: "å¼‹æ±ŸåŒº"
+            countyName: "ß®½­Çø"
           }, {
             countyCode: "340225",
-            countyName: "æ— ä¸ºå¿"
+            countyName: "ÎŞÎªÏØ"
           }, {
             countyCode: "340223",
-            countyName: "å—é™µå¿"
+            countyName: "ÄÏÁêÏØ"
           }]
         }, {
           cityCode: "340800",
-          cityName: "å®‰åº†å¸‚",
+          cityName: "°²ÇìÊĞ",
           county: [{
             countyCode: "340826",
-            countyName: "å®¿æ¾å¿"
+            countyName: "ËŞËÉÏØ"
           }, {
             countyCode: "340824",
-            countyName: "æ½œå±±å¸‚"
+            countyName: "Ç±É½ÊĞ"
           }, {
             countyCode: "340881",
-            countyName: "æ¡åŸå¸‚"
+            countyName: "Í©³ÇÊĞ"
           }, {
             countyCode: "340828",
-            countyName: "å²³è¥¿å¿"
+            countyName: "ÔÀÎ÷ÏØ"
           }, {
             countyCode: "340825",
-            countyName: "å¤ªæ¹–å¿"
+            countyName: "Ì«ºşÏØ"
           }, {
             countyCode: "340811",
-            countyName: "å®œç§€åŒº"
+            countyName: "ÒËĞãÇø"
           }, {
             countyCode: "340803",
-            countyName: "å¤§è§‚åŒº"
+            countyName: "´ó¹ÛÇø"
           }, {
             countyCode: "340827",
-            countyName: "æœ›æ±Ÿå¿"
+            countyName: "Íû½­ÏØ"
           }, {
             countyCode: "340802",
-            countyName: "è¿æ±ŸåŒº"
+            countyName: "Ó­½­Çø"
           }, {
             countyCode: "340822",
-            countyName: "æ€€å®å¿"
+            countyName: "»³ÄşÏØ"
           }]
         }, {
           cityCode: "341100",
-          cityName: "æ»å·å¸‚",
+          cityName: "³üÖİÊĞ",
           county: [{
             countyCode: "341103",
-            countyName: "å—è°¯åŒº"
+            countyName: "ÄÏÚÛÇø"
           }, {
             countyCode: "341102",
-            countyName: "ç…çŠåŒº"
+            countyName: "ÀÅçğÇø"
           }, {
             countyCode: "341181",
-            countyName: "å¤©é•¿å¸‚"
+            countyName: "Ìì³¤ÊĞ"
           }, {
             countyCode: "341125",
-            countyName: "å®šè¿œå¿"
+            countyName: "¶¨Ô¶ÏØ"
           }, {
             countyCode: "341124",
-            countyName: "å…¨æ¤’å¿"
+            countyName: "È«½·ÏØ"
           }, {
             countyCode: "341122",
-            countyName: "æ¥å®‰å¿"
+            countyName: "À´°²ÏØ"
           }, {
             countyCode: "341182",
-            countyName: "æ˜å…‰å¸‚"
+            countyName: "Ã÷¹âÊĞ"
           }, {
             countyCode: "341126",
-            countyName: "å‡¤é˜³å¿"
+            countyName: "·ïÑôÏØ"
           }]
         }, {
           cityCode: "340600",
-          cityName: "æ·®åŒ—å¸‚",
+          cityName: "»´±±ÊĞ",
           county: [{
             countyCode: "340621",
-            countyName: "æ¿‰æºªå¿"
+            countyName: "å¡ÏªÏØ"
           }, {
             countyCode: "340603",
-            countyName: "ç›¸å±±åŒº"
+            countyName: "ÏàÉ½Çø"
           }, {
             countyCode: "340602",
-            countyName: "æœé›†åŒº"
+            countyName: "¶Å¼¯Çø"
           }, {
             countyCode: "340604",
-            countyName: "çƒˆå±±åŒº"
+            countyName: "ÁÒÉ½Çø"
           }]
         }, {
           cityCode: "340700",
-          cityName: "é“œé™µå¸‚",
+          cityName: "Í­ÁêÊĞ",
           county: [{
             countyCode: "340711",
-            countyName: "éƒŠåŒº"
+            countyName: "½¼Çø"
           }, {
             countyCode: "340702",
-            countyName: "é“œå®˜å±±åŒº"
+            countyName: "Í­¹ÙÉ½Çø"
           }, {
             countyCode: "340823",
-            countyName: "æé˜³å¿"
+            countyName: "èÈÑôÏØ"
           }, {
             countyCode: "340703",
-            countyName: "é“œå®˜åŒº"
+            countyName: "Í­¹ÙÇø"
           }, {
             countyCode: "340721",
-            countyName: "ä¹‰å®‰åŒº"
+            countyName: "Òå°²Çø"
           }]
         }, {
           cityCode: "340300",
-          cityName: "èšŒåŸ å¸‚",
+          cityName: "°ö²ºÊĞ",
           county: [{
             countyCode: "340303",
-            countyName: "èšŒå±±åŒº"
+            countyName: "°öÉ½Çø"
           }, {
             countyCode: "340323",
-            countyName: "å›ºé•‡å¿"
+            countyName: "¹ÌÕòÏØ"
           }, {
             countyCode: "340322",
-            countyName: "äº”æ²³å¿"
+            countyName: "ÎåºÓÏØ"
           }, {
             countyCode: "340304",
-            countyName: "ç¦¹ä¼šåŒº"
+            countyName: "Óí»áÇø"
           }, {
             countyCode: "340311",
-            countyName: "æ·®ä¸ŠåŒº"
+            countyName: "»´ÉÏÇø"
           }, {
             countyCode: "340302",
-            countyName: "é¾™å­æ¹–åŒº"
+            countyName: "Áú×ÓºşÇø"
           }, {
             countyCode: "340321",
-            countyName: "æ€€è¿œå¿"
+            countyName: "»³Ô¶ÏØ"
           }]
         }, {
           cityCode: "340400",
-          cityName: "æ·®å—å¸‚",
+          cityName: "»´ÄÏÊĞ",
           county: [{
             countyCode: "340421",
-            countyName: "å‡¤å°å¿"
+            countyName: "·ïÌ¨ÏØ"
           }, {
             countyCode: "341521",
-            countyName: "å¯¿å¿"
+            countyName: "ÊÙÏØ"
           }, {
             countyCode: "340403",
-            countyName: "ç”°å®¶åºµåŒº"
+            countyName: "Ìï¼ÒâÖÇø"
           }, {
             countyCode: "340404",
-            countyName: "è°¢å®¶é›†åŒº"
+            countyName: "Ğ»¼Ò¼¯Çø"
           }, {
             countyCode: "340406",
-            countyName: "æ½˜é›†åŒº"
+            countyName: "ÅË¼¯Çø"
           }, {
             countyCode: "340405",
-            countyName: "å…«å…¬å±±åŒº"
+            countyName: "°Ë¹«É½Çø"
           }, {
             countyCode: "340402",
-            countyName: "å¤§é€šåŒº"
+            countyName: "´óÍ¨Çø"
           }]
         }, {
           cityCode: "341300",
-          cityName: "å®¿å·å¸‚",
+          cityName: "ËŞÖİÊĞ",
           county: [{
             countyCode: "341321",
-            countyName: "ç €å±±å¿"
+            countyName: "í¸É½ÏØ"
           }, {
             countyCode: "341322",
-            countyName: "è§å¿"
+            countyName: "ÏôÏØ"
           }, {
             countyCode: "341324",
-            countyName: "æ³—å¿"
+            countyName: "ãôÏØ"
           }, {
             countyCode: "341323",
-            countyName: "çµç’§å¿"
+            countyName: "ÁéèµÏØ"
           }, {
             countyCode: "341302",
-            countyName: "åŸ‡æ¡¥åŒº"
+            countyName: "ˆ¬ÇÅÇø"
           }]
         }, {
           cityCode: "341700",
-          cityName: "æ± å·å¸‚",
+          cityName: "³ØÖİÊĞ",
           county: [{
             countyCode: "341723",
-            countyName: "é’é˜³å¿"
+            countyName: "ÇàÑôÏØ"
           }, {
             countyCode: "341722",
-            countyName: "çŸ³å°å¿"
+            countyName: "Ê¯Ì¨ÏØ"
           }, {
             countyCode: "341721",
-            countyName: "ä¸œè‡³å¿"
+            countyName: "¶«ÖÁÏØ"
           }, {
             countyCode: "341702",
-            countyName: "è´µæ± åŒº"
+            countyName: "¹ó³ØÇø"
           }]
         }, {
           cityCode: "340500",
-          cityName: "é©¬éå±±å¸‚",
+          cityName: "Âí°°É½ÊĞ",
           county: [{
             countyCode: "340522",
-            countyName: "å«å±±å¿"
+            countyName: "º¬É½ÏØ"
           }, {
             countyCode: "340503",
-            countyName: "èŠ±å±±åŒº"
+            countyName: "»¨É½Çø"
           }, {
             countyCode: "340506",
-            countyName: "åšæœ›åŒº"
+            countyName: "²©ÍûÇø"
           }, {
             countyCode: "340523",
-            countyName: "å’Œå¿"
+            countyName: "ºÍÏØ"
           }, {
             countyCode: "340521",
-            countyName: "å½“æ¶‚å¿"
+            countyName: "µ±Í¿ÏØ"
           }, {
             countyCode: "340504",
-            countyName: "é›¨å±±åŒº"
+            countyName: "ÓêÉ½Çø"
           }]
         }, {
           cityCode: "341200",
-          cityName: "é˜œé˜³å¸‚",
+          cityName: "¸·ÑôÊĞ",
           county: [{
             countyCode: "341222",
-            countyName: "å¤ªå’Œå¿"
+            countyName: "Ì«ºÍÏØ"
           }, {
             countyCode: "341226",
-            countyName: "é¢ä¸Šå¿"
+            countyName: "ò£ÉÏÏØ"
           }, {
             countyCode: "341221",
-            countyName: "ä¸´æ³‰å¿"
+            countyName: "ÁÙÈªÏØ"
           }, {
             countyCode: "341204",
-            countyName: "é¢æ³‰åŒº"
+            countyName: "ò£ÈªÇø"
           }, {
             countyCode: "341225",
-            countyName: "é˜œå—å¿"
+            countyName: "¸·ÄÏÏØ"
           }, {
             countyCode: "341282",
-            countyName: "ç•Œé¦–å¸‚"
+            countyName: "½çÊ×ÊĞ"
           }, {
             countyCode: "341203",
-            countyName: "é¢ä¸œåŒº"
+            countyName: "ò£¶«Çø"
           }, {
             countyCode: "341202",
-            countyName: "é¢å·åŒº"
+            countyName: "ò£ÖİÇø"
           }]
         }, {
           cityCode: "341600",
-          cityName: "äº³å·å¸‚",
+          cityName: "ÙñÖİÊĞ",
           county: [{
             countyCode: "341621",
-            countyName: "æ¶¡é˜³å¿"
+            countyName: "ÎĞÑôÏØ"
           }, {
             countyCode: "341623",
-            countyName: "åˆ©è¾›å¿"
+            countyName: "ÀûĞÁÏØ"
           }, {
             countyCode: "341602",
-            countyName: "è°¯åŸåŒº"
+            countyName: "ÚÛ³ÇÇø"
           }, {
             countyCode: "341622",
-            countyName: "è’™åŸå¿"
+            countyName: "ÃÉ³ÇÏØ"
           }]
         }, {
           cityCode: "341800",
-          cityName: "å®£åŸå¸‚",
+          cityName: "Ğû³ÇÊĞ",
           county: [{
             countyCode: "341881",
-            countyName: "å®å›½å¸‚"
+            countyName: "Äş¹úÊĞ"
           }, {
             countyCode: "341822",
-            countyName: "å¹¿å¾·å¿"
+            countyName: "¹ãµÂÏØ"
           }, {
             countyCode: "341821",
-            countyName: "éƒæºªå¿"
+            countyName: "ÀÉÏªÏØ"
           }, {
             countyCode: "341823",
-            countyName: "æ³¾å¿"
+            countyName: "ãşÏØ"
           }, {
             countyCode: "341825",
-            countyName: "æ—Œå¾·å¿"
+            countyName: "ìºµÂÏØ"
           }, {
             countyCode: "341802",
-            countyName: "å®£å·åŒº"
+            countyName: "ĞûÖİÇø"
           }, {
             countyCode: "341824",
-            countyName: "ç»©æºªå¿"
+            countyName: "¼¨ÏªÏØ"
           }]
         }, {
           cityCode: "340100",
-          cityName: "åˆè‚¥å¸‚",
+          cityName: "ºÏ·ÊÊĞ",
           county: [{
             countyCode: "340181",
-            countyName: "å·¢æ¹–å¸‚"
+            countyName: "³²ºşÊĞ"
           }, {
             countyCode: "340104",
-            countyName: "èœ€å±±åŒº"
+            countyName: "ÊñÉ½Çø"
           }, {
             countyCode: "340122",
-            countyName: "è‚¥ä¸œå¿"
+            countyName: "·Ê¶«ÏØ"
           }, {
             countyCode: "340111",
-            countyName: "åŒ…æ²³åŒº"
+            countyName: "°üºÓÇø"
           }, {
             countyCode: "340102",
-            countyName: "ç‘¶æµ·åŒº"
+            countyName: "Ñşº£Çø"
           }, {
             countyCode: "340123",
-            countyName: "è‚¥è¥¿å¿"
+            countyName: "·ÊÎ÷ÏØ"
           }, {
             countyCode: "340124",
-            countyName: "åºæ±Ÿå¿"
+            countyName: "Â®½­ÏØ"
           }, {
             countyCode: "340121",
-            countyName: "é•¿ä¸°å¿"
+            countyName: "³¤·áÏØ"
           }, {
             countyCode: "340103",
-            countyName: "åºé˜³åŒº"
+            countyName: "Â®ÑôÇø"
           }]
         }, {
           cityCode: "341500",
-          cityName: "å…­å®‰å¸‚",
+          cityName: "Áù°²ÊĞ",
           county: [{
             countyCode: "341525",
-            countyName: "éœå±±å¿"
+            countyName: "»ôÉ½ÏØ"
           }, {
             countyCode: "341502",
-            countyName: "é‡‘å®‰åŒº"
+            countyName: "½ğ°²Çø"
           }, {
             countyCode: "341503",
-            countyName: "è£•å®‰åŒº"
+            countyName: "Ô£°²Çø"
           }, {
             countyCode: "341522",
-            countyName: "éœé‚±å¿"
+            countyName: "»ôÇñÏØ"
           }, {
             countyCode: "341504",
-            countyName: "å¶é›†åŒº"
+            countyName: "Ò¶¼¯Çø"
           }, {
             countyCode: "341523",
-            countyName: "èˆ’åŸå¿"
+            countyName: "Êæ³ÇÏØ"
           }, {
             countyCode: "341524",
-            countyName: "é‡‘å¯¨å¿"
+            countyName: "½ğÕ¯ÏØ"
           }]
         }]
       }, {
         provinceCode: "350000",
-        provinceName: "ç¦å»ºçœ",
+        provinceName: "¸£½¨Ê¡",
         city: [{
           cityCode: "350200",
-          cityName: "å¦é—¨å¸‚",
+          cityName: "ÏÃÃÅÊĞ",
           county: [{
             countyCode: "350206",
-            countyName: "æ¹–é‡ŒåŒº"
+            countyName: "ºşÀïÇø"
           }, {
             countyCode: "350212",
-            countyName: "åŒå®‰åŒº"
+            countyName: "Í¬°²Çø"
           }, {
             countyCode: "350203",
-            countyName: "æ€æ˜åŒº"
+            countyName: "Ë¼Ã÷Çø"
           }, {
             countyCode: "350213",
-            countyName: "ç¿”å®‰åŒº"
+            countyName: "Ïè°²Çø"
           }, {
             countyCode: "350205",
-            countyName: "æµ·æ²§åŒº"
+            countyName: "º£²×Çø"
           }, {
             countyCode: "350211",
-            countyName: "é›†ç¾åŒº"
+            countyName: "¼¯ÃÀÇø"
           }]
         }, {
           cityCode: "350800",
-          cityName: "é¾™å²©å¸‚",
+          cityName: "ÁúÑÒÊĞ",
           county: [{
             countyCode: "350881",
-            countyName: "æ¼³å¹³å¸‚"
+            countyName: "ÕÄÆ½ÊĞ"
           }, {
             countyCode: "350825",
-            countyName: "è¿åŸå¿"
+            countyName: "Á¬³ÇÏØ"
           }, {
             countyCode: "350821",
-            countyName: "é•¿æ±€å¿"
+            countyName: "³¤Í¡ÏØ"
           }, {
             countyCode: "350802",
-            countyName: "æ–°ç½—åŒº"
+            countyName: "ĞÂÂŞÇø"
           }, {
             countyCode: "350823",
-            countyName: "ä¸Šæ­å¿"
+            countyName: "ÉÏº¼ÏØ"
           }, {
             countyCode: "350822",
-            countyName: "æ°¸å®šåŒº"
+            countyName: "ÓÀ¶¨Çø"
           }, {
             countyCode: "350824",
-            countyName: "æ­¦å¹³å¿"
+            countyName: "ÎäÆ½ÏØ"
           }]
         }, {
           cityCode: "350100",
-          cityName: "ç¦å·å¸‚",
+          cityName: "¸£ÖİÊĞ",
           county: [{
             countyCode: "350124",
-            countyName: "é—½æ¸…å¿"
+            countyName: "ÃöÇåÏØ"
           }, {
             countyCode: "350103",
-            countyName: "å°æ±ŸåŒº"
+            countyName: "Ì¨½­Çø"
           }, {
             countyCode: "350121",
-            countyName: "é—½ä¾¯å¿"
+            countyName: "ÃöºîÏØ"
           }, {
             countyCode: "350182",
-            countyName: "é•¿ä¹åŒº"
+            countyName: "³¤ÀÖÇø"
           }, {
             countyCode: "350125",
-            countyName: "æ°¸æ³°å¿"
+            countyName: "ÓÀÌ©ÏØ"
           }, {
             countyCode: "350111",
-            countyName: "æ™‹å®‰åŒº"
+            countyName: "½ú°²Çø"
           }, {
             countyCode: "350123",
-            countyName: "ç½—æºå¿"
+            countyName: "ÂŞÔ´ÏØ"
           }, {
             countyCode: "350102",
-            countyName: "é¼“æ¥¼åŒº"
+            countyName: "¹ÄÂ¥Çø"
           }, {
             countyCode: "350105",
-            countyName: "é©¬å°¾åŒº"
+            countyName: "ÂíÎ²Çø"
           }, {
             countyCode: "350104",
-            countyName: "ä»“å±±åŒº"
+            countyName: "²ÖÉ½Çø"
           }, {
             countyCode: "350128",
-            countyName: "å¹³æ½­å¿"
+            countyName: "Æ½Ì¶ÏØ"
           }, {
             countyCode: "350181",
-            countyName: "ç¦æ¸…å¸‚"
+            countyName: "¸£ÇåÊĞ"
           }, {
             countyCode: "350122",
-            countyName: "è¿æ±Ÿå¿"
+            countyName: "Á¬½­ÏØ"
           }]
         }, {
           cityCode: "350700",
-          cityName: "å—å¹³å¸‚",
+          cityName: "ÄÏÆ½ÊĞ",
           county: [{
             countyCode: "350724",
-            countyName: "æ¾æºªå¿"
+            countyName: "ËÉÏªÏØ"
           }, {
             countyCode: "350783",
-            countyName: "å»ºç“¯å¸‚"
+            countyName: "½¨ê±ÊĞ"
           }, {
             countyCode: "350725",
-            countyName: "æ”¿å’Œå¿"
+            countyName: "ÕşºÍÏØ"
           }, {
             countyCode: "350723",
-            countyName: "å…‰æ³½å¿"
+            countyName: "¹âÔóÏØ"
           }, {
             countyCode: "350721",
-            countyName: "é¡ºæ˜Œå¿"
+            countyName: "Ë³²ıÏØ"
           }, {
             countyCode: "350781",
-            countyName: "é‚µæ­¦å¸‚"
+            countyName: "ÉÛÎäÊĞ"
           }, {
             countyCode: "350782",
-            countyName: "æ­¦å¤·å±±å¸‚"
+            countyName: "ÎäÒÄÉ½ÊĞ"
           }, {
             countyCode: "350722",
-            countyName: "æµ¦åŸå¿"
+            countyName: "ÆÖ³ÇÏØ"
           }, {
             countyCode: "350784",
-            countyName: "å»ºé˜³åŒº"
+            countyName: "½¨ÑôÇø"
           }, {
             countyCode: "350702",
-            countyName: "å»¶å¹³åŒº"
+            countyName: "ÑÓÆ½Çø"
           }]
         }, {
           cityCode: "350900",
-          cityName: "å®å¾·å¸‚",
+          cityName: "ÄşµÂÊĞ",
           county: [{
             countyCode: "350922",
-            countyName: "å¤ç”°å¿"
+            countyName: "¹ÅÌïÏØ"
           }, {
             countyCode: "350924",
-            countyName: "å¯¿å®å¿"
+            countyName: "ÊÙÄşÏØ"
           }, {
             countyCode: "350902",
-            countyName: "è•‰åŸåŒº"
+            countyName: "½¶³ÇÇø"
           }, {
             countyCode: "350926",
-            countyName: "æŸ˜è£å¿"
+            countyName: "èÏÈÙÏØ"
           }, {
             countyCode: "350925",
-            countyName: "å‘¨å®å¿"
+            countyName: "ÖÜÄşÏØ"
           }, {
             countyCode: "350982",
-            countyName: "ç¦é¼å¸‚"
+            countyName: "¸£¶¦ÊĞ"
           }, {
             countyCode: "350923",
-            countyName: "å±å—å¿"
+            countyName: "ÆÁÄÏÏØ"
           }, {
             countyCode: "350981",
-            countyName: "ç¦å®‰å¸‚"
+            countyName: "¸£°²ÊĞ"
           }, {
             countyCode: "350921",
-            countyName: "éœæµ¦å¿"
+            countyName: "Ï¼ÆÖÏØ"
           }]
         }, {
           cityCode: "350500",
-          cityName: "æ³‰å·å¸‚",
+          cityName: "ÈªÖİÊĞ",
           county: [{
             countyCode: "350526",
-            countyName: "å¾·åŒ–å¿"
+            countyName: "µÂ»¯ÏØ"
           }, {
             countyCode: "350582",
-            countyName: "æ™‹æ±Ÿå¸‚"
+            countyName: "½ú½­ÊĞ"
           }, {
             countyCode: "350583",
-            countyName: "å—å®‰å¸‚"
+            countyName: "ÄÏ°²ÊĞ"
           }, {
             countyCode: "350503",
-            countyName: "ä¸°æ³½åŒº"
+            countyName: "·áÔóÇø"
           }, {
             countyCode: "350581",
-            countyName: "çŸ³ç‹®å¸‚"
+            countyName: "Ê¯Ê¨ÊĞ"
           }, {
             countyCode: "350525",
-            countyName: "æ°¸æ˜¥å¿"
+            countyName: "ÓÀ´ºÏØ"
           }, {
             countyCode: "350521",
-            countyName: "æƒ å®‰å¿"
+            countyName: "»İ°²ÏØ"
           }, {
             countyCode: "350524",
-            countyName: "å®‰æºªå¿"
+            countyName: "°²ÏªÏØ"
           }, {
             countyCode: "350502",
-            countyName: "é²¤åŸåŒº"
+            countyName: "Àğ³ÇÇø"
           }, {
             countyCode: "350505",
-            countyName: "æ³‰æ¸¯åŒº"
+            countyName: "Èª¸ÛÇø"
           }, {
             countyCode: "350527",
-            countyName: "é‡‘é—¨å¿"
+            countyName: "½ğÃÅÏØ"
           }, {
             countyCode: "350504",
-            countyName: "æ´›æ±ŸåŒº"
+            countyName: "Âå½­Çø"
           }]
         }, {
           cityCode: "350400",
-          cityName: "ä¸‰æ˜å¸‚",
+          cityName: "ÈıÃ÷ÊĞ",
           county: [{
             countyCode: "350421",
-            countyName: "æ˜æºªå¿"
+            countyName: "Ã÷ÏªÏØ"
           }, {
             countyCode: "350403",
-            countyName: "ä¸‰å…ƒåŒº"
+            countyName: "ÈıÔªÇø"
           }, {
             countyCode: "350423",
-            countyName: "æ¸…æµå¿"
+            countyName: "ÇåÁ÷ÏØ"
           }, {
             countyCode: "350426",
-            countyName: "å°¤æºªå¿"
+            countyName: "ÓÈÏªÏØ"
           }, {
             countyCode: "350481",
-            countyName: "æ°¸å®‰å¸‚"
+            countyName: "ÓÀ°²ÊĞ"
           }, {
             countyCode: "350424",
-            countyName: "å®åŒ–å¿"
+            countyName: "Äş»¯ÏØ"
           }, {
             countyCode: "350425",
-            countyName: "å¤§ç”°å¿"
+            countyName: "´óÌïÏØ"
           }, {
             countyCode: "350427",
-            countyName: "æ²™å¿"
+            countyName: "É³ÏØ"
           }, {
             countyCode: "350430",
-            countyName: "å»ºå®å¿"
+            countyName: "½¨ÄşÏØ"
           }, {
             countyCode: "350428",
-            countyName: "å°†ä¹å¿"
+            countyName: "½«ÀÖÏØ"
           }, {
             countyCode: "350402",
-            countyName: "æ¢…åˆ—åŒº"
+            countyName: "Ã·ÁĞÇø"
           }, {
             countyCode: "350429",
-            countyName: "æ³°å®å¿"
+            countyName: "Ì©ÄşÏØ"
           }]
         }, {
           cityCode: "350300",
-          cityName: "è†ç”°å¸‚",
+          cityName: "ÆÎÌïÊĞ",
           county: [{
             countyCode: "350322",
-            countyName: "ä»™æ¸¸å¿"
+            countyName: "ÏÉÓÎÏØ"
           }, {
             countyCode: "350303",
-            countyName: "æ¶µæ±ŸåŒº"
+            countyName: "º­½­Çø"
           }, {
             countyCode: "350304",
-            countyName: "è”åŸåŒº"
+            countyName: "Àó³ÇÇø"
           }, {
             countyCode: "350302",
-            countyName: "åŸå¢åŒº"
+            countyName: "³ÇÏáÇø"
           }, {
             countyCode: "350305",
-            countyName: "ç§€å±¿åŒº"
+            countyName: "ĞãÓìÇø"
           }]
         }, {
           cityCode: "350600",
-          cityName: "æ¼³å·å¸‚",
+          cityName: "ÕÄÖİÊĞ",
           county: [{
             countyCode: "350629",
-            countyName: "åå®‰å¿"
+            countyName: "»ª°²ÏØ"
           }, {
             countyCode: "350623",
-            countyName: "æ¼³æµ¦å¿"
+            countyName: "ÕÄÆÖÏØ"
           }, {
             countyCode: "350602",
-            countyName: "èŠ—åŸåŒº"
+            countyName: "Ü¼³ÇÇø"
           }, {
             countyCode: "350625",
-            countyName: "é•¿æ³°å¿"
+            countyName: "³¤Ì©ÏØ"
           }, {
             countyCode: "350603",
-            countyName: "é¾™æ–‡åŒº"
+            countyName: "ÁúÎÄÇø"
           }, {
             countyCode: "350622",
-            countyName: "äº‘éœ„å¿"
+            countyName: "ÔÆÏöÏØ"
           }, {
             countyCode: "350628",
-            countyName: "å¹³å’Œå¿"
+            countyName: "Æ½ºÍÏØ"
           }, {
             countyCode: "350627",
-            countyName: "å—é–å¿"
+            countyName: "ÄÏ¾¸ÏØ"
           }, {
             countyCode: "350681",
-            countyName: "é¾™æµ·å¸‚"
+            countyName: "Áúº£ÊĞ"
           }, {
             countyCode: "350624",
-            countyName: "è¯å®‰å¿"
+            countyName: "Ú¯°²ÏØ"
           }, {
             countyCode: "350626",
-            countyName: "ä¸œå±±å¿"
+            countyName: "¶«É½ÏØ"
           }]
         }]
       }, {
         provinceCode: "360000",
-        provinceName: "æ±Ÿè¥¿çœ",
+        provinceName: "½­Î÷Ê¡",
         city: [{
           cityCode: "361000",
-          cityName: "æŠšå·å¸‚",
+          cityName: "¸§ÖİÊĞ",
           county: [{
             countyCode: "361002",
-            countyName: "ä¸´å·åŒº"
+            countyName: "ÁÙ´¨Çø"
           }, {
             countyCode: "361023",
-            countyName: "å—ä¸°å¿"
+            countyName: "ÄÏ·áÏØ"
           }, {
             countyCode: "361026",
-            countyName: "å®œé»„å¿"
+            countyName: "ÒË»ÆÏØ"
           }, {
             countyCode: "361028",
-            countyName: "èµ„æºªå¿"
+            countyName: "×ÊÏªÏØ"
           }, {
             countyCode: "361029",
-            countyName: "ä¸œä¹¡åŒº"
+            countyName: "¶«ÏçÇø"
           }, {
             countyCode: "361027",
-            countyName: "é‡‘æºªå¿"
+            countyName: "½ğÏªÏØ"
           }, {
             countyCode: "361022",
-            countyName: "é»å·å¿"
+            countyName: "Àè´¨ÏØ"
           }, {
             countyCode: "361021",
-            countyName: "å—åŸå¿"
+            countyName: "ÄÏ³ÇÏØ"
           }, {
             countyCode: "361025",
-            countyName: "ä¹å®‰å¿"
+            countyName: "ÀÖ°²ÏØ"
           }, {
             countyCode: "361024",
-            countyName: "å´‡ä»å¿"
+            countyName: "³çÈÊÏØ"
           }, {
             countyCode: "361030",
-            countyName: "å¹¿æ˜Œå¿"
+            countyName: "¹ã²ıÏØ"
           }]
         }, {
           cityCode: "360900",
-          cityName: "å®œæ˜¥å¸‚",
+          cityName: "ÒË´ºÊĞ",
           county: [{
             countyCode: "360981",
-            countyName: "ä¸°åŸå¸‚"
+            countyName: "·á³ÇÊĞ"
           }, {
             countyCode: "360902",
-            countyName: "è¢å·åŒº"
+            countyName: "Ô¬ÖİÇø"
           }, {
             countyCode: "360921",
-            countyName: "å¥‰æ–°å¿"
+            countyName: "·îĞÂÏØ"
           }, {
             countyCode: "360983",
-            countyName: "é«˜å®‰å¸‚"
+            countyName: "¸ß°²ÊĞ"
           }, {
             countyCode: "360922",
-            countyName: "ä¸‡è½½å¿"
+            countyName: "ÍòÔØÏØ"
           }, {
             countyCode: "360926",
-            countyName: "é“œé¼“å¿"
+            countyName: "Í­¹ÄÏØ"
           }, {
             countyCode: "360923",
-            countyName: "ä¸Šé«˜å¿"
+            countyName: "ÉÏ¸ßÏØ"
           }, {
             countyCode: "360924",
-            countyName: "å®œä¸°å¿"
+            countyName: "ÒË·áÏØ"
           }, {
             countyCode: "360925",
-            countyName: "é–å®‰å¿"
+            countyName: "¾¸°²ÏØ"
           }, {
             countyCode: "360982",
-            countyName: "æ¨Ÿæ ‘å¸‚"
+            countyName: "ÕÁÊ÷ÊĞ"
           }]
         }, {
           cityCode: "360100",
-          cityName: "å—æ˜Œå¸‚",
+          cityName: "ÄÏ²ıÊĞ",
           county: [{
             countyCode: "360104",
-            countyName: "é’äº‘è°±åŒº"
+            countyName: "ÇàÔÆÆ×Çø"
           }, {
             countyCode: "360105",
-            countyName: "æ¹¾é‡ŒåŒº"
+            countyName: "ÍåÀïÇø"
           }, {
             countyCode: "360124",
-            countyName: "è¿›è´¤å¿"
+            countyName: "½øÏÍÏØ"
           }, {
             countyCode: "360102",
-            countyName: "ä¸œæ¹–åŒº"
+            countyName: "¶«ºşÇø"
           }, {
             countyCode: "360123",
-            countyName: "å®‰ä¹‰å¿"
+            countyName: "°²ÒåÏØ"
           }, {
             countyCode: "360122",
-            countyName: "æ–°å»ºåŒº"
+            countyName: "ĞÂ½¨Çø"
           }, {
             countyCode: "360121",
-            countyName: "å—æ˜Œå¿"
+            countyName: "ÄÏ²ıÏØ"
           }, {
             countyCode: "360111",
-            countyName: "é’å±±æ¹–åŒº"
+            countyName: "ÇàÉ½ºşÇø"
           }, {
             countyCode: "360103",
-            countyName: "è¥¿æ¹–åŒº"
+            countyName: "Î÷ºşÇø"
           }]
         }, {
           cityCode: "360700",
-          cityName: "èµ£å·å¸‚",
+          cityName: "¸ÓÖİÊĞ",
           county: [{
             countyCode: "360725",
-            countyName: "å´‡ä¹‰å¿"
+            countyName: "³çÒåÏØ"
           }, {
             countyCode: "360727",
-            countyName: "é¾™å—å¿"
+            countyName: "ÁúÄÏÏØ"
           }, {
             countyCode: "360728",
-            countyName: "å®šå—å¿"
+            countyName: "¶¨ÄÏÏØ"
           }, {
             countyCode: "360723",
-            countyName: "å¤§ä½™å¿"
+            countyName: "´óÓàÏØ"
           }, {
             countyCode: "360734",
-            countyName: "å¯»ä¹Œå¿"
+            countyName: "Ñ°ÎÚÏØ"
           }, {
             countyCode: "360702",
-            countyName: "ç« è´¡åŒº"
+            countyName: "ÕÂ¹±Çø"
           }, {
             countyCode: "360726",
-            countyName: "å®‰è¿œå¿"
+            countyName: "°²Ô¶ÏØ"
           }, {
             countyCode: "360729",
-            countyName: "å…¨å—å¿"
+            countyName: "È«ÄÏÏØ"
           }, {
             countyCode: "360735",
-            countyName: "çŸ³åŸå¿"
+            countyName: "Ê¯³ÇÏØ"
           }, {
             countyCode: "360782",
-            countyName: "å—åº·åŒº"
+            countyName: "ÄÏ¿µÇø"
           }, {
             countyCode: "360721",
-            countyName: "èµ£å¿åŒº"
+            countyName: "¸ÓÏØÇø"
           }, {
             countyCode: "360732",
-            countyName: "å…´å›½å¿"
+            countyName: "ĞË¹úÏØ"
           }, {
             countyCode: "360781",
-            countyName: "ç‘é‡‘å¸‚"
+            countyName: "Èğ½ğÊĞ"
           }, {
             countyCode: "360724",
-            countyName: "ä¸ŠçŠ¹å¿"
+            countyName: "ÉÏÓÌÏØ"
           }, {
             countyCode: "360730",
-            countyName: "å®éƒ½å¿"
+            countyName: "Äş¶¼ÏØ"
           }, {
             countyCode: "360733",
-            countyName: "ä¼šæ˜Œå¿"
+            countyName: "»á²ıÏØ"
           }, {
             countyCode: "360722",
-            countyName: "ä¿¡ä¸°å¿"
+            countyName: "ĞÅ·áÏØ"
           }, {
             countyCode: "360731",
-            countyName: "äºéƒ½å¿"
+            countyName: "ÓÚ¶¼ÏØ"
           }]
         }, {
           cityCode: "360200",
-          cityName: "æ™¯å¾·é•‡å¸‚",
+          cityName: "¾°µÂÕòÊĞ",
           county: [{
             countyCode: "360222",
-            countyName: "æµ®æ¢å¿"
+            countyName: "¸¡ÁºÏØ"
           }, {
             countyCode: "360281",
-            countyName: "ä¹å¹³å¸‚"
+            countyName: "ÀÖÆ½ÊĞ"
           }, {
             countyCode: "360202",
-            countyName: "æ˜Œæ±ŸåŒº"
+            countyName: "²ı½­Çø"
           }, {
             countyCode: "360203",
-            countyName: "ç å±±åŒº"
+            countyName: "ÖéÉ½Çø"
           }]
         }, {
           cityCode: "360800",
-          cityName: "å‰å®‰å¸‚",
+          cityName: "¼ª°²ÊĞ",
           county: [{
             countyCode: "360829",
-            countyName: "å®‰ç¦å¿"
+            countyName: "°²¸£ÏØ"
           }, {
             countyCode: "360821",
-            countyName: "å‰å®‰å¿"
+            countyName: "¼ª°²ÏØ"
           }, {
             countyCode: "360827",
-            countyName: "é‚å·å¿"
+            countyName: "Ëì´¨ÏØ"
           }, {
             countyCode: "360803",
-            countyName: "é’åŸåŒº"
+            countyName: "ÇàÔ­Çø"
           }, {
             countyCode: "360828",
-            countyName: "ä¸‡å®‰å¿"
+            countyName: "Íò°²ÏØ"
           }, {
             countyCode: "360826",
-            countyName: "æ³°å’Œå¿"
+            countyName: "Ì©ºÍÏØ"
           }, {
             countyCode: "360823",
-            countyName: "å³¡æ±Ÿå¿"
+            countyName: "Ï¿½­ÏØ"
           }, {
             countyCode: "360822",
-            countyName: "å‰æ°´å¿"
+            countyName: "¼ªË®ÏØ"
           }, {
             countyCode: "360802",
-            countyName: "å‰å·åŒº"
+            countyName: "¼ªÖİÇø"
           }, {
             countyCode: "360824",
-            countyName: "æ–°å¹²å¿"
+            countyName: "ĞÂ¸ÉÏØ"
           }, {
             countyCode: "360830",
-            countyName: "æ°¸æ–°å¿"
+            countyName: "ÓÀĞÂÏØ"
           }, {
             countyCode: "360881",
-            countyName: "äº•å†ˆå±±å¸‚"
+            countyName: "¾®¸ÔÉ½ÊĞ"
           }, {
             countyCode: "360825",
-            countyName: "æ°¸ä¸°å¿"
+            countyName: "ÓÀ·áÏØ"
           }]
         }, {
           cityCode: "360400",
-          cityName: "ä¹æ±Ÿå¸‚",
+          cityName: "¾Å½­ÊĞ",
           county: [{
             countyCode: "360423",
-            countyName: "æ­¦å®å¿"
+            countyName: "ÎäÄşÏØ"
           }, {
             countyCode: "360421",
-            countyName: "æŸ´æ¡‘åŒº"
+            countyName: "²ñÉ£Çø"
           }, {
             countyCode: "360429",
-            countyName: "æ¹–å£å¿"
+            countyName: "ºş¿ÚÏØ"
           }, {
             countyCode: "360427",
-            countyName: "åºå±±å¸‚"
+            countyName: "Â®É½ÊĞ"
           }, {
             countyCode: "360426",
-            countyName: "å¾·å®‰å¿"
+            countyName: "µÂ°²ÏØ"
           }, {
             countyCode: "360428",
-            countyName: "éƒ½æ˜Œå¿"
+            countyName: "¶¼²ıÏØ"
           }, {
             countyCode: "360430",
-            countyName: "å½­æ³½å¿"
+            countyName: "ÅíÔóÏØ"
           }, {
             countyCode: "360403",
-            countyName: "æµ”é˜³åŒº"
+            countyName: "ä±ÑôÇø"
           }, {
             countyCode: "360402",
-            countyName: "æ¿‚æºªåŒº"
+            countyName: "å¥ÏªÇø"
           }, {
             countyCode: "360424",
-            countyName: "ä¿®æ°´å¿"
+            countyName: "ĞŞË®ÏØ"
           }, {
             countyCode: "360481",
-            countyName: "ç‘æ˜Œå¸‚"
+            countyName: "Èğ²ıÊĞ"
           }, {
             countyCode: "360425",
-            countyName: "æ°¸ä¿®å¿"
+            countyName: "ÓÀĞŞÏØ"
           }, {
             countyCode: "360482",
-            countyName: "å…±é’åŸå¸‚"
+            countyName: "¹²Çà³ÇÊĞ"
           }]
         }, {
           cityCode: "360600",
-          cityName: "é¹°æ½­å¸‚",
+          cityName: "Ó¥Ì¶ÊĞ",
           county: [{
             countyCode: "360602",
-            countyName: "æœˆæ¹–åŒº"
+            countyName: "ÔÂºşÇø"
           }, {
             countyCode: "360622",
-            countyName: "ä½™æ±ŸåŒº"
+            countyName: "Óà½­Çø"
           }, {
             countyCode: "360681",
-            countyName: "è´µæºªå¸‚"
+            countyName: "¹óÏªÊĞ"
           }]
         }, {
           cityCode: "360500",
-          cityName: "æ–°ä½™å¸‚",
+          cityName: "ĞÂÓàÊĞ",
           county: [{
             countyCode: "360521",
-            countyName: "åˆ†å®œå¿"
+            countyName: "·ÖÒËÏØ"
           }, {
             countyCode: "360502",
-            countyName: "æ¸æ°´åŒº"
+            countyName: "ÓåË®Çø"
           }]
         }, {
           cityCode: "361100",
-          cityName: "ä¸Šé¥¶å¸‚",
+          cityName: "ÉÏÈÄÊĞ",
           county: [{
             countyCode: "361181",
-            countyName: "å¾·å…´å¸‚"
+            countyName: "µÂĞËÊĞ"
           }, {
             countyCode: "361102",
-            countyName: "ä¿¡å·åŒº"
+            countyName: "ĞÅÖİÇø"
           }, {
             countyCode: "361130",
-            countyName: "å©ºæºå¿"
+            countyName: "æÄÔ´ÏØ"
           }, {
             countyCode: "361128",
-            countyName: "é„±é˜³å¿"
+            countyName: "Û¶ÑôÏØ"
           }, {
             countyCode: "361129",
-            countyName: "ä¸‡å¹´å¿"
+            countyName: "ÍòÄêÏØ"
           }, {
             countyCode: "361123",
-            countyName: "ç‰å±±å¿"
+            countyName: "ÓñÉ½ÏØ"
           }, {
             countyCode: "361122",
-            countyName: "å¹¿ä¸°åŒº"
+            countyName: "¹ã·áÇø"
           }, {
             countyCode: "361124",
-            countyName: "é“…å±±å¿"
+            countyName: "Ç¦É½ÏØ"
           }, {
             countyCode: "361121",
-            countyName: "ä¸Šé¥¶å¿"
+            countyName: "ÉÏÈÄÏØ"
           }, {
             countyCode: "361127",
-            countyName: "ä½™å¹²å¿"
+            countyName: "Óà¸ÉÏØ"
           }, {
             countyCode: "361126",
-            countyName: "å¼‹é˜³å¿"
+            countyName: "ß®ÑôÏØ"
           }, {
             countyCode: "361125",
-            countyName: "æ¨ªå³°å¿"
+            countyName: "ºá·åÏØ"
           }]
         }, {
           cityCode: "360300",
-          cityName: "èä¹¡å¸‚",
+          cityName: "Æ¼ÏçÊĞ",
           county: [{
             countyCode: "360322",
-            countyName: "ä¸Šæ —å¿"
+            countyName: "ÉÏÀõÏØ"
           }, {
             countyCode: "360313",
-            countyName: "æ¹˜ä¸œåŒº"
+            countyName: "Ïæ¶«Çø"
           }, {
             countyCode: "360302",
-            countyName: "å®‰æºåŒº"
+            countyName: "°²Ô´Çø"
           }, {
             countyCode: "360323",
-            countyName: "èŠ¦æºªå¿"
+            countyName: "Â«ÏªÏØ"
           }, {
             countyCode: "360321",
-            countyName: "è²èŠ±å¿"
+            countyName: "Á«»¨ÏØ"
           }]
         }]
       }, {
         provinceCode: "370000",
-        provinceName: "å±±ä¸œçœ",
+        provinceName: "É½¶«Ê¡",
         city: [{
           cityCode: "370400",
-          cityName: "æ£åº„å¸‚",
+          cityName: "Ôæ×¯ÊĞ",
           county: [{
             countyCode: "370402",
-            countyName: "å¸‚ä¸­åŒº"
+            countyName: "ÊĞÖĞÇø"
           }, {
             countyCode: "370481",
-            countyName: "æ»•å·å¸‚"
+            countyName: "ëøÖİÊĞ"
           }, {
             countyCode: "370406",
-            countyName: "å±±äº­åŒº"
+            countyName: "É½Í¤Çø"
           }, {
             countyCode: "370405",
-            countyName: "å°å„¿åº„åŒº"
+            countyName: "Ì¨¶ù×¯Çø"
           }, {
             countyCode: "370403",
-            countyName: "è–›åŸåŒº"
+            countyName: "Ñ¦³ÇÇø"
           }, {
             countyCode: "370404",
-            countyName: "å³„åŸåŒº"
+            countyName: "á»³ÇÇø"
           }]
         }, {
           cityCode: "371100",
-          cityName: "æ—¥ç…§å¸‚",
+          cityName: "ÈÕÕÕÊĞ",
           county: [{
             countyCode: "371121",
-            countyName: "äº”è²å¿"
+            countyName: "ÎåÁ«ÏØ"
           }, {
             countyCode: "371102",
-            countyName: "ä¸œæ¸¯åŒº"
+            countyName: "¶«¸ÛÇø"
           }, {
             countyCode: "371122",
-            countyName: "è’å¿"
+            countyName: "ÜìÏØ"
           }, {
             countyCode: "371103",
-            countyName: "å²šå±±åŒº"
+            countyName: "á°É½Çø"
           }]
         }, {
           cityCode: "371700",
-          cityName: "èæ³½å¸‚",
+          cityName: "ºÊÔóÊĞ",
           county: [{
             countyCode: "371722",
-            countyName: "å•å¿"
+            countyName: "µ¥ÏØ"
           }, {
             countyCode: "371724",
-            countyName: "å·¨é‡å¿"
+            countyName: "¾ŞÒ°ÏØ"
           }, {
             countyCode: "371721",
-            countyName: "æ›¹å¿"
+            countyName: "²ÜÏØ"
           }, {
             countyCode: "371702",
-            countyName: "ç‰¡ä¸¹åŒº"
+            countyName: "Äµµ¤Çø"
           }, {
             countyCode: "371727",
-            countyName: "å®šé™¶åŒº"
+            countyName: "¶¨ÌÕÇø"
           }, {
             countyCode: "371728",
-            countyName: "ä¸œæ˜å¿"
+            countyName: "¶«Ã÷ÏØ"
           }, {
             countyCode: "371723",
-            countyName: "æˆæ­¦å¿"
+            countyName: "³ÉÎäÏØ"
           }, {
             countyCode: "371725",
-            countyName: "éƒ“åŸå¿"
+            countyName: "Û©³ÇÏØ"
           }, {
             countyCode: "371726",
-            countyName: "é„„åŸå¿"
+            countyName: "Û²³ÇÏØ"
           }]
         }, {
           cityCode: "371500",
-          cityName: "èŠåŸå¸‚",
+          cityName: "ÁÄ³ÇÊĞ",
           county: [{
             countyCode: "371524",
-            countyName: "ä¸œé˜¿å¿"
+            countyName: "¶«°¢ÏØ"
           }, {
             countyCode: "371521",
-            countyName: "é˜³è°·å¿"
+            countyName: "Ñô¹ÈÏØ"
           }, {
             countyCode: "371526",
-            countyName: "é«˜å”å¿"
+            countyName: "¸ßÌÆÏØ"
           }, {
             countyCode: "371502",
-            countyName: "ä¸œæ˜ŒåºœåŒº"
+            countyName: "¶«²ı¸®Çø"
           }, {
             countyCode: "371581",
-            countyName: "ä¸´æ¸…å¸‚"
+            countyName: "ÁÙÇåÊĞ"
           }, {
             countyCode: "371522",
-            countyName: "è˜å¿"
+            countyName: "İ·ÏØ"
           }, {
             countyCode: "371525",
-            countyName: "å† å¿"
+            countyName: "¹ÚÏØ"
           }, {
             countyCode: "371523",
-            countyName: "èŒŒå¹³å¿"
+            countyName: "ÜİÆ½ÏØ"
           }]
         }, {
           cityCode: "371000",
-          cityName: "å¨æµ·å¸‚",
+          cityName: "Íşº£ÊĞ",
           county: [{
             countyCode: "371002",
-            countyName: "ç¯ç¿ åŒº"
+            countyName: "»·´äÇø"
           }, {
             countyCode: "371083",
-            countyName: "ä¹³å±±å¸‚"
+            countyName: "ÈéÉ½ÊĞ"
           }, {
             countyCode: "371082",
-            countyName: "è£æˆå¸‚"
+            countyName: "ÈÙ³ÉÊĞ"
           }, {
             countyCode: "371081",
-            countyName: "æ–‡ç™»åŒº"
+            countyName: "ÎÄµÇÇø"
           }]
         }, {
           cityCode: "370300",
-          cityName: "æ·„åšå¸‚",
+          cityName: "×Í²©ÊĞ",
           county: [{
             countyCode: "370322",
-            countyName: "é«˜é’å¿"
+            countyName: "¸ßÇàÏØ"
           }, {
             countyCode: "370321",
-            countyName: "æ¡“å°å¿"
+            countyName: "»¸Ì¨ÏØ"
           }, {
             countyCode: "370305",
-            countyName: "ä¸´æ·„åŒº"
+            countyName: "ÁÙ×ÍÇø"
           }, {
             countyCode: "370306",
-            countyName: "å‘¨æ‘åŒº"
+            countyName: "ÖÜ´åÇø"
           }, {
             countyCode: "370323",
-            countyName: "æ²‚æºå¿"
+            countyName: "ÒÊÔ´ÏØ"
           }, {
             countyCode: "370304",
-            countyName: "åšå±±åŒº"
+            countyName: "²©É½Çø"
           }, {
             countyCode: "370302",
-            countyName: "æ·„å·åŒº"
+            countyName: "×Í´¨Çø"
           }, {
             countyCode: "370303",
-            countyName: "å¼ åº—åŒº"
+            countyName: "ÕÅµêÇø"
           }]
         }, {
           cityCode: "370800",
-          cityName: "æµå®å¸‚",
+          cityName: "¼ÃÄşÊĞ",
           county: [{
             countyCode: "370811",
-            countyName: "ä»»åŸåŒº"
+            countyName: "ÈÎ³ÇÇø"
           }, {
             countyCode: "370802",
-            countyName: "å¸‚ä¸­åŒº"
+            countyName: "ÊĞÖĞÇø"
           }, {
             countyCode: "370882",
-            countyName: "å…–å·åŒº"
+            countyName: "ÙğÖİÇø"
           }, {
             countyCode: "370830",
-            countyName: "æ±¶ä¸Šå¿"
+            countyName: "ãëÉÏÏØ"
           }, {
             countyCode: "370883",
-            countyName: "é‚¹åŸå¸‚"
+            countyName: "×Ş³ÇÊĞ"
           }, {
             countyCode: "370828",
-            countyName: "é‡‘ä¹¡å¿"
+            countyName: "½ğÏçÏØ"
           }, {
             countyCode: "370829",
-            countyName: "å˜‰ç¥¥å¿"
+            countyName: "¼ÎÏéÏØ"
           }, {
             countyCode: "370826",
-            countyName: "å¾®å±±å¿"
+            countyName: "Î¢É½ÏØ"
           }, {
             countyCode: "370881",
-            countyName: "æ›²é˜œå¸‚"
+            countyName: "Çú¸·ÊĞ"
           }, {
             countyCode: "370827",
-            countyName: "é±¼å°å¿"
+            countyName: "ÓãÌ¨ÏØ"
           }, {
             countyCode: "370831",
-            countyName: "æ³—æ°´å¿"
+            countyName: "ãôË®ÏØ"
           }, {
             countyCode: "370832",
-            countyName: "æ¢å±±å¿"
+            countyName: "ÁºÉ½ÏØ"
           }]
         }, {
           cityCode: "371200",
-          cityName: "è±èŠœå¸‚",
+          cityName: "À³ÎßÊĞ",
           county: [{
             countyCode: "371202",
-            countyName: "è±åŸåŒº"
+            countyName: "À³³ÇÇø"
           }, {
             countyCode: "371203",
-            countyName: "é’¢åŸåŒº"
+            countyName: "¸Ö³ÇÇø"
           }]
         }, {
           cityCode: "370500",
-          cityName: "ä¸œè¥å¸‚",
+          cityName: "¶«ÓªÊĞ",
           county: [{
             countyCode: "370523",
-            countyName: "å¹¿é¥¶å¿"
+            countyName: "¹ãÈÄÏØ"
           }, {
             countyCode: "370521",
-            countyName: "å¦åˆ©åŒº"
+            countyName: "¿ÑÀûÇø"
           }, {
             countyCode: "370502",
-            countyName: "ä¸œè¥åŒº"
+            countyName: "¶«ÓªÇø"
           }, {
             countyCode: "370522",
-            countyName: "åˆ©æ´¥å¿"
+            countyName: "Àû½òÏØ"
           }, {
             countyCode: "370503",
-            countyName: "æ²³å£åŒº"
+            countyName: "ºÓ¿ÚÇø"
           }]
         }, {
           cityCode: "371600",
-          cityName: "æ»¨å·å¸‚",
+          cityName: "±õÖİÊĞ",
           county: [{
             countyCode: "371625",
-            countyName: "åšå…´å¿"
+            countyName: "²©ĞËÏØ"
           }, {
             countyCode: "371622",
-            countyName: "é˜³ä¿¡å¿"
+            countyName: "ÑôĞÅÏØ"
           }, {
             countyCode: "371621",
-            countyName: "æƒ æ°‘å¿"
+            countyName: "»İÃñÏØ"
           }, {
             countyCode: "371626",
-            countyName: "é‚¹å¹³å¸‚"
+            countyName: "×ŞÆ½ÊĞ"
           }, {
             countyCode: "371602",
-            countyName: "æ»¨åŸåŒº"
+            countyName: "±õ³ÇÇø"
           }, {
             countyCode: "371623",
-            countyName: "æ— æ££å¿"
+            countyName: "ÎŞé¦ÏØ"
           }, {
             countyCode: "371624",
-            countyName: "æ²¾åŒ–åŒº"
+            countyName: "Õ´»¯Çø"
           }]
         }, {
           cityCode: "371300",
-          cityName: "ä¸´æ²‚å¸‚",
+          cityName: "ÁÙÒÊÊĞ",
           county: [{
             countyCode: "371328",
-            countyName: "è’™é˜´å¿"
+            countyName: "ÃÉÒõÏØ"
           }, {
             countyCode: "371302",
-            countyName: "å…°å±±åŒº"
+            countyName: "À¼É½Çø"
           }, {
             countyCode: "371329",
-            countyName: "ä¸´æ²­å¿"
+            countyName: "ÁÙãğÏØ"
           }, {
             countyCode: "371321",
-            countyName: "æ²‚å—å¿"
+            countyName: "ÒÊÄÏÏØ"
           }, {
             countyCode: "371311",
-            countyName: "ç½—åº„åŒº"
+            countyName: "ÂŞ×¯Çø"
           }, {
             countyCode: "371325",
-            countyName: "è´¹å¿"
+            countyName: "·ÑÏØ"
           }, {
             countyCode: "371326",
-            countyName: "å¹³é‚‘å¿"
+            countyName: "Æ½ÒØÏØ"
           }, {
             countyCode: "371327",
-            countyName: "è’å—å¿"
+            countyName: "ÜìÄÏÏØ"
           }, {
             countyCode: "371312",
-            countyName: "æ²³ä¸œåŒº"
+            countyName: "ºÓ¶«Çø"
           }, {
             countyCode: "371324",
-            countyName: "å…°é™µå¿"
+            countyName: "À¼ÁêÏØ"
           }, {
             countyCode: "371323",
-            countyName: "æ²‚æ°´å¿"
+            countyName: "ÒÊË®ÏØ"
           }, {
             countyCode: "371322",
-            countyName: "éƒ¯åŸå¿"
+            countyName: "Û°³ÇÏØ"
           }]
         }, {
           cityCode: "370200",
-          cityName: "é’å²›å¸‚",
+          cityName: "ÇàµºÊĞ",
           county: [{
             countyCode: "370211",
-            countyName: "é»„å²›åŒº"
+            countyName: "»ÆµºÇø"
           }, {
             countyCode: "370203",
-            countyName: "å¸‚åŒ—åŒº"
+            countyName: "ÊĞ±±Çø"
           }, {
             countyCode: "370281",
-            countyName: "èƒ¶å·å¸‚"
+            countyName: "½ºÖİÊĞ"
           }, {
             countyCode: "370212",
-            countyName: "å´‚å±±åŒº"
+            countyName: "áÀÉ½Çø"
           }, {
             countyCode: "370202",
-            countyName: "å¸‚å—åŒº"
+            countyName: "ÊĞÄÏÇø"
           }, {
             countyCode: "370282",
-            countyName: "å³å¢¨åŒº"
+            countyName: "¼´Ä«Çø"
           }, {
             countyCode: "370205",
-            countyName: "å››æ–¹åŒº"
+            countyName: "ËÄ·½Çø"
           }, {
             countyCode: "370214",
-            countyName: "åŸé˜³åŒº"
+            countyName: "³ÇÑôÇø"
           }, {
             countyCode: "370283",
-            countyName: "å¹³åº¦å¸‚"
+            countyName: "Æ½¶ÈÊĞ"
           }, {
             countyCode: "370213",
-            countyName: "ææ²§åŒº"
+            countyName: "Àî²×Çø"
           }, {
             countyCode: "370285",
-            countyName: "è±è¥¿å¸‚"
+            countyName: "À³Î÷ÊĞ"
           }]
         }, {
           cityCode: "370100",
-          cityName: "æµå—å¸‚",
+          cityName: "¼ÃÄÏÊĞ",
           county: [{
             countyCode: "370124",
-            countyName: "å¹³é˜´å¿"
+            countyName: "Æ½ÒõÏØ"
           }, {
             countyCode: "370103",
-            countyName: "å¸‚ä¸­åŒº"
+            countyName: "ÊĞÖĞÇø"
           }, {
             countyCode: "370181",
-            countyName: "ç« ä¸˜åŒº"
+            countyName: "ÕÂÇğÇø"
           }, {
             countyCode: "370126",
-            countyName: "å•†æ²³å¿"
+            countyName: "ÉÌºÓÏØ"
           }, {
             countyCode: "370125",
-            countyName: "æµé˜³åŒº"
+            countyName: "¼ÃÑôÇø"
           }, {
             countyCode: "370113",
-            countyName: "é•¿æ¸…åŒº"
+            countyName: "³¤ÇåÇø"
           }, {
             countyCode: "370102",
-            countyName: "å†ä¸‹åŒº"
+            countyName: "ÀúÏÂÇø"
           }, {
             countyCode: "370112",
-            countyName: "å†åŸåŒº"
+            countyName: "Àú³ÇÇø"
           }, {
             countyCode: "370105",
-            countyName: "å¤©æ¡¥åŒº"
+            countyName: "ÌìÇÅÇø"
           }, {
             countyCode: "370104",
-            countyName: "æ§è«åŒº"
+            countyName: "»±ÒñÇø"
           }]
         }, {
           cityCode: "371400",
-          cityName: "å¾·å·å¸‚",
+          cityName: "µÂÖİÊĞ",
           county: [{
             countyCode: "371481",
-            countyName: "ä¹é™µå¸‚"
+            countyName: "ÀÖÁêÊĞ"
           }, {
             countyCode: "371423",
-            countyName: "åº†äº‘å¿"
+            countyName: "ÇìÔÆÏØ"
           }, {
             countyCode: "371421",
-            countyName: "é™µåŸåŒº"
+            countyName: "Áê³ÇÇø"
           }, {
             countyCode: "371482",
-            countyName: "ç¦¹åŸå¸‚"
+            countyName: "Óí³ÇÊĞ"
           }, {
             countyCode: "371424",
-            countyName: "ä¸´é‚‘å¿"
+            countyName: "ÁÙÒØÏØ"
           }, {
             countyCode: "371426",
-            countyName: "å¹³åŸå¿"
+            countyName: "Æ½Ô­ÏØ"
           }, {
             countyCode: "371425",
-            countyName: "é½æ²³å¿"
+            countyName: "ÆëºÓÏØ"
           }, {
             countyCode: "371427",
-            countyName: "å¤æ´¥å¿"
+            countyName: "ÏÄ½òÏØ"
           }, {
             countyCode: "371422",
-            countyName: "å®æ´¥å¿"
+            countyName: "Äş½òÏØ"
           }, {
             countyCode: "371428",
-            countyName: "æ­¦åŸå¿"
+            countyName: "Îä³ÇÏØ"
           }, {
             countyCode: "371402",
-            countyName: "å¾·åŸåŒº"
+            countyName: "µÂ³ÇÇø"
           }]
         }, {
           cityCode: "370900",
-          cityName: "æ³°å®‰å¸‚",
+          cityName: "Ì©°²ÊĞ",
           county: [{
             countyCode: "370911",
-            countyName: "å²±å²³åŒº"
+            countyName: "á·ÔÀÇø"
           }, {
             countyCode: "370923",
-            countyName: "ä¸œå¹³å¿"
+            countyName: "¶«Æ½ÏØ"
           }, {
             countyCode: "370983",
-            countyName: "è‚¥åŸå¸‚"
+            countyName: "·Ê³ÇÊĞ"
           }, {
             countyCode: "370921",
-            countyName: "å®é˜³å¿"
+            countyName: "ÄşÑôÏØ"
           }, {
             countyCode: "370982",
-            countyName: "æ–°æ³°å¸‚"
+            countyName: "ĞÂÌ©ÊĞ"
           }, {
             countyCode: "370902",
-            countyName: "æ³°å±±åŒº"
+            countyName: "Ì©É½Çø"
           }]
         }, {
           cityCode: "370600",
-          cityName: "çƒŸå°å¸‚",
+          cityName: "ÑÌÌ¨ÊĞ",
           county: [{
             countyCode: "370686",
-            countyName: "æ –éœå¸‚"
+            countyName: "ÆÜÏ¼ÊĞ"
           }, {
             countyCode: "370634",
-            countyName: "é•¿å²›å¿"
+            countyName: "³¤µºÏØ"
           }, {
             countyCode: "370613",
-            countyName: "è±å±±åŒº"
+            countyName: "À³É½Çø"
           }, {
             countyCode: "370612",
-            countyName: "ç‰Ÿå¹³åŒº"
+            countyName: "Ä²Æ½Çø"
           }, {
             countyCode: "370681",
-            countyName: "é¾™å£å¸‚"
+            countyName: "Áú¿ÚÊĞ"
           }, {
             countyCode: "370683",
-            countyName: "è±å·å¸‚"
+            countyName: "À³ÖİÊĞ"
           }, {
             countyCode: "370602",
-            countyName: "èŠç½˜åŒº"
+            countyName: "Ö¥î·Çø"
           }, {
             countyCode: "370682",
-            countyName: "è±é˜³å¸‚"
+            countyName: "À³ÑôÊĞ"
           }, {
             countyCode: "370685",
-            countyName: "æ‹›è¿œå¸‚"
+            countyName: "ÕĞÔ¶ÊĞ"
           }, {
             countyCode: "370611",
-            countyName: "ç¦å±±åŒº"
+            countyName: "¸£É½Çø"
           }, {
             countyCode: "370684",
-            countyName: "è“¬è±å¸‚"
+            countyName: "ÅîÀ³ÊĞ"
           }, {
             countyCode: "370687",
-            countyName: "æµ·é˜³å¸‚"
+            countyName: "º£ÑôÊĞ"
           }]
         }, {
           cityCode: "370700",
-          cityName: "æ½åŠå¸‚",
+          cityName: "Î«·»ÊĞ",
           county: [{
             countyCode: "370781",
-            countyName: "é’å·å¸‚"
+            countyName: "ÇàÖİÊĞ"
           }, {
             countyCode: "370782",
-            countyName: "è¯¸åŸå¸‚"
+            countyName: "Öî³ÇÊĞ"
           }, {
             countyCode: "370703",
-            countyName: "å¯’äº­åŒº"
+            countyName: "º®Í¤Çø"
           }, {
             countyCode: "370785",
-            countyName: "é«˜å¯†å¸‚"
+            countyName: "¸ßÃÜÊĞ"
           }, {
             countyCode: "370702",
-            countyName: "æ½åŸåŒº"
+            countyName: "Î«³ÇÇø"
           }, {
             countyCode: "370725",
-            countyName: "æ˜Œä¹å¿"
+            countyName: "²ıÀÖÏØ"
           }, {
             countyCode: "370704",
-            countyName: "åŠå­åŒº"
+            countyName: "·»×ÓÇø"
           }, {
             countyCode: "370784",
-            countyName: "å®‰ä¸˜å¸‚"
+            countyName: "°²ÇğÊĞ"
           }, {
             countyCode: "370705",
-            countyName: "å¥æ–‡åŒº"
+            countyName: "¿üÎÄÇø"
           }, {
             countyCode: "370724",
-            countyName: "ä¸´æœå¿"
+            countyName: "ÁÙëÔÏØ"
           }, {
             countyCode: "370786",
-            countyName: "æ˜Œé‚‘å¸‚"
+            countyName: "²ıÒØÊĞ"
           }, {
             countyCode: "370783",
-            countyName: "å¯¿å…‰å¸‚"
+            countyName: "ÊÙ¹âÊĞ"
           }]
         }]
       }, {
         provinceCode: "410000",
-        provinceName: "æ²³å—çœ",
+        provinceName: "ºÓÄÏÊ¡",
         city: [{
           cityCode: "411500",
-          cityName: "ä¿¡é˜³å¸‚",
+          cityName: "ĞÅÑôÊĞ",
           county: [{
             countyCode: "411523",
-            countyName: "æ–°å¿"
+            countyName: "ĞÂÏØ"
           }, {
             countyCode: "411525",
-            countyName: "å›ºå§‹å¿"
+            countyName: "¹ÌÊ¼ÏØ"
           }, {
             countyCode: "411524",
-            countyName: "å•†åŸå¿"
+            countyName: "ÉÌ³ÇÏØ"
           }, {
             countyCode: "411528",
-            countyName: "æ¯å¿"
+            countyName: "Ï¢ÏØ"
           }, {
             countyCode: "411502",
-            countyName: "æµ‰æ²³åŒº"
+            countyName: "›¸ºÓÇø"
           }, {
             countyCode: "411521",
-            countyName: "ç½—å±±å¿"
+            countyName: "ÂŞÉ½ÏØ"
           }, {
             countyCode: "411522",
-            countyName: "å…‰å±±å¿"
+            countyName: "¹âÉ½ÏØ"
           }, {
             countyCode: "411503",
-            countyName: "å¹³æ¡¥åŒº"
+            countyName: "Æ½ÇÅÇø"
           }, {
             countyCode: "411526",
-            countyName: "æ½¢å·å¿"
+            countyName: "äê´¨ÏØ"
           }, {
             countyCode: "411527",
-            countyName: "æ·®æ»¨å¿"
+            countyName: "»´±õÏØ"
           }]
         }, {
           cityCode: "410300",
-          cityName: "æ´›é˜³å¸‚",
+          cityName: "ÂåÑôÊĞ",
           county: [{
             countyCode: "410323",
-            countyName: "æ–°å®‰å¿"
+            countyName: "ĞÂ°²ÏØ"
           }, {
             countyCode: "410306",
-            countyName: "å‰åˆ©åŒº"
+            countyName: "¼ªÀûÇø"
           }, {
             countyCode: "410328",
-            countyName: "æ´›å®å¿"
+            countyName: "ÂåÄşÏØ"
           }, {
             countyCode: "410325",
-            countyName: "åµ©å¿"
+            countyName: "áÔÏØ"
           }, {
             countyCode: "410302",
-            countyName: "è€åŸåŒº"
+            countyName: "ÀÏ³ÇÇø"
           }, {
             countyCode: "410322",
-            countyName: "å­Ÿæ´¥å¿"
+            countyName: "ÃÏ½òÏØ"
           }, {
             countyCode: "410311",
-            countyName: "æ´›é¾™åŒº"
+            countyName: "ÂåÁúÇø"
           }, {
             countyCode: "410304",
-            countyName: "ç€æ²³å›æ—åŒº"
+            countyName: "eºÓ»Ø×åÇø"
           }, {
             countyCode: "410327",
-            countyName: "å®œé˜³å¿"
+            countyName: "ÒËÑôÏØ"
           }, {
             countyCode: "410381",
-            countyName: "åƒå¸ˆå¸‚"
+            countyName: "ÙÈÊ¦ÊĞ"
           }, {
             countyCode: "410326",
-            countyName: "æ±é˜³å¿"
+            countyName: "ÈêÑôÏØ"
           }, {
             countyCode: "410329",
-            countyName: "ä¼Šå·å¿"
+            countyName: "ÒÁ´¨ÏØ"
           }, {
             countyCode: "410305",
-            countyName: "æ¶§è¥¿åŒº"
+            countyName: "½§Î÷Çø"
           }, {
             countyCode: "410324",
-            countyName: "æ ¾å·å¿"
+            countyName: "èï´¨ÏØ"
           }, {
             countyCode: "410303",
-            countyName: "è¥¿å·¥åŒº"
+            countyName: "Î÷¹¤Çø"
           }]
         }, {
           cityCode: "411200",
-          cityName: "ä¸‰é—¨å³¡å¸‚",
+          cityName: "ÈıÃÅÏ¿ÊĞ",
           county: [{
             countyCode: "411222",
-            countyName: "é™•å·åŒº"
+            countyName: "ÉÂÖİÇø"
           }, {
             countyCode: "411281",
-            countyName: "ä¹‰é©¬å¸‚"
+            countyName: "ÒåÂíÊĞ"
           }, {
             countyCode: "411282",
-            countyName: "çµå®å¸‚"
+            countyName: "Áé±¦ÊĞ"
           }, {
             countyCode: "411221",
-            countyName: "æ¸‘æ± å¿"
+            countyName: "äÅ³ØÏØ"
           }, {
             countyCode: "411202",
-            countyName: "æ¹–æ»¨åŒº"
+            countyName: "ºş±õÇø"
           }, {
             countyCode: "411224",
-            countyName: "å¢æ°å¿"
+            countyName: "Â¬ÊÏÏØ"
           }]
         }, {
           cityCode: "411700",
-          cityName: "é©»é©¬åº—å¸‚",
+          cityName: "×¤ÂíµêÊĞ",
           county: [{
             countyCode: "411729",
-            countyName: "æ–°è”¡å¿"
+            countyName: "ĞÂ²ÌÏØ"
           }, {
             countyCode: "411728",
-            countyName: "é‚å¹³å¿"
+            countyName: "ËìÆ½ÏØ"
           }, {
             countyCode: "411727",
-            countyName: "æ±å—å¿"
+            countyName: "ÈêÄÏÏØ"
           }, {
             countyCode: "411724",
-            countyName: "æ­£é˜³å¿"
+            countyName: "ÕıÑôÏØ"
           }, {
             countyCode: "411723",
-            countyName: "å¹³èˆ†å¿"
+            countyName: "Æ½ÓßÏØ"
           }, {
             countyCode: "411725",
-            countyName: "ç¡®å±±å¿"
+            countyName: "È·É½ÏØ"
           }, {
             countyCode: "411722",
-            countyName: "ä¸Šè”¡å¿"
+            countyName: "ÉÏ²ÌÏØ"
           }, {
             countyCode: "411702",
-            countyName: "é©¿åŸåŒº"
+            countyName: "æä³ÇÇø"
           }, {
             countyCode: "411721",
-            countyName: "è¥¿å¹³å¿"
+            countyName: "Î÷Æ½ÏØ"
           }, {
             countyCode: "411726",
-            countyName: "æ³Œé˜³å¿"
+            countyName: "ÃÚÑôÏØ"
           }]
         }, {
           cityCode: "410500",
-          cityName: "å®‰é˜³å¸‚",
+          cityName: "°²ÑôÊĞ",
           county: [{
             countyCode: "410505",
-            countyName: "æ®·éƒ½åŒº"
+            countyName: "Òó¶¼Çø"
           }, {
             countyCode: "410527",
-            countyName: "å†…é»„å¿"
+            countyName: "ÄÚ»ÆÏØ"
           }, {
             countyCode: "410522",
-            countyName: "å®‰é˜³å¿"
+            countyName: "°²ÑôÏØ"
           }, {
             countyCode: "410526",
-            countyName: "æ»‘å¿"
+            countyName: "»¬ÏØ"
           }, {
             countyCode: "410502",
-            countyName: "æ–‡å³°åŒº"
+            countyName: "ÎÄ·åÇø"
           }, {
             countyCode: "410503",
-            countyName: "åŒ—å…³åŒº"
+            countyName: "±±¹ØÇø"
           }, {
             countyCode: "410506",
-            countyName: "é¾™å®‰åŒº"
+            countyName: "Áú°²Çø"
           }, {
             countyCode: "410523",
-            countyName: "æ±¤é˜´å¿"
+            countyName: "ÌÀÒõÏØ"
           }, {
             countyCode: "410581",
-            countyName: "æ—å·å¸‚"
+            countyName: "ÁÖÖİÊĞ"
           }]
         }, {
           cityCode: "411300",
-          cityName: "å—é˜³å¸‚",
+          cityName: "ÄÏÑôÊĞ",
           county: [{
             countyCode: "411325",
-            countyName: "å†…ä¹¡å¿"
+            countyName: "ÄÚÏçÏØ"
           }, {
             countyCode: "411328",
-            countyName: "å”æ²³å¿"
+            countyName: "ÌÆºÓÏØ"
           }, {
             countyCode: "411381",
-            countyName: "é‚“å·å¸‚"
+            countyName: "µËÖİÊĞ"
           }, {
             countyCode: "411322",
-            countyName: "æ–¹åŸå¿"
+            countyName: "·½³ÇÏØ"
           }, {
             countyCode: "411330",
-            countyName: "æ¡æŸå¿"
+            countyName: "Í©°ØÏØ"
           }, {
             countyCode: "411321",
-            countyName: "å—å¬å¿"
+            countyName: "ÄÏÕÙÏØ"
           }, {
             countyCode: "411323",
-            countyName: "è¥¿å³¡å¿"
+            countyName: "Î÷Ï¿ÏØ"
           }, {
             countyCode: "411327",
-            countyName: "ç¤¾æ——å¿"
+            countyName: "ÉçÆìÏØ"
           }, {
             countyCode: "411302",
-            countyName: "å®›åŸåŒº"
+            countyName: "Íğ³ÇÇø"
           }, {
             countyCode: "411303",
-            countyName: "å§é¾™åŒº"
+            countyName: "ÎÔÁúÇø"
           }, {
             countyCode: "411326",
-            countyName: "æ·…å·å¿"
+            countyName: "äÀ´¨ÏØ"
           }, {
             countyCode: "411329",
-            countyName: "æ–°é‡å¿"
+            countyName: "ĞÂÒ°ÏØ"
           }, {
             countyCode: "411324",
-            countyName: "é•‡å¹³å¿"
+            countyName: "ÕòÆ½ÏØ"
           }]
         }, {
           cityCode: "410700",
-          cityName: "æ–°ä¹¡å¸‚",
+          cityName: "ĞÂÏçÊĞ",
           county: [{
             countyCode: "410711",
-            countyName: "ç‰§é‡åŒº"
+            countyName: "ÄÁÒ°Çø"
           }, {
             countyCode: "410721",
-            countyName: "æ–°ä¹¡å¿"
+            countyName: "ĞÂÏçÏØ"
           }, {
             countyCode: "410704",
-            countyName: "å‡¤æ³‰åŒº"
+            countyName: "·ïÈªÇø"
           }, {
             countyCode: "410781",
-            countyName: "å«è¾‰å¸‚"
+            countyName: "ÎÀ»ÔÊĞ"
           }, {
             countyCode: "410727",
-            countyName: "å°ä¸˜å¿"
+            countyName: "·âÇğÏØ"
           }, {
             countyCode: "410702",
-            countyName: "çº¢æ——åŒº"
+            countyName: "ºìÆìÇø"
           }, {
             countyCode: "410726",
-            countyName: "å»¶æ´¥å¿"
+            countyName: "ÑÓ½òÏØ"
           }, {
             countyCode: "410703",
-            countyName: "å«æ»¨åŒº"
+            countyName: "ÎÀ±õÇø"
           }, {
             countyCode: "410782",
-            countyName: "è¾‰å¿å¸‚"
+            countyName: "»ÔÏØÊĞ"
           }, {
             countyCode: "410728",
-            countyName: "é•¿å£å¿"
+            countyName: "³¤Ô«ÏØ"
           }, {
             countyCode: "410724",
-            countyName: "è·å˜‰å¿"
+            countyName: "»ñ¼ÎÏØ"
           }, {
             countyCode: "410725",
-            countyName: "åŸé˜³å¿"
+            countyName: "Ô­ÑôÏØ"
           }]
         }, {
           cityCode: "410200",
-          cityName: "å¼€å°å¸‚",
+          cityName: "¿ª·âÊĞ",
           county: [{
             countyCode: "410205",
-            countyName: "ç¦¹ç‹å°åŒº"
+            countyName: "ÓíÍõÌ¨Çø"
           }, {
             countyCode: "410222",
-            countyName: "é€šè®¸å¿"
+            countyName: "Í¨ĞíÏØ"
           }, {
             countyCode: "410225",
-            countyName: "å…°è€ƒå¿"
+            countyName: "À¼¿¼ÏØ"
           }, {
             countyCode: "410223",
-            countyName: "å°‰æ°å¿"
+            countyName: "Î¾ÊÏÏØ"
           }, {
             countyCode: "410203",
-            countyName: "é¡ºæ²³å›æ—åŒº"
+            countyName: "Ë³ºÓ»Ø×åÇø"
           }, {
             countyCode: "410204",
-            countyName: "é¼“æ¥¼åŒº"
+            countyName: "¹ÄÂ¥Çø"
           }, {
             countyCode: "410224",
-            countyName: "ç¥¥ç¬¦åŒº"
+            countyName: "Ïé·ûÇø"
           }, {
             countyCode: "410221",
-            countyName: "æå¿"
+            countyName: "è½ÏØ"
           }, {
             countyCode: "410211",
-            countyName: "é‡‘æ˜åŒº"
+            countyName: "½ğÃ÷Çø"
           }, {
             countyCode: "410202",
-            countyName: "é¾™äº­åŒº"
+            countyName: "ÁúÍ¤Çø"
           }]
         }, {
           cityCode: "411400",
-          cityName: "å•†ä¸˜å¸‚",
+          cityName: "ÉÌÇğÊĞ",
           county: [{
             countyCode: "411402",
-            countyName: "æ¢å›­åŒº"
+            countyName: "ÁºÔ°Çø"
           }, {
             countyCode: "411422",
-            countyName: "ç¢å¿"
+            countyName: "î¡ÏØ"
           }, {
             countyCode: "411423",
-            countyName: "å®é™µå¿"
+            countyName: "ÄşÁêÏØ"
           }, {
             countyCode: "411421",
-            countyName: "æ°‘æƒå¿"
+            countyName: "ÃñÈ¨ÏØ"
           }, {
             countyCode: "411424",
-            countyName: "æŸ˜åŸå¿"
+            countyName: "èÏ³ÇÏØ"
           }, {
             countyCode: "411425",
-            countyName: "è™åŸå¿"
+            countyName: "Óİ³ÇÏØ"
           }, {
             countyCode: "411426",
-            countyName: "å¤é‚‘å¿"
+            countyName: "ÏÄÒØÏØ"
           }, {
             countyCode: "411481",
-            countyName: "æ°¸åŸå¸‚"
+            countyName: "ÓÀ³ÇÊĞ"
           }, {
             countyCode: "411403",
-            countyName: "ç¢é˜³åŒº"
+            countyName: "î¡ÑôÇø"
           }]
         }, {
           cityCode: "411000",
-          cityName: "è®¸æ˜Œå¸‚",
+          cityName: "Ğí²ıÊĞ",
           county: [{
             countyCode: "411024",
-            countyName: "é„¢é™µå¿"
+            countyName: "Û³ÁêÏØ"
           }, {
             countyCode: "411082",
-            countyName: "é•¿è‘›å¸‚"
+            countyName: "³¤¸ğÊĞ"
           }, {
             countyCode: "411002",
-            countyName: "é­éƒ½åŒº"
+            countyName: "Îº¶¼Çø"
           }, {
             countyCode: "411081",
-            countyName: "ç¦¹å·å¸‚"
+            countyName: "ÓíÖİÊĞ"
           }, {
             countyCode: "411025",
-            countyName: "è¥„åŸå¿"
+            countyName: "Ïå³ÇÏØ"
           }, {
             countyCode: "411023",
-            countyName: "å»ºå®‰åŒº"
+            countyName: "½¨°²Çø"
           }]
         }, {
           cityCode: "410100",
-          cityName: "éƒ‘å·å¸‚",
+          cityName: "Ö£ÖİÊĞ",
           county: [{
             countyCode: "410185",
-            countyName: "ç™»å°å¸‚"
+            countyName: "µÇ·âÊĞ"
           }, {
             countyCode: "410182",
-            countyName: "è¥é˜³å¸‚"
+            countyName: "ÜşÑôÊĞ"
           }, {
             countyCode: "410104",
-            countyName: "ç®¡åŸå›æ—åŒº"
+            countyName: "¹Ü³Ç»Ø×åÇø"
           }, {
             countyCode: "410108",
-            countyName: "æƒ æµåŒº"
+            countyName: "»İ¼ÃÇø"
           }, {
             countyCode: "410122",
-            countyName: "ä¸­ç‰Ÿå¿"
+            countyName: "ÖĞÄ²ÏØ"
           }, {
             countyCode: "410105",
-            countyName: "é‡‘æ°´åŒº"
+            countyName: "½ğË®Çø"
           }, {
             countyCode: "410183",
-            countyName: "æ–°å¯†å¸‚"
+            countyName: "ĞÂÃÜÊĞ"
           }, {
             countyCode: "410184",
-            countyName: "æ–°éƒ‘å¸‚"
+            countyName: "ĞÂÖ£ÊĞ"
           }, {
             countyCode: "410181",
-            countyName: "å·©ä¹‰å¸‚"
+            countyName: "¹®ÒåÊĞ"
           }, {
             countyCode: "410106",
-            countyName: "ä¸Šè¡—åŒº"
+            countyName: "ÉÏ½ÖÇø"
           }, {
             countyCode: "410103",
-            countyName: "äºŒä¸ƒåŒº"
+            countyName: "¶şÆßÇø"
           }, {
             countyCode: "410102",
-            countyName: "ä¸­åŸåŒº"
+            countyName: "ÖĞÔ­Çø"
           }]
         }, {
           cityCode: "419001",
-          cityName: "æµæºå¸‚",
+          cityName: "¼ÃÔ´ÊĞ",
           county: [{
             countyCode: "419001-1",
-            countyName: "æµæºå¸‚"
+            countyName: "¼ÃÔ´ÊĞ"
           }]
         }, {
           cityCode: "410400",
-          cityName: "å¹³é¡¶å±±å¸‚",
+          cityName: "Æ½¶¥É½ÊĞ",
           county: [{
             countyCode: "410481",
-            countyName: "èˆé’¢å¸‚"
+            countyName: "Îè¸ÖÊĞ"
           }, {
             countyCode: "410421",
-            countyName: "å®ä¸°å¿"
+            countyName: "±¦·áÏØ"
           }, {
             countyCode: "410482",
-            countyName: "æ±å·å¸‚"
+            countyName: "ÈêÖİÊĞ"
           }, {
             countyCode: "410404",
-            countyName: "çŸ³é¾™åŒº"
+            countyName: "Ê¯ÁúÇø"
           }, {
             countyCode: "410403",
-            countyName: "å«ä¸œåŒº"
+            countyName: "ÎÀ¶«Çø"
           }, {
             countyCode: "410411",
-            countyName: "æ¹›æ²³åŒº"
+            countyName: "Õ¿ºÓÇø"
           }, {
             countyCode: "410402",
-            countyName: "æ–°ååŒº"
+            countyName: "ĞÂ»ªÇø"
           }, {
             countyCode: "410423",
-            countyName: "é²å±±å¿"
+            countyName: "Â³É½ÏØ"
           }, {
             countyCode: "410422",
-            countyName: "å¶å¿"
+            countyName: "Ò¶ÏØ"
           }, {
             countyCode: "410425",
-            countyName: "éƒå¿"
+            countyName: "Û£ÏØ"
           }]
         }, {
           cityCode: "410900",
-          cityName: "æ¿®é˜³å¸‚",
+          cityName: "å§ÑôÊĞ",
           county: [{
             countyCode: "410902",
-            countyName: "åé¾™åŒº"
+            countyName: "»ªÁúÇø"
           }, {
             countyCode: "410922",
-            countyName: "æ¸…ä¸°å¿"
+            countyName: "Çå·áÏØ"
           }, {
             countyCode: "410926",
-            countyName: "èŒƒå¿"
+            countyName: "·¶ÏØ"
           }, {
             countyCode: "410927",
-            countyName: "å°å‰å¿"
+            countyName: "Ì¨Ç°ÏØ"
           }, {
             countyCode: "410923",
-            countyName: "å—ä¹å¿"
+            countyName: "ÄÏÀÖÏØ"
           }, {
             countyCode: "410928",
-            countyName: "æ¿®é˜³å¿"
+            countyName: "å§ÑôÏØ"
           }]
         }, {
           cityCode: "410600",
-          cityName: "é¹¤å£å¸‚",
+          cityName: "º×±ÚÊĞ",
           county: [{
             countyCode: "410603",
-            countyName: "å±±åŸåŒº"
+            countyName: "É½³ÇÇø"
           }, {
             countyCode: "410611",
-            countyName: "æ·‡æ»¨åŒº"
+            countyName: "ä¿±õÇø"
           }, {
             countyCode: "410602",
-            countyName: "é¹¤å±±åŒº"
+            countyName: "º×É½Çø"
           }, {
             countyCode: "410621",
-            countyName: "æµšå¿"
+            countyName: "¿£ÏØ"
           }, {
             countyCode: "410622",
-            countyName: "æ·‡å¿"
+            countyName: "ä¿ÏØ"
           }]
         }, {
           cityCode: "411100",
-          cityName: "æ¼¯æ²³å¸‚",
+          cityName: "äğºÓÊĞ",
           county: [{
             countyCode: "411102",
-            countyName: "æºæ±‡åŒº"
+            countyName: "Ô´»ãÇø"
           }, {
             countyCode: "411122",
-            countyName: "ä¸´é¢å¿"
+            countyName: "ÁÙò£ÏØ"
           }, {
             countyCode: "411103",
-            countyName: "éƒ¾åŸåŒº"
+            countyName: "Û±³ÇÇø"
           }, {
             countyCode: "411104",
-            countyName: "å¬é™µåŒº"
+            countyName: "ÕÙÁêÇø"
           }, {
             countyCode: "411121",
-            countyName: "èˆé˜³å¿"
+            countyName: "ÎèÑôÏØ"
           }]
         }, {
           cityCode: "411600",
-          cityName: "å‘¨å£å¸‚",
+          cityName: "ÖÜ¿ÚÊĞ",
           county: [{
             countyCode: "411626",
-            countyName: "æ·®é˜³å¿"
+            countyName: "»´ÑôÏØ"
           }, {
             countyCode: "411681",
-            countyName: "é¡¹åŸå¸‚"
+            countyName: "Ïî³ÇÊĞ"
           }, {
             countyCode: "411624",
-            countyName: "æ²ˆä¸˜å¿"
+            countyName: "ÉòÇğÏØ"
           }, {
             countyCode: "411622",
-            countyName: "è¥¿åå¿"
+            countyName: "Î÷»ªÏØ"
           }, {
             countyCode: "411627",
-            countyName: "å¤ªåº·å¿"
+            countyName: "Ì«¿µÏØ"
           }, {
             countyCode: "411623",
-            countyName: "å•†æ°´å¿"
+            countyName: "ÉÌË®ÏØ"
           }, {
             countyCode: "411628",
-            countyName: "é¹¿é‚‘å¿"
+            countyName: "Â¹ÒØÏØ"
           }, {
             countyCode: "411602",
-            countyName: "å·æ±‡åŒº"
+            countyName: "´¨»ãÇø"
           }, {
             countyCode: "411621",
-            countyName: "æ‰¶æ²Ÿå¿"
+            countyName: "·ö¹µÏØ"
           }, {
             countyCode: "411625",
-            countyName: "éƒ¸åŸå¿"
+            countyName: "µ¦³ÇÏØ"
           }]
         }, {
           cityCode: "410800",
-          cityName: "ç„¦ä½œå¸‚",
+          cityName: "½¹×÷ÊĞ",
           county: [{
             countyCode: "410883",
-            countyName: "å­Ÿå·å¸‚"
+            countyName: "ÃÏÖİÊĞ"
           }, {
             countyCode: "410823",
-            countyName: "æ­¦é™Ÿå¿"
+            countyName: "ÎäÚìÏØ"
           }, {
             countyCode: "410882",
-            countyName: "æ²é˜³å¸‚"
+            countyName: "ÇßÑôÊĞ"
           }, {
             countyCode: "410822",
-            countyName: "åšçˆ±å¿"
+            countyName: "²©°®ÏØ"
           }, {
             countyCode: "410821",
-            countyName: "ä¿®æ­¦å¿"
+            countyName: "ĞŞÎäÏØ"
           }, {
             countyCode: "410825",
-            countyName: "æ¸©å¿"
+            countyName: "ÎÂÏØ"
           }, {
             countyCode: "410804",
-            countyName: "é©¬æ‘åŒº"
+            countyName: "Âí´åÇø"
           }, {
             countyCode: "410802",
-            countyName: "è§£æ”¾åŒº"
+            countyName: "½â·ÅÇø"
           }, {
             countyCode: "410811",
-            countyName: "å±±é˜³åŒº"
+            countyName: "É½ÑôÇø"
           }, {
             countyCode: "410803",
-            countyName: "ä¸­ç«™åŒº"
+            countyName: "ÖĞÕ¾Çø"
           }]
         }]
       }, {
         provinceCode: "420000",
-        provinceName: "æ¹–åŒ—çœ",
+        provinceName: "ºş±±Ê¡",
         city: [{
           cityCode: "429004",
-          cityName: "ä»™æ¡ƒå¸‚",
+          cityName: "ÏÉÌÒÊĞ",
           county: [{
             countyCode: "429004-1",
-            countyName: "ä»™æ¡ƒå¸‚"
+            countyName: "ÏÉÌÒÊĞ"
           }]
         }, {
           cityCode: "421200",
-          cityName: "å’¸å®å¸‚",
+          cityName: "ÏÌÄşÊĞ",
           county: [{
             countyCode: "421223",
-            countyName: "å´‡é˜³å¿"
+            countyName: "³çÑôÏØ"
           }, {
             countyCode: "421224",
-            countyName: "é€šå±±å¿"
+            countyName: "Í¨É½ÏØ"
           }, {
             countyCode: "421202",
-            countyName: "å’¸å®‰åŒº"
+            countyName: "ÏÌ°²Çø"
           }, {
             countyCode: "421222",
-            countyName: "é€šåŸå¿"
+            countyName: "Í¨³ÇÏØ"
           }, {
             countyCode: "421221",
-            countyName: "å˜‰é±¼å¿"
+            countyName: "¼ÎÓãÏØ"
           }, {
             countyCode: "421281",
-            countyName: "èµ¤å£å¸‚"
+            countyName: "³à±ÚÊĞ"
           }]
         }, {
           cityCode: "421300",
-          cityName: "éšå·å¸‚",
+          cityName: "ËæÖİÊĞ",
           county: [{
             countyCode: "421381",
-            countyName: "å¹¿æ°´å¸‚"
+            countyName: "¹ãË®ÊĞ"
           }, {
             countyCode: "421303",
-            countyName: "æ›¾éƒ½åŒº"
+            countyName: "Ôø¶¼Çø"
           }, {
             countyCode: "421321",
-            countyName: "éšå¿"
+            countyName: "ËæÏØ"
           }]
         }, {
           cityCode: "422800",
-          cityName: "æ©æ–½åœŸå®¶æ—è‹—æ—è‡ªæ²»å·",
+          cityName: "¶÷Ê©ÍÁ¼Ò×åÃç×å×ÔÖÎÖİ",
           county: [{
             countyCode: "422828",
-            countyName: "é¹¤å³°å¿"
+            countyName: "º×·åÏØ"
           }, {
             countyCode: "422825",
-            countyName: "å®£æ©å¿"
+            countyName: "Ğû¶÷ÏØ"
           }, {
             countyCode: "422801",
-            countyName: "æ©æ–½å¸‚"
+            countyName: "¶÷Ê©ÊĞ"
           }, {
             countyCode: "422822",
-            countyName: "å»ºå§‹å¿"
+            countyName: "½¨Ê¼ÏØ"
           }, {
             countyCode: "422823",
-            countyName: "å·´ä¸œå¿"
+            countyName: "°Í¶«ÏØ"
           }, {
             countyCode: "422826",
-            countyName: "å’¸ä¸°å¿"
+            countyName: "ÏÌ·áÏØ"
           }, {
             countyCode: "422827",
-            countyName: "æ¥å‡¤å¿"
+            countyName: "À´·ïÏØ"
           }, {
             countyCode: "422802",
-            countyName: "åˆ©å·å¸‚"
+            countyName: "Àû´¨ÊĞ"
           }]
         }, {
           cityCode: "420900",
-          cityName: "å­æ„Ÿå¸‚",
+          cityName: "Ğ¢¸ĞÊĞ",
           county: [{
             countyCode: "420902",
-            countyName: "å­å—åŒº"
+            countyName: "Ğ¢ÄÏÇø"
           }, {
             countyCode: "420981",
-            countyName: "åº”åŸå¸‚"
+            countyName: "Ó¦³ÇÊĞ"
           }, {
             countyCode: "420923",
-            countyName: "äº‘æ¢¦å¿"
+            countyName: "ÔÆÃÎÏØ"
           }, {
             countyCode: "420982",
-            countyName: "å®‰é™†å¸‚"
+            countyName: "°²Â½ÊĞ"
           }, {
             countyCode: "420922",
-            countyName: "å¤§æ‚Ÿå¿"
+            countyName: "´óÎòÏØ"
           }, {
             countyCode: "420921",
-            countyName: "å­æ˜Œå¿"
+            countyName: "Ğ¢²ıÏØ"
           }, {
             countyCode: "420984",
-            countyName: "æ±‰å·å¸‚"
+            countyName: "ºº´¨ÊĞ"
           }]
         }, {
           cityCode: "420100",
-          cityName: "æ­¦æ±‰å¸‚",
+          cityName: "ÎäººÊĞ",
           county: [{
             countyCode: "420104",
-            countyName: "ç¡šå£åŒº"
+            countyName: "³~¿ÚÇø"
           }, {
             countyCode: "420107",
-            countyName: "é’å±±åŒº"
+            countyName: "ÇàÉ½Çø"
           }, {
             countyCode: "420116",
-            countyName: "é»„é™‚åŒº"
+            countyName: "»ÆÚéÇø"
           }, {
             countyCode: "420102",
-            countyName: "æ±Ÿå²¸åŒº"
+            countyName: "½­°¶Çø"
           }, {
             countyCode: "420115",
-            countyName: "æ±Ÿå¤åŒº"
+            countyName: "½­ÏÄÇø"
           }, {
             countyCode: "420114",
-            countyName: "è”¡ç”¸åŒº"
+            countyName: "²ÌµéÇø"
           }, {
             countyCode: "420106",
-            countyName: "æ­¦æ˜ŒåŒº"
+            countyName: "Îä²ıÇø"
           }, {
             countyCode: "420112",
-            countyName: "ä¸œè¥¿æ¹–åŒº"
+            countyName: "¶«Î÷ºşÇø"
           }, {
             countyCode: "420105",
-            countyName: "æ±‰é˜³åŒº"
+            countyName: "ººÑôÇø"
           }, {
             countyCode: "420113",
-            countyName: "æ±‰å—åŒº"
+            countyName: "ººÄÏÇø"
           }, {
             countyCode: "420111",
-            countyName: "æ´ªå±±åŒº"
+            countyName: "ºéÉ½Çø"
           }, {
             countyCode: "420103",
-            countyName: "æ±Ÿæ±‰åŒº"
+            countyName: "½­ººÇø"
           }, {
             countyCode: "420117",
-            countyName: "æ–°æ´²åŒº"
+            countyName: "ĞÂÖŞÇø"
           }]
         }, {
           cityCode: "420500",
-          cityName: "å®œæ˜Œå¸‚",
+          cityName: "ÒË²ıÊĞ",
           county: [{
             countyCode: "420502",
-            countyName: "è¥¿é™µåŒº"
+            countyName: "Î÷ÁêÇø"
           }, {
             countyCode: "420505",
-            countyName: "çŒ‡äº­åŒº"
+            countyName: "ªVÍ¤Çø"
           }, {
             countyCode: "420503",
-            countyName: "ä¼å®¶å²—åŒº"
+            countyName: "Îé¼Ò¸ÚÇø"
           }, {
             countyCode: "420581",
-            countyName: "å®œéƒ½å¸‚"
+            countyName: "ÒË¶¼ÊĞ"
           }, {
             countyCode: "420504",
-            countyName: "ç‚¹å†›åŒº"
+            countyName: "µã¾üÇø"
           }, {
             countyCode: "420526",
-            countyName: "å…´å±±å¿"
+            countyName: "ĞËÉ½ÏØ"
           }, {
             countyCode: "420525",
-            countyName: "è¿œå®‰å¿"
+            countyName: "Ô¶°²ÏØ"
           }, {
             countyCode: "420527",
-            countyName: "ç§­å½’å¿"
+            countyName: "ïö¹éÏØ"
           }, {
             countyCode: "420583",
-            countyName: "ææ±Ÿå¸‚"
+            countyName: "Ö¦½­ÊĞ"
           }, {
             countyCode: "420529",
-            countyName: "äº”å³°åœŸå®¶æ—è‡ªæ²»å¿"
+            countyName: "Îå·åÍÁ¼Ò×å×ÔÖÎÏØ"
           }, {
             countyCode: "420582",
-            countyName: "å½“é˜³å¸‚"
+            countyName: "µ±ÑôÊĞ"
           }, {
             countyCode: "420506",
-            countyName: "å¤·é™µåŒº"
+            countyName: "ÒÄÁêÇø"
           }, {
             countyCode: "420528",
-            countyName: "é•¿é˜³åœŸå®¶æ—è‡ªæ²»å¿"
+            countyName: "³¤ÑôÍÁ¼Ò×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "420800",
-          cityName: "è†é—¨å¸‚",
+          cityName: "¾£ÃÅÊĞ",
           county: [{
             countyCode: "420804",
-            countyName: "æ‡åˆ€åŒº"
+            countyName: "¶Şµ¶Çø"
           }, {
             countyCode: "420822",
-            countyName: "æ²™æ´‹å¿"
+            countyName: "É³ÑóÏØ"
           }, {
             countyCode: "420802",
-            countyName: "ä¸œå®åŒº"
+            countyName: "¶«±¦Çø"
           }, {
             countyCode: "420881",
-            countyName: "é’Ÿç¥¥å¸‚"
+            countyName: "ÖÓÏéÊĞ"
           }, {
             countyCode: "420821",
-            countyName: "äº¬å±±å¸‚"
+            countyName: "¾©É½ÊĞ"
           }]
         }, {
           cityCode: "429006",
-          cityName: "å¤©é—¨å¸‚",
+          cityName: "ÌìÃÅÊĞ",
           county: [{
             countyCode: "429006-1",
-            countyName: "å¤©é—¨å¸‚"
+            countyName: "ÌìÃÅÊĞ"
           }]
         }, {
           cityCode: "421000",
-          cityName: "è†å·å¸‚",
+          cityName: "¾£ÖİÊĞ",
           county: [{
             countyCode: "421003",
-            countyName: "è†å·åŒº"
+            countyName: "¾£ÖİÇø"
           }, {
             countyCode: "421023",
-            countyName: "ç›‘åˆ©å¿"
+            countyName: "¼àÀûÏØ"
           }, {
             countyCode: "421087",
-            countyName: "æ¾æ»‹å¸‚"
+            countyName: "ËÉ×ÌÊĞ"
           }, {
             countyCode: "421022",
-            countyName: "å…¬å®‰å¿"
+            countyName: "¹«°²ÏØ"
           }, {
             countyCode: "421002",
-            countyName: "æ²™å¸‚åŒº"
+            countyName: "É³ÊĞÇø"
           }, {
             countyCode: "421024",
-            countyName: "æ±Ÿé™µå¿"
+            countyName: "½­ÁêÏØ"
           }, {
             countyCode: "421081",
-            countyName: "çŸ³é¦–å¸‚"
+            countyName: "Ê¯Ê×ÊĞ"
           }, {
             countyCode: "421083",
-            countyName: "æ´ªæ¹–å¸‚"
+            countyName: "ºéºşÊĞ"
           }]
         }, {
           cityCode: "420600",
-          cityName: "è¥„é˜³å¸‚",
+          cityName: "ÏåÑôÊĞ",
           county: [{
             countyCode: "420625",
-            countyName: "è°·åŸå¿"
+            countyName: "¹È³ÇÏØ"
           }, {
             countyCode: "420607",
-            countyName: "è¥„å·åŒº"
+            countyName: "ÏåÖİÇø"
           }, {
             countyCode: "420606",
-            countyName: "æ¨ŠåŸåŒº"
+            countyName: "·®³ÇÇø"
           }, {
             countyCode: "420602",
-            countyName: "è¥„åŸåŒº"
+            countyName: "Ïå³ÇÇø"
           }, {
             countyCode: "420626",
-            countyName: "ä¿åº·å¿"
+            countyName: "±£¿µÏØ"
           }, {
             countyCode: "420624",
-            countyName: "å—æ¼³å¿"
+            countyName: "ÄÏÕÄÏØ"
           }, {
             countyCode: "420683",
-            countyName: "æ£é˜³å¸‚"
+            countyName: "ÔæÑôÊĞ"
           }, {
             countyCode: "420682",
-            countyName: "è€æ²³å£å¸‚"
+            countyName: "ÀÏºÓ¿ÚÊĞ"
           }, {
             countyCode: "420684",
-            countyName: "å®œåŸå¸‚"
+            countyName: "ÒË³ÇÊĞ"
           }]
         }, {
           cityCode: "420700",
-          cityName: "é„‚å·å¸‚",
+          cityName: "¶õÖİÊĞ",
           county: [{
             countyCode: "420702",
-            countyName: "æ¢å­æ¹–åŒº"
+            countyName: "Áº×ÓºşÇø"
           }, {
             countyCode: "420703",
-            countyName: "åå®¹åŒº"
+            countyName: "»ªÈİÇø"
           }, {
             countyCode: "420704",
-            countyName: "é„‚åŸåŒº"
+            countyName: "¶õ³ÇÇø"
           }]
         }, {
           cityCode: "429021",
-          cityName: "ç¥å†œæ¶æ—åŒº",
+          cityName: "ÉñÅ©¼ÜÁÖÇø",
           county: [{
             countyCode: "429021-1",
-            countyName: "ç¥å†œæ¶æ—åŒº"
+            countyName: "ÉñÅ©¼ÜÁÖÇø"
           }]
         }, {
           cityCode: "420200",
-          cityName: "é»„çŸ³å¸‚",
+          cityName: "»ÆÊ¯ÊĞ",
           county: [{
             countyCode: "420202",
-            countyName: "é»„çŸ³æ¸¯åŒº"
+            countyName: "»ÆÊ¯¸ÛÇø"
           }, {
             countyCode: "420281",
-            countyName: "å¤§å†¶å¸‚"
+            countyName: "´óÒ±ÊĞ"
           }, {
             countyCode: "420205",
-            countyName: "é“å±±åŒº"
+            countyName: "ÌúÉ½Çø"
           }, {
             countyCode: "420222",
-            countyName: "é˜³æ–°å¿"
+            countyName: "ÑôĞÂÏØ"
           }, {
             countyCode: "420203",
-            countyName: "è¥¿å¡å±±åŒº"
+            countyName: "Î÷ÈûÉ½Çø"
           }, {
             countyCode: "420204",
-            countyName: "ä¸‹é™†åŒº"
+            countyName: "ÏÂÂ½Çø"
           }]
         }, {
           cityCode: "421100",
-          cityName: "é»„å†ˆå¸‚",
+          cityName: "»Æ¸ÔÊĞ",
           county: [{
             countyCode: "421181",
-            countyName: "éº»åŸå¸‚"
+            countyName: "Âé³ÇÊĞ"
           }, {
             countyCode: "421125",
-            countyName: "æµ æ°´å¿"
+            countyName: "ä»Ë®ÏØ"
           }, {
             countyCode: "421121",
-            countyName: "å›¢é£å¿"
+            countyName: "ÍÅ·çÏØ"
           }, {
             countyCode: "421182",
-            countyName: "æ­¦ç©´å¸‚"
+            countyName: "ÎäÑ¨ÊĞ"
           }, {
             countyCode: "421124",
-            countyName: "è‹±å±±å¿"
+            countyName: "Ó¢É½ÏØ"
           }, {
             countyCode: "421122",
-            countyName: "çº¢å®‰å¿"
+            countyName: "ºì°²ÏØ"
           }, {
             countyCode: "421102",
-            countyName: "é»„å·åŒº"
+            countyName: "»ÆÖİÇø"
           }, {
             countyCode: "421123",
-            countyName: "ç½—ç”°å¿"
+            countyName: "ÂŞÌïÏØ"
           }, {
             countyCode: "421126",
-            countyName: "è•²æ˜¥å¿"
+            countyName: "Ş­´ºÏØ"
           }, {
             countyCode: "421127",
-            countyName: "é»„æ¢…å¿"
+            countyName: "»ÆÃ·ÏØ"
           }]
         }, {
           cityCode: "420300",
-          cityName: "åå °å¸‚",
+          cityName: "Ê®ÑßÊĞ",
           county: [{
             countyCode: "420322",
-            countyName: "éƒ§è¥¿å¿"
+            countyName: "ÔÇÎ÷ÏØ"
           }, {
             countyCode: "420321",
-            countyName: "éƒ§é˜³åŒº"
+            countyName: "ÔÇÑôÇø"
           }, {
             countyCode: "420323",
-            countyName: "ç«¹å±±å¿"
+            countyName: "ÖñÉ½ÏØ"
           }, {
             countyCode: "420324",
-            countyName: "ç«¹æºªå¿"
+            countyName: "ÖñÏªÏØ"
           }, {
             countyCode: "420325",
-            countyName: "æˆ¿å¿"
+            countyName: "·¿ÏØ"
           }, {
             countyCode: "420302",
-            countyName: "èŒ…ç®­åŒº"
+            countyName: "Ã©¼ıÇø"
           }, {
             countyCode: "420303",
-            countyName: "å¼ æ¹¾åŒº"
+            countyName: "ÕÅÍåÇø"
           }, {
             countyCode: "420381",
-            countyName: "ä¸¹æ±Ÿå£å¸‚"
+            countyName: "µ¤½­¿ÚÊĞ"
           }]
         }, {
           cityCode: "429005",
-          cityName: "æ½œæ±Ÿå¸‚",
+          cityName: "Ç±½­ÊĞ",
           county: [{
             countyCode: "429005-1",
-            countyName: "æ½œæ±Ÿå¸‚"
+            countyName: "Ç±½­ÊĞ"
           }]
         }]
       }, {
         provinceCode: "430000",
-        provinceName: "æ¹–å—çœ",
+        provinceName: "ºşÄÏÊ¡",
         city: [{
           cityCode: "430300",
-          cityName: "æ¹˜æ½­å¸‚",
+          cityName: "ÏæÌ¶ÊĞ",
           county: [{
             countyCode: "430381",
-            countyName: "æ¹˜ä¹¡å¸‚"
+            countyName: "ÏæÏçÊĞ"
           }, {
             countyCode: "430302",
-            countyName: "é›¨æ¹–åŒº"
+            countyName: "ÓêºşÇø"
           }, {
             countyCode: "430382",
-            countyName: "éŸ¶å±±å¸‚"
+            countyName: "ÉØÉ½ÊĞ"
           }, {
             countyCode: "430321",
-            countyName: "æ¹˜æ½­å¿"
+            countyName: "ÏæÌ¶ÏØ"
           }, {
             countyCode: "430304",
-            countyName: "å²³å¡˜åŒº"
+            countyName: "ÔÀÌÁÇø"
           }]
         }, {
           cityCode: "430600",
-          cityName: "å²³é˜³å¸‚",
+          cityName: "ÔÀÑôÊĞ",
           county: [{
             countyCode: "430623",
-            countyName: "åå®¹å¿"
+            countyName: "»ªÈİÏØ"
           }, {
             countyCode: "430682",
-            countyName: "ä¸´æ¹˜å¸‚"
+            countyName: "ÁÙÏæÊĞ"
           }, {
             countyCode: "430603",
-            countyName: "äº‘æºªåŒº"
+            countyName: "ÔÆÏªÇø"
           }, {
             countyCode: "430681",
-            countyName: "æ±¨ç½—å¸‚"
+            countyName: "ãèÂŞÊĞ"
           }, {
             countyCode: "430624",
-            countyName: "æ¹˜é˜´å¿"
+            countyName: "ÏæÒõÏØ"
           }, {
             countyCode: "430602",
-            countyName: "å²³é˜³æ¥¼åŒº"
+            countyName: "ÔÀÑôÂ¥Çø"
           }, {
             countyCode: "430626",
-            countyName: "å¹³æ±Ÿå¿"
+            countyName: "Æ½½­ÏØ"
           }, {
             countyCode: "430611",
-            countyName: "å›å±±åŒº"
+            countyName: "¾ıÉ½Çø"
           }, {
             countyCode: "430621",
-            countyName: "å²³é˜³å¿"
+            countyName: "ÔÀÑôÏØ"
           }]
         }, {
           cityCode: "430100",
-          cityName: "é•¿æ²™å¸‚",
+          cityName: "³¤É³ÊĞ",
           county: [{
             countyCode: "430111",
-            countyName: "é›¨èŠ±åŒº"
+            countyName: "Óê»¨Çø"
           }, {
             countyCode: "430103",
-            countyName: "å¤©å¿ƒåŒº"
+            countyName: "ÌìĞÄÇø"
           }, {
             countyCode: "430104",
-            countyName: "å²³éº“åŒº"
+            countyName: "ÔÀÂ´Çø"
           }, {
             countyCode: "430181",
-            countyName: "æµé˜³å¸‚"
+            countyName: "ä¯ÑôÊĞ"
           }, {
             countyCode: "430124",
-            countyName: "å®ä¹¡å¸‚"
+            countyName: "ÄşÏçÊĞ"
           }, {
             countyCode: "430112",
-            countyName: "æœ›åŸåŒº"
+            countyName: "Íû³ÇÇø"
           }, {
             countyCode: "430121",
-            countyName: "é•¿æ²™å¿"
+            countyName: "³¤É³ÏØ"
           }, {
             countyCode: "430105",
-            countyName: "å¼€ç¦åŒº"
+            countyName: "¿ª¸£Çø"
           }, {
             countyCode: "430102",
-            countyName: "èŠ™è“‰åŒº"
+            countyName: "Ü½ÈØÇø"
           }]
         }, {
           cityCode: "430200",
-          cityName: "æ ªæ´²å¸‚",
+          cityName: "ÖêÖŞÊĞ",
           county: [{
             countyCode: "430202",
-            countyName: "è·å¡˜åŒº"
+            countyName: "ºÉÌÁÇø"
           }, {
             countyCode: "430225",
-            countyName: "ç‚é™µå¿"
+            countyName: "Ñ×ÁêÏØ"
           }, {
             countyCode: "430281",
-            countyName: "é†´é™µå¸‚"
+            countyName: "õ·ÁêÊĞ"
           }, {
             countyCode: "430203",
-            countyName: "èŠ¦æ·åŒº"
+            countyName: "Â«äÁÇø"
           }, {
             countyCode: "430224",
-            countyName: "èŒ¶é™µå¿"
+            countyName: "²èÁêÏØ"
           }, {
             countyCode: "430211",
-            countyName: "å¤©å…ƒåŒº"
+            countyName: "ÌìÔªÇø"
           }, {
             countyCode: "430221",
-            countyName: "æ ªæ´²å¿"
+            countyName: "ÖêÖŞÏØ"
           }, {
             countyCode: "430223",
-            countyName: "æ”¸å¿"
+            countyName: "ØüÏØ"
           }, {
             countyCode: "430204",
-            countyName: "çŸ³å³°åŒº"
+            countyName: "Ê¯·åÇø"
           }]
         }, {
           cityCode: "431000",
-          cityName: "éƒ´å·å¸‚",
+          cityName: "³»ÖİÊĞ",
           county: [{
             countyCode: "431028",
-            countyName: "å®‰ä»å¿"
+            countyName: "°²ÈÊÏØ"
           }, {
             countyCode: "431021",
-            countyName: "æ¡‚é˜³å¿"
+            countyName: "¹ğÑôÏØ"
           }, {
             countyCode: "431002",
-            countyName: "åŒ—æ¹–åŒº"
+            countyName: "±±ºşÇø"
           }, {
             countyCode: "431027",
-            countyName: "æ¡‚ä¸œå¿"
+            countyName: "¹ğ¶«ÏØ"
           }, {
             countyCode: "431024",
-            countyName: "å˜‰ç¦¾å¿"
+            countyName: "¼ÎºÌÏØ"
           }, {
             countyCode: "431026",
-            countyName: "æ±åŸå¿"
+            countyName: "Èê³ÇÏØ"
           }, {
             countyCode: "431023",
-            countyName: "æ°¸å…´å¿"
+            countyName: "ÓÀĞËÏØ"
           }, {
             countyCode: "431025",
-            countyName: "ä¸´æ­¦å¿"
+            countyName: "ÁÙÎäÏØ"
           }, {
             countyCode: "431022",
-            countyName: "å®œç« å¿"
+            countyName: "ÒËÕÂÏØ"
           }, {
             countyCode: "431003",
-            countyName: "è‹ä»™åŒº"
+            countyName: "ËÕÏÉÇø"
           }, {
             countyCode: "431081",
-            countyName: "èµ„å…´å¸‚"
+            countyName: "×ÊĞËÊĞ"
           }]
         }, {
           cityCode: "431200",
-          cityName: "æ€€åŒ–å¸‚",
+          cityName: "»³»¯ÊĞ",
           county: [{
             countyCode: "431223",
-            countyName: "è¾°æºªå¿"
+            countyName: "³½ÏªÏØ"
           }, {
             countyCode: "431202",
-            countyName: "é¹¤åŸåŒº"
+            countyName: "º×³ÇÇø"
           }, {
             countyCode: "431224",
-            countyName: "æº†æµ¦å¿"
+            countyName: "äÓÆÖÏØ"
           }, {
             countyCode: "431226",
-            countyName: "éº»é˜³è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÂéÑôÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "431229",
-            countyName: "é–å·è‹—æ—ä¾—æ—è‡ªæ²»å¿"
+            countyName: "¾¸ÖİÃç×å¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "431230",
-            countyName: "é€šé“ä¾—æ—è‡ªæ²»å¿"
+            countyName: "Í¨µÀ¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "431281",
-            countyName: "æ´ªæ±Ÿå¸‚"
+            countyName: "ºé½­ÊĞ"
           }, {
             countyCode: "431228",
-            countyName: "èŠ·æ±Ÿä¾—æ—è‡ªæ²»å¿"
+            countyName: "ÜÆ½­¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "431221",
-            countyName: "ä¸­æ–¹å¿"
+            countyName: "ÖĞ·½ÏØ"
           }, {
             countyCode: "431225",
-            countyName: "ä¼šåŒå¿"
+            countyName: "»áÍ¬ÏØ"
           }, {
             countyCode: "431227",
-            countyName: "æ–°æ™ƒä¾—æ—è‡ªæ²»å¿"
+            countyName: "ĞÂ»Î¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "431222",
-            countyName: "æ²…é™µå¿"
+            countyName: "ãäÁêÏØ"
           }]
         }, {
           cityCode: "431100",
-          cityName: "æ°¸å·å¸‚",
+          cityName: "ÓÀÖİÊĞ",
           county: [{
             countyCode: "431123",
-            countyName: "åŒç‰Œå¿"
+            countyName: "Ë«ÅÆÏØ"
           }, {
             countyCode: "431125",
-            countyName: "æ±Ÿæ°¸å¿"
+            countyName: "½­ÓÀÏØ"
           }, {
             countyCode: "431102",
-            countyName: "é›¶é™µåŒº"
+            countyName: "ÁãÁêÇø"
           }, {
             countyCode: "431129",
-            countyName: "æ±Ÿåç‘¶æ—è‡ªæ²»å¿"
+            countyName: "½­»ªÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "431124",
-            countyName: "é“å¿"
+            countyName: "µÀÏØ"
           }, {
             countyCode: "431127",
-            countyName: "è“å±±å¿"
+            countyName: "À¶É½ÏØ"
           }, {
             countyCode: "431103",
-            countyName: "å†·æ°´æ»©åŒº"
+            countyName: "ÀäË®Ì²Çø"
           }, {
             countyCode: "431122",
-            countyName: "ä¸œå®‰å¿"
+            countyName: "¶«°²ÏØ"
           }, {
             countyCode: "431128",
-            countyName: "æ–°ç”°å¿"
+            countyName: "ĞÂÌïÏØ"
           }, {
             countyCode: "431121",
-            countyName: "ç¥é˜³å¿"
+            countyName: "ÆîÑôÏØ"
           }, {
             countyCode: "431126",
-            countyName: "å®è¿œå¿"
+            countyName: "ÄşÔ¶ÏØ"
           }]
         }, {
           cityCode: "430700",
-          cityName: "å¸¸å¾·å¸‚",
+          cityName: "³£µÂÊĞ",
           county: [{
             countyCode: "430703",
-            countyName: "é¼åŸåŒº"
+            countyName: "¶¦³ÇÇø"
           }, {
             countyCode: "430725",
-            countyName: "æ¡ƒæºå¿"
+            countyName: "ÌÒÔ´ÏØ"
           }, {
             countyCode: "430724",
-            countyName: "ä¸´æ¾§å¿"
+            countyName: "ÁÙå¢ÏØ"
           }, {
             countyCode: "430781",
-            countyName: "æ´¥å¸‚å¸‚"
+            countyName: "½òÊĞÊĞ"
           }, {
             countyCode: "430702",
-            countyName: "æ­¦é™µåŒº"
+            countyName: "ÎäÁêÇø"
           }, {
             countyCode: "430721",
-            countyName: "å®‰ä¹¡å¿"
+            countyName: "°²ÏçÏØ"
           }, {
             countyCode: "430726",
-            countyName: "çŸ³é—¨å¿"
+            countyName: "Ê¯ÃÅÏØ"
           }, {
             countyCode: "430722",
-            countyName: "æ±‰å¯¿å¿"
+            countyName: "ººÊÙÏØ"
           }, {
             countyCode: "430723",
-            countyName: "æ¾§å¿"
+            countyName: "å¢ÏØ"
           }]
         }, {
           cityCode: "431300",
-          cityName: "å¨„åº•å¸‚",
+          cityName: "Â¦µ×ÊĞ",
           county: [{
             countyCode: "431322",
-            countyName: "æ–°åŒ–å¿"
+            countyName: "ĞÂ»¯ÏØ"
           }, {
             countyCode: "431302",
-            countyName: "å¨„æ˜ŸåŒº"
+            countyName: "Â¦ĞÇÇø"
           }, {
             countyCode: "431321",
-            countyName: "åŒå³°å¿"
+            countyName: "Ë«·åÏØ"
           }, {
             countyCode: "431381",
-            countyName: "å†·æ°´æ±Ÿå¸‚"
+            countyName: "ÀäË®½­ÊĞ"
           }, {
             countyCode: "431382",
-            countyName: "æ¶Ÿæºå¸‚"
+            countyName: "Á°Ô´ÊĞ"
           }]
         }, {
           cityCode: "430800",
-          cityName: "å¼ å®¶ç•Œå¸‚",
+          cityName: "ÕÅ¼Ò½çÊĞ",
           county: [{
             countyCode: "430821",
-            countyName: "æ…ˆåˆ©å¿"
+            countyName: "´ÈÀûÏØ"
           }, {
             countyCode: "430822",
-            countyName: "æ¡‘æ¤å¿"
+            countyName: "É£Ö²ÏØ"
           }, {
             countyCode: "430802",
-            countyName: "æ°¸å®šåŒº"
+            countyName: "ÓÀ¶¨Çø"
           }, {
             countyCode: "430811",
-            countyName: "æ­¦é™µæºåŒº"
+            countyName: "ÎäÁêÔ´Çø"
           }]
         }, {
           cityCode: "430400",
-          cityName: "è¡¡é˜³å¸‚",
+          cityName: "ºâÑôÊĞ",
           county: [{
             countyCode: "430423",
-            countyName: "è¡¡å±±å¿"
+            countyName: "ºâÉ½ÏØ"
           }, {
             countyCode: "430408",
-            countyName: "è’¸æ¹˜åŒº"
+            countyName: "ÕôÏæÇø"
           }, {
             countyCode: "430405",
-            countyName: "ç æ™–åŒº"
+            countyName: "ÖéêÍÇø"
           }, {
             countyCode: "430481",
-            countyName: "è€’é˜³å¸‚"
+            countyName: "ñçÑôÊĞ"
           }, {
             countyCode: "430422",
-            countyName: "è¡¡å—å¿"
+            countyName: "ºâÄÏÏØ"
           }, {
             countyCode: "430426",
-            countyName: "ç¥ä¸œå¿"
+            countyName: "Æî¶«ÏØ"
           }, {
             countyCode: "430407",
-            countyName: "çŸ³é¼“åŒº"
+            countyName: "Ê¯¹ÄÇø"
           }, {
             countyCode: "430482",
-            countyName: "å¸¸å®å¸‚"
+            countyName: "³£ÄşÊĞ"
           }, {
             countyCode: "430424",
-            countyName: "è¡¡ä¸œå¿"
+            countyName: "ºâ¶«ÏØ"
           }, {
             countyCode: "430406",
-            countyName: "é›å³°åŒº"
+            countyName: "Ñã·åÇø"
           }, {
             countyCode: "430421",
-            countyName: "è¡¡é˜³å¿"
+            countyName: "ºâÑôÏØ"
           }, {
             countyCode: "430412",
-            countyName: "å—å²³åŒº"
+            countyName: "ÄÏÔÀÇø"
           }]
         }, {
           cityCode: "430500",
-          cityName: "é‚µé˜³å¸‚",
+          cityName: "ÉÛÑôÊĞ",
           county: [{
             countyCode: "430524",
-            countyName: "éš†å›å¿"
+            countyName: "Â¡»ØÏØ"
           }, {
             countyCode: "430503",
-            countyName: "å¤§ç¥¥åŒº"
+            countyName: "´óÏéÇø"
           }, {
             countyCode: "430528",
-            countyName: "æ–°å®å¿"
+            countyName: "ĞÂÄşÏØ"
           }, {
             countyCode: "430529",
-            countyName: "åŸæ­¥è‹—æ—è‡ªæ²»å¿"
+            countyName: "³Ç²½Ãç×å×ÔÖÎÏØ"
           }, {
             countyCode: "430581",
-            countyName: "æ­¦å†ˆå¸‚"
+            countyName: "Îä¸ÔÊĞ"
           }, {
             countyCode: "430502",
-            countyName: "åŒæ¸…åŒº"
+            countyName: "Ë«ÇåÇø"
           }, {
             countyCode: "430523",
-            countyName: "é‚µé˜³å¿"
+            countyName: "ÉÛÑôÏØ"
           }, {
             countyCode: "430522",
-            countyName: "æ–°é‚µå¿"
+            countyName: "ĞÂÉÛÏØ"
           }, {
             countyCode: "430521",
-            countyName: "é‚µä¸œå¿"
+            countyName: "ÉÛ¶«ÏØ"
           }, {
             countyCode: "430525",
-            countyName: "æ´å£å¿"
+            countyName: "¶´¿ÚÏØ"
           }, {
             countyCode: "430511",
-            countyName: "åŒ—å¡”åŒº"
+            countyName: "±±ËşÇø"
           }, {
             countyCode: "430527",
-            countyName: "ç»¥å®å¿"
+            countyName: "ËçÄşÏØ"
           }]
         }, {
           cityCode: "433100",
-          cityName: "æ¹˜è¥¿åœŸå®¶æ—è‹—æ—è‡ªæ²»å·",
+          cityName: "ÏæÎ÷ÍÁ¼Ò×åÃç×å×ÔÖÎÖİ",
           county: [{
             countyCode: "433123",
-            countyName: "å‡¤å‡°å¿"
+            countyName: "·ï»ËÏØ"
           }, {
             countyCode: "433126",
-            countyName: "å¤ä¸ˆå¿"
+            countyName: "¹ÅÕÉÏØ"
           }, {
             countyCode: "433125",
-            countyName: "ä¿é–å¿"
+            countyName: "±£¾¸ÏØ"
           }, {
             countyCode: "433124",
-            countyName: "èŠ±å£å¿"
+            countyName: "»¨Ô«ÏØ"
           }, {
             countyCode: "433127",
-            countyName: "æ°¸é¡ºå¿"
+            countyName: "ÓÀË³ÏØ"
           }, {
             countyCode: "433122",
-            countyName: "æ³¸æºªå¿"
+            countyName: "ãòÏªÏØ"
           }, {
             countyCode: "433101",
-            countyName: "å‰é¦–å¸‚"
+            countyName: "¼ªÊ×ÊĞ"
           }, {
             countyCode: "433130",
-            countyName: "é¾™å±±å¿"
+            countyName: "ÁúÉ½ÏØ"
           }]
         }, {
           cityCode: "430900",
-          cityName: "ç›Šé˜³å¸‚",
+          cityName: "ÒæÑôÊĞ",
           county: [{
             countyCode: "430923",
-            countyName: "å®‰åŒ–å¿"
+            countyName: "°²»¯ÏØ"
           }, {
             countyCode: "430921",
-            countyName: "å—å¿"
+            countyName: "ÄÏÏØ"
           }, {
             countyCode: "430902",
-            countyName: "èµ„é˜³åŒº"
+            countyName: "×ÊÑôÇø"
           }, {
             countyCode: "430981",
-            countyName: "æ²…æ±Ÿå¸‚"
+            countyName: "ãä½­ÊĞ"
           }, {
             countyCode: "430903",
-            countyName: "èµ«å±±åŒº"
+            countyName: "ºÕÉ½Çø"
           }, {
             countyCode: "430922",
-            countyName: "æ¡ƒæ±Ÿå¿"
+            countyName: "ÌÒ½­ÏØ"
           }]
         }]
       }, {
         provinceCode: "450000",
-        provinceName: "å¹¿è¥¿å£®æ—è‡ªæ²»åŒº",
+        provinceName: "¹ãÎ÷×³×å×ÔÖÎÇø",
         city: [{
           cityCode: "450400",
-          cityName: "æ¢§å·å¸‚",
+          cityName: "ÎàÖİÊĞ",
           county: [{
             countyCode: "450481",
-            countyName: "å²‘æºªå¸‚"
+            countyName: "á¯ÏªÊĞ"
           }, {
             countyCode: "450423",
-            countyName: "è’™å±±å¿"
+            countyName: "ÃÉÉ½ÏØ"
           }, {
             countyCode: "450421",
-            countyName: "è‹æ¢§å¿"
+            countyName: "²ÔÎàÏØ"
           }, {
             countyCode: "450422",
-            countyName: "è—¤å¿"
+            countyName: "ÌÙÏØ"
           }, {
             countyCode: "450403",
-            countyName: "ä¸‡ç§€åŒº"
+            countyName: "ÍòĞãÇø"
           }, {
             countyCode: "450405",
-            countyName: "é•¿æ´²åŒº"
+            countyName: "³¤ÖŞÇø"
           }, {
             countyCode: "450424",
-            countyName: "é¾™åœ©åŒº"
+            countyName: "ÁúÛ×Çø"
           }, {
             countyCode: "450404",
-            countyName: "è¶å±±åŒº"
+            countyName: "µûÉ½Çø"
           }]
         }, {
           cityCode: "450500",
-          cityName: "åŒ—æµ·å¸‚",
+          cityName: "±±º£ÊĞ",
           county: [{
             countyCode: "450521",
-            countyName: "åˆæµ¦å¿"
+            countyName: "ºÏÆÖÏØ"
           }, {
             countyCode: "450512",
-            countyName: "é“å±±æ¸¯åŒº"
+            countyName: "ÌúÉ½¸ÛÇø"
           }, {
             countyCode: "450502",
-            countyName: "æµ·åŸåŒº"
+            countyName: "º£³ÇÇø"
           }, {
             countyCode: "450503",
-            countyName: "é“¶æµ·åŒº"
+            countyName: "Òøº£Çø"
           }]
         }, {
           cityCode: "450300",
-          cityName: "æ¡‚æ—å¸‚",
+          cityName: "¹ğÁÖÊĞ",
           county: [{
             countyCode: "450327",
-            countyName: "çŒé˜³å¿"
+            countyName: "¹àÑôÏØ"
           }, {
             countyCode: "450305",
-            countyName: "ä¸ƒæ˜ŸåŒº"
+            countyName: "ÆßĞÇÇø"
           }, {
             countyCode: "450326",
-            countyName: "æ°¸ç¦å¿"
+            countyName: "ÓÀ¸£ÏØ"
           }, {
             countyCode: "450325",
-            countyName: "å…´å®‰å¿"
+            countyName: "ĞË°²ÏØ"
           }, {
             countyCode: "450321",
-            countyName: "é˜³æœ”å¿"
+            countyName: "ÑôË·ÏØ"
           }, {
             countyCode: "450332",
-            countyName: "æ­åŸç‘¶æ—è‡ªæ²»å¿"
+            countyName: "¹§³ÇÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "450302",
-            countyName: "ç§€å³°åŒº"
+            countyName: "Ğã·åÇø"
           }, {
             countyCode: "450304",
-            countyName: "è±¡å±±åŒº"
+            countyName: "ÏóÉ½Çø"
           }, {
             countyCode: "450330",
-            countyName: "å¹³ä¹å¿"
+            countyName: "Æ½ÀÖÏØ"
           }, {
             countyCode: "450331",
-            countyName: "è”æµ¦å¿"
+            countyName: "ÀóÆÖÏØ"
           }, {
             countyCode: "450329",
-            countyName: "èµ„æºå¿"
+            countyName: "×ÊÔ´ÏØ"
           }, {
             countyCode: "450323",
-            countyName: "çµå·å¿"
+            countyName: "Áé´¨ÏØ"
           }, {
             countyCode: "450324",
-            countyName: "å…¨å·å¿"
+            countyName: "È«ÖİÏØ"
           }, {
             countyCode: "450322",
-            countyName: "ä¸´æ¡‚åŒº"
+            countyName: "ÁÙ¹ğÇø"
           }, {
             countyCode: "450303",
-            countyName: "å å½©åŒº"
+            countyName: "µş²ÊÇø"
           }, {
             countyCode: "450311",
-            countyName: "é›å±±åŒº"
+            countyName: "ÑãÉ½Çø"
           }, {
             countyCode: "450328",
-            countyName: "é¾™èƒœå„æ—è‡ªæ²»å¿"
+            countyName: "ÁúÊ¤¸÷×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "451100",
-          cityName: "è´ºå·å¸‚",
+          cityName: "ºØÖİÊĞ",
           county: [{
             countyCode: "451121",
-            countyName: "æ˜­å¹³å¿"
+            countyName: "ÕÑÆ½ÏØ"
           }, {
             countyCode: "451122",
-            countyName: "é’Ÿå±±å¿"
+            countyName: "ÖÓÉ½ÏØ"
           }, {
             countyCode: "451102",
-            countyName: "å…«æ­¥åŒº"
+            countyName: "°Ë²½Çø"
           }, {
             countyCode: "451123",
-            countyName: "å¯Œå·ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "¸»´¨Ñş×å×ÔÖÎÏØ"
           }, {
             countyCode: "451103",
-            countyName: "å¹³æ¡‚åŒº"
+            countyName: "Æ½¹ğÇø"
           }]
         }, {
           cityCode: "450800",
-          cityName: "è´µæ¸¯å¸‚",
+          cityName: "¹ó¸ÛÊĞ",
           county: [{
             countyCode: "450804",
-            countyName: "è¦ƒå¡˜åŒº"
+            countyName: "ñûÌÁÇø"
           }, {
             countyCode: "450881",
-            countyName: "æ¡‚å¹³å¸‚"
+            countyName: "¹ğÆ½ÊĞ"
           }, {
             countyCode: "450821",
-            countyName: "å¹³å—å¿"
+            countyName: "Æ½ÄÏÏØ"
           }, {
             countyCode: "450803",
-            countyName: "æ¸¯å—åŒº"
+            countyName: "¸ÛÄÏÇø"
           }, {
             countyCode: "450802",
-            countyName: "æ¸¯åŒ—åŒº"
+            countyName: "¸Û±±Çø"
           }]
         }, {
           cityCode: "450900",
-          cityName: "ç‰æ—å¸‚",
+          cityName: "ÓñÁÖÊĞ",
           county: [{
             countyCode: "450921",
-            countyName: "å®¹å¿"
+            countyName: "ÈİÏØ"
           }, {
             countyCode: "450924",
-            countyName: "å…´ä¸šå¿"
+            countyName: "ĞËÒµÏØ"
           }, {
             countyCode: "450902",
-            countyName: "ç‰å·åŒº"
+            countyName: "ÓñÖİÇø"
           }, {
             countyCode: "450903",
-            countyName: "ç¦ç»µåŒº"
+            countyName: "¸£ÃàÇø"
           }, {
             countyCode: "450981",
-            countyName: "åŒ—æµå¸‚"
+            countyName: "±±Á÷ÊĞ"
           }, {
             countyCode: "450923",
-            countyName: "åšç™½å¿"
+            countyName: "²©°×ÏØ"
           }, {
             countyCode: "450922",
-            countyName: "é™†å·å¿"
+            countyName: "Â½´¨ÏØ"
           }]
         }, {
           cityCode: "450200",
-          cityName: "æŸ³å·å¸‚",
+          cityName: "ÁøÖİÊĞ",
           county: [{
             countyCode: "450225",
-            countyName: "èæ°´è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÈÚË®Ãç×å×ÔÖÎÏØ"
           }, {
             countyCode: "450202",
-            countyName: "åŸä¸­åŒº"
+            countyName: "³ÇÖĞÇø"
           }, {
             countyCode: "450223",
-            countyName: "é¹¿å¯¨å¿"
+            countyName: "Â¹Õ¯ÏØ"
           }, {
             countyCode: "450226",
-            countyName: "ä¸‰æ±Ÿä¾—æ—è‡ªæ²»å¿"
+            countyName: "Èı½­¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "450204",
-            countyName: "æŸ³å—åŒº"
+            countyName: "ÁøÄÏÇø"
           }, {
             countyCode: "450203",
-            countyName: "é±¼å³°åŒº"
+            countyName: "Óã·åÇø"
           }, {
             countyCode: "450222",
-            countyName: "æŸ³åŸå¿"
+            countyName: "Áø³ÇÏØ"
           }, {
             countyCode: "450224",
-            countyName: "èå®‰å¿"
+            countyName: "ÈÚ°²ÏØ"
           }, {
             countyCode: "450205",
-            countyName: "æŸ³åŒ—åŒº"
+            countyName: "Áø±±Çø"
           }, {
             countyCode: "450221",
-            countyName: "æŸ³æ±ŸåŒº"
+            countyName: "Áø½­Çø"
           }]
         }, {
           cityCode: "451000",
-          cityName: "ç™¾è‰²å¸‚",
+          cityName: "°ÙÉ«ÊĞ",
           county: [{
             countyCode: "451002",
-            countyName: "å³æ±ŸåŒº"
+            countyName: "ÓÒ½­Çø"
           }, {
             countyCode: "451031",
-            countyName: "éš†æ—å„æ—è‡ªæ²»å¿"
+            countyName: "Â¡ÁÖ¸÷×å×ÔÖÎÏØ"
           }, {
             countyCode: "451027",
-            countyName: "å‡Œäº‘å¿"
+            countyName: "ÁèÔÆÏØ"
           }, {
             countyCode: "451023",
-            countyName: "å¹³æœå¿"
+            countyName: "Æ½¹ûÏØ"
           }, {
             countyCode: "451026",
-            countyName: "é‚£å¡å¿"
+            countyName: "ÄÇÆÂÏØ"
           }, {
             countyCode: "451030",
-            countyName: "è¥¿æ—å¿"
+            countyName: "Î÷ÁÖÏØ"
           }, {
             countyCode: "451024",
-            countyName: "å¾·ä¿å¿"
+            countyName: "µÂ±£ÏØ"
           }, {
             countyCode: "451022",
-            countyName: "ç”°ä¸œå¿"
+            countyName: "Ìï¶«ÏØ"
           }, {
             countyCode: "451021",
-            countyName: "ç”°é˜³å¿"
+            countyName: "ÌïÑôÏØ"
           }, {
             countyCode: "451028",
-            countyName: "ä¹ä¸šå¿"
+            countyName: "ÀÖÒµÏØ"
           }, {
             countyCode: "451029",
-            countyName: "ç”°æ—å¿"
+            countyName: "ÌïÁÖÏØ"
           }, {
             countyCode: "451025",
-            countyName: "é–è¥¿å¸‚"
+            countyName: "¾¸Î÷ÊĞ"
           }]
         }, {
           cityCode: "451300",
-          cityName: "æ¥å®¾å¸‚",
+          cityName: "À´±öÊĞ",
           county: [{
             countyCode: "451381",
-            countyName: "åˆå±±å¸‚"
+            countyName: "ºÏÉ½ÊĞ"
           }, {
             countyCode: "451322",
-            countyName: "è±¡å·å¿"
+            countyName: "ÏóÖİÏØ"
           }, {
             countyCode: "451324",
-            countyName: "é‡‘ç§€ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "½ğĞãÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "451321",
-            countyName: "å¿»åŸå¿"
+            countyName: "ĞÃ³ÇÏØ"
           }, {
             countyCode: "451302",
-            countyName: "å…´å®¾åŒº"
+            countyName: "ĞË±öÇø"
           }, {
             countyCode: "451323",
-            countyName: "æ­¦å®£å¿"
+            countyName: "ÎäĞûÏØ"
           }]
         }, {
           cityCode: "450100",
-          cityName: "å—å®å¸‚",
+          cityName: "ÄÏÄşÊĞ",
           county: [{
             countyCode: "450105",
-            countyName: "æ±Ÿå—åŒº"
+            countyName: "½­ÄÏÇø"
           }, {
             countyCode: "450107",
-            countyName: "è¥¿ä¹¡å¡˜åŒº"
+            countyName: "Î÷ÏçÌÁÇø"
           }, {
             countyCode: "450109",
-            countyName: "é‚•å®åŒº"
+            countyName: "çßÄşÇø"
           }, {
             countyCode: "450126",
-            countyName: "å®¾é˜³å¿"
+            countyName: "±öÑôÏØ"
           }, {
             countyCode: "450108",
-            countyName: "è‰¯åº†åŒº"
+            countyName: "Á¼ÇìÇø"
           }, {
             countyCode: "450125",
-            countyName: "ä¸Šæ—å¿"
+            countyName: "ÉÏÁÖÏØ"
           }, {
             countyCode: "450123",
-            countyName: "éš†å®‰å¿"
+            countyName: "Â¡°²ÏØ"
           }, {
             countyCode: "450124",
-            countyName: "é©¬å±±å¿"
+            countyName: "ÂíÉ½ÏØ"
           }, {
             countyCode: "450122",
-            countyName: "æ­¦é¸£åŒº"
+            countyName: "ÎäÃùÇø"
           }, {
             countyCode: "450102",
-            countyName: "å…´å®åŒº"
+            countyName: "ĞËÄşÇø"
           }, {
             countyCode: "450127",
-            countyName: "æ¨ªå¿"
+            countyName: "ºáÏØ"
           }, {
             countyCode: "450103",
-            countyName: "é’ç§€åŒº"
+            countyName: "ÇàĞãÇø"
           }]
         }, {
           cityCode: "450700",
-          cityName: "é’¦å·å¸‚",
+          cityName: "ÇÕÖİÊĞ",
           county: [{
             countyCode: "450702",
-            countyName: "é’¦å—åŒº"
+            countyName: "ÇÕÄÏÇø"
           }, {
             countyCode: "450722",
-            countyName: "æµ¦åŒ—å¿"
+            countyName: "ÆÖ±±ÏØ"
           }, {
             countyCode: "450721",
-            countyName: "çµå±±å¿"
+            countyName: "ÁéÉ½ÏØ"
           }, {
             countyCode: "450703",
-            countyName: "é’¦åŒ—åŒº"
+            countyName: "ÇÕ±±Çø"
           }]
         }, {
           cityCode: "450600",
-          cityName: "é˜²åŸæ¸¯å¸‚",
+          cityName: "·À³Ç¸ÛÊĞ",
           county: [{
             countyCode: "450603",
-            countyName: "é˜²åŸåŒº"
+            countyName: "·À³ÇÇø"
           }, {
             countyCode: "450621",
-            countyName: "ä¸Šæ€å¿"
+            countyName: "ÉÏË¼ÏØ"
           }, {
             countyCode: "450602",
-            countyName: "æ¸¯å£åŒº"
+            countyName: "¸Û¿ÚÇø"
           }, {
             countyCode: "450681",
-            countyName: "ä¸œå…´å¸‚"
+            countyName: "¶«ĞËÊĞ"
           }]
         }, {
           cityCode: "451200",
-          cityName: "æ²³æ± å¸‚",
+          cityName: "ºÓ³ØÊĞ",
           county: [{
             countyCode: "451202",
-            countyName: "é‡‘åŸæ±ŸåŒº"
+            countyName: "½ğ³Ç½­Çø"
           }, {
             countyCode: "451281",
-            countyName: "å®œå·åŒº"
+            countyName: "ÒËÖİÇø"
           }, {
             countyCode: "451221",
-            countyName: "å—ä¸¹å¿"
+            countyName: "ÄÏµ¤ÏØ"
           }, {
             countyCode: "451224",
-            countyName: "ä¸œå…°å¿"
+            countyName: "¶«À¼ÏØ"
           }, {
             countyCode: "451228",
-            countyName: "éƒ½å®‰ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "¶¼°²Ñş×å×ÔÖÎÏØ"
           }, {
             countyCode: "451229",
-            countyName: "å¤§åŒ–ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "´ó»¯Ñş×å×ÔÖÎÏØ"
           }, {
             countyCode: "451222",
-            countyName: "å¤©å³¨å¿"
+            countyName: "Ìì¶ëÏØ"
           }, {
             countyCode: "451225",
-            countyName: "ç½—åŸä»«ä½¬æ—è‡ªæ²»å¿"
+            countyName: "ÂŞ³ÇØïÀĞ×å×ÔÖÎÏØ"
           }, {
             countyCode: "451227",
-            countyName: "å·´é©¬ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "°ÍÂíÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "451226",
-            countyName: "ç¯æ±Ÿæ¯›å—æ—è‡ªæ²»å¿"
+            countyName: "»·½­Ã«ÄÏ×å×ÔÖÎÏØ"
           }, {
             countyCode: "451223",
-            countyName: "å‡¤å±±å¿"
+            countyName: "·ïÉ½ÏØ"
           }]
         }, {
           cityCode: "451400",
-          cityName: "å´‡å·¦å¸‚",
+          cityName: "³ç×óÊĞ",
           county: [{
             countyCode: "451423",
-            countyName: "é¾™å·å¿"
+            countyName: "ÁúÖİÏØ"
           }, {
             countyCode: "451425",
-            countyName: "å¤©ç­‰å¿"
+            countyName: "ÌìµÈÏØ"
           }, {
             countyCode: "451481",
-            countyName: "å‡­ç¥¥å¸‚"
+            countyName: "Æ¾ÏéÊĞ"
           }, {
             countyCode: "451422",
-            countyName: "å®æ˜å¿"
+            countyName: "ÄşÃ÷ÏØ"
           }, {
             countyCode: "451402",
-            countyName: "æ±Ÿå·åŒº"
+            countyName: "½­ÖİÇø"
           }, {
             countyCode: "451421",
-            countyName: "æ‰¶ç»¥å¿"
+            countyName: "·öËçÏØ"
           }, {
             countyCode: "451424",
-            countyName: "å¤§æ–°å¿"
+            countyName: "´óĞÂÏØ"
           }]
         }]
       }, {
         provinceCode: "460000",
-        provinceName: "æµ·å—çœ",
+        provinceName: "º£ÄÏÊ¡",
         city: [{
           cityCode: "469005",
-          cityName: "æ–‡æ˜Œå¸‚",
+          cityName: "ÎÄ²ıÊĞ",
           county: [{
             countyCode: "469005-1",
-            countyName: "æ–‡æ˜Œå¸‚"
+            countyName: "ÎÄ²ıÊĞ"
           }]
         }, {
           cityCode: "460300",
-          cityName: "ä¸‰æ²™å¸‚",
+          cityName: "ÈıÉ³ÊĞ",
           county: [{
             countyCode: "460321",
-            countyName: "è¥¿æ²™ç¾¤å²›"
+            countyName: "Î÷É³Èºµº"
           }, {
             countyCode: "460322",
-            countyName: "å—æ²™ç¾¤å²›"
+            countyName: "ÄÏÉ³Èºµº"
           }, {
             countyCode: "469031",
-            countyName: "è¥¿æ²™ç¾¤å²›"
+            countyName: "Î÷É³Èºµº"
           }, {
             countyCode: "469032",
-            countyName: "å—æ²™ç¾¤å²›"
+            countyName: "ÄÏÉ³Èºµº"
           }, {
             countyCode: "460323",
-            countyName: "ä¸­æ²™ç¾¤å²›çš„å²›ç¤åŠå…¶æµ·åŸŸ"
+            countyName: "ÖĞÉ³ÈºµºµÄµº½¸¼°Æäº£Óò"
           }]
         }, {
           cityCode: "469027",
-          cityName: "ä¹ä¸œé»æ—è‡ªæ²»å¿",
+          cityName: "ÀÖ¶«Àè×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469027-1",
-            countyName: "ä¹ä¸œé»æ—è‡ªæ²»å¿"
+            countyName: "ÀÖ¶«Àè×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "460200",
-          cityName: "ä¸‰äºšå¸‚",
+          cityName: "ÈıÑÇÊĞ",
           county: [{
             countyCode: "460203",
-            countyName: "å‰é˜³åŒº"
+            countyName: "¼ªÑôÇø"
           }, {
             countyCode: "460202",
-            countyName: "æµ·æ£ åŒº"
+            countyName: "º£ÌÄÇø"
           }, {
             countyCode: "460205",
-            countyName: "å´–å·åŒº"
+            countyName: "ÑÂÖİÇø"
           }, {
             countyCode: "460204",
-            countyName: "å¤©æ¶¯åŒº"
+            countyName: "ÌìÑÄÇø"
           }]
         }, {
           cityCode: "469002",
-          cityName: "ç¼æµ·å¸‚",
+          cityName: "Çíº£ÊĞ",
           county: [{
             countyCode: "469002-1",
-            countyName: "ç¼æµ·å¸‚"
+            countyName: "Çíº£ÊĞ"
           }]
         }, {
           cityCode: "469021",
-          cityName: "å®šå®‰å¿",
+          cityName: "¶¨°²ÏØ",
           county: [{
             countyCode: "469021-1",
-            countyName: "å®šå®‰å¿"
+            countyName: "¶¨°²ÏØ"
           }]
         }, {
           cityCode: "460100",
-          cityName: "æµ·å£å¸‚",
+          cityName: "º£¿ÚÊĞ",
           county: [{
             countyCode: "460107",
-            countyName: "ç¼å±±åŒº"
+            countyName: "ÇíÉ½Çø"
           }, {
             countyCode: "460108",
-            countyName: "ç¾å…°åŒº"
+            countyName: "ÃÀÀ¼Çø"
           }, {
             countyCode: "460105",
-            countyName: "ç§€è‹±åŒº"
+            countyName: "ĞãÓ¢Çø"
           }, {
             countyCode: "460106",
-            countyName: "é¾™ååŒº"
+            countyName: "Áú»ªÇø"
           }]
         }, {
           cityCode: "469006",
-          cityName: "ä¸‡å®å¸‚",
+          cityName: "ÍòÄşÊĞ",
           county: [{
             countyCode: "469006-1",
-            countyName: "ä¸‡å®å¸‚"
+            countyName: "ÍòÄşÊĞ"
           }]
         }, {
           cityCode: "469029",
-          cityName: "ä¿äº­é»æ—è‹—æ—è‡ªæ²»å¿",
+          cityName: "±£Í¤Àè×åÃç×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469029-1",
-            countyName: "ä¿äº­é»æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "±£Í¤Àè×åÃç×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "469003",
-          cityName: "å„‹å·å¸‚",
+          cityName: "ÙÙÖİÊĞ",
           county: [{
             countyCode: "469003-1",
-            countyName: "å„‹å·å¸‚"
+            countyName: "ÙÙÖİÊĞ"
           }]
         }, {
           cityCode: "469023",
-          cityName: "æ¾„è¿ˆå¿",
+          cityName: "³ÎÂõÏØ",
           county: [{
             countyCode: "469023-1",
-            countyName: "æ¾„è¿ˆå¿"
+            countyName: "³ÎÂõÏØ"
           }]
         }, {
           cityCode: "469022",
-          cityName: "å±¯æ˜Œå¿",
+          cityName: "ÍÍ²ıÏØ",
           county: [{
             countyCode: "469022-1",
-            countyName: "å±¯æ˜Œå¿"
+            countyName: "ÍÍ²ıÏØ"
           }]
         }, {
           cityCode: "469028",
-          cityName: "é™µæ°´é»æ—è‡ªæ²»å¿",
+          cityName: "ÁêË®Àè×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469028-1",
-            countyName: "é™µæ°´é»æ—è‡ªæ²»å¿"
+            countyName: "ÁêË®Àè×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "469007",
-          cityName: "ä¸œæ–¹å¸‚",
+          cityName: "¶«·½ÊĞ",
           county: [{
             countyCode: "469007-1",
-            countyName: "ä¸œæ–¹å¸‚"
+            countyName: "¶«·½ÊĞ"
           }]
         }, {
           cityCode: "469001",
-          cityName: "äº”æŒ‡å±±å¸‚",
+          cityName: "ÎåÖ¸É½ÊĞ",
           county: [{
             countyCode: "469001-1",
-            countyName: "äº”æŒ‡å±±å¸‚"
+            countyName: "ÎåÖ¸É½ÊĞ"
           }]
         }, {
           cityCode: "469025",
-          cityName: "ç™½æ²™é»æ—è‡ªæ²»å¿",
+          cityName: "°×É³Àè×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469025-1",
-            countyName: "ç™½æ²™é»æ—è‡ªæ²»å¿"
+            countyName: "°×É³Àè×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "469026",
-          cityName: "æ˜Œæ±Ÿé»æ—è‡ªæ²»å¿",
+          cityName: "²ı½­Àè×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469026-1",
-            countyName: "æ˜Œæ±Ÿé»æ—è‡ªæ²»å¿"
+            countyName: "²ı½­Àè×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "469024",
-          cityName: "ä¸´é«˜å¿",
+          cityName: "ÁÙ¸ßÏØ",
           county: [{
             countyCode: "469024-1",
-            countyName: "ä¸´é«˜å¿"
+            countyName: "ÁÙ¸ßÏØ"
           }]
         }, {
           cityCode: "469030",
-          cityName: "ç¼ä¸­é»æ—è‹—æ—è‡ªæ²»å¿",
+          cityName: "ÇíÖĞÀè×åÃç×å×ÔÖÎÏØ",
           county: [{
             countyCode: "469030-1",
-            countyName: "ç¼ä¸­é»æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÇíÖĞÀè×åÃç×å×ÔÖÎÏØ"
           }]
         }]
       }, {
         provinceCode: "500000",
-        provinceName: "é‡åº†",
+        provinceName: "ÖØÇì",
         city: [{
           cityCode: "500000-1",
-          cityName: "é‡åº†å¸‚",
+          cityName: "ÖØÇìÊĞ",
           county: [{
             countyCode: "500108",
-            countyName: "å—å²¸åŒº"
+            countyName: "ÄÏ°¶Çø"
           }, {
             countyCode: "500101",
-            countyName: "ä¸‡å·åŒº"
+            countyName: "ÍòÖİÇø"
           }, {
             countyCode: "500103",
-            countyName: "æ¸ä¸­åŒº"
+            countyName: "ÓåÖĞÇø"
           }, {
             countyCode: "500106",
-            countyName: "æ²™åªååŒº"
+            countyName: "É³Æº°ÓÇø"
           }, {
             countyCode: "500102",
-            countyName: "æ¶ªé™µåŒº"
+            countyName: "¸¢ÁêÇø"
           }, {
             countyCode: "500226",
-            countyName: "è£æ˜ŒåŒº"
+            countyName: "ÈÙ²ıÇø"
           }, {
             countyCode: "500223",
-            countyName: "æ½¼å—åŒº"
+            countyName: "äüÄÏÇø"
           }, {
             countyCode: "500242",
-            countyName: "é…‰é˜³åœŸå®¶æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÓÏÑôÍÁ¼Ò×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "500232",
-            countyName: "æ­¦éš†åŒº"
+            countyName: "ÎäÂ¡Çø"
           }, {
             countyCode: "500113",
-            countyName: "å·´å—åŒº"
+            countyName: "°ÍÄÏÇø"
           }, {
             countyCode: "500109",
-            countyName: "åŒ—ç¢šåŒº"
+            countyName: "±±íÕÇø"
           }, {
             countyCode: "500104",
-            countyName: "å¤§æ¸¡å£åŒº"
+            countyName: "´ó¶É¿ÚÇø"
           }, {
             countyCode: "500117",
-            countyName: "åˆå·åŒº"
+            countyName: "ºÏ´¨Çø"
           }, {
             countyCode: "500112",
-            countyName: "æ¸åŒ—åŒº"
+            countyName: "Óå±±Çø"
           }, {
             countyCode: "500116",
-            countyName: "æ±Ÿæ´¥åŒº"
+            countyName: "½­½òÇø"
           }, {
             countyCode: "500228",
-            countyName: "æ¢å¹³åŒº"
+            countyName: "ÁºÆ½Çø"
           }, {
             countyCode: "500119",
-            countyName: "å—å·åŒº"
+            countyName: "ÄÏ´¨Çø"
           }, {
             countyCode: "500110",
-            countyName: "ç¶¦æ±ŸåŒº"
+            countyName: "ôë½­Çø"
           }, {
             countyCode: "500227",
-            countyName: "ç’§å±±åŒº"
+            countyName: "èµÉ½Çø"
           }, {
             countyCode: "500115",
-            countyName: "é•¿å¯¿åŒº"
+            countyName: "³¤ÊÙÇø"
           }, {
             countyCode: "500231",
-            countyName: "å«æ±Ÿå¿"
+            countyName: "µæ½­ÏØ"
           }, {
             countyCode: "500230",
-            countyName: "ä¸°éƒ½å¿"
+            countyName: "·á¶¼ÏØ"
           }, {
             countyCode: "500224",
-            countyName: "é“œæ¢åŒº"
+            countyName: "Í­ÁºÇø"
           }, {
             countyCode: "500243",
-            countyName: "å½­æ°´è‹—æ—åœŸå®¶æ—è‡ªæ²»å¿"
+            countyName: "ÅíË®Ãç×åÍÁ¼Ò×å×ÔÖÎÏØ"
           }, {
             countyCode: "500105",
-            countyName: "æ±ŸåŒ—åŒº"
+            countyName: "½­±±Çø"
           }, {
             countyCode: "500107",
-            countyName: "ä¹é¾™å¡åŒº"
+            countyName: "¾ÅÁúÆÂÇø"
           }, {
             countyCode: "500236",
-            countyName: "å¥‰èŠ‚å¿"
+            countyName: "·î½ÚÏØ"
           }, {
             countyCode: "500111",
-            countyName: "å¤§è¶³åŒº"
+            countyName: "´ó×ãÇø"
           }, {
             countyCode: "500234",
-            countyName: "å¼€å·åŒº"
+            countyName: "¿ªÖİÇø"
           }, {
             countyCode: "500241",
-            countyName: "ç§€å±±åœŸå®¶æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "ĞãÉ½ÍÁ¼Ò×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "500229",
-            countyName: "åŸå£å¿"
+            countyName: "³Ç¿ÚÏØ"
           }, {
             countyCode: "500238",
-            countyName: "å·«æºªå¿"
+            countyName: "Î×ÏªÏØ"
           }, {
             countyCode: "500118",
-            countyName: "æ°¸å·åŒº"
+            countyName: "ÓÀ´¨Çø"
           }, {
             countyCode: "500233",
-            countyName: "å¿ å¿"
+            countyName: "ÖÒÏØ"
           }, {
             countyCode: "500240",
-            countyName: "çŸ³æŸ±åœŸå®¶æ—è‡ªæ²»å¿"
+            countyName: "Ê¯ÖùÍÁ¼Ò×å×ÔÖÎÏØ"
           }, {
             countyCode: "500114",
-            countyName: "é»”æ±ŸåŒº"
+            countyName: "Ç­½­Çø"
           }, {
             countyCode: "500237",
-            countyName: "å·«å±±å¿"
+            countyName: "Î×É½ÏØ"
           }, {
             countyCode: "500235",
-            countyName: "äº‘é˜³å¿"
+            countyName: "ÔÆÑôÏØ"
           }]
         }]
       }, {
         provinceCode: "510000",
-        provinceName: "å››å·çœ",
+        provinceName: "ËÄ´¨Ê¡",
         city: [{
           cityCode: "511300",
-          cityName: "å—å……å¸‚",
+          cityName: "ÄÏ³äÊĞ",
           county: [{
             countyCode: "511304",
-            countyName: "å˜‰é™µåŒº"
+            countyName: "¼ÎÁêÇø"
           }, {
             countyCode: "511323",
-            countyName: "è“¬å®‰å¿"
+            countyName: "Åî°²ÏØ"
           }, {
             countyCode: "511322",
-            countyName: "è¥å±±å¿"
+            countyName: "ÓªÉ½ÏØ"
           }, {
             countyCode: "511381",
-            countyName: "é˜†ä¸­å¸‚"
+            countyName: "ãÏÖĞÊĞ"
           }, {
             countyCode: "511303",
-            countyName: "é«˜åªåŒº"
+            countyName: "¸ßÆºÇø"
           }, {
             countyCode: "511324",
-            countyName: "ä»ªé™‡å¿"
+            countyName: "ÒÇÂ¤ÏØ"
           }, {
             countyCode: "511302",
-            countyName: "é¡ºåº†åŒº"
+            countyName: "Ë³ÇìÇø"
           }, {
             countyCode: "511321",
-            countyName: "å—éƒ¨å¿"
+            countyName: "ÄÏ²¿ÏØ"
           }, {
             countyCode: "511325",
-            countyName: "è¥¿å……å¿"
+            countyName: "Î÷³äÏØ"
           }]
         }, {
           cityCode: "511800",
-          cityName: "é›…å®‰å¸‚",
+          cityName: "ÑÅ°²ÊĞ",
           county: [{
             countyCode: "511826",
-            countyName: "èŠ¦å±±å¿"
+            countyName: "Â«É½ÏØ"
           }, {
             countyCode: "511824",
-            countyName: "çŸ³æ£‰å¿"
+            countyName: "Ê¯ÃŞÏØ"
           }, {
             countyCode: "511803",
-            countyName: "åå±±åŒº"
+            countyName: "ÃûÉ½Çø"
           }, {
             countyCode: "511827",
-            countyName: "å®å…´å¿"
+            countyName: "±¦ĞËÏØ"
           }, {
             countyCode: "511802",
-            countyName: "é›¨åŸåŒº"
+            countyName: "Óê³ÇÇø"
           }, {
             countyCode: "511823",
-            countyName: "æ±‰æºå¿"
+            countyName: "ººÔ´ÏØ"
           }, {
             countyCode: "511825",
-            countyName: "å¤©å…¨å¿"
+            countyName: "ÌìÈ«ÏØ"
           }, {
             countyCode: "511822",
-            countyName: "è¥ç»å¿"
+            countyName: "Üş¾­ÏØ"
           }]
         }, {
           cityCode: "513400",
-          cityName: "å‡‰å±±å½æ—è‡ªæ²»å·",
+          cityName: "Á¹É½ÒÍ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "513427",
-            countyName: "å®å—å¿"
+            countyName: "ÄşÄÏÏØ"
           }, {
             countyCode: "513432",
-            countyName: "å–œå¾·å¿"
+            countyName: "Ï²µÂÏØ"
           }, {
             countyCode: "513431",
-            countyName: "æ˜­è§‰å¿"
+            countyName: "ÕÑ¾õÏØ"
           }, {
             countyCode: "513401",
-            countyName: "è¥¿æ˜Œå¸‚"
+            countyName: "Î÷²ıÊĞ"
           }, {
             countyCode: "513437",
-            countyName: "é›·æ³¢å¿"
+            countyName: "À×²¨ÏØ"
           }, {
             countyCode: "513433",
-            countyName: "å†•å®å¿"
+            countyName: "ÃáÄşÏØ"
           }, {
             countyCode: "513434",
-            countyName: "è¶Šè¥¿å¿"
+            countyName: "Ô½Î÷ÏØ"
           }, {
             countyCode: "513435",
-            countyName: "ç”˜æ´›å¿"
+            countyName: "¸ÊÂåÏØ"
           }, {
             countyCode: "513429",
-            countyName: "å¸ƒæ‹–å¿"
+            countyName: "²¼ÍÏÏØ"
           }, {
             countyCode: "513430",
-            countyName: "é‡‘é˜³å¿"
+            countyName: "½ğÑôÏØ"
           }, {
             countyCode: "513436",
-            countyName: "ç¾å§‘å¿"
+            countyName: "ÃÀ¹ÃÏØ"
           }, {
             countyCode: "513428",
-            countyName: "æ™®æ ¼å¿"
+            countyName: "ÆÕ¸ñÏØ"
           }, {
             countyCode: "513424",
-            countyName: "å¾·æ˜Œå¿"
+            countyName: "µÂ²ıÏØ"
           }, {
             countyCode: "513425",
-            countyName: "ä¼šç†å¿"
+            countyName: "»áÀíÏØ"
           }, {
             countyCode: "513423",
-            countyName: "ç›æºå¿"
+            countyName: "ÑÎÔ´ÏØ"
           }, {
             countyCode: "513426",
-            countyName: "ä¼šä¸œå¿"
+            countyName: "»á¶«ÏØ"
           }, {
             countyCode: "513422",
-            countyName: "æœ¨é‡Œè—æ—è‡ªæ²»å¿"
+            countyName: "Ä¾Àï²Ø×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "511400",
-          cityName: "çœ‰å±±å¸‚",
+          cityName: "Ã¼É½ÊĞ",
           county: [{
             countyCode: "511422",
-            countyName: "å½­å±±åŒº"
+            countyName: "ÅíÉ½Çø"
           }, {
             countyCode: "511424",
-            countyName: "ä¸¹æ£±å¿"
+            countyName: "µ¤ÀâÏØ"
           }, {
             countyCode: "511425",
-            countyName: "é’ç¥å¿"
+            countyName: "ÇàÉñÏØ"
           }, {
             countyCode: "511402",
-            countyName: "ä¸œå¡åŒº"
+            countyName: "¶«ÆÂÇø"
           }, {
             countyCode: "511423",
-            countyName: "æ´ªé›…å¿"
+            countyName: "ºéÑÅÏØ"
           }, {
             countyCode: "511421",
-            countyName: "ä»å¯¿å¿"
+            countyName: "ÈÊÊÙÏØ"
           }]
         }, {
           cityCode: "510300",
-          cityName: "è‡ªè´¡å¸‚",
+          cityName: "×Ô¹±ÊĞ",
           county: [{
             countyCode: "510304",
-            countyName: "å¤§å®‰åŒº"
+            countyName: "´ó°²Çø"
           }, {
             countyCode: "510302",
-            countyName: "è‡ªæµäº•åŒº"
+            countyName: "×ÔÁ÷¾®Çø"
           }, {
             countyCode: "510321",
-            countyName: "è£å¿"
+            countyName: "ÈÙÏØ"
           }, {
             countyCode: "510303",
-            countyName: "è´¡äº•åŒº"
+            countyName: "¹±¾®Çø"
           }, {
             countyCode: "510322",
-            countyName: "å¯Œé¡ºå¿"
+            countyName: "¸»Ë³ÏØ"
           }, {
             countyCode: "510311",
-            countyName: "æ²¿æ»©åŒº"
+            countyName: "ÑØÌ²Çø"
           }]
         }, {
           cityCode: "511900",
-          cityName: "å·´ä¸­å¸‚",
+          cityName: "°ÍÖĞÊĞ",
           county: [{
             countyCode: "511903",
-            countyName: "æ©é˜³åŒº"
+            countyName: "¶÷ÑôÇø"
           }, {
             countyCode: "511921",
-            countyName: "é€šæ±Ÿå¿"
+            countyName: "Í¨½­ÏØ"
           }, {
             countyCode: "511922",
-            countyName: "å—æ±Ÿå¿"
+            countyName: "ÄÏ½­ÏØ"
           }, {
             countyCode: "511902",
-            countyName: "å·´å·åŒº"
+            countyName: "°ÍÖİÇø"
           }, {
             countyCode: "511923",
-            countyName: "å¹³æ˜Œå¿"
+            countyName: "Æ½²ıÏØ"
           }]
         }, {
           cityCode: "513300",
-          cityName: "ç”˜å­œè—æ—è‡ªæ²»å·",
+          cityName: "¸Ê×Î²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "513328",
-            countyName: "ç”˜å­œå¿"
+            countyName: "¸Ê×ÎÏØ"
           }, {
             countyCode: "513324",
-            countyName: "ä¹é¾™å¿"
+            countyName: "¾ÅÁúÏØ"
           }, {
             countyCode: "513332",
-            countyName: "çŸ³æ¸ å¿"
+            countyName: "Ê¯ÇşÏØ"
           }, {
             countyCode: "513337",
-            countyName: "ç¨»åŸå¿"
+            countyName: "µ¾³ÇÏØ"
           }, {
             countyCode: "513326",
-            countyName: "é“å­šå¿"
+            countyName: "µÀæÚÏØ"
           }, {
             countyCode: "513330",
-            countyName: "å¾·æ ¼å¿"
+            countyName: "µÂ¸ñÏØ"
           }, {
             countyCode: "513336",
-            countyName: "ä¹¡åŸå¿"
+            countyName: "Ïç³ÇÏØ"
           }, {
             countyCode: "513325",
-            countyName: "é›…æ±Ÿå¿"
+            countyName: "ÑÅ½­ÏØ"
           }, {
             countyCode: "513334",
-            countyName: "ç†å¡˜å¿"
+            countyName: "ÀíÌÁÏØ"
           }, {
             countyCode: "513329",
-            countyName: "æ–°é¾™å¿"
+            countyName: "ĞÂÁúÏØ"
           }, {
             countyCode: "513338",
-            countyName: "å¾—è£å¿"
+            countyName: "µÃÈÙÏØ"
           }, {
             countyCode: "513331",
-            countyName: "ç™½ç‰å¿"
+            countyName: "°×ÓñÏØ"
           }, {
             countyCode: "513323",
-            countyName: "ä¸¹å·´å¿"
+            countyName: "µ¤°ÍÏØ"
           }, {
             countyCode: "513327",
-            countyName: "ç‚‰éœå¿"
+            countyName: "Â¯»ôÏØ"
           }, {
             countyCode: "513335",
-            countyName: "å·´å¡˜å¿"
+            countyName: "°ÍÌÁÏØ"
           }, {
             countyCode: "513321",
-            countyName: "åº·å®šå¸‚"
+            countyName: "¿µ¶¨ÊĞ"
           }, {
             countyCode: "513333",
-            countyName: "è‰²è¾¾å¿"
+            countyName: "É«´ïÏØ"
           }, {
             countyCode: "513322",
-            countyName: "æ³¸å®šå¿"
+            countyName: "ãò¶¨ÏØ"
           }]
         }, {
           cityCode: "511700",
-          cityName: "è¾¾å·å¸‚",
+          cityName: "´ïÖİÊĞ",
           county: [{
             countyCode: "511722",
-            countyName: "å®£æ±‰å¿"
+            countyName: "ĞûººÏØ"
           }, {
             countyCode: "511781",
-            countyName: "ä¸‡æºå¸‚"
+            countyName: "ÍòÔ´ÊĞ"
           }, {
             countyCode: "511724",
-            countyName: "å¤§ç«¹å¿"
+            countyName: "´óÖñÏØ"
           }, {
             countyCode: "511723",
-            countyName: "å¼€æ±Ÿå¿"
+            countyName: "¿ª½­ÏØ"
           }, {
             countyCode: "511721",
-            countyName: "è¾¾å·åŒº"
+            countyName: "´ï´¨Çø"
           }, {
             countyCode: "511702",
-            countyName: "é€šå·åŒº"
+            countyName: "Í¨´¨Çø"
           }, {
             countyCode: "511725",
-            countyName: "æ¸ å¿"
+            countyName: "ÇşÏØ"
           }]
         }, {
           cityCode: "510500",
-          cityName: "æ³¸å·å¸‚",
+          cityName: "ãòÖİÊĞ",
           county: [{
             countyCode: "510524",
-            countyName: "å™æ°¸å¿"
+            countyName: "ĞğÓÀÏØ"
           }, {
             countyCode: "510521",
-            countyName: "æ³¸å¿"
+            countyName: "ãòÏØ"
           }, {
             countyCode: "510502",
-            countyName: "æ±Ÿé˜³åŒº"
+            countyName: "½­ÑôÇø"
           }, {
             countyCode: "510504",
-            countyName: "é¾™é©¬æ½­åŒº"
+            countyName: "ÁúÂíÌ¶Çø"
           }, {
             countyCode: "510525",
-            countyName: "å¤è”ºå¿"
+            countyName: "¹ÅİşÏØ"
           }, {
             countyCode: "510522",
-            countyName: "åˆæ±Ÿå¿"
+            countyName: "ºÏ½­ÏØ"
           }, {
             countyCode: "510503",
-            countyName: "çº³æºªåŒº"
+            countyName: "ÄÉÏªÇø"
           }]
         }, {
           cityCode: "510800",
-          cityName: "å¹¿å…ƒå¸‚",
+          cityName: "¹ãÔªÊĞ",
           county: [{
             countyCode: "510802",
-            countyName: "åˆ©å·åŒº"
+            countyName: "ÀûÖİÇø"
           }, {
             countyCode: "510811",
-            countyName: "æ˜­åŒ–åŒº"
+            countyName: "ÕÑ»¯Çø"
           }, {
             countyCode: "510824",
-            countyName: "è‹æºªå¿"
+            countyName: "²ÔÏªÏØ"
           }, {
             countyCode: "510812",
-            countyName: "æœå¤©åŒº"
+            countyName: "³¯ÌìÇø"
           }, {
             countyCode: "510823",
-            countyName: "å‰‘é˜å¿"
+            countyName: "½£¸óÏØ"
           }, {
             countyCode: "510821",
-            countyName: "æ—ºè‹å¿"
+            countyName: "Íú²ÔÏØ"
           }, {
             countyCode: "510822",
-            countyName: "é’å·å¿"
+            countyName: "Çà´¨ÏØ"
           }]
         }, {
           cityCode: "512000",
-          cityName: "èµ„é˜³å¸‚",
+          cityName: "×ÊÑôÊĞ",
           county: [{
             countyCode: "512022",
-            countyName: "ä¹è‡³å¿"
+            countyName: "ÀÖÖÁÏØ"
           }, {
             countyCode: "512021",
-            countyName: "å®‰å²³å¿"
+            countyName: "°²ÔÀÏØ"
           }, {
             countyCode: "512002",
-            countyName: "é›æ±ŸåŒº"
+            countyName: "Ñã½­Çø"
           }]
         }, {
           cityCode: "510400",
-          cityName: "æ”€æèŠ±å¸‚",
+          cityName: "ÅÊÖ¦»¨ÊĞ",
           county: [{
             countyCode: "510411",
-            countyName: "ä»å’ŒåŒº"
+            countyName: "ÈÊºÍÇø"
           }, {
             countyCode: "510422",
-            countyName: "ç›è¾¹å¿"
+            countyName: "ÑÎ±ßÏØ"
           }, {
             countyCode: "510403",
-            countyName: "è¥¿åŒº"
+            countyName: "Î÷Çø"
           }, {
             countyCode: "510421",
-            countyName: "ç±³æ˜“å¿"
+            countyName: "Ã×Ò×ÏØ"
           }, {
             countyCode: "510402",
-            countyName: "ä¸œåŒº"
+            countyName: "¶«Çø"
           }]
         }, {
           cityCode: "510100",
-          cityName: "æˆéƒ½å¸‚",
+          cityName: "³É¶¼ÊĞ",
           county: [{
             countyCode: "510115",
-            countyName: "æ¸©æ±ŸåŒº"
+            countyName: "ÎÂ½­Çø"
           }, {
             countyCode: "510105",
-            countyName: "é’ç¾ŠåŒº"
+            countyName: "ÇàÑòÇø"
           }, {
             countyCode: "510124",
-            countyName: "éƒ«éƒ½åŒº"
+            countyName: "Û¯¶¼Çø"
           }, {
             countyCode: "510122",
-            countyName: "åŒæµåŒº"
+            countyName: "Ë«Á÷Çø"
           }, {
             countyCode: "510129",
-            countyName: "å¤§é‚‘å¿"
+            countyName: "´óÒØÏØ"
           }, {
             countyCode: "510106",
-            countyName: "é‡‘ç‰›åŒº"
+            countyName: "½ğÅ£Çø"
           }, {
             countyCode: "510112",
-            countyName: "é¾™æ³‰é©¿åŒº"
+            countyName: "ÁúÈªæäÇø"
           }, {
             countyCode: "512081",
-            countyName: "ç®€é˜³å¸‚"
+            countyName: "¼òÑôÊĞ"
           }, {
             countyCode: "510181",
-            countyName: "éƒ½æ±Ÿå °å¸‚"
+            countyName: "¶¼½­ÑßÊĞ"
           }, {
             countyCode: "510108",
-            countyName: "æˆååŒº"
+            countyName: "³É»ªÇø"
           }, {
             countyCode: "510132",
-            countyName: "æ–°æ´¥å¿"
+            countyName: "ĞÂ½òÏØ"
           }, {
             countyCode: "510113",
-            countyName: "é’ç™½æ±ŸåŒº"
+            countyName: "Çà°×½­Çø"
           }, {
             countyCode: "510182",
-            countyName: "å½­å·å¸‚"
+            countyName: "ÅíÖİÊĞ"
           }, {
             countyCode: "510114",
-            countyName: "æ–°éƒ½åŒº"
+            countyName: "ĞÂ¶¼Çø"
           }, {
             countyCode: "510184",
-            countyName: "å´‡å·å¸‚"
+            countyName: "³çÖİÊĞ"
           }, {
             countyCode: "510121",
-            countyName: "é‡‘å ‚å¿"
+            countyName: "½ğÌÃÏØ"
           }, {
             countyCode: "510107",
-            countyName: "æ­¦ä¾¯åŒº"
+            countyName: "ÎäºîÇø"
           }, {
             countyCode: "510104",
-            countyName: "é”¦æ±ŸåŒº"
+            countyName: "½õ½­Çø"
           }, {
             countyCode: "510131",
-            countyName: "è’²æ±Ÿå¿"
+            countyName: "ÆÑ½­ÏØ"
           }, {
             countyCode: "510183",
-            countyName: "é‚›å´ƒå¸‚"
+            countyName: "ÚöáÁÊĞ"
           }]
         }, {
           cityCode: "511100",
-          cityName: "ä¹å±±å¸‚",
+          cityName: "ÀÖÉ½ÊĞ",
           county: [{
             countyCode: "511132",
-            countyName: "å³¨è¾¹å½æ—è‡ªæ²»å¿"
+            countyName: "¶ë±ßÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "511113",
-            countyName: "é‡‘å£æ²³åŒº"
+            countyName: "½ğ¿ÚºÓÇø"
           }, {
             countyCode: "511111",
-            countyName: "æ²™æ¹¾åŒº"
+            countyName: "É³ÍåÇø"
           }, {
             countyCode: "511181",
-            countyName: "å³¨çœ‰å±±å¸‚"
+            countyName: "¶ëÃ¼É½ÊĞ"
           }, {
             countyCode: "511126",
-            countyName: "å¤¹æ±Ÿå¿"
+            countyName: "¼Ğ½­ÏØ"
           }, {
             countyCode: "511102",
-            countyName: "å¸‚ä¸­åŒº"
+            countyName: "ÊĞÖĞÇø"
           }, {
             countyCode: "511112",
-            countyName: "äº”é€šæ¡¥åŒº"
+            countyName: "ÎåÍ¨ÇÅÇø"
           }, {
             countyCode: "511124",
-            countyName: "äº•ç ”å¿"
+            countyName: "¾®ÑĞÏØ"
           }, {
             countyCode: "511129",
-            countyName: "æ²å·å¿"
+            countyName: "ãå´¨ÏØ"
           }, {
             countyCode: "511123",
-            countyName: "çŠä¸ºå¿"
+            countyName: "êùÎªÏØ"
           }, {
             countyCode: "511133",
-            countyName: "é©¬è¾¹å½æ—è‡ªæ²»å¿"
+            countyName: "Âí±ßÒÍ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "510700",
-          cityName: "ç»µé˜³å¸‚",
+          cityName: "ÃàÑôÊĞ",
           county: [{
             countyCode: "510724",
-            countyName: "å®‰å·åŒº"
+            countyName: "°²ÖİÇø"
           }, {
             countyCode: "510725",
-            countyName: "æ¢“æ½¼å¿"
+            countyName: "è÷äüÏØ"
           }, {
             countyCode: "510781",
-            countyName: "æ±Ÿæ²¹å¸‚"
+            countyName: "½­ÓÍÊĞ"
           }, {
             countyCode: "510704",
-            countyName: "æ¸¸ä»™åŒº"
+            countyName: "ÓÎÏÉÇø"
           }, {
             countyCode: "510727",
-            countyName: "å¹³æ­¦å¿"
+            countyName: "Æ½ÎäÏØ"
           }, {
             countyCode: "510723",
-            countyName: "ç›äº­å¿"
+            countyName: "ÑÎÍ¤ÏØ"
           }, {
             countyCode: "510703",
-            countyName: "æ¶ªåŸåŒº"
+            countyName: "¸¢³ÇÇø"
           }, {
             countyCode: "510722",
-            countyName: "ä¸‰å°å¿"
+            countyName: "ÈıÌ¨ÏØ"
           }, {
             countyCode: "510726",
-            countyName: "åŒ—å·ç¾Œæ—è‡ªæ²»å¿"
+            countyName: "±±´¨Ç¼×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "511600",
-          cityName: "å¹¿å®‰å¸‚",
+          cityName: "¹ã°²ÊĞ",
           county: [{
             countyCode: "511623",
-            countyName: "é‚»æ°´å¿"
+            countyName: "ÁÚË®ÏØ"
           }, {
             countyCode: "511622",
-            countyName: "æ­¦èƒœå¿"
+            countyName: "ÎäÊ¤ÏØ"
           }, {
             countyCode: "511603000000",
-            countyName: "å‰é”‹åŒº"
+            countyName: "Ç°·æÇø"
           }, {
             countyCode: "511602",
-            countyName: "å¹¿å®‰åŒº"
+            countyName: "¹ã°²Çø"
           }, {
             countyCode: "511621",
-            countyName: "å²³æ± å¿"
+            countyName: "ÔÀ³ØÏØ"
           }, {
             countyCode: "511681",
-            countyName: "åè“¥å¸‚"
+            countyName: "»ªİöÊĞ"
           }]
         }, {
           cityCode: "511500",
-          cityName: "å®œå®¾å¸‚",
+          cityName: "ÒË±öÊĞ",
           county: [{
             countyCode: "511523",
-            countyName: "æ±Ÿå®‰å¿"
+            countyName: "½­°²ÏØ"
           }, {
             countyCode: "511521",
-            countyName: "å™å·åŒº"
+            countyName: "ĞğÖİÇø"
           }, {
             countyCode: "511525",
-            countyName: "é«˜å¿"
+            countyName: "¸ßÏØ"
           }, {
             countyCode: "511529",
-            countyName: "å±å±±å¿"
+            countyName: "ÆÁÉ½ÏØ"
           }, {
             countyCode: "511528",
-            countyName: "å…´æ–‡å¿"
+            countyName: "ĞËÎÄÏØ"
           }, {
             countyCode: "511502",
-            countyName: "ç¿ å±åŒº"
+            countyName: "´äÆÁÇø"
           }, {
             countyCode: "511527",
-            countyName: "ç­ è¿å¿"
+            countyName: "óŞÁ¬ÏØ"
           }, {
             countyCode: "511524",
-            countyName: "é•¿å®å¿"
+            countyName: "³¤ÄşÏØ"
           }, {
             countyCode: "511526",
-            countyName: "ç™å¿"
+            countyName: "çîÏØ"
           }, {
             countyCode: "511503",
-            countyName: "å—æºªåŒº"
+            countyName: "ÄÏÏªÇø"
           }]
         }, {
           cityCode: "511000",
-          cityName: "å†…æ±Ÿå¸‚",
+          cityName: "ÄÚ½­ÊĞ",
           county: [{
             countyCode: "511024",
-            countyName: "å¨è¿œå¿"
+            countyName: "ÍşÔ¶ÏØ"
           }, {
             countyCode: "511002",
-            countyName: "å¸‚ä¸­åŒº"
+            countyName: "ÊĞÖĞÇø"
           }, {
             countyCode: "511011",
-            countyName: "ä¸œå…´åŒº"
+            countyName: "¶«ĞËÇø"
           }, {
             countyCode: "511028",
-            countyName: "éš†æ˜Œå¸‚"
+            countyName: "Â¡²ıÊĞ"
           }, {
             countyCode: "511025",
-            countyName: "èµ„ä¸­å¿"
+            countyName: "×ÊÖĞÏØ"
           }]
         }, {
           cityCode: "513200",
-          cityName: "é˜¿åè—æ—ç¾Œæ—è‡ªæ²»å·",
+          cityName: "°¢°Ó²Ø×åÇ¼×å×ÔÖÎÖİ",
           county: [{
             countyCode: "513230",
-            countyName: "å£¤å¡˜å¿"
+            countyName: "ÈÀÌÁÏØ"
           }, {
             countyCode: "513225",
-            countyName: "ä¹å¯¨æ²Ÿå¿"
+            countyName: "¾ÅÕ¯¹µÏØ"
           }, {
             countyCode: "513223",
-            countyName: "èŒ‚å¿"
+            countyName: "Ã¯ÏØ"
           }, {
             countyCode: "513226",
-            countyName: "é‡‘å·å¿"
+            countyName: "½ğ´¨ÏØ"
           }, {
             countyCode: "513227",
-            countyName: "å°é‡‘å¿"
+            countyName: "Ğ¡½ğÏØ"
           }, {
             countyCode: "513233",
-            countyName: "çº¢åŸå¿"
+            countyName: "ºìÔ­ÏØ"
           }, {
             countyCode: "513222",
-            countyName: "ç†å¿"
+            countyName: "ÀíÏØ"
           }, {
             countyCode: "513232",
-            countyName: "è‹¥å°”ç›–å¿"
+            countyName: "Èô¶û¸ÇÏØ"
           }, {
             countyCode: "513221",
-            countyName: "æ±¶å·å¿"
+            countyName: "ãë´¨ÏØ"
           }, {
             countyCode: "513228",
-            countyName: "é»‘æ°´å¿"
+            countyName: "ºÚË®ÏØ"
           }, {
             countyCode: "513229",
-            countyName: "é©¬å°”åº·å¸‚"
+            countyName: "Âí¶û¿µÊĞ"
           }, {
             countyCode: "513231",
-            countyName: "é˜¿åå¿"
+            countyName: "°¢°ÓÏØ"
           }, {
             countyCode: "513224",
-            countyName: "æ¾æ½˜å¿"
+            countyName: "ËÉÅËÏØ"
           }]
         }, {
           cityCode: "510900",
-          cityName: "é‚å®å¸‚",
+          cityName: "ËìÄşÊĞ",
           county: [{
             countyCode: "510904",
-            countyName: "å®‰å±…åŒº"
+            countyName: "°²¾ÓÇø"
           }, {
             countyCode: "510923",
-            countyName: "å¤§è‹±å¿"
+            countyName: "´óÓ¢ÏØ"
           }, {
             countyCode: "510922",
-            countyName: "å°„æ´ªå¿"
+            countyName: "ÉäºéÏØ"
           }, {
             countyCode: "510903",
-            countyName: "èˆ¹å±±åŒº"
+            countyName: "´¬É½Çø"
           }, {
             countyCode: "510921",
-            countyName: "è“¬æºªå¿"
+            countyName: "ÅîÏªÏØ"
           }]
         }, {
           cityCode: "510600",
-          cityName: "å¾·é˜³å¸‚",
+          cityName: "µÂÑôÊĞ",
           county: [{
             countyCode: "510682",
-            countyName: "ä»€é‚¡å¸‚"
+            countyName: "Ê²ÚúÊĞ"
           }, {
             countyCode: "510683",
-            countyName: "ç»µç«¹å¸‚"
+            countyName: "ÃàÖñÊĞ"
           }, {
             countyCode: "510623",
-            countyName: "ä¸­æ±Ÿå¿"
+            countyName: "ÖĞ½­ÏØ"
           }, {
             countyCode: "510681",
-            countyName: "å¹¿æ±‰å¸‚"
+            countyName: "¹ãººÊĞ"
           }, {
             countyCode: "510626",
-            countyName: "ç½—æ±ŸåŒº"
+            countyName: "ÂŞ½­Çø"
           }, {
             countyCode: "510603",
-            countyName: "æ—Œé˜³åŒº"
+            countyName: "ìºÑôÇø"
           }]
         }]
       }, {
         provinceCode: "520000",
-        provinceName: "è´µå·çœ",
+        provinceName: "¹óÖİÊ¡",
         city: [{
           cityCode: "520100",
-          cityName: "è´µé˜³å¸‚",
+          cityName: "¹óÑôÊĞ",
           county: [{
             countyCode: "520103",
-            countyName: "äº‘å²©åŒº"
+            countyName: "ÔÆÑÒÇø"
           }, {
             countyCode: "520123",
-            countyName: "ä¿®æ–‡å¿"
+            countyName: "ĞŞÎÄÏØ"
           }, {
             countyCode: "520121",
-            countyName: "å¼€é˜³å¿"
+            countyName: "¿ªÑôÏØ"
           }, {
             countyCode: "520114",
-            countyName: "å°æ²³åŒº"
+            countyName: "Ğ¡ºÓÇø"
           }, {
             countyCode: "520122",
-            countyName: "æ¯çƒ½å¿"
+            countyName: "Ï¢·éÏØ"
           }, {
             countyCode: "520113",
-            countyName: "ç™½äº‘åŒº"
+            countyName: "°×ÔÆÇø"
           }, {
             countyCode: "520115",
-            countyName: "è§‚å±±æ¹–åŒº"
+            countyName: "¹ÛÉ½ºşÇø"
           }, {
             countyCode: "520102",
-            countyName: "å—æ˜åŒº"
+            countyName: "ÄÏÃ÷Çø"
           }, {
             countyCode: "520181",
-            countyName: "æ¸…é•‡å¸‚"
+            countyName: "ÇåÕòÊĞ"
           }, {
             countyCode: "520112",
-            countyName: "ä¹Œå½“åŒº"
+            countyName: "ÎÚµ±Çø"
           }, {
             countyCode: "520111",
-            countyName: "èŠ±æºªåŒº"
+            countyName: "»¨ÏªÇø"
           }]
         }, {
           cityCode: "520300",
-          cityName: "éµä¹‰å¸‚",
+          cityName: "×ñÒåÊĞ",
           county: [{
             countyCode: "520381",
-            countyName: "èµ¤æ°´å¸‚"
+            countyName: "³àË®ÊĞ"
           }, {
             countyCode: "520329",
-            countyName: "ä½™åº†å¿"
+            countyName: "ÓàÇìÏØ"
           }, {
             countyCode: "520325",
-            countyName: "é“çœŸä»¡ä½¬æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "µÀÕæØîÀĞ×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520326",
-            countyName: "åŠ¡å·ä»¡ä½¬æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "Îñ´¨ØîÀĞ×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520328",
-            countyName: "æ¹„æ½­å¿"
+            countyName: "äØÌ¶ÏØ"
           }, {
             countyCode: "520327",
-            countyName: "å‡¤å†ˆå¿"
+            countyName: "·ï¸ÔÏØ"
           }, {
             countyCode: "520302",
-            countyName: "çº¢èŠ±å²—åŒº"
+            countyName: "ºì»¨¸ÚÇø"
           }, {
             countyCode: "520382",
-            countyName: "ä»æ€€å¸‚"
+            countyName: "ÈÊ»³ÊĞ"
           }, {
             countyCode: "520321",
-            countyName: "æ’­å·åŒº"
+            countyName: "²¥ÖİÇø"
           }, {
             countyCode: "520330",
-            countyName: "ä¹ æ°´å¿"
+            countyName: "Ï°Ë®ÏØ"
           }, {
             countyCode: "520324",
-            countyName: "æ­£å®‰å¿"
+            countyName: "Õı°²ÏØ"
           }, {
             countyCode: "520303",
-            countyName: "æ±‡å·åŒº"
+            countyName: "»ã´¨Çø"
           }, {
             countyCode: "520323",
-            countyName: "ç»¥é˜³å¿"
+            countyName: "ËçÑôÏØ"
           }, {
             countyCode: "520322",
-            countyName: "æ¡æ¢“å¿"
+            countyName: "Í©è÷ÏØ"
           }]
         }, {
           cityCode: "522700",
-          cityName: "é»”å—å¸ƒä¾æ—è‹—æ—è‡ªæ²»å·",
+          cityName: "Ç­ÄÏ²¼ÒÀ×åÃç×å×ÔÖÎÖİ",
           county: [{
             countyCode: "522722",
-            countyName: "è”æ³¢å¿"
+            countyName: "Àó²¨ÏØ"
           }, {
             countyCode: "522725",
-            countyName: "ç“®å®‰å¿"
+            countyName: "ÎÍ°²ÏØ"
           }, {
             countyCode: "522702",
-            countyName: "ç¦æ³‰å¸‚"
+            countyName: "¸£ÈªÊĞ"
           }, {
             countyCode: "522728",
-            countyName: "ç½—ç”¸å¿"
+            countyName: "ÂŞµéÏØ"
           }, {
             countyCode: "522723",
-            countyName: "è´µå®šå¿"
+            countyName: "¹ó¶¨ÏØ"
           }, {
             countyCode: "522701",
-            countyName: "éƒ½åŒ€å¸‚"
+            countyName: "¶¼ÔÈÊĞ"
           }, {
             countyCode: "522726",
-            countyName: "ç‹¬å±±å¿"
+            countyName: "¶ÀÉ½ÏØ"
           }, {
             countyCode: "522731",
-            countyName: "æƒ æ°´å¿"
+            countyName: "»İË®ÏØ"
           }, {
             countyCode: "522732",
-            countyName: "ä¸‰éƒ½æ°´æ—è‡ªæ²»å¿"
+            countyName: "Èı¶¼Ë®×å×ÔÖÎÏØ"
           }, {
             countyCode: "522727",
-            countyName: "å¹³å¡˜å¿"
+            countyName: "Æ½ÌÁÏØ"
           }, {
             countyCode: "522729",
-            countyName: "é•¿é¡ºå¿"
+            countyName: "³¤Ë³ÏØ"
           }, {
             countyCode: "522730",
-            countyName: "é¾™é‡Œå¿"
+            countyName: "ÁúÀïÏØ"
           }]
         }, {
           cityCode: "520200",
-          cityName: "å…­ç›˜æ°´å¸‚",
+          cityName: "ÁùÅÌË®ÊĞ",
           county: [{
             countyCode: "520222",
-            countyName: "ç›˜å·å¸‚"
+            countyName: "ÅÌÖİÊĞ"
           }, {
             countyCode: "520203",
-            countyName: "å…­æç‰¹åŒº"
+            countyName: "ÁùÖ¦ÌØÇø"
           }, {
             countyCode: "520201",
-            countyName: "é’Ÿå±±åŒº"
+            countyName: "ÖÓÉ½Çø"
           }, {
             countyCode: "520221",
-            countyName: "æ°´åŸå¿"
+            countyName: "Ë®³ÇÏØ"
           }]
         }, {
           cityCode: "520400",
-          cityName: "å®‰é¡ºå¸‚",
+          cityName: "°²Ë³ÊĞ",
           county: [{
             countyCode: "520424",
-            countyName: "å…³å²­å¸ƒä¾æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "¹ØÁë²¼ÒÀ×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520423",
-            countyName: "é•‡å®å¸ƒä¾æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÕòÄş²¼ÒÀ×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520422",
-            countyName: "æ™®å®šå¿"
+            countyName: "ÆÕ¶¨ÏØ"
           }, {
             countyCode: "520421",
-            countyName: "å¹³ååŒº"
+            countyName: "Æ½°ÓÇø"
           }, {
             countyCode: "520425",
-            countyName: "ç´«äº‘è‹—æ—å¸ƒä¾æ—è‡ªæ²»å¿"
+            countyName: "×ÏÔÆÃç×å²¼ÒÀ×å×ÔÖÎÏØ"
           }, {
             countyCode: "520402",
-            countyName: "è¥¿ç§€åŒº"
+            countyName: "Î÷ĞãÇø"
           }]
         }, {
           cityCode: "520500",
-          cityName: "æ¯•èŠ‚å¸‚",
+          cityName: "±Ï½ÚÊĞ",
           county: [{
             countyCode: "520523",
-            countyName: "é‡‘æ²™å¿"
+            countyName: "½ğÉ³ÏØ"
           }, {
             countyCode: "520524",
-            countyName: "ç»‡é‡‘å¿"
+            countyName: "Ö¯½ğÏØ"
           }, {
             countyCode: "520525",
-            countyName: "çº³é›å¿"
+            countyName: "ÄÉÓºÏØ"
           }, {
             countyCode: "520522",
-            countyName: "é»”è¥¿å¿"
+            countyName: "Ç­Î÷ÏØ"
           }, {
             countyCode: "520526",
-            countyName: "å¨å®å½æ—å›æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÍşÄşÒÍ×å»Ø×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520527",
-            countyName: "èµ«ç« å¿"
+            countyName: "ºÕÕÂÏØ"
           }, {
             countyCode: "520521",
-            countyName: "å¤§æ–¹å¿"
+            countyName: "´ó·½ÏØ"
           }, {
             countyCode: "520502",
-            countyName: "ä¸ƒæ˜Ÿå…³åŒº"
+            countyName: "ÆßĞÇ¹ØÇø"
           }]
         }, {
           cityCode: "522600",
-          cityName: "é»”ä¸œå—è‹—æ—ä¾—æ—è‡ªæ²»å·",
+          cityName: "Ç­¶«ÄÏÃç×å¶±×å×ÔÖÎÖİ",
           county: [{
             countyCode: "522626",
-            countyName: "å²‘å·©å¿"
+            countyName: "á¯¹®ÏØ"
           }, {
             countyCode: "522630",
-            countyName: "å°æ±Ÿå¿"
+            countyName: "Ì¨½­ÏØ"
           }, {
             countyCode: "522624",
-            countyName: "ä¸‰ç©—å¿"
+            countyName: "ÈıËëÏØ"
           }, {
             countyCode: "522625",
-            countyName: "é•‡è¿œå¿"
+            countyName: "ÕòÔ¶ÏØ"
           }, {
             countyCode: "522636",
-            countyName: "ä¸¹å¯¨å¿"
+            countyName: "µ¤Õ¯ÏØ"
           }, {
             countyCode: "522633",
-            countyName: "ä»æ±Ÿå¿"
+            countyName: "´Ó½­ÏØ"
           }, {
             countyCode: "522634",
-            countyName: "é›·å±±å¿"
+            countyName: "À×É½ÏØ"
           }, {
             countyCode: "522623",
-            countyName: "æ–½ç§‰å¿"
+            countyName: "Ê©±üÏØ"
           }, {
             countyCode: "522629",
-            countyName: "å‰‘æ²³å¿"
+            countyName: "½£ºÓÏØ"
           }, {
             countyCode: "522628",
-            countyName: "é”¦å±å¿"
+            countyName: "½õÆÁÏØ"
           }, {
             countyCode: "522632",
-            countyName: "æ¦•æ±Ÿå¿"
+            countyName: "éÅ½­ÏØ"
           }, {
             countyCode: "522631",
-            countyName: "é»å¹³å¿"
+            countyName: "ÀèÆ½ÏØ"
           }, {
             countyCode: "522627",
-            countyName: "å¤©æŸ±å¿"
+            countyName: "ÌìÖùÏØ"
           }, {
             countyCode: "522622",
-            countyName: "é»„å¹³å¿"
+            countyName: "»ÆÆ½ÏØ"
           }, {
             countyCode: "522635",
-            countyName: "éº»æ±Ÿå¿"
+            countyName: "Âé½­ÏØ"
           }, {
             countyCode: "522601",
-            countyName: "å‡¯é‡Œå¸‚"
+            countyName: "¿­ÀïÊĞ"
           }]
         }, {
           cityCode: "522300",
-          cityName: "é»”è¥¿å—å¸ƒä¾æ—è‹—æ—è‡ªæ²»å·",
+          cityName: "Ç­Î÷ÄÏ²¼ÒÀ×åÃç×å×ÔÖÎÖİ",
           county: [{
             countyCode: "522326",
-            countyName: "æœ›è°Ÿå¿"
+            countyName: "ÍûÚÓÏØ"
           }, {
             countyCode: "522327",
-            countyName: "å†Œäº¨å¿"
+            countyName: "²áºàÏØ"
           }, {
             countyCode: "522323",
-            countyName: "æ™®å®‰å¿"
+            countyName: "ÆÕ°²ÏØ"
           }, {
             countyCode: "522322",
-            countyName: "å…´ä»å¿"
+            countyName: "ĞËÈÊÏØ"
           }, {
             countyCode: "522301",
-            countyName: "å…´ä¹‰å¸‚"
+            countyName: "ĞËÒåÊĞ"
           }, {
             countyCode: "522328",
-            countyName: "å®‰é¾™å¿"
+            countyName: "°²ÁúÏØ"
           }, {
             countyCode: "522324",
-            countyName: "æ™´éš†å¿"
+            countyName: "ÇçÂ¡ÏØ"
           }, {
             countyCode: "522325",
-            countyName: "è´ä¸°å¿"
+            countyName: "Õê·áÏØ"
           }]
         }, {
           cityCode: "520600",
-          cityName: "é“œä»å¸‚",
+          cityName: "Í­ÈÊÊĞ",
           county: [{
             countyCode: "520602",
-            countyName: "ç¢§æ±ŸåŒº"
+            countyName: "±Ì½­Çø"
           }, {
             countyCode: "520622",
-            countyName: "ç‰å±ä¾—æ—è‡ªæ²»å¿"
+            countyName: "ÓñÆÁ¶±×å×ÔÖÎÏØ"
           }, {
             countyCode: "520603",
-            countyName: "ä¸‡å±±åŒº"
+            countyName: "ÍòÉ½Çø"
           }, {
             countyCode: "520627",
-            countyName: "æ²¿æ²³åœŸå®¶æ—è‡ªæ²»å¿"
+            countyName: "ÑØºÓÍÁ¼Ò×å×ÔÖÎÏØ"
           }, {
             countyCode: "520624",
-            countyName: "æ€å—å¿"
+            countyName: "Ë¼ÄÏÏØ"
           }, {
             countyCode: "520626",
-            countyName: "å¾·æ±Ÿå¿"
+            countyName: "µÂ½­ÏØ"
           }, {
             countyCode: "520628",
-            countyName: "æ¾æ¡ƒè‹—æ—è‡ªæ²»å¿"
+            countyName: "ËÉÌÒÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "520621",
-            countyName: "æ±Ÿå£å¿"
+            countyName: "½­¿ÚÏØ"
           }, {
             countyCode: "520623",
-            countyName: "çŸ³é˜¡å¿"
+            countyName: "Ê¯ÚäÏØ"
           }, {
             countyCode: "520625",
-            countyName: "å°æ±ŸåœŸå®¶æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "Ó¡½­ÍÁ¼Ò×åÃç×å×ÔÖÎÏØ"
           }]
         }]
       }, {
         provinceCode: "530000",
-        provinceName: "äº‘å—çœ",
+        provinceName: "ÔÆÄÏÊ¡",
         city: [{
           cityCode: "530400",
-          cityName: "ç‰æºªå¸‚",
+          cityName: "ÓñÏªÊĞ",
           county: [{
             countyCode: "530425",
-            countyName: "æ˜“é—¨å¿"
+            countyName: "Ò×ÃÅÏØ"
           }, {
             countyCode: "530423",
-            countyName: "é€šæµ·å¿"
+            countyName: "Í¨º£ÏØ"
           }, {
             countyCode: "530421",
-            countyName: "æ±Ÿå·åŒº"
+            countyName: "½­´¨Çø"
           }, {
             countyCode: "530424",
-            countyName: "åå®å¿"
+            countyName: "»ªÄşÏØ"
           }, {
             countyCode: "530426",
-            countyName: "å³¨å±±å½æ—è‡ªæ²»å¿"
+            countyName: "¶ëÉ½ÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530402",
-            countyName: "çº¢å¡”åŒº"
+            countyName: "ºìËşÇø"
           }, {
             countyCode: "530422",
-            countyName: "æ¾„æ±Ÿå¿"
+            countyName: "³Î½­ÏØ"
           }, {
             countyCode: "530427",
-            countyName: "æ–°å¹³å½æ—å‚£æ—è‡ªæ²»å¿"
+            countyName: "ĞÂÆ½ÒÍ×å´ö×å×ÔÖÎÏØ"
           }, {
             countyCode: "530428",
-            countyName: "å…ƒæ±Ÿå“ˆå°¼æ—å½æ—å‚£æ—è‡ªæ²»å¿"
+            countyName: "Ôª½­¹şÄá×åÒÍ×å´ö×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "533100",
-          cityName: "å¾·å®å‚£æ—æ™¯é¢‡æ—è‡ªæ²»å·",
+          cityName: "µÂºê´ö×å¾°ÆÄ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "533124",
-            countyName: "é™‡å·å¿"
+            countyName: "Â¤´¨ÏØ"
           }, {
             countyCode: "533122",
-            countyName: "æ¢æ²³å¿"
+            countyName: "ÁººÓÏØ"
           }, {
             countyCode: "533123",
-            countyName: "ç›ˆæ±Ÿå¿"
+            countyName: "Ó¯½­ÏØ"
           }, {
             countyCode: "533103",
-            countyName: "èŠ’å¸‚"
+            countyName: "Ã¢ÊĞ"
           }, {
             countyCode: "533102",
-            countyName: "ç‘ä¸½å¸‚"
+            countyName: "ÈğÀöÊĞ"
           }]
         }, {
           cityCode: "532900",
-          cityName: "å¤§ç†ç™½æ—è‡ªæ²»å·",
+          cityName: "´óÀí°××å×ÔÖÎÖİ",
           county: [{
             countyCode: "532927",
-            countyName: "å·å±±å½æ—å›æ—è‡ªæ²»å¿"
+            countyName: "Î¡É½ÒÍ×å»Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "532931",
-            countyName: "å‰‘å·å¿"
+            countyName: "½£´¨ÏØ"
           }, {
             countyCode: "532923",
-            countyName: "ç¥¥äº‘å¿"
+            countyName: "ÏéÔÆÏØ"
           }, {
             countyCode: "532932",
-            countyName: "é¹¤åº†å¿"
+            countyName: "º×ÇìÏØ"
           }, {
             countyCode: "532928",
-            countyName: "æ°¸å¹³å¿"
+            countyName: "ÓÀÆ½ÏØ"
           }, {
             countyCode: "532929",
-            countyName: "äº‘é¾™å¿"
+            countyName: "ÔÆÁúÏØ"
           }, {
             countyCode: "532930",
-            countyName: "æ´±æºå¿"
+            countyName: "¶ıÔ´ÏØ"
           }, {
             countyCode: "532924",
-            countyName: "å®¾å·å¿"
+            countyName: "±ö´¨ÏØ"
           }, {
             countyCode: "532925",
-            countyName: "å¼¥æ¸¡å¿"
+            countyName: "ÃÖ¶ÉÏØ"
           }, {
             countyCode: "532926",
-            countyName: "å—æ¶§å½æ—è‡ªæ²»å¿"
+            countyName: "ÄÏ½§ÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "532901",
-            countyName: "å¤§ç†å¸‚"
+            countyName: "´óÀíÊĞ"
           }, {
             countyCode: "532922",
-            countyName: "æ¼¾æ¿å½æ—è‡ªæ²»å¿"
+            countyName: "Ñúå¨ÒÍ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "530100",
-          cityName: "æ˜†æ˜å¸‚",
+          cityName: "À¥Ã÷ÊĞ",
           county: [{
             countyCode: "530124",
-            countyName: "å¯Œæ°‘å¿"
+            countyName: "¸»ÃñÏØ"
           }, {
             countyCode: "530114",
-            countyName: "å‘ˆè´¡åŒº"
+            countyName: "³Ê¹±Çø"
           }, {
             countyCode: "530126",
-            countyName: "çŸ³æ—å½æ—è‡ªæ²»å¿"
+            countyName: "Ê¯ÁÖÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530181",
-            countyName: "å®‰å®å¸‚"
+            countyName: "°²ÄşÊĞ"
           }, {
             countyCode: "530128",
-            countyName: "ç¦„åŠå½æ—è‹—æ—è‡ªæ²»å¿"
+            countyName: "Â»È°ÒÍ×åÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "530125",
-            countyName: "å®œè‰¯å¿"
+            countyName: "ÒËÁ¼ÏØ"
           }, {
             countyCode: "530103",
-            countyName: "ç›˜é¾™åŒº"
+            countyName: "ÅÌÁúÇø"
           }, {
             countyCode: "530102",
-            countyName: "äº”ååŒº"
+            countyName: "Îå»ªÇø"
           }, {
             countyCode: "530122",
-            countyName: "æ™‹å®åŒº"
+            countyName: "½úÄşÇø"
           }, {
             countyCode: "530113",
-            countyName: "ä¸œå·åŒº"
+            countyName: "¶«´¨Çø"
           }, {
             countyCode: "530111",
-            countyName: "å®˜æ¸¡åŒº"
+            countyName: "¹Ù¶ÉÇø"
           }, {
             countyCode: "530127",
-            countyName: "åµ©æ˜å¿"
+            countyName: "áÔÃ÷ÏØ"
           }, {
             countyCode: "530112",
-            countyName: "è¥¿å±±åŒº"
+            countyName: "Î÷É½Çø"
           }, {
             countyCode: "530129",
-            countyName: "å¯»ç”¸å›æ—å½æ—è‡ªæ²»å¿"
+            countyName: "Ñ°µé»Ø×åÒÍ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "530900",
-          cityName: "ä¸´æ²§å¸‚",
+          cityName: "ÁÙ²×ÊĞ",
           county: [{
             countyCode: "530921",
-            countyName: "å‡¤åº†å¿"
+            countyName: "·ïÇìÏØ"
           }, {
             countyCode: "530926",
-            countyName: "è€¿é©¬å‚£æ—ä½¤æ—è‡ªæ²»å¿"
+            countyName: "¹¢Âí´ö×åØô×å×ÔÖÎÏØ"
           }, {
             countyCode: "530922",
-            countyName: "äº‘å¿"
+            countyName: "ÔÆÏØ"
           }, {
             countyCode: "530924",
-            countyName: "é•‡åº·å¿"
+            countyName: "Õò¿µÏØ"
           }, {
             countyCode: "530923",
-            countyName: "æ°¸å¾·å¿"
+            countyName: "ÓÀµÂÏØ"
           }, {
             countyCode: "530927",
-            countyName: "æ²§æºä½¤æ—è‡ªæ²»å¿"
+            countyName: "²×Ô´Øô×å×ÔÖÎÏØ"
           }, {
             countyCode: "530925",
-            countyName: "åŒæ±Ÿæ‹‰ç¥œæ—ä½¤æ—å¸ƒæœ—æ—å‚£æ—è‡ªæ²»å¿"
+            countyName: "Ë«½­À­ìï×åØô×å²¼ÀÊ×å´ö×å×ÔÖÎÏØ"
           }, {
             countyCode: "530902",
-            countyName: "ä¸´ç¿”åŒº"
+            countyName: "ÁÙÏèÇø"
           }]
         }, {
           cityCode: "532300",
-          cityName: "æ¥šé›„å½æ—è‡ªæ²»å·",
+          cityName: "³şĞÛÒÍ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "532329",
-            countyName: "æ­¦å®šå¿"
+            countyName: "Îä¶¨ÏØ"
           }, {
             countyCode: "532324",
-            countyName: "å—åå¿"
+            countyName: "ÄÏ»ªÏØ"
           }, {
             countyCode: "532327",
-            countyName: "æ°¸ä»å¿"
+            countyName: "ÓÀÈÊÏØ"
           }, {
             countyCode: "532328",
-            countyName: "å…ƒè°‹å¿"
+            countyName: "ÔªÄ±ÏØ"
           }, {
             countyCode: "532331",
-            countyName: "ç¦„ä¸°å¿"
+            countyName: "Â»·áÏØ"
           }, {
             countyCode: "532326",
-            countyName: "å¤§å§šå¿"
+            countyName: "´óÒ¦ÏØ"
           }, {
             countyCode: "532325",
-            countyName: "å§šå®‰å¿"
+            countyName: "Ò¦°²ÏØ"
           }, {
             countyCode: "532301",
-            countyName: "æ¥šé›„å¸‚"
+            countyName: "³şĞÛÊĞ"
           }, {
             countyCode: "532323",
-            countyName: "ç‰Ÿå®šå¿"
+            countyName: "Ä²¶¨ÏØ"
           }, {
             countyCode: "532322",
-            countyName: "åŒæŸå¿"
+            countyName: "Ë«°ØÏØ"
           }]
         }, {
           cityCode: "532800",
-          cityName: "è¥¿åŒç‰ˆçº³å‚£æ—è‡ªæ²»å·",
+          cityName: "Î÷Ë«°æÄÉ´ö×å×ÔÖÎÖİ",
           county: [{
             countyCode: "532823",
-            countyName: "å‹è…Šå¿"
+            countyName: "ÛÂÀ°ÏØ"
           }, {
             countyCode: "532801",
-            countyName: "æ™¯æ´ªå¸‚"
+            countyName: "¾°ºéÊĞ"
           }, {
             countyCode: "532822",
-            countyName: "å‹æµ·å¿"
+            countyName: "ÛÂº£ÏØ"
           }]
         }, {
           cityCode: "532600",
-          cityName: "æ–‡å±±å£®æ—è‹—æ—è‡ªæ²»å·",
+          cityName: "ÎÄÉ½×³×åÃç×å×ÔÖÎÖİ",
           county: [{
             countyCode: "532601",
-            countyName: "æ–‡å±±å¸‚"
+            countyName: "ÎÄÉ½ÊĞ"
           }, {
             countyCode: "532623",
-            countyName: "è¥¿ç•´å¿"
+            countyName: "Î÷³ëÏØ"
           }, {
             countyCode: "532627",
-            countyName: "å¹¿å—å¿"
+            countyName: "¹ãÄÏÏØ"
           }, {
             countyCode: "532625",
-            countyName: "é©¬å…³å¿"
+            countyName: "Âí¹ØÏØ"
           }, {
             countyCode: "532622",
-            countyName: "ç šå±±å¿"
+            countyName: "ÑâÉ½ÏØ"
           }, {
             countyCode: "532628",
-            countyName: "å¯Œå®å¿"
+            countyName: "¸»ÄşÏØ"
           }, {
             countyCode: "532624",
-            countyName: "éº»æ —å¡å¿"
+            countyName: "ÂéÀõÆÂÏØ"
           }, {
             countyCode: "532626",
-            countyName: "ä¸˜åŒ—å¿"
+            countyName: "Çğ±±ÏØ"
           }]
         }, {
           cityCode: "530300",
-          cityName: "æ›²é–å¸‚",
+          cityName: "Çú¾¸ÊĞ",
           county: [{
             countyCode: "530302",
-            countyName: "éº’éºŸåŒº"
+            countyName: "÷è÷ëÇø"
           }, {
             countyCode: "530325",
-            countyName: "å¯Œæºå¿"
+            countyName: "¸»Ô´ÏØ"
           }, {
             countyCode: "530326",
-            countyName: "ä¼šæ³½å¿"
+            countyName: "»áÔóÏØ"
           }, {
             countyCode: "530324",
-            countyName: "ç½—å¹³å¿"
+            countyName: "ÂŞÆ½ÏØ"
           }, {
             countyCode: "530328",
-            countyName: "æ²¾ç›ŠåŒº"
+            countyName: "Õ´ÒæÇø"
           }, {
             countyCode: "530323",
-            countyName: "å¸ˆå®—å¿"
+            countyName: "Ê¦×ÚÏØ"
           }, {
             countyCode: "530321",
-            countyName: "é©¬é¾™åŒº"
+            countyName: "ÂíÁúÇø"
           }, {
             countyCode: "530322",
-            countyName: "é™†è‰¯å¿"
+            countyName: "Â½Á¼ÏØ"
           }, {
             countyCode: "530381",
-            countyName: "å®£å¨å¸‚"
+            countyName: "ĞûÍşÊĞ"
           }]
         }, {
           cityCode: "533400",
-          cityName: "è¿ªåº†è—æ—è‡ªæ²»å·",
+          cityName: "µÏÇì²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "533421",
-            countyName: "é¦™æ ¼é‡Œæ‹‰å¸‚"
+            countyName: "Ïã¸ñÀïÀ­ÊĞ"
           }, {
             countyCode: "533422",
-            countyName: "å¾·é’¦å¿"
+            countyName: "µÂÇÕÏØ"
           }, {
             countyCode: "533423",
-            countyName: "ç»´è¥¿å‚ˆåƒ³æ—è‡ªæ²»å¿"
+            countyName: "Î¬Î÷ÀüËÛ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "530600",
-          cityName: "æ˜­é€šå¸‚",
+          cityName: "ÕÑÍ¨ÊĞ",
           county: [{
             countyCode: "530629",
-            countyName: "å¨ä¿¡å¿"
+            countyName: "ÍşĞÅÏØ"
           }, {
             countyCode: "530624",
-            countyName: "å¤§å…³å¿"
+            countyName: "´ó¹ØÏØ"
           }, {
             countyCode: "530630",
-            countyName: "æ°´å¯Œå¿"
+            countyName: "Ë®¸»ÏØ"
           }, {
             countyCode: "530626",
-            countyName: "ç»¥æ±Ÿå¿"
+            countyName: "Ëç½­ÏØ"
           }, {
             countyCode: "530628",
-            countyName: "å½è‰¯å¿"
+            countyName: "ÒÍÁ¼ÏØ"
           }, {
             countyCode: "530623",
-            countyName: "ç›æ´¥å¿"
+            countyName: "ÑÎ½òÏØ"
           }, {
             countyCode: "530602",
-            countyName: "æ˜­é˜³åŒº"
+            countyName: "ÕÑÑôÇø"
           }, {
             countyCode: "530621",
-            countyName: "é²ç”¸å¿"
+            countyName: "Â³µéÏØ"
           }, {
             countyCode: "530627",
-            countyName: "é•‡é›„å¿"
+            countyName: "ÕòĞÛÏØ"
           }, {
             countyCode: "530625",
-            countyName: "æ°¸å–„å¿"
+            countyName: "ÓÀÉÆÏØ"
           }, {
             countyCode: "530622",
-            countyName: "å·§å®¶å¿"
+            countyName: "ÇÉ¼ÒÏØ"
           }]
         }, {
           cityCode: "533300",
-          cityName: "æ€’æ±Ÿå‚ˆåƒ³æ—è‡ªæ²»å·",
+          cityName: "Å­½­ÀüËÛ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "533323",
-            countyName: "ç¦è´¡å¿"
+            countyName: "¸£¹±ÏØ"
           }, {
             countyCode: "533324",
-            countyName: "è´¡å±±ç‹¬é¾™æ—æ€’æ—è‡ªæ²»å¿"
+            countyName: "¹±É½¶ÀÁú×åÅ­×å×ÔÖÎÏØ"
           }, {
             countyCode: "533321",
-            countyName: "æ³¸æ°´å¸‚"
+            countyName: "ãòË®ÊĞ"
           }, {
             countyCode: "533325",
-            countyName: "å…°åªç™½æ—æ™®ç±³æ—è‡ªæ²»å¿"
+            countyName: "À¼Æº°××åÆÕÃ××å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "530700",
-          cityName: "ä¸½æ±Ÿå¸‚",
+          cityName: "Àö½­ÊĞ",
           county: [{
             countyCode: "530724",
-            countyName: "å®è’—å½æ—è‡ªæ²»å¿"
+            countyName: "ÄşİõÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530722",
-            countyName: "æ°¸èƒœå¿"
+            countyName: "ÓÀÊ¤ÏØ"
           }, {
             countyCode: "530702",
-            countyName: "å¤åŸåŒº"
+            countyName: "¹Å³ÇÇø"
           }, {
             countyCode: "530721",
-            countyName: "ç‰é¾™çº³è¥¿æ—è‡ªæ²»å¿"
+            countyName: "ÓñÁúÄÉÎ÷×å×ÔÖÎÏØ"
           }, {
             countyCode: "530723",
-            countyName: "ååªå¿"
+            countyName: "»ªÆºÏØ"
           }]
         }, {
           cityCode: "530800",
-          cityName: "æ™®æ´±å¸‚",
+          cityName: "ÆÕ¶ıÊĞ",
           county: [{
             countyCode: "530822",
-            countyName: "å¢¨æ±Ÿå“ˆå°¼æ—è‡ªæ²»å¿"
+            countyName: "Ä«½­¹şÄá×å×ÔÖÎÏØ"
           }, {
             countyCode: "530823",
-            countyName: "æ™¯ä¸œå½æ—è‡ªæ²»å¿"
+            countyName: "¾°¶«ÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530827",
-            countyName: "å­Ÿè¿å‚£æ—æ‹‰ç¥œæ—ä½¤æ—è‡ªæ²»å¿"
+            countyName: "ÃÏÁ¬´ö×åÀ­ìï×åØô×å×ÔÖÎÏØ"
           }, {
             countyCode: "530825",
-            countyName: "é•‡æ²…å½æ—å“ˆå°¼æ—æ‹‰ç¥œæ—è‡ªæ²»å¿"
+            countyName: "ÕòãäÒÍ×å¹şÄá×åÀ­ìï×å×ÔÖÎÏØ"
           }, {
             countyCode: "530828",
-            countyName: "æ¾œæ²§æ‹‰ç¥œæ—è‡ªæ²»å¿"
+            countyName: "À½²×À­ìï×å×ÔÖÎÏØ"
           }, {
             countyCode: "530829",
-            countyName: "è¥¿ç›Ÿä½¤æ—è‡ªæ²»å¿"
+            countyName: "Î÷ÃËØô×å×ÔÖÎÏØ"
           }, {
             countyCode: "530821",
-            countyName: "å®æ´±å“ˆå°¼æ—å½æ—è‡ªæ²»å¿"
+            countyName: "Äş¶ı¹şÄá×åÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530802",
-            countyName: "æ€èŒ…åŒº"
+            countyName: "Ë¼Ã©Çø"
           }, {
             countyCode: "530826",
-            countyName: "æ±ŸåŸå“ˆå°¼æ—å½æ—è‡ªæ²»å¿"
+            countyName: "½­³Ç¹şÄá×åÒÍ×å×ÔÖÎÏØ"
           }, {
             countyCode: "530824",
-            countyName: "æ™¯è°·å‚£æ—å½æ—è‡ªæ²»å¿"
+            countyName: "¾°¹È´ö×åÒÍ×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "532500",
-          cityName: "çº¢æ²³å“ˆå°¼æ—å½æ—è‡ªæ²»å·",
+          cityName: "ºìºÓ¹şÄá×åÒÍ×å×ÔÖÎÖİ",
           county: [{
             countyCode: "532525",
-            countyName: "çŸ³å±å¿"
+            countyName: "Ê¯ÆÁÏØ"
           }, {
             countyCode: "532530",
-            countyName: "é‡‘å¹³è‹—æ—ç‘¶æ—å‚£æ—è‡ªæ²»å¿"
+            countyName: "½ğÆ½Ãç×åÑş×å´ö×å×ÔÖÎÏØ"
           }, {
             countyCode: "532503",
-            countyName: "è’™è‡ªå¸‚"
+            countyName: "ÃÉ×ÔÊĞ"
           }, {
             countyCode: "532528",
-            countyName: "å…ƒé˜³å¿"
+            countyName: "ÔªÑôÏØ"
           }, {
             countyCode: "532527",
-            countyName: "æ³¸è¥¿å¿"
+            countyName: "ãòÎ÷ÏØ"
           }, {
             countyCode: "532502",
-            countyName: "å¼€è¿œå¸‚"
+            countyName: "¿ªÔ¶ÊĞ"
           }, {
             countyCode: "532524",
-            countyName: "å»ºæ°´å¿"
+            countyName: "½¨Ë®ÏØ"
           }, {
             countyCode: "532532",
-            countyName: "æ²³å£ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "ºÓ¿ÚÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "532529",
-            countyName: "çº¢æ²³å¿"
+            countyName: "ºìºÓÏØ"
           }, {
             countyCode: "532531",
-            countyName: "ç»¿æ˜¥å¿"
+            countyName: "ÂÌ´ºÏØ"
           }, {
             countyCode: "532501",
-            countyName: "ä¸ªæ—§å¸‚"
+            countyName: "¸ö¾ÉÊĞ"
           }, {
             countyCode: "532523",
-            countyName: "å±è¾¹è‹—æ—è‡ªæ²»å¿"
+            countyName: "ÆÁ±ßÃç×å×ÔÖÎÏØ"
           }, {
             countyCode: "532526",
-            countyName: "å¼¥å‹’å¸‚"
+            countyName: "ÃÖÀÕÊĞ"
           }]
         }, {
           cityCode: "530500",
-          cityName: "ä¿å±±å¸‚",
+          cityName: "±£É½ÊĞ",
           county: [{
             countyCode: "530523",
-            countyName: "é¾™é™µå¿"
+            countyName: "ÁúÁêÏØ"
           }, {
             countyCode: "530522",
-            countyName: "è…¾å†²å¸‚"
+            countyName: "ÌÚ³åÊĞ"
           }, {
             countyCode: "530521",
-            countyName: "æ–½ç”¸å¿"
+            countyName: "Ê©µéÏØ"
           }, {
             countyCode: "530502",
-            countyName: "éš†é˜³åŒº"
+            countyName: "Â¡ÑôÇø"
           }, {
             countyCode: "530524",
-            countyName: "æ˜Œå®å¿"
+            countyName: "²ıÄşÏØ"
           }]
         }]
       }, {
         provinceCode: "540000",
-        provinceName: "è¥¿è—è‡ªæ²»åŒº",
+        provinceName: "Î÷²Ø×ÔÖÎÇø",
         city: [{
           cityCode: "542100",
-          cityName: "æ˜Œéƒ½å¸‚",
+          cityName: "²ı¶¼ÊĞ",
           county: [{
             countyCode: "542122",
-            countyName: "æ±Ÿè¾¾å¿"
+            countyName: "½­´ïÏØ"
           }, {
             countyCode: "542129",
-            countyName: "èŠ’åº·å¿"
+            countyName: "Ã¢¿µÏØ"
           }, {
             countyCode: "542128",
-            countyName: "å·¦è´¡å¿"
+            countyName: "×ó¹±ÏØ"
           }, {
             countyCode: "542126",
-            countyName: "å¯Ÿé›…å¿"
+            countyName: "²ìÑÅÏØ"
           }, {
             countyCode: "542132",
-            countyName: "æ´›éš†å¿"
+            countyName: "ÂåÂ¡ÏØ"
           }, {
             countyCode: "542121",
-            countyName: "å¡è‹¥åŒº"
+            countyName: "¿¨ÈôÇø"
           }, {
             countyCode: "542125",
-            countyName: "ä¸é’å¿"
+            countyName: "¶¡ÇàÏØ"
           }, {
             countyCode: "542133",
-            countyName: "è¾¹åå¿"
+            countyName: "±ß°ÓÏØ"
           }, {
             countyCode: "542123",
-            countyName: "è´¡è§‰å¿"
+            countyName: "¹±¾õÏØ"
           }, {
             countyCode: "542127",
-            countyName: "å…«å®¿å¿"
+            countyName: "°ËËŞÏØ"
           }, {
             countyCode: "542124",
-            countyName: "ç±»ä¹Œé½å¿"
+            countyName: "ÀàÎÚÆëÏØ"
           }]
         }, {
           cityCode: "542200",
-          cityName: "å±±å—å¸‚",
+          cityName: "É½ÄÏÊĞ",
           county: [{
             countyCode: "542229",
-            countyName: "åŠ æŸ¥å¿"
+            countyName: "¼Ó²éÏØ"
           }, {
             countyCode: "542225",
-            countyName: "ç¼ç»“å¿"
+            countyName: "Çí½áÏØ"
           }, {
             countyCode: "542232",
-            countyName: "é”™é‚£å¿"
+            countyName: "´íÄÇÏØ"
           }, {
             countyCode: "542221",
-            countyName: "ä¹ƒä¸œåŒº"
+            countyName: "ÄË¶«Çø"
           }, {
             countyCode: "542224",
-            countyName: "æ¡‘æ—¥å¿"
+            countyName: "É£ÈÕÏØ"
           }, {
             countyCode: "542222",
-            countyName: "æ‰å›Šå¿"
+            countyName: "ÔúÄÒÏØ"
           }, {
             countyCode: "542227",
-            countyName: "æªç¾å¿"
+            countyName: "´ëÃÀÏØ"
           }, {
             countyCode: "542223",
-            countyName: "è´¡å˜å¿"
+            countyName: "¹±¸ÂÏØ"
           }, {
             countyCode: "542228",
-            countyName: "æ´›æ‰å¿"
+            countyName: "ÂåÔúÏØ"
           }, {
             countyCode: "542226",
-            countyName: "æ›²æ¾å¿"
+            countyName: "ÇúËÉÏØ"
           }, {
             countyCode: "542233",
-            countyName: "æµªå¡å­å¿"
+            countyName: "ÀË¿¨×ÓÏØ"
           }, {
             countyCode: "542231",
-            countyName: "éš†å­å¿"
+            countyName: "Â¡×ÓÏØ"
           }]
         }, {
           cityCode: "542400",
-          cityName: "é‚£æ›²å¸‚",
+          cityName: "ÄÇÇúÊĞ",
           county: [{
             countyCode: "542426",
-            countyName: "ç”³æ‰å¿"
+            countyName: "ÉêÔúÏØ"
           }, {
             countyCode: "542423",
-            countyName: "æ¯”å¦‚å¿"
+            countyName: "±ÈÈçÏØ"
           }, {
             countyCode: "542430",
-            countyName: "å°¼ç›å¿"
+            countyName: "ÄáÂêÏØ"
           }, {
             countyCode: "542421",
-            countyName: "è‰²å°¼åŒº"
+            countyName: "É«ÄáÇø"
           }, {
             countyCode: "542422",
-            countyName: "å˜‰é»å¿"
+            countyName: "¼ÎÀèÏØ"
           }, {
             countyCode: "542424",
-            countyName: "è‚è£å¿"
+            countyName: "ÄôÈÙÏØ"
           }, {
             countyCode: "542427",
-            countyName: "ç´¢å¿"
+            countyName: "Ë÷ÏØ"
           }, {
             countyCode: "542425",
-            countyName: "å®‰å¤šå¿"
+            countyName: "°²¶àÏØ"
           }, {
             countyCode: "542428",
-            countyName: "ç­æˆˆå¿"
+            countyName: "°à¸êÏØ"
           }, {
             countyCode: "542429",
-            countyName: "å·´é’å¿"
+            countyName: "°ÍÇàÏØ"
           }]
         }, {
           cityCode: "542600",
-          cityName: "æ—èŠå¸‚",
+          cityName: "ÁÖÖ¥ÊĞ",
           county: [{
             countyCode: "542623",
-            countyName: "ç±³æ—å¿"
+            countyName: "Ã×ÁÖÏØ"
           }, {
             countyCode: "542626",
-            countyName: "å¯Ÿéš…å¿"
+            countyName: "²ìÓçÏØ"
           }, {
             countyCode: "542627",
-            countyName: "æœ—å¿"
+            countyName: "ÀÊÏØ"
           }, {
             countyCode: "542622",
-            countyName: "å·¥å¸ƒæ±Ÿè¾¾å¿"
+            countyName: "¹¤²¼½­´ïÏØ"
           }, {
             countyCode: "542625",
-            countyName: "æ³¢å¯†å¿"
+            countyName: "²¨ÃÜÏØ"
           }, {
             countyCode: "542624",
-            countyName: "å¢¨è„±å¿"
+            countyName: "Ä«ÍÑÏØ"
           }, {
             countyCode: "542621",
-            countyName: "å·´å®œåŒº"
+            countyName: "°ÍÒËÇø"
           }]
         }, {
           cityCode: "540100",
-          cityName: "æ‹‰è¨å¸‚",
+          cityName: "À­ÈøÊĞ",
           county: [{
             countyCode: "540121",
-            countyName: "æ—å‘¨å¿"
+            countyName: "ÁÖÖÜÏØ"
           }, {
             countyCode: "540124",
-            countyName: "æ›²æ°´å¿"
+            countyName: "ÇúË®ÏØ"
           }, {
             countyCode: "540126",
-            countyName: "è¾¾å­œåŒº"
+            countyName: "´ï×ÎÇø"
           }, {
             countyCode: "540125",
-            countyName: "å †é¾™å¾·åº†åŒº"
+            countyName: "¶ÑÁúµÂÇìÇø"
           }, {
             countyCode: "540122",
-            countyName: "å½“é›„å¿"
+            countyName: "µ±ĞÛÏØ"
           }, {
             countyCode: "540127",
-            countyName: "å¢¨ç«¹å·¥å¡å¿"
+            countyName: "Ä«Öñ¹¤¿¨ÏØ"
           }, {
             countyCode: "540123",
-            countyName: "å°¼æœ¨å¿"
+            countyName: "ÄáÄ¾ÏØ"
           }, {
             countyCode: "540102",
-            countyName: "åŸå…³åŒº"
+            countyName: "³Ç¹ØÇø"
           }]
         }, {
           cityCode: "542300",
-          cityName: "æ—¥å–€åˆ™å¸‚",
+          cityName: "ÈÕ¿¦ÔòÊĞ",
           county: [{
             countyCode: "542335",
-            countyName: "å‰éš†å¿"
+            countyName: "¼ªÂ¡ÏØ"
           }, {
             countyCode: "542323",
-            countyName: "æ±Ÿå­œå¿"
+            countyName: "½­×ÎÏØ"
           }, {
             countyCode: "542331",
-            countyName: "åº·é©¬å¿"
+            countyName: "¿µÂíÏØ"
           }, {
             countyCode: "542322",
-            countyName: "å—æœ¨æ—å¿"
+            countyName: "ÄÏÄ¾ÁÖÏØ"
           }, {
             countyCode: "542338",
-            countyName: "å²—å·´å¿"
+            countyName: "¸Ú°ÍÏØ"
           }, {
             countyCode: "542336",
-            countyName: "è‚æ‹‰æœ¨å¿"
+            countyName: "ÄôÀ­Ä¾ÏØ"
           }, {
             countyCode: "542328",
-            countyName: "è°¢é€šé—¨å¿"
+            countyName: "Ğ»Í¨ÃÅÏØ"
           }, {
             countyCode: "542325",
-            countyName: "è¨è¿¦å¿"
+            countyName: "ÈøåÈÏØ"
           }, {
             countyCode: "542329",
-            countyName: "ç™½æœ—å¿"
+            countyName: "°×ÀÊÏØ"
           }, {
             countyCode: "542326",
-            countyName: "æ‹‰å­œå¿"
+            countyName: "À­×ÎÏØ"
           }, {
             countyCode: "542332",
-            countyName: "å®šç»“å¿"
+            countyName: "¶¨½áÏØ"
           }, {
             countyCode: "542327",
-            countyName: "æ˜‚ä»å¿"
+            countyName: "°ºÈÊÏØ"
           }, {
             countyCode: "542334",
-            countyName: "äºšä¸œå¿"
+            countyName: "ÑÇ¶«ÏØ"
           }, {
             countyCode: "542337",
-            countyName: "è¨å˜å¿"
+            countyName: "Èø¸ÂÏØ"
           }, {
             countyCode: "542324",
-            countyName: "å®šæ—¥å¿"
+            countyName: "¶¨ÈÕÏØ"
           }, {
             countyCode: "542333",
-            countyName: "ä»²å·´å¿"
+            countyName: "ÖÙ°ÍÏØ"
           }, {
             countyCode: "542301",
-            countyName: "æ¡‘ç å­œåŒº"
+            countyName: "É£Öé×ÎÇø"
           }, {
             countyCode: "542330",
-            countyName: "ä»å¸ƒå¿"
+            countyName: "ÈÊ²¼ÏØ"
           }]
         }, {
           cityCode: "542500",
-          cityName: "é˜¿é‡Œåœ°åŒº",
+          cityName: "°¢ÀïµØÇø",
           county: [{
             countyCode: "542523",
-            countyName: "å™¶å°”å¿"
+            countyName: "¸Á¶ûÏØ"
           }, {
             countyCode: "542525",
-            countyName: "é©å‰å¿"
+            countyName: "¸ï¼ªÏØ"
           }, {
             countyCode: "542524",
-            countyName: "æ—¥åœŸå¿"
+            countyName: "ÈÕÍÁÏØ"
           }, {
             countyCode: "542527",
-            countyName: "æªå‹¤å¿"
+            countyName: "´ëÇÚÏØ"
           }, {
             countyCode: "542521",
-            countyName: "æ™®å…°å¿"
+            countyName: "ÆÕÀ¼ÏØ"
           }, {
             countyCode: "542526",
-            countyName: "æ”¹åˆ™å¿"
+            countyName: "¸ÄÔòÏØ"
           }, {
             countyCode: "542522",
-            countyName: "æœ­è¾¾å¿"
+            countyName: "Ôı´ïÏØ"
           }]
         }]
       }, {
         provinceCode: "610000",
-        provinceName: "é™•è¥¿çœ",
+        provinceName: "ÉÂÎ÷Ê¡",
         city: [{
           cityCode: "610800",
-          cityName: "æ¦†æ—å¸‚",
+          cityName: "ÓÜÁÖÊĞ",
           county: [{
             countyCode: "610831",
-            countyName: "å­æ´²å¿"
+            countyName: "×ÓÖŞÏØ"
           }, {
             countyCode: "610825",
-            countyName: "å®šè¾¹å¿"
+            countyName: "¶¨±ßÏØ"
           }, {
             countyCode: "610827",
-            countyName: "ç±³è„‚å¿"
+            countyName: "Ã×Ö¬ÏØ"
           }, {
             countyCode: "610821",
-            countyName: "ç¥æœ¨å¸‚"
+            countyName: "ÉñÄ¾ÊĞ"
           }, {
             countyCode: "610829",
-            countyName: "å´å ¡å¿"
+            countyName: "Îâ±¤ÏØ"
           }, {
             countyCode: "610822",
-            countyName: "åºœè°·å¿"
+            countyName: "¸®¹ÈÏØ"
           }, {
             countyCode: "610830",
-            countyName: "æ¸…æ¶§å¿"
+            countyName: "Çå½§ÏØ"
           }, {
             countyCode: "610823",
-            countyName: "æ¨ªå±±åŒº"
+            countyName: "ºáÉ½Çø"
           }, {
             countyCode: "610824",
-            countyName: "é–è¾¹å¿"
+            countyName: "¾¸±ßÏØ"
           }, {
             countyCode: "610826",
-            countyName: "ç»¥å¾·å¿"
+            countyName: "ËçµÂÏØ"
           }, {
             countyCode: "610802",
-            countyName: "æ¦†é˜³åŒº"
+            countyName: "ÓÜÑôÇø"
           }, {
             countyCode: "610828",
-            countyName: "ä½³å¿"
+            countyName: "¼ÑÏØ"
           }]
         }, {
           cityCode: "610200",
-          cityName: "é“œå·å¸‚",
+          cityName: "Í­´¨ÊĞ",
           county: [{
             countyCode: "610202",
-            countyName: "ç‹ç›ŠåŒº"
+            countyName: "ÍõÒæÇø"
           }, {
             countyCode: "610203",
-            countyName: "å°å°åŒº"
+            countyName: "Ó¡Ì¨Çø"
           }, {
             countyCode: "610204",
-            countyName: "è€€å·åŒº"
+            countyName: "Ò«ÖİÇø"
           }, {
             countyCode: "610222",
-            countyName: "å®œå›å¿"
+            countyName: "ÒË¾ıÏØ"
           }]
         }, {
           cityCode: "611000",
-          cityName: "å•†æ´›å¸‚",
+          cityName: "ÉÌÂåÊĞ",
           county: [{
             countyCode: "611022",
-            countyName: "ä¸¹å‡¤å¿"
+            countyName: "µ¤·ïÏØ"
           }, {
             countyCode: "611023",
-            countyName: "å•†å—å¿"
+            countyName: "ÉÌÄÏÏØ"
           }, {
             countyCode: "611026",
-            countyName: "æŸæ°´å¿"
+            countyName: "×õË®ÏØ"
           }, {
             countyCode: "611025",
-            countyName: "é•‡å®‰å¿"
+            countyName: "Õò°²ÏØ"
           }, {
             countyCode: "611024",
-            countyName: "å±±é˜³å¿"
+            countyName: "É½ÑôÏØ"
           }, {
             countyCode: "611021",
-            countyName: "æ´›å—å¿"
+            countyName: "ÂåÄÏÏØ"
           }, {
             countyCode: "611002",
-            countyName: "å•†å·åŒº"
+            countyName: "ÉÌÖİÇø"
           }]
         }, {
           cityCode: "610500",
-          cityName: "æ¸­å—å¸‚",
+          cityName: "Î¼ÄÏÊĞ",
           county: [{
             countyCode: "610582",
-            countyName: "åé˜´å¸‚"
+            countyName: "»ªÒõÊĞ"
           }, {
             countyCode: "610524",
-            countyName: "åˆé˜³å¿"
+            countyName: "ºÏÑôÏØ"
           }, {
             countyCode: "610521",
-            countyName: "åå·åŒº"
+            countyName: "»ªÖİÇø"
           }, {
             countyCode: "610581",
-            countyName: "éŸ©åŸå¸‚"
+            countyName: "º«³ÇÊĞ"
           }, {
             countyCode: "610526",
-            countyName: "è’²åŸå¿"
+            countyName: "ÆÑ³ÇÏØ"
           }, {
             countyCode: "610527",
-            countyName: "ç™½æ°´å¿"
+            countyName: "°×Ë®ÏØ"
           }, {
             countyCode: "610522",
-            countyName: "æ½¼å…³å¿"
+            countyName: "äü¹ØÏØ"
           }, {
             countyCode: "610528",
-            countyName: "å¯Œå¹³å¿"
+            countyName: "¸»Æ½ÏØ"
           }, {
             countyCode: "610523",
-            countyName: "å¤§è”å¿"
+            countyName: "´óÀóÏØ"
           }, {
             countyCode: "610502",
-            countyName: "ä¸´æ¸­åŒº"
+            countyName: "ÁÙÎ¼Çø"
           }, {
             countyCode: "610525",
-            countyName: "æ¾„åŸå¿"
+            countyName: "³Î³ÇÏØ"
           }]
         }, {
           cityCode: "610300",
-          cityName: "å®é¸¡å¸‚",
+          cityName: "±¦¼¦ÊĞ",
           county: [{
             countyCode: "610328",
-            countyName: "åƒé˜³å¿"
+            countyName: "Ç§ÑôÏØ"
           }, {
             countyCode: "610330",
-            countyName: "å‡¤å¿"
+            countyName: "·ïÏØ"
           }, {
             countyCode: "610329",
-            countyName: "éºŸæ¸¸å¿"
+            countyName: "÷ëÓÎÏØ"
           }, {
             countyCode: "610323",
-            countyName: "å²å±±å¿"
+            countyName: "áªÉ½ÏØ"
           }, {
             countyCode: "610302",
-            countyName: "æ¸­æ»¨åŒº"
+            countyName: "Î¼±õÇø"
           }, {
             countyCode: "610327",
-            countyName: "é™‡å¿"
+            countyName: "Â¤ÏØ"
           }, {
             countyCode: "610322",
-            countyName: "å‡¤ç¿”å¿"
+            countyName: "·ïÏèÏØ"
           }, {
             countyCode: "610324",
-            countyName: "æ‰¶é£å¿"
+            countyName: "·ö·çÏØ"
           }, {
             countyCode: "610304",
-            countyName: "é™ˆä»“åŒº"
+            countyName: "³Â²ÖÇø"
           }, {
             countyCode: "610303",
-            countyName: "é‡‘å°åŒº"
+            countyName: "½ğÌ¨Çø"
           }, {
             countyCode: "610326",
-            countyName: "çœ‰å¿"
+            countyName: "Ã¼ÏØ"
           }, {
             countyCode: "610331",
-            countyName: "å¤ªç™½å¿"
+            countyName: "Ì«°×ÏØ"
           }]
         }, {
           cityCode: "610900",
-          cityName: "å®‰åº·å¸‚",
+          cityName: "°²¿µÊĞ",
           county: [{
             countyCode: "610927",
-            countyName: "é•‡åªå¿"
+            countyName: "ÕòÆºÏØ"
           }, {
             countyCode: "610923",
-            countyName: "å®é™•å¿"
+            countyName: "ÄşÉÂÏØ"
           }, {
             countyCode: "610922",
-            countyName: "çŸ³æ³‰å¿"
+            countyName: "Ê¯ÈªÏØ"
           }, {
             countyCode: "610921",
-            countyName: "æ±‰é˜´å¿"
+            countyName: "ººÒõÏØ"
           }, {
             countyCode: "610925",
-            countyName: "å²šçš‹å¿"
+            countyName: "á°¸ŞÏØ"
           }, {
             countyCode: "610926",
-            countyName: "å¹³åˆ©å¿"
+            countyName: "Æ½ÀûÏØ"
           }, {
             countyCode: "610928",
-            countyName: "æ—¬é˜³å¿"
+            countyName: "Ñ®ÑôÏØ"
           }, {
             countyCode: "610929",
-            countyName: "ç™½æ²³å¿"
+            countyName: "°×ºÓÏØ"
           }, {
             countyCode: "610902",
-            countyName: "æ±‰æ»¨åŒº"
+            countyName: "ºº±õÇø"
           }, {
             countyCode: "610924",
-            countyName: "ç´«é˜³å¿"
+            countyName: "×ÏÑôÏØ"
           }]
         }, {
           cityCode: "610700",
-          cityName: "æ±‰ä¸­å¸‚",
+          cityName: "ººÖĞÊĞ",
           county: [{
             countyCode: "610724",
-            countyName: "è¥¿ä¹¡å¿"
+            countyName: "Î÷ÏçÏØ"
           }, {
             countyCode: "610721",
-            countyName: "å—éƒ‘åŒº"
+            countyName: "ÄÏÖ£Çø"
           }, {
             countyCode: "610722",
-            countyName: "åŸå›ºå¿"
+            countyName: "³Ç¹ÌÏØ"
           }, {
             countyCode: "610727",
-            countyName: "ç•¥é˜³å¿"
+            countyName: "ÂÔÑôÏØ"
           }, {
             countyCode: "610728",
-            countyName: "é•‡å·´å¿"
+            countyName: "Õò°ÍÏØ"
           }, {
             countyCode: "610702",
-            countyName: "æ±‰å°åŒº"
+            countyName: "ººÌ¨Çø"
           }, {
             countyCode: "610729",
-            countyName: "ç•™åå¿"
+            countyName: "Áô°ÓÏØ"
           }, {
             countyCode: "610723",
-            countyName: "æ´‹å¿"
+            countyName: "ÑóÏØ"
           }, {
             countyCode: "610730",
-            countyName: "ä½›åªå¿"
+            countyName: "·ğÆºÏØ"
           }, {
             countyCode: "610726",
-            countyName: "å®å¼ºå¿"
+            countyName: "ÄşÇ¿ÏØ"
           }, {
             countyCode: "610725",
-            countyName: "å‹‰å¿"
+            countyName: "ÃãÏØ"
           }]
         }, {
           cityCode: "610600",
-          cityName: "å»¶å®‰å¸‚",
+          cityName: "ÑÓ°²ÊĞ",
           county: [{
             countyCode: "610628",
-            countyName: "å¯Œå¿"
+            countyName: "¸»ÏØ"
           }, {
             countyCode: "610631",
-            countyName: "é»„é¾™å¿"
+            countyName: "»ÆÁúÏØ"
           }, {
             countyCode: "610602",
-            countyName: "å®å¡”åŒº"
+            countyName: "±¦ËşÇø"
           }, {
             countyCode: "610630",
-            countyName: "å®œå·å¿"
+            countyName: "ÒË´¨ÏØ"
           }, {
             countyCode: "610624",
-            countyName: "å®‰å¡åŒº"
+            countyName: "°²ÈûÇø"
           }, {
             countyCode: "610629",
-            countyName: "æ´›å·å¿"
+            countyName: "Âå´¨ÏØ"
           }, {
             countyCode: "610621",
-            countyName: "å»¶é•¿å¿"
+            countyName: "ÑÓ³¤ÏØ"
           }, {
             countyCode: "610632",
-            countyName: "é»„é™µå¿"
+            countyName: "»ÆÁêÏØ"
           }, {
             countyCode: "610626",
-            countyName: "å´èµ·å¿"
+            countyName: "ÎâÆğÏØ"
           }, {
             countyCode: "610623",
-            countyName: "å­é•¿å¿"
+            countyName: "×Ó³¤ÏØ"
           }, {
             countyCode: "610627",
-            countyName: "ç”˜æ³‰å¿"
+            countyName: "¸ÊÈªÏØ"
           }, {
             countyCode: "610625",
-            countyName: "å¿—ä¸¹å¿"
+            countyName: "Ö¾µ¤ÏØ"
           }, {
             countyCode: "610622",
-            countyName: "å»¶å·å¿"
+            countyName: "ÑÓ´¨ÏØ"
           }]
         }, {
           cityCode: "610100",
-          cityName: "è¥¿å®‰å¸‚",
+          cityName: "Î÷°²ÊĞ",
           county: [{
             countyCode: "610116",
-            countyName: "é•¿å®‰åŒº"
+            countyName: "³¤°²Çø"
           }, {
             countyCode: "610112",
-            countyName: "æœªå¤®åŒº"
+            countyName: "Î´ÑëÇø"
           }, {
             countyCode: "610102",
-            countyName: "æ–°åŸåŒº"
+            countyName: "ĞÂ³ÇÇø"
           }, {
             countyCode: "610114",
-            countyName: "é˜è‰¯åŒº"
+            countyName: "ÑÖÁ¼Çø"
           }, {
             countyCode: "610111",
-            countyName: "çæ¡¥åŒº"
+            countyName: "å±ÇÅÇø"
           }, {
             countyCode: "610126",
-            countyName: "é«˜é™µåŒº"
+            countyName: "¸ßÁêÇø"
           }, {
             countyCode: "610122",
-            countyName: "è“ç”°å¿"
+            countyName: "À¶ÌïÏØ"
           }, {
             countyCode: "610103",
-            countyName: "ç¢‘æ—åŒº"
+            countyName: "±®ÁÖÇø"
           }, {
             countyCode: "610115",
-            countyName: "ä¸´æ½¼åŒº"
+            countyName: "ÁÙäüÇø"
           }, {
             countyCode: "610113",
-            countyName: "é›å¡”åŒº"
+            countyName: "ÑãËşÇø"
           }, {
             countyCode: "610124",
-            countyName: "å‘¨è‡³å¿"
+            countyName: "ÖÜÖÁÏØ"
           }, {
             countyCode: "610104",
-            countyName: "è²æ¹–åŒº"
+            countyName: "Á«ºşÇø"
           }, {
             countyCode: "610125",
-            countyName: "é„ é‚‘åŒº"
+            countyName: "à‚ÒØÇø"
           }]
         }, {
           cityCode: "610400",
-          cityName: "å’¸é˜³å¸‚",
+          cityName: "ÏÌÑôÊĞ",
           county: [{
             countyCode: "610430",
-            countyName: "æ·³åŒ–å¿"
+            countyName: "´¾»¯ÏØ"
           }, {
             countyCode: "610423",
-            countyName: "æ³¾é˜³å¿"
+            countyName: "ãşÑôÏØ"
           }, {
             countyCode: "610481",
-            countyName: "å…´å¹³å¸‚"
+            countyName: "ĞËÆ½ÊĞ"
           }, {
             countyCode: "610422",
-            countyName: "ä¸‰åŸå¿"
+            countyName: "ÈıÔ­ÏØ"
           }, {
             countyCode: "610424",
-            countyName: "ä¹¾å¿"
+            countyName: "Ç¬ÏØ"
           }, {
             countyCode: "610426",
-            countyName: "æ°¸å¯¿å¿"
+            countyName: "ÓÀÊÙÏØ"
           }, {
             countyCode: "610427",
-            countyName: "å½¬å·å¸‚"
+            countyName: "±òÖİÊĞ"
           }, {
             countyCode: "610402",
-            countyName: "ç§¦éƒ½åŒº"
+            countyName: "ÇØ¶¼Çø"
           }, {
             countyCode: "610404",
-            countyName: "æ¸­åŸåŒº"
+            countyName: "Î¼³ÇÇø"
           }, {
             countyCode: "610403",
-            countyName: "æ¨é™µåŒº"
+            countyName: "ÑîÁêÇø"
           }, {
             countyCode: "610431",
-            countyName: "æ­¦åŠŸå¿"
+            countyName: "Îä¹¦ÏØ"
           }, {
             countyCode: "610428",
-            countyName: "é•¿æ­¦å¿"
+            countyName: "³¤ÎäÏØ"
           }, {
             countyCode: "610425",
-            countyName: "ç¤¼æ³‰å¿"
+            countyName: "ÀñÈªÏØ"
           }, {
             countyCode: "610429",
-            countyName: "æ—¬é‚‘å¿"
+            countyName: "Ñ®ÒØÏØ"
           }]
         }]
       }, {
         provinceCode: "620000",
-        provinceName: "ç”˜è‚ƒçœ",
+        provinceName: "¸ÊËàÊ¡",
         city: [{
           cityCode: "620500",
-          cityName: "å¤©æ°´å¸‚",
+          cityName: "ÌìË®ÊĞ",
           county: [{
             countyCode: "620524",
-            countyName: "æ­¦å±±å¿"
+            countyName: "ÎäÉ½ÏØ"
           }, {
             countyCode: "620502",
-            countyName: "ç§¦å·åŒº"
+            countyName: "ÇØÖİÇø"
           }, {
             countyCode: "620521",
-            countyName: "æ¸…æ°´å¿"
+            countyName: "ÇåË®ÏØ"
           }, {
             countyCode: "620523",
-            countyName: "ç”˜è°·å¿"
+            countyName: "¸Ê¹ÈÏØ"
           }, {
             countyCode: "620522",
-            countyName: "ç§¦å®‰å¿"
+            countyName: "ÇØ°²ÏØ"
           }, {
             countyCode: "620503",
-            countyName: "éº¦ç§¯åŒº"
+            countyName: "Âó»ıÇø"
           }, {
             countyCode: "620525",
-            countyName: "å¼ å®¶å·å›æ—è‡ªæ²»å¿"
+            countyName: "ÕÅ¼Ò´¨»Ø×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "620300",
-          cityName: "é‡‘æ˜Œå¸‚",
+          cityName: "½ğ²ıÊĞ",
           county: [{
             countyCode: "620302",
-            countyName: "é‡‘å·åŒº"
+            countyName: "½ğ´¨Çø"
           }, {
             countyCode: "620321",
-            countyName: "æ°¸æ˜Œå¿"
+            countyName: "ÓÀ²ıÏØ"
           }]
         }, {
           cityCode: "620600",
-          cityName: "æ­¦å¨å¸‚",
+          cityName: "ÎäÍşÊĞ",
           county: [{
             countyCode: "620602",
-            countyName: "å‡‰å·åŒº"
+            countyName: "Á¹ÖİÇø"
           }, {
             countyCode: "620623",
-            countyName: "å¤©ç¥è—æ—è‡ªæ²»å¿"
+            countyName: "Ìì×£²Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "620622",
-            countyName: "å¤æµªå¿"
+            countyName: "¹ÅÀËÏØ"
           }, {
             countyCode: "620621",
-            countyName: "æ°‘å‹¤å¿"
+            countyName: "ÃñÇÚÏØ"
           }]
         }, {
           cityCode: "620700",
-          cityName: "å¼ æ–å¸‚",
+          cityName: "ÕÅÒ´ÊĞ",
           county: [{
             countyCode: "620702",
-            countyName: "ç”˜å·åŒº"
+            countyName: "¸ÊÖİÇø"
           }, {
             countyCode: "620724",
-            countyName: "é«˜å°å¿"
+            countyName: "¸ßÌ¨ÏØ"
           }, {
             countyCode: "620725",
-            countyName: "å±±ä¸¹å¿"
+            countyName: "É½µ¤ÏØ"
           }, {
             countyCode: "620723",
-            countyName: "ä¸´æ³½å¿"
+            countyName: "ÁÙÔóÏØ"
           }, {
             countyCode: "620722",
-            countyName: "æ°‘ä¹å¿"
+            countyName: "ÃñÀÖÏØ"
           }, {
             countyCode: "620721",
-            countyName: "è‚ƒå—è£•å›ºæ—è‡ªæ²»å¿"
+            countyName: "ËàÄÏÔ£¹Ì×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "621200",
-          cityName: "é™‡å—å¸‚",
+          cityName: "Â¤ÄÏÊĞ",
           county: [{
             countyCode: "621225",
-            countyName: "è¥¿å’Œå¿"
+            countyName: "Î÷ºÍÏØ"
           }, {
             countyCode: "621223",
-            countyName: "å®•æ˜Œå¿"
+            countyName: "å´²ıÏØ"
           }, {
             countyCode: "621227",
-            countyName: "å¾½å¿"
+            countyName: "»ÕÏØ"
           }, {
             countyCode: "621224",
-            countyName: "åº·å¿"
+            countyName: "¿µÏØ"
           }, {
             countyCode: "621221",
-            countyName: "æˆå¿"
+            countyName: "³ÉÏØ"
           }, {
             countyCode: "621228",
-            countyName: "ä¸¤å½“å¿"
+            countyName: "Á½µ±ÏØ"
           }, {
             countyCode: "621226",
-            countyName: "ç¤¼å¿"
+            countyName: "ÀñÏØ"
           }, {
             countyCode: "621222",
-            countyName: "æ–‡å¿"
+            countyName: "ÎÄÏØ"
           }, {
             countyCode: "621202",
-            countyName: "æ­¦éƒ½åŒº"
+            countyName: "Îä¶¼Çø"
           }]
         }, {
           cityCode: "620100",
-          cityName: "å…°å·å¸‚",
+          cityName: "À¼ÖİÊĞ",
           county: [{
             countyCode: "620121",
-            countyName: "æ°¸ç™»å¿"
+            countyName: "ÓÀµÇÏØ"
           }, {
             countyCode: "620111",
-            countyName: "çº¢å¤åŒº"
+            countyName: "ºì¹ÅÇø"
           }, {
             countyCode: "620103",
-            countyName: "ä¸ƒé‡Œæ²³åŒº"
+            countyName: "ÆßÀïºÓÇø"
           }, {
             countyCode: "620122",
-            countyName: "çš‹å…°å¿"
+            countyName: "¸ŞÀ¼ÏØ"
           }, {
             countyCode: "620104",
-            countyName: "è¥¿å›ºåŒº"
+            countyName: "Î÷¹ÌÇø"
           }, {
             countyCode: "620102",
-            countyName: "åŸå…³åŒº"
+            countyName: "³Ç¹ØÇø"
           }, {
             countyCode: "620105",
-            countyName: "å®‰å®åŒº"
+            countyName: "°²ÄşÇø"
           }, {
             countyCode: "620123",
-            countyName: "æ¦†ä¸­å¿"
+            countyName: "ÓÜÖĞÏØ"
           }]
         }, {
           cityCode: "621000",
-          cityName: "åº†é˜³å¸‚",
+          cityName: "ÇìÑôÊĞ",
           county: [{
             countyCode: "621025",
-            countyName: "æ­£å®å¿"
+            countyName: "ÕıÄşÏØ"
           }, {
             countyCode: "621026",
-            countyName: "å®å¿"
+            countyName: "ÄşÏØ"
           }, {
             countyCode: "621027",
-            countyName: "é•‡åŸå¿"
+            countyName: "ÕòÔ­ÏØ"
           }, {
             countyCode: "621023",
-            countyName: "åæ± å¿"
+            countyName: "»ª³ØÏØ"
           }, {
             countyCode: "621002",
-            countyName: "è¥¿å³°åŒº"
+            countyName: "Î÷·åÇø"
           }, {
             countyCode: "621024",
-            countyName: "åˆæ°´å¿"
+            countyName: "ºÏË®ÏØ"
           }, {
             countyCode: "621022",
-            countyName: "ç¯å¿"
+            countyName: "»·ÏØ"
           }, {
             countyCode: "621021",
-            countyName: "åº†åŸå¿"
+            countyName: "Çì³ÇÏØ"
           }]
         }, {
           cityCode: "620200",
-          cityName: "å˜‰å³ªå…³å¸‚",
+          cityName: "¼ÎÓø¹ØÊĞ",
           county: [{
             countyCode: "620200-1",
-            countyName: "å˜‰å³ªå…³å¸‚"
+            countyName: "¼ÎÓø¹ØÊĞ"
           }]
         }, {
           cityCode: "620800",
-          cityName: "å¹³å‡‰å¸‚",
+          cityName: "Æ½Á¹ÊĞ",
           county: [{
             countyCode: "620826",
-            countyName: "é™å®å¿"
+            countyName: "¾²ÄşÏØ"
           }, {
             countyCode: "620822",
-            countyName: "çµå°å¿"
+            countyName: "ÁéÌ¨ÏØ"
           }, {
             countyCode: "620823",
-            countyName: "å´‡ä¿¡å¿"
+            countyName: "³çĞÅÏØ"
           }, {
             countyCode: "620825",
-            countyName: "åº„æµªå¿"
+            countyName: "×¯ÀËÏØ"
           }, {
             countyCode: "620824",
-            countyName: "åäº­å¿"
+            countyName: "»ªÍ¤ÏØ"
           }, {
             countyCode: "620821",
-            countyName: "æ³¾å·å¿"
+            countyName: "ãş´¨ÏØ"
           }, {
             countyCode: "620802",
-            countyName: "å´†å³’åŒº"
+            countyName: "áÇá¼Çø"
           }]
         }, {
           cityCode: "623000",
-          cityName: "ç”˜å—è—æ—è‡ªæ²»å·",
+          cityName: "¸ÊÄÏ²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "623024",
-            countyName: "è¿­éƒ¨å¿"
+            countyName: "µü²¿ÏØ"
           }, {
             countyCode: "623026",
-            countyName: "ç¢Œæ›²å¿"
+            countyName: "ÂµÇúÏØ"
           }, {
             countyCode: "623022",
-            countyName: "å“å°¼å¿"
+            countyName: "×¿ÄáÏØ"
           }, {
             countyCode: "623021",
-            countyName: "ä¸´æ½­å¿"
+            countyName: "ÁÙÌ¶ÏØ"
           }, {
             countyCode: "623025",
-            countyName: "ç›æ›²å¿"
+            countyName: "ÂêÇúÏØ"
           }, {
             countyCode: "623001",
-            countyName: "åˆä½œå¸‚"
+            countyName: "ºÏ×÷ÊĞ"
           }, {
             countyCode: "623027",
-            countyName: "å¤æ²³å¿"
+            countyName: "ÏÄºÓÏØ"
           }, {
             countyCode: "623023",
-            countyName: "èˆŸæ›²å¿"
+            countyName: "ÖÛÇúÏØ"
           }]
         }, {
           cityCode: "620400",
-          cityName: "ç™½é“¶å¸‚",
+          cityName: "°×ÒøÊĞ",
           county: [{
             countyCode: "620422",
-            countyName: "ä¼šå®å¿"
+            countyName: "»áÄşÏØ"
           }, {
             countyCode: "620403",
-            countyName: "å¹³å·åŒº"
+            countyName: "Æ½´¨Çø"
           }, {
             countyCode: "620423",
-            countyName: "æ™¯æ³°å¿"
+            countyName: "¾°Ì©ÏØ"
           }, {
             countyCode: "620421",
-            countyName: "é–è¿œå¿"
+            countyName: "¾¸Ô¶ÏØ"
           }, {
             countyCode: "620402",
-            countyName: "ç™½é“¶åŒº"
+            countyName: "°×ÒøÇø"
           }]
         }, {
           cityCode: "620900",
-          cityName: "é…’æ³‰å¸‚",
+          cityName: "¾ÆÈªÊĞ",
           county: [{
             countyCode: "620921",
-            countyName: "é‡‘å¡”å¿"
+            countyName: "½ğËşÏØ"
           }, {
             countyCode: "620924",
-            countyName: "é˜¿å…‹å¡å“ˆè¨å…‹æ—è‡ªæ²»å¿"
+            countyName: "°¢¿ËÈû¹şÈø¿Ë×å×ÔÖÎÏØ"
           }, {
             countyCode: "620923",
-            countyName: "è‚ƒåŒ—è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "Ëà±±ÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "620922",
-            countyName: "ç“œå·å¿"
+            countyName: "¹ÏÖİÏØ"
           }, {
             countyCode: "620981",
-            countyName: "ç‰é—¨å¸‚"
+            countyName: "ÓñÃÅÊĞ"
           }, {
             countyCode: "620902",
-            countyName: "è‚ƒå·åŒº"
+            countyName: "ËàÖİÇø"
           }, {
             countyCode: "620982",
-            countyName: "æ•¦ç…Œå¸‚"
+            countyName: "¶Ø»ÍÊĞ"
           }]
         }, {
           cityCode: "621100",
-          cityName: "å®šè¥¿å¸‚",
+          cityName: "¶¨Î÷ÊĞ",
           county: [{
             countyCode: "621122",
-            countyName: "é™‡è¥¿å¿"
+            countyName: "Â¤Î÷ÏØ"
           }, {
             countyCode: "621123",
-            countyName: "æ¸­æºå¿"
+            countyName: "Î¼Ô´ÏØ"
           }, {
             countyCode: "621125",
-            countyName: "æ¼³å¿"
+            countyName: "ÕÄÏØ"
           }, {
             countyCode: "621124",
-            countyName: "ä¸´æ´®å¿"
+            countyName: "ÁÙä¬ÏØ"
           }, {
             countyCode: "621121",
-            countyName: "é€šæ¸­å¿"
+            countyName: "Í¨Î¼ÏØ"
           }, {
             countyCode: "621126",
-            countyName: "å²·å¿"
+            countyName: "áºÏØ"
           }, {
             countyCode: "621102",
-            countyName: "å®‰å®šåŒº"
+            countyName: "°²¶¨Çø"
           }]
         }, {
           cityCode: "622900",
-          cityName: "ä¸´å¤å›æ—è‡ªæ²»å·",
+          cityName: "ÁÙÏÄ»Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "622921",
-            countyName: "ä¸´å¤å¿"
+            countyName: "ÁÙÏÄÏØ"
           }, {
             countyCode: "622925",
-            countyName: "å’Œæ”¿å¿"
+            countyName: "ºÍÕşÏØ"
           }, {
             countyCode: "622924",
-            countyName: "å¹¿æ²³å¿"
+            countyName: "¹ãºÓÏØ"
           }, {
             countyCode: "622901",
-            countyName: "ä¸´å¤å¸‚"
+            countyName: "ÁÙÏÄÊĞ"
           }, {
             countyCode: "622926",
-            countyName: "ä¸œä¹¡æ—è‡ªæ²»å¿"
+            countyName: "¶«Ïç×å×ÔÖÎÏØ"
           }, {
             countyCode: "622923",
-            countyName: "æ°¸é–å¿"
+            countyName: "ÓÀ¾¸ÏØ"
           }, {
             countyCode: "622927",
-            countyName: "ç§¯çŸ³å±±ä¿å®‰æ—ä¸œä¹¡æ—æ’’æ‹‰æ—è‡ªæ²»å¿"
+            countyName: "»ıÊ¯É½±£°²×å¶«Ïç×åÈöÀ­×å×ÔÖÎÏØ"
           }, {
             countyCode: "622922",
-            countyName: "åº·ä¹å¿"
+            countyName: "¿µÀÖÏØ"
           }]
         }]
       }, {
         provinceCode: "630000",
-        provinceName: "é’æµ·çœ",
+        provinceName: "Çàº£Ê¡",
         city: [{
           cityCode: "632200",
-          cityName: "æµ·åŒ—è—æ—è‡ªæ²»å·",
+          cityName: "º£±±²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632224",
-            countyName: "åˆšå¯Ÿå¿"
+            countyName: "¸Õ²ìÏØ"
           }, {
             countyCode: "632222",
-            countyName: "ç¥è¿å¿"
+            countyName: "ÆîÁ¬ÏØ"
           }, {
             countyCode: "632223",
-            countyName: "æµ·æ™å¿"
+            countyName: "º£êÌÏØ"
           }, {
             countyCode: "632221",
-            countyName: "é—¨æºå›æ—è‡ªæ²»å¿"
+            countyName: "ÃÅÔ´»Ø×å×ÔÖÎÏØ"
           }]
         }, {
           cityCode: "632500",
-          cityName: "æµ·å—è—æ—è‡ªæ²»å·",
+          cityName: "º£ÄÏ²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632522",
-            countyName: "åŒå¾·å¿"
+            countyName: "Í¬µÂÏØ"
           }, {
             countyCode: "632525",
-            countyName: "è´µå—å¿"
+            countyName: "¹óÄÏÏØ"
           }, {
             countyCode: "632524",
-            countyName: "å…´æµ·å¿"
+            countyName: "ĞËº£ÏØ"
           }, {
             countyCode: "632523",
-            countyName: "è´µå¾·å¿"
+            countyName: "¹óµÂÏØ"
           }, {
             countyCode: "632521",
-            countyName: "å…±å’Œå¿"
+            countyName: "¹²ºÍÏØ"
           }]
         }, {
           cityCode: "630100",
-          cityName: "è¥¿å®å¸‚",
+          cityName: "Î÷ÄşÊĞ",
           county: [{
             countyCode: "630102",
-            countyName: "åŸä¸œåŒº"
+            countyName: "³Ç¶«Çø"
           }, {
             countyCode: "630122",
-            countyName: "æ¹Ÿä¸­å¿"
+            countyName: "äÒÖĞÏØ"
           }, {
             countyCode: "630105",
-            countyName: "åŸåŒ—åŒº"
+            countyName: "³Ç±±Çø"
           }, {
             countyCode: "630121",
-            countyName: "å¤§é€šå›æ—åœŸæ—è‡ªæ²»å¿"
+            countyName: "´óÍ¨»Ø×åÍÁ×å×ÔÖÎÏØ"
           }, {
             countyCode: "630103",
-            countyName: "åŸä¸­åŒº"
+            countyName: "³ÇÖĞÇø"
           }, {
             countyCode: "630104",
-            countyName: "åŸè¥¿åŒº"
+            countyName: "³ÇÎ÷Çø"
           }, {
             countyCode: "630123",
-            countyName: "æ¹Ÿæºå¿"
+            countyName: "äÒÔ´ÏØ"
           }]
         }, {
           cityCode: "632700",
-          cityName: "ç‰æ ‘è—æ—è‡ªæ²»å·",
+          cityName: "ÓñÊ÷²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632726",
-            countyName: "æ›²éº»è±å¿"
+            countyName: "ÇúÂéÀ³ÏØ"
           }, {
             countyCode: "632721",
-            countyName: "ç‰æ ‘å¸‚"
+            countyName: "ÓñÊ÷ÊĞ"
           }, {
             countyCode: "632723",
-            countyName: "ç§°å¤šå¿"
+            countyName: "³Æ¶àÏØ"
           }, {
             countyCode: "632722",
-            countyName: "æ‚å¤šå¿"
+            countyName: "ÔÓ¶àÏØ"
           }, {
             countyCode: "632725",
-            countyName: "å›Šè°¦å¿"
+            countyName: "ÄÒÇ«ÏØ"
           }, {
             countyCode: "632724",
-            countyName: "æ²»å¤šå¿"
+            countyName: "ÖÎ¶àÏØ"
           }]
         }, {
           cityCode: "632800",
-          cityName: "æµ·è¥¿è’™å¤æ—è—æ—è‡ªæ²»å·",
+          cityName: "º£Î÷ÃÉ¹Å×å²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632801",
-            countyName: "æ ¼å°”æœ¨å¸‚"
+            countyName: "¸ñ¶ûÄ¾ÊĞ"
           }, {
             countyCode: "632823",
-            countyName: "å¤©å³»å¿"
+            countyName: "Ìì¾şÏØ"
           }, {
             countyCode: "632802",
-            countyName: "å¾·ä»¤å“ˆå¸‚"
+            countyName: "µÂÁî¹şÊĞ"
           }, {
             countyCode: "632822",
-            countyName: "éƒ½å…°å¿"
+            countyName: "¶¼À¼ÏØ"
           }, {
             countyCode: "632821",
-            countyName: "ä¹Œå…°å¿"
+            countyName: "ÎÚÀ¼ÏØ"
           }, {
             countyCode: "632803",
-            countyName: "èŒ«å´–å¸‚"
+            countyName: "Ã£ÑÂÊĞ"
           }]
         }, {
           cityCode: "632100",
-          cityName: "æµ·ä¸œå¸‚",
+          cityName: "º£¶«ÊĞ",
           county: [{
             countyCode: "632128",
-            countyName: "å¾ªåŒ–æ’’æ‹‰æ—è‡ªæ²»å¿"
+            countyName: "Ñ­»¯ÈöÀ­×å×ÔÖÎÏØ"
           }, {
             countyCode: "632126",
-            countyName: "äº’åŠ©åœŸæ—è‡ªæ²»å¿"
+            countyName: "»¥ÖúÍÁ×å×ÔÖÎÏØ"
           }, {
             countyCode: "632127",
-            countyName: "åŒ–éš†å›æ—è‡ªæ²»å¿"
+            countyName: "»¯Â¡»Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "632122",
-            countyName: "æ°‘å’Œå›æ—åœŸæ—è‡ªæ²»å¿"
+            countyName: "ÃñºÍ»Ø×åÍÁ×å×ÔÖÎÏØ"
           }, {
             countyCode: "632121",
-            countyName: "å¹³å®‰åŒº"
+            countyName: "Æ½°²Çø"
           }, {
             countyCode: "632123",
-            countyName: "ä¹éƒ½åŒº"
+            countyName: "ÀÖ¶¼Çø"
           }]
         }, {
           cityCode: "632300",
-          cityName: "é»„å—è—æ—è‡ªæ²»å·",
+          cityName: "»ÆÄÏ²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632322",
-            countyName: "å°–æ‰å¿"
+            countyName: "¼âÔúÏØ"
           }, {
             countyCode: "632323",
-            countyName: "æ³½åº“å¿"
+            countyName: "Ôó¿âÏØ"
           }, {
             countyCode: "632324",
-            countyName: "æ²³å—è’™å¤æ—è‡ªæ²»å¿"
+            countyName: "ºÓÄÏÃÉ¹Å×å×ÔÖÎÏØ"
           }, {
             countyCode: "632321",
-            countyName: "åŒä»å¿"
+            countyName: "Í¬ÈÊÏØ"
           }]
         }, {
           cityCode: "632600",
-          cityName: "æœæ´›è—æ—è‡ªæ²»å·",
+          cityName: "¹ûÂå²Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "632625",
-            countyName: "ä¹…æ²»å¿"
+            countyName: "¾ÃÖÎÏØ"
           }, {
             countyCode: "632623",
-            countyName: "ç”˜å¾·å¿"
+            countyName: "¸ÊµÂÏØ"
           }, {
             countyCode: "632622",
-            countyName: "ç­ç›å¿"
+            countyName: "°àÂêÏØ"
           }, {
             countyCode: "632626",
-            countyName: "ç›å¤šå¿"
+            countyName: "Âê¶àÏØ"
           }, {
             countyCode: "632624",
-            countyName: "è¾¾æ—¥å¿"
+            countyName: "´ïÈÕÏØ"
           }, {
             countyCode: "632621",
-            countyName: "ç›æ²å¿"
+            countyName: "ÂêÇßÏØ"
           }]
         }]
       }, {
         provinceCode: "640000",
-        provinceName: "å®å¤å›æ—è‡ªæ²»åŒº",
+        provinceName: "ÄşÏÄ»Ø×å×ÔÖÎÇø",
         city: [{
           cityCode: "640200",
-          cityName: "çŸ³å˜´å±±å¸‚",
+          cityName: "Ê¯×ìÉ½ÊĞ",
           county: [{
             countyCode: "640205",
-            countyName: "æƒ å†œåŒº"
+            countyName: "»İÅ©Çø"
           }, {
             countyCode: "640202",
-            countyName: "å¤§æ­¦å£åŒº"
+            countyName: "´óÎä¿ÚÇø"
           }, {
             countyCode: "640221",
-            countyName: "å¹³ç½—å¿"
+            countyName: "Æ½ÂŞÏØ"
           }]
         }, {
           cityCode: "640300",
-          cityName: "å´å¿ å¸‚",
+          cityName: "ÎâÖÒÊĞ",
           county: [{
             countyCode: "640323",
-            countyName: "ç›æ± å¿"
+            countyName: "ÑÎ³ØÏØ"
           }, {
             countyCode: "640381",
-            countyName: "é’é“œå³¡å¸‚"
+            countyName: "ÇàÍ­Ï¿ÊĞ"
           }, {
             countyCode: "640302",
-            countyName: "åˆ©é€šåŒº"
+            countyName: "ÀûÍ¨Çø"
           }, {
             countyCode: "640303",
-            countyName: "çº¢å¯ºå ¡åŒº"
+            countyName: "ºìËÂ±¤Çø"
           }, {
             countyCode: "640324",
-            countyName: "åŒå¿ƒå¿"
+            countyName: "Í¬ĞÄÏØ"
           }]
         }, {
           cityCode: "640500",
-          cityName: "ä¸­å«å¸‚",
+          cityName: "ÖĞÎÀÊĞ",
           county: [{
             countyCode: "640522",
-            countyName: "æµ·åŸå¿"
+            countyName: "º£Ô­ÏØ"
           }, {
             countyCode: "640502",
-            countyName: "æ²™å¡å¤´åŒº"
+            countyName: "É³ÆÂÍ·Çø"
           }, {
             countyCode: "640521",
-            countyName: "ä¸­å®å¿"
+            countyName: "ÖĞÄşÏØ"
           }]
         }, {
           cityCode: "640400",
-          cityName: "å›ºåŸå¸‚",
+          cityName: "¹ÌÔ­ÊĞ",
           county: [{
             countyCode: "640402",
-            countyName: "åŸå·åŒº"
+            countyName: "Ô­ÖİÇø"
           }, {
             countyCode: "640423",
-            countyName: "éš†å¾·å¿"
+            countyName: "Â¡µÂÏØ"
           }, {
             countyCode: "640424",
-            countyName: "æ³¾æºå¿"
+            countyName: "ãşÔ´ÏØ"
           }, {
             countyCode: "640422",
-            countyName: "è¥¿å‰å¿"
+            countyName: "Î÷¼ªÏØ"
           }, {
             countyCode: "640425",
-            countyName: "å½­é˜³å¿"
+            countyName: "ÅíÑôÏØ"
           }]
         }, {
           cityCode: "640100",
-          cityName: "é“¶å·å¸‚",
+          cityName: "Òø´¨ÊĞ",
           county: [{
             countyCode: "640106",
-            countyName: "é‡‘å‡¤åŒº"
+            countyName: "½ğ·ïÇø"
           }, {
             countyCode: "640105",
-            countyName: "è¥¿å¤åŒº"
+            countyName: "Î÷ÏÄÇø"
           }, {
             countyCode: "640122",
-            countyName: "è´ºå…°å¿"
+            countyName: "ºØÀ¼ÏØ"
           }, {
             countyCode: "640104",
-            countyName: "å…´åº†åŒº"
+            countyName: "ĞËÇìÇø"
           }, {
             countyCode: "640181",
-            countyName: "çµæ­¦å¸‚"
+            countyName: "ÁéÎäÊĞ"
           }, {
             countyCode: "640121",
-            countyName: "æ°¸å®å¿"
+            countyName: "ÓÀÄşÏØ"
           }]
         }]
       }, {
         provinceCode: "650000",
-        provinceName: "æ–°ç–†ç»´å¾å°”è‡ªæ²»åŒº",
+        provinceName: "ĞÂ½®Î¬Îá¶û×ÔÖÎÇø",
         city: [{
           cityCode: "650200",
-          cityName: "å…‹æ‹‰ç›ä¾å¸‚",
+          cityName: "¿ËÀ­ÂêÒÀÊĞ",
           county: [{
             countyCode: "650203",
-            countyName: "å…‹æ‹‰ç›ä¾åŒº"
+            countyName: "¿ËÀ­ÂêÒÀÇø"
           }, {
             countyCode: "650205",
-            countyName: "ä¹Œå°”ç¦¾åŒº"
+            countyName: "ÎÚ¶ûºÌÇø"
           }, {
             countyCode: "650202",
-            countyName: "ç‹¬å±±å­åŒº"
+            countyName: "¶ÀÉ½×ÓÇø"
           }, {
             countyCode: "650204",
-            countyName: "ç™½ç¢±æ»©åŒº"
+            countyName: "°×¼îÌ²Çø"
           }]
         }, {
           cityCode: "652800",
-          cityName: "å·´éŸ³éƒ­æ¥è’™å¤è‡ªæ²»å·",
+          cityName: "°ÍÒô¹ùÀãÃÉ¹Å×ÔÖÎÖİ",
           county: [{
             countyCode: "652829",
-            countyName: "åšæ¹–å¿"
+            countyName: "²©ºşÏØ"
           }, {
             countyCode: "652824",
-            countyName: "è‹¥ç¾Œå¿"
+            countyName: "ÈôÇ¼ÏØ"
           }, {
             countyCode: "652826",
-            countyName: "ç„‰è€†å›æ—è‡ªæ²»å¿"
+            countyName: "ÑÉêÈ»Ø×å×ÔÖÎÏØ"
           }, {
             countyCode: "652823",
-            countyName: "å°‰çŠå¿"
+            countyName: "Î¾ÀçÏØ"
           }, {
             countyCode: "652822",
-            countyName: "è½®å°å¿"
+            countyName: "ÂÖÌ¨ÏØ"
           }, {
             countyCode: "652825",
-            countyName: "ä¸”æœ«å¿"
+            countyName: "ÇÒÄ©ÏØ"
           }, {
             countyCode: "652801",
-            countyName: "åº“å°”å‹’å¸‚"
+            countyName: "¿â¶ûÀÕÊĞ"
           }, {
             countyCode: "652827",
-            countyName: "å’Œé™å¿"
+            countyName: "ºÍ¾²ÏØ"
           }, {
             countyCode: "652828",
-            countyName: "å’Œç¡•å¿"
+            countyName: "ºÍË¶ÏØ"
           }]
         }, {
           cityCode: "654200",
-          cityName: "å¡”åŸåœ°åŒº",
+          cityName: "Ëş³ÇµØÇø",
           county: [{
             countyCode: "654223",
-            countyName: "æ²™æ¹¾å¿"
+            countyName: "É³ÍåÏØ"
           }, {
             countyCode: "654201",
-            countyName: "å¡”åŸå¸‚"
+            countyName: "Ëş³ÇÊĞ"
           }, {
             countyCode: "654226",
-            countyName: "å’Œå¸ƒå…‹èµ›å°”è’™å¤è‡ªæ²»å¿"
+            countyName: "ºÍ²¼¿ËÈü¶ûÃÉ¹Å×ÔÖÎÏØ"
           }, {
             countyCode: "654202",
-            countyName: "ä¹Œè‹å¸‚"
+            countyName: "ÎÚËÕÊĞ"
           }, {
             countyCode: "654224",
-            countyName: "æ‰˜é‡Œå¿"
+            countyName: "ÍĞÀïÏØ"
           }, {
             countyCode: "654221",
-            countyName: "é¢æ•å¿"
+            countyName: "¶îÃôÏØ"
           }, {
             countyCode: "654225",
-            countyName: "è£•æ°‘å¿"
+            countyName: "Ô£ÃñÏØ"
           }]
         }, {
           cityCode: "652200",
-          cityName: "å“ˆå¯†å¸‚",
+          cityName: "¹şÃÜÊĞ",
           county: [{
             countyCode: "652222",
-            countyName: "å·´é‡Œå¤å“ˆè¨å…‹è‡ªæ²»å¿"
+            countyName: "°ÍÀïÀ¤¹şÈø¿Ë×ÔÖÎÏØ"
           }, {
             countyCode: "652201",
-            countyName: "ä¼Šå·åŒº"
+            countyName: "ÒÁÖİÇø"
           }, {
             countyCode: "652223",
-            countyName: "ä¼Šå¾å¿"
+            countyName: "ÒÁÎáÏØ"
           }]
         }, {
           cityCode: "654000",
-          cityName: "ä¼ŠçŠå“ˆè¨å…‹è‡ªæ²»å·",
+          cityName: "ÒÁÀç¹şÈø¿Ë×ÔÖÎÖİ",
           county: [{
             countyCode: "654027",
-            countyName: "ç‰¹å…‹æ–¯å¿"
+            countyName: "ÌØ¿ËË¹ÏØ"
           }, {
             countyCode: "654024",
-            countyName: "å·©ç•™å¿"
+            countyName: "¹®ÁôÏØ"
           }, {
             countyCode: "654022",
-            countyName: "å¯Ÿå¸ƒæŸ¥å°”é”¡ä¼¯è‡ªæ²»å¿"
+            countyName: "²ì²¼²é¶ûÎı²®×ÔÖÎÏØ"
           }, {
             countyCode: "654004",
-            countyName: "éœå°”æœæ–¯å¸‚"
+            countyName: "»ô¶û¹ûË¹ÊĞ"
           }, {
             countyCode: "654023",
-            countyName: "éœåŸå¿"
+            countyName: "»ô³ÇÏØ"
           }, {
             countyCode: "654028",
-            countyName: "å°¼å‹’å…‹å¿"
+            countyName: "ÄáÀÕ¿ËÏØ"
           }, {
             countyCode: "654003",
-            countyName: "å¥å±¯å¸‚"
+            countyName: "¿üÍÍÊĞ"
           }, {
             countyCode: "654021",
-            countyName: "ä¼Šå®å¿"
+            countyName: "ÒÁÄşÏØ"
           }, {
             countyCode: "654025",
-            countyName: "æ–°æºå¿"
+            countyName: "ĞÂÔ´ÏØ"
           }, {
             countyCode: "654002",
-            countyName: "ä¼Šå®å¸‚"
+            countyName: "ÒÁÄşÊĞ"
           }, {
             countyCode: "654026",
-            countyName: "æ˜­è‹å¿"
+            countyName: "ÕÑËÕÏØ"
           }]
         }, {
           cityCode: "654300",
-          cityName: "é˜¿å‹’æ³°åœ°åŒº",
+          cityName: "°¢ÀÕÌ©µØÇø",
           county: [{
             countyCode: "654325",
-            countyName: "é’æ²³å¿"
+            countyName: "ÇàºÓÏØ"
           }, {
             countyCode: "654326",
-            countyName: "å‰æœ¨ä¹ƒå¿"
+            countyName: "¼ªÄ¾ÄËÏØ"
           }, {
             countyCode: "654321",
-            countyName: "å¸ƒå°”æ´¥å¿"
+            countyName: "²¼¶û½òÏØ"
           }, {
             countyCode: "654323",
-            countyName: "ç¦æµ·å¿"
+            countyName: "¸£º£ÏØ"
           }, {
             countyCode: "654301",
-            countyName: "é˜¿å‹’æ³°å¸‚"
+            countyName: "°¢ÀÕÌ©ÊĞ"
           }, {
             countyCode: "654322",
-            countyName: "å¯Œè•´å¿"
+            countyName: "¸»ÔÌÏØ"
           }, {
             countyCode: "654324",
-            countyName: "å“ˆå·´æ²³å¿"
+            countyName: "¹ş°ÍºÓÏØ"
           }]
         }, {
           cityCode: "652100",
-          cityName: "åé²ç•ªå¸‚",
+          cityName: "ÍÂÂ³·¬ÊĞ",
           county: [{
             countyCode: "652122",
-            countyName: "é„¯å–„å¿"
+            countyName: "Û·ÉÆÏØ"
           }, {
             countyCode: "652101",
-            countyName: "é«˜æ˜ŒåŒº"
+            countyName: "¸ß²ıÇø"
           }, {
             countyCode: "652123",
-            countyName: "æ‰˜å…‹é€Šå¿"
+            countyName: "ÍĞ¿ËÑ·ÏØ"
           }]
         }, {
           cityCode: "650100",
-          cityName: "ä¹Œé²æœ¨é½å¸‚",
+          cityName: "ÎÚÂ³Ä¾ÆëÊĞ",
           county: [{
             countyCode: "650121",
-            countyName: "ä¹Œé²æœ¨é½å¿"
+            countyName: "ÎÚÂ³Ä¾ÆëÏØ"
           }, {
             countyCode: "650109",
-            countyName: "ç±³ä¸œåŒº"
+            countyName: "Ã×¶«Çø"
           }, {
             countyCode: "650103",
-            countyName: "æ²™ä¾å·´å…‹åŒº"
+            countyName: "É³ÒÀ°Í¿ËÇø"
           }, {
             countyCode: "650105",
-            countyName: "æ°´ç£¨æ²ŸåŒº"
+            countyName: "Ë®Ä¥¹µÇø"
           }, {
             countyCode: "650107",
-            countyName: "è¾¾å‚åŸåŒº"
+            countyName: "´ïÛà³ÇÇø"
           }, {
             countyCode: "650104",
-            countyName: "æ–°å¸‚åŒº"
+            countyName: "ĞÂÊĞÇø"
           }, {
             countyCode: "650102",
-            countyName: "å¤©å±±åŒº"
+            countyName: "ÌìÉ½Çø"
           }, {
             countyCode: "650106",
-            countyName: "å¤´å±¯æ²³åŒº"
+            countyName: "Í·ÍÍºÓÇø"
           }]
         }, {
           cityCode: "659002",
-          cityName: "é˜¿æ‹‰å°”å¸‚",
+          cityName: "°¢À­¶ûÊĞ",
           county: [{
             countyCode: "659002-1",
-            countyName: "é˜¿æ‹‰å°”å¸‚"
+            countyName: "°¢À­¶ûÊĞ"
           }]
         }, {
           cityCode: "653200",
-          cityName: "å’Œç”°åœ°åŒº",
+          cityName: "ºÍÌïµØÇø",
           county: [{
             countyCode: "653222",
-            countyName: "å¢¨ç‰å¿"
+            countyName: "Ä«ÓñÏØ"
           }, {
             countyCode: "653226",
-            countyName: "äºç”°å¿"
+            countyName: "ÓÚÌïÏØ"
           }, {
             countyCode: "653223",
-            countyName: "çš®å±±å¿"
+            countyName: "Æ¤É½ÏØ"
           }, {
             countyCode: "653221",
-            countyName: "å’Œç”°å¿"
+            countyName: "ºÍÌïÏØ"
           }, {
             countyCode: "653224",
-            countyName: "æ´›æµ¦å¿"
+            countyName: "ÂåÆÖÏØ"
           }, {
             countyCode: "653225",
-            countyName: "ç­–å‹’å¿"
+            countyName: "²ßÀÕÏØ"
           }, {
             countyCode: "653227",
-            countyName: "æ°‘ä¸°å¿"
+            countyName: "Ãñ·áÏØ"
           }, {
             countyCode: "653201",
-            countyName: "å’Œç”°å¸‚"
+            countyName: "ºÍÌïÊĞ"
           }]
         }, {
           cityCode: "659003",
-          cityName: "å›¾æœ¨èˆ’å…‹å¸‚",
+          cityName: "Í¼Ä¾Êæ¿ËÊĞ",
           county: [{
             countyCode: "659003-1",
-            countyName: "å›¾æœ¨èˆ’å…‹å¸‚"
+            countyName: "Í¼Ä¾Êæ¿ËÊĞ"
           }]
         }, {
           cityCode: "695005",
-          cityName: "åŒ—å±¯å¸‚",
+          cityName: "±±ÍÍÊĞ",
           county: [{
             countyCode: "695005-1",
-            countyName: "åŒ—å±¯å¸‚"
+            countyName: "±±ÍÍÊĞ"
           }]
         }, {
           cityCode: "652300",
-          cityName: "æ˜Œå‰å›æ—è‡ªæ²»å·",
+          cityName: "²ı¼ª»Ø×å×ÔÖÎÖİ",
           county: [{
             countyCode: "652302",
-            countyName: "é˜œåº·å¸‚"
+            countyName: "¸·¿µÊĞ"
           }, {
             countyCode: "652324",
-            countyName: "ç›çº³æ–¯å¿"
+            countyName: "ÂêÄÉË¹ÏØ"
           }, {
             countyCode: "652325",
-            countyName: "å¥‡å°å¿"
+            countyName: "ÆæÌ¨ÏØ"
           }, {
             countyCode: "652323",
-            countyName: "å‘¼å›¾å£å¿"
+            countyName: "ºôÍ¼±ÚÏØ"
           }, {
             countyCode: "652301",
-            countyName: "æ˜Œå‰å¸‚"
+            countyName: "²ı¼ªÊĞ"
           }, {
             countyCode: "652327",
-            countyName: "å‰æœ¨è¨å°”å¿"
+            countyName: "¼ªÄ¾Èø¶ûÏØ"
           }, {
             countyCode: "652328",
-            countyName: "æœ¨å’å“ˆè¨å…‹è‡ªæ²»å¿"
+            countyName: "Ä¾Àİ¹şÈø¿Ë×ÔÖÎÏØ"
           }, {
             countyCode: "652303",
-            countyName: "å‡†ä¸œå¼€å‘åŒº"
+            countyName: "×¼¶«¿ª·¢Çø"
           }]
         }, {
           cityCode: "653100",
-          cityName: "å–€ä»€åœ°åŒº",
+          cityName: "¿¦Ê²µØÇø",
           county: [{
             countyCode: "653128",
-            countyName: "å²³æ™®æ¹–å¿"
+            countyName: "ÔÀÆÕºşÏØ"
           }, {
             countyCode: "653129",
-            countyName: "ä¼½å¸ˆå¿"
+            countyName: "Ù¤Ê¦ÏØ"
           }, {
             countyCode: "653126",
-            countyName: "å¶åŸå¿"
+            countyName: "Ò¶³ÇÏØ"
           }, {
             countyCode: "653122",
-            countyName: "ç–å‹’å¿"
+            countyName: "ÊèÀÕÏØ"
           }, {
             countyCode: "653124",
-            countyName: "æ³½æ™®å¿"
+            countyName: "ÔóÆÕÏØ"
           }, {
             countyCode: "653121",
-            countyName: "ç–é™„å¿"
+            countyName: "Êè¸½ÏØ"
           }, {
             countyCode: "653131",
-            countyName: "å¡”ä»€åº“å°”å¹²å¡”å‰å…‹è‡ªæ²»å¿"
+            countyName: "ËşÊ²¿â¶û¸ÉËş¼ª¿Ë×ÔÖÎÏØ"
           }, {
             countyCode: "653130",
-            countyName: "å·´æ¥šå¿"
+            countyName: "°Í³şÏØ"
           }, {
             countyCode: "653123",
-            countyName: "è‹±å‰æ²™å¿"
+            countyName: "Ó¢¼ªÉ³ÏØ"
           }, {
             countyCode: "653127",
-            countyName: "éº¦ç›–æå¿"
+            countyName: "Âó¸ÇÌáÏØ"
           }, {
             countyCode: "653125",
-            countyName: "èè½¦å¿"
+            countyName: "É¯³µÏØ"
           }, {
             countyCode: "653101",
-            countyName: "å–€ä»€å¸‚"
+            countyName: "¿¦Ê²ÊĞ"
           }]
         }, {
           cityCode: "659001",
-          cityName: "çŸ³æ²³å­å¸‚",
+          cityName: "Ê¯ºÓ×ÓÊĞ",
           county: [{
             countyCode: "659001-1",
-            countyName: "çŸ³æ²³å­å¸‚"
+            countyName: "Ê¯ºÓ×ÓÊĞ"
           }]
         }, {
           cityCode: "695006",
-          cityName: "é“é—¨å…³å¸‚",
+          cityName: "ÌúÃÅ¹ØÊĞ",
           county: [{
             countyCode: "695006-1",
-            countyName: "é“é—¨å…³å¸‚"
+            countyName: "ÌúÃÅ¹ØÊĞ"
           }]
         }, {
           cityCode: "652900",
-          cityName: "é˜¿å…‹è‹åœ°åŒº",
+          cityName: "°¢¿ËËÕµØÇø",
           county: [{
             countyCode: "652901",
-            countyName: "é˜¿å…‹è‹å¸‚"
+            countyName: "°¢¿ËËÕÊĞ"
           }, {
             countyCode: "652922",
-            countyName: "æ¸©å®¿å¿"
+            countyName: "ÎÂËŞÏØ"
           }, {
             countyCode: "652928",
-            countyName: "é˜¿ç“¦æå¿"
+            countyName: "°¢ÍßÌáÏØ"
           }, {
             countyCode: "652929",
-            countyName: "æŸ¯åªå¿"
+            countyName: "¿ÂÆºÏØ"
           }, {
             countyCode: "652925",
-            countyName: "æ–°å’Œå¿"
+            countyName: "ĞÂºÍÏØ"
           }, {
             countyCode: "652924",
-            countyName: "æ²™é›…å¿"
+            countyName: "É³ÑÅÏØ"
           }, {
             countyCode: "652927",
-            countyName: "ä¹Œä»€å¿"
+            countyName: "ÎÚÊ²ÏØ"
           }, {
             countyCode: "652923",
-            countyName: "åº“è½¦å¿"
+            countyName: "¿â³µÏØ"
           }, {
             countyCode: "652926",
-            countyName: "æ‹œåŸå¿"
+            countyName: "°İ³ÇÏØ"
           }]
         }, {
           cityCode: "653000",
-          cityName: "å…‹å­œå‹’è‹æŸ¯å°”å…‹å­œè‡ªæ²»å·",
+          cityName: "¿Ë×ÎÀÕËÕ¿Â¶û¿Ë×Î×ÔÖÎÖİ",
           county: [{
             countyCode: "653023",
-            countyName: "é˜¿åˆå¥‡å¿"
+            countyName: "°¢ºÏÆæÏØ"
           }, {
             countyCode: "653022",
-            countyName: "é˜¿å…‹é™¶å¿"
+            countyName: "°¢¿ËÌÕÏØ"
           }, {
             countyCode: "653001",
-            countyName: "é˜¿å›¾ä»€å¸‚"
+            countyName: "°¢Í¼Ê²ÊĞ"
           }, {
             countyCode: "653024",
-            countyName: "ä¹Œæ°å¿"
+            countyName: "ÎÚÇ¡ÏØ"
           }]
         }, {
           cityCode: "659004",
-          cityName: "äº”å®¶æ¸ å¸‚",
+          cityName: "Îå¼ÒÇşÊĞ",
           county: [{
             countyCode: "659004-1",
-            countyName: "äº”å®¶æ¸ å¸‚"
+            countyName: "Îå¼ÒÇşÊĞ"
           }]
         }, {
           cityCode: "652700",
-          cityName: "åšå°”å¡”æ‹‰è’™å¤è‡ªæ²»å·",
+          cityName: "²©¶ûËşÀ­ÃÉ¹Å×ÔÖÎÖİ",
           county: [{
             countyCode: "652701",
-            countyName: "åšä¹å¸‚"
+            countyName: "²©ÀÖÊĞ"
           }, {
             countyCode: "652723",
-            countyName: "æ¸©æ³‰å¿"
+            countyName: "ÎÂÈªÏØ"
           }, {
             countyCode: "652722",
-            countyName: "ç²¾æ²³å¿"
+            countyName: "¾«ºÓÏØ"
           }]
         }, {
           cityCode: "695007",
-          cityName: "åŒæ²³å¸‚",
+          cityName: "Ë«ºÓÊĞ",
           county: [{
             countyCode: "695007-1",
-            countyName: "åŒæ²³å¸‚"
+            countyName: "Ë«ºÓÊĞ"
           }]
         }]
       }, {
         provinceCode: "330000",
-        provinceName: "æµ™æ±Ÿçœ",
+        provinceName: "Õã½­Ê¡",
         city: [{
           cityCode: "330900",
-          cityName: "èˆŸå±±å¸‚",
+          cityName: "ÖÛÉ½ÊĞ",
           county: [{
             countyCode: "330922",
-            countyName: "åµŠæ³—å¿"
+            countyName: "áÓãôÏØ"
           }, {
             countyCode: "330903",
-            countyName: "æ™®é™€åŒº"
+            countyName: "ÆÕÍÓÇø"
           }, {
             countyCode: "330902",
-            countyName: "å®šæµ·åŒº"
+            countyName: "¶¨º£Çø"
           }, {
             countyCode: "330921",
-            countyName: "å²±å±±å¿"
+            countyName: "á·É½ÏØ"
           }]
         }, {
           cityCode: "330800",
-          cityName: "è¡¢å·å¸‚",
+          cityName: "áéÖİÊĞ",
           county: [{
             countyCode: "330824",
-            countyName: "å¼€åŒ–å¿"
+            countyName: "¿ª»¯ÏØ"
           }, {
             countyCode: "330803",
-            countyName: "è¡¢æ±ŸåŒº"
+            countyName: "áé½­Çø"
           }, {
             countyCode: "330881",
-            countyName: "æ±Ÿå±±å¸‚"
+            countyName: "½­É½ÊĞ"
           }, {
             countyCode: "330802",
-            countyName: "æŸ¯åŸåŒº"
+            countyName: "¿Â³ÇÇø"
           }, {
             countyCode: "330822",
-            countyName: "å¸¸å±±å¿"
+            countyName: "³£É½ÏØ"
           }, {
             countyCode: "330825",
-            countyName: "é¾™æ¸¸å¿"
+            countyName: "ÁúÓÎÏØ"
           }]
         }, {
           cityCode: "330700",
-          cityName: "é‡‘åå¸‚",
+          cityName: "½ğ»ªÊĞ",
           county: [{
             countyCode: "330782",
-            countyName: "ä¹‰ä¹Œå¸‚"
+            countyName: "ÒåÎÚÊĞ"
           }, {
             countyCode: "330784",
-            countyName: "æ°¸åº·å¸‚"
+            countyName: "ÓÀ¿µÊĞ"
           }, {
             countyCode: "330727",
-            countyName: "ç£å®‰å¿"
+            countyName: "ÅÍ°²ÏØ"
           }, {
             countyCode: "330702",
-            countyName: "å©ºåŸåŒº"
+            countyName: "æÄ³ÇÇø"
           }, {
             countyCode: "330726",
-            countyName: "æµ¦æ±Ÿå¿"
+            countyName: "ÆÖ½­ÏØ"
           }, {
             countyCode: "330783",
-            countyName: "ä¸œé˜³å¸‚"
+            countyName: "¶«ÑôÊĞ"
           }, {
             countyCode: "330781",
-            countyName: "å…°æºªå¸‚"
+            countyName: "À¼ÏªÊĞ"
           }, {
             countyCode: "330723",
-            countyName: "æ­¦ä¹‰å¿"
+            countyName: "ÎäÒåÏØ"
           }, {
             countyCode: "330703",
-            countyName: "é‡‘ä¸œåŒº"
+            countyName: "½ğ¶«Çø"
           }]
         }, {
           cityCode: "330300",
-          cityName: "æ¸©å·å¸‚",
+          cityName: "ÎÂÖİÊĞ",
           county: [{
             countyCode: "330302",
-            countyName: "é¹¿åŸåŒº"
+            countyName: "Â¹³ÇÇø"
           }, {
             countyCode: "330322",
-            countyName: "æ´å¤´åŒº"
+            countyName: "¶´Í·Çø"
           }, {
             countyCode: "330381",
-            countyName: "ç‘å®‰å¸‚"
+            countyName: "Èğ°²ÊĞ"
           }, {
             countyCode: "330329",
-            countyName: "æ³°é¡ºå¿"
+            countyName: "Ì©Ë³ÏØ"
           }, {
             countyCode: "330324",
-            countyName: "æ°¸å˜‰å¿"
+            countyName: "ÓÀ¼ÎÏØ"
           }, {
             countyCode: "330304",
-            countyName: "ç“¯æµ·åŒº"
+            countyName: "ê±º£Çø"
           }, {
             countyCode: "330327",
-            countyName: "è‹å—å¿"
+            countyName: "²ÔÄÏÏØ"
           }, {
             countyCode: "330328",
-            countyName: "æ–‡æˆå¿"
+            countyName: "ÎÄ³ÉÏØ"
           }, {
             countyCode: "330326",
-            countyName: "å¹³é˜³å¿"
+            countyName: "Æ½ÑôÏØ"
           }, {
             countyCode: "330382",
-            countyName: "ä¹æ¸…å¸‚"
+            countyName: "ÀÖÇåÊĞ"
           }, {
             countyCode: "330303",
-            countyName: "é¾™æ¹¾åŒº"
+            countyName: "ÁúÍåÇø"
           }]
         }, {
           cityCode: "330200",
-          cityName: "å®æ³¢å¸‚",
+          cityName: "Äş²¨ÊĞ",
           county: [{
             countyCode: "330204",
-            countyName: "æ±Ÿä¸œåŒº"
+            countyName: "½­¶«Çø"
           }, {
             countyCode: "330225",
-            countyName: "è±¡å±±å¿"
+            countyName: "ÏóÉ½ÏØ"
           }, {
             countyCode: "330212",
-            countyName: "é„å·åŒº"
+            countyName: "Û´ÖİÇø"
           }, {
             countyCode: "330226",
-            countyName: "å®æµ·å¿"
+            countyName: "Äşº£ÏØ"
           }, {
             countyCode: "330283",
-            countyName: "å¥‰åŒ–åŒº"
+            countyName: "·î»¯Çø"
           }, {
             countyCode: "330282",
-            countyName: "æ…ˆæºªå¸‚"
+            countyName: "´ÈÏªÊĞ"
           }, {
             countyCode: "330281",
-            countyName: "ä½™å§šå¸‚"
+            countyName: "ÓàÒ¦ÊĞ"
           }, {
             countyCode: "330211",
-            countyName: "é•‡æµ·åŒº"
+            countyName: "Õòº£Çø"
           }, {
             countyCode: "330205",
-            countyName: "æ±ŸåŒ—åŒº"
+            countyName: "½­±±Çø"
           }, {
             countyCode: "330206",
-            countyName: "åŒ—ä»‘åŒº"
+            countyName: "±±ÂØÇø"
           }, {
             countyCode: "330203",
-            countyName: "æµ·æ›™åŒº"
+            countyName: "º£ÊïÇø"
           }]
         }, {
           cityCode: "330100",
-          cityName: "æ­å·å¸‚",
+          cityName: "º¼ÖİÊĞ",
           county: [{
             countyCode: "330110",
-            countyName: "ä½™æ­åŒº"
+            countyName: "Óàº¼Çø"
           }, {
             countyCode: "330106",
-            countyName: "è¥¿æ¹–åŒº"
+            countyName: "Î÷ºşÇø"
           }, {
             countyCode: "330109",
-            countyName: "è§å±±åŒº"
+            countyName: "ÏôÉ½Çø"
           }, {
             countyCode: "330185",
-            countyName: "ä¸´å®‰åŒº"
+            countyName: "ÁÙ°²Çø"
           }, {
             countyCode: "330122",
-            countyName: "æ¡åºå¿"
+            countyName: "Í©Â®ÏØ"
           }, {
             countyCode: "330103",
-            countyName: "ä¸‹åŸåŒº"
+            countyName: "ÏÂ³ÇÇø"
           }, {
             countyCode: "330182",
-            countyName: "å»ºå¾·å¸‚"
+            countyName: "½¨µÂÊĞ"
           }, {
             countyCode: "330102",
-            countyName: "ä¸ŠåŸåŒº"
+            countyName: "ÉÏ³ÇÇø"
           }, {
             countyCode: "330127",
-            countyName: "æ·³å®‰å¿"
+            countyName: "´¾°²ÏØ"
           }, {
             countyCode: "330105",
-            countyName: "æ‹±å¢…åŒº"
+            countyName: "¹°ÊûÇø"
           }, {
             countyCode: "330104",
-            countyName: "æ±Ÿå¹²åŒº"
+            countyName: "½­¸ÉÇø"
           }, {
             countyCode: "330108",
-            countyName: "æ»¨æ±ŸåŒº"
+            countyName: "±õ½­Çø"
           }, {
             countyCode: "330183",
-            countyName: "å¯Œé˜³åŒº"
+            countyName: "¸»ÑôÇø"
           }]
         }, {
           cityCode: "330400",
-          cityName: "å˜‰å…´å¸‚",
+          cityName: "¼ÎĞËÊĞ",
           county: [{
             countyCode: "330482",
-            countyName: "å¹³æ¹–å¸‚"
+            countyName: "Æ½ºşÊĞ"
           }, {
             countyCode: "330402",
-            countyName: "å—æ¹–åŒº"
+            countyName: "ÄÏºşÇø"
           }, {
             countyCode: "330481",
-            countyName: "æµ·å®å¸‚"
+            countyName: "º£ÄşÊĞ"
           }, {
             countyCode: "330421",
-            countyName: "å˜‰å–„å¿"
+            countyName: "¼ÎÉÆÏØ"
           }, {
             countyCode: "330424",
-            countyName: "æµ·ç›å¿"
+            countyName: "º£ÑÎÏØ"
           }, {
             countyCode: "330411",
-            countyName: "ç§€æ´²åŒº"
+            countyName: "ĞãÖŞÇø"
           }, {
             countyCode: "330483",
-            countyName: "æ¡ä¹¡å¸‚"
+            countyName: "Í©ÏçÊĞ"
           }]
         }, {
           cityCode: "330600",
-          cityName: "ç»å…´å¸‚",
+          cityName: "ÉÜĞËÊĞ",
           county: [{
             countyCode: "330681",
-            countyName: "è¯¸æš¨å¸‚"
+            countyName: "ÖîôßÊĞ"
           }, {
             countyCode: "330602",
-            countyName: "è¶ŠåŸåŒº"
+            countyName: "Ô½³ÇÇø"
           }, {
             countyCode: "330682",
-            countyName: "ä¸Šè™åŒº"
+            countyName: "ÉÏÓİÇø"
           }, {
             countyCode: "330683",
-            countyName: "åµŠå·å¸‚"
+            countyName: "áÓÖİÊĞ"
           }, {
             countyCode: "330624",
-            countyName: "æ–°æ˜Œå¿"
+            countyName: "ĞÂ²ıÏØ"
           }, {
             countyCode: "330621",
-            countyName: "æŸ¯æ¡¥åŒº"
+            countyName: "¿ÂÇÅÇø"
           }]
         }, {
           cityCode: "331100",
-          cityName: "ä¸½æ°´å¸‚",
+          cityName: "ÀöË®ÊĞ",
           county: [{
             countyCode: "331125",
-            countyName: "äº‘å’Œå¿"
+            countyName: "ÔÆºÍÏØ"
           }, {
             countyCode: "331121",
-            countyName: "é’ç”°å¿"
+            countyName: "ÇàÌïÏØ"
           }, {
             countyCode: "331126",
-            countyName: "åº†å…ƒå¿"
+            countyName: "ÇìÔªÏØ"
           }, {
             countyCode: "331124",
-            countyName: "æ¾é˜³å¿"
+            countyName: "ËÉÑôÏØ"
           }, {
             countyCode: "331123",
-            countyName: "é‚æ˜Œå¿"
+            countyName: "Ëì²ıÏØ"
           }, {
             countyCode: "331122",
-            countyName: "ç¼™äº‘å¿"
+            countyName: "çÆÔÆÏØ"
           }, {
             countyCode: "331127",
-            countyName: "æ™¯å®ç•²æ—è‡ªæ²»å¿"
+            countyName: "¾°Äşî´×å×ÔÖÎÏØ"
           }, {
             countyCode: "331102",
-            countyName: "è²éƒ½åŒº"
+            countyName: "Á«¶¼Çø"
           }, {
             countyCode: "331181",
-            countyName: "é¾™æ³‰å¸‚"
+            countyName: "ÁúÈªÊĞ"
           }]
         }, {
           cityCode: "330500",
-          cityName: "æ¹–å·å¸‚",
+          cityName: "ºşÖİÊĞ",
           county: [{
             countyCode: "330522",
-            countyName: "é•¿å…´å¿"
+            countyName: "³¤ĞËÏØ"
           }, {
             countyCode: "330503",
-            countyName: "å—æµ”åŒº"
+            countyName: "ÄÏä±Çø"
           }, {
             countyCode: "330523",
-            countyName: "å®‰å‰å¿"
+            countyName: "°²¼ªÏØ"
           }, {
             countyCode: "330502",
-            countyName: "å´å…´åŒº"
+            countyName: "ÎâĞËÇø"
           }, {
             countyCode: "330521",
-            countyName: "å¾·æ¸…å¿"
+            countyName: "µÂÇåÏØ"
           }]
         }, {
           cityCode: "331000",
-          cityName: "å°å·å¸‚",
+          cityName: "Ì¨ÖİÊĞ",
           county: [{
             countyCode: "331024",
-            countyName: "ä»™å±…å¿"
+            countyName: "ÏÉ¾ÓÏØ"
           }, {
             countyCode: "331021",
-            countyName: "ç‰ç¯å¸‚"
+            countyName: "Óñ»·ÊĞ"
           }, {
             countyCode: "331082",
-            countyName: "ä¸´æµ·å¸‚"
+            countyName: "ÁÙº£ÊĞ"
           }, {
             countyCode: "331023",
-            countyName: "å¤©å°å¿"
+            countyName: "ÌìÌ¨ÏØ"
           }, {
             countyCode: "331003",
-            countyName: "é»„å²©åŒº"
+            countyName: "»ÆÑÒÇø"
           }, {
             countyCode: "331004",
-            countyName: "è·¯æ¡¥åŒº"
+            countyName: "Â·ÇÅÇø"
           }, {
             countyCode: "331022",
-            countyName: "ä¸‰é—¨å¿"
+            countyName: "ÈıÃÅÏØ"
           }, {
             countyCode: "331002",
-            countyName: "æ¤’æ±ŸåŒº"
+            countyName: "½·½­Çø"
           }, {
             countyCode: "331081",
-            countyName: "æ¸©å²­å¸‚"
+            countyName: "ÎÂÁëÊĞ"
           }]
         }]
       }, {
         provinceCode: "320000",
-        provinceName: "æ±Ÿè‹çœ",
+        provinceName: "½­ËÕÊ¡",
         city: [{
           cityCode: "320200",
-          cityName: "æ— é”¡å¸‚",
+          cityName: "ÎŞÎıÊĞ",
           county: [{
             countyCode: "320282",
-            countyName: "å®œå…´å¸‚"
+            countyName: "ÒËĞËÊĞ"
           }, {
             countyCode: "320205",
-            countyName: "é”¡å±±åŒº"
+            countyName: "ÎıÉ½Çø"
           }, {
             countyCode: "320211",
-            countyName: "æ»¨æ¹–åŒº"
+            countyName: "±õºşÇø"
           }, {
             countyCode: "320281",
-            countyName: "æ±Ÿé˜´å¸‚"
+            countyName: "½­ÒõÊĞ"
           }, {
             countyCode: "320206",
-            countyName: "æƒ å±±åŒº"
+            countyName: "»İÉ½Çø"
           }, {
             countyCode: "320207",
-            countyName: "æ¢æºªåŒº"
+            countyName: "ÁºÏªÇø"
           }, {
             countyCode: "320214",
-            countyName: "æ–°å´åŒº"
+            countyName: "ĞÂÎâÇø"
           }]
         }, {
           cityCode: "320400",
-          cityName: "å¸¸å·å¸‚",
+          cityName: "³£ÖİÊĞ",
           county: [{
             countyCode: "320412",
-            countyName: "æ­¦è¿›åŒº"
+            countyName: "Îä½øÇø"
           }, {
             countyCode: "320405",
-            countyName: "æˆšå¢…å °åŒº"
+            countyName: "ÆİÊûÑßÇø"
           }, {
             countyCode: "320481",
-            countyName: "æº§é˜³å¸‚"
+            countyName: "äàÑôÊĞ"
           }, {
             countyCode: "320402",
-            countyName: "å¤©å®åŒº"
+            countyName: "ÌìÄşÇø"
           }, {
             countyCode: "320411",
-            countyName: "æ–°åŒ—åŒº"
+            countyName: "ĞÂ±±Çø"
           }, {
             countyCode: "320404",
-            countyName: "é’Ÿæ¥¼åŒº"
+            countyName: "ÖÓÂ¥Çø"
           }, {
             countyCode: "320482",
-            countyName: "é‡‘å›åŒº"
+            countyName: "½ğÌ³Çø"
           }]
         }, {
           cityCode: "320500",
-          cityName: "è‹å·å¸‚",
+          cityName: "ËÕÖİÊĞ",
           county: [{
             countyCode: "320509",
-            countyName: "å´æ±ŸåŒº"
+            countyName: "Îâ½­Çø"
           }, {
             countyCode: "320506",
-            countyName: "å´ä¸­åŒº"
+            countyName: "ÎâÖĞÇø"
           }, {
             countyCode: "320582",
-            countyName: "å¼ å®¶æ¸¯å¸‚"
+            countyName: "ÕÅ¼Ò¸ÛÊĞ"
           }, {
             countyCode: "320508",
-            countyName: "å§‘è‹åŒº"
+            countyName: "¹ÃËÕÇø"
           }, {
             countyCode: "320571",
-            countyName: "è‹å·å·¥ä¸šå›­åŒº"
+            countyName: "ËÕÖİ¹¤ÒµÔ°Çø"
           }, {
             countyCode: "320583",
-            countyName: "æ˜†å±±å¸‚"
+            countyName: "À¥É½ÊĞ"
           }, {
             countyCode: "320581",
-            countyName: "å¸¸ç†Ÿå¸‚"
+            countyName: "³£ÊìÊĞ"
           }, {
             countyCode: "320505",
-            countyName: "è™ä¸˜åŒº"
+            countyName: "»¢ÇğÇø"
           }, {
             countyCode: "320507",
-            countyName: "ç›¸åŸåŒº"
+            countyName: "Ïà³ÇÇø"
           }, {
             countyCode: "320585",
-            countyName: "å¤ªä»“å¸‚"
+            countyName: "Ì«²ÖÊĞ"
           }]
         }, {
           cityCode: "320800",
-          cityName: "æ·®å®‰å¸‚",
+          cityName: "»´°²ÊĞ",
           county: [{
             countyCode: "320811",
-            countyName: "æ¸…æµ¦åŒº"
+            countyName: "ÇåÆÖÇø"
           }, {
             countyCode: "320829",
-            countyName: "æ´ªæ³½åŒº"
+            countyName: "ºéÔóÇø"
           }, {
             countyCode: "320802",
-            countyName: "æ¸…æ±Ÿæµ¦åŒº"
+            countyName: "Çå½­ÆÖÇø"
           }, {
             countyCode: "320803",
-            countyName: "æ·®å®‰åŒº"
+            countyName: "»´°²Çø"
           }, {
             countyCode: "320831",
-            countyName: "é‡‘æ¹–å¿"
+            countyName: "½ğºşÏØ"
           }, {
             countyCode: "320804",
-            countyName: "æ·®é˜´åŒº"
+            countyName: "»´ÒõÇø"
           }, {
             countyCode: "320830",
-            countyName: "ç›±çœ™å¿"
+            countyName: "íìíôÏØ"
           }, {
             countyCode: "320826",
-            countyName: "æ¶Ÿæ°´å¿"
+            countyName: "Á°Ë®ÏØ"
           }]
         }, {
           cityCode: "320300",
-          cityName: "å¾å·å¸‚",
+          cityName: "ĞìÖİÊĞ",
           county: [{
             countyCode: "320381",
-            countyName: "æ–°æ²‚å¸‚"
+            countyName: "ĞÂÒÊÊĞ"
           }, {
             countyCode: "320324",
-            countyName: "ç¢å®å¿"
+            countyName: "î¡ÄşÏØ"
           }, {
             countyCode: "320311",
-            countyName: "æ³‰å±±åŒº"
+            countyName: "ÈªÉ½Çø"
           }, {
             countyCode: "320302",
-            countyName: "é¼“æ¥¼åŒº"
+            countyName: "¹ÄÂ¥Çø"
           }, {
             countyCode: "320305",
-            countyName: "è´¾æ±ªåŒº"
+            countyName: "¼ÖÍôÇø"
           }, {
             countyCode: "320303",
-            countyName: "äº‘é¾™åŒº"
+            countyName: "ÔÆÁúÇø"
           }, {
             countyCode: "320312",
-            countyName: "é“œå±±åŒº"
+            countyName: "Í­É½Çø"
           }, {
             countyCode: "320321",
-            countyName: "ä¸°å¿"
+            countyName: "·áÏØ"
           }, {
             countyCode: "320322",
-            countyName: "æ²›å¿"
+            countyName: "ÅæÏØ"
           }, {
             countyCode: "320382",
-            countyName: "é‚³å·å¸‚"
+            countyName: "ÚüÖİÊĞ"
           }]
         }, {
           cityCode: "321200",
-          cityName: "æ³°å·å¸‚",
+          cityName: "Ì©ÖİÊĞ",
           county: [{
             countyCode: "321203",
-            countyName: "é«˜æ¸¯åŒº"
+            countyName: "¸ß¸ÛÇø"
           }, {
             countyCode: "321202",
-            countyName: "æµ·é™µåŒº"
+            countyName: "º£ÁêÇø"
           }, {
             countyCode: "321283",
-            countyName: "æ³°å…´å¸‚"
+            countyName: "Ì©ĞËÊĞ"
           }, {
             countyCode: "321284",
-            countyName: "å§œå °åŒº"
+            countyName: "½ªÑßÇø"
           }, {
             countyCode: "321282",
-            countyName: "é–æ±Ÿå¸‚"
+            countyName: "¾¸½­ÊĞ"
           }, {
             countyCode: "321281",
-            countyName: "å…´åŒ–å¸‚"
+            countyName: "ĞË»¯ÊĞ"
           }]
         }, {
           cityCode: "320700",
-          cityName: "è¿äº‘æ¸¯å¸‚",
+          cityName: "Á¬ÔÆ¸ÛÊĞ",
           county: [{
             countyCode: "320723",
-            countyName: "çŒäº‘å¿"
+            countyName: "¹àÔÆÏØ"
           }, {
             countyCode: "320721",
-            countyName: "èµ£æ¦†åŒº"
+            countyName: "¸ÓÓÜÇø"
           }, {
             countyCode: "320705",
-            countyName: "æ–°æµ¦åŒº"
+            countyName: "ĞÂÆÖÇø"
           }, {
             countyCode: "320722",
-            countyName: "ä¸œæµ·å¿"
+            countyName: "¶«º£ÏØ"
           }, {
             countyCode: "320706",
-            countyName: "æµ·å·åŒº"
+            countyName: "º£ÖİÇø"
           }, {
             countyCode: "320703",
-            countyName: "è¿äº‘åŒº"
+            countyName: "Á¬ÔÆÇø"
           }, {
             countyCode: "320724",
-            countyName: "çŒå—å¿"
+            countyName: "¹àÄÏÏØ"
           }]
         }, {
           cityCode: "321100",
-          cityName: "é•‡æ±Ÿå¸‚",
+          cityName: "Õò½­ÊĞ",
           county: [{
             countyCode: "321112",
-            countyName: "ä¸¹å¾’åŒº"
+            countyName: "µ¤Í½Çø"
           }, {
             countyCode: "321102",
-            countyName: "äº¬å£åŒº"
+            countyName: "¾©¿ÚÇø"
           }, {
             countyCode: "321182",
-            countyName: "æ‰¬ä¸­å¸‚"
+            countyName: "ÑïÖĞÊĞ"
           }, {
             countyCode: "321181",
-            countyName: "ä¸¹é˜³å¸‚"
+            countyName: "µ¤ÑôÊĞ"
           }, {
             countyCode: "321183",
-            countyName: "å¥å®¹å¸‚"
+            countyName: "¾äÈİÊĞ"
           }, {
             countyCode: "321111",
-            countyName: "æ¶¦å·åŒº"
+            countyName: "ÈóÖİÇø"
           }]
         }, {
           cityCode: "320600",
-          cityName: "å—é€šå¸‚",
+          cityName: "ÄÏÍ¨ÊĞ",
           county: [{
             countyCode: "320602",
-            countyName: "å´‡å·åŒº"
+            countyName: "³ç´¨Çø"
           }, {
             countyCode: "320684",
-            countyName: "æµ·é—¨å¸‚"
+            countyName: "º£ÃÅÊĞ"
           }, {
             countyCode: "320681",
-            countyName: "å¯ä¸œå¸‚"
+            countyName: "Æô¶«ÊĞ"
           }, {
             countyCode: "320612",
-            countyName: "é€šå·åŒº"
+            countyName: "Í¨ÖİÇø"
           }, {
             countyCode: "320621",
-            countyName: "æµ·å®‰å¸‚"
+            countyName: "º£°²ÊĞ"
           }, {
             countyCode: "320623",
-            countyName: "å¦‚ä¸œå¿"
+            countyName: "Èç¶«ÏØ"
           }, {
             countyCode: "320611",
-            countyName: "æ¸¯é—¸åŒº"
+            countyName: "¸ÛÕ¢Çø"
           }, {
             countyCode: "320682",
-            countyName: "å¦‚çš‹å¸‚"
+            countyName: "Èç¸ŞÊĞ"
           }]
         }, {
           cityCode: "320900",
-          cityName: "ç›åŸå¸‚",
+          cityName: "ÑÎ³ÇÊĞ",
           county: [{
             countyCode: "320922",
-            countyName: "æ»¨æµ·å¿"
+            countyName: "±õº£ÏØ"
           }, {
             countyCode: "320981",
-            countyName: "ä¸œå°å¸‚"
+            countyName: "¶«Ì¨ÊĞ"
           }, {
             countyCode: "320925",
-            countyName: "å»ºæ¹–å¿"
+            countyName: "½¨ºşÏØ"
           }, {
             countyCode: "320903",
-            countyName: "ç›éƒ½åŒº"
+            countyName: "ÑÎ¶¼Çø"
           }, {
             countyCode: "320921",
-            countyName: "å“æ°´å¿"
+            countyName: "ÏìË®ÏØ"
           }, {
             countyCode: "320924",
-            countyName: "å°„é˜³å¿"
+            countyName: "ÉäÑôÏØ"
           }, {
             countyCode: "320902",
-            countyName: "äº­æ¹–åŒº"
+            countyName: "Í¤ºşÇø"
           }, {
             countyCode: "320923",
-            countyName: "é˜œå®å¿"
+            countyName: "¸·ÄşÏØ"
           }, {
             countyCode: "320982",
-            countyName: "å¤§ä¸°åŒº"
+            countyName: "´ó·áÇø"
           }]
         }, {
           cityCode: "320100",
-          cityName: "å—äº¬å¸‚",
+          cityName: "ÄÏ¾©ÊĞ",
           county: [{
             countyCode: "320106",
-            countyName: "é¼“æ¥¼åŒº"
+            countyName: "¹ÄÂ¥Çø"
           }, {
             countyCode: "320115",
-            countyName: "æ±Ÿå®åŒº"
+            countyName: "½­ÄşÇø"
           }, {
             countyCode: "320111",
-            countyName: "æµ¦å£åŒº"
+            countyName: "ÆÖ¿ÚÇø"
           }, {
             countyCode: "320116",
-            countyName: "å…­åˆåŒº"
+            countyName: "ÁùºÏÇø"
           }, {
             countyCode: "320104",
-            countyName: "ç§¦æ·®åŒº"
+            countyName: "ÇØ»´Çø"
           }, {
             countyCode: "320124",
-            countyName: "æº§æ°´åŒº"
+            countyName: "äàË®Çø"
           }, {
             countyCode: "320125",
-            countyName: "é«˜æ·³åŒº"
+            countyName: "¸ß´¾Çø"
           }, {
             countyCode: "320113",
-            countyName: "æ –éœåŒº"
+            countyName: "ÆÜÏ¼Çø"
           }, {
             countyCode: "320107",
-            countyName: "ä¸‹å…³åŒº"
+            countyName: "ÏÂ¹ØÇø"
           }, {
             countyCode: "320102",
-            countyName: "ç„æ­¦åŒº"
+            countyName: "ĞşÎäÇø"
           }, {
             countyCode: "320105",
-            countyName: "å»ºé‚ºåŒº"
+            countyName: "½¨ÚşÇø"
           }, {
             countyCode: "320114",
-            countyName: "é›¨èŠ±å°åŒº"
+            countyName: "Óê»¨Ì¨Çø"
           }, {
             countyCode: "320103",
-            countyName: "ç™½ä¸‹åŒº"
+            countyName: "°×ÏÂÇø"
           }]
         }, {
           cityCode: "321000",
-          cityName: "æ‰¬å·å¸‚",
+          cityName: "ÑïÖİÊĞ",
           county: [{
             countyCode: "321084",
-            countyName: "é«˜é‚®å¸‚"
+            countyName: "¸ßÓÊÊĞ"
           }, {
             countyCode: "321023",
-            countyName: "å®åº”å¿"
+            countyName: "±¦Ó¦ÏØ"
           }, {
             countyCode: "321012",
-            countyName: "æ±Ÿéƒ½åŒº"
+            countyName: "½­¶¼Çø"
           }, {
             countyCode: "321003",
-            countyName: "é‚—æ±ŸåŒº"
+            countyName: "Úõ½­Çø"
           }, {
             countyCode: "321081",
-            countyName: "ä»ªå¾å¸‚"
+            countyName: "ÒÇÕ÷ÊĞ"
           }, {
             countyCode: "321002",
-            countyName: "å¹¿é™µåŒº"
+            countyName: "¹ãÁêÇø"
           }]
         }, {
           cityCode: "321300",
-          cityName: "å®¿è¿å¸‚",
+          cityName: "ËŞÇ¨ÊĞ",
           county: [{
             countyCode: "321323",
-            countyName: "æ³—é˜³å¿"
+            countyName: "ãôÑôÏØ"
           }, {
             countyCode: "321302",
-            countyName: "å®¿åŸåŒº"
+            countyName: "ËŞ³ÇÇø"
           }, {
             countyCode: "321311",
-            countyName: "å®¿è±«åŒº"
+            countyName: "ËŞÔ¥Çø"
           }, {
             countyCode: "321324",
-            countyName: "æ³—æ´ªå¿"
+            countyName: "ãôºéÏØ"
           }, {
             countyCode: "321322",
-            countyName: "æ²­é˜³å¿"
+            countyName: "ãğÑôÏØ"
           }]
         }]
       }, {
         provinceCode: "440000",
-        provinceName: "å¹¿ä¸œçœ",
+        provinceName: "¹ã¶«Ê¡",
         city: [{
           cityCode: "445100",
-          cityName: "æ½®å·å¸‚",
+          cityName: "³±ÖİÊĞ",
           county: [{
             countyCode: "445123",
-            countyName: "æ½®å®‰å¿"
+            countyName: "³±°²ÏØ"
           }, {
             countyCode: "445122",
-            countyName: "é¥¶å¹³å¿"
+            countyName: "ÈÄÆ½ÏØ"
           }, {
             countyCode: "445121",
-            countyName: "æ½®å®‰åŒº"
+            countyName: "³±°²Çø"
           }, {
             countyCode: "445102",
-            countyName: "æ¹˜æ¡¥åŒº"
+            countyName: "ÏæÇÅÇø"
           }]
         }, {
           cityCode: "441800",
-          cityName: "æ¸…è¿œå¸‚",
+          cityName: "ÇåÔ¶ÊĞ",
           county: [{
             countyCode: "441802",
-            countyName: "æ¸…åŸåŒº"
+            countyName: "Çå³ÇÇø"
           }, {
             countyCode: "441825",
-            countyName: "è¿å±±å£®æ—ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "Á¬É½×³×åÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "441821",
-            countyName: "ä½›å†ˆå¿"
+            countyName: "·ğ¸ÔÏØ"
           }, {
             countyCode: "441882",
-            countyName: "è¿å·å¸‚"
+            countyName: "Á¬ÖİÊĞ"
           }, {
             countyCode: "441823",
-            countyName: "é˜³å±±å¿"
+            countyName: "ÑôÉ½ÏØ"
           }, {
             countyCode: "441826",
-            countyName: "è¿å—ç‘¶æ—è‡ªæ²»å¿"
+            countyName: "Á¬ÄÏÑş×å×ÔÖÎÏØ"
           }, {
             countyCode: "441827",
-            countyName: "æ¸…æ–°åŒº"
+            countyName: "ÇåĞÂÇø"
           }, {
             countyCode: "441881",
-            countyName: "è‹±å¾·å¸‚"
+            countyName: "Ó¢µÂÊĞ"
           }]
         }, {
           cityCode: "441300",
-          cityName: "æƒ å·å¸‚",
+          cityName: "»İÖİÊĞ",
           county: [{
             countyCode: "441303",
-            countyName: "æƒ é˜³åŒº"
+            countyName: "»İÑôÇø"
           }, {
             countyCode: "441322",
-            countyName: "åšç½—å¿"
+            countyName: "²©ÂŞÏØ"
           }, {
             countyCode: "441323",
-            countyName: "æƒ ä¸œå¿"
+            countyName: "»İ¶«ÏØ"
           }, {
             countyCode: "441324",
-            countyName: "é¾™é—¨å¿"
+            countyName: "ÁúÃÅÏØ"
           }, {
             countyCode: "441302",
-            countyName: "æƒ åŸåŒº"
+            countyName: "»İ³ÇÇø"
           }]
         }, {
           cityCode: "445200",
-          cityName: "æ­é˜³å¸‚",
+          cityName: "½ÒÑôÊĞ",
           county: [{
             countyCode: "445221",
-            countyName: "æ­ä¸œåŒº"
+            countyName: "½Ò¶«Çø"
           }, {
             countyCode: "445224",
-            countyName: "æƒ æ¥å¿"
+            countyName: "»İÀ´ÏØ"
           }, {
             countyCode: "445222",
-            countyName: "æ­è¥¿å¿"
+            countyName: "½ÒÎ÷ÏØ"
           }, {
             countyCode: "445281",
-            countyName: "æ™®å®å¸‚"
+            countyName: "ÆÕÄşÊĞ"
           }, {
             countyCode: "445202",
-            countyName: "æ¦•åŸåŒº"
+            countyName: "éÅ³ÇÇø"
           }]
         }, {
           cityCode: "440300",
-          cityName: "æ·±åœ³å¸‚",
+          cityName: "ÉîÛÚÊĞ",
           county: [{
             countyCode: "440303",
-            countyName: "ç½—æ¹–åŒº"
+            countyName: "ÂŞºşÇø"
           }, {
             countyCode: "440306",
-            countyName: "å®å®‰åŒº"
+            countyName: "±¦°²Çø"
           }, {
             countyCode: "440305",
-            countyName: "å—å±±åŒº"
+            countyName: "ÄÏÉ½Çø"
           }, {
             countyCode: "440307",
-            countyName: "é¾™å²—åŒº"
+            countyName: "Áú¸ÚÇø"
           }, {
             countyCode: "440311",
-            countyName: "å…‰æ˜åŒº"
+            countyName: "¹âÃ÷Çø"
           }, {
             countyCode: "440309",
-            countyName: "é¾™ååŒº"
+            countyName: "Áú»ªÇø"
           }, {
             countyCode: "440308",
-            countyName: "ç›ç”°åŒº"
+            countyName: "ÑÎÌïÇø"
           }, {
             countyCode: "440304",
-            countyName: "ç¦ç”°åŒº"
+            countyName: "¸£ÌïÇø"
           }, {
             countyCode: "440312",
-            countyName: "åªå±±åŒº"
+            countyName: "ÆºÉ½Çø"
           }, {
             countyCode: "440313",
-            countyName: "å¤§é¹æ–°åŒº"
+            countyName: "´óÅôĞÂÇø"
           }]
         }, {
           cityCode: "441900",
-          cityName: "ä¸œèå¸‚",
+          cityName: "¶«İ¸ÊĞ",
           county: [{
             countyCode: "441900-1",
-            countyName: "ä¸œèå¸‚"
+            countyName: "¶«İ¸ÊĞ"
           }]
         }, {
           cityCode: "441400",
-          cityName: "æ¢…å·å¸‚",
+          cityName: "Ã·ÖİÊĞ",
           county: [{
             countyCode: "441422",
-            countyName: "å¤§åŸ”å¿"
+            countyName: "´óÆÒÏØ"
           }, {
             countyCode: "441423",
-            countyName: "ä¸°é¡ºå¿"
+            countyName: "·áË³ÏØ"
           }, {
             countyCode: "441426",
-            countyName: "å¹³è¿œå¿"
+            countyName: "Æ½Ô¶ÏØ"
           }, {
             countyCode: "441481",
-            countyName: "å…´å®å¸‚"
+            countyName: "ĞËÄşÊĞ"
           }, {
             countyCode: "441427",
-            countyName: "è•‰å²­å¿"
+            countyName: "½¶ÁëÏØ"
           }, {
             countyCode: "441421",
-            countyName: "æ¢…å¿åŒº"
+            countyName: "Ã·ÏØÇø"
           }, {
             countyCode: "441424",
-            countyName: "äº”åå¿"
+            countyName: "Îå»ªÏØ"
           }, {
             countyCode: "441402",
-            countyName: "æ¢…æ±ŸåŒº"
+            countyName: "Ã·½­Çø"
           }]
         }, {
           cityCode: "440500-1",
-          cityName: "æ±•å¤´å¸‚",
+          cityName: "ÉÇÍ·ÊĞ",
           county: [{
             countyCode: "440515",
-            countyName: "æ¾„æµ·åŒº"
+            countyName: "³Îº£Çø"
           }, {
             countyCode: "440511",
-            countyName: "é‡‘å¹³åŒº"
+            countyName: "½ğÆ½Çø"
           }, {
             countyCode: "440523",
-            countyName: "å—æ¾³å¿"
+            countyName: "ÄÏ°ÄÏØ"
           }, {
             countyCode: "440513",
-            countyName: "æ½®é˜³åŒº"
+            countyName: "³±ÑôÇø"
           }, {
             countyCode: "440514",
-            countyName: "æ½®å—åŒº"
+            countyName: "³±ÄÏÇø"
           }, {
             countyCode: "440507",
-            countyName: "é¾™æ¹–åŒº"
+            countyName: "ÁúºşÇø"
           }, {
             countyCode: "440512",
-            countyName: "æ¿ æ±ŸåŒº"
+            countyName: "å©½­Çø"
           }]
         }, {
           cityCode: "441600",
-          cityName: "æ²³æºå¸‚",
+          cityName: "ºÓÔ´ÊĞ",
           county: [{
             countyCode: "441602",
-            countyName: "æºåŸåŒº"
+            countyName: "Ô´³ÇÇø"
           }, {
             countyCode: "441621",
-            countyName: "ç´«é‡‘å¿"
+            countyName: "×Ï½ğÏØ"
           }, {
             countyCode: "441624",
-            countyName: "å’Œå¹³å¿"
+            countyName: "ºÍÆ½ÏØ"
           }, {
             countyCode: "441622",
-            countyName: "é¾™å·å¿"
+            countyName: "Áú´¨ÏØ"
           }, {
             countyCode: "441625",
-            countyName: "ä¸œæºå¿"
+            countyName: "¶«Ô´ÏØ"
           }, {
             countyCode: "441623",
-            countyName: "è¿å¹³å¿"
+            countyName: "Á¬Æ½ÏØ"
           }]
         }, {
           cityCode: "445300",
-          cityName: "äº‘æµ®å¸‚",
+          cityName: "ÔÆ¸¡ÊĞ",
           county: [{
             countyCode: "445322",
-            countyName: "éƒå—å¿"
+            countyName: "ÓôÄÏÏØ"
           }, {
             countyCode: "445381",
-            countyName: "ç½—å®šå¸‚"
+            countyName: "ÂŞ¶¨ÊĞ"
           }, {
             countyCode: "445302",
-            countyName: "äº‘åŸåŒº"
+            countyName: "ÔÆ³ÇÇø"
           }, {
             countyCode: "445321",
-            countyName: "æ–°å…´å¿"
+            countyName: "ĞÂĞËÏØ"
           }, {
             countyCode: "445323",
-            countyName: "äº‘å®‰åŒº"
+            countyName: "ÔÆ°²Çø"
           }]
         }, {
           cityCode: "440400",
-          cityName: "ç æµ·å¸‚",
+          cityName: "Öéº£ÊĞ",
           county: [{
             countyCode: "440404",
-            countyName: "é‡‘æ¹¾åŒº"
+            countyName: "½ğÍåÇø"
           }, {
             countyCode: "440403",
-            countyName: "æ–—é—¨åŒº"
+            countyName: "¶·ÃÅÇø"
           }, {
             countyCode: "440402",
-            countyName: "é¦™æ´²åŒº"
+            countyName: "ÏãÖŞÇø"
           }]
         }, {
           cityCode: "440700",
-          cityName: "æ±Ÿé—¨å¸‚",
+          cityName: "½­ÃÅÊĞ",
           county: [{
             countyCode: "440785",
-            countyName: "æ©å¹³å¸‚"
+            countyName: "¶÷Æ½ÊĞ"
           }, {
             countyCode: "440704",
-            countyName: "æ±Ÿæµ·åŒº"
+            countyName: "½­º£Çø"
           }, {
             countyCode: "440705",
-            countyName: "æ–°ä¼šåŒº"
+            countyName: "ĞÂ»áÇø"
           }, {
             countyCode: "440784",
-            countyName: "é¹¤å±±å¸‚"
+            countyName: "º×É½ÊĞ"
           }, {
             countyCode: "440703",
-            countyName: "è“¬æ±ŸåŒº"
+            countyName: "Åî½­Çø"
           }, {
             countyCode: "440783",
-            countyName: "å¼€å¹³å¸‚"
+            countyName: "¿ªÆ½ÊĞ"
           }, {
             countyCode: "440781",
-            countyName: "å°å±±å¸‚"
+            countyName: "Ì¨É½ÊĞ"
           }]
         }, {
           cityCode: "441500",
-          cityName: "æ±•å°¾å¸‚",
+          cityName: "ÉÇÎ²ÊĞ",
           county: [{
             countyCode: "441523",
-            countyName: "é™†æ²³å¿"
+            countyName: "Â½ºÓÏØ"
           }, {
             countyCode: "441502",
-            countyName: "åŸåŒº"
+            countyName: "³ÇÇø"
           }, {
             countyCode: "441581",
-            countyName: "é™†ä¸°å¸‚"
+            countyName: "Â½·áÊĞ"
           }, {
             countyCode: "441521",
-            countyName: "æµ·ä¸°å¿"
+            countyName: "º£·áÏØ"
           }]
         }, {
           cityCode: "441200",
-          cityName: "è‚‡åº†å¸‚",
+          cityName: "ÕØÇìÊĞ",
           county: [{
             countyCode: "441203",
-            countyName: "é¼æ¹–åŒº"
+            countyName: "¶¦ºşÇø"
           }, {
             countyCode: "441224",
-            countyName: "æ€€é›†å¿"
+            countyName: "»³¼¯ÏØ"
           }, {
             countyCode: "441283",
-            countyName: "é«˜è¦åŒº"
+            countyName: "¸ßÒªÇø"
           }, {
             countyCode: "441284",
-            countyName: "å››ä¼šå¸‚"
+            countyName: "ËÄ»áÊĞ"
           }, {
             countyCode: "441202",
-            countyName: "ç«¯å·åŒº"
+            countyName: "¶ËÖİÇø"
           }, {
             countyCode: "441225",
-            countyName: "å°å¼€å¿"
+            countyName: "·â¿ªÏØ"
           }, {
             countyCode: "441226",
-            countyName: "å¾·åº†å¿"
+            countyName: "µÂÇìÏØ"
           }, {
             countyCode: "441223",
-            countyName: "å¹¿å®å¿"
+            countyName: "¹ãÄşÏØ"
           }]
         }, {
           cityCode: "440200",
-          cityName: "éŸ¶å…³å¸‚",
+          cityName: "ÉØ¹ØÊĞ",
           county: [{
             countyCode: "440222",
-            countyName: "å§‹å…´å¿"
+            countyName: "Ê¼ĞËÏØ"
           }, {
             countyCode: "440281",
-            countyName: "ä¹æ˜Œå¸‚"
+            countyName: "ÀÖ²ıÊĞ"
           }, {
             countyCode: "440203",
-            countyName: "æ­¦æ±ŸåŒº"
+            countyName: "Îä½­Çø"
           }, {
             countyCode: "440233",
-            countyName: "æ–°ä¸°å¿"
+            countyName: "ĞÂ·áÏØ"
           }, {
             countyCode: "440224",
-            countyName: "ä»åŒ–å¿"
+            countyName: "ÈÊ»¯ÏØ"
           }, {
             countyCode: "440232",
-            countyName: "ä¹³æºç‘¶æ—è‡ªæ²»å¿"
+            countyName: "ÈéÔ´Ñş×å×ÔÖÎÏØ"
           }, {
             countyCode: "440229",
-            countyName: "ç¿æºå¿"
+            countyName: "ÎÌÔ´ÏØ"
           }, {
             countyCode: "440282",
-            countyName: "å—é›„å¸‚"
+            countyName: "ÄÏĞÛÊĞ"
           }, {
             countyCode: "440205",
-            countyName: "æ›²æ±ŸåŒº"
+            countyName: "Çú½­Çø"
           }, {
             countyCode: "440204",
-            countyName: "æµˆæ±ŸåŒº"
+            countyName: "ä¥½­Çø"
           }]
         }, {
           cityCode: "440600",
-          cityName: "ä½›å±±å¸‚",
+          cityName: "·ğÉ½ÊĞ",
           county: [{
             countyCode: "440606",
-            countyName: "é¡ºå¾·åŒº"
+            countyName: "Ë³µÂÇø"
           }, {
             countyCode: "440604",
-            countyName: "ç¦…åŸåŒº"
+            countyName: "ìø³ÇÇø"
           }, {
             countyCode: "440607",
-            countyName: "ä¸‰æ°´åŒº"
+            countyName: "ÈıË®Çø"
           }, {
             countyCode: "440608",
-            countyName: "é«˜æ˜åŒº"
+            countyName: "¸ßÃ÷Çø"
           }, {
             countyCode: "440605",
-            countyName: "å—æµ·åŒº"
+            countyName: "ÄÏº£Çø"
           }]
         }, {
           cityCode: "440100",
-          cityName: "å¹¿å·å¸‚",
+          cityName: "¹ãÖİÊĞ",
           county: [{
             countyCode: "440114",
-            countyName: "èŠ±éƒ½åŒº"
+            countyName: "»¨¶¼Çø"
           }, {
             countyCode: "440111",
-            countyName: "ç™½äº‘åŒº"
+            countyName: "°×ÔÆÇø"
           }, {
             countyCode: "440115",
-            countyName: "å—æ²™åŒº"
+            countyName: "ÄÏÉ³Çø"
           }, {
             countyCode: "440113",
-            countyName: "ç•ªç¦ºåŒº"
+            countyName: "·¬Ø®Çø"
           }, {
             countyCode: "440183",
-            countyName: "å¢åŸåŒº"
+            countyName: "Ôö³ÇÇø"
           }, {
             countyCode: "440112",
-            countyName: "é»„åŸ”åŒº"
+            countyName: "»ÆÆÒÇø"
           }, {
             countyCode: "440106",
-            countyName: "å¤©æ²³åŒº"
+            countyName: "ÌìºÓÇø"
           }, {
             countyCode: "440184",
-            countyName: "ä»åŒ–åŒº"
+            countyName: "´Ó»¯Çø"
           }, {
             countyCode: "440105",
-            countyName: "æµ·ç åŒº"
+            countyName: "º£ÖéÇø"
           }, {
             countyCode: "440103",
-            countyName: "è”æ¹¾åŒº"
+            countyName: "ÀóÍåÇø"
           }, {
             countyCode: "440104",
-            countyName: "è¶Šç§€åŒº"
+            countyName: "Ô½ĞãÇø"
           }]
         }, {
           cityCode: "442000",
-          cityName: "ä¸­å±±å¸‚",
+          cityName: "ÖĞÉ½ÊĞ",
           county: [{
             countyCode: "442000-1",
-            countyName: "ä¸­å±±å¸‚"
+            countyName: "ÖĞÉ½ÊĞ"
           }]
         }, {
           cityCode: "440800",
-          cityName: "æ¹›æ±Ÿå¸‚",
+          cityName: "Õ¿½­ÊĞ",
           county: [{
             countyCode: "440881",
-            countyName: "å»‰æ±Ÿå¸‚"
+            countyName: "Á®½­ÊĞ"
           }, {
             countyCode: "440804",
-            countyName: "å¡å¤´åŒº"
+            countyName: "ÆÂÍ·Çø"
           }, {
             countyCode: "440882",
-            countyName: "é›·å·å¸‚"
+            countyName: "À×ÖİÊĞ"
           }, {
             countyCode: "440823",
-            countyName: "é‚æºªå¿"
+            countyName: "ËìÏªÏØ"
           }, {
             countyCode: "440803",
-            countyName: "éœå±±åŒº"
+            countyName: "Ï¼É½Çø"
           }, {
             countyCode: "440825",
-            countyName: "å¾é—»å¿"
+            countyName: "ĞìÎÅÏØ"
           }, {
             countyCode: "440802",
-            countyName: "èµ¤ååŒº"
+            countyName: "³à¿²Çø"
           }, {
             countyCode: "440811",
-            countyName: "éº»ç« åŒº"
+            countyName: "ÂéÕÂÇø"
           }, {
             countyCode: "440883",
-            countyName: "å´å·å¸‚"
+            countyName: "Îâ´¨ÊĞ"
           }]
         }, {
           cityCode: "441700",
-          cityName: "é˜³æ±Ÿå¸‚",
+          cityName: "Ñô½­ÊĞ",
           county: [{
             countyCode: "441781",
-            countyName: "é˜³æ˜¥å¸‚"
+            countyName: "Ñô´ºÊĞ"
           }, {
             countyCode: "441702",
-            countyName: "æ±ŸåŸåŒº"
+            countyName: "½­³ÇÇø"
           }, {
             countyCode: "441721",
-            countyName: "é˜³è¥¿å¿"
+            countyName: "ÑôÎ÷ÏØ"
           }, {
             countyCode: "441723",
-            countyName: "é˜³ä¸œåŒº"
+            countyName: "Ñô¶«Çø"
           }]
         }, {
           cityCode: "440900",
-          cityName: "èŒ‚åå¸‚",
+          cityName: "Ã¯ÃûÊĞ",
           county: [{
             countyCode: "440902",
-            countyName: "èŒ‚å—åŒº"
+            countyName: "Ã¯ÄÏÇø"
           }, {
             countyCode: "440923",
-            countyName: "ç”µç™½åŒº"
+            countyName: "µç°×Çø"
           }, {
             countyCode: "440982",
-            countyName: "åŒ–å·å¸‚"
+            countyName: "»¯ÖİÊĞ"
           }, {
             countyCode: "440903",
-            countyName: "èŒ‚æ¸¯åŒº "
+            countyName: "Ã¯¸ÛÇø "
           }, {
             countyCode: "440981",
-            countyName: "é«˜å·å¸‚"
+            countyName: "¸ßÖİÊĞ"
           }, {
             countyCode: "440983",
-            countyName: "ä¿¡å®œå¸‚"
+            countyName: "ĞÅÒËÊĞ"
           }]
         }]
       }, {
         provinceCode: "810000",
-        provinceName: "é¦™æ¸¯ç‰¹åˆ«è¡Œæ”¿åŒº",
+        provinceName: "Ïã¸ÛÌØ±ğĞĞÕşÇø",
         city: [{
           cityCode: "810000-1",
-          cityName: "é¦™æ¸¯",
+          cityName: "Ïã¸Û",
           county: [{
             countyCode: "810400",
-            countyName: "ç¦»å²›"
+            countyName: "Àëµº"
           }, {
             countyCode: "810100",
-            countyName: "é¦™æ¸¯å²›"
+            countyName: "Ïã¸Ûµº"
           }, {
             countyCode: "810300",
-            countyName: "æ–°ç•Œ"
+            countyName: "ĞÂ½ç"
           }, {
             countyCode: "810200",
-            countyName: "ä¹é¾™"
+            countyName: "¾ÅÁú"
           }]
         }]
       }]
@@ -26007,7 +26007,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               })).join(""))
             }(o[1]))
           } catch (e) {
-            throw new Error("è·å–å½“å‰ç”¨æˆ·ä¿¡æ¯å‡ºé”™ï¼Œè¯¦ç»†é”™è¯¯ä¿¡æ¯ä¸ºï¼š" + e.message)
+            throw new Error("»ñÈ¡µ±Ç°ÓÃ»§ĞÅÏ¢³ö´í£¬ÏêÏ¸´íÎóĞÅÏ¢Îª£º" + e.message)
           }
           return t.tokenExpired = 1e3 * t.exp, delete t.exp, delete t.iat, t
         }
@@ -26551,7 +26551,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             for (var r in N(n) && (n = n(t, a) || {}), t)
               if (x(n, r)) {
                 var u = n[r];
-                N(u) && (u = u(t[r], t, a)), u ? b(u) ? a[u] = t[r] : _(u) && (a[u.name ? u.name : r] = u.value) : console.warn("The '".concat(e, "' method of platform 'å¾®ä¿¡å°ç¨‹åº' does not support option '").concat(r, "'"))
+                N(u) && (u = u(t[r], t, a)), u ? b(u) ? a[u] = t[r] : _(u) && (a[u.name ? u.name : r] = u.value) : console.warn("The '".concat(e, "' method of platform 'Î¢ĞÅĞ¡³ÌĞò' does not support option '").concat(r, "'"))
               } else -1 !== ve.indexOf(r) ? N(t[r]) && (a[r] = Ne(e, t[r], o)) : c || (a[r] = t[r]);
             return a
           }
@@ -26574,7 +26574,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               var u = e[t].apply(e, r);
               return J(t) ? _e(t, u, a.returnValue, W(t)) : u
             } : function () {
-              console.error("Platform 'å¾®ä¿¡å°ç¨‹åº' does not support '".concat(t, "'."))
+              console.error("Platform 'Î¢ĞÅĞ¡³ÌĞò' does not support '".concat(t, "'."))
             }
           }
           return n
@@ -26908,7 +26908,7 @@ var e = require("../@babel/runtime/helpers/typeof");
               VUE_APP_NAME: "consult-visitor-front",
               VUE_APP_PLATFORM: "mp-weixin",
               BASE_URL: "/"
-            }).VUE_APP_DEBUG && console.warn("æ ¹æ® Vue çš„ data å‡½æ•°åˆå§‹åŒ–å°ç¨‹åº data å¤±è´¥ï¼Œè¯·å°½é‡ç¡®ä¿ data å‡½æ•°ä¸­ä¸è®¿é—® vm å¯¹è±¡ï¼Œå¦åˆ™å¯èƒ½å½±å“é¦–æ¬¡æ•°æ®æ¸²æŸ“é€Ÿåº¦ã€‚", n)
+            }).VUE_APP_DEBUG && console.warn("¸ù¾İ Vue µÄ data º¯Êı³õÊ¼»¯Ğ¡³ÌĞò data Ê§°Ü£¬Çë¾¡Á¿È·±£ data º¯ÊıÖĞ²»·ÃÎÊ vm ¶ÔÏó£¬·ñÔò¿ÉÄÜÓ°ÏìÊ×´ÎÊı¾İäÖÈ¾ËÙ¶È¡£", n)
           } else try {
             n = JSON.parse(JSON.stringify(n))
           } catch (e) {}
@@ -27025,7 +27025,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                     return e.__get_value(r, t) === c
                   })) : _(a) ? n = Object.keys(a).find((function (t) {
                     return e.__get_value(r, a[t]) === c
-                  })) : console.error("v-for æš‚ä¸æ”¯æŒå¾ªç¯æ•°æ®ï¼š", a) : n = a[c], u && (n = e.__get_value(u, n))
+                  })) : console.error("v-for Ôİ²»Ö§³ÖÑ­»·Êı¾İ£º", a) : n = a[c], u && (n = e.__get_value(u, n))
                 }
               })), n
             }(e, t)
@@ -27063,9 +27063,9 @@ var e = require("../@babel/runtime/helpers/typeof");
               } catch (e) {}
               return e.stopPropagation = w, e.preventDefault = w, e.target = e.target || {}, x(e, "detail") || (e.detail = {}), x(e, "markerId") && (e.detail = "object" === (0, y.default)(e.detail) ? e.detail : {}, e.detail.markerId = e.markerId), _(e.detail) && (e.target = Object.assign({}, e.target, e.detail)), e
             }(e)).currentTarget || e.target).dataset;
-          if (!n) return console.warn("äº‹ä»¶ä¿¡æ¯ä¸å­˜åœ¨");
+          if (!n) return console.warn("ÊÂ¼şĞÅÏ¢²»´æÔÚ");
           var o = n.eventOpts || n["event-opts"];
-          if (!o) return console.warn("äº‹ä»¶ä¿¡æ¯ä¸å­˜åœ¨");
+          if (!o) return console.warn("ÊÂ¼şĞÅÏ¢²»´æÔÚ");
           var c = e.type,
             a = [];
           return o.forEach((function (n) {
@@ -27188,7 +27188,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             });
           var a = {
             onLaunch: function (n) {
-              this.$vm || (e.canIUse && !e.canIUse("nextTick") && console.error("å½“å‰å¾®ä¿¡åŸºç¡€åº“ç‰ˆæœ¬è¿‡ä½ï¼Œè¯·å°† å¾®ä¿¡å¼€å‘è€…å·¥å…·-è¯¦æƒ…-é¡¹ç›®è®¾ç½®-è°ƒè¯•åŸºç¡€åº“ç‰ˆæœ¬ æ›´æ¢ä¸º`2.3.0`ä»¥ä¸Š"), this.$vm = t, this.$vm.$mp = {
+              this.$vm || (e.canIUse && !e.canIUse("nextTick") && console.error("µ±Ç°Î¢ĞÅ»ù´¡¿â°æ±¾¹ıµÍ£¬Çë½« Î¢ĞÅ¿ª·¢Õß¹¤¾ß-ÏêÇé-ÏîÄ¿ÉèÖÃ-µ÷ÊÔ»ù´¡¿â°æ±¾ ¸ü»»Îª`2.3.0`ÒÔÉÏ"), this.$vm = t, this.$vm.$mp = {
                 app: this
               }, this.$vm.$scope = this, this.$vm.globalData = this.globalData, this.$vm._isMounted = !0, this.$vm.__call_hook("mounted", n), this.$vm.__call_hook("onLaunch", n))
             }
@@ -27517,7 +27517,7 @@ var e = require("../@babel/runtime/helpers/typeof");
     },
     e3b2: function (e, t, n) {},
     e542: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/èº«å¿ƒå¥åº·@3x.png"
+      e.exports = "https://localhost/api/file/image/ÉíĞÄ½¡¿µ@3x.png"
     },
     e5e6: function (e, t, n) {},
     e6db: function (e, t, n) {
@@ -27534,7 +27534,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       }, e.exports.__esModule = !0, e.exports.default = e.exports
     },
     e875: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/pyq@3x.png"
+      e.exports = "https://localhost/api/file/image/pyq@3x.png"
     },
     e956: function (e, t, n) {
       var o = n("47a9");
@@ -27567,27 +27567,27 @@ var e = require("../@babel/runtime/helpers/typeof");
       }
       var u = [{
           value: 4,
-          name: "ä¸ªä½“å’¨è¯¢",
+          name: "¸öÌå×ÉÑ¯",
           minute: 50
         }, {
           value: 3,
-          name: "é’å°‘å¹´çˆ¶æ¯å’¨è¯¢",
+          name: "ÇàÉÙÄê¸¸Ä¸×ÉÑ¯",
           minute: 50
         }, {
           value: 5,
-          name: "ä¼´ä¾£å’¨è¯¢",
+          name: "°éÂÂ×ÉÑ¯",
           minute: 50
         }, {
           value: 0,
-          name: "ç½‘ç»œå’¨è¯¢",
+          name: "ÍøÂç×ÉÑ¯",
           minute: 50
         }, {
           value: 1,
-          name: "ä½ä»·å’¨è¯¢",
+          name: "µÍ¼Û×ÉÑ¯",
           minute: 50
         }, {
           value: 2,
-          name: "åœ°é¢å’¨è¯¢",
+          name: "µØÃæ×ÉÑ¯",
           minute: 50
         }],
         i = u.reduce((function (e, t) {
@@ -27618,7 +27618,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.default = s
     },
     ea38: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å¯¼èˆª@3x.png"
+      e.exports = "https://localhost/api/file/image/µ¼º½@3x.png"
     },
     ecbe: function (e, t, n) {
       Object.defineProperty(t, "__esModule", {
@@ -27627,13 +27627,13 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.default = {
         strDiscode: function (e) {
           return e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&OElig;/g, "Å’")).replace(/&oelig;/g, "Å“")).replace(/&Scaron;/g, "Å ")).replace(/&scaron;/g, "Å¡")).replace(/&Yuml;/g, "Å¸")).replace(/&fnof;/g, "Æ’")).replace(/&circ;/g, "Ë†")).replace(/&tilde;/g, "Ëœ")).replace(/&ensp;/g, "")).replace(/&emsp;/g, "")).replace(/&thinsp;/g, "")).replace(/&zwnj;/g, "")).replace(/&zwj;/g, "")).replace(/&lrm;/g, "")).replace(/&rlm;/g, "")).replace(/&ndash;/g, "â€“")).replace(/&mdash;/g, "â€”")).replace(/&lsquo;/g, "â€˜")).replace(/&rsquo;/g, "â€™")).replace(/&sbquo;/g, "â€š")).replace(/&ldquo;/g, "â€œ")).replace(/&rdquo;/g, "â€")).replace(/&bdquo;/g, "â€")).replace(/&dagger;/g, "â€ ")).replace(/&Dagger;/g, "â€¡")).replace(/&bull;/g, "â€¢")).replace(/&hellip;/g, "â€¦")).replace(/&permil;/g, "â€°")).replace(/&prime;/g, "â€²")).replace(/&Prime;/g, "â€³")).replace(/&lsaquo;/g, "â€¹")).replace(/&rsaquo;/g, "â€º")).replace(/&oline;/g, "â€¾")).replace(/&euro;/g, "â‚¬")).replace(/&trade;/g, "â„¢")).replace(/&larr;/g, "â†")).replace(/&uarr;/g, "â†‘")).replace(/&rarr;/g, "â†’")).replace(/&darr;/g, "â†“")).replace(/&harr;/g, "â†”")).replace(/&crarr;/g, "â†µ")).replace(/&lceil;/g, "âŒˆ")).replace(/&rceil;/g, "âŒ‰")).replace(/&lfloor;/g, "âŒŠ")).replace(/&rfloor;/g, "âŒ‹")).replace(/&loz;/g, "â—Š")).replace(/&spades;/g, "â™ ")).replace(/&clubs;/g, "â™£")).replace(/&hearts;/g, "â™¥")).replace(/&diams;/g, "â™¦")).replace(/&#39;/g, "'")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&OElig;/g, "?")).replace(/&oelig;/g, "?")).replace(/&Scaron;/g, "?")).replace(/&scaron;/g, "?")).replace(/&Yuml;/g, "?")).replace(/&fnof;/g, "?")).replace(/&circ;/g, "?")).replace(/&tilde;/g, "?")).replace(/&ensp;/g, "")).replace(/&emsp;/g, "")).replace(/&thinsp;/g, "")).replace(/&zwnj;/g, "")).replace(/&zwj;/g, "")).replace(/&lrm;/g, "")).replace(/&rlm;/g, "")).replace(/&ndash;/g, "¨C")).replace(/&mdash;/g, "¡ª")).replace(/&lsquo;/g, "¡®")).replace(/&rsquo;/g, "¡¯")).replace(/&sbquo;/g, "?")).replace(/&ldquo;/g, "¡°")).replace(/&rdquo;/g, "¡±")).replace(/&bdquo;/g, "?")).replace(/&dagger;/g, "?")).replace(/&Dagger;/g, "?")).replace(/&bull;/g, "?")).replace(/&hellip;/g, "¡­")).replace(/&permil;/g, "¡ë")).replace(/&prime;/g, "¡ä")).replace(/&Prime;/g, "¡å")).replace(/&lsaquo;/g, "?")).replace(/&rsaquo;/g, "?")).replace(/&oline;/g, "£ş")).replace(/&euro;/g, "€")).replace(/&trade;/g, "?")).replace(/&larr;/g, "¡û")).replace(/&uarr;/g, "¡ü")).replace(/&rarr;/g, "¡ú")).replace(/&darr;/g, "¡ı")).replace(/&harr;/g, "?")).replace(/&crarr;/g, "?")).replace(/&lceil;/g, "?")).replace(/&rceil;/g, "?")).replace(/&lfloor;/g, "?")).replace(/&rfloor;/g, "?")).replace(/&loz;/g, "?")).replace(/&spades;/g, "?")).replace(/&clubs;/g, "?")).replace(/&hearts;/g, "?")).replace(/&diams;/g, "?")).replace(/&#39;/g, "'")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&nbsp;/g, " ")).replace(/&ensp;/g, "â€‚")).replace(/&emsp;/g, "ã€€")).replace(/&quot;/g, "'")).replace(/&amp;/g, "&")).replace(/&lt;/g, "<")).replace(/&gt;/g, ">")).replace(/&#8226;/g, "â€¢")
+            return e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&nbsp;/g, " ")).replace(/&ensp;/g, "?")).replace(/&emsp;/g, "¡¡")).replace(/&quot;/g, "'")).replace(/&amp;/g, "&")).replace(/&lt;/g, "<")).replace(/&gt;/g, ">")).replace(/&#8226;/g, "?")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&Alpha;/g, "Î‘")).replace(/&Beta;/g, "Î’")).replace(/&Gamma;/g, "Î“")).replace(/&Delta;/g, "Î”")).replace(/&Epsilon;/g, "Î•")).replace(/&Zeta;/g, "Î–")).replace(/&Eta;/g, "Î—")).replace(/&Theta;/g, "Î˜")).replace(/&Iota;/g, "Î™")).replace(/&Kappa;/g, "Îš")).replace(/&Lambda;/g, "Î›")).replace(/&Mu;/g, "Îœ")).replace(/&Nu;/g, "Î")).replace(/&Xi;/g, "Î")).replace(/&Omicron;/g, "ÎŸ")).replace(/&Pi;/g, "Î ")).replace(/&Rho;/g, "Î¡")).replace(/&Sigma;/g, "Î£")).replace(/&Tau;/g, "Î¤")).replace(/&Upsilon;/g, "Î¥")).replace(/&Phi;/g, "Î¦")).replace(/&Chi;/g, "Î§")).replace(/&Psi;/g, "Î¨")).replace(/&Omega;/g, "Î©")).replace(/&alpha;/g, "Î±")).replace(/&beta;/g, "Î²")).replace(/&gamma;/g, "Î³")).replace(/&delta;/g, "Î´")).replace(/&epsilon;/g, "Îµ")).replace(/&zeta;/g, "Î¶")).replace(/&eta;/g, "Î·")).replace(/&theta;/g, "Î¸")).replace(/&iota;/g, "Î¹")).replace(/&kappa;/g, "Îº")).replace(/&lambda;/g, "Î»")).replace(/&mu;/g, "Î¼")).replace(/&nu;/g, "Î½")).replace(/&xi;/g, "Î¾")).replace(/&omicron;/g, "Î¿")).replace(/&pi;/g, "Ï€")).replace(/&rho;/g, "Ï")).replace(/&sigmaf;/g, "Ï‚")).replace(/&sigma;/g, "Ïƒ")).replace(/&tau;/g, "Ï„")).replace(/&upsilon;/g, "Ï…")).replace(/&phi;/g, "Ï†")).replace(/&chi;/g, "Ï‡")).replace(/&psi;/g, "Ïˆ")).replace(/&omega;/g, "Ï‰")).replace(/&thetasym;/g, "Ï‘")).replace(/&upsih;/g, "Ï’")).replace(/&piv;/g, "Ï–")).replace(/&middot;/g, "Â·")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&Alpha;/g, "¦¡")).replace(/&Beta;/g, "¦¢")).replace(/&Gamma;/g, "¦£")).replace(/&Delta;/g, "¦¤")).replace(/&Epsilon;/g, "¦¥")).replace(/&Zeta;/g, "¦¦")).replace(/&Eta;/g, "¦§")).replace(/&Theta;/g, "¦¨")).replace(/&Iota;/g, "¦©")).replace(/&Kappa;/g, "¦ª")).replace(/&Lambda;/g, "¦«")).replace(/&Mu;/g, "¦¬")).replace(/&Nu;/g, "¦­")).replace(/&Xi;/g, "¦­")).replace(/&Omicron;/g, "¦¯")).replace(/&Pi;/g, "¦°")).replace(/&Rho;/g, "¦±")).replace(/&Sigma;/g, "¦²")).replace(/&Tau;/g, "¦³")).replace(/&Upsilon;/g, "¦´")).replace(/&Phi;/g, "¦µ")).replace(/&Chi;/g, "¦¶")).replace(/&Psi;/g, "¦·")).replace(/&Omega;/g, "¦¸")).replace(/&alpha;/g, "¦Á")).replace(/&beta;/g, "¦Â")).replace(/&gamma;/g, "¦Ã")).replace(/&delta;/g, "¦Ä")).replace(/&epsilon;/g, "¦Å")).replace(/&zeta;/g, "¦Æ")).replace(/&eta;/g, "¦Ç")).replace(/&theta;/g, "¦È")).replace(/&iota;/g, "¦É")).replace(/&kappa;/g, "¦Ê")).replace(/&lambda;/g, "¦Ë")).replace(/&mu;/g, "¦Ì")).replace(/&nu;/g, "¦Í")).replace(/&xi;/g, "¦Î")).replace(/&omicron;/g, "¦Ï")).replace(/&pi;/g, "¦Ğ")).replace(/&rho;/g, "¦Ñ")).replace(/&sigmaf;/g, "?")).replace(/&sigma;/g, "¦Ò")).replace(/&tau;/g, "¦Ó")).replace(/&upsilon;/g, "¦Ô")).replace(/&phi;/g, "¦Õ")).replace(/&chi;/g, "¦Ö")).replace(/&psi;/g, "¦×")).replace(/&omega;/g, "¦Ø")).replace(/&thetasym;/g, "?")).replace(/&upsih;/g, "?")).replace(/&piv;/g, "?")).replace(/&middot;/g, "¡¤")
           }(e = function (e) {
-            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&forall;/g, "âˆ€")).replace(/&part;/g, "âˆ‚")).replace(/&exist;/g, "âˆƒ")).replace(/&empty;/g, "âˆ…")).replace(/&nabla;/g, "âˆ‡")).replace(/&isin;/g, "âˆˆ")).replace(/&notin;/g, "âˆ‰")).replace(/&ni;/g, "âˆ‹")).replace(/&prod;/g, "âˆ")).replace(/&sum;/g, "âˆ‘")).replace(/&minus;/g, "âˆ’")).replace(/&lowast;/g, "âˆ—")).replace(/&radic;/g, "âˆš")).replace(/&prop;/g, "âˆ")).replace(/&infin;/g, "âˆ")).replace(/&ang;/g, "âˆ ")).replace(/&and;/g, "âˆ§")).replace(/&or;/g, "âˆ¨")).replace(/&cap;/g, "âˆ©")).replace(/&cup;/g, "âˆª")).replace(/&int;/g, "âˆ«")).replace(/&there4;/g, "âˆ´")).replace(/&sim;/g, "âˆ¼")).replace(/&cong;/g, "â‰…")).replace(/&asymp;/g, "â‰ˆ")).replace(/&ne;/g, "â‰ ")).replace(/&le;/g, "â‰¤")).replace(/&ge;/g, "â‰¥")).replace(/&sub;/g, "âŠ‚")).replace(/&sup;/g, "âŠƒ")).replace(/&nsub;/g, "âŠ„")).replace(/&sube;/g, "âŠ†")).replace(/&supe;/g, "âŠ‡")).replace(/&oplus;/g, "âŠ•")).replace(/&otimes;/g, "âŠ—")).replace(/&perp;/g, "âŠ¥")).replace(/&sdot;/g, "â‹…")
+            return e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = e.replace(/&forall;/g, "?")).replace(/&part;/g, "?")).replace(/&exist;/g, "?")).replace(/&empty;/g, "?")).replace(/&nabla;/g, "?")).replace(/&isin;/g, "¡Ê")).replace(/&notin;/g, "?")).replace(/&ni;/g, "?")).replace(/&prod;/g, "¡Ç")).replace(/&sum;/g, "¡Æ")).replace(/&minus;/g, "?")).replace(/&lowast;/g, "?")).replace(/&radic;/g, "¡Ì")).replace(/&prop;/g, "¡Ø")).replace(/&infin;/g, "¡Ş")).replace(/&ang;/g, "¡Ï")).replace(/&and;/g, "¡Ä")).replace(/&or;/g, "¡Å")).replace(/&cap;/g, "¡É")).replace(/&cup;/g, "¡È")).replace(/&int;/g, "¡Ò")).replace(/&there4;/g, "¡à")).replace(/&sim;/g, "¡«")).replace(/&cong;/g, "?")).replace(/&asymp;/g, "¡Ö")).replace(/&ne;/g, "¡Ù")).replace(/&le;/g, "¡Ü")).replace(/&ge;/g, "¡İ")).replace(/&sub;/g, "?")).replace(/&sup;/g, "?")).replace(/&nsub;/g, "?")).replace(/&sube;/g, "?")).replace(/&supe;/g, "?")).replace(/&oplus;/g, "¨’")).replace(/&otimes;/g, "?")).replace(/&perp;/g, "¡Í")).replace(/&sdot;/g, "?")
           }(e))))
         },
         urlToHttpUrl: function (e, t) {
@@ -27680,7 +27680,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       n.n(o).a
     },
     f379: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/å’¨è¯¢é¡¾é—®@3x.png"
+      e.exports = "https://localhost/api/file/image/×ÉÑ¯¹ËÎÊ@3x.png"
     },
     f8f0: function (e, t, n) {
       var o = n("47a9");
@@ -27719,7 +27719,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       t.getOrderPrice = u
     },
     f9bc: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/wx_gf@3x.png"
+      e.exports = "https://localhost/api/file/image/wx_gf@3x.png"
     },
     fd42: function (e, t, n) {
       var o = n("47a9"),
@@ -27732,7 +27732,7 @@ var e = require("../@babel/runtime/helpers/typeof");
       n.n(o).a
     },
     ff2d: function (e, t) {
-      e.exports = "http://localhost:8080/api/file/image/logo.png"
+      e.exports = "https://localhost/api/file/image/logo.png"
     }
   }
 ]);

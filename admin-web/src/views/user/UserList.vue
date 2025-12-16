@@ -1,10 +1,44 @@
 <template>
-      Search
-        <template #default="scope">
-          Toggle Status
-          Delete
-        </template>
+  <div class="user-list">
+    <el-card>
+      <div class="search-bar">
+        <el-input v-model="queryParams.keyword" placeholder="搜索用户名/手机号" style="width: 300px" clearable @keyup.enter="handleSearch" />
+        <el-button type="primary" @click="handleSearch">搜索</el-button>
+      </div>
+      <el-table :data="tableData" v-loading="loading" stripe>
+        <el-table-column prop="id" label="ID" width="80" />
+        <el-table-column label="头像" width="80">
+          <template #default="scope">
+            <el-avatar :src="scope.row.avatar" :size="40" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="nickname" label="昵称" width="150" />
+        <el-table-column prop="phone" label="手机号" width="150" />
+        <el-table-column prop="status" label="状态" width="100">
+          <template #default="scope">
+            <el-tag :type="scope.row.status === 1 ? 'success' : 'danger'">
+              {{ scope.row.status === 1 ? '正常' : '禁用' }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="createTime" label="注册时间" width="180" />
+        <el-table-column label="操作" width="180" fixed="right">
+          <template #default="scope">
+            <el-button :type="scope.row.status === 1 ? 'warning' : 'success'" size="small" @click="handleToggleStatus(scope.row)">
+              {{ scope.row.status === 1 ? '禁用' : '启用' }}
+            </el-button>
+            <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+      <div class="pagination">
+        <el-pagination background layout="prev, pager, next, total"
+          :total="total" :page-size="queryParams.pageSize" v-model:current-page="queryParams.page" @current-change="handlePageChange" />
+      </div>
+    </el-card>
+  </div>
 </template>
+
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
@@ -19,8 +53,13 @@ const fetchData = async () => {
   loading.value = true
   try {
     const res = await userApi.getList(queryParams)
-    if (res.code === 200) { tableData.value = res.data.list; total.value = res.data.total }
-  } finally { loading.value = false }
+    if (res.code === 200) {
+      tableData.value = res.data.list || []
+      total.value = res.data.total || 0
+    }
+  } finally {
+    loading.value = false
+  }
 }
 
 const handleSearch = () => { queryParams.page = 1; fetchData() }
@@ -28,17 +67,32 @@ const handlePageChange = (page) => { queryParams.page = page; fetchData() }
 
 const handleToggleStatus = async (row) => {
   try {
-    await userApi.toggleStatus(row.id)
-    ElMessage.success('Status updated')
-    fetchData()
-  } catch (e) { console.error(e) }
+    const res = await userApi.toggleStatus(row.id)
+    if (res.code === 200) {
+      ElMessage.success('状态更新成功')
+      fetchData()
+    } else {
+      ElMessage.error(res.msg || '操作失败')
+    }
+  } catch (e) {
+    ElMessage.error('操作失败')
+    console.error(e)
+  }
 }
 
 const handleDelete = (row) => {
-  ElMessageBox.confirm('Are you sure to delete this user?', 'Confirm', { type: 'warning' }).then(async () => {
-    await userApi.delete(row.id)
-    ElMessage.success('Deleted')
-    fetchData()
+  ElMessageBox.confirm('确定要删除该用户吗？', '提示', { type: 'warning' }).then(async () => {
+    try {
+      const res = await userApi.delete(row.id)
+      if (res.code === 200) {
+        ElMessage.success('删除成功')
+        fetchData()
+      } else {
+        ElMessage.error(res.msg || '删除失败')
+      }
+    } catch (e) {
+      ElMessage.error('删除失败')
+    }
   }).catch(() => {})
 }
 
@@ -46,6 +100,7 @@ onMounted(() => { fetchData() })
 </script>
 
 <style scoped>
-.user-list { background: #fff; padding: 20px; border-radius: 4px; }
-.toolbar { margin-bottom: 16px; display: flex; gap: 10px; }
+.user-list { padding: 20px; }
+.search-bar { margin-bottom: 20px; display: flex; gap: 10px; }
+.pagination { margin-top: 20px; display: flex; justify-content: flex-end; }
 </style>
