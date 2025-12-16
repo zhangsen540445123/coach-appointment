@@ -20,7 +20,7 @@ public class ResourceController {
 
     private static final Logger log = LoggerFactory.getLogger(ResourceController.class);
 
-    @Value("${app.base-url:http://localhost:8081}")
+    @Value("${app.base-url:https://localhost}")
     private String baseUrl;
 
     /**

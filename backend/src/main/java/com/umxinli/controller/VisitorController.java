@@ -38,7 +38,7 @@ public class VisitorController {
 
     private static final Logger log = LoggerFactory.getLogger(VisitorController.class);
 
-    @Value("${app.base-url:http://localhost:8080}")
+    @Value("${app.base-url:https://localhost}")
     private String baseUrl;
 
     @Autowired
