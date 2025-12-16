@@ -52,6 +52,7 @@ public class OrderReviewController {
             Integer rating = (Integer) payload.get("rating");
             String content = (String) payload.get("content");
             List<String> images = (List<String>) payload.get("images");
+            Integer isAnonymous = payload.get("isAnonymous") != null ? (Integer) payload.get("isAnonymous") : 0;
 
             // 验证参数
             if (orderId == null) {
@@ -61,7 +62,7 @@ public class OrderReviewController {
                 return ApiResponse.error("评分必须在1-5之间");
             }
 
-            OrderReview review = orderReviewService.submitReview(orderId, user.getId(), rating, content, images);
+            OrderReview review = orderReviewService.submitReview(orderId, user.getId(), rating, content, images, isAnonymous);
             return ApiResponse.success("评价成功", review);
         } catch (Exception e) {
             log.error("提交评价失败", e);

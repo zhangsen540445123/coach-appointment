@@ -93,10 +93,15 @@ Page({
     this.setData({ images });
   },
 
+  // 切换匿名状态
+  toggleAnonymous() {
+    this.setData({ isAnonymous: !this.data.isAnonymous });
+  },
+
   // 提交评价
   async submitReview() {
-    const { orderId, rating, content, images, submitting } = this.data;
-    
+    const { orderId, rating, content, images, isAnonymous, submitting } = this.data;
+
     if (submitting) return;
     if (rating <= 0) {
       wx.showToast({ title: '请选择评分', icon: 'none' });
@@ -110,11 +115,12 @@ Page({
         orderId: orderId,
         rating: rating,
         content: content,
-        images: images
+        images: images,
+        isAnonymous: isAnonymous ? 1 : 0
       });
 
       wx.showToast({ title: '评价成功', icon: 'success' });
-      
+
       // 返回上一页
       setTimeout(() => {
         wx.navigateBack();

@@ -34,15 +34,20 @@ Page({
   // 加载评价列表
   async loadReviews() {
     const { counselorId, page, pageSize, reviewList, loading, hasMore } = this.data;
-    
+
     if (loading || !hasMore) return;
-    
+
     this.setData({ loading: true });
 
     try {
       const res = await reviewApi.getCounselorReviews(counselorId, page, pageSize);
-      const newList = res.data?.list || [];
-      
+      const list = res.data?.list || [];
+      // 格式化时间
+      const newList = list.map(item => ({
+        ...item,
+        createdAtStr: this.formatTime(item.createdAt)
+      }));
+
       this.setData({
         reviewList: page === 1 ? newList : [...reviewList, ...newList],
         hasMore: newList.length >= pageSize,
@@ -53,6 +58,32 @@ Page({
     } finally {
       this.setData({ loading: false });
     }
+  },
+
+  // 格式化时间
+  formatTime(dateStr) {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diff = now - date;
+
+    // 今天
+    if (diff < 24 * 60 * 60 * 1000 && date.getDate() === now.getDate()) {
+      return '今天';
+    }
+    // 昨天
+    if (diff < 48 * 60 * 60 * 1000) {
+      const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+      if (date.getDate() === yesterday.getDate()) {
+        return '昨天';
+      }
+    }
+    // 一周内
+    if (diff < 7 * 24 * 60 * 60 * 1000) {
+      return Math.floor(diff / (24 * 60 * 60 * 1000)) + '天前';
+    }
+    // 其他
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   },
 
   // 下拉刷新

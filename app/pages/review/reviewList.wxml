@@ -18,21 +18,30 @@
   <view class="review-items">
     <view class="review-item" wx:for="{{reviewList}}" wx:key="id">
       <view class="user-info">
-        <image class="user-avatar" src="{{item.userAvatar || '/static/img/photo.png'}}" mode="aspectFill"></image>
+        <!-- 根据匿名状态显示头像 -->
+        <image class="user-avatar"
+               src="{{item.isAnonymous === 1 ? '/static/img/photo.png' : (item.userAvatar || '/static/img/photo.png')}}"
+               mode="aspectFill"></image>
         <view class="user-detail">
-          <view class="user-name">{{item.userName || '匿名用户'}}</view>
-          <view class="review-time">{{item.createdAt}}</view>
+          <!-- 根据匿名状态显示用户名 -->
+          <view class="user-name">{{item.isAnonymous === 1 ? '匿名用户' : (item.userName || '用户')}}</view>
+          <view class="review-time">{{item.createdAtStr || item.createdAt}}</view>
         </view>
         <view class="rating-stars small">
-          <text wx:for="{{5}}" wx:for-item="star" wx:key="*this" 
+          <text wx:for="{{5}}" wx:for-item="star" wx:key="*this"
                 class="star {{item.rating >= (star + 1) ? 'active' : ''}}">★</text>
         </view>
       </view>
       <view class="review-content" wx:if="{{item.content}}">{{item.content}}</view>
       <view class="review-images" wx:if="{{item.images && item.images.length > 0}}">
-        <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this" 
-               src="{{img}}" mode="aspectFill" bindtap="previewImage" 
+        <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
+               src="{{img}}" mode="aspectFill" bindtap="previewImage"
                data-url="{{img}}" data-urls="{{item.images}}"></image>
+      </view>
+      <!-- 教练回复 -->
+      <view class="coach-reply" wx:if="{{item.replyContent}}">
+        <view class="reply-label">教练回复：</view>
+        <view class="reply-content">{{item.replyContent}}</view>
       </view>
     </view>
   </view>

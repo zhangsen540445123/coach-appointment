@@ -198,6 +198,48 @@
   margin-top: 10rpx;
 }
 
+/* 匿名选项 */
+.anonymous-section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.anonymous-option {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+  transition: all 0.2s;
+}
+
+.checkbox.checked {
+  background: linear-gradient(135deg, #8B7355, #A08060);
+  border-color: #8B7355;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.anonymous-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.anonymous-tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 16rpx;
+}
+
 /* 提交按钮 */
 .submit-section {
   position: fixed;

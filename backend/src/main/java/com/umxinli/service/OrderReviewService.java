@@ -37,7 +37,7 @@ public interface OrderReviewService {
     /**
      * 用户提交评价
      */
-    OrderReview submitReview(Long orderId, Long userId, Integer rating, String content, List<String> images) throws Exception;
+    OrderReview submitReview(Long orderId, Long userId, Integer rating, String content, List<String> images, Integer isAnonymous) throws Exception;
     
     /**
      * 更新置顶状态

@@ -57,29 +57,29 @@ public class OrderReviewServiceImpl implements OrderReviewService {
     
     @Override
     @Transactional
-    public OrderReview submitReview(Long orderId, Long userId, Integer rating, String content, List<String> images) throws Exception {
+    public OrderReview submitReview(Long orderId, Long userId, Integer rating, String content, List<String> images, Integer isAnonymous) throws Exception {
         // 检查订单是否存在
         Order order = orderMapper.selectById(orderId);
         if (order == null) {
             throw new Exception("订单不存在");
         }
-        
+
         // 检查订单是否属于该用户
         if (!order.getUserId().equals(userId)) {
             throw new Exception("无权评价此订单");
         }
-        
+
         // 检查订单状态是否已完成（状态3=已完成）
         if (order.getStatus() != 3) {
             throw new Exception("只能评价已完成的订单");
         }
-        
+
         // 检查是否已评价
         OrderReview existingReview = orderReviewMapper.selectByOrderId(orderId);
         if (existingReview != null) {
             throw new Exception("该订单已评价");
         }
-        
+
         // 创建评价
         OrderReview review = new OrderReview();
         review.setOrderId(orderId);
@@ -89,10 +89,11 @@ public class OrderReviewServiceImpl implements OrderReviewService {
         review.setRating(rating);
         review.setContent(content);
         review.setImages(images);
-        
+        review.setIsAnonymous(isAnonymous != null ? isAnonymous : 0);
+
         orderReviewMapper.insert(review);
-        log.info("用户 {} 对订单 {} 提交了评价", userId, orderId);
-        
+        log.info("用户 {} 对订单 {} 提交了评价，匿名状态: {}", userId, orderId, isAnonymous);
+
         return review;
     }
     

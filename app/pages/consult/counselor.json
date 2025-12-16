@@ -9,6 +9,7 @@
     "counselor-intro": "/components/counselor/CounselorIntro",
     "calender": "/components/Calender",
     "counselor-poster": "/components/counselor/CounselorPoster",
+    "counselor-reviews": "/components/counselor/CounselorReviews",
     "cu-custom": "/colorui/components/cu-custom"
   }
 }

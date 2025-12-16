@@ -89,9 +89,9 @@
     </select>
 
     <insert id="insert" parameterType="com.umxinli.entity.OrderReview" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO order_review (order_id, order_no, user_id, counselor_id, rating, content, images, is_top, is_visible, created_at)
-        VALUES (#{orderId}, #{orderNo}, #{userId}, #{counselorId}, #{rating}, #{content}, 
-                #{images, typeHandler=com.umxinli.handler.FastJsonTypeHandler}, 0, 1, NOW())
+        INSERT INTO order_review (order_id, order_no, user_id, counselor_id, rating, content, images, is_top, is_visible, is_anonymous, created_at)
+        VALUES (#{orderId}, #{orderNo}, #{userId}, #{counselorId}, #{rating}, #{content},
+                #{images, typeHandler=com.umxinli.handler.FastJsonTypeHandler}, 0, 1, #{isAnonymous}, NOW())
     </insert>
 
     <update id="update" parameterType="com.umxinli.entity.OrderReview">
