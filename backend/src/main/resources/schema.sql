@@ -272,6 +272,7 @@ CREATE TABLE IF NOT EXISTS `order_review` (
   `images` JSON COMMENT '评价图片列表',
   `is_top` TINYINT DEFAULT 0 COMMENT '是否置顶 0-否 1-是',
   `is_visible` TINYINT DEFAULT 1 COMMENT '是否显示 0-隐藏 1-显示',
+  `is_anonymous` TINYINT DEFAULT 0 COMMENT '是否匿名 0-实名 1-匿名',
   `reply_content` TEXT COMMENT '教练回复内容',
   `reply_time` TIMESTAMP NULL COMMENT '回复时间',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -330,6 +331,60 @@ CREATE TABLE IF NOT EXISTS `counselor_audit` (
   INDEX idx_submitted_by (submitted_by)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练资料审核表';
 
--- 添加评价匿名字段
-ALTER TABLE `order_review` ADD COLUMN `is_anonymous` TINYINT DEFAULT 0 COMMENT '是否匿名 0-实名 1-匿名' AFTER `is_visible`;
+-- 优惠券兑换码表
+CREATE TABLE IF NOT EXISTS `coupon_code` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '兑换码ID',
+  `code` VARCHAR(50) UNIQUE NOT NULL COMMENT '兑换码',
+  `coupon_id` BIGINT NOT NULL COMMENT '关联的优惠券ID',
+  `total_count` INT DEFAULT 1 COMMENT '可使用次数',
+  `used_count` INT DEFAULT 0 COMMENT '已使用次数',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_coupon_id (coupon_id),
+  INDEX idx_code (code),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='优惠券兑换码表';
+
+-- 用户反馈表
+CREATE TABLE IF NOT EXISTS `user_feedback` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '反馈ID',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `user_name` VARCHAR(100) COMMENT '用户名称',
+  `content` TEXT COMMENT '反馈内容',
+  `status` INT DEFAULT 0 COMMENT '状态 0-待处理 1-已处理',
+  `reply` TEXT COMMENT '回复内容',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_user_id (user_id),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户反馈表';
+
+-- 用户收藏表
+CREATE TABLE IF NOT EXISTS `user_star` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '收藏ID',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  UNIQUE KEY uk_user_counselor (user_id, counselor_id),
+  INDEX idx_user_id (user_id),
+  INDEX idx_counselor_id (counselor_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户收藏表';
+
+-- 教练可预约时间表
+CREATE TABLE IF NOT EXISTS `counselor_calendar` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `date` VARCHAR(10) NOT NULL COMMENT '日期 yyyy-MM-dd',
+  `start_time` VARCHAR(5) NOT NULL COMMENT '开始时间 HH:mm',
+  `consult_way` INT DEFAULT 1 COMMENT '咨询方式: 1-视频, 2-语音, 3-面询',
+  `consult_type` INT DEFAULT 4 COMMENT '咨询类型',
+  `status` INT DEFAULT 0 COMMENT '状态: 0-可预约, 1-已预约, 2-不可用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_counselor_id (counselor_id),
+  INDEX idx_date (date),
+  INDEX idx_status (status),
+  INDEX idx_counselor_date (counselor_id, date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练可预约时间表';
 

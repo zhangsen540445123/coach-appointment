@@ -179,6 +179,30 @@ public class CoachController {
     }
 
     /**
+     * 教练回复评价
+     */
+    @PostMapping("/review/{id}/reply")
+    public ApiResponse replyReview(@PathVariable Long id, @RequestBody Map<String, String> payload,
+                                   @RequestHeader(value = "Authorization", required = false) String token) {
+        try {
+            AdminUser user = getCurrentUser(token);
+            if (user == null) return ApiResponse.error(401, "未登录");
+            if (!user.isCoach()) return ApiResponse.error(403, "无权限访问");
+
+            String replyContent = payload.get("replyContent");
+            if (replyContent == null || replyContent.trim().isEmpty()) {
+                return ApiResponse.error("回复内容不能为空");
+            }
+
+            boolean result = orderReviewService.replyReview(id, replyContent.trim(), user.getCounselorId());
+            return result ? ApiResponse.success("回复成功") : ApiResponse.error("回复失败");
+        } catch (Exception e) {
+            log.error("回复评价失败", e);
+            return ApiResponse.error(e.getMessage());
+        }
+    }
+
+    /**
      * 获取教练订单列表
      */
     @PostMapping("/order/list")
@@ -215,6 +239,7 @@ public class CoachController {
             Map<String, Object> result = new HashMap<>();
             result.put("last7Days", coachOrderService.getEarningsStats(user.getCounselorId(), 7));
             result.put("last30Days", coachOrderService.getEarningsStats(user.getCounselorId(), 30));
+            result.put("lastHalfYear", coachOrderService.getEarningsStats(user.getCounselorId(), 180));
             result.put("lastYear", coachOrderService.getEarningsStats(user.getCounselorId(), 365));
 
             return ApiResponse.success(result);

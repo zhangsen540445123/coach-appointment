@@ -39,8 +39,17 @@ INSERT IGNORE INTO `carousel` (`id`, `title`, `image_url`, `link_url`, `sort_ord
 (3, '专业咨询服务', '/images/carousel3.jpg', '', 3, 1);
 
 -- 初始化默认管理员账号 (密码: adminadmin, MD5加密)
-INSERT INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`) VALUES
+INSERT IGNORE INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`) VALUES
 ('admin', 'f6fdffe48c908deb0f4c3bd36c032e72', '系统管理员', 1, 1);
+
+-- 初始化教练账号 (密码: coach123456, MD5加密: e99a18c428cb38d5f260853678922e03)
+-- 苗壮教练账号
+INSERT IGNORE INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`, `counselor_id`) VALUES
+('miaozhuang', 'e99a18c428cb38d5f260853678922e03', '苗壮', 2, 1, 1943203111282970625);
+
+-- 孙竹教练账号
+INSERT IGNORE INTO `admin_user` (`username`, `password`, `real_name`, `role`, `status`, `counselor_id`) VALUES
+('sunzhu', 'e99a18c428cb38d5f260853678922e03', '孙竹', 2, 1, 1922168464726081537);
 
 -- =====================================================
 -- Mock 订单数据
@@ -156,8 +165,36 @@ INSERT INTO `sort_option` (`name`, `value`, `sort_order`, `enabled`) VALUES
 ('高价优先', 2, 2, 1),
 ('近期可预约优先', 3, 3, 1);
 
--- 查看插入结果
-SELECT 'topic_direction' as table_name, COUNT(*) as count FROM topic_direction
-UNION ALL
-SELECT 'sort_option' as table_name, COUNT(*) as count FROM sort_option;
+-- =====================================================
+-- 初始化教练可预约时间数据
+-- 为苗壮和孙竹教练添加未来7天的可预约时间段
+-- =====================================================
+
+-- 苗壮教练的可预约时间（未来7天，每天上午和下午各2个时段）
+INSERT IGNORE INTO `counselor_calendar` (`counselor_id`, `date`, `start_time`, `consult_way`, `consult_type`, `status`) VALUES
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '09:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '10:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '14:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '15:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d'), '09:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d'), '10:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d'), '14:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 3 DAY), '%Y-%m-%d'), '09:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 3 DAY), '%Y-%m-%d'), '15:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 5 DAY), '%Y-%m-%d'), '10:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 5 DAY), '%Y-%m-%d'), '14:00', 1, 4, 0),
+(1943203111282970625, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 7 DAY), '%Y-%m-%d'), '09:00', 1, 4, 0);
+
+-- 孙竹教练的可预约时间（未来7天）
+INSERT IGNORE INTO `counselor_calendar` (`counselor_id`, `date`, `start_time`, `consult_way`, `consult_type`, `status`) VALUES
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '10:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '14:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d'), '16:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d'), '09:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d'), '11:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 3 DAY), '%Y-%m-%d'), '14:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 3 DAY), '%Y-%m-%d'), '15:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 4 DAY), '%Y-%m-%d'), '10:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 6 DAY), '%Y-%m-%d'), '09:00', 1, 0, 0),
+(1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 6 DAY), '%Y-%m-%d'), '14:00', 1, 0, 0);
 

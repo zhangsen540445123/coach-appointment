@@ -22,11 +22,12 @@
             <el-tag :type="scope.row.canConsult === 1 ? 'success' : 'danger'">{{ scope.row.canConsult === 1 ? 'Active' : 'Inactive' }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="Actions" width="360">
+        <el-table-column label="Actions" width="420">
           <template #default="scope">
             <el-button size="small" @click="handleToggleTop(scope.row)">{{ scope.row.isTop === 1 ? 'Unpin' : 'Pin' }}</el-button>
             <el-button type="primary" size="small" @click="handleEdit(scope.row)">Edit</el-button>
             <el-button type="info" size="small" @click="handleCalendar(scope.row)">Schedule</el-button>
+            <el-button type="success" size="small" @click="handleCreateAccount(scope.row)">账号</el-button>
             <el-button :type="scope.row.canConsult === 1 ? 'warning' : 'success'" size="small" @click="handleToggleStatus(scope.row)">{{ scope.row.canConsult === 1 ? 'Disable' : 'Enable' }}</el-button>
             <el-button type="danger" size="small" @click="handleDelete(scope.row)">Delete</el-button>
           </template>
@@ -42,6 +43,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { counselorApi } from '@/api/counselor'
+import { adminAccountApi } from '@/api/user'
 
 const router = useRouter()
 const loading = ref(false)
@@ -92,6 +94,34 @@ const handleDelete = (row) => {
       if (res.code === 0 || res.code === 200) { ElMessage.success('Deleted'); loadData() }
     } catch (e) { ElMessage.error('Delete failed') }
   }).catch(() => {})
+}
+
+const handleCreateAccount = async (row) => {
+  try {
+    const { value } = await ElMessageBox.prompt(
+      `为教练"${row.name}"创建后台账号，请输入登录用户名：`,
+      '创建教练账号',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputPattern: /^[a-zA-Z0-9_]{4,20}$/,
+        inputErrorMessage: '用户名需4-20位字母数字下划线'
+      }
+    )
+    // 创建账号，默认密码 coach123456
+    await adminAccountApi.create({
+      username: value,
+      password: 'coach123456',
+      realName: row.name,
+      role: 2,
+      counselorId: row.id
+    })
+    ElMessage.success(`账号创建成功！用户名：${value}，初始密码：coach123456`)
+  } catch (e) {
+    if (e !== 'cancel') {
+      ElMessage.error(e.response?.data?.msg || '创建账号失败')
+    }
+  }
 }
 
 onMounted(loadData)
