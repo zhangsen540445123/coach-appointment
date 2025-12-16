@@ -13,17 +13,17 @@ INSERT IGNORE INTO `city` (`id`, `name`, `province`, `value`) VALUES
 
 -- 初始化全局设置 (使用 INSERT IGNORE 避免重复插入)
 INSERT IGNORE INTO `global_settings` (`id`, `key_name`, `value`, `description`) VALUES
-(1, 'concat_sys_agent_settings', '{"qrCodeImageUrl":"https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20211115/351753974260_.pic_hd.jpg","showAtMp":"1"}', '系统代理设置'),
+(1, 'concat_sys_agent_settings', '{"qrCodeImageUrl":"/api/file/image/qrcode_customer_service.jpg","showAtMp":"1"}', '系统代理设置'),
 (2, 'app_version', '1.0.0', '应用版本'),
 (3, 'maintenance_mode', '0', '维护模式 0-关闭 1-开启'),
 (4, 'order_can_refund_hour', '24', '订单可退款小时数');
 
 -- 初始化示例教练数据 (使用 INSERT IGNORE 避免重复插入)
 INSERT IGNORE INTO `counselor` (`id`, `name`, `head_url`, `head_url_square`, `qualifications`, `directions`, `introduction`, `consult_price`, `service_type`, `star_num`, `consult_type`, `support_online_consult`, `support_offline_consult`, `can_consult`, `experience_date`, `experience_time`, `city_name`) VALUES
-(1922168464726081537, '孙竹', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250515/bca0a3f0e2164b5bb3a149a76cf00fb8.jpg', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250515/b28a276d29294949a677bc043ca8f261.jpg', '["国家二级心理教练"]', '["身心健康","人际关系","婚姻恋爱","亲子教育","个人成长"]', '国家二级心理教练\n精神分析动力取向心理教练，受训于心理动力学长期培训项目，持续接受个人体验和个体督导。\n咨询风格：温暖、涵容、生动灵活', 600.00, 2, 15, '[0,4]', 1, 0, 1, '2019-02-01', '1500小时', '上海'),
-(1943203111282970625, '苗壮', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250715/9f209e44c1d84008beac4cd35d29175b.jpg', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250715/13c3e3b01e8f4265935fc9ad705a0cd9.jpg', '["国家二级心理教练"]', '["人际关系","亲子教育","个人成长","学业职场","情绪困扰"]', '硕士研究生\n国家二级心理教练\n我是一名全职个人执业的教练，高校讲师、兼职心理教练。从业8年，目前累计4200小时的咨询时数', 500.00, 2, 12, '[0,4]', 1, 0, 1, '2017-05-01', '4200小时', '北京'),
-(1943203111282970626, '李明', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250515/bca0a3f0e2164b5bb3a149a76cf00fb8.jpg', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250515/b28a276d29294949a677bc043ca8f261.jpg', '["国家三级心理咨询师","认证心理治疗师"]', '["情绪管理","压力调节","职场发展","人际沟通"]', '资深心理咨询师，专注于职场心理健康领域10年。擅长运用认知行为疗法帮助来访者改善情绪问题。', 400.00, 1, 10, '[0,1,4]', 1, 1, 1, '2014-03-01', '3000小时', '深圳'),
-(1943203111282970627, '王芳', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250715/9f209e44c1d84008beac4cd35d29175b.jpg', 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20250715/13c3e3b01e8f4265935fc9ad705a0cd9.jpg', '["国家二级心理咨询师","家庭治疗师"]', '["婚姻家庭","亲子关系","情感问题","个人成长"]', '家庭治疗专家，从业12年，擅长处理婚姻危机、亲子冲突等家庭问题。温柔耐心，善于倾听。', 550.00, 3, 18, '[0,2,4]', 1, 1, 1, '2012-06-01', '5000小时', '广州');
+(1922168464726081537, '孙竹', '/api/file/image/counselor_sunzhu.jpg', '/api/file/image/counselor_sunzhu_square.jpg', '["国家二级心理教练"]', '["身心健康","人际关系","婚姻恋爱","亲子教育","个人成长"]', '国家二级心理教练\n精神分析动力取向心理教练，受训于心理动力学长期培训项目，持续接受个人体验和个体督导。\n咨询风格：温暖、涵容、生动灵活', 600.00, 2, 15, '[0,4]', 1, 0, 1, '2019-02-01', '1500小时', '上海'),
+(1943203111282970625, '苗壮', '/api/file/image/counselor_miaozhuang.jpg', '/api/file/image/counselor_miaozhuang_square.jpg', '["国家二级心理教练"]', '["人际关系","亲子教育","个人成长","学业职场","情绪困扰"]', '硕士研究生\n国家二级心理教练\n我是一名全职个人执业的教练，高校讲师、兼职心理教练。从业8年，目前累计4200小时的咨询时数', 500.00, 2, 12, '[0,4]', 1, 0, 1, '2017-05-01', '4200小时', '北京'),
+(1943203111282970626, '李明', '/api/file/image/counselor_sunzhu.jpg', '/api/file/image/counselor_sunzhu_square.jpg', '["国家三级心理咨询师","认证心理治疗师"]', '["情绪管理","压力调节","职场发展","人际沟通"]', '资深心理咨询师，专注于职场心理健康领域10年。擅长运用认知行为疗法帮助来访者改善情绪问题。', 400.00, 1, 10, '[0,1,4]', 1, 1, 1, '2014-03-01', '3000小时', '深圳'),
+(1943203111282970627, '王芳', '/api/file/image/counselor_miaozhuang.jpg', '/api/file/image/counselor_miaozhuang_square.jpg', '["国家二级心理咨询师","家庭治疗师"]', '["婚姻家庭","亲子关系","情感问题","个人成长"]', '家庭治疗专家，从业12年，擅长处理婚姻危机、亲子冲突等家庭问题。温柔耐心，善于倾听。', 550.00, 3, 18, '[0,2,4]', 1, 1, 1, '2012-06-01', '5000小时', '广州');
 
 -- 初始化文章数据
 INSERT IGNORE INTO `article` (`id`, `title`, `author`, `digest`, `url`, `thumb_url`, `update_time`) VALUES
@@ -58,9 +58,9 @@ INSERT IGNORE INTO `admin_user` (`username`, `password`, `real_name`, `role`, `s
 
 -- 首先插入测试用户（如果不存在）
 INSERT IGNORE INTO `user` (`id`, `phone`, `name`, `avatar`, `gender`, `city`, `province`) VALUES
-(10001, '13800138001', '张三', 'https://thirdwx.qlogo.cn/mmopen/vi_32/default_avatar.png', 1, '上海', '上海'),
-(10002, '13800138002', '李四', 'https://thirdwx.qlogo.cn/mmopen/vi_32/default_avatar.png', 2, '北京', '北京'),
-(10003, '13800138003', '王五', 'https://thirdwx.qlogo.cn/mmopen/vi_32/default_avatar.png', 1, '广州', '广东');
+(10001, '13800138001', '张三', '/api/file/image/default_avatar.png', 1, '上海', '上海'),
+(10002, '13800138002', '李四', '/api/file/image/default_avatar.png', 2, '北京', '北京'),
+(10003, '13800138003', '王五', '/api/file/image/default_avatar.png', 1, '广州', '广东');
 
 -- 插入测试访客信息
 INSERT IGNORE INTO `visitor_info` (`id`, `user_id`, `name`, `age`, `sex`, `other_city`, `other_career`) VALUES

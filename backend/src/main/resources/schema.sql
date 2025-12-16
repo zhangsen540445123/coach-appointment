@@ -154,35 +154,6 @@ CREATE TABLE IF NOT EXISTS `user_coupon` (
   UNIQUE KEY uk_user_coupon (user_id, coupon_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户优惠券表';
 
--- 预约表
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '预约ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `counselor_id` BIGINT COMMENT '教练ID',
-  `appointment_time` TIMESTAMP NULL COMMENT '预约时间',
-  `status` INT DEFAULT 0 COMMENT '状态 0-待确认 1-已确认 2-已完成 3-已取消',
-  `notes` LONGTEXT COMMENT '备注',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  INDEX idx_user_id (user_id),
-  INDEX idx_counselor_id (counselor_id),
-  INDEX idx_status (status)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='预约表';
-
--- 反馈表
-CREATE TABLE IF NOT EXISTS `feedback` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '反馈ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `order_id` BIGINT COMMENT '订单ID',
-  `rating` INT COMMENT '评分 1-5',
-  `content` LONGTEXT COMMENT '反馈内容',
-  `images` JSON COMMENT '反馈图片列表',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  INDEX idx_user_id (user_id),
-  INDEX idx_order_id (order_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='反馈表';
-
 -- 文章表
 CREATE TABLE IF NOT EXISTS `article` (
   `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '文章ID',
