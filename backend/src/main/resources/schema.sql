@@ -1,6 +1,7 @@
 -- 用户表
 CREATE TABLE IF NOT EXISTS `user` (
   `id` BIGINT PRIMARY KEY COMMENT '用户ID',
+  `openid` VARCHAR(100)  COMMENT 'openid',
   `phone` VARCHAR(20) UNIQUE COMMENT '手机号',
   `name` VARCHAR(100) COMMENT '用户名',
   `avatar` VARCHAR(500) COMMENT '头像URL',
