@@ -1,1 +1,14 @@
-{"navigationBarTitleText":"教练详情","navigationStyle":"custom","enablePullDownRefresh":false,"usingComponents":{"page-container":"/components/PageContainer","navbar":"/components/Navbar","qualify":"/components/counselor/Qualify","counselor-intro":"/components/counselor/CounselorIntro","calender":"/components/Calender","counselor-poster":"/components/counselor/CounselorPoster","cu-custom":"/colorui/components/cu-custom"}}
+{
+  "navigationBarTitleText": "教练详情",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "page-container": "/components/PageContainer",
+    "navbar": "/components/Navbar",
+    "qualify": "/components/counselor/Qualify",
+    "counselor-intro": "/components/counselor/CounselorIntro",
+    "calender": "/components/Calender",
+    "counselor-poster": "/components/counselor/CounselorPoster",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}

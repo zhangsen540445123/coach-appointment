@@ -1,0 +1,147 @@
+/* 评价列表组件样式 */
+.review-list {
+  background: #fff;
+  padding: 30rpx;
+}
+
+/* 评价统计 */
+.review-stats {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 30rpx;
+}
+
+.stats-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 60rpx;
+}
+
+.rating-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #ff9500;
+}
+
+.rating-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.stats-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.count-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+/* 评价列表 */
+.review-item {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.user-detail {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.review-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.rating-stars {
+  display: flex;
+}
+
+.star {
+  font-size: 28rpx;
+  color: #ddd;
+  margin-left: 4rpx;
+}
+
+.star.active {
+  color: #ff9500;
+}
+
+.review-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 20rpx;
+}
+
+.review-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.review-images image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 查看更多 */
+.view-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30rpx;
+  color: #8B7355;
+  font-size: 28rpx;
+}
+
+.view-more .arrow {
+  margin-left: 10rpx;
+}
+

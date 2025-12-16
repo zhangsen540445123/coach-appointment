@@ -1,0 +1,227 @@
+/* 评价页面样式 */
+.review-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+/* 导航栏 */
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  background: #fff;
+  padding: 0 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.navbar-back {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 48rpx;
+  color: #333;
+}
+
+.navbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-right: 60rpx;
+}
+
+/* 订单信息 */
+.order-info {
+  background: #fff;
+  margin-top: 88rpx;
+  padding: 30rpx;
+}
+
+.counselor-info {
+  display: flex;
+  align-items: center;
+}
+
+.counselor-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.counselor-detail {
+  margin-left: 20rpx;
+}
+
+.counselor-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.consult-time {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 评分区域 */
+.rating-section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 40rpx 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 30rpx;
+}
+
+.star-text {
+  font-size: 60rpx;
+  color: #ddd;
+  transition: color 0.2s;
+}
+
+.star-text.active {
+  color: #ff9500;
+}
+
+.rating-text {
+  text-align: center;
+  font-size: 28rpx;
+  color: #ff9500;
+  margin-top: 20rpx;
+}
+
+/* 评价内容 */
+.content-section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.content-input {
+  width: 100%;
+  height: 200rpx;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.content-count {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 图片上传 */
+.image-section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.image-item {
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+}
+
+.image-item image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.add-image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #f8f8f8;
+  border: 2rpx dashed #ddd;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-icon {
+  font-size: 60rpx;
+  color: #999;
+}
+
+.add-image text {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 提交按钮 */
+.submit-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #8B7355, #A08060);
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn.disabled {
+  background: #ccc;
+}
+

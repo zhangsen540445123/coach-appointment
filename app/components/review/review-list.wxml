@@ -1,0 +1,49 @@
+<!-- 评价列表组件 -->
+<view class="review-list">
+  <!-- 评价统计 -->
+  <view class="review-stats" wx:if="{{showStats && stats}}">
+    <view class="stats-rating">
+      <text class="rating-value">{{stats.avgRating || '5.0'}}</text>
+      <text class="rating-label">综合评分</text>
+    </view>
+    <view class="stats-count">
+      <text class="count-value">{{stats.totalCount || 0}}</text>
+      <text class="count-label">条评价</text>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="review-items" wx:if="{{list && list.length > 0}}">
+    <view class="review-item" wx:for="{{list}}" wx:key="id">
+      <view class="user-info">
+        <image class="user-avatar" src="{{item.userAvatar || '/static/img/photo.png'}}" mode="aspectFill"></image>
+        <view class="user-detail">
+          <view class="user-name">{{item.userName || '匿名用户'}}</view>
+          <view class="review-time">{{item.createdAt}}</view>
+        </view>
+        <view class="rating-stars">
+          <text wx:for="{{5}}" wx:for-item="star" wx:key="*this" 
+                class="star {{item.rating >= (star + 1) ? 'active' : ''}}">★</text>
+        </view>
+      </view>
+      <view class="review-content" wx:if="{{item.content}}">{{item.content}}</view>
+      <view class="review-images" wx:if="{{item.images && item.images.length > 0}}">
+        <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this" 
+               src="{{img}}" mode="aspectFill" bindtap="previewImage" 
+               data-url="{{img}}" data-urls="{{item.images}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!list || list.length === 0}}">
+    <text>暂无评价</text>
+  </view>
+
+  <!-- 查看更多 -->
+  <view class="view-more" wx:if="{{showMore && list && list.length > 0}}" bindtap="onViewMore">
+    <text>查看全部{{stats.totalCount || ''}}条评价</text>
+    <text class="arrow">></text>
+  </view>
+</view>
+

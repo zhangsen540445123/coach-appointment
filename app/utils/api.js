@@ -264,12 +264,77 @@ const payApi = {
   }
 };
 
+/**
+ * 订单评价相关 API
+ */
+const reviewApi = {
+  // 提交评价
+  submit(data) {
+    return request({
+      url: '/order/review/submit',
+      method: 'POST',
+      data: data
+    });
+  },
+
+  // 获取订单的评价
+  getByOrderId(orderId) {
+    return request({
+      url: `/order/review/${orderId}`,
+      method: 'GET'
+    });
+  },
+
+  // 检查订单是否已评价
+  checkReviewed(orderId) {
+    return request({
+      url: `/order/review/check/${orderId}`,
+      method: 'GET'
+    });
+  },
+
+  // 获取教练的评价列表
+  getCounselorReviews(counselorId, page, pageSize) {
+    return request({
+      url: `/order/review/counselor/${counselorId}`,
+      method: 'GET',
+      data: { page: page || 1, pageSize: pageSize || 10 }
+    });
+  },
+
+  // 获取教练的评价统计
+  getCounselorStats(counselorId) {
+    return request({
+      url: `/order/review/counselor/${counselorId}/stats`,
+      method: 'GET'
+    });
+  },
+
+  // 获取我的评价列表
+  getMyReviews(page, pageSize) {
+    return request({
+      url: '/order/review/my',
+      method: 'GET',
+      data: { page: page || 1, pageSize: pageSize || 10 }
+    });
+  },
+
+  // 删除我的评价
+  deleteReview(id) {
+    return request({
+      url: `/order/review/${id}`,
+      method: 'DELETE'
+    });
+  }
+};
+
 module.exports = {
   request,
   userApi,
   counselorApi,
   appointmentApi,
   payApi,
-  filterApi
+  filterApi,
+  reviewApi
 };
 

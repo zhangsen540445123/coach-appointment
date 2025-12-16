@@ -1,0 +1,56 @@
+<!-- 我的评价页面 -->
+<view class="my-reviews-page">
+  <!-- 评价列表 -->
+  <view class="review-items" wx:if="{{reviewList.length > 0}}">
+    <view class="review-item" wx:for="{{reviewList}}" wx:key="id">
+      <!-- 教练信息 -->
+      <view class="counselor-info">
+        <image class="counselor-avatar" src="{{item.counselorAvatar || '/static/img/photo.png'}}" mode="aspectFill"></image>
+        <view class="counselor-detail">
+          <view class="counselor-name">{{item.counselorName}}</view>
+          <view class="consult-time">{{item.consultDate}}</view>
+        </view>
+        <view class="rating-stars">
+          <text wx:for="{{5}}" wx:for-item="star" wx:key="*this" 
+                class="star {{item.rating >= (star + 1) ? 'active' : ''}}">★</text>
+        </view>
+      </view>
+      
+      <!-- 评价内容 -->
+      <view class="review-content" wx:if="{{item.content}}">{{item.content}}</view>
+      
+      <!-- 评价图片 -->
+      <view class="review-images" wx:if="{{item.images && item.images.length > 0}}">
+        <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this" 
+               src="{{img}}" mode="aspectFill" bindtap="previewImage" 
+               data-url="{{img}}" data-urls="{{item.images}}"></image>
+      </view>
+      
+      <!-- 评价时间和操作 -->
+      <view class="review-footer">
+        <text class="review-time">{{item.createdAt}}</text>
+        <view class="review-actions">
+          <text class="action-btn delete" bindtap="deleteReview" data-id="{{item.id}}">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-more" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 没有更多 -->
+  <view class="no-more" wx:if="{{!loading && !hasMore && reviewList.length > 0}}">
+    <text>已加载全部评价</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && reviewList.length === 0}}">
+    <image src="/static/img/img-done.png" mode="aspectFit"></image>
+    <text>暂无评价记录</text>
+    <text class="empty-tip">完成咨询后可以对教练进行评价哦</text>
+  </view>
+</view>
+

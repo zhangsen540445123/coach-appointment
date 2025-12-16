@@ -1,0 +1,83 @@
+<!-- 评价页面 -->
+<view class="review-page">
+  <!-- 导航栏 -->
+  <view class="navbar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="navbar-back" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="navbar-title">评价</view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="order-info" style="margin-top: {{navbarHeight}}px;" wx:if="{{orderInfo}}">
+    <view class="counselor-info">
+      <image class="counselor-avatar" src="{{orderInfo.headUrl || '/static/img/photo.png'}}" mode="aspectFill"></image>
+      <view class="counselor-detail">
+        <view class="counselor-name">{{orderInfo.counselorName || orderInfo.name}}</view>
+        <view class="consult-time">咨询时间：{{orderInfo.consultDate || orderInfo.consult_time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评分区域 -->
+  <view class="rating-section">
+    <view class="section-title">请为本次咨询评分</view>
+    <view class="stars">
+      <text
+        wx:for="{{[1,2,3,4,5]}}"
+        wx:key="*this"
+        class="star-text {{rating >= item ? 'active' : ''}}"
+        bindtap="setRating"
+        data-rating="{{item}}"
+      >★</text>
+    </view>
+    <view class="rating-text">{{ratingTexts[rating - 1] || '点击星星评分'}}</view>
+  </view>
+
+  <!-- 评价内容 -->
+  <view class="content-section">
+    <view class="section-title">评价内容（选填）</view>
+    <textarea 
+      class="content-input"
+      placeholder="请分享您的咨询体验，帮助更多人..."
+      maxlength="500"
+      bindinput="onContentInput"
+      value="{{content}}"
+    ></textarea>
+    <view class="content-count">{{content.length}}/500</view>
+  </view>
+
+  <!-- 图片上传 -->
+  <view class="image-section">
+    <view class="section-title">上传图片（选填，最多3张）</view>
+    <view class="image-list">
+      <view wx:for="{{images}}" wx:key="*this" class="image-item">
+        <image src="{{item}}" mode="aspectFill"></image>
+        <view class="remove-btn" bindtap="removeImage" data-index="{{index}}">×</view>
+      </view>
+      <view class="add-image" wx:if="{{images.length < 3}}" bindtap="chooseImage">
+        <text class="add-icon">+</text>
+        <text>添加图片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 匿名选项 -->
+  <view class="anonymous-section">
+    <view class="anonymous-option" bindtap="toggleAnonymous">
+      <view class="checkbox {{isAnonymous ? 'checked' : ''}}">
+        <text wx:if="{{isAnonymous}}">✓</text>
+      </view>
+      <text class="anonymous-text">匿名评价</text>
+    </view>
+    <view class="anonymous-tip">勾选后，您的昵称和头像将不会显示</view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button class="submit-btn {{canSubmit ? '' : 'disabled'}}" bindtap="submitReview" disabled="{{!canSubmit || submitting}}">
+      {{submitting ? '提交中...' : '提交评价'}}
+    </button>
+  </view>
+</view>
+

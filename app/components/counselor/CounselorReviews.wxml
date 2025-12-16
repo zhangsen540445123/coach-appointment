@@ -1,0 +1,68 @@
+<!-- 教练评价展示组件 -->
+<view class="reviews-section">
+  <!-- 评价统计 -->
+  <view class="reviews-header">
+    <view class="reviews-stats">
+      <text class="avg-rating">{{avgRating || '5.0'}}</text>
+      <view class="rating-stars">
+        <text wx:for="{{5}}" wx:key="*this" 
+              class="star {{avgRating >= (index + 1) ? 'active' : (avgRating >= (index + 0.5) ? 'half' : '')}}">★</text>
+      </view>
+      <text class="total-count">{{totalCount || 0}}条评价</text>
+    </view>
+    <view class="view-all" bindtap="viewAllReviews" wx:if="{{totalCount > 3}}">
+      <text>查看全部</text>
+      <text class="cuIcon-right"></text>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="reviews-list" wx:if="{{reviewList.length > 0}}">
+    <view class="review-item" wx:for="{{reviewList}}" wx:key="id">
+      <!-- 用户信息（根据匿名状态显示） -->
+      <view class="user-info">
+        <image class="user-avatar"
+               src="{{item.isAnonymous === 1 ? '/static/img/photo.png' : (item.userAvatar || '/static/img/photo.png')}}"
+               mode="aspectFill"></image>
+        <view class="user-detail">
+          <view class="user-name">{{item.isAnonymous === 1 ? '匿名用户' : (item.userName || '用户')}}</view>
+          <view class="review-time">{{item.createdAtStr || item.createdAt}}</view>
+        </view>
+        <view class="rating-stars small">
+          <text wx:for="{{5}}" wx:for-item="star" wx:for-index="starIdx" wx:key="*this" 
+                class="star {{item.rating >= (starIdx + 1) ? 'active' : ''}}">★</text>
+        </view>
+      </view>
+      
+      <!-- 评价内容 -->
+      <view class="review-content" wx:if="{{item.content}}">{{item.content}}</view>
+      
+      <!-- 评价图片 -->
+      <view class="review-images" wx:if="{{item.images && item.images.length > 0}}">
+        <image wx:for="{{item.images}}" wx:for-item="img" wx:for-index="imgIdx" wx:key="*this" 
+               class="review-img"
+               src="{{img}}" mode="aspectFill" 
+               bindtap="previewImage" 
+               data-url="{{img}}" data-urls="{{item.images}}"></image>
+      </view>
+      
+      <!-- 教练回复 -->
+      <view class="coach-reply" wx:if="{{item.replyContent}}">
+        <view class="reply-label">教练回复：</view>
+        <view class="reply-content">{{item.replyContent}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-reviews" wx:if="{{!loading && reviewList.length === 0}}">
+    <text>暂无评价</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-reviews" wx:if="{{loading}}">
+    <text class="cuIcon-loading2 loading-icon"></text>
+    <text>加载中...</text>
+  </view>
+</view>
+
