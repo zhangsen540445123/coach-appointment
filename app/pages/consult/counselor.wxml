@@ -142,6 +142,11 @@
             </view>
         </view>
     </view>
+    <!-- 用户评价区域 -->
+    <view class="page-reviews _div data-v-5f0bf7ec" wx:if="{{formUserInfo.counselorId}}">
+        <view class="page-title _div data-v-5f0bf7ec">用户评价</view>
+        <counselor-reviews counselorId="{{formUserInfo.counselorId}}" class="data-v-5f0bf7ec"></counselor-reviews>
+    </view>
     <view class="btm-btn data-v-5f0bf7ec" wx:if="{{!loading}}">
         <view bindtap="__e" class="btm-cs data-v-5f0bf7ec" data-event-opts="{{[ [ 'tap',[ [ 'changeUserLike',['$event'] ] ] ] ]}}">
             <image class="data-v-5f0bf7ec" src="{{userLikeImg}}"></image>

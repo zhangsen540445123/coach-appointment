@@ -1,0 +1,204 @@
+/* 教练评价展示组件样式 - 与教练详情页风格保持一致 */
+.reviews-section {
+  background: #fff;
+  padding: 48rpx 40rpx;
+  margin-top: 12rpx;
+}
+
+/* 评价头部 */
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.reviews-stats {
+  display: flex;
+  align-items: center;
+}
+
+.avg-rating {
+  color: #ff8b5c;
+  font-family: HelveticaNeue-Bold;
+  font-size: 48rpx;
+  font-weight: 800;
+  margin-right: 16rpx;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  margin-right: 16rpx;
+}
+
+.rating-stars .star {
+  font-size: 28rpx;
+  color: #ddd;
+  margin-right: 4rpx;
+}
+
+.rating-stars .star.active {
+  color: #ff8b5c;
+}
+
+.rating-stars .star.half {
+  color: #ffd4a8;
+}
+
+.rating-stars.small .star {
+  font-size: 24rpx;
+}
+
+.total-count {
+  color: rgba(64, 46, 50, 0.7);
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  font-weight: 400;
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  color: #9c705a;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  font-weight: 400;
+}
+
+.view-all .cuIcon-right {
+  margin-left: 8rpx;
+  font-size: 24rpx;
+}
+
+/* 评价列表 */
+.reviews-list {
+  background: hsla(38, 97%, 88%, 0.15);
+  border: 2rpx solid hsla(38, 97%, 89%, 0.85);
+  border-radius: 12rpx;
+  padding: 0 32rpx;
+}
+
+.review-item {
+  padding: 32rpx 0;
+  border-bottom: 2rpx solid hsla(38, 97%, 89%, 0.7);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #f5f5f5;
+}
+
+.user-detail {
+  flex: 1;
+  margin-left: 16rpx;
+}
+
+.user-name {
+  color: #402e32;
+  font-family: PingFangSC-Medium;
+  font-size: 26rpx;
+  font-weight: 450;
+  line-height: 30rpx;
+}
+
+.review-time {
+  color: rgba(64, 46, 50, 0.5);
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  font-weight: 400;
+  margin-top: 6rpx;
+}
+
+/* 评价内容 */
+.review-content {
+  color: rgba(64, 46, 50, 0.9);
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  font-weight: 400;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+
+/* 评价图片 */
+.review-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.review-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #f5f5f5;
+}
+
+/* 教练回复 */
+.coach-reply {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: hsla(38, 97%, 89%, 0.3);
+  border-radius: 8rpx;
+}
+
+.reply-label {
+  color: #9c705a;
+  font-family: PingFangSC-Medium;
+  font-size: 24rpx;
+  font-weight: 450;
+  margin-bottom: 8rpx;
+}
+
+.reply-content {
+  color: rgba(64, 46, 50, 0.8);
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 36rpx;
+}
+
+/* 空状态 */
+.empty-reviews {
+  text-align: center;
+  padding: 60rpx 0;
+  color: rgba(64, 46, 50, 0.5);
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+}
+
+/* 加载状态 */
+.loading-reviews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 0;
+  color: rgba(64, 46, 50, 0.5);
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+}
+
+.loading-icon {
+  margin-right: 8rpx;
+  animation: loading-spin 1.2s linear infinite;
+}
+
+@keyframes loading-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

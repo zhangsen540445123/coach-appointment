@@ -129,6 +129,9 @@
     "pages/user/followFWH",
     "pages/appointment/pendingPayment",
     "pages/feedback/feedback",
-    "pages/contact/contact"
+    "pages/contact/contact",
+    "pages/review/review",
+    "pages/review/reviewList",
+    "pages/review/myReviews"
   ]
 }

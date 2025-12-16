@@ -7,6 +7,7 @@ export const useUserStore = defineStore('user', () => {
   const userInfo = ref(JSON.parse(localStorage.getItem('admin_user') || 'null'))
 
   const isLoggedIn = computed(() => !!token.value)
+  const role = computed(() => userInfo.value?.role || 0)
   const isAdmin = computed(() => userInfo.value?.role === 1)
   const isCounselor = computed(() => userInfo.value?.role === 2)
 
@@ -43,5 +44,5 @@ export const useUserStore = defineStore('user', () => {
     localStorage.removeItem('admin_user')
   }
 
-  return { token, userInfo, isLoggedIn, isAdmin, isCounselor, setToken, setUserInfo, login, logout }
+  return { token, userInfo, isLoggedIn, role, isAdmin, isCounselor, setToken, setUserInfo, login, logout }
 })

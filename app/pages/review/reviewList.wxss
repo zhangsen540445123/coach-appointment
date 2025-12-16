@@ -1,0 +1,161 @@
+/* 评价列表页面样式 */
+.review-list-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+/* 统计头部 */
+.stats-header {
+  background: linear-gradient(135deg, #8B7355, #A08060);
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.stats-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40rpx;
+}
+
+.rating-value {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.rating-stars {
+  display: flex;
+  margin-top: 10rpx;
+}
+
+.rating-stars .star {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 4rpx;
+}
+
+.rating-stars .star.full {
+  color: #FFD700;
+}
+
+.rating-stars .star.half {
+  color: #FFD700;
+  opacity: 0.7;
+}
+
+.stats-detail {
+  flex: 1;
+}
+
+.total-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 28rpx;
+}
+
+/* 评价列表 */
+.review-items {
+  padding: 20rpx;
+}
+
+.review-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.user-detail {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.review-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.rating-stars.small {
+  display: flex;
+}
+
+.rating-stars.small .star {
+  font-size: 24rpx;
+  color: #ddd;
+  margin-left: 4rpx;
+}
+
+.rating-stars.small .star.active {
+  color: #ff9500;
+}
+
+.review-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 20rpx;
+}
+
+.review-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.review-images image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+}
+
+/* 加载状态 */
+.loading-more,
+.no-more {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-state image {
+  width: 200rpx;
+  height: 200rpx;
+  opacity: 0.5;
+}
+
+.empty-state text {
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.OrderReviewMapper">
+
+    <resultMap id="BaseResultMap" type="com.umxinli.entity.OrderReview">
+        <id property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="userId" column="user_id"/>
+        <result property="counselorId" column="counselor_id"/>
+        <result property="rating" column="rating"/>
+        <result property="content" column="content"/>
+        <result property="images" column="images" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
+        <result property="isTop" column="is_top"/>
+        <result property="isVisible" column="is_visible"/>
+        <result property="isAnonymous" column="is_anonymous"/>
+        <result property="replyContent" column="reply_content"/>
+        <result property="replyTime" column="reply_time"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="userName" column="user_name"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="counselorName" column="counselor_name"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT r.*, u.name as user_name, u.avatar as user_avatar, c.name as counselor_name
+        FROM order_review r
+        LEFT JOIN user u ON r.user_id = u.id
+        LEFT JOIN counselor c ON r.counselor_id = c.id
+        WHERE r.id = #{id}
+    </select>
+
+    <select id="selectByOrderId" resultMap="BaseResultMap">
+        SELECT r.*, u.name as user_name, u.avatar as user_avatar, c.name as counselor_name
+        FROM order_review r
+        LEFT JOIN user u ON r.user_id = u.id
+        LEFT JOIN counselor c ON r.counselor_id = c.id
+        WHERE r.order_id = #{orderId}
+    </select>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT r.*, u.name as user_name, u.avatar as user_avatar, c.name as counselor_name
+        FROM order_review r
+        LEFT JOIN user u ON r.user_id = u.id
+        LEFT JOIN counselor c ON r.counselor_id = c.id
+        <where>
+            <if test="counselorId != null">AND r.counselor_id = #{counselorId}</if>
+            <if test="userId != null">AND r.user_id = #{userId}</if>
+            <if test="isVisible != null">AND r.is_visible = #{isVisible}</if>
+        </where>
+        ORDER BY r.is_top DESC, r.created_at DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM order_review
+        <where>
+            <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+            <if test="userId != null">AND user_id = #{userId}</if>
+            <if test="isVisible != null">AND is_visible = #{isVisible}</if>
+        </where>
+    </select>
+
+    <select id="countByCounselor" resultType="map">
+        SELECT 
+            r.counselor_id as counselorId,
+            c.name as counselorName,
+            c.head_url as counselorHeadUrl,
+            COUNT(*) as totalCount,
+            AVG(r.rating) as avgRating
+        FROM order_review r
+        LEFT JOIN counselor c ON r.counselor_id = c.id
+        GROUP BY r.counselor_id, c.name, c.head_url
+        ORDER BY totalCount DESC
+    </select>
+
+    <select id="getCounselorStats" resultType="map">
+        SELECT 
+            COUNT(*) as totalCount,
+            AVG(rating) as avgRating,
+            SUM(CASE WHEN rating = 5 THEN 1 ELSE 0 END) as fiveStarCount,
+            SUM(CASE WHEN rating = 4 THEN 1 ELSE 0 END) as fourStarCount,
+            SUM(CASE WHEN rating = 3 THEN 1 ELSE 0 END) as threeStarCount,
+            SUM(CASE WHEN rating = 2 THEN 1 ELSE 0 END) as twoStarCount,
+            SUM(CASE WHEN rating = 1 THEN 1 ELSE 0 END) as oneStarCount
+        FROM order_review
+        WHERE counselor_id = #{counselorId} AND is_visible = 1
+    </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.OrderReview" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO order_review (order_id, order_no, user_id, counselor_id, rating, content, images, is_top, is_visible, created_at)
+        VALUES (#{orderId}, #{orderNo}, #{userId}, #{counselorId}, #{rating}, #{content}, 
+                #{images, typeHandler=com.umxinli.handler.FastJsonTypeHandler}, 0, 1, NOW())
+    </insert>
+
+    <update id="update" parameterType="com.umxinli.entity.OrderReview">
+        UPDATE order_review SET
+            rating = #{rating},
+            content = #{content},
+            images = #{images, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateIsTop">
+        UPDATE order_review SET is_top = #{isTop}, updated_at = NOW() WHERE id = #{id}
+    </update>
+
+    <update id="updateIsVisible">
+        UPDATE order_review SET is_visible = #{isVisible}, updated_at = NOW() WHERE id = #{id}
+    </update>
+
+    <update id="updateReply">
+        UPDATE order_review SET reply_content = #{replyContent}, reply_time = NOW(), updated_at = NOW() WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM order_review WHERE id = #{id}
+    </delete>
+</mapper>
+
