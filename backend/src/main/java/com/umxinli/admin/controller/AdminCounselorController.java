@@ -4,15 +4,19 @@ import com.umxinli.admin.dto.PageRequest;
 import com.umxinli.admin.dto.PageResponse;
 import com.umxinli.admin.entity.AdminUser;
 import com.umxinli.admin.entity.CounselorAudit;
+import com.umxinli.admin.mapper.AdminUserMapper;
 import com.umxinli.admin.service.AdminAuthService;
 import com.umxinli.admin.service.AdminCounselorService;
 import com.umxinli.dto.ApiResponse;
 import com.umxinli.entity.Counselor;
+import com.umxinli.mapper.UserStarMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,8 +36,14 @@ public class AdminCounselorController {
     @Autowired
     private AdminAuthService adminAuthService;
 
+    @Autowired
+    private AdminUserMapper adminUserMapper;
+
+    @Autowired
+    private UserStarMapper userStarMapper;
+
     /**
-     * 获取教练列表（分页）
+     * 获取教练列表（分页）- 包含账号和收藏信息
      * POST /admin/counselor/list
      */
     @PostMapping("/list")
@@ -41,6 +51,31 @@ public class AdminCounselorController {
         log.info("Get counselor list, page: {}, pageSize: {}", request.getPage(), request.getPageSize());
         try {
             PageResponse response = adminCounselorService.getList(request);
+            // 为每个教练添加账号信息和收藏数
+            List<Map<String, Object>> enrichedList = new java.util.ArrayList<>();
+            for (Object obj : response.getList()) {
+                Counselor c = (Counselor) obj;
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", c.getId());
+                item.put("name", c.getName());
+                item.put("headUrl", c.getHeadUrl());
+                item.put("cityName", c.getCityName());
+                item.put("consultPrice", c.getConsultPrice());
+                item.put("canConsult", c.getCanConsult());
+                item.put("isTop", 0); // 默认值
+                // 获取关联账号
+                AdminUser account = adminUserMapper.selectByCounselorId(c.getId());
+                if (account != null) {
+                    item.put("accountId", account.getId());
+                    item.put("accountUsername", account.getUsername());
+                    item.put("accountStatus", account.getStatus());
+                }
+                // 获取收藏数
+                int starCount = userStarMapper.countStarUsersByCounselorId(String.valueOf(c.getId()));
+                item.put("starCount", starCount);
+                enrichedList.add(item);
+            }
+            response.setList(enrichedList);
             return ApiResponse.success(response);
         } catch (Exception e) {
             log.error("Error getting counselor list", e);

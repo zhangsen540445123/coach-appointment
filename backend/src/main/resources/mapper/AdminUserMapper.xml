@@ -27,6 +27,10 @@
         SELECT * FROM admin_user WHERE username = #{username}
     </select>
 
+    <select id="selectByCounselorId" resultMap="AdminUserResultMap">
+        SELECT * FROM admin_user WHERE counselor_id = #{counselorId} LIMIT 1
+    </select>
+
     <select id="selectList" resultMap="AdminUserResultMap">
         SELECT * FROM admin_user
         <where>
