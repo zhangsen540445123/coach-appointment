@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.admin.mapper.ReportMapper">
+
+    <!-- 获取总收入(已支付订单 status >= 1) -->
+    <select id="getTotalRevenue" resultType="java.math.BigDecimal">
+        SELECT COALESCE(SUM(price), 0) FROM consult_order
+        WHERE status >= 1 AND status != 4 AND status != 5
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+    </select>
+
+    <!-- 获取订单数 -->
+    <select id="getOrderCount" resultType="int">
+        SELECT COUNT(*) FROM consult_order
+        WHERE 1=1
+        <if test="status != null">AND status = #{status}</if>
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+    </select>
+
+    <!-- 获取退款金额(status=5为已退款) -->
+    <select id="getRefundAmount" resultType="java.math.BigDecimal">
+        SELECT COALESCE(SUM(price), 0) FROM consult_order
+        WHERE status = 5
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+    </select>
+
+    <!-- 收入趋势 -->
+    <select id="getRevenueTrend" resultType="java.util.Map">
+        SELECT
+        <choose>
+            <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
+            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
+            <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
+            <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
+        </choose>,
+        COALESCE(SUM(price), 0) as amount,
+        COUNT(*) as orderCount
+        FROM consult_order
+        WHERE status >= 1 AND status != 4 AND status != 5
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+        GROUP BY period ORDER BY period
+    </select>
+
+    <!-- 订单趋势 -->
+    <select id="getOrderTrend" resultType="java.util.Map">
+        SELECT
+        <choose>
+            <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
+            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
+            <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
+            <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
+        </choose>,
+        COUNT(*) as total,
+        SUM(CASE WHEN status >= 1 AND status != 4 AND status != 5 THEN 1 ELSE 0 END) as paid,
+        SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) as completed,
+        SUM(CASE WHEN status = 4 THEN 1 ELSE 0 END) as cancelled
+        FROM consult_order
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
+        GROUP BY period ORDER BY period
+    </select>
+
+    <!-- 教练收入排行 -->
+    <select id="getCounselorRevenueRank" resultType="java.util.Map">
+        SELECT c.id, c.name, c.head_url as headUrl, COALESCE(SUM(o.price), 0) as revenue, COUNT(o.id) as orderCount
+        FROM counselor c
+        LEFT JOIN consult_order o ON c.id = o.counselor_id AND o.status >= 1 AND o.status != 4 AND o.status != 5
+        <if test="startDate != null">AND o.created_at >= #{startDate}</if>
+        <if test="endDate != null">AND o.created_at &lt;= #{endDate}</if>
+        GROUP BY c.id ORDER BY revenue DESC LIMIT #{limit}
+    </select>
+
+    <!-- 新增用户数 -->
+    <select id="getNewUserCount" resultType="int">
+        SELECT COUNT(*) FROM user
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+    </select>
+
+    <!-- 总用户数 -->
+    <select id="getTotalUserCount" resultType="int">
+        SELECT COUNT(*) FROM user
+    </select>
+
+    <!-- 新增教练数 -->
+    <select id="getNewCounselorCount" resultType="int">
+        SELECT COUNT(*) FROM counselor
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+    </select>
+
+    <!-- 总教练数 -->
+    <select id="getTotalCounselorCount" resultType="int">
+        SELECT COUNT(*) FROM counselor
+    </select>
+
+    <!-- 活跃教练数 -->
+    <select id="getActiveCounselorCount" resultType="int">
+        SELECT COUNT(*) FROM counselor WHERE can_consult = 1
+    </select>
+
+    <!-- 收藏数 -->
+    <select id="getStarCount" resultType="int">
+        SELECT COUNT(*) FROM user_star
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+    </select>
+
+    <!-- 总收藏数 -->
+    <select id="getTotalStarCount" resultType="int">
+        SELECT COUNT(*) FROM user_star
+    </select>
+
+    <!-- 用户增长趋势 -->
+    <select id="getUserTrend" resultType="java.util.Map">
+        SELECT
+        <choose>
+            <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
+            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
+            <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
+            <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
+        </choose>,
+        COUNT(*) as count
+        FROM user
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        GROUP BY period ORDER BY period
+    </select>
+
+    <!-- 收藏趋势 -->
+    <select id="getStarTrend" resultType="java.util.Map">
+        SELECT
+        <choose>
+            <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
+            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
+            <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
+            <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
+        </choose>,
+        COUNT(*) as count
+        FROM user_star
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        GROUP BY period ORDER BY period
+    </select>
+
+    <!-- 订单完成率 -->
+    <select id="getOrderCompletionRate" resultType="java.util.Map">
+        SELECT
+            COUNT(*) as total,
+            SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) as completed,
+            SUM(CASE WHEN status = 4 THEN 1 ELSE 0 END) as cancelled,
+            SUM(CASE WHEN status = 5 THEN 1 ELSE 0 END) as refunded
+        FROM consult_order
+        WHERE 1=1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+    </select>
+
+    <!-- 平均评分 -->
+    <select id="getAverageRating" resultType="java.math.BigDecimal">
+        SELECT COALESCE(AVG(rating), 0) FROM order_review
+        WHERE is_visible = 1
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+    </select>
+
+    <!-- 热门城市分布 -->
+    <select id="getCityDistribution" resultType="java.util.Map">
+        SELECT city_name as city, COUNT(*) as count
+        FROM counselor
+        WHERE city_name IS NOT NULL AND city_name != ''
+        GROUP BY city_name ORDER BY count DESC LIMIT #{limit}
+    </select>
+
+    <!-- 咨询方式分布 -->
+    <select id="getConsultWayDistribution" resultType="java.util.Map">
+        SELECT
+            consult_way as consultWay,
+            COUNT(*) as count,
+            COALESCE(SUM(price), 0) as revenue
+        FROM consult_order
+        WHERE status >= 1 AND status != 4 AND status != 5
+        <if test="startDate != null">AND created_at >= #{startDate}</if>
+        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        GROUP BY consult_way
+    </select>
+</mapper>
+

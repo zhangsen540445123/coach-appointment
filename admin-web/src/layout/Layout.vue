@@ -54,6 +54,14 @@
             <el-icon><UserFilled /></el-icon>
             <span>账号管理</span>
           </el-menu-item>
+          <el-sub-menu index="/report">
+            <template #title>
+              <el-icon><DataAnalysis /></el-icon>
+              <span>数据报表</span>
+            </template>
+            <el-menu-item index="/report/financial">财务报表</el-menu-item>
+            <el-menu-item index="/report/operations">运营报表</el-menu-item>
+          </el-sub-menu>
           <el-sub-menu index="/settings">
             <template #title>
               <el-icon><Setting /></el-icon>
@@ -129,6 +137,7 @@ const activeMenu = computed(() => {
   if (path.startsWith('/star')) return '/star'
   if (path.startsWith('/coupon')) return '/coupon'
   if (path.startsWith('/account')) return '/account'
+  if (path.startsWith('/report')) return '/report'
   if (path.startsWith('/settings')) return '/settings'
   // 教练页面
   if (path.startsWith('/coach/dashboard')) return '/coach/dashboard'
