@@ -28,7 +28,7 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo [*] Starting UMXinli Backend Service...
-echo [*] Server will run on http://localhost:8080/api
+echo [*] Server will run on https://localhost/api
 echo [*] Press Ctrl+C to stop the server
 echo.
 
