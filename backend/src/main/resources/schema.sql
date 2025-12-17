@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS `counselor` (
   `gender` INT COMMENT '性别 0-未知 1-男 2-女',
   `head_url` VARCHAR(500) COMMENT '头像URL',
   `head_url_square` VARCHAR(500) COMMENT '方形头像URL',
+  `video_url` VARCHAR(500) COMMENT '介绍视频URL',
+  `image_urls` JSON COMMENT '图片列表',
   `qualifications` JSON COMMENT '资格证书列表',
   `directions` JSON COMMENT '咨询方向列表',
   `introduction` LONGTEXT COMMENT '个人介绍',
@@ -34,6 +36,14 @@ CREATE TABLE IF NOT EXISTS `counselor` (
   `experience_date` DATE COMMENT '从业日期',
   `experience_time` VARCHAR(50) COMMENT '从业时长',
   `city_name` VARCHAR(100) COMMENT '城市名称',
+  `training` JSON COMMENT '培训经历',
+  `special` LONGTEXT COMMENT '特别说明',
+  `school` JSON COMMENT '学历背景',
+  `address` VARCHAR(500) COMMENT '咨询地址',
+  `face_msg` LONGTEXT COMMENT '面询说明',
+  `consult_msg` LONGTEXT COMMENT '咨询说明',
+  `consult` JSON COMMENT '咨询设置',
+  `article_list` LONGTEXT COMMENT '相关文章列表',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_name (name),
@@ -154,35 +164,6 @@ CREATE TABLE IF NOT EXISTS `user_coupon` (
   UNIQUE KEY uk_user_coupon (user_id, coupon_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户优惠券表';
 
--- 预约表
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '预约ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `counselor_id` BIGINT COMMENT '教练ID',
-  `appointment_time` TIMESTAMP NULL COMMENT '预约时间',
-  `status` INT DEFAULT 0 COMMENT '状态 0-待确认 1-已确认 2-已完成 3-已取消',
-  `notes` LONGTEXT COMMENT '备注',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  INDEX idx_user_id (user_id),
-  INDEX idx_counselor_id (counselor_id),
-  INDEX idx_status (status)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='预约表';
-
--- 反馈表
-CREATE TABLE IF NOT EXISTS `feedback` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '反馈ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `order_id` BIGINT COMMENT '订单ID',
-  `rating` INT COMMENT '评分 1-5',
-  `content` LONGTEXT COMMENT '反馈内容',
-  `images` JSON COMMENT '反馈图片列表',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  INDEX idx_user_id (user_id),
-  INDEX idx_order_id (order_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='反馈表';
-
 -- 文章表
 CREATE TABLE IF NOT EXISTS `article` (
   `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '文章ID',
@@ -230,3 +211,161 @@ CREATE TABLE IF NOT EXISTS `payment_record` (
   INDEX idx_out_trade_no (out_trade_no),
   INDEX idx_transaction_id (transaction_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='支付记录表';
+
+
+-- =====================================================
+-- 话题方向和排序选项表
+-- 用于小程序首页的筛选功能配置
+-- =====================================================
+
+-- 话题方向表
+CREATE TABLE IF NOT EXISTS `topic_direction` (
+    `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+    `name` VARCHAR(50) NOT NULL COMMENT '显示名称',
+    `value` VARCHAR(50) DEFAULT NULL COMMENT '选项值（null表示全部）',
+    `icon_url` VARCHAR(500) DEFAULT NULL COMMENT '图标URL',
+    `sort_order` INT DEFAULT 0 COMMENT '排序序号（越小越靠前）',
+    `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
+    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='话题方向配置表';
+
+-- 排序选项表
+CREATE TABLE IF NOT EXISTS `sort_option` (
+    `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+    `name` VARCHAR(50) NOT NULL COMMENT '显示名称',
+    `value` INT NOT NULL COMMENT '选项值',
+    `sort_order` INT DEFAULT 0 COMMENT '排序序号（越小越靠前）',
+    `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
+    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='排序选项配置表';
+
+-- 订单评价表
+CREATE TABLE IF NOT EXISTS `order_review` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '评价ID',
+  `order_id` BIGINT NOT NULL COMMENT '订单ID',
+  `order_no` VARCHAR(50) NOT NULL COMMENT '订单号',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID（评价人）',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `rating` INT NOT NULL COMMENT '评分 1-5星',
+  `content` TEXT COMMENT '评价内容',
+  `images` JSON COMMENT '评价图片列表',
+  `is_top` TINYINT DEFAULT 0 COMMENT '是否置顶 0-否 1-是',
+  `is_visible` TINYINT DEFAULT 1 COMMENT '是否显示 0-隐藏 1-显示',
+  `is_anonymous` TINYINT DEFAULT 0 COMMENT '是否匿名 0-实名 1-匿名',
+  `reply_content` TEXT COMMENT '教练回复内容',
+  `reply_time` TIMESTAMP NULL COMMENT '回复时间',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  UNIQUE KEY uk_order_id (order_id),
+  INDEX idx_user_id (user_id),
+  INDEX idx_counselor_id (counselor_id),
+  INDEX idx_is_visible (is_visible),
+  INDEX idx_is_top (is_top),
+  INDEX idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='订单评价表';
+
+-- 更新admin_user表，确保有role和counselor_id字段
+-- 注意：如果字段已存在，此语句会报错，可以忽略
+-- ALTER TABLE `admin_user` ADD COLUMN IF NOT EXISTS `role` INT DEFAULT 1 COMMENT '角色 1-超级管理员 2-教练';
+-- ALTER TABLE `admin_user` ADD COLUMN IF NOT EXISTS `counselor_id` BIGINT NULL COMMENT '关联的教练ID（仅教练角色有值）';
+
+-- 创建admin_user表（如果不存在）
+CREATE TABLE IF NOT EXISTS `admin_user` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '用户ID',
+  `username` VARCHAR(50) NOT NULL COMMENT '用户名',
+  `password` VARCHAR(200) NOT NULL COMMENT '密码',
+  `real_name` VARCHAR(100) COMMENT '真实姓名',
+  `phone` VARCHAR(20) COMMENT '手机号',
+  `email` VARCHAR(100) COMMENT '邮箱',
+  `avatar` VARCHAR(500) COMMENT '头像URL',
+  `role` INT DEFAULT 1 COMMENT '角色 1-超级管理员 2-教练',
+  `counselor_id` BIGINT NULL COMMENT '关联的教练ID（仅教练角色有值）',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-正常',
+  `last_login_time` TIMESTAMP NULL COMMENT '最后登录时间',
+  `last_login_ip` VARCHAR(50) COMMENT '最后登录IP',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  UNIQUE KEY uk_username (username),
+  INDEX idx_role (role),
+  INDEX idx_counselor_id (counselor_id),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='管理员用户表';
+
+-- 教练资料审核表（如果不存在）
+CREATE TABLE IF NOT EXISTS `counselor_audit` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '审核ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `before_data` LONGTEXT COMMENT '修改前数据JSON',
+  `after_data` LONGTEXT COMMENT '修改后数据JSON',
+  `audit_status` INT DEFAULT 0 COMMENT '审核状态 0-待审核 1-审核通过 2-审核拒绝',
+  `submitted_by` BIGINT COMMENT '提交人ID',
+  `submitted_at` TIMESTAMP NULL COMMENT '提交时间',
+  `audited_by` BIGINT COMMENT '审核人ID',
+  `audited_at` TIMESTAMP NULL COMMENT '审核时间',
+  `audit_remark` VARCHAR(500) COMMENT '审核备注',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_counselor_id (counselor_id),
+  INDEX idx_audit_status (audit_status),
+  INDEX idx_submitted_by (submitted_by)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练资料审核表';
+
+-- 优惠券兑换码表
+CREATE TABLE IF NOT EXISTS `coupon_code` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '兑换码ID',
+  `code` VARCHAR(50) UNIQUE NOT NULL COMMENT '兑换码',
+  `coupon_id` BIGINT NOT NULL COMMENT '关联的优惠券ID',
+  `total_count` INT DEFAULT 1 COMMENT '可使用次数',
+  `used_count` INT DEFAULT 0 COMMENT '已使用次数',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_coupon_id (coupon_id),
+  INDEX idx_code (code),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='优惠券兑换码表';
+
+-- 用户反馈表
+CREATE TABLE IF NOT EXISTS `user_feedback` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '反馈ID',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `user_name` VARCHAR(100) COMMENT '用户名称',
+  `content` TEXT COMMENT '反馈内容',
+  `status` INT DEFAULT 0 COMMENT '状态 0-待处理 1-已处理',
+  `reply` TEXT COMMENT '回复内容',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_user_id (user_id),
+  INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户反馈表';
+
+-- 用户收藏表
+CREATE TABLE IF NOT EXISTS `user_star` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '收藏ID',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  UNIQUE KEY uk_user_counselor (user_id, counselor_id),
+  INDEX idx_user_id (user_id),
+  INDEX idx_counselor_id (counselor_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户收藏表';
+
+-- 教练可预约时间表
+CREATE TABLE IF NOT EXISTS `counselor_calendar` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `date` VARCHAR(10) NOT NULL COMMENT '日期 yyyy-MM-dd',
+  `start_time` VARCHAR(5) NOT NULL COMMENT '开始时间 HH:mm',
+  `consult_way` INT DEFAULT 1 COMMENT '咨询方式: 1-视频, 2-语音, 3-面询',
+  `consult_type` INT DEFAULT 4 COMMENT '咨询类型',
+  `status` INT DEFAULT 0 COMMENT '状态: 0-可预约, 1-已预约, 2-不可用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_counselor_id (counselor_id),
+  INDEX idx_date (date),
+  INDEX idx_status (status),
+  INDEX idx_counselor_date (counselor_id, date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练可预约时间表';
+

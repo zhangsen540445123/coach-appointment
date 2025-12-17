@@ -20,30 +20,33 @@ export const reviewApi = {
 export const coachApi = {
   // 教练 - 获取个人信息
   getProfile: () => request.get('/admin/coach/profile'),
-  
+
   // 教练 - 提交个人信息修改
   submitProfile: (data) => request.post('/admin/coach/profile/submit', data),
-  
+
   // 教练 - 获取审核记录
   getAuditList: (params) => request.post('/admin/coach/audit/list', params),
-  
+
   // 教练 - 获取评价列表
   getReviewList: (params) => request.post('/admin/coach/review/list', params),
-  
+
   // 教练 - 设置评价置顶
   setReviewTop: (id, isTop) => request.post('/admin/coach/review/' + id + '/top', { isTop }),
-  
+
   // 教练 - 设置评价显示/隐藏
   setReviewVisible: (id, isVisible) => request.post('/admin/coach/review/' + id + '/visible', { isVisible }),
-  
+
+  // 教练 - 回复评价
+  replyReview: (id, replyContent) => request.post('/admin/coach/review/' + id + '/reply', { replyContent }),
+
   // 教练 - 获取订单列表
   getOrderList: (params) => request.post('/admin/coach/order/list', params),
-  
+
   // 教练 - 获取收益统计
   getEarningsStats: () => request.get('/admin/coach/earnings/stats'),
-  
+
   // 教练 - 获取收益明细
-  getEarningsDetail: (days, page, pageSize) => 
+  getEarningsDetail: (days, page, pageSize) =>
     request.get('/admin/coach/earnings/detail', { params: { days, page, pageSize } })
 }
 

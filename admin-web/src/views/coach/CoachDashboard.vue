@@ -2,21 +2,28 @@
   <div class="coach-dashboard">
     <el-row :gutter="20">
       <!-- 收益统计卡片 -->
-      <el-col :span="8">
+      <el-col :span="6">
         <el-card class="stats-card" @click="showEarningsDetail(7)">
           <template #header><span>近7天收益</span></template>
           <div class="stats-value">¥{{ earnings.last7Days?.totalAmount || '0.00' }}</div>
           <div class="stats-desc">{{ earnings.last7Days?.orderCount || 0 }} 笔订单</div>
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <el-card class="stats-card" @click="showEarningsDetail(30)">
           <template #header><span>近30天收益</span></template>
           <div class="stats-value">¥{{ earnings.last30Days?.totalAmount || '0.00' }}</div>
           <div class="stats-desc">{{ earnings.last30Days?.orderCount || 0 }} 笔订单</div>
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
+        <el-card class="stats-card" @click="showEarningsDetail(180)">
+          <template #header><span>近半年收益</span></template>
+          <div class="stats-value">¥{{ earnings.lastHalfYear?.totalAmount || '0.00' }}</div>
+          <div class="stats-desc">{{ earnings.lastHalfYear?.orderCount || 0 }} 笔订单</div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
         <el-card class="stats-card" @click="showEarningsDetail(365)">
           <template #header><span>近1年收益</span></template>
           <div class="stats-value">¥{{ earnings.lastYear?.totalAmount || '0.00' }}</div>

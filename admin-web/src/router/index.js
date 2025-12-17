@@ -57,6 +57,14 @@ const routes = [{
                     import ('@/views/settings/Settings.vue'), meta: { title: '系统设置', roles: [1] } },
             { path: 'settings/wxpay', name: 'WxPaySettings', component: () =>
                     import ('@/views/settings/WxPaySettings.vue'), meta: { title: '微信支付配置', roles: [1] } },
+            { path: 'account', name: 'AccountList', component: () =>
+                    import ('@/views/account/AccountList.vue'), meta: { title: '账号管理', roles: [1] } },
+
+            // 报表页面
+            { path: 'report/financial', name: 'FinancialReport', component: () =>
+                    import ('@/views/report/FinancialReport.vue'), meta: { title: '财务报表', roles: [1] } },
+            { path: 'report/operations', name: 'OperationsReport', component: () =>
+                    import ('@/views/report/OperationsReport.vue'), meta: { title: '运营报表', roles: [1] } },
 
             // 教练页面
             { path: 'coach/dashboard', name: 'CoachDashboard', component: () =>

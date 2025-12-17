@@ -7,28 +7,52 @@
         <el-button type="success" @click="handleAdd">Add Coach</el-button>
       </div>
       <el-table :data="tableData" v-loading="loading">
-        <el-table-column prop="id" label="ID" width="80" />
-        <el-table-column prop="headUrl" label="Avatar" width="80">
+        <el-table-column prop="id" label="ID" width="120" />
+        <el-table-column prop="headUrl" label="头像" width="80">
           <template #default="scope">
             <el-avatar :src="scope.row.headUrl" :size="40" />
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="cityName" label="City" />
-        <el-table-column prop="consultPrice" label="Price" />
-        <el-table-column prop="sortOrder" label="Sort" width="80" />
-        <el-table-column prop="canConsult" label="Status" width="100">
+        <el-table-column prop="name" label="姓名" width="100" />
+        <el-table-column prop="cityName" label="城市" width="80" />
+        <el-table-column prop="consultPrice" label="价格" width="80" />
+        <el-table-column label="收藏数" width="80">
           <template #default="scope">
-            <el-tag :type="scope.row.canConsult === 1 ? 'success' : 'danger'">{{ scope.row.canConsult === 1 ? 'Active' : 'Inactive' }}</el-tag>
+            <el-tag type="warning">{{ scope.row.starCount || 0 }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="Actions" width="360">
+        <el-table-column label="关联账号" width="140">
           <template #default="scope">
-            <el-button size="small" @click="handleToggleTop(scope.row)">{{ scope.row.isTop === 1 ? 'Unpin' : 'Pin' }}</el-button>
-            <el-button type="primary" size="small" @click="handleEdit(scope.row)">Edit</el-button>
-            <el-button type="info" size="small" @click="handleCalendar(scope.row)">Schedule</el-button>
-            <el-button :type="scope.row.canConsult === 1 ? 'warning' : 'success'" size="small" @click="handleToggleStatus(scope.row)">{{ scope.row.canConsult === 1 ? 'Disable' : 'Enable' }}</el-button>
-            <el-button type="danger" size="small" @click="handleDelete(scope.row)">Delete</el-button>
+            <span v-if="scope.row.accountUsername" style="color: #67c23a;">
+              {{ scope.row.accountUsername }}
+            </span>
+            <span v-else style="color: #999;">未创建</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="canConsult" label="状态" width="80">
+          <template #default="scope">
+            <el-tag :type="scope.row.canConsult === 1 ? 'success' : 'danger'" size="small">
+              {{ scope.row.canConsult === 1 ? '启用' : '禁用' }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="400">
+          <template #default="scope">
+            <el-button size="small" @click="handleToggleTop(scope.row)">{{ scope.row.isTop === 1 ? '取消置顶' : '置顶' }}</el-button>
+            <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
+            <el-button type="info" size="small" @click="handleCalendar(scope.row)">排班</el-button>
+            <el-button
+              :type="scope.row.accountUsername ? 'info' : 'success'"
+              size="small"
+              @click="handleCreateAccount(scope.row)"
+              :disabled="!!scope.row.accountUsername"
+            >
+              {{ scope.row.accountUsername ? '已关联' : '创建账号' }}
+            </el-button>
+            <el-button :type="scope.row.canConsult === 1 ? 'warning' : 'success'" size="small" @click="handleToggleStatus(scope.row)">
+              {{ scope.row.canConsult === 1 ? '禁用' : '启用' }}
+            </el-button>
+            <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -42,6 +66,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { counselorApi } from '@/api/counselor'
+import { adminAccountApi } from '@/api/user'
 
 const router = useRouter()
 const loading = ref(false)
@@ -92,6 +117,40 @@ const handleDelete = (row) => {
       if (res.code === 0 || res.code === 200) { ElMessage.success('Deleted'); loadData() }
     } catch (e) { ElMessage.error('Delete failed') }
   }).catch(() => {})
+}
+
+const handleCreateAccount = async (row) => {
+  // 如果已有账号，则不允许创建
+  if (row.accountUsername) {
+    ElMessage.info(`该教练已关联账号：${row.accountUsername}`)
+    return
+  }
+  try {
+    const { value } = await ElMessageBox.prompt(
+      `为教练"${row.name}"创建后台账号，请输入登录用户名：`,
+      '创建教练账号',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputPattern: /^[a-zA-Z0-9_]{4,20}$/,
+        inputErrorMessage: '用户名需4-20位字母数字下划线'
+      }
+    )
+    // 创建账号，默认密码 coach123456
+    await adminAccountApi.create({
+      username: value,
+      password: 'coach123456',
+      realName: row.name,
+      role: 2,
+      counselorId: row.id
+    })
+    ElMessage.success(`账号创建成功！用户名：${value}，初始密码：coach123456`)
+    loadData() // 刷新列表
+  } catch (e) {
+    if (e !== 'cancel') {
+      ElMessage.error(e.response?.data?.msg || '创建账号失败')
+    }
+  }
 }
 
 onMounted(loadData)
