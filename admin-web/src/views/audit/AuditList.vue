@@ -2,52 +2,50 @@
   <div class="audit-list">
     <el-card>
       <div class="search-bar">
-        <el-select v-model="statusFilter" placeholder="Status" clearable @change="loadData">
-          <el-option label="All" value="" />
-          <el-option label="Pending" :value="0" />
-          <el-option label="Approved" :value="1" />
-          <el-option label="Rejected" :value="2" />
+        <el-select v-model="statusFilter" placeholder="状态筛选" clearable @change="loadData">
+          <el-option label="全部" value="" />
+          <el-option v-for="(label, index) in auditStatusOptions" :key="index" :label="label" :value="index" />
         </el-select>
       </div>
       <el-table :data="tableData" v-loading="loading">
         <el-table-column prop="id" label="ID" width="80" />
-        <el-table-column prop="counselorId" label="Coach ID" width="100" />
-        <el-table-column prop="auditStatus" label="Status" width="120">
+        <el-table-column prop="counselorId" label="教练ID" width="100" />
+        <el-table-column prop="auditStatus" label="状态" width="120">
           <template #default="scope">
             <el-tag :type="getStatusType(scope.row.auditStatus)">{{ getStatusText(scope.row.auditStatus) }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="submittedAt" label="Submitted At" />
-        <el-table-column label="Actions" width="200">
+        <el-table-column prop="submittedAt" label="提交时间" />
+        <el-table-column label="操作" width="200">
           <template #default="scope">
             <el-button-group v-if="scope.row.auditStatus === 0">
-              <el-button type="success" size="small" @click="handleApprove(scope.row)">Approve</el-button>
-              <el-button type="danger" size="small" @click="handleReject(scope.row)">Reject</el-button>
+              <el-button type="success" size="small" @click="handleApprove(scope.row)">通过</el-button>
+              <el-button type="danger" size="small" @click="handleReject(scope.row)">拒绝</el-button>
             </el-button-group>
-            <el-button type="primary" size="small" @click="viewDetail(scope.row)">View</el-button>
+            <el-button type="primary" size="small" @click="viewDetail(scope.row)">查看</el-button>
           </template>
         </el-table-column>
       </el-table>
       <el-pagination v-model:current-page="pagination.page" :page-size="pagination.pageSize" :total="total" @current-change="handlePageChange" style="margin-top: 20px" />
     </el-card>
-    <el-dialog v-model="dialogVisible" title="Audit Details" width="600px">
+    <el-dialog v-model="dialogVisible" title="审核详情" width="600px">
       <el-descriptions :column="1" border>
-        <el-descriptions-item label="Before Data">
+        <el-descriptions-item label="修改前数据">
           <pre>{{ dialogData.beforeData }}</pre>
         </el-descriptions-item>
-        <el-descriptions-item label="After Data">
+        <el-descriptions-item label="修改后数据">
           <pre>{{ dialogData.afterData }}</pre>
         </el-descriptions-item>
       </el-descriptions>
       <el-form v-if="dialogData.auditStatus === 0" style="margin-top: 20px">
-        <el-form-item label="Remark">
+        <el-form-item label="审核备注">
           <el-input v-model="auditRemark" type="textarea" :rows="3" />
         </el-form-item>
       </el-form>
       <template #footer>
-        <el-button @click="dialogVisible = false">Close</el-button>
-        <el-button v-if="dialogData.auditStatus === 0" type="danger" @click="submitAudit(2)">Reject</el-button>
-        <el-button v-if="dialogData.auditStatus === 0" type="success" @click="submitAudit(1)">Approve</el-button>
+        <el-button @click="dialogVisible = false">关闭</el-button>
+        <el-button v-if="dialogData.auditStatus === 0" type="danger" @click="submitAudit(2)">拒绝</el-button>
+        <el-button v-if="dialogData.auditStatus === 0" type="success" @click="submitAudit(1)">通过</el-button>
       </template>
     </el-dialog>
   </div>
@@ -57,6 +55,7 @@
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { counselorApi } from '@/api/counselor'
+import { useDict } from '@/composables/useDict'
 
 const loading = ref(false)
 const tableData = ref([])
@@ -67,12 +66,12 @@ const dialogVisible = ref(false)
 const dialogData = ref({})
 const auditRemark = ref('')
 
-const statusMap = { 0: 'Pending', 1: 'Approved', 2: 'Rejected' }
-const getStatusText = (status) => statusMap[status] || 'Unknown'
-const getStatusType = (status) => {
-  const types = { 0: 'warning', 1: 'success', 2: 'danger' }
-  return types[status] || 'info'
-}
+// 使用字典数据
+const { loadAllDict, getDictItems, getLabel, getStatusType: getDictStatusType } = useDict()
+const auditStatusOptions = ref([])
+
+const getStatusText = (status) => getLabel('audit_status', status)
+const getStatusType = (status) => getDictStatusType('audit_status', status)
 
 const loadData = async () => {
   loading.value = true
@@ -121,7 +120,11 @@ const submitAudit = async (status) => {
   } catch (e) { ElMessage.error('Operation failed') }
 }
 
-onMounted(loadData)
+onMounted(async () => {
+  await loadAllDict()
+  auditStatusOptions.value = getDictItems('audit_status')
+  loadData()
+})
 </script>
 
 <style scoped>

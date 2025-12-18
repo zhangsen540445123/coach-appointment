@@ -7,11 +7,7 @@
         <el-form-item label="订单状态">
           <el-select v-model="filter.status" placeholder="全部" clearable @change="loadData">
             <el-option label="全部" :value="null" />
-            <el-option label="待支付" :value="0" />
-            <el-option label="待服务" :value="1" />
-            <el-option label="进行中" :value="2" />
-            <el-option label="已完成" :value="3" />
-            <el-option label="已取消" :value="4" />
+            <el-option v-for="(label, index) in orderStatusOptions" :key="index" :label="label" :value="index" />
           </el-select>
         </el-form-item>
       </el-form>
@@ -68,6 +64,7 @@
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { coachApi } from '@/api/review'
+import { useDict } from '@/composables/useDict'
 
 const loading = ref(false)
 const tableData = ref([])
@@ -77,14 +74,18 @@ const pagination = ref({ page: 1, pageSize: 10 })
 const detailVisible = ref(false)
 const currentOrder = ref(null)
 
-const statusMap = { 0: '待支付', 1: '待服务', 2: '进行中', 3: '已完成', 4: '已取消' }
-const getStatusText = (status) => statusMap[status] || '未知'
-const getStatusType = (status) => {
-  const types = { 0: 'warning', 1: 'primary', 2: 'info', 3: 'success', 4: 'danger' }
-  return types[status] || 'info'
-}
+// 使用字典数据
+const { loadAllDict, getDictItems, getLabel, getStatusType: getDictStatusType } = useDict()
+const orderStatusOptions = ref([])
 
-onMounted(() => loadData())
+const getStatusText = (status) => getLabel('order_status', status)
+const getStatusType = (status) => getDictStatusType('order_status', status)
+
+onMounted(async () => {
+  await loadAllDict()
+  orderStatusOptions.value = getDictItems('order_status')
+  loadData()
+})
 
 const loadData = async () => {
   loading.value = true

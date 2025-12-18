@@ -141,7 +141,7 @@ const form = reactive({
 })
 
 const getChannelText = (value) => {
-  const item = channelOptions.find(c => c.value === value)
+  const item = channelOptions.value.find(c => c.value === value)
   return item ? item.text : ''
 }
 
@@ -181,7 +181,10 @@ const handleDelete = async (row) => {
   } catch (e) { if (e !== 'cancel') ElMessage.error('删除失败') }
 }
 
-onMounted(() => { fetchData() })
+onMounted(() => {
+  loadDictOptions()
+  fetchData()
+})
 </script>
 
 <style scoped>

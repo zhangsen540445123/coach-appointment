@@ -2,16 +2,11 @@
   <div class="order-list">
     <el-card>
       <div class="search-bar">
-        <el-select v-model="statusFilter" placeholder="Status" clearable style="width: 150px">
-          <el-option label="All" value="" />
-          <el-option label="Pending" :value="0" />
-          <el-option label="Paid" :value="1" />
-          <el-option label="In Service" :value="2" />
-          <el-option label="Completed" :value="3" />
-          <el-option label="Cancelled" :value="4" />
-          <el-option label="Refunded" :value="5" />
+        <el-select v-model="statusFilter" placeholder="状态筛选" clearable style="width: 150px">
+          <el-option label="全部" value="" />
+          <el-option v-for="(label, index) in orderStatusOptions" :key="index" :label="label" :value="index" />
         </el-select>
-        <el-button type="primary" @click="handleSearch">Search</el-button>
+        <el-button type="primary" @click="handleSearch">搜索</el-button>
       </div>
       <el-table :data="tableData" v-loading="loading">
         <el-table-column prop="id" label="ID" width="80" />
@@ -44,6 +39,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { orderApi } from '@/api/order'
+import { useDict } from '@/composables/useDict'
 
 const router = useRouter()
 const loading = ref(false)
@@ -52,11 +48,16 @@ const total = ref(0)
 const statusFilter = ref('')
 const pagination = ref({ page: 1, pageSize: 10 })
 
-const statusMap = { 0: 'Pending', 1: 'Paid', 2: 'In Service', 3: 'Completed', 4: 'Cancelled', 5: 'Refunded' }
-const getStatusText = (status) => statusMap[status] || 'Unknown'
-const getStatusType = (status) => {
-  const types = { 0: 'warning', 1: 'primary', 2: 'info', 3: 'success', 4: 'danger', 5: 'info' }
-  return types[status] || 'info'
+// 使用字典数据
+const { loadAllDict, getDictItems, getLabel, getStatusType: getDictStatusType } = useDict()
+const orderStatusOptions = ref([])
+
+const getStatusText = (status) => getLabel('order_status', status)
+const getStatusType = (status) => getDictStatusType('order_status', status)
+
+const loadDictData = async () => {
+  await loadAllDict()
+  orderStatusOptions.value = getDictItems('order_status')
 }
 
 const loadData = async () => {
@@ -88,7 +89,10 @@ const handleCancel = (row) => {
   }).catch(() => {})
 }
 
-onMounted(loadData)
+onMounted(async () => {
+  await loadDictData()
+  loadData()
+})
 </script>
 
 <style scoped>

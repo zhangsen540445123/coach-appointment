@@ -1,19 +1,20 @@
 <template>
   <div class="order-detail">
     <el-card v-loading="loading">
-      <el-descriptions title="Order Details" :column="2" border>
-        <el-descriptions-item label="Order No">{{ order.orderNo }}</el-descriptions-item>
-        <el-descriptions-item label="User ID">{{ order.userId }}</el-descriptions-item>
-        <el-descriptions-item label="Coach ID">{{ order.counselorId }}</el-descriptions-item>
-        <el-descriptions-item label="Price">{{ order.price }}</el-descriptions-item>
-        <el-descriptions-item label="Status">{{ getStatusText(order.status) }}</el-descriptions-item>
-        <el-descriptions-item label="Consult Type">{{ order.consultType === 1 ? 'Online' : 'Offline' }}</el-descriptions-item>
-        <el-descriptions-item label="Payment Time">{{ order.paymentTime || 'N/A' }}</el-descriptions-item>
-        <el-descriptions-item label="Consult Time">{{ order.consultTime || 'N/A' }}</el-descriptions-item>
-        <el-descriptions-item label="Created At">{{ order.createdAt }}</el-descriptions-item>
+      <el-descriptions title="订单详情" :column="2" border>
+        <el-descriptions-item label="订单号">{{ order.orderNo }}</el-descriptions-item>
+        <el-descriptions-item label="用户ID">{{ order.userId }}</el-descriptions-item>
+        <el-descriptions-item label="教练ID">{{ order.counselorId }}</el-descriptions-item>
+        <el-descriptions-item label="价格">¥{{ order.price }}</el-descriptions-item>
+        <el-descriptions-item label="状态">{{ getStatusText(order.status) }}</el-descriptions-item>
+        <el-descriptions-item label="咨询类型">{{ getConsultTypeText(order.consultType) }}</el-descriptions-item>
+        <el-descriptions-item label="咨询方式">{{ getConsultWayText(order.consultWay) }}</el-descriptions-item>
+        <el-descriptions-item label="支付时间">{{ order.paymentTime || '未支付' }}</el-descriptions-item>
+        <el-descriptions-item label="咨询时间">{{ order.consultTime || '未安排' }}</el-descriptions-item>
+        <el-descriptions-item label="创建时间">{{ order.createdAt }}</el-descriptions-item>
       </el-descriptions>
     </el-card>
-    <el-button style="margin-top: 20px" @click="$router.back()">Back</el-button>
+    <el-button style="margin-top: 20px" @click="$router.back()">返回</el-button>
   </div>
 </template>
 
@@ -21,13 +22,18 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { orderApi } from '@/api/order'
+import { useDict } from '@/composables/useDict'
 
 const route = useRoute()
 const loading = ref(false)
 const order = ref({})
 
-const statusMap = { 0: 'Pending', 1: 'Paid', 2: 'In Service', 3: 'Completed', 4: 'Cancelled', 5: 'Refunded' }
-const getStatusText = (status) => statusMap[status] || 'Unknown'
+// 使用字典数据
+const { loadAllDict, getLabel } = useDict()
+
+const getStatusText = (status) => getLabel('order_status', status)
+const getConsultTypeText = (type) => getLabel('consult_type', type)
+const getConsultWayText = (way) => getLabel('consult_way', way)
 
 const loadData = async () => {
   loading.value = true
@@ -39,7 +45,10 @@ const loadData = async () => {
   }
 }
 
-onMounted(loadData)
+onMounted(async () => {
+  await loadAllDict()
+  loadData()
+})
 </script>
 
 <style scoped>

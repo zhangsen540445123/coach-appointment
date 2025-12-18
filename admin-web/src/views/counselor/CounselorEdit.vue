@@ -143,10 +143,7 @@
           <div class="consult-editor">
             <div v-for="(item, itemIndex) in form.consultList" :key="itemIndex" class="consult-item">
               <el-select v-model="item.consultType" :placeholder="t('consultType')" style="width: 150px">
-                <el-option :value="0" :label="t('onlineVideo')" />
-                <el-option :value="1" :label="t('onlineVoice')" />
-                <el-option :value="2" :label="t('offline')" />
-                <el-option :value="4" :label="t('standard')" />
+                <el-option v-for="(label, index) in consultTypeOptions" :key="index" :value="index" :label="label" />
               </el-select>
               <el-input-number v-model="item.consultPrice" :min="0" :step="50" :placeholder="t('price')" />
               <span>{{ t('yuan') }}</span>
@@ -187,9 +184,7 @@
 
         <el-form-item :label="t('serviceType')">
           <el-checkbox-group v-model="form.consultTypeList">
-            <el-checkbox :label="0">{{ t('onlineVideo') }}</el-checkbox>
-            <el-checkbox :label="1">{{ t('onlineVoice') }}</el-checkbox>
-            <el-checkbox :label="2">{{ t('offline') }}</el-checkbox>
+            <el-checkbox v-for="(label, index) in consultWayOptions" :key="index" :label="index">{{ label }}</el-checkbox>
           </el-checkbox-group>
         </el-form-item>
 
@@ -302,18 +297,24 @@ const t = (key) => translations[isEnglish.value ? 'en' : 'zh'][key] || key
 const qualificationOptions = ref([])
 const schoolOptions = ref([])
 const directionOptions = ref([])
+const consultTypeOptions = ref([])
+const consultWayOptions = ref([])
 
 // 加载字典数据
 const loadDictOptions = async () => {
   try {
-    const [qRes, sRes, dRes] = await Promise.all([
+    const [qRes, sRes, dRes, ctRes, cwRes] = await Promise.all([
       dictApi.getDataByCode('qualification'),
       dictApi.getDataByCode('school'),
-      dictApi.getDataByCode('direction')
+      dictApi.getDataByCode('direction'),
+      dictApi.getDataByCode('consult_type'),
+      dictApi.getDataByCode('consult_way')
     ])
     if (qRes.code === 0) qualificationOptions.value = qRes.data || []
     if (sRes.code === 0) schoolOptions.value = sRes.data || []
     if (dRes.code === 0) directionOptions.value = dRes.data || []
+    if (ctRes.code === 0) consultTypeOptions.value = ctRes.data || []
+    if (cwRes.code === 0) consultWayOptions.value = cwRes.data || []
   } catch (e) {
     console.error('加载字典数据失败', e)
   }

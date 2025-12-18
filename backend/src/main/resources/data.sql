@@ -276,3 +276,43 @@ INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_
 (7, 'channel', '朋友推荐', '4', 4, 1),
 (7, 'channel', '其他', '5', 5, 1);
 
+-- 订单状态
+INSERT IGNORE INTO `dict_type` (`id`, `code`, `name`, `description`, `sort_order`, `enabled`) VALUES
+(8, 'order_status', '订单状态', '订单列表-订单状态选项', 8, 1);
+
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(8, 'order_status', '待支付', '0', 1, 1),
+(8, 'order_status', '已支付', '1', 2, 1),
+(8, 'order_status', '进行中', '2', 3, 1),
+(8, 'order_status', '已完成', '3', 4, 1),
+(8, 'order_status', '已取消', '4', 5, 1),
+(8, 'order_status', '已退款', '5', 6, 1);
+
+-- 咨询类型
+INSERT IGNORE INTO `dict_type` (`id`, `code`, `name`, `description`, `sort_order`, `enabled`) VALUES
+(9, 'consult_type', '咨询类型', '教练编辑页-咨询类型选项', 9, 1);
+
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(9, 'consult_type', '线上视频', '0', 1, 1),
+(9, 'consult_type', '线上语音', '1', 2, 1),
+(9, 'consult_type', '线下面询', '2', 3, 1),
+(9, 'consult_type', '标准咨询', '4', 4, 1);
+
+-- 咨询方式
+INSERT IGNORE INTO `dict_type` (`id`, `code`, `name`, `description`, `sort_order`, `enabled`) VALUES
+(10, 'consult_way', '咨询方式', '订单详情-咨询方式选项', 10, 1);
+
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(10, 'consult_way', '线上', '0', 1, 1),
+(10, 'consult_way', '线下', '1', 2, 1),
+(10, 'consult_way', '混合', '2', 3, 1);
+
+-- 审核状态
+INSERT IGNORE INTO `dict_type` (`id`, `code`, `name`, `description`, `sort_order`, `enabled`) VALUES
+(11, 'audit_status', '审核状态', '审核列表-审核状态选项', 11, 1);
+
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(11, 'audit_status', '待审核', '0', 1, 1),
+(11, 'audit_status', '已通过', '1', 2, 1),
+(11, 'audit_status', '已拒绝', '2', 3, 1);
+

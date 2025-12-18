@@ -56,13 +56,16 @@
 import { ref, onMounted } from 'vue'
 import { orderApi } from '@/api/order'
 import { counselorApi } from '@/api/counselor'
+import { useDict } from '@/composables/useDict'
 
 const stats = ref({})
 const recentOrders = ref([])
 const pendingAudits = ref([])
 
-const statusMap = { 0: 'Pending', 1: 'Paid', 2: 'In Service', 3: 'Completed', 4: 'Cancelled', 5: 'Refunded' }
-const getStatusText = (status) => statusMap[status] || 'Unknown'
+// 使用字典数据
+const { loadAllDict, getLabel } = useDict()
+
+const getStatusText = (status) => getLabel('order_status', status)
 
 const loadData = async () => {
   try {
@@ -79,7 +82,10 @@ const loadData = async () => {
   }
 }
 
-onMounted(loadData)
+onMounted(async () => {
+  await loadAllDict()
+  loadData()
+})
 </script>
 
 <style scoped>
