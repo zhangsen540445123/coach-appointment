@@ -227,6 +227,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 import { counselorApi } from '@/api/counselor'
+import { dictApi } from '@/api/dict'
 
 const route = useRoute()
 const router = useRouter()
@@ -297,10 +298,26 @@ const translations = {
 
 const t = (key) => translations[isEnglish.value ? 'en' : 'zh'][key] || key
 
-// 预设选项
-const qualificationOptions = ['国家二级心理咨询师', '国家三级心理咨询师', '心理治疗师', '精神科医师', '婚姻家庭咨询师']
-const schoolOptions = ['精神分析流派动力取向', '认知行为疗法', '人本主义', '家庭系统治疗', '正念疗法']
-const directionOptions = ['身心健康', '人际关系', '婚姻恋爱', '亲子教育', '个人成长', '学业职场', '情绪困扰', '性心理', '家庭困扰']
+// 动态选项（从字典加载）
+const qualificationOptions = ref([])
+const schoolOptions = ref([])
+const directionOptions = ref([])
+
+// 加载字典数据
+const loadDictOptions = async () => {
+  try {
+    const [qRes, sRes, dRes] = await Promise.all([
+      dictApi.getDataByCode('qualification'),
+      dictApi.getDataByCode('school'),
+      dictApi.getDataByCode('direction')
+    ])
+    if (qRes.code === 0) qualificationOptions.value = qRes.data || []
+    if (sRes.code === 0) schoolOptions.value = sRes.data || []
+    if (dRes.code === 0) directionOptions.value = dRes.data || []
+  } catch (e) {
+    console.error('加载字典数据失败', e)
+  }
+}
 
 const imageFileList = ref([])
 const newChildName = ref({})
@@ -460,7 +477,10 @@ const handleSubmit = async () => {
   })
 }
 
-onMounted(loadData)
+onMounted(() => {
+  loadDictOptions()
+  loadData()
+})
 </script>
 
 <style scoped>

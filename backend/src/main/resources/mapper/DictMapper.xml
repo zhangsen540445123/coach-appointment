@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.admin.mapper.DictMapper">
+
+    <resultMap id="DictTypeResultMap" type="com.umxinli.entity.DictType">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="sortOrder" column="sort_order"/>
+        <result property="enabled" column="enabled"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <resultMap id="DictItemResultMap" type="com.umxinli.entity.DictItem">
+        <id property="id" column="id"/>
+        <result property="typeId" column="type_id"/>
+        <result property="typeCode" column="type_code"/>
+        <result property="label" column="label"/>
+        <result property="value" column="value"/>
+        <result property="sortOrder" column="sort_order"/>
+        <result property="enabled" column="enabled"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <!-- 字典类型查询 -->
+    <select id="selectAllTypes" resultMap="DictTypeResultMap">
+        SELECT * FROM dict_type ORDER BY sort_order, id
+    </select>
+
+    <select id="selectTypeById" resultMap="DictTypeResultMap">
+        SELECT * FROM dict_type WHERE id = #{id}
+    </select>
+
+    <select id="selectTypeByCode" resultMap="DictTypeResultMap">
+        SELECT * FROM dict_type WHERE code = #{code}
+    </select>
+
+    <insert id="insertType" parameterType="com.umxinli.entity.DictType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dict_type (code, name, description, sort_order, enabled, created_at, updated_at)
+        VALUES (#{code}, #{name}, #{description}, #{sortOrder}, #{enabled}, NOW(), NOW())
+    </insert>
+
+    <update id="updateType" parameterType="com.umxinli.entity.DictType">
+        UPDATE dict_type SET
+            code = #{code}, name = #{name}, description = #{description},
+            sort_order = #{sortOrder}, enabled = #{enabled}, updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteType">
+        DELETE FROM dict_type WHERE id = #{id}
+    </delete>
+
+    <!-- 字典项查询 -->
+    <select id="selectItemsByTypeId" resultMap="DictItemResultMap">
+        SELECT * FROM dict_item WHERE type_id = #{typeId} ORDER BY sort_order, id
+    </select>
+
+    <select id="selectItemsByTypeCode" resultMap="DictItemResultMap">
+        SELECT * FROM dict_item WHERE type_code = #{typeCode} ORDER BY sort_order, id
+    </select>
+
+    <select id="selectEnabledItemsByTypeCode" resultMap="DictItemResultMap">
+        SELECT * FROM dict_item WHERE type_code = #{typeCode} AND enabled = 1 ORDER BY sort_order, id
+    </select>
+
+    <select id="selectItemById" resultMap="DictItemResultMap">
+        SELECT * FROM dict_item WHERE id = #{id}
+    </select>
+
+    <insert id="insertItem" parameterType="com.umxinli.entity.DictItem" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dict_item (type_id, type_code, label, value, sort_order, enabled, created_at, updated_at)
+        VALUES (#{typeId}, #{typeCode}, #{label}, #{value}, #{sortOrder}, #{enabled}, NOW(), NOW())
+    </insert>
+
+    <update id="updateItem" parameterType="com.umxinli.entity.DictItem">
+        UPDATE dict_item SET
+            label = #{label}, value = #{value}, sort_order = #{sortOrder}, enabled = #{enabled}, updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteItem">
+        DELETE FROM dict_item WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteItemsByTypeId">
+        DELETE FROM dict_item WHERE type_id = #{typeId}
+    </delete>
+
+    <insert id="batchInsertItems" parameterType="java.util.List">
+        INSERT INTO dict_item (type_id, type_code, label, value, sort_order, enabled, created_at, updated_at)
+        VALUES
+        <foreach collection="items" item="item" separator=",">
+            (#{item.typeId}, #{item.typeCode}, #{item.label}, #{item.value}, #{item.sortOrder}, #{item.enabled}, NOW(), NOW())
+        </foreach>
+    </insert>
+</mapper>
+

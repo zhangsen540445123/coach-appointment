@@ -198,3 +198,81 @@ INSERT IGNORE INTO `counselor_calendar` (`counselor_id`, `date`, `start_time`, `
 (1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 6 DAY), '%Y-%m-%d'), '09:00', 1, 0, 0),
 (1922168464726081537, DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 6 DAY), '%Y-%m-%d'), '14:00', 1, 0, 0);
 
+-- =====================================================
+-- 初始化数据字典
+-- =====================================================
+
+-- 字典类型
+INSERT IGNORE INTO `dict_type` (`id`, `code`, `name`, `description`, `sort_order`, `enabled`) VALUES
+(1, 'qualification', '资质认证', '教练编辑页-资质认证选项', 1, 1),
+(2, 'school', '受训流派', '教练编辑页-受训流派选项', 2, 1),
+(3, 'direction', '擅长方向', '教练编辑页-擅长方向选项', 3, 1),
+(4, 'career', '职业选项', '客户信息页-职业选项', 4, 1),
+(5, 'marriage', '婚姻状态', '客户信息页-婚姻状态选项', 5, 1),
+(6, 'children', '子女情况', '客户信息页-子女情况选项', 6, 1),
+(7, 'channel', '渠道来源', '客户信息页-了解渠道选项', 7, 1);
+
+-- 资质认证选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(1, 'qualification', '国家二级心理咨询师', '国家二级心理咨询师', 1, 1),
+(1, 'qualification', '国家三级心理咨询师', '国家三级心理咨询师', 2, 1),
+(1, 'qualification', '心理治疗师', '心理治疗师', 3, 1),
+(1, 'qualification', '精神科医师', '精神科医师', 4, 1),
+(1, 'qualification', '婚姻家庭咨询师', '婚姻家庭咨询师', 5, 1);
+
+-- 受训流派选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(2, 'school', '精神分析流派动力取向', '精神分析流派动力取向', 1, 1),
+(2, 'school', '认知行为疗法', '认知行为疗法', 2, 1),
+(2, 'school', '人本主义', '人本主义', 3, 1),
+(2, 'school', '家庭系统治疗', '家庭系统治疗', 4, 1),
+(2, 'school', '正念疗法', '正念疗法', 5, 1);
+
+-- 擅长方向选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(3, 'direction', '身心健康', '身心健康', 1, 1),
+(3, 'direction', '人际关系', '人际关系', 2, 1),
+(3, 'direction', '婚姻恋爱', '婚姻恋爱', 3, 1),
+(3, 'direction', '亲子教育', '亲子教育', 4, 1),
+(3, 'direction', '个人成长', '个人成长', 5, 1),
+(3, 'direction', '学业职场', '学业职场', 6, 1),
+(3, 'direction', '情绪困扰', '情绪困扰', 7, 1),
+(3, 'direction', '性心理', '性心理', 8, 1),
+(3, 'direction', '家庭困扰', '家庭困扰', 9, 1);
+
+-- 职业选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(4, 'career', '国企事业单位', '国企事业单位', 1, 1),
+(4, 'career', '外资', '外资', 2, 1),
+(4, 'career', '私企', '私企', 3, 1),
+(4, 'career', '个体', '个体', 4, 1),
+(4, 'career', '自由职业', '自由职业', 5, 1),
+(4, 'career', '专业人员(医生、律师、老师)', '专业人员(医生、律师、老师)', 6, 1),
+(4, 'career', '学生', '学生', 7, 1),
+(4, 'career', '退休人员', '退休人员', 8, 1),
+(4, 'career', '其他', '其他', 9, 1);
+
+-- 婚姻状态选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(5, 'marriage', '已婚', '已婚', 1, 1),
+(5, 'marriage', '单身', '单身', 2, 1),
+(5, 'marriage', '恋爱中', '恋爱中', 3, 1),
+(5, 'marriage', '丧偶', '丧偶', 4, 1),
+(5, 'marriage', '离异', '离异', 5, 1),
+(5, 'marriage', '其他', '其他', 6, 1);
+
+-- 子女情况选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(6, 'children', '没有', '没有', 1, 1),
+(6, 'children', '一个孩子', '一个孩子', 2, 1),
+(6, 'children', '一个以上', '一个以上', 3, 1),
+(6, 'children', '其他', '其他', 4, 1);
+
+-- 渠道来源选项
+INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_order`, `enabled`) VALUES
+(7, 'channel', '只管去做成长会', '1', 1, 1),
+(7, 'channel', '公众号', '2', 2, 1),
+(7, 'channel', '悦行活动', '3', 3, 1),
+(7, 'channel', '朋友推荐', '4', 4, 1),
+(7, 'channel', '其他', '5', 5, 1);
+

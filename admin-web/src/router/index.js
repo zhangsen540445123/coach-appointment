@@ -59,6 +59,8 @@ const routes = [{
                     import ('@/views/settings/WxPaySettings.vue'), meta: { title: '微信支付配置', roles: [1] } },
             { path: 'account', name: 'AccountList', component: () =>
                     import ('@/views/account/AccountList.vue'), meta: { title: '账号管理', roles: [1] } },
+            { path: 'dict', name: 'DictManage', component: () =>
+                    import ('@/views/admin/DictManage.vue'), meta: { title: '基础数据', roles: [1] } },
 
             // 报表页面
             { path: 'report/financial', name: 'FinancialReport', component: () =>
