@@ -1,7 +1,20 @@
+// ============ 全局配置 - 修改此处即可更换环境 ============
+var __APP_CONFIG__ = {
+    // 开发环境
+    // baseUrl: "https://localhost/api",
+    // imageBaseUrl: "https://localhost/api/file/image",
+
+    // 生产环境 - 发布时取消注释下面两行，注释上面两行
+    baseUrl: "https://localhost/api",
+    imageBaseUrl: "https://localhost/api/file/image",
+
+    appId: "wxd3578c75e67172b3"
+};
+// ========================================================
 (global.webpackJsonp = global.webpackJsonp || []).push([
     ["pages/studio/common/vendor"], {
         "8e2a": function(t, e) {
-            t.exports = "https://localhost/api/file/image/studio-poster-bg@3x.png"
+            t.exports = __APP_CONFIG__.imageBaseUrl  +  "/studio-poster-bg@3x.png"
         },
         "99d5": function(t, e, r) {
             var n = r("47a9");
@@ -112,7 +125,7 @@
             e.getStudioCounselorList = l
         },
         fd98: function(t, e) {
-            t.exports = "https://localhost/api/file/image/导航2.png"
+            t.exports = __APP_CONFIG__.imageBaseUrl  + "/导航2.png"
         }
     }
 ]);

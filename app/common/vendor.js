@@ -1,4 +1,17 @@
-﻿require("../@babel/runtime/helpers/Arrayincludes");
+﻿// ============ 全局配置 - 修改此处即可更换环境 ============
+var __APP_CONFIG__ = {
+    // 开发环境
+    // baseUrl: "https://localhost/api",
+    // imageBaseUrl: "https://localhost/api/file/image",
+
+    // 生产环境 - 发布时取消注释下面两行，注释上面两行
+    baseUrl: "https://localhost/api",
+    imageBaseUrl: "https://localhost/api/file/image",
+
+    appId: "wxd3578c75e67172b3"
+};
+// ========================================================
+require("../@babel/runtime/helpers/Arrayincludes");
 var e = require("../@babel/runtime/helpers/typeof");
 (global.webpackJsonp = global.webpackJsonp || []).push([
     ["common/vendor"], {
@@ -191,7 +204,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         },
         "02ea": function(e, t, n) {},
         "0815": function(e, t) {
-            e.exports = "https://localhost/api/file/image/位图.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "位图.png"
         },
         "09cc": function(e, t, n) {
             Object.defineProperty(t, "__esModule", {
@@ -919,7 +932,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }).call(this, n("df3c").default, n("3223").default)
         },
         "115a": function(e, t) {
-            e.exports = "https://localhost/api/file/image/04_qsn@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "04_qsn@3x.png"
         },
         "122b": function(e, t, n) {},
         "12db": function(e, t, n) {
@@ -1413,7 +1426,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }).call(this, n("df3c").default)
         },
         "21e3": function(e, t) {
-            e.exports = "https://localhost/api/file/image/矩形_2.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "矩形_2.png"
         },
         "22ab": function(e, t, n) {},
         "272c": function(e, t, n) {
@@ -1604,13 +1617,13 @@ var e = require("../@babel/runtime/helpers/typeof");
         },
         "2a06": function(e, t, n) {},
         "2c36": function(e, t) {
-            e.exports = "https://localhost/api/file/image/02_dj@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "02_dj@3x.png"
         },
         "2cb5": function(e, t) {
-            e.exports = "https://localhost/api/file/image/咨询顾问弹框@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "咨询顾问弹框@3x.png"
         },
         "2f29": function(e, t) {
-            e.exports = "https://localhost/api/file/image/家庭困扰@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "家庭困扰@3x.png"
         },
         "320f": function(t, n, o) {
             Object.defineProperty(n, "__esModule", {
@@ -4889,7 +4902,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }, e.exports.__esModule = !0, e.exports.default = e.exports
         },
         "366a": function(e, t) {
-            e.exports = "https://localhost/api/file/image/学业职场@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "学业职场@3x.png"
         },
         "392e": function(e, t, n) {},
         "3a46": function(e, t, n) {
@@ -4907,7 +4920,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             t.exports = o, t.exports.__esModule = !0, t.exports.default = t.exports
         },
         "3c22": function(e, t) {
-            e.exports = "https://localhost/api/file/image/情绪困扰@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "情绪困扰@3x.png"
         },
         "3d73": function(e, t) {
             e.exports = "/static/img/photo.png"
@@ -4931,10 +4944,10 @@ var e = require("../@babel/runtime/helpers/typeof");
         },
         "3eed": function(e, t, n) {},
         "3eee": function(e, t) {
-            e.exports = "https://localhost/api/file/image/首页-2@3x.jpg"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "首页-2@3x.jpg"
         },
         "42d6": function(e, t) {
-            e.exports = "https://localhost/api/file/image/背景蒙版@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "背景蒙版@3x.png"
         },
         4679: function(e, t, n) {
             (function(e) {
@@ -5013,7 +5026,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }, e.exports.__esModule = !0, e.exports.default = e.exports
         },
         4990: function(e, t) {
-            e.exports = "https://localhost/api/file/image/zxs_tx@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "zxs_tx@3x.png"
         },
         "4b0e": function(e, t, n) {
             (function(e) {
@@ -5394,7 +5407,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }).call(this, n("df3c").default, n("3223").default, n("861b").uniCloud)
         },
         5814: function(e, t) {
-            e.exports = "https://localhost/api/file/image/个人成长@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "个人成长@3x.png"
         },
         "5bd7": function(e, t, n) {
             Object.defineProperty(t, "__esModule", {
@@ -5408,14 +5421,14 @@ var e = require("../@babel/runtime/helpers/typeof");
             e.exports = "/static/img/exchange.png"
         },
         "60c7": function(e, t) {
-            e.exports = "https://localhost/api/file/image/05_gzs@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "05_gzs@3x.png"
         },
         "613d": function(e, t, n) {
             var o = n("8000");
             n.n(o).a
         },
         6228: function(e, t) {
-            e.exports = "https://localhost/api/file/image/BG@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "BG@3x.png"
         },
         "624a": function(e, t, n) {
             var o = n("47a9");
@@ -5475,7 +5488,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }
         },
         "62ba": function(e, t) {
-            e.exports = "https://localhost/api/file/image/性心理@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "性心理@3x.png"
         },
         6382: function(e, t, n) {
             var o = n("6454");
@@ -5495,7 +5508,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }, e.exports.__esModule = !0, e.exports.default = e.exports
         },
         6487: function(e, t) {
-            e.exports = "https://localhost/api/file/image/咨询寄语bg@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "咨询寄语bg@3x.png"
         },
         "65f1": function(e, t, n) {
             Object.defineProperty(t, "__esModule", {
@@ -6027,7 +6040,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }
         },
         "72f8": function(e, t) {
-            e.exports = "https://localhost/api/file/image/save@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "save@3x.png"
         },
         "75e3": function(e, t, n) {
             var o = n("a75d");
@@ -13178,15 +13191,12 @@ var e = require("../@babel/runtime/helpers/typeof");
             }).call(this, n("df3c").default)
         },
         "979e": function(e, t) {
-            e.exports = "https://localhost/api/file/image/03_xx@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "03_xx@3x.png"
         },
         9816: function(e, t, n) {
-            var o = n("5bd7"),
-                c = null,
-                a = null;
-            o.isProduction ? (c = "wxd3578c75e67172b3", a = "https://localhost/api") : o.isDevelopment && (c = "wxd3578c75e67172b3", a = "https://localhost/api"), e.exports = {
-                baseUrl: a,
-                appid: c
+            e.exports = {
+                baseUrl: __APP_CONFIG__.baseUrl,
+                appid: __APP_CONFIG__.appId
             }
         },
         "9b32": function(e, t, n) {
@@ -13253,7 +13263,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             t.getChilds = i
         },
         "9e37": function(e, t) {
-            e.exports = "https://localhost/api/file/image/电话@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "电话@3x.png"
         },
         "9fc1": function(e, t, n) {
             var o = n("3b2d").default;
@@ -14540,7 +14550,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         },
         a75d: function(e, t, n) {},
         a84c: function(e, t) {
-            e.exports = "https://localhost/api/file/image/01_jq@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "01_jq@3x.png"
         },
         a91b: function(e, t, n) {
             var o = n("47a9");
@@ -14715,10 +14725,10 @@ var e = require("../@babel/runtime/helpers/typeof");
             }).VUE_APP_BASE_API
         },
         a92f: function(e, t) {
-            e.exports = "https://localhost/api/file/image/定位@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "定位@3x.png"
         },
         ab45: function(e, t) {
-            e.exports = "https://localhost/api/file/image/咨询经验_bg@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "咨询经验_bg@3x.png"
         },
         acbb: function(e, t, n) {
             (function(e) {
@@ -14852,7 +14862,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }
         },
         bdc3: function(e, t) {
-            e.exports = "https://localhost/api/file/image/亲子教育@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "亲子教育@3x.png"
         },
         c074: function(e, t, n) {
             var o = n("47a9");
@@ -14984,10 +14994,10 @@ var e = require("../@babel/runtime/helpers/typeof");
             e.exports = n("320f")
         },
         c520: function(e, t) {
-            e.exports = "https://localhost/api/file/image/婚姻恋爱@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "婚姻恋爱@3x.png"
         },
         cb76: function(e, t) {
-            e.exports = "https://localhost/api/file/image/人际关系@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "人际关系@3x.png"
         },
         d32f: function(e, t, n) {
             var o = n("47a9");
@@ -27525,7 +27535,7 @@ var e = require("../@babel/runtime/helpers/typeof");
         },
         e3b2: function(e, t, n) {},
         e542: function(e, t) {
-            e.exports = "https://localhost/api/file/image/身心健康@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "身心健康@3x.png"
         },
         e5e6: function(e, t, n) {},
         e6db: function(e, t, n) {
@@ -27542,7 +27552,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }, e.exports.__esModule = !0, e.exports.default = e.exports
         },
         e875: function(e, t) {
-            e.exports = "https://localhost/api/file/image/pyq@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "pyq@3x.png"
         },
         e956: function(e, t, n) {
             var o = n("47a9");
@@ -27626,7 +27636,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             t.default = s
         },
         ea38: function(e, t) {
-            e.exports = "https://localhost/api/file/image/导航@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "导航@3x.png"
         },
         ecbe: function(e, t, n) {
             Object.defineProperty(t, "__esModule", {
@@ -27688,7 +27698,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             n.n(o).a
         },
         f379: function(e, t) {
-            e.exports = "https://localhost/api/file/image/咨询顾问@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "咨询顾问@3x.png"
         },
         f8f0: function(e, t, n) {
             var o = n("47a9");
@@ -27727,7 +27737,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             t.getOrderPrice = u
         },
         f9bc: function(e, t) {
-            e.exports = "https://localhost/api/file/image/wx_gf@3x.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "wx_gf@3x.png"
         },
         fd42: function(e, t, n) {
             var o = n("47a9"),
@@ -27740,7 +27750,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             n.n(o).a
         },
         ff2d: function(e, t) {
-            e.exports = "https://localhost/api/file/image/logo.png"
+            e.exports = __APP_CONFIG__.imageBaseUrl + "/" + "logo.png"
         }
     }
 ]);
