@@ -369,3 +369,33 @@ CREATE TABLE IF NOT EXISTS `counselor_calendar` (
   INDEX idx_counselor_date (counselor_id, date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练可预约时间表';
 
+-- 数据字典类型表
+CREATE TABLE IF NOT EXISTS `dict_type` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '类型ID',
+  `code` VARCHAR(50) UNIQUE NOT NULL COMMENT '类型编码',
+  `name` VARCHAR(100) NOT NULL COMMENT '类型名称',
+  `description` VARCHAR(500) COMMENT '描述',
+  `sort_order` INT DEFAULT 0 COMMENT '排序',
+  `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_code (code),
+  INDEX idx_enabled (enabled)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='数据字典类型表';
+
+-- 数据字典项表
+CREATE TABLE IF NOT EXISTS `dict_item` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '项ID',
+  `type_id` BIGINT NOT NULL COMMENT '类型ID',
+  `type_code` VARCHAR(50) NOT NULL COMMENT '类型编码',
+  `label` VARCHAR(100) NOT NULL COMMENT '显示标签',
+  `value` VARCHAR(100) COMMENT '值',
+  `sort_order` INT DEFAULT 0 COMMENT '排序',
+  `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_type_id (type_id),
+  INDEX idx_type_code (type_code),
+  INDEX idx_enabled (enabled)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='数据字典项表';
+

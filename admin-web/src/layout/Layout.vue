@@ -69,6 +69,7 @@
             </template>
             <el-menu-item index="/settings">基本设置</el-menu-item>
             <el-menu-item index="/settings/wxpay">微信支付配置</el-menu-item>
+            <el-menu-item index="/dict">基础数据</el-menu-item>
           </el-sub-menu>
         </template>
 
@@ -139,6 +140,7 @@ const activeMenu = computed(() => {
   if (path.startsWith('/account')) return '/account'
   if (path.startsWith('/report')) return '/report'
   if (path.startsWith('/settings')) return '/settings'
+  if (path.startsWith('/dict')) return '/dict'
   // 教练页面
   if (path.startsWith('/coach/dashboard')) return '/coach/dashboard'
   if (path.startsWith('/coach/profile')) return '/coach/profile'

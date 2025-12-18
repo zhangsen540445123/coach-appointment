@@ -101,6 +101,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { customerApi } from '@/api/customer'
+import { dictApi } from '@/api/dict'
 
 const loading = ref(false)
 const tableData = ref([])
@@ -110,17 +111,28 @@ const dialogVisible = ref(false)
 const dialogTitle = ref('编辑客户信息')
 const isReadonly = ref(false)
 
-// 选项数据
-const careerOptions = ['国企事业单位', '外资', '私企', '个体', '自由职业', '专业人员(医生、律师、老师)', '学生', '退休人员', '其他']
-const marriageOptions = ['已婚', '单身', '恋爱中', '丧偶', '离异', '其他']
-const childrenOptions = ['没有', '一个孩子', '一个以上', '其他']
-const channelOptions = [
-  { value: 1, text: '只管去做成长会' },
-  { value: 2, text: '公众号' },
-  { value: 3, text: '悦行活动' },
-  { value: 4, text: '朋友推荐' },
-  { value: 5, text: '其他' }
-]
+// 选项数据（从字典动态加载）
+const careerOptions = ref([])
+const marriageOptions = ref([])
+const childrenOptions = ref([])
+const channelOptions = ref([])
+
+// 加载字典数据
+const loadDictOptions = async () => {
+  try {
+    const res = await dictApi.getAllData()
+    if (res.code === 0 && res.data) {
+      careerOptions.value = res.data.career || []
+      marriageOptions.value = res.data.marriage || []
+      childrenOptions.value = res.data.children || []
+      // 渠道需要转换格式
+      const channels = res.data.channel || []
+      channelOptions.value = channels.map((text, idx) => ({ value: idx + 1, text }))
+    }
+  } catch (e) {
+    console.error('加载字典数据失败', e)
+  }
+}
 
 const form = reactive({
   id: null, name: '', age: null, sex: 1, otherCity: '', otherCareer: '',
