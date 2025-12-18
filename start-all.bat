@@ -26,7 +26,7 @@ echo    Services Started!
 echo ========================================
 echo.
 echo    MySQL:        localhost:3306
-echo    Backend API:  http://localhost:8080
+echo    Backend API:  https://localhost
 echo    Admin Web:    http://localhost:3000
 echo    Nginx:        http://localhost:80
 echo.

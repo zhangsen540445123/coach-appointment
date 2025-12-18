@@ -144,15 +144,15 @@ INSERT INTO `consult_order` (`id`, `order_no`, `user_id`, `counselor_id`, `consu
 
 INSERT INTO `topic_direction` (`name`, `value`, `icon_url`, `sort_order`, `enabled`) VALUES
 ('全部', NULL, NULL, 0, 1),
-('身心健康', '身心健康', 'http://localhost:8080/api/file/image/身心健康@3x.png', 1, 1),
-('人际关系', '人际关系', 'http://localhost:8080/api/file/image/人际关系@3x.png', 2, 1),
-('婚姻恋爱', '婚姻恋爱', 'http://localhost:8080/api/file/image/婚姻恋爱@3x.png', 3, 1),
-('亲子教育', '亲子教育', 'http://localhost:8080/api/file/image/亲子教育@3x.png', 4, 1),
-('个人成长', '个人成长', 'http://localhost:8080/api/file/image/个人成长@3x.png', 5, 1),
-('情绪困扰', '情绪困扰', 'http://localhost:8080/api/file/image/情绪困扰@3x.png', 6, 1),
-('学业职场', '学业职场', 'http://localhost:8080/api/file/image/学业职场@3x.png', 7, 1),
-('家庭困扰', '家庭困扰', 'http://localhost:8080/api/file/image/家庭困扰@3x.png', 8, 1),
-('性心理', '性心理', 'http://localhost:8080/api/file/image/性心理@3x.png', 9, 1);
+('身心健康', '身心健康', 'https://localhost/api/file/image/身心健康@3x.png', 1, 1),
+('人际关系', '人际关系', 'https://localhost/api/file/image/人际关系@3x.png', 2, 1),
+('婚姻恋爱', '婚姻恋爱', 'https://localhost/api/file/image/婚姻恋爱@3x.png', 3, 1),
+('亲子教育', '亲子教育', 'https://localhost/api/file/image/亲子教育@3x.png', 4, 1),
+('个人成长', '个人成长', 'https://localhost/api/file/image/个人成长@3x.png', 5, 1),
+('情绪困扰', '情绪困扰', 'https://localhost/api/file/image/情绪困扰@3x.png', 6, 1),
+('学业职场', '学业职场', 'https://localhost/api/file/image/学业职场@3x.png', 7, 1),
+('家庭困扰', '家庭困扰', 'https://localhost/api/file/image/家庭困扰@3x.png', 8, 1),
+('性心理', '性心理', 'https://localhost/api/file/image/性心理@3x.png', 9, 1);
 
 -- =====================================================
 -- 初始化排序选项数据

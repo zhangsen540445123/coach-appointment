@@ -8,6 +8,7 @@ import com.umxinli.service.CounselorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,10 @@ public class CounselorServiceImpl implements CounselorService {
     
     @Autowired
     private CounselorMapper counselorMapper;
+
+
+    @Value("${app.base-url:https://localhost}")
+    private String baseUrl;
 
     @Override
     @Cacheable(value = "counselor", key = "#id")
@@ -72,8 +77,8 @@ public class CounselorServiceImpl implements CounselorService {
             CounselorFilterResponse.CounselorInfo info = new CounselorFilterResponse.CounselorInfo();
             info.setCounselorId(c.getId());
             info.setName(c.getName());
-            info.setHeadUrl(c.getHeadUrl());
-            info.setHeadUrlSquare(c.getHeadUrlSquare());
+            info.setHeadUrl(baseUrl + c.getHeadUrl());
+            info.setHeadUrlSquare(baseUrl + c.getHeadUrlSquare());
             info.setQualifications(c.getQualifications());
             info.setCityName(c.getCityName());
 

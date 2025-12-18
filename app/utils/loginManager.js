@@ -6,7 +6,7 @@
  */
 
 // 后端 API 基础地址（根据实际部署环境修改）
-// const BASE_URL = 'http://localhost:8080'; // HTTP 开发环境（已弃用）
+// const BASE_URL = 'https://localhost'; // HTTP 开发环境（已弃用）
 const BASE_URL = 'https://localhost'; // HTTPS 开发环境（通过 Nginx 网关）
 // const BASE_URL = 'https://your-domain.com'; // 生产环境
 

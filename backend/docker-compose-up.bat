@@ -47,7 +47,7 @@ if %ERRORLEVEL% NEQ 0 (
 
 echo.
 echo [*] All services started successfully!
-echo [*] Backend API: http://localhost:8080/api
+echo [*] Backend API: https://localhost/api
 echo [*] MySQL: localhost:3306
 echo [*] Database: umxinli_db
 echo [*] MySQL User: root / root

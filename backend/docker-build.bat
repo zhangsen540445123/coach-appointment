@@ -58,7 +58,7 @@ call docker run -d ^
 
 echo.
 echo [*] Docker container started successfully!
-echo [*] Server will run on http://localhost:8080/api
+echo [*] Server will run on https://localhost/api
 echo [*] View logs: docker logs -f umxinli-backend
 echo.
 pause
