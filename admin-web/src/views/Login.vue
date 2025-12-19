@@ -37,23 +37,41 @@ const rules = {
 
 const handleLogin = async () => {
   if (!formRef.value) return
-  await formRef.value.validate(async (valid) => {
+
+  try {
+    // Use promise-based validation instead of callback-based
+    const valid = await formRef.value.validate().catch(() => false)
     if (!valid) return
+
     loading.value = true
-    try {
-      const res = await userStore.login(form.username, form.password)
-      if (res.code === 200) {
-        ElMessage.success('Login successful')
-        router.push('/dashboard')
-      } else {
-        ElMessage.error(res.msg || 'Login failed')
-      }
-    } catch (e) {
-      ElMessage.error('Login failed')
-    } finally {
-      loading.value = false
+    const res = await userStore.login(form.username, form.password)
+
+    // 后端 ApiResponse.success() 返回 code=0，不是 200
+    if (res.code === 0) {
+      ElMessage({
+        message: '登录成功',
+        type: 'success',
+        duration: 2000
+      })
+      // 根据用户角色跳转到对应的首页
+      const targetPath = userStore.role === 2 ? '/coach/dashboard' : '/dashboard'
+      await router.push(targetPath)
+    } else {
+      ElMessage({
+        message: res.msg || '登录失败',
+        type: 'error',
+        duration: 3000
+      })
     }
-  })
+  } catch (e) {
+    ElMessage({
+      message: '登录失败',
+      type: 'error',
+      duration: 3000
+    })
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
