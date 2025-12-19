@@ -71,8 +71,8 @@ public interface UserMapper {
     /**
      * 插入用户
      */
-    @Insert("INSERT INTO user (id, phone, name, avatar, gender, city, province, openid, created_at, updated_at) " +
-            "VALUES (#{id}, #{phone}, #{name}, #{avatar}, #{gender}, #{city}, #{province}, #{openid}, NOW(), NOW())")
+    @Insert("INSERT INTO user (id, phone, name, avatar, gender, city, province, openid, status, last_login_time, created_at, updated_at) " +
+            "VALUES (#{id}, #{phone}, #{name}, #{avatar}, #{gender}, #{city}, #{province}, #{openid}, COALESCE(#{status}, 1), NOW(), NOW(), NOW())")
     int insert(User user);
 
     /**
@@ -96,7 +96,13 @@ public interface UserMapper {
     int delete(Long id);
 
     /**
-     * 更新用户状态
+     * 更新最后登录时间和IP
+     */
+    @Update("UPDATE user SET last_login_time = NOW(), last_login_ip = #{lastLoginIp}, updated_at = NOW() WHERE id = #{id}")
+    int updateLastLogin(@Param("id") Long id, @Param("lastLoginIp") String lastLoginIp);
+
+    /**
+     * 切换用户状态
      */
     @Update("UPDATE user SET status = #{status}, updated_at = NOW() WHERE id = #{id}")
     int updateStatus(@Param("id") Long id, @Param("status") Integer status);

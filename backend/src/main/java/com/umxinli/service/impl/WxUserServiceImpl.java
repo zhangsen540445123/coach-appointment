@@ -43,18 +43,21 @@ public class WxUserServiceImpl implements WxUserService {
     @Override
     public WxLoginResponse login(String appid, String code) throws Exception {
         log.info("Processing WeChat login - appid: {}, code: {}", appid, code);
-        
+
         // 调用微信接口获取openid和session_key
         Map<String, Object> wxResult = callWxApi(appid, code);
         String openId = (String) wxResult.get("openid");
-        
+
         if (openId == null) {
             throw new Exception("获取openid失败");
         }
-        
+
         // 查找或创建用户
         User user = findOrCreateUserByOpenId(openId);
-        
+
+        // 更新最后登录时间
+        updateUserLastLoginTime(user.getId());
+
         // 生成响应
         return buildLoginResponse(user, openId);
     }
@@ -181,23 +184,26 @@ public class WxUserServiceImpl implements WxUserService {
     @Override
     public WxLoginResponse loginByPhone(String appid, String code, String mobile, String mobileArea) throws Exception {
         log.info("Login by phone - appid: {}, mobile: {}", appid, mobile);
-        
+
         // 调用微信接口获取openid
         Map<String, Object> wxResult = callWxApi(appid, code);
         String openId = (String) wxResult.get("openid");
-        
+
         if (openId == null) {
             throw new Exception("获取openid失败");
         }
-        
+
         // 查找或创建用户
         User user = findOrCreateUserByPhone(mobile, openId);
-        
+
+        // 更新最后登录时间
+        updateUserLastLoginTime(user.getId());
+
         // 生成响应
         WxLoginResponse response = buildLoginResponse(user, openId);
         response.setMobile(mobile);
         response.setMobileArea(mobileArea);
-        
+
         return response;
     }
 
@@ -392,6 +398,20 @@ public class WxUserServiceImpl implements WxUserService {
         }
 
         return user;
+    }
+
+    /**
+     * 更新用户最后登录时间
+     */
+    private void updateUserLastLoginTime(Long userId) {
+        if (userMapper != null && userId != null) {
+            try {
+                userMapper.updateLastLogin(userId, null); // IP 在小程序端不易获取，设为null
+                log.info("更新用户最后登录时间成功: userId={}", userId);
+            } catch (Exception e) {
+                log.warn("更新用户最后登录时间失败: userId={}, error={}", userId, e.getMessage());
+            }
+        }
     }
 
     private WxLoginResponse buildLoginResponse(User user, String openId) {

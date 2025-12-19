@@ -9,9 +9,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `city` VARCHAR(100) COMMENT '城市',
   `province` VARCHAR(100) COMMENT '省份',
   `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-正常',
+  `last_login_time` TIMESTAMP NULL COMMENT '最后登录时间',
+  `last_login_ip` VARCHAR(50) COMMENT '最后登录IP',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-正常',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_phone (phone),
+  INDEX idx_status (status),
+  INDEX idx_created_at (created_at)
   INDEX idx_created_at (created_at),
   INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
@@ -396,8 +401,8 @@ CREATE TABLE IF NOT EXISTS `dict_item` (
   `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  UNIQUE INDEX uk_type_label (type_code, label),
   INDEX idx_type_id (type_id),
-  INDEX idx_type_code (type_code),
   INDEX idx_enabled (enabled)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='数据字典项表';
 
