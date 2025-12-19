@@ -187,7 +187,7 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                 return new Promise(function(resolve, reject) {
                                     var loginManager = require('../../utils/loginManager');
                                     wx.request({
-                                        url: loginManager.BASE_URL + '/api/filter/config',
+                                        url: loginManager.BASE_URL + '/filter/config',
                                         method: 'GET',
                                         success: function(res) {
                                             console.log('筛选配置响应:', res);
