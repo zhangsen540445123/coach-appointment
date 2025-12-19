@@ -53,12 +53,37 @@ public class CounselorServiceImpl implements CounselorService {
     @Override
     public CounselorFilterResponse filterCounselors(CounselorFilterRequest request) {
         log.info("Filtering counselors with request: {}", request);
-        
+
         CounselorFilterRequest.Pager pager = request.getPager();
         if (pager == null) {
             pager = new CounselorFilterRequest.Pager(1, 7);
         }
-        
+
+        // 处理 shortcut 参数，映射到 filter.sort
+        // shortcut: 0=近期可约, 1=低价咨询, 2=线下咨询
+        String shortcut = request.getShortcut();
+        CounselorFilterRequest.FilterCriteria filter = request.getFilter();
+        if (shortcut != null && !shortcut.isEmpty()) {
+            if (filter == null) {
+                filter = new CounselorFilterRequest.FilterCriteria();
+                request.setFilter(filter);
+            }
+            switch (shortcut) {
+                case "0":
+                    // 近期可约 - 按最近可预约时间排序
+                    filter.setSort(3);
+                    break;
+                case "1":
+                    // 低价咨询 - 按价格从低到高排序
+                    filter.setSort(1);
+                    break;
+                case "2":
+                    // 线下咨询 - 筛选支持线下的教练
+                    filter.setConsultWay(1);
+                    break;
+            }
+        }
+
         int offset = (pager.getIndex() - 1) * pager.getSize();
         List<Counselor> counselors = counselorMapper.selectByFilter(
             request.getName(),

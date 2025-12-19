@@ -50,6 +50,10 @@
             <el-icon><Ticket /></el-icon>
             <span>优惠券管理</span>
           </el-menu-item>
+          <el-menu-item index="/studio">
+            <el-icon><OfficeBuilding /></el-icon>
+            <span>工作室管理</span>
+          </el-menu-item>
           <el-menu-item index="/account">
             <el-icon><UserFilled /></el-icon>
             <span>账号管理</span>
