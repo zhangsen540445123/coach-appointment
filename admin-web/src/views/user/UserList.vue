@@ -12,8 +12,16 @@
             <el-avatar :src="scope.row.avatar" :size="40" />
           </template>
         </el-table-column>
-        <el-table-column prop="nickname" label="昵称" width="150" />
+        <el-table-column prop="username" label="用户名" width="150" />
+        <el-table-column prop="realName" label="真实姓名" width="120" />
         <el-table-column prop="phone" label="手机号" width="150" />
+        <el-table-column prop="role" label="角色" width="100">
+          <template #default="scope">
+            <el-tag :type="scope.row.role === 1 ? 'danger' : 'primary'">
+              {{ scope.row.role === 1 ? '管理员' : '教练' }}
+            </el-tag>
+          </template>
+        </el-table-column>
         <el-table-column prop="status" label="状态" width="100">
           <template #default="scope">
             <el-tag :type="scope.row.status === 1 ? 'success' : 'danger'">
@@ -21,7 +29,16 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="createTime" label="注册时间" width="180" />
+        <el-table-column prop="lastLoginTime" label="最后登录时间" width="180">
+          <template #default="scope">
+            {{ scope.row.lastLoginTime || '-' }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="createdAt" label="注册时间" width="180">
+          <template #default="scope">
+            {{ scope.row.createdAt || '-' }}
+          </template>
+        </el-table-column>
         <el-table-column label="操作" width="180" fixed="right">
           <template #default="scope">
             <el-button :type="scope.row.status === 1 ? 'warning' : 'success'" size="small" @click="handleToggleStatus(scope.row)">

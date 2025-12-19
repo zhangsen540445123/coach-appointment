@@ -1,5 +1,7 @@
 package com.umxinli.entity;
 
+import java.util.Date;
+
 public class User extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
@@ -11,6 +13,11 @@ public class User extends BaseEntity {
     private String city;
     private String province;
     private String openid;
+    private Integer status; // 0-禁用 1-正常
+    private Date lastLoginTime;
+    private String lastLoginIp;
+    private Date createdAt;
+    private Date updatedAt;
 
     public User() {}
 
@@ -86,5 +93,45 @@ public class User extends BaseEntity {
 
     public void setOpenid(String openid) {
         this.openid = openid;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getLastLoginIp() {
+        return lastLoginIp;
+    }
+
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
