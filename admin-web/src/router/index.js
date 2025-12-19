@@ -61,6 +61,8 @@ const routes = [{
                     import ('@/views/account/AccountList.vue'), meta: { title: '账号管理', roles: [1] } },
             { path: 'dict', name: 'DictManage', component: () =>
                     import ('@/views/admin/DictManage.vue'), meta: { title: '基础数据', roles: [1] } },
+            { path: 'studio', name: 'StudioList', component: () =>
+                    import ('@/views/studio/StudioList.vue'), meta: { title: '工作室管理', roles: [1] } },
 
             // 报表页面
             { path: 'report/financial', name: 'FinancialReport', component: () =>

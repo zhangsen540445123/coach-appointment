@@ -403,3 +403,38 @@ CREATE TABLE IF NOT EXISTS `dict_item` (
   INDEX idx_enabled (enabled)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='数据字典项表';
 
+-- 咨询工作室表
+CREATE TABLE IF NOT EXISTS `consult_studio` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '工作室ID',
+  `studio_name` VARCHAR(200) NOT NULL COMMENT '工作室名称',
+  `studio_type` INT DEFAULT 0 COMMENT '工作室类型 0-线下工作室 1-线上工作室',
+  `studio_cover_img_list` JSON COMMENT '封面图片列表',
+  `studio_open_time` VARCHAR(100) COMMENT '营业时间',
+  `studio_detail` LONGTEXT COMMENT '工作室介绍(富文本)',
+  `summary_address` VARCHAR(500) COMMENT '地址摘要',
+  `full_address` VARCHAR(500) COMMENT '详细地址',
+  `location_longitude` DECIMAL(10, 6) COMMENT '经度',
+  `location_latitude` DECIMAL(10, 6) COMMENT '纬度',
+  `concat_phone` VARCHAR(50) COMMENT '联系电话',
+  `qr_code_url` VARCHAR(500) COMMENT '二维码图片URL',
+  `sort_order` INT DEFAULT 0 COMMENT '排序',
+  `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_studio_type (studio_type),
+  INDEX idx_enabled (enabled),
+  INDEX idx_sort_order (sort_order)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='咨询工作室表';
+
+-- 工作室教练关联表
+CREATE TABLE IF NOT EXISTS `studio_counselor` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT 'ID',
+  `studio_id` BIGINT NOT NULL COMMENT '工作室ID',
+  `counselor_id` BIGINT NOT NULL COMMENT '教练ID',
+  `sort_order` INT DEFAULT 0 COMMENT '排序',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  UNIQUE INDEX uk_studio_counselor (studio_id, counselor_id),
+  INDEX idx_studio_id (studio_id),
+  INDEX idx_counselor_id (counselor_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='工作室教练关联表';
+
