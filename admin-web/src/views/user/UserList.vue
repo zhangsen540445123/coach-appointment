@@ -53,10 +53,16 @@ const fetchData = async () => {
   loading.value = true
   try {
     const res = await userApi.getList(queryParams)
-    if (res.code === 200) {
+    // 后端 ApiResponse.success() 返回 code=0
+    if (res.code === 0) {
       tableData.value = res.data.list || []
       total.value = res.data.total || 0
+    } else {
+      ElMessage.error(res.msg || '获取用户列表失败')
     }
+  } catch (e) {
+    ElMessage.error('获取用户列表失败')
+    console.error(e)
   } finally {
     loading.value = false
   }
@@ -68,7 +74,8 @@ const handlePageChange = (page) => { queryParams.page = page; fetchData() }
 const handleToggleStatus = async (row) => {
   try {
     const res = await userApi.toggleStatus(row.id)
-    if (res.code === 200) {
+    // 后端 ApiResponse.success() 返回 code=0
+    if (res.code === 0) {
       ElMessage.success('状态更新成功')
       fetchData()
     } else {
@@ -84,7 +91,8 @@ const handleDelete = (row) => {
   ElMessageBox.confirm('确定要删除该用户吗？', '提示', { type: 'warning' }).then(async () => {
     try {
       const res = await userApi.delete(row.id)
-      if (res.code === 200) {
+      // 后端 ApiResponse.success() 返回 code=0
+      if (res.code === 0) {
         ElMessage.success('删除成功')
         fetchData()
       } else {

@@ -94,5 +94,11 @@ public interface UserMapper {
      */
     @Delete("DELETE FROM user WHERE id = #{id}")
     int delete(Long id);
+
+    /**
+     * 更新用户状态
+     */
+    @Update("UPDATE user SET status = #{status}, updated_at = NOW() WHERE id = #{id}")
+    int updateStatus(@Param("id") Long id, @Param("status") Integer status);
 }
 

@@ -8,10 +8,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `gender` INT COMMENT '性别 0-未知 1-男 2-女',
   `city` VARCHAR(100) COMMENT '城市',
   `province` VARCHAR(100) COMMENT '省份',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-正常',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_phone (phone),
-  INDEX idx_created_at (created_at)
+  INDEX idx_created_at (created_at),
+  INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
 
 -- 教练表

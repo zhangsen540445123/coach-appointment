@@ -11,6 +11,8 @@ public class User extends BaseEntity {
     private String city;
     private String province;
     private String openid;
+    private Integer status;  // 0-禁用, 1-正常
+    private java.util.Date createdAt;
 
     public User() {}
 
@@ -86,5 +88,21 @@ public class User extends BaseEntity {
 
     public void setOpenid(String openid) {
         this.openid = openid;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public java.util.Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(java.util.Date createdAt) {
+        this.createdAt = createdAt;
     }
 }
