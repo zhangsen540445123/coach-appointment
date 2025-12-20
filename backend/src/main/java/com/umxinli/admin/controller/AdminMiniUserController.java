@@ -45,17 +45,22 @@ public class AdminMiniUserController {
             
             // 转换为前端需要的格式
             List<Map<String, Object>> resultList = new java.util.ArrayList<>();
+            java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             for (User user : list) {
                 Map<String, Object> item = new HashMap<>();
                 item.put("id", user.getId());
-                item.put("nickname", user.getName());  // 前端使用 nickname
+                item.put("username", user.getName());  // 用户名（微信昵称）
+                item.put("realName", user.getName());  // 真实姓名（暂时使用微信昵称）
                 item.put("avatar", user.getAvatar());
                 item.put("phone", user.getPhone());
                 item.put("gender", user.getGender());
                 item.put("city", user.getCity());
                 item.put("province", user.getProvince());
                 item.put("status", user.getStatus() != null ? user.getStatus() : 1);
-                item.put("createTime", user.getCreatedAt());
+                item.put("role", 0);  // 小程序用户角色为0（区别于管理员1和教练2）
+                // 格式化日期
+                item.put("createdAt", user.getCreatedAt() != null ? dateFormat.format(user.getCreatedAt()) : null);
+                item.put("lastLoginTime", user.getLastLoginTime() != null ? dateFormat.format(user.getLastLoginTime()) : null);
                 resultList.add(item);
             }
             

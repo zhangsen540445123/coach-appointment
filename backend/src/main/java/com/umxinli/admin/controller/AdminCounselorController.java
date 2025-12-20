@@ -62,7 +62,8 @@ public class AdminCounselorController {
                 item.put("cityName", c.getCityName());
                 item.put("consultPrice", c.getConsultPrice());
                 item.put("canConsult", c.getCanConsult());
-                item.put("isTop", 0); // 默认值
+                item.put("isTop", c.getIsTop() != null ? c.getIsTop() : 0);
+                item.put("sortOrder", c.getSortOrder() != null ? c.getSortOrder() : 0);
                 // 获取关联账号
                 AdminUser account = adminUserMapper.selectByCounselorId(c.getId());
                 if (account != null) {
@@ -196,6 +197,27 @@ public class AdminCounselorController {
             }
         } catch (Exception e) {
             log.error("Error toggling counselor status", e);
+            return ApiResponse.error("操作失败");
+        }
+    }
+
+    /**
+     * 设置教练置顶状态
+     * POST /admin/counselor/{id}/setTop
+     */
+    @PostMapping("/{id}/setTop")
+    public ApiResponse setTop(@PathVariable Long id, @RequestBody Map payload) {
+        log.info("Set counselor top status: {}", id);
+        try {
+            Integer isTop = (Integer) payload.get("isTop");
+            boolean result = adminCounselorService.setTop(id, isTop);
+            if (result) {
+                return ApiResponse.success(isTop == 1 ? "已置顶" : "已取消置顶");
+            } else {
+                return ApiResponse.error("操作失败");
+            }
+        } catch (Exception e) {
+            log.error("Error setting counselor top status", e);
             return ApiResponse.error("操作失败");
         }
     }

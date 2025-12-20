@@ -52,5 +52,10 @@ public interface AdminCounselorService {
      * 启用/禁用教练
      */
     boolean toggleStatus(Long id, Integer canConsult);
+
+    /**
+     * 设置教练置顶状态
+     */
+    boolean setTop(Long id, Integer isTop);
 }
 

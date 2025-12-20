@@ -116,7 +116,15 @@ const loadCalendar = async () => {
   loading.value = true
   try {
     const res = await counselorApi.getCalendar(counselorId)
-    if (res.code === 0 || res.code === 200) existingSlots.value = res.data || []
+    if (res.code === 0 || res.code === 200) {
+      existingSlots.value = res.data || []
+      // 如果当前选择了日期，同步更新选中的时间段
+      if (selectedDate.value) {
+        selectedSlots.value = existingSlots.value
+          .filter(s => s.date === selectedDate.value)
+          .map(s => s.startTime)
+      }
+    }
   } finally { loading.value = false }
 }
 
@@ -139,15 +147,24 @@ const saveCalendar = async () => {
       date: selectedDate.value, startTime: time, consultWay: newSlot.consultWay, consultType: newSlot.consultType
     }))
     const res = await counselorApi.saveCalendar(counselorId, slots)
-    if (res.code === 0 || res.code === 200) { ElMessage.success('保存成功'); loadCalendar() }
-    else ElMessage.error(res.msg || '保存失败')
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('保存成功')
+      // 重新加载数据，loadCalendar 会自动同步 selectedSlots
+      await loadCalendar()
+    } else {
+      ElMessage.error(res.msg || '保存失败')
+    }
   } finally { saving.value = false }
 }
 
 const deleteSlot = async (row) => {
   try {
     const res = await counselorApi.deleteCalendarSlot(row.id)
-    if (res.code === 0 || res.code === 200) { ElMessage.success('删除成功'); loadCalendar() }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('删除成功')
+      // 重新加载数据，loadCalendar 会自动同步 selectedSlots
+      await loadCalendar()
+    }
   } catch (e) { ElMessage.error('删除失败') }
 }
 

@@ -31,7 +31,16 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
 
     @Override
     public PageResponse getList(PageRequest request) {
-        List list = counselorMapper.selectAll();
+        String keyword = request.getKeyword();
+        List list;
+
+        // 如果有搜索关键词，使用过滤查询
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            list = counselorMapper.selectByFilter(keyword, null, 1000, 0);
+        } else {
+            list = counselorMapper.selectAll();
+        }
+
         int total = list.size();
         // 简单分页处理
         int start = request.getOffset();
@@ -132,6 +141,22 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
         Counselor counselor = counselorMapper.selectById(id);
         if (counselor != null) {
             counselor.setCanConsult(canConsult);
+            return counselorMapper.update(counselor) > 0;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean setTop(Long id, Integer isTop) {
+        Counselor counselor = counselorMapper.selectById(id);
+        if (counselor != null) {
+            counselor.setIsTop(isTop);
+            // 如果置顶，设置一个较高的排序权重
+            if (isTop == 1) {
+                counselor.setSortOrder(100);
+            } else {
+                counselor.setSortOrder(0);
+            }
             return counselorMapper.update(counselor) > 0;
         }
         return false;

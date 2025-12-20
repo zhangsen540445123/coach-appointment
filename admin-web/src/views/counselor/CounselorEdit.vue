@@ -23,7 +23,9 @@
         </el-form-item>
 
         <el-form-item :label="t('city')">
-          <el-input v-model="form.cityName" :placeholder="t('enterCity')" />
+          <el-select v-model="form.cityName" :placeholder="t('selectCity')" filterable allow-create style="width: 100%">
+            <el-option v-for="city in cities" :key="city" :label="city" :value="city" />
+          </el-select>
         </el-form-item>
 
         <!-- 头像上传 -->
@@ -223,6 +225,7 @@ import { ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 import { counselorApi } from '@/api/counselor'
 import { dictApi } from '@/api/dict'
+import { cities } from '@/utils/cities'
 
 const route = useRoute()
 const router = useRouter()
@@ -238,7 +241,7 @@ const translations = {
   zh: {
     editCoach: '编辑教练', addCoach: '添加教练', basicInfo: '基本信息',
     name: '姓名', enterName: '请输入姓名', gender: '性别', male: '男', female: '女',
-    city: '城市', enterCity: '请输入城市',
+    city: '城市', selectCity: '请选择城市',
     avatarUpload: '头像上传', avatar: '头像', avatarTip: '点击上传头像图片',
     squareAvatar: '方形头像', squareAvatarTip: '点击上传方形头像',
     professionalInfo: '专业信息', qualifications: '资质认证', selectQualifications: '选择或输入资质',

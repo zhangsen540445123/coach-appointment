@@ -15,13 +15,14 @@
         <el-table-column prop="username" label="用户名" width="150" />
         <el-table-column prop="realName" label="真实姓名" width="120" />
         <el-table-column prop="phone" label="手机号" width="150" />
-        <el-table-column prop="role" label="角色" width="100">
+        <el-table-column prop="gender" label="性别" width="80">
           <template #default="scope">
-            <el-tag :type="scope.row.role === 1 ? 'danger' : 'primary'">
-              {{ scope.row.role === 1 ? '管理员' : '教练' }}
-            </el-tag>
+            <span v-if="scope.row.gender === 1">男</span>
+            <span v-else-if="scope.row.gender === 2">女</span>
+            <span v-else>-</span>
           </template>
         </el-table-column>
+        <el-table-column prop="city" label="城市" width="120" />
         <el-table-column prop="status" label="状态" width="100">
           <template #default="scope">
             <el-tag :type="scope.row.status === 1 ? 'success' : 'danger'">
@@ -70,8 +71,8 @@ const fetchData = async () => {
   loading.value = true
   try {
     const res = await userApi.getList(queryParams)
-    // 后端 ApiResponse.success() 返回 code=0
-    if (res.code === 0) {
+    // 后端 ApiResponse.success() 返回 code=200
+    if (res.code === 200) {
       tableData.value = res.data.list || []
       total.value = res.data.total || 0
     } else {
@@ -91,8 +92,8 @@ const handlePageChange = (page) => { queryParams.page = page; fetchData() }
 const handleToggleStatus = async (row) => {
   try {
     const res = await userApi.toggleStatus(row.id)
-    // 后端 ApiResponse.success() 返回 code=0
-    if (res.code === 0) {
+    // 后端 ApiResponse.success() 返回 code=200
+    if (res.code === 200) {
       ElMessage.success('状态更新成功')
       fetchData()
     } else {
@@ -108,8 +109,8 @@ const handleDelete = (row) => {
   ElMessageBox.confirm('确定要删除该用户吗？', '提示', { type: 'warning' }).then(async () => {
     try {
       const res = await userApi.delete(row.id)
-      // 后端 ApiResponse.success() 返回 code=0
-      if (res.code === 0) {
+      // 后端 ApiResponse.success() 返回 code=200
+      if (res.code === 200) {
         ElMessage.success('删除成功')
         fetchData()
       } else {

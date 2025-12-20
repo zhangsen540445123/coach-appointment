@@ -35,6 +35,8 @@ public class Counselor extends BaseEntity {
     private String consultMsg;
     private Object consult; // JSON数组
     private String articleList;
+    private Integer isTop; // 是否置顶：0-否，1-是
+    private Integer sortOrder; // 排序权重，数值越大越靠前
 
     public Counselor() {}
 
@@ -122,4 +124,10 @@ public class Counselor extends BaseEntity {
 
     public String getArticleList() { return articleList; }
     public void setArticleList(String articleList) { this.articleList = articleList; }
+
+    public Integer getIsTop() { return isTop; }
+    public void setIsTop(Integer isTop) { this.isTop = isTop; }
+
+    public Integer getSortOrder() { return sortOrder; }
+    public void setSortOrder(Integer sortOrder) { this.sortOrder = sortOrder; }
 }

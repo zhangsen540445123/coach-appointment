@@ -31,6 +31,8 @@
         <result column="consult_msg" property="consultMsg"/>
         <result column="consult" property="consult" typeHandler="com.umxinli.handler.FastJsonTypeHandler"/>
         <result column="article_list" property="articleList"/>
+        <result column="is_top" property="isTop"/>
+        <result column="sort_order" property="sortOrder"/>
         <result column="created_at" property="createdAt"/>
         <result column="updated_at" property="updatedAt"/>
     </resultMap>
@@ -40,7 +42,7 @@
     </select>
 
     <select id="selectAll" resultMap="counselorResultMap">
-        SELECT * FROM counselor ORDER BY created_at DESC
+        SELECT * FROM counselor ORDER BY is_top DESC, sort_order DESC, created_at DESC
     </select>
 
     <sql id="filterConditions">
@@ -138,7 +140,7 @@
             star_num, consult_type, support_online_consult, support_offline_consult,
             can_consult, experience_date, experience_time, city_name, training,
             special, school, address, face_msg, consult_msg, consult, article_list,
-            created_at, updated_at
+            is_top, sort_order, created_at, updated_at
         ) VALUES (
             #{id}, #{name}, #{gender}, #{headUrl}, #{headUrlSquare}, #{videoUrl},
             #{imageUrls, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
@@ -152,7 +154,7 @@
             #{special}, #{school, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
             #{address}, #{faceMsg}, #{consultMsg},
             #{consult, typeHandler=com.umxinli.handler.FastJsonTypeHandler}, #{articleList},
-            NOW(), NOW()
+            COALESCE(#{isTop}, 0), COALESCE(#{sortOrder}, 0), NOW(), NOW()
         )
     </insert>
 
@@ -185,6 +187,8 @@
             consult_msg = #{consultMsg},
             consult = #{consult, typeHandler=com.umxinli.handler.FastJsonTypeHandler},
             article_list = #{articleList},
+            is_top = COALESCE(#{isTop}, is_top),
+            sort_order = COALESCE(#{sortOrder}, sort_order),
             updated_at = NOW()
         WHERE id = #{id}
     </update>
