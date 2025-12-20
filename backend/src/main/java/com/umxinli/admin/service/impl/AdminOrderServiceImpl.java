@@ -23,9 +23,9 @@ public class AdminOrderServiceImpl implements AdminOrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public PageResponse getList(PageRequest request, Integer status, Long counselorId) {
-        List list = orderMapper.selectList(request.getOffset(), request.getPageSize(), status);
-        int total = orderMapper.countByStatus(status);
+    public PageResponse getList(PageRequest request, Integer status, String keyword, Long counselorId) {
+        List list = orderMapper.selectListWithKeyword(request.getOffset(), request.getPageSize(), status, keyword);
+        int total = orderMapper.countByStatusAndKeyword(status, keyword);
         return new PageResponse(list, total, request.getPage(), request.getPageSize());
     }
 
@@ -45,12 +45,23 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 
     @Override
     public boolean cancel(Long id, String reason) throws Exception {
+        log.info("Cancelling order - id: {}, reason: {}", id, reason);
         Order order = orderMapper.selectById(id);
         if (order == null) {
+            log.error("Order not found - id: {}", id);
             throw new Exception("订单不存在");
         }
+        log.info("Order current status: {}", order.getStatus());
         // 4 = 已取消
-        return orderMapper.updateStatus(id, 4) > 0;
+        int result = orderMapper.updateStatus(id, 4);
+        log.info("Update result: {}", result);
+        if (result > 0) {
+            log.info("Order cancelled successfully - id: {}", id);
+            return true;
+        } else {
+            log.error("Failed to update order status - id: {}", id);
+            return false;
+        }
     }
 
     @Override

@@ -78,10 +78,15 @@ const loadData = async () => {
   try {
     const status = statusFilter.value === '' ? null : parseInt(statusFilter.value)
     const res = await counselorApi.getAuditList(pagination.value, status)
-    if (res.code === 0) {
+    if (res.code === 0 || res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
+    } else {
+      ElMessage.error(res.msg || '获取审核列表失败')
     }
+  } catch (e) {
+    console.error('Error loading audit list:', e)
+    ElMessage.error('获取审核列表失败')
   } finally {
     loading.value = false
   }
@@ -92,15 +97,29 @@ const handlePageChange = (page) => { pagination.value.page = page; loadData() }
 const handleApprove = async (row) => {
   try {
     const res = await counselorApi.audit(row.id, { status: 1, remark: '' })
-    if (res.code === 0) { ElMessage.success('Approved'); loadData() }
-  } catch (e) { ElMessage.error('Operation failed') }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('审核通过')
+      loadData()
+    } else {
+      ElMessage.error(res.msg || '操作失败')
+    }
+  } catch (e) {
+    ElMessage.error('操作失败')
+  }
 }
 
 const handleReject = async (row) => {
   try {
     const res = await counselorApi.audit(row.id, { status: 2, remark: '' })
-    if (res.code === 0) { ElMessage.success('Rejected'); loadData() }
-  } catch (e) { ElMessage.error('Operation failed') }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('已拒绝')
+      loadData()
+    } else {
+      ElMessage.error(res.msg || '操作失败')
+    }
+  } catch (e) {
+    ElMessage.error('操作失败')
+  }
 }
 
 const viewDetail = (row) => {
@@ -112,12 +131,16 @@ const viewDetail = (row) => {
 const submitAudit = async (status) => {
   try {
     const res = await counselorApi.audit(dialogData.value.id, { status, remark: auditRemark.value })
-    if (res.code === 0) {
-      ElMessage.success(status === 1 ? 'Approved' : 'Rejected')
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success(status === 1 ? '审核通过' : '已拒绝')
       dialogVisible.value = false
       loadData()
+    } else {
+      ElMessage.error(res.msg || '操作失败')
     }
-  } catch (e) { ElMessage.error('Operation failed') }
+  } catch (e) {
+    ElMessage.error('操作失败')
+  }
 }
 
 onMounted(async () => {

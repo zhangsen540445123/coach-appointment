@@ -52,7 +52,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.umxinli.entity
+  type-aliases-package: com.umxinli.entity,com.umxinli.admin.entity
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: true

@@ -149,8 +149,21 @@ const fetchData = async () => {
   loading.value = true
   try {
     const res = await customerApi.getList(queryParams)
-    if (res.code === 200) { tableData.value = res.data.list; total.value = res.data.total }
-  } finally { loading.value = false }
+    console.log('Customer list response:', res)
+    if (res.code === 0 || res.code === 200) {
+      tableData.value = res.data?.list || []
+      total.value = res.data?.total || 0
+      console.log('Loaded customers:', tableData.value.length)
+    } else {
+      console.error('Failed to load customers:', res)
+      ElMessage.error(res.msg || '加载客户列表失败')
+    }
+  } catch (e) {
+    console.error('Error loading customers:', e)
+    ElMessage.error('加载客户列表失败')
+  } finally {
+    loading.value = false
+  }
 }
 
 const handleSearch = () => { queryParams.page = 1; fetchData() }
@@ -167,18 +180,35 @@ const handleSave = async () => {
   if (form.sex === null) { ElMessage.warning('请选择性别'); return }
   try {
     const res = await customerApi.update(form.id, form)
-    if (res.code === 200) { ElMessage.success('保存成功'); dialogVisible.value = false; fetchData() }
-    else { ElMessage.error(res.msg || '保存失败') }
-  } catch (e) { ElMessage.error('保存失败') }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('保存成功')
+      dialogVisible.value = false
+      fetchData()
+    } else {
+      ElMessage.error(res.msg || '保存失败')
+    }
+  } catch (e) {
+    console.error('Error saving customer:', e)
+    ElMessage.error('保存失败')
+  }
 }
 
 const handleDelete = async (row) => {
   try {
     await ElMessageBox.confirm('确定要删除该客户信息吗？', '提示', { type: 'warning' })
     const res = await customerApi.delete(row.id)
-    if (res.code === 200) { ElMessage.success('删除成功'); fetchData() }
-    else { ElMessage.error(res.msg || '删除失败') }
-  } catch (e) { if (e !== 'cancel') ElMessage.error('删除失败') }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('删除成功')
+      fetchData()
+    } else {
+      ElMessage.error(res.msg || '删除失败')
+    }
+  } catch (e) {
+    if (e !== 'cancel') {
+      console.error('Error deleting customer:', e)
+      ElMessage.error('删除失败')
+    }
+  }
 }
 
 onMounted(() => {

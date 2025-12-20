@@ -63,16 +63,16 @@
     </select>
 
     <select id="countByCounselor" resultType="map">
-        SELECT 
-            r.counselor_id as counselorId,
+        SELECT
+            c.id as counselorId,
             c.name as counselorName,
             c.head_url as counselorHeadUrl,
-            COUNT(*) as totalCount,
-            AVG(r.rating) as avgRating
-        FROM order_review r
-        LEFT JOIN counselor c ON r.counselor_id = c.id
-        GROUP BY r.counselor_id, c.name, c.head_url
-        ORDER BY totalCount DESC
+            COUNT(r.id) as totalCount,
+            COALESCE(AVG(r.rating), 0) as avgRating
+        FROM counselor c
+        LEFT JOIN order_review r ON c.id = r.counselor_id
+        GROUP BY c.id, c.name, c.head_url
+        ORDER BY totalCount DESC, c.id ASC
     </select>
 
     <select id="getCounselorStats" resultType="map">

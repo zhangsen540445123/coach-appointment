@@ -31,14 +31,20 @@ public class AdminOrderController {
      * POST /admin/order/list
      */
     @PostMapping("/list")
-    public ApiResponse getList(
-            @RequestBody PageRequest request,
-            @RequestParam(required = false) Integer status,
-            @RequestParam(required = false) Long counselorId) {
-        log.info("Get order list, page: {}, pageSize: {}, status: {}, counselorId: {}", 
-            request.getPage(), request.getPageSize(), status, counselorId);
+    public ApiResponse getList(@RequestBody Map<String, Object> params) {
+        Integer page = (Integer) params.getOrDefault("page", 1);
+        Integer pageSize = (Integer) params.getOrDefault("pageSize", 10);
+        Integer status = params.get("status") != null ? (Integer) params.get("status") : null;
+        String keyword = (String) params.get("keyword");
+        Long counselorId = params.get("counselorId") != null ? ((Number) params.get("counselorId")).longValue() : null;
+
+        log.info("Get order list, page: {}, pageSize: {}, status: {}, keyword: {}, counselorId: {}",
+            page, pageSize, status, keyword, counselorId);
         try {
-            PageResponse response = adminOrderService.getList(request, status, counselorId);
+            PageRequest request = new PageRequest();
+            request.setPage(page);
+            request.setPageSize(pageSize);
+            PageResponse response = adminOrderService.getList(request, status, keyword, counselorId);
             return ApiResponse.success(response);
         } catch (Exception e) {
             log.error("Error getting order list", e);

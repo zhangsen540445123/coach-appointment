@@ -49,7 +49,7 @@
     </insert>
 
     <update id="updateStatus">
-        UPDATE consult_order SET status = #{status} WHERE id = #{id}
+        UPDATE consult_order SET status = #{status}, updated_at = NOW() WHERE id = #{id}
     </update>
 
     <select id="selectList" resultMap="BaseResultMap">
@@ -57,6 +57,23 @@
         <where>
             <if test="status != null">
                 AND status = #{status}
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <!-- 查询订单列表，支持关键词搜索 -->
+    <select id="selectListWithKeyword" resultMap="BaseResultMap">
+        SELECT * FROM consult_order
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (order_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR user_id = #{keyword}
+                     OR counselor_id = #{keyword})
             </if>
         </where>
         ORDER BY id DESC
@@ -110,6 +127,20 @@
         <where>
             <if test="status != null">
                 AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <select id="countByStatusAndKeyword" resultType="int">
+        SELECT COUNT(*) FROM consult_order
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (order_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR user_id = #{keyword}
+                     OR counselor_id = #{keyword})
             </if>
         </where>
     </select>

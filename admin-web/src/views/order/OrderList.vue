@@ -2,30 +2,32 @@
   <div class="order-list">
     <el-card>
       <div class="search-bar">
+        <el-input v-model="searchKeyword" placeholder="搜索订单号/用户ID" clearable style="width: 200px" />
         <el-select v-model="statusFilter" placeholder="状态筛选" clearable style="width: 150px">
-          <el-option label="全部" value="" />
+          <el-option label="全部" :value="null" />
           <el-option v-for="(label, index) in orderStatusOptions" :key="index" :label="label" :value="index" />
         </el-select>
         <el-button type="primary" @click="handleSearch">搜索</el-button>
       </div>
       <el-table :data="tableData" v-loading="loading">
         <el-table-column prop="id" label="ID" width="80" />
-        <el-table-column prop="orderNo" label="Order No" />
-        <el-table-column prop="userId" label="User ID" width="100" />
-        <el-table-column prop="counselorId" label="Coach ID" width="100" />
-        <el-table-column prop="price" label="Price" width="100">
-          <template #default="scope">{{ scope.row.price }}</template>
+        <el-table-column prop="orderNo" label="订单号" width="180" />
+        <el-table-column prop="userId" label="用户ID" width="100" />
+        <el-table-column prop="counselorId" label="教练ID" width="100" />
+        <el-table-column prop="price" label="价格" width="100">
+          <template #default="scope">¥{{ scope.row.price }}</template>
         </el-table-column>
-        <el-table-column prop="status" label="Status" width="120">
+        <el-table-column prop="status" label="状态" width="120">
           <template #default="scope">
             <el-tag :type="getStatusType(scope.row.status)">{{ getStatusText(scope.row.status) }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="createdAt" label="Created At" />
-        <el-table-column label="Actions" width="150">
+        <el-table-column prop="createdAt" label="创建时间" width="180" />
+        <el-table-column label="操作" width="180" fixed="right">
           <template #default="scope">
-            <el-button type="primary" size="small" @click="viewDetail(scope.row)">View</el-button>
-            <el-button v-if="scope.row.status < 3" type="danger" size="small" @click="handleCancel(scope.row)">Cancel</el-button>
+            <el-button type="primary" size="small" @click="viewDetail(scope.row)">查看</el-button>
+            <el-button v-if="scope.row.status === 0 || scope.row.status === 1"
+                       type="danger" size="small" @click="handleCancel(scope.row)">取消</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -45,7 +47,8 @@ const router = useRouter()
 const loading = ref(false)
 const tableData = ref([])
 const total = ref(0)
-const statusFilter = ref('')
+const searchKeyword = ref('')
+const statusFilter = ref(null)
 const pagination = ref({ page: 1, pageSize: 10 })
 
 // 使用字典数据
@@ -63,7 +66,12 @@ const loadDictData = async () => {
 const loadData = async () => {
   loading.value = true
   try {
-    const res = await orderApi.getList(pagination.value)
+    const params = {
+      ...pagination.value,
+      keyword: searchKeyword.value,
+      status: statusFilter.value
+    }
+    const res = await orderApi.getList(params)
     if (res.code === 0) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
@@ -78,14 +86,21 @@ const handlePageChange = (page) => { pagination.value.page = page; loadData() }
 const viewDetail = (row) => { router.push('/order/' + row.id) }
 
 const handleCancel = (row) => {
-  ElMessageBox.prompt('Please enter cancel reason', 'Cancel Order', {
-    confirmButtonText: 'Confirm',
-    cancelButtonText: 'Cancel'
+  ElMessageBox.prompt('请输入取消原因', '取消订单', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消'
   }).then(async ({ value }) => {
     try {
       const res = await orderApi.cancel(row.id, value)
-      if (res.code === 0) { ElMessage.success('Order cancelled'); loadData() }
-    } catch (e) { ElMessage.error('Cancel failed') }
+      if (res.code === 0 || res.code === 200) {
+        ElMessage.success('订单已取消')
+        loadData()
+      } else {
+        ElMessage.error(res.msg || '取消失败')
+      }
+    } catch (e) {
+      ElMessage.error('取消失败')
+    }
   }).catch(() => {})
 }
 

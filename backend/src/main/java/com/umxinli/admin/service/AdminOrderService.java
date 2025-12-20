@@ -7,11 +7,11 @@ import com.umxinli.entity.Order;
 import java.util.Map;
 
 public interface AdminOrderService {
-    
+
     /**
      * 获取订单列表
      */
-    PageResponse getList(PageRequest request, Integer status, Long counselorId);
+    PageResponse getList(PageRequest request, Integer status, String keyword, Long counselorId);
     
     /**
      * 根据ID获取订单

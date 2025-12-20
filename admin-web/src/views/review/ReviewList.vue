@@ -121,9 +121,18 @@ onMounted(() => {
 const loadCounselorStats = async () => {
   try {
     const res = await reviewApi.getByCounselor()
-    counselorStats.value = res.data || []
-    counselorList.value = res.data || []
-  } catch (e) { console.error(e) }
+    if (res.code === 0 || res.code === 200) {
+      counselorStats.value = res.data || []
+      counselorList.value = res.data || []
+      console.log('Loaded counselor list:', counselorList.value)
+    } else {
+      console.error('Failed to load counselor stats:', res)
+      ElMessage.error(res.msg || '加载教练列表失败')
+    }
+  } catch (e) {
+    console.error('Error loading counselor stats:', e)
+    ElMessage.error('加载教练列表失败')
+  }
 }
 
 const loadData = async () => {
@@ -134,9 +143,14 @@ const loadData = async () => {
       pageSize: pagination.value.pageSize,
       ...filter.value
     })
-    tableData.value = res.data?.list || []
-    total.value = res.data?.total || 0
+    if (res.code === 0 || res.code === 200) {
+      tableData.value = res.data?.list || []
+      total.value = res.data?.total || 0
+    } else {
+      ElMessage.error(res.msg || '加载失败')
+    }
   } catch (e) {
+    console.error('Error loading review list:', e)
     ElMessage.error('加载失败')
   } finally {
     loading.value = false
@@ -150,17 +164,33 @@ const handleViewModeChange = () => {
 
 const toggleVisible = async (row) => {
   try {
-    await reviewApi.setVisible(row.id, row.isVisible === 1 ? 0 : 1)
-    ElMessage.success('操作成功')
-    loadData()
-  } catch (e) { ElMessage.error('操作失败') }
+    const res = await reviewApi.setVisible(row.id, row.isVisible === 1 ? 0 : 1)
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success('操作成功')
+      loadData()
+    } else {
+      ElMessage.error(res.msg || '操作失败')
+    }
+  } catch (e) {
+    console.error('Error toggling visibility:', e)
+    ElMessage.error('操作失败')
+  }
 }
 
 const handleDelete = (row) => {
   ElMessageBox.confirm('确定删除此评价？', '确认').then(async () => {
-    await reviewApi.delete(row.id)
-    ElMessage.success('删除成功')
-    loadData()
+    try {
+      const res = await reviewApi.delete(row.id)
+      if (res.code === 0 || res.code === 200) {
+        ElMessage.success('删除成功')
+        loadData()
+      } else {
+        ElMessage.error(res.msg || '删除失败')
+      }
+    } catch (e) {
+      console.error('Error deleting review:', e)
+      ElMessage.error('删除失败')
+    }
   }).catch(() => {})
 }
 

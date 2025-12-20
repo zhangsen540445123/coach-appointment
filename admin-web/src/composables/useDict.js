@@ -9,12 +9,12 @@ const loaded = ref(false)
 // Status type mapping for UI display
 const statusTypeMap = {
   order_status: {
-    '0': 'warning',   // 待支付
-    '1': 'primary',   // 已支付
-    '2': 'info',      // 进行中
-    '3': 'success',   // 已完成
-    '4': 'danger',    // 已取消
-    '5': 'info'       // 已退款
+    '0': 'warning',   // 待支付 - 黄色
+    '1': 'primary',   // 已支付 - 蓝色
+    '2': 'success',   // 进行中 - 绿色
+    '3': 'success',   // 已完成 - 绿色
+    '4': 'danger',    // 已取消 - 红色
+    '5': 'info'       // 已退款 - 灰色
   },
   audit_status: {
     '0': 'warning',   // 待审核
