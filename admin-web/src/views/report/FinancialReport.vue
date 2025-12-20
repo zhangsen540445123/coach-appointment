@@ -102,6 +102,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ElMessage } from 'element-plus'
 import { reportApi } from '@/api/report'
 import * as echarts from 'echarts'
 
@@ -113,6 +114,7 @@ const revenueChartRef = ref(null)
 const consultWayChartRef = ref(null)
 let revenueChart = null
 let consultWayChart = null
+let revenueTrendData = []
 
 // 设置默认日期范围(最近30天)
 const initDateRange = () => {
@@ -134,15 +136,21 @@ const loadData = async () => {
       params.startDate = dateRange.value[0]
       params.endDate = dateRange.value[1]
     }
+    console.log('Loading financial report with params:', params)
     const res = await reportApi.getFinancialReport(params)
+    console.log('Financial report response:', res)
     if (res.code === 0 || res.code === 200) {
-      summary.value = res.data.summary || {}
-      counselorRank.value = res.data.counselorRank || []
-      renderRevenueChart(res.data.revenueTrend || [])
-      renderConsultWayChart(res.data.consultWayDistribution || [])
+      summary.value = res.data?.summary || {}
+      counselorRank.value = res.data?.counselorRank || []
+      revenueTrendData = res.data?.revenueTrend || []
+      renderRevenueChart(revenueTrendData)
+      renderConsultWayChart(res.data?.consultWayDistribution || [])
+    } else {
+      ElMessage.error(res.msg || '加载失败')
     }
   } catch (e) {
     console.error('Load financial report failed', e)
+    ElMessage.error('加载失败')
   }
 }
 
@@ -179,10 +187,21 @@ const renderConsultWayChart = (data) => {
 }
 
 const exportData = () => {
-  // 简单的CSV导出
-  let csv = '日期,收入,订单数\n'
-  // 这里需要获取趋势数据来导出，暂时提示
-  alert('导出功能开发中')
+  try {
+    const params = new URLSearchParams({ dimension: dimension.value })
+    if (dateRange.value?.length === 2) {
+      params.append('startDate', dateRange.value[0])
+      params.append('endDate', dateRange.value[1])
+    }
+
+    // 使用后端导出接口
+    const url = `/api/admin/report/financial/export?${params.toString()}`
+    window.open(url, '_blank')
+    ElMessage.success('正在导出...')
+  } catch (e) {
+    console.error('Export failed:', e)
+    ElMessage.error('导出失败')
+  }
 }
 
 const handleResize = () => {

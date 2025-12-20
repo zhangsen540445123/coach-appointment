@@ -29,11 +29,12 @@ public class AdminWxPayConfigController {
      * GET /admin/wxpay/config
      */
     @GetMapping
-    public ApiResponse getConfig() {
+    public ApiResponse<Map<String, Object>> getConfig() {
         log.info("Get wx pay config");
         try {
             WxPayConfig config = wxPayConfigService.getEnabledConfig();
             if (config != null) {
+                log.info("Found enabled config with id: {}", config.getId());
                 // 隐藏敏感信息的部分内容
                 Map<String, Object> result = new HashMap<>();
                 result.put("id", config.getId());
@@ -45,6 +46,7 @@ public class AdminWxPayConfigController {
                 result.put("privateKeyPath", config.getPrivateKeyPath());
                 result.put("notifyUrl", config.getNotifyUrl());
                 result.put("status", config.getStatus());
+                log.info("Returning config data");
                 return ApiResponse.success(result);
             }
             return ApiResponse.success(null);
@@ -59,37 +61,46 @@ public class AdminWxPayConfigController {
      * POST /admin/wxpay/config
      */
     @PostMapping
-    public ApiResponse saveConfig(@RequestBody Map<String, Object> payload) {
+    public ApiResponse<Long> saveConfig(@RequestBody Map<String, Object> payload) {
         log.info("Save wx pay config: {}", payload);
         try {
             WxPayConfig config = new WxPayConfig();
-            
+
             if (payload.get("id") != null) {
                 config.setId(Long.valueOf(payload.get("id").toString()));
+                log.info("Updating existing config with id: {}", config.getId());
+            } else {
+                log.info("Creating new config");
             }
             config.setAppId((String) payload.get("appId"));
             config.setMchId((String) payload.get("mchId"));
-            
+
             // 只有非掩码值才更新
             String apiKey = (String) payload.get("apiKey");
             if (apiKey != null && !apiKey.contains("****")) {
                 config.setApiKey(apiKey);
+                log.debug("Updating apiKey");
+            } else if (config.getId() == null) {
+                // 新建时必须提供apiKey
+                log.warn("Creating new config without apiKey");
             }
-            
+
             String apiV3Key = (String) payload.get("apiV3Key");
             if (apiV3Key != null && !apiV3Key.contains("****")) {
                 config.setApiV3Key(apiV3Key);
+                log.debug("Updating apiV3Key");
             }
-            
+
             config.setCertPath((String) payload.get("certPath"));
             config.setPrivateKeyPath((String) payload.get("privateKeyPath"));
             config.setNotifyUrl((String) payload.get("notifyUrl"));
-            
+
             if (payload.get("status") != null) {
                 config.setStatus(Integer.valueOf(payload.get("status").toString()));
             }
-            
+
             WxPayConfig saved = wxPayConfigService.saveOrUpdate(config);
+            log.info("Config saved successfully with id: {}", saved.getId());
             return ApiResponse.success(saved.getId());
         } catch (Exception e) {
             log.error("Error saving wx pay config", e);
@@ -102,13 +113,15 @@ public class AdminWxPayConfigController {
      * DELETE /admin/wxpay/config/{id}
      */
     @DeleteMapping("/{id}")
-    public ApiResponse deleteConfig(@PathVariable Long id) {
+    public ApiResponse<String> deleteConfig(@PathVariable Long id) {
         log.info("Delete wx pay config: {}", id);
         try {
             boolean result = wxPayConfigService.delete(id);
             if (result) {
+                log.info("Config deleted successfully: {}", id);
                 return ApiResponse.success("删除成功");
             }
+            log.warn("Config not found: {}", id);
             return ApiResponse.error("配置不存在");
         } catch (Exception e) {
             log.error("Error deleting wx pay config", e);

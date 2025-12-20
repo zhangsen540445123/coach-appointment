@@ -27,13 +27,15 @@ public class AdminSettingsController {
      * GET /admin/settings
      */
     @GetMapping
-    public ApiResponse getAllSettings() {
+    public ApiResponse<Map<String, Object>> getAllSettings() {
         log.info("Get all settings");
         try {
             List<GlobalSettings> settings = settingsService.getAllSettings();
+            log.info("Found {} settings", settings.size());
             Map<String, Object> result = new HashMap<>();
             for (GlobalSettings setting : settings) {
                 String value = setting.getValue();
+                log.debug("Setting: {} = {}", setting.getKeyName(), value);
                 // 处理布尔值
                 if ("true".equalsIgnoreCase(value) || "1".equals(value)) {
                     result.put(setting.getKeyName(), true);
@@ -43,6 +45,7 @@ public class AdminSettingsController {
                     result.put(setting.getKeyName(), value);
                 }
             }
+            log.info("Returning settings map with {} entries", result.size());
             return ApiResponse.success(result);
         } catch (Exception e) {
             log.error("Error getting settings", e);
@@ -55,23 +58,26 @@ public class AdminSettingsController {
      * POST /admin/settings
      */
     @PostMapping
-    public ApiResponse saveSetting(@RequestBody Map<String, Object> payload) {
+    public ApiResponse<String> saveSetting(@RequestBody Map<String, Object> payload) {
         log.info("Save setting: {}", payload);
         try {
             String key = (String) payload.get("key");
             Object value = payload.get("value");
-            
+
             if (key == null || key.isEmpty()) {
+                log.warn("Save setting failed: key is empty");
                 return ApiResponse.error("key不能为空");
             }
-            
+
             String valueStr = value != null ? value.toString() : "";
+            log.info("Saving setting: {} = {}", key, valueStr);
             settingsService.saveSetting(key, valueStr);
-            
+            log.info("Setting saved successfully: {}", key);
+
             return ApiResponse.success("保存成功");
         } catch (Exception e) {
             log.error("Error saving setting", e);
-            return ApiResponse.error("保存设置失败");
+            return ApiResponse.error("保存设置失败: " + e.getMessage());
         }
     }
 }

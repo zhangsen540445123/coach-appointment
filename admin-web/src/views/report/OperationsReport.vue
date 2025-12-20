@@ -118,7 +118,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ElMessage } from 'element-plus'
 import { reportApi } from '@/api/report'
 import * as echarts from 'echarts'
 import { User, Avatar, List, Star, Select } from '@element-plus/icons-vue'
@@ -151,20 +152,34 @@ const loadData = async () => {
       params.startDate = dateRange.value[0]
       params.endDate = dateRange.value[1]
     }
+    console.log('Loading operations report with params:', params)
     const res = await reportApi.getOperationsReport(params)
+    console.log('Operations report response:', res)
     if (res.code === 0 || res.code === 200) {
-      userStats.value = res.data.userStats || {}
-      counselorStats.value = res.data.counselorStats || {}
-      orderStats.value = res.data.orderStats || {}
-      starStats.value = res.data.starStats || {}
-      averageRating.value = res.data.averageRating || 0
-      renderOrderChart(res.data.orderTrend || [])
-      renderUserChart(res.data.userTrend || [])
-      renderStarChart(res.data.starTrend || [])
-      renderCityChart(res.data.cityDistribution || [])
+      userStats.value = res.data?.userStats || {}
+      counselorStats.value = res.data?.counselorStats || {}
+      orderStats.value = res.data?.orderStats || {}
+      starStats.value = res.data?.starStats || {}
+      averageRating.value = res.data?.averageRating || 0
+      renderOrderChart(res.data?.orderTrend || [])
+      renderUserChart(res.data?.userTrend || [])
+      renderStarChart(res.data?.starTrend || [])
+      renderCityChart(res.data?.cityDistribution || [])
+    } else {
+      ElMessage.error(res.msg || '加载失败')
     }
-  } catch (e) { console.error('Load operations report failed', e) }
+  } catch (e) {
+    console.error('Load operations report failed', e)
+    ElMessage.error('加载失败')
+  }
 }
+
+// 监听筛选条件变化
+watch([dateRange, dimension], () => {
+  if (dateRange.value?.length === 2) {
+    loadData()
+  }
+})
 
 const renderOrderChart = (data) => {
   if (!orderChart) orderChart = echarts.init(orderChartRef.value)

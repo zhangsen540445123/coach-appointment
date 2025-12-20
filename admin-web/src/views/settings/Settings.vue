@@ -116,17 +116,21 @@ const handleUploadSuccess = (res, field) => {
 const loadData = async () => {
   loading.value = true
   try {
+    console.log('Loading settings...')
     const res = await settingsApi.getAll()
+    console.log('Settings response:', res)
     if (res.code === 200 && res.data) {
       Object.keys(form).forEach(key => {
         if (res.data[key] !== undefined) {
           form[key] = res.data[key]
+          console.log(`Set form.${key} =`, res.data[key])
         }
       })
       // 处理助理设置（从concat_sys_agent_settings解析）
       if (res.data.concat_sys_agent_settings) {
         try {
           const agentSettings = JSON.parse(res.data.concat_sys_agent_settings)
+          console.log('Parsed agent settings:', agentSettings)
           if (agentSettings.qrCodeImageUrl) {
             form.assistantQrCode = agentSettings.qrCodeImageUrl
           }
@@ -138,8 +142,16 @@ const loadData = async () => {
       // 处理客服二维码
       if (res.data.customerServiceQrCode) {
         form.customerServiceQrCode = res.data.customerServiceQrCode
+        console.log('Set customerServiceQrCode:', res.data.customerServiceQrCode)
       }
+      console.log('Final form state:', form)
+    } else {
+      console.error('Invalid response:', res)
+      ElMessage.error(res.msg || '加载设置失败')
     }
+  } catch (e) {
+    console.error('Load settings error:', e)
+    ElMessage.error('加载设置失败')
   } finally {
     loading.value = false
   }
@@ -148,26 +160,44 @@ const loadData = async () => {
 const handleSave = async () => {
   submitting.value = true
   try {
+    console.log('Saving settings...', form)
+
     // 保存普通设置项
     const normalKeys = ['siteName', 'contactPhone', 'contactEmail', 'serviceAgreementUrl', 'privacyPolicyUrl', 'aboutUs']
-    const promises = normalKeys.map(key =>
-      settingsApi.update(key, form[key])
-    )
+    const promises = normalKeys.map(key => {
+      console.log(`Saving ${key}:`, form[key])
+      return settingsApi.update(key, form[key])
+    })
 
     // 保存助理设置（合并为JSON）
     const agentSettings = {
       qrCodeImageUrl: form.assistantQrCode,
       showAtMp: form.showAssistantAtMp ? '1' : '0'
     }
+    console.log('Saving agent settings:', agentSettings)
     promises.push(settingsApi.update('concat_sys_agent_settings', JSON.stringify(agentSettings)))
 
     // 保存客服二维码
+    console.log('Saving customerServiceQrCode:', form.customerServiceQrCode)
     promises.push(settingsApi.update('customerServiceQrCode', form.customerServiceQrCode))
 
-    await Promise.all(promises)
-    ElMessage.success('设置保存成功')
+    const results = await Promise.all(promises)
+    console.log('Save results:', results)
+
+    // 检查所有保存结果
+    const allSuccess = results.every(res => res.code === 200 || res.code === 0)
+    if (allSuccess) {
+      ElMessage.success('设置保存成功')
+      // 重新加载数据以显示更新后的值
+      await loadData()
+    } else {
+      const failedResults = results.filter(res => res.code !== 200 && res.code !== 0)
+      console.error('Some saves failed:', failedResults)
+      ElMessage.error('部分设置保存失败')
+    }
   } catch (e) {
-    ElMessage.error('保存失败')
+    console.error('保存设置失败:', e)
+    ElMessage.error('保存失败: ' + (e.message || e))
   } finally {
     submitting.value = false
   }

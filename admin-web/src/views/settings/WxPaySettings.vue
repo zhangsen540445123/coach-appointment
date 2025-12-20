@@ -106,16 +106,22 @@ const rules = {
 const loadConfig = async () => {
   loading.value = true
   try {
+    console.log('Loading wxpay config...')
     const res = await wxpayApi.getConfig()
-    if (res.code === 200 && res.data) {
+    console.log('Wxpay config response:', res)
+    if ((res.code === 200 || res.code === 0) && res.data) {
       Object.keys(form).forEach(key => {
         if (res.data[key] !== undefined) {
           form[key] = res.data[key]
         }
       })
+      console.log('Loaded form:', form)
+    } else {
+      console.warn('Invalid response:', res)
     }
   } catch (e) {
     console.error('加载配置失败', e)
+    ElMessage.error('加载配置失败')
   } finally {
     loading.value = false
   }
@@ -126,15 +132,19 @@ const handleSave = async () => {
     await formRef.value.validate()
     submitting.value = true
     const res = await wxpayApi.saveConfig(form)
-    if (res.code === 200) {
-      ElMessage.success('配置保存成功')
+    console.log('Save wxpay config response:', res)
+    if (res.code === 200 || res.code === 0) {
+      ElMessage({ message: '配置保存成功', type: 'success' })
       if (!form.id && res.data) {
         form.id = res.data
       }
+      // 重新加载数据
+      await loadConfig()
     } else {
       ElMessage.error(res.msg || '保存失败')
     }
   } catch (e) {
+    console.error('Save wxpay config error:', e)
     if (e !== 'cancel') {
       ElMessage.error('保存失败: ' + (e.message || e))
     }
