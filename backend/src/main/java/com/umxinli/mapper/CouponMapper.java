@@ -10,15 +10,16 @@ import java.util.Map;
 public interface CouponMapper {
 
     @Select("SELECT * FROM coupon WHERE id = #{id}")
+    @ResultMap("CouponResultMap")
     Coupon selectById(@Param("id") Long id);
 
     @Insert("INSERT INTO coupon (name, type, discount_amount, min_amount, coach_scope, coach_ids, start_time, end_time, status, created_at) " +
-            "VALUES (#{name}, #{type}, #{discountAmount}, #{minAmount}, #{coachScope}, #{coachIds,typeHandler=org.apache.ibatis.type.StringTypeHandler}, #{startTime}, #{endTime}, #{status}, NOW())")
+            "VALUES (#{name}, #{type}, #{discountAmount}, #{minAmount}, #{coachScope}, #{coachIds,typeHandler=com.umxinli.handler.JsonListTypeHandler}, #{startTime}, #{endTime}, #{status}, NOW())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(Coupon coupon);
 
     @Update("UPDATE coupon SET name=#{name}, type=#{type}, discount_amount=#{discountAmount}, min_amount=#{minAmount}, " +
-            "coach_scope=#{coachScope}, coach_ids=#{coachIds,typeHandler=org.apache.ibatis.type.StringTypeHandler}, start_time=#{startTime}, end_time=#{endTime}, status=#{status}, updated_at=NOW() WHERE id=#{id}")
+            "coach_scope=#{coachScope}, coach_ids=#{coachIds,typeHandler=com.umxinli.handler.JsonListTypeHandler}, start_time=#{startTime}, end_time=#{endTime}, status=#{status}, updated_at=NOW() WHERE id=#{id}")
     int updateById(Coupon coupon);
 
     @Delete("DELETE FROM coupon WHERE id = #{id}")
@@ -35,6 +36,7 @@ public interface CouponMapper {
                         @Param("status") Integer status);
 
     @Select("SELECT * FROM coupon WHERE status = 1 AND (end_time IS NULL OR end_time > NOW())")
+    @ResultMap("CouponResultMap")
     List<Coupon> selectActiveCoupons();
 }
 

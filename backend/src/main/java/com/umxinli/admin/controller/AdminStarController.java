@@ -58,7 +58,7 @@ public class AdminStarController {
      */
     @GetMapping("/users/{counselorId}")
     public ApiResponse getStarUsers(
-            @PathVariable String counselorId,
+            @PathVariable Long counselorId,
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size) {
         log.info("Get star users for counselor: {} - page: {}, size: {}", counselorId, page, size);

@@ -121,16 +121,27 @@ const channelOptions = ref([])
 const loadDictOptions = async () => {
   try {
     const res = await dictApi.getAllData()
-    if (res.code === 0 && res.data) {
+    console.log('Dictionary data response:', res)
+    if ((res.code === 0 || res.code === 200) && res.data) {
       careerOptions.value = res.data.career || []
       marriageOptions.value = res.data.marriage || []
       childrenOptions.value = res.data.children || []
       // 渠道需要转换格式
       const channels = res.data.channel || []
       channelOptions.value = channels.map((text, idx) => ({ value: idx + 1, text }))
+      console.log('Loaded dict options:', {
+        career: careerOptions.value.length,
+        marriage: marriageOptions.value.length,
+        children: childrenOptions.value.length,
+        channel: channelOptions.value.length
+      })
+    } else {
+      console.error('Failed to load dictionary data:', res)
+      ElMessage.error(res.msg || '加载字典数据失败')
     }
   } catch (e) {
     console.error('加载字典数据失败', e)
+    ElMessage.error('加载字典数据失败')
   }
 }
 

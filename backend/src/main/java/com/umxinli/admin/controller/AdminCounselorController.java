@@ -72,7 +72,7 @@ public class AdminCounselorController {
                     item.put("accountStatus", account.getStatus());
                 }
                 // 获取收藏数
-                int starCount = userStarMapper.countStarUsersByCounselorId(String.valueOf(c.getId()));
+                int starCount = userStarMapper.countStarUsersByCounselorId(c.getId());
                 item.put("starCount", starCount);
                 enrichedList.add(item);
             }

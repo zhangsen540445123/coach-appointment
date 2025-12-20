@@ -1,7 +1,6 @@
 package com.umxinli.admin.controller;
 
 import com.umxinli.dto.ApiResponse;
-import com.umxinli.dto.ApiResponse;
 import com.umxinli.entity.Coupon;
 import com.umxinli.entity.CouponCode;
 import com.umxinli.entity.Counselor;
@@ -13,6 +12,7 @@ import com.umxinli.mapper.UserCouponMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -36,7 +36,15 @@ public class AdminCouponController {
     public ApiResponse<?> getCoachList() {
         try {
             List<Counselor> coaches = counselorMapper.selectAll();
-            return ApiResponse.success(coaches);
+            // 只返回 id 和 name，减少数据传输
+            List<Map<String, Object>> result = new java.util.ArrayList<>();
+            for (Counselor c : coaches) {
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", c.getId());
+                item.put("name", c.getName());
+                result.add(item);
+            }
+            return ApiResponse.success(result);
         } catch (Exception e) {
             return ApiResponse.error(500, "获取教练列表失败: " + e.getMessage());
         }
@@ -75,8 +83,39 @@ public class AdminCouponController {
     }
 
     @PostMapping("/save")
-    public ApiResponse<?> saveCoupon(@RequestBody Coupon coupon) {
+    public ApiResponse<?> saveCoupon(@RequestBody Map<String, Object> requestData) {
         try {
+            Coupon coupon = new Coupon();
+
+            // 基本字段
+            if (requestData.get("id") != null) {
+                coupon.setId(Long.parseLong(requestData.get("id").toString()));
+            }
+            coupon.setName((String) requestData.get("name"));
+            coupon.setType((Integer) requestData.get("type"));
+            coupon.setDiscountAmount(new BigDecimal(requestData.get("discountAmount").toString()));
+            coupon.setMinAmount(new BigDecimal(requestData.get("minAmount").toString()));
+            coupon.setCoachScope((Integer) requestData.get("coachScope"));
+            coupon.setStatus((Integer) requestData.get("status"));
+
+            // 处理 coachIds - 将 Long 数组转换为 String 数组
+            if (requestData.get("coachIds") != null) {
+                List<?> coachIdList = (List<?>) requestData.get("coachIds");
+                List<String> coachIds = new ArrayList<>();
+                for (Object id : coachIdList) {
+                    coachIds.add(id.toString());
+                }
+                coupon.setCoachIds(coachIds);
+            }
+
+            // 处理时间字段
+            if (requestData.get("startTime") != null) {
+                coupon.setStartTime(LocalDateTime.parse(requestData.get("startTime").toString()));
+            }
+            if (requestData.get("endTime") != null) {
+                coupon.setEndTime(LocalDateTime.parse(requestData.get("endTime").toString()));
+            }
+
             if (coupon.getId() == null) {
                 coupon.setCreatedAt(LocalDateTime.now());
                 couponMapper.insert(coupon);
@@ -86,6 +125,7 @@ public class AdminCouponController {
             }
             return ApiResponse.success(coupon.getId());
         } catch (Exception e) {
+            e.printStackTrace();
             return ApiResponse.error(500, "保存优惠券失败: " + e.getMessage());
         }
     }

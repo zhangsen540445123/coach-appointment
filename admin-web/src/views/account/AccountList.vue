@@ -227,8 +227,12 @@ const resetPassword = async (row) => {
       inputPattern: /^.{6,}$/,
       inputErrorMessage: '密码至少6位'
     }).then(async ({ value }) => {
-      await adminAccountApi.update(row.id, { password: value })
-      ElMessage.success('密码已重置')
+      const res = await adminAccountApi.update(row.id, { password: value })
+      if (res.code === 200) {
+        ElMessage.success('密码已重置')
+      } else {
+        ElMessage.error(res.msg || '重置密码失败')
+      }
     })
   } catch (e) {
     if (e !== 'cancel') {

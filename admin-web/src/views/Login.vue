@@ -46,8 +46,8 @@ const handleLogin = async () => {
     loading.value = true
     const res = await userStore.login(form.username, form.password)
 
-    // 后端 ApiResponse.success() 返回 code=0，不是 200
-    if (res.code === 0) {
+    // 后端 ApiResponse.success() 返回 code=200
+    if (res.code === 200) {
       ElMessage({
         message: '登录成功',
         type: 'success',

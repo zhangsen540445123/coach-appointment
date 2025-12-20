@@ -308,7 +308,7 @@ public class VCounselorController {
             if (userId == null) {
                 return ApiResponse.error("请先登录");
             }
-            String counselorId = payload.get("counselorId").toString();
+            Long counselorId = Long.valueOf(payload.get("counselorId").toString());
             userStarMapper.insert(userId, counselorId);
             return ApiResponse.success(true);
         } catch (Exception e) {
@@ -334,7 +334,7 @@ public class VCounselorController {
             if (userId == null) {
                 return ApiResponse.error("请先登录");
             }
-            String counselorId = payload.get("counselorId").toString();
+            Long counselorId = Long.valueOf(payload.get("counselorId").toString());
             userStarMapper.delete(userId, counselorId);
             return ApiResponse.success(true);
         } catch (Exception e) {
@@ -360,7 +360,7 @@ public class VCounselorController {
             if (userId == null) {
                 return ApiResponse.success(false);
             }
-            String counselorId = payload.get("counselorId").toString();
+            Long counselorId = Long.valueOf(payload.get("counselorId").toString());
             int count = userStarMapper.exists(userId, counselorId);
             return ApiResponse.success(count > 0);
         } catch (Exception e) {

@@ -115,10 +115,16 @@ const loadData = async () => {
     const res = await request.get('/admin/star/list', {
       params: { page: page.value, size: size.value, keyword: keyword.value }
     })
+    console.log('Star list response:', res)
     if (res.code === 200) {
-      tableData.value = res.data.list
-      total.value = res.data.total
+      tableData.value = res.data.list || []
+      total.value = res.data.total || 0
+    } else {
+      ElMessage.error(res.msg || '加载失败')
     }
+  } catch (e) {
+    console.error('Error loading star list:', e)
+    ElMessage.error('加载失败')
   } finally {
     loading.value = false
   }
@@ -138,10 +144,16 @@ const loadStarUsers = async () => {
     const res = await request.get(`/admin/star/users/${currentCounselor.value.counselorId}`, {
       params: { page: userPage.value, size: userSize.value }
     })
+    console.log('Star users response:', res)
     if (res.code === 200) {
-      userList.value = res.data.list
-      userTotal.value = res.data.total
+      userList.value = res.data.list || []
+      userTotal.value = res.data.total || 0
+    } else {
+      ElMessage.error(res.msg || '加载失败')
     }
+  } catch (e) {
+    console.error('Error loading star users:', e)
+    ElMessage.error('加载失败')
   } finally {
     userLoading.value = false
   }

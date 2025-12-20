@@ -204,17 +204,29 @@ const loadData = async () => {
 const loadCoaches = async () => {
   try {
     const res = await request.get('/admin/coupon/coaches')
-    if (res.code === 200) coachList.value = res.data || []
-  } catch (e) { console.error(e) }
+    console.log('Load coaches response:', res)
+    if (res.code === 200) {
+      coachList.value = res.data || []
+      console.log('Loaded coaches:', coachList.value.length)
+    } else {
+      console.error('Failed to load coaches:', res)
+      ElMessage.error(res.msg || '加载教练列表失败')
+    }
+  } catch (e) {
+    console.error('Error loading coaches:', e)
+    ElMessage.error('加载教练列表失败')
+  }
 }
 
-const showAddDialog = () => {
+const showAddDialog = async () => {
   editingId.value = null
   Object.assign(formData, { name: '', type: 1, discountAmount: 0, minAmount: 0, coachScope: 1, coachIds: [], dateRange: null })
+  // 打开对话框前加载教练列表
+  await loadCoaches()
   dialogVisible.value = true
 }
 
-const editCoupon = (row) => {
+const editCoupon = async (row) => {
   editingId.value = row.id
   Object.assign(formData, {
     name: row.name, type: row.type, discountAmount: row.discountAmount,
@@ -222,6 +234,8 @@ const editCoupon = (row) => {
     coachIds: row.coachIds ? JSON.parse(row.coachIds) : [],
     dateRange: row.startTime && row.endTime ? [new Date(row.startTime), new Date(row.endTime)] : null
   })
+  // 打开对话框前加载教练列表
+  await loadCoaches()
   dialogVisible.value = true
 }
 
@@ -232,10 +246,12 @@ const saveCoupon = async () => {
     const data = {
       id: editingId.value, name: formData.name, type: formData.type,
       discountAmount: formData.discountAmount, minAmount: formData.type === 1 ? formData.minAmount : 0,
-      coachScope: formData.coachScope, coachIds: formData.coachScope === 2 ? formData.coachIds : null,
+      coachScope: formData.coachScope, coachIds: formData.coachScope === 2 ? formData.coachIds : [],
       startTime: formData.dateRange?.[0], endTime: formData.dateRange?.[1], status: 1
     }
+    console.log('Saving coupon data:', data)
     const res = await request.post('/admin/coupon/save', data)
+    console.log('Save coupon response:', res)
     if (res.code === 200) {
       ElMessage.success('保存成功')
       dialogVisible.value = false
@@ -243,7 +259,10 @@ const saveCoupon = async () => {
     } else {
       ElMessage.error(res.msg || '保存失败')
     }
-  } catch (e) { console.error(e) }
+  } catch (e) {
+    console.error('Error saving coupon:', e)
+    ElMessage.error('保存失败')
+  }
   finally { saving.value = false }
 }
 
