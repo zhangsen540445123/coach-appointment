@@ -60,11 +60,11 @@ public class AdminUser extends BaseEntity {
     public static final int ROLE_COACH = 2;
 
     public boolean isAdmin() {
-        return ROLE_ADMIN == this.role;
+        return this.role != null && ROLE_ADMIN == this.role;
     }
 
     public boolean isCoach() {
-        return ROLE_COACH == this.role;
+        return this.role != null && ROLE_COACH == this.role;
     }
 }
 
