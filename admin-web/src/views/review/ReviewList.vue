@@ -121,7 +121,7 @@ onMounted(() => {
 const loadCounselorStats = async () => {
   try {
     const res = await reviewApi.getByCounselor()
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       counselorStats.value = res.data || []
       counselorList.value = res.data || []
       console.log('Loaded counselor list:', counselorList.value)
@@ -143,7 +143,7 @@ const loadData = async () => {
       pageSize: pagination.value.pageSize,
       ...filter.value
     })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
     } else {
@@ -165,7 +165,7 @@ const handleViewModeChange = () => {
 const toggleVisible = async (row) => {
   try {
     const res = await reviewApi.setVisible(row.id, row.isVisible === 1 ? 0 : 1)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('操作成功')
       loadData()
     } else {
@@ -181,7 +181,7 @@ const handleDelete = (row) => {
   ElMessageBox.confirm('确定删除此评价？', '确认').then(async () => {
     try {
       const res = await reviewApi.delete(row.id)
-      if (res.code === 0 || res.code === 200) {
+      if (res.code === 200) {
         ElMessage.success('删除成功')
         loadData()
       } else {

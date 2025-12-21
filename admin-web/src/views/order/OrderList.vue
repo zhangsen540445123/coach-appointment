@@ -72,7 +72,7 @@ const loadData = async () => {
       status: statusFilter.value
     }
     const res = await orderApi.getList(params)
-    if (res.code === 0) {
+    if (res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
     }
@@ -92,7 +92,7 @@ const handleCancel = (row) => {
   }).then(async ({ value }) => {
     try {
       const res = await orderApi.cancel(row.id, value)
-      if (res.code === 0 || res.code === 200) {
+      if (res.code === 200) {
         ElMessage.success('订单已取消')
         loadData()
       } else {

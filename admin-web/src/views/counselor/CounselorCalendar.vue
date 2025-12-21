@@ -116,7 +116,7 @@ const loadCalendar = async () => {
   loading.value = true
   try {
     const res = await counselorApi.getCalendar(counselorId)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       existingSlots.value = res.data || []
       // 如果当前选择了日期，同步更新选中的时间段
       if (selectedDate.value) {
@@ -130,7 +130,7 @@ const loadCalendar = async () => {
 
 const loadCounselor = async () => {
   const res = await counselorApi.getById(counselorId)
-  if (res.code === 0 || res.code === 200) counselorName.value = res.data?.name || ''
+  if (res.code === 200) counselorName.value = res.data?.name || ''
 }
 
 const handleDateChange = () => {
@@ -147,7 +147,7 @@ const saveCalendar = async () => {
       date: selectedDate.value, startTime: time, consultWay: newSlot.consultWay, consultType: newSlot.consultType
     }))
     const res = await counselorApi.saveCalendar(counselorId, slots)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('保存成功')
       // 重新加载数据，loadCalendar 会自动同步 selectedSlots
       await loadCalendar()
@@ -160,7 +160,7 @@ const saveCalendar = async () => {
 const deleteSlot = async (row) => {
   try {
     const res = await counselorApi.deleteCalendarSlot(row.id)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('删除成功')
       // 重新加载数据，loadCalendar 会自动同步 selectedSlots
       await loadCalendar()

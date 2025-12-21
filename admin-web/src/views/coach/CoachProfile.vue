@@ -158,7 +158,7 @@ const loadProfile = async () => {
     console.log('Loading coach profile...')
     const res = await coachApi.getProfile()
     console.log('Profile response:', res)
-    if ((res.code === 200 || res.code === 0) && res.data) {
+    if (res.code === 200 && res.data) {
       const data = res.data
       form.value = {
         ...data,
@@ -240,7 +240,7 @@ const handleSubmit = async () => {
     }
     const res = await coachApi.submitProfile(submitData)
     console.log('Submit response:', res)
-    if (res.code === 200 || res.code === 0) {
+    if (res.code === 200) {
       ElMessage.success('提交成功，等待审核')
       auditStatus.value = 0
       loadAuditList()

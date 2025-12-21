@@ -185,13 +185,13 @@ const handleSave = async () => {
     console.log('Save results:', results)
 
     // 检查所有保存结果
-    const allSuccess = results.every(res => res.code === 200 || res.code === 0)
+    const allSuccess = results.every(res => res.code === 200)
     if (allSuccess) {
       ElMessage.success('设置保存成功')
       // 重新加载数据以显示更新后的值
       await loadData()
     } else {
-      const failedResults = results.filter(res => res.code !== 200 && res.code !== 0)
+      const failedResults = results.filter(res => res.code !== 200)
       console.error('Some saves failed:', failedResults)
       ElMessage.error('部分设置保存失败')
     }

@@ -7,9 +7,9 @@ export const useUserStore = defineStore('user', () => {
     const userInfo = ref(JSON.parse(localStorage.getItem('admin_user') || 'null'))
 
     const isLoggedIn = computed(() => !!token.value)
-    const role = computed(() => userInfo.value ?.role || 0)
-    const isAdmin = computed(() => userInfo.value ?.role === 1)
-    const isCounselor = computed(() => userInfo.value ?.role === 2)
+    const role = computed(() => userInfo.value?.role || 0)
+    const isAdmin = computed(() => userInfo.value?.role === 1)
+    const isCounselor = computed(() => userInfo.value?.role === 2)
 
     function setToken(t) {
         token.value = t
@@ -23,8 +23,8 @@ export const useUserStore = defineStore('user', () => {
 
     async function login(username, password) {
         const res = await authApi.login({ username, password })
-            // 后端 ApiResponse.success() 返回 code=0，不是 200
-        if (res.code === 0) {
+            // 后端 ApiResponse.success() 返回 code=200
+        if (res.code === 200) {
             setToken(res.data.token)
             setUserInfo({
                 userId: res.data.userId,

@@ -39,7 +39,7 @@ const loadData = async () => {
   loading.value = true
   try {
     const res = await orderApi.getById(route.params.id)
-    if (res.code === 0) { order.value = res.data || {} }
+    if (res.code === 200) { order.value = res.data || {} }
   } finally {
     loading.value = false
   }

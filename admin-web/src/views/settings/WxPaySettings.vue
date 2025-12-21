@@ -109,7 +109,7 @@ const loadConfig = async () => {
     console.log('Loading wxpay config...')
     const res = await wxpayApi.getConfig()
     console.log('Wxpay config response:', res)
-    if ((res.code === 200 || res.code === 0) && res.data) {
+    if (res.code === 200 && res.data) {
       Object.keys(form).forEach(key => {
         if (res.data[key] !== undefined) {
           form[key] = res.data[key]
@@ -133,7 +133,7 @@ const handleSave = async () => {
     submitting.value = true
     const res = await wxpayApi.saveConfig(form)
     console.log('Save wxpay config response:', res)
-    if (res.code === 200 || res.code === 0) {
+    if (res.code === 200) {
       ElMessage({ message: '配置保存成功', type: 'success' })
       if (!form.id && res.data) {
         form.id = res.data

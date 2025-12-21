@@ -79,7 +79,7 @@ const loadData = async () => {
     console.log('Loading carousel list...')
     const res = await carouselApi.getList()
     console.log('Carousel list response:', res)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       tableData.value = res.data || []
       console.log('Loaded carousels:', tableData.value.length)
     } else {
@@ -117,7 +117,7 @@ const handleSubmit = async () => {
         ? await carouselApi.update(form.id, form)
         : await carouselApi.create(form)
       console.log('Submit response:', res)
-      if (res.code === 0 || res.code === 200) {
+      if (res.code === 200) {
         ElMessage.success(isEdit.value ? 'Updated' : 'Created')
         dialogVisible.value = false
         loadData()
@@ -137,7 +137,7 @@ const handleToggle = async (row) => {
   try {
     const newStatus = row.status === 1 ? 0 : 1
     const res = await carouselApi.update(row.id, { ...row, status: newStatus })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success(newStatus === 1 ? 'Enabled' : 'Disabled')
       loadData()
     } else {
@@ -153,7 +153,7 @@ const handleDelete = (row) => {
   ElMessageBox.confirm('Are you sure to delete this carousel?', 'Confirm', { type: 'warning' }).then(async () => {
     try {
       const res = await carouselApi.delete(row.id)
-      if (res.code === 0 || res.code === 200) {
+      if (res.code === 200) {
         ElMessage.success('Deleted')
         loadData()
       } else {

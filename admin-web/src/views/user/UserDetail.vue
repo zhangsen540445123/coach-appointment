@@ -33,7 +33,7 @@ const loadData = async () => {
   loading.value = true
   try {
     const res = await userApi.getById(route.params.id)
-    if (res.code === 0) {
+    if (res.code === 200) {
       user.value = res.data || {}
     }
   } finally {

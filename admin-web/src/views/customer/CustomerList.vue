@@ -122,7 +122,7 @@ const loadDictOptions = async () => {
   try {
     const res = await dictApi.getAllData()
     console.log('Dictionary data response:', res)
-    if ((res.code === 0 || res.code === 200) && res.data) {
+    if (res.code === 200 && res.data) {
       careerOptions.value = res.data.career || []
       marriageOptions.value = res.data.marriage || []
       childrenOptions.value = res.data.children || []
@@ -161,7 +161,7 @@ const fetchData = async () => {
   try {
     const res = await customerApi.getList(queryParams)
     console.log('Customer list response:', res)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
       console.log('Loaded customers:', tableData.value.length)
@@ -191,7 +191,7 @@ const handleSave = async () => {
   if (form.sex === null) { ElMessage.warning('请选择性别'); return }
   try {
     const res = await customerApi.update(form.id, form)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('保存成功')
       dialogVisible.value = false
       fetchData()
@@ -208,7 +208,7 @@ const handleDelete = async (row) => {
   try {
     await ElMessageBox.confirm('确定要删除该客户信息吗？', '提示', { type: 'warning' })
     const res = await customerApi.delete(row.id)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('删除成功')
       fetchData()
     } else {

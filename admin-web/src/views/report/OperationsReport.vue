@@ -155,7 +155,7 @@ const loadData = async () => {
     console.log('Loading operations report with params:', params)
     const res = await reportApi.getOperationsReport(params)
     console.log('Operations report response:', res)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       userStats.value = res.data?.userStats || {}
       counselorStats.value = res.data?.counselorStats || {}
       orderStats.value = res.data?.orderStats || {}

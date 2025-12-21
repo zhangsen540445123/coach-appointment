@@ -313,11 +313,11 @@ const loadDictOptions = async () => {
       dictApi.getDataByCode('consult_type'),
       dictApi.getDataByCode('consult_way')
     ])
-    if (qRes.code === 0) qualificationOptions.value = qRes.data || []
-    if (sRes.code === 0) schoolOptions.value = sRes.data || []
-    if (dRes.code === 0) directionOptions.value = dRes.data || []
-    if (ctRes.code === 0) consultTypeOptions.value = ctRes.data || []
-    if (cwRes.code === 0) consultWayOptions.value = cwRes.data || []
+    if (qRes.code === 200) qualificationOptions.value = qRes.data || []
+    if (sRes.code === 200) schoolOptions.value = sRes.data || []
+    if (dRes.code === 200) directionOptions.value = dRes.data || []
+    if (ctRes.code === 200) consultTypeOptions.value = ctRes.data || []
+    if (cwRes.code === 200) consultWayOptions.value = cwRes.data || []
   } catch (e) {
     console.error('加载字典数据失败', e)
   }
@@ -427,7 +427,7 @@ const loadData = async () => {
   loading.value = true
   try {
     const res = await counselorApi.getById(route.params.id)
-    if ((res.code === 0 || res.code === 200) && res.data) {
+    if (res.code === 200 && res.data) {
       const data = res.data
       Object.assign(form, {
         ...data,
@@ -467,7 +467,7 @@ const handleSubmit = async () => {
       const res = isEdit.value
         ? await counselorApi.update(route.params.id, submitData)
         : await counselorApi.create(submitData)
-      if (res.code === 0 || res.code === 200) {
+      if (res.code === 200) {
         ElMessage.success(isEdit.value ? t('update') + '成功' : t('create') + '成功')
         router.push('/counselor')
       } else {

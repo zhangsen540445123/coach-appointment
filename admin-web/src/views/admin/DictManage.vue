@@ -130,13 +130,13 @@ onMounted(() => { loadTypes() })
 
 async function loadTypes() {
   const res = await dictApi.getAllTypes()
-  if (res.code === 0) dictTypes.value = res.data || []
+  if (res.code === 200) dictTypes.value = res.data || []
 }
 
 async function selectType(type) {
   selectedType.value = type
   const res = await dictApi.getItemsByTypeId(type.id)
-  if (res.code === 0) dictItems.value = res.data || []
+  if (res.code === 200) dictItems.value = res.data || []
 }
 
 function showAddTypeDialog() {
@@ -159,7 +159,7 @@ async function saveType() {
   const res = typeForm.value.id
     ? await dictApi.updateType(typeForm.value.id, typeForm.value)
     : await dictApi.createType(typeForm.value)
-  if (res.code === 0) {
+  if (res.code === 200) {
     ElMessage.success('保存成功')
     typeDialogVisible.value = false
     loadTypes()
@@ -171,7 +171,7 @@ async function saveType() {
 async function deleteType(type) {
   await ElMessageBox.confirm(`确定删除字典类型"${type.name}"及其所有选项吗？`, '确认删除', { type: 'warning' })
   const res = await dictApi.deleteType(type.id)
-  if (res.code === 0) {
+  if (res.code === 200) {
     ElMessage.success('删除成功')
     if (selectedType.value?.id === type.id) {
       selectedType.value = null
@@ -203,7 +203,7 @@ async function saveItem() {
   const res = itemForm.value.id
     ? await dictApi.updateItem(itemForm.value.id, itemForm.value)
     : await dictApi.createItem(itemForm.value)
-  if (res.code === 0) {
+  if (res.code === 200) {
     ElMessage.success('保存成功')
     itemDialogVisible.value = false
     selectType(selectedType.value)
@@ -215,7 +215,7 @@ async function saveItem() {
 async function deleteItem(item) {
   await ElMessageBox.confirm(`确定删除选项"${item.label}"吗？`, '确认删除', { type: 'warning' })
   const res = await dictApi.deleteItem(item.id)
-  if (res.code === 0) {
+  if (res.code === 200) {
     ElMessage.success('删除成功')
     selectType(selectedType.value)
   } else {

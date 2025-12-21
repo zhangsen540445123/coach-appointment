@@ -79,7 +79,7 @@ const loadData = async () => {
   loading.value = true
   try {
     const res = await counselorApi.getList({ ...pagination.value, keyword: searchKeyword.value })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
     }
@@ -98,7 +98,7 @@ const handleToggleTop = async (row) => {
   try {
     const newTop = row.isTop === 1 ? 0 : 1
     const res = await counselorApi.setTop(row.id, newTop)
-    if (res.code === 0 || res.code === 200) { ElMessage.success(newTop === 1 ? 'Pinned' : 'Unpinned'); loadData() }
+    if (res.code === 200) { ElMessage.success(newTop === 1 ? 'Pinned' : 'Unpinned'); loadData() }
   } catch (e) { ElMessage.error('Operation failed') }
 }
 
@@ -106,7 +106,7 @@ const handleToggleStatus = async (row) => {
   try {
     const newStatus = row.canConsult === 1 ? 0 : 1
     const res = await counselorApi.toggleStatus(row.id, newStatus)
-    if (res.code === 0 || res.code === 200) { ElMessage.success(newStatus === 1 ? 'Enabled' : 'Disabled'); loadData() }
+    if (res.code === 200) { ElMessage.success(newStatus === 1 ? 'Enabled' : 'Disabled'); loadData() }
   } catch (e) { ElMessage.error('Operation failed') }
 }
 
@@ -114,7 +114,7 @@ const handleDelete = (row) => {
   ElMessageBox.confirm('Are you sure to delete this coach?', 'Confirm', { type: 'warning' }).then(async () => {
     try {
       const res = await counselorApi.delete(row.id)
-      if (res.code === 0 || res.code === 200) { ElMessage.success('Deleted'); loadData() }
+      if (res.code === 200) { ElMessage.success('Deleted'); loadData() }
     } catch (e) { ElMessage.error('Delete failed') }
   }).catch(() => {})
 }

@@ -139,7 +139,7 @@ const loadData = async () => {
     console.log('Loading financial report with params:', params)
     const res = await reportApi.getFinancialReport(params)
     console.log('Financial report response:', res)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       summary.value = res.data?.summary || {}
       counselorRank.value = res.data?.counselorRank || []
       revenueTrendData = res.data?.revenueTrend || []

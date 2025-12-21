@@ -78,7 +78,7 @@ const loadData = async () => {
   try {
     const status = statusFilter.value === '' ? null : parseInt(statusFilter.value)
     const res = await counselorApi.getAuditList(pagination.value, status)
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       tableData.value = res.data?.list || []
       total.value = res.data?.total || 0
     } else {
@@ -97,7 +97,7 @@ const handlePageChange = (page) => { pagination.value.page = page; loadData() }
 const handleApprove = async (row) => {
   try {
     const res = await counselorApi.audit(row.id, { status: 1, remark: '' })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('审核通过')
       loadData()
     } else {
@@ -111,7 +111,7 @@ const handleApprove = async (row) => {
 const handleReject = async (row) => {
   try {
     const res = await counselorApi.audit(row.id, { status: 2, remark: '' })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success('已拒绝')
       loadData()
     } else {
@@ -131,7 +131,7 @@ const viewDetail = (row) => {
 const submitAudit = async (status) => {
   try {
     const res = await counselorApi.audit(dialogData.value.id, { status, remark: auditRemark.value })
-    if (res.code === 0 || res.code === 200) {
+    if (res.code === 200) {
       ElMessage.success(status === 1 ? '审核通过' : '已拒绝')
       dialogVisible.value = false
       loadData()
