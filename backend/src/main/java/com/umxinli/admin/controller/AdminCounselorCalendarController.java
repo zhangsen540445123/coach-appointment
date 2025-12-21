@@ -53,24 +53,31 @@ public class AdminCounselorCalendarController {
     public ApiResponse saveCalendar(@PathVariable Long counselorId, @RequestBody List<Map<String, Object>> slots) {
         log.info("Save calendar for counselor: {}, slots count: {}", counselorId, slots.size());
         try {
+            // 收集所有涉及的日期
+            Set<String> dates = new HashSet<>();
             List<CounselorCalendar> calendars = new ArrayList<>();
             for (Map<String, Object> slot : slots) {
                 CounselorCalendar cal = new CounselorCalendar();
                 cal.setCounselorId(counselorId);
-                cal.setDate((String) slot.get("date"));
+                String date = (String) slot.get("date");
+                cal.setDate(date);
                 cal.setStartTime((String) slot.get("startTime"));
                 cal.setConsultWay(slot.get("consultWay") != null ? ((Number) slot.get("consultWay")).intValue() : 1);
                 cal.setConsultType(slot.get("consultType") != null ? ((Number) slot.get("consultType")).intValue() : 4);
                 cal.setStatus(0); // 0-可预约
                 calendars.add(cal);
+                dates.add(date);
             }
-            
-            // 先删除现有的，再批量插入
-            counselorCalendarMapper.deleteByCounselorId(counselorId);
+
+            // 只删除涉及日期的现有记录，而不是删除所有日期
+            for (String date : dates) {
+                counselorCalendarMapper.deleteByCounselorIdAndDate(counselorId, date);
+            }
+
             if (!calendars.isEmpty()) {
                 counselorCalendarMapper.batchInsert(calendars);
             }
-            
+
             return ApiResponse.success("保存成功");
         } catch (Exception e) {
             log.error("Error saving calendar", e);

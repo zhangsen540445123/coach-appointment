@@ -370,7 +370,8 @@ CREATE TABLE IF NOT EXISTS `counselor_calendar` (
   INDEX idx_counselor_id (counselor_id),
   INDEX idx_date (date),
   INDEX idx_status (status),
-  INDEX idx_counselor_date (counselor_id, date)
+  INDEX idx_counselor_date (counselor_id, date),
+  UNIQUE KEY uk_counselor_date_time (counselor_id, date, start_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='教练可预约时间表';
 
 -- 数据字典类型表

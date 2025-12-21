@@ -118,7 +118,15 @@ const loadCalendar = async () => {
     const res = await counselorApi.getCalendar(counselorId)
     if (res.code === 200) {
       existingSlots.value = res.data || []
-      // 如果当前选择了日期，同步更新选中的时间段
+      // 如果当前没有选择日期，但有已设置的时间，自动选择第一个日期
+      if (!selectedDate.value && existingSlots.value.length > 0) {
+        // 获取所有不重复的日期，按日期排序
+        const dates = [...new Set(existingSlots.value.map(s => s.date))].sort()
+        if (dates.length > 0) {
+          selectedDate.value = dates[0]
+        }
+      }
+      // 同步更新选中的时间段
       if (selectedDate.value) {
         selectedSlots.value = existingSlots.value
           .filter(s => s.date === selectedDate.value)
