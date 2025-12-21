@@ -124,7 +124,8 @@
       </el-form>
       <template #footer>
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="saveCoupon" :loading="saving">保存</el-button>
+        <el-button type="primary" @click="saveCoupon" :loading="saving"
+          :disabled="formData.type === 1 && formData.discountAmount > formData.minAmount">保存</el-button>
       </template>
     </el-dialog>
 
@@ -176,10 +177,25 @@ const formData = reactive({
   coachScope: 1, coachIds: [], dateRange: null
 })
 
+// 自定义校验：满减券时优惠金额不能超过满减门槛
+const validateDiscountAmount = (rule, value, callback) => {
+  if (formData.type === 1 && value > formData.minAmount) {
+    callback(new Error('优惠金额不能超过满减门槛'))
+  } else {
+    callback()
+  }
+}
+
 const formRules = {
   name: [{ required: true, message: '请输入优惠券名称', trigger: 'blur' }],
   type: [{ required: true, message: '请选择优惠类型', trigger: 'change' }],
-  discountAmount: [{ required: true, message: '请输入优惠金额', trigger: 'blur' }]
+  discountAmount: [
+    { required: true, message: '请输入优惠金额', trigger: 'blur' },
+    { validator: validateDiscountAmount, trigger: 'blur' }
+  ],
+  minAmount: [
+    { validator: validateDiscountAmount, trigger: 'blur' }
+  ]
 }
 
 const pushForm = reactive({ pushType: 'users', userIdsText: '' })
@@ -242,6 +258,13 @@ const editCoupon = async (row) => {
 const saveCoupon = async () => {
   try {
     await formRef.value.validate()
+
+    // 额外校验：满减券时优惠金额不能超过满减门槛
+    if (formData.type === 1 && formData.discountAmount > formData.minAmount) {
+      ElMessage.warning('优惠金额不能超过满减门槛')
+      return
+    }
+
     saving.value = true
     const data = {
       id: editingId.value, name: formData.name, type: formData.type,
@@ -261,7 +284,6 @@ const saveCoupon = async () => {
     }
   } catch (e) {
     console.error('Error saving coupon:', e)
-    ElMessage.error('保存失败')
   }
   finally { saving.value = false }
 }
