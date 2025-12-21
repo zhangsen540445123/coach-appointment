@@ -136,21 +136,20 @@ CREATE TABLE IF NOT EXISTS `visitor_info` (
 -- 优惠券表
 CREATE TABLE IF NOT EXISTS `coupon` (
   `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '优惠券ID',
-  `code` VARCHAR(50) UNIQUE NOT NULL COMMENT '优惠券码',
-  `name` VARCHAR(200) COMMENT '优惠券名称',
-  `discount_type` INT COMMENT '折扣类型 1-固定金额 2-百分比',
-  `discount_value` DECIMAL(10, 2) COMMENT '折扣值',
-  `min_amount` DECIMAL(10, 2) COMMENT '最小使用金额',
-  `max_amount` DECIMAL(10, 2) COMMENT '最大使用金额',
-  `valid_from` DATE COMMENT '有效期开始',
-  `valid_to` DATE COMMENT '有效期结束',
-  `total_count` INT COMMENT '总数量',
-  `used_count` INT DEFAULT 0 COMMENT '已使用数量',
+  `name` VARCHAR(200) NOT NULL COMMENT '优惠券名称',
+  `type` INT NOT NULL DEFAULT 1 COMMENT '类型: 1-满减券 2-抵扣券',
+  `discount_amount` DECIMAL(10, 2) NOT NULL COMMENT '优惠金额',
+  `min_amount` DECIMAL(10, 2) DEFAULT 0 COMMENT '最低消费金额',
+  `coach_scope` INT DEFAULT 1 COMMENT '适用范围: 1-全部教练 2-指定教练',
+  `coach_ids` TEXT COMMENT '指定教练ID列表(JSON)',
+  `start_time` DATETIME COMMENT '有效期开始时间',
+  `end_time` DATETIME COMMENT '有效期结束时间',
   `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-启用',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  INDEX idx_code (code),
-  INDEX idx_status (status)
+  INDEX idx_status (status),
+  INDEX idx_start_time (start_time),
+  INDEX idx_end_time (end_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='优惠券表';
 
 

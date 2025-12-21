@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @RestController
@@ -108,12 +111,12 @@ public class AdminCouponController {
                 coupon.setCoachIds(coachIds);
             }
 
-            // 处理时间字段
+            // 处理时间字段 - 支持 ISO 8601 格式（如 2025-12-21T16:00:00.000Z）
             if (requestData.get("startTime") != null) {
-                coupon.setStartTime(LocalDateTime.parse(requestData.get("startTime").toString()));
+                coupon.setStartTime(parseDateTime(requestData.get("startTime").toString()));
             }
             if (requestData.get("endTime") != null) {
-                coupon.setEndTime(LocalDateTime.parse(requestData.get("endTime").toString()));
+                coupon.setEndTime(parseDateTime(requestData.get("endTime").toString()));
             }
 
             if (coupon.getId() == null) {
@@ -306,6 +309,34 @@ public class AdminCouponController {
             sb.append(chars.charAt(random.nextInt(chars.length())));
         }
         return sb.toString();
+    }
+
+    /**
+     * 解析日期时间字符串，支持多种格式：
+     * - ISO 8601 带时区: 2025-12-21T16:00:00.000Z
+     * - ISO 8601 不带时区: 2025-12-21T16:00:00
+     */
+    private LocalDateTime parseDateTime(String dateTimeStr) {
+        if (dateTimeStr == null || dateTimeStr.isEmpty()) {
+            return null;
+        }
+        try {
+            // 尝试解析 ISO 8601 带 Z 时区的格式
+            if (dateTimeStr.endsWith("Z")) {
+                Instant instant = Instant.parse(dateTimeStr);
+                return LocalDateTime.ofInstant(instant, ZoneId.of("Asia/Shanghai"));
+            }
+            // 尝试解析标准 LocalDateTime 格式
+            return LocalDateTime.parse(dateTimeStr);
+        } catch (Exception e) {
+            // 尝试解析其他格式
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                return LocalDateTime.parse(dateTimeStr, formatter);
+            } catch (Exception e2) {
+                throw new RuntimeException("无法解析日期时间: " + dateTimeStr);
+            }
+        }
     }
 }
 
