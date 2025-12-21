@@ -32,22 +32,22 @@ public class CoachOrderServiceImpl implements CoachOrderService {
                      "FROM consult_order o " +
                      "LEFT JOIN user u ON o.user_id = u.id " +
                      "WHERE o.counselor_id = ? ";
-        
-        if (status != null && status > 0) {
+
+        if (status != null && status >= 0) {
             sql += "AND o.status = " + status + " ";
         }
         sql += "ORDER BY o.created_at DESC LIMIT ?, ?";
-        
-        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, counselorId, 
+
+        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, counselorId,
                 request.getOffset(), request.getPageSize());
-        
+
         // 统计总数
         String countSql = "SELECT COUNT(*) FROM consult_order WHERE counselor_id = ?";
-        if (status != null && status > 0) {
+        if (status != null && status >= 0) {
             countSql += " AND status = " + status;
         }
         int total = jdbcTemplate.queryForObject(countSql, Integer.class, counselorId);
-        
+
         return new PageResponse(list, total, request.getPage(), request.getPageSize());
     }
 
