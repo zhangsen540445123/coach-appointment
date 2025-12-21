@@ -76,8 +76,19 @@ const rules = {
 const loadData = async () => {
   loading.value = true
   try {
+    console.log('Loading carousel list...')
     const res = await carouselApi.getList()
-    if (res.code === 0) { tableData.value = res.data || [] }
+    console.log('Carousel list response:', res)
+    if (res.code === 0 || res.code === 200) {
+      tableData.value = res.data || []
+      console.log('Loaded carousels:', tableData.value.length)
+    } else {
+      console.error('Invalid response:', res)
+      ElMessage.error(res.msg || '加载失败')
+    }
+  } catch (e) {
+    console.error('Load carousel error:', e)
+    ElMessage.error('加载轮播图列表失败')
   } finally {
     loading.value = false
   }
@@ -101,14 +112,21 @@ const handleSubmit = async () => {
     if (!valid) return
     submitting.value = true
     try {
+      console.log('Submitting carousel:', form)
       const res = isEdit.value
         ? await carouselApi.update(form.id, form)
         : await carouselApi.create(form)
-      if (res.code === 0) {
+      console.log('Submit response:', res)
+      if (res.code === 0 || res.code === 200) {
         ElMessage.success(isEdit.value ? 'Updated' : 'Created')
         dialogVisible.value = false
         loadData()
+      } else {
+        ElMessage.error(res.msg || '操作失败')
       }
+    } catch (e) {
+      console.error('Submit error:', e)
+      ElMessage.error('操作失败')
     } finally {
       submitting.value = false
     }
@@ -119,16 +137,32 @@ const handleToggle = async (row) => {
   try {
     const newStatus = row.status === 1 ? 0 : 1
     const res = await carouselApi.update(row.id, { ...row, status: newStatus })
-    if (res.code === 0) { ElMessage.success(newStatus === 1 ? 'Enabled' : 'Disabled'); loadData() }
-  } catch (e) { ElMessage.error('Operation failed') }
+    if (res.code === 0 || res.code === 200) {
+      ElMessage.success(newStatus === 1 ? 'Enabled' : 'Disabled')
+      loadData()
+    } else {
+      ElMessage.error(res.msg || 'Operation failed')
+    }
+  } catch (e) {
+    console.error('Toggle error:', e)
+    ElMessage.error('Operation failed')
+  }
 }
 
 const handleDelete = (row) => {
   ElMessageBox.confirm('Are you sure to delete this carousel?', 'Confirm', { type: 'warning' }).then(async () => {
     try {
       const res = await carouselApi.delete(row.id)
-      if (res.code === 0) { ElMessage.success('Deleted'); loadData() }
-    } catch (e) { ElMessage.error('Delete failed') }
+      if (res.code === 0 || res.code === 200) {
+        ElMessage.success('Deleted')
+        loadData()
+      } else {
+        ElMessage.error(res.msg || 'Delete failed')
+      }
+    } catch (e) {
+      console.error('Delete error:', e)
+      ElMessage.error('Delete failed')
+    }
   }).catch(() => {})
 }
 
