@@ -86,12 +86,12 @@ public class ConsultStudioController {
      * POST /consultStudio/counselorList
      */
     @PostMapping("/counselorList")
-    public ApiResponse<List<Counselor>> getCounselorList(@RequestBody Map<String, Object> request) {
+    public ApiResponse<Map<String, Object>> getCounselorList(@RequestBody Map<String, Object> request) {
         log.info("Get studio counselor list request: {}", request);
         try {
             Long studioId = Long.valueOf(String.valueOf(request.get("studioId")));
             List<Counselor> counselors = studioService.getStudioCounselors(studioId);
-            
+
             // 添加baseUrl前缀
             for (Counselor c : counselors) {
                 if (c.getHeadUrl() != null && !c.getHeadUrl().startsWith("http")) {
@@ -101,8 +101,12 @@ public class ConsultStudioController {
                     c.setHeadUrlSquare(baseUrl + c.getHeadUrlSquare());
                 }
             }
-            
-            return ApiResponse.success(counselors);
+
+            // 返回格式与小程序端预期一致：{counselorList: [...]}
+            Map<String, Object> result = new HashMap<>();
+            result.put("counselorList", counselors);
+
+            return ApiResponse.success(result);
         } catch (Exception e) {
             log.error("Error getting studio counselor list", e);
             return ApiResponse.error("获取教练列表失败");

@@ -1,4 +1,10 @@
 {
   "navigationStyle": "custom",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "h-m-filter-dropdown": "/uni_modules/HM-filterDropdown/components/HM-filterDropdown/HM-filterDropdown",
+    "page-container": "/components/PageContainer",
+    "navbar": "/components/Navbar",
+    "consultant-item": "/components/consult/Consultant"
+  }
 }

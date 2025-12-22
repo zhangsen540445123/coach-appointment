@@ -3,14 +3,20 @@
     <el-card>
       <template #header>
         <div class="card-header">
-          <span>工作室管理</span>
-          <el-button type="primary" @click="handleAdd">新增工作室</el-button>
+          <span>线下活动管理</span>
+          <el-button type="primary" @click="handleAdd">新增线下活动</el-button>
         </div>
       </template>
-      
+
       <el-table :data="tableData" v-loading="loading" stripe>
         <el-table-column prop="id" label="ID" width="80" />
-        <el-table-column prop="studioName" label="工作室名称" min-width="150" />
+        <el-table-column label="封面图" width="100">
+          <template #default="{ row }">
+            <el-image v-if="getCoverImage(row)" :src="getCoverImage(row)" style="width: 60px; height: 60px" fit="cover" />
+            <span v-else>无</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="studioName" label="活动名称" min-width="150" />
         <el-table-column prop="studioType" label="类型" width="100">
           <template #default="{ row }">
             <el-tag :type="row.studioType === 0 ? 'success' : 'primary'">
@@ -18,6 +24,7 @@
             </el-tag>
           </template>
         </el-table-column>
+        <el-table-column prop="studioOpenTime" label="活动时间" min-width="150" />
         <el-table-column prop="summaryAddress" label="地址" min-width="200" />
         <el-table-column prop="concatPhone" label="联系电话" width="130" />
         <el-table-column prop="enabled" label="状态" width="80">
@@ -40,31 +47,78 @@
     </el-card>
 
     <!-- 编辑弹窗 -->
-    <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑工作室' : '新增工作室'" width="700px">
-      <el-form :model="form" label-width="100px">
-        <el-form-item label="名称" required>
-          <el-input v-model="form.studioName" placeholder="请输入工作室名称" />
+    <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑线下活动' : '新增线下活动'" width="800px" top="5vh">
+      <el-form :model="form" label-width="100px" class="studio-form">
+        <el-form-item label="活动名称" required>
+          <el-input v-model="form.studioName" placeholder="请输入活动名称" />
         </el-form-item>
         <el-form-item label="类型">
           <el-radio-group v-model="form.studioType">
-            <el-radio :label="0">线下工作室</el-radio>
-            <el-radio :label="1">线上工作室</el-radio>
+            <el-radio :label="0">线下活动</el-radio>
+            <el-radio :label="1">线上活动</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="营业时间">
-          <el-input v-model="form.studioOpenTime" placeholder="如：周一至周五 9:00-18:00" />
+        <el-form-item label="封面图片">
+          <div class="cover-images">
+            <div v-for="(img, index) in coverImages" :key="index" class="cover-image-item">
+              <el-image :src="getImageUrl(img)" fit="cover" style="width: 100px; height: 100px" />
+              <el-button type="danger" size="small" circle class="delete-btn" @click="removeCoverImage(index)">
+                <el-icon><Delete /></el-icon>
+              </el-button>
+            </div>
+            <el-upload
+              class="cover-uploader"
+              action="/api/file/upload"
+              :show-file-list="false"
+              :on-success="handleCoverUploadSuccess"
+              :before-upload="beforeImageUpload"
+            >
+              <div class="upload-trigger">
+                <el-icon><Plus /></el-icon>
+                <span>添加图片</span>
+              </div>
+            </el-upload>
+          </div>
+          <div class="form-tip">支持上传多张图片，第一张作为列表封面</div>
         </el-form-item>
-        <el-form-item label="地址">
-          <el-input v-model="form.summaryAddress" placeholder="请输入地址" />
+        <el-form-item label="活动时间">
+          <el-input v-model="form.studioOpenTime" placeholder="如：周一至周五 9:00-18:00 或 2024年1月20日 14:00" />
+        </el-form-item>
+        <el-form-item label="简略地址">
+          <el-input v-model="form.summaryAddress" placeholder="如：北京市朝阳区xxx" />
+        </el-form-item>
+        <el-form-item label="详细地址">
+          <el-input v-model="form.fullAddress" placeholder="详细地址，用于导航" />
+        </el-form-item>
+        <el-form-item label="经度">
+          <el-input v-model="form.locationLongitude" placeholder="经度坐标，用于地图导航" />
+        </el-form-item>
+        <el-form-item label="纬度">
+          <el-input v-model="form.locationLatitude" placeholder="纬度坐标，用于地图导航" />
         </el-form-item>
         <el-form-item label="联系电话">
           <el-input v-model="form.concatPhone" placeholder="请输入联系电话" />
         </el-form-item>
-        <el-form-item label="工作室介绍">
-          <el-input v-model="form.studioDetail" type="textarea" :rows="4" placeholder="请输入工作室介绍" />
+        <el-form-item label="二维码">
+          <div class="qrcode-upload">
+            <el-image v-if="form.qrCodeUrl" :src="getImageUrl(form.qrCodeUrl)" fit="contain" style="width: 100px; height: 100px" />
+            <el-upload
+              action="/api/file/upload"
+              :show-file-list="false"
+              :on-success="handleQrcodeUploadSuccess"
+              :before-upload="beforeImageUpload"
+            >
+              <el-button size="small">{{ form.qrCodeUrl ? '更换二维码' : '上传二维码' }}</el-button>
+            </el-upload>
+          </div>
+          <div class="form-tip">用于小程序中"名片"功能展示</div>
+        </el-form-item>
+        <el-form-item label="活动介绍">
+          <el-input v-model="form.studioDetail" type="textarea" :rows="6" placeholder="请输入活动介绍，支持HTML格式" />
         </el-form-item>
         <el-form-item label="排序">
           <el-input-number v-model="form.sortOrder" :min="0" />
+          <span class="form-tip" style="margin-left: 10px">数值越大排序越靠前</span>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -76,8 +130,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { Delete, Plus } from '@element-plus/icons-vue'
 import request from '@/api/request'
 
 const loading = ref(false)
@@ -85,50 +140,152 @@ const submitting = ref(false)
 const tableData = ref([])
 const dialogVisible = ref(false)
 const isEdit = ref(false)
+const coverImages = ref([])
 
 const form = reactive({
   id: null,
   studioName: '',
   studioType: 0,
+  studioCoverImgList: '',
   studioOpenTime: '',
   summaryAddress: '',
+  fullAddress: '',
+  locationLongitude: '',
+  locationLatitude: '',
   concatPhone: '',
+  qrCodeUrl: '',
   studioDetail: '',
   sortOrder: 0,
   enabled: 1
 })
 
+const getImageUrl = (url) => {
+  if (!url) return ''
+  if (url.startsWith('http')) return url
+  return `/api${url}`
+}
+
+const getCoverImage = (row) => {
+  if (!row.studioCoverImgList) return null
+  try {
+    const list = typeof row.studioCoverImgList === 'string'
+      ? JSON.parse(row.studioCoverImgList)
+      : row.studioCoverImgList
+    return list && list.length > 0 ? getImageUrl(list[0]) : null
+  } catch (e) {
+    return null
+  }
+}
+
 const loadData = async () => {
   loading.value = true
   try {
     const res = await request.get('/admin/studio/list')
-    if (res.code === 200) {
-      tableData.value = res.data
+    console.log('Studio list response:', res)
+    if (res.code === 200 || res.code === 0) {
+      tableData.value = res.data || []
     }
+  } catch (e) {
+    console.error('Load studio list error:', e)
+    ElMessage.error('获取列表失败')
   } finally {
     loading.value = false
   }
 }
 
+const resetForm = () => {
+  Object.assign(form, {
+    id: null,
+    studioName: '',
+    studioType: 0,
+    studioCoverImgList: '',
+    studioOpenTime: '',
+    summaryAddress: '',
+    fullAddress: '',
+    locationLongitude: '',
+    locationLatitude: '',
+    concatPhone: '',
+    qrCodeUrl: '',
+    studioDetail: '',
+    sortOrder: 0,
+    enabled: 1
+  })
+  coverImages.value = []
+}
+
 const handleAdd = () => {
   isEdit.value = false
-  Object.assign(form, { id: null, studioName: '', studioType: 0, studioOpenTime: '', summaryAddress: '', concatPhone: '', studioDetail: '', sortOrder: 0, enabled: 1 })
+  resetForm()
   dialogVisible.value = true
 }
 
 const handleEdit = (row) => {
   isEdit.value = true
   Object.assign(form, row)
+  // 解析封面图片列表
+  try {
+    if (row.studioCoverImgList) {
+      coverImages.value = typeof row.studioCoverImgList === 'string'
+        ? JSON.parse(row.studioCoverImgList)
+        : row.studioCoverImgList
+    } else {
+      coverImages.value = []
+    }
+  } catch (e) {
+    coverImages.value = []
+  }
   dialogVisible.value = true
+}
+
+const beforeImageUpload = (file) => {
+  const isImage = file.type.startsWith('image/')
+  const isLt10M = file.size / 1024 / 1024 < 10
+  if (!isImage) {
+    ElMessage.error('只能上传图片文件')
+    return false
+  }
+  if (!isLt10M) {
+    ElMessage.error('图片大小不能超过10MB')
+    return false
+  }
+  return true
+}
+
+const handleCoverUploadSuccess = (response) => {
+  console.log('Cover upload response:', response)
+  if (response.code === 200 || response.code === 0) {
+    const url = response.data?.url || response.data
+    coverImages.value.push(url)
+    ElMessage.success('上传成功')
+  } else {
+    ElMessage.error(response.message || '上传失败')
+  }
+}
+
+const removeCoverImage = (index) => {
+  coverImages.value.splice(index, 1)
+}
+
+const handleQrcodeUploadSuccess = (response) => {
+  console.log('Qrcode upload response:', response)
+  if (response.code === 200 || response.code === 0) {
+    form.qrCodeUrl = response.data?.url || response.data
+    ElMessage.success('上传成功')
+  } else {
+    ElMessage.error(response.message || '上传失败')
+  }
 }
 
 const handleSubmit = async () => {
   if (!form.studioName) {
-    ElMessage.warning('请输入工作室名称')
+    ElMessage.warning('请输入活动名称')
     return
   }
   submitting.value = true
   try {
+    // 将封面图片数组转为JSON字符串
+    form.studioCoverImgList = JSON.stringify(coverImages.value)
+
     if (isEdit.value) {
       await request.put(`/admin/studio/${form.id}`, form)
     } else {
@@ -138,6 +295,7 @@ const handleSubmit = async () => {
     dialogVisible.value = false
     loadData()
   } catch (e) {
+    console.error('Save studio error:', e)
     ElMessage.error('保存失败')
   } finally {
     submitting.value = false
@@ -155,7 +313,7 @@ const handleToggle = async (row) => {
 }
 
 const handleDelete = (row) => {
-  ElMessageBox.confirm('确定要删除该工作室吗？', '确认删除', { type: 'warning' })
+  ElMessageBox.confirm('确定要删除该线下活动吗？', '确认删除', { type: 'warning' })
     .then(async () => {
       await request.delete(`/admin/studio/${row.id}`)
       ElMessage.success('删除成功')
@@ -169,5 +327,17 @@ onMounted(() => loadData())
 
 <style scoped>
 .card-header { display: flex; justify-content: space-between; align-items: center; }
+.studio-form { max-height: 65vh; overflow-y: auto; padding-right: 10px; }
+.cover-images { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.cover-image-item { position: relative; }
+.cover-image-item .delete-btn { position: absolute; top: -8px; right: -8px; }
+.cover-uploader .upload-trigger {
+  width: 100px; height: 100px; border: 1px dashed #d9d9d9; border-radius: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer; color: #8c939d;
+}
+.cover-uploader .upload-trigger:hover { border-color: #409eff; color: #409eff; }
+.qrcode-upload { display: flex; align-items: center; gap: 10px; }
+.form-tip { font-size: 12px; color: #999; }
 </style>
 

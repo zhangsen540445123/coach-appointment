@@ -10,6 +10,11 @@
                 <view class="btm-list data-v-4021c372">
                     <scroll-view class="scroll-box data-v-4021c372" scrollY="{{true}}" showScrollbar="{{false}}">
                         <consultant-item bind:__l="__l" class="data-v-4021c372" item="{{item}}" vueId="{{'06107a00-3-'+__i0__}}" wx:for="{{counselorList}}" wx:for-index="__i0__" wx:key="counselorId"></consultant-item>
+                        <view class="empty-state data-v-4021c372" wx:if="{{counselorList.length === 0}}">
+                            <view class="empty-icon-text data-v-4021c372">😔</view>
+                            <text class="empty-text data-v-4021c372">暂无符合条件的教练</text>
+                            <text class="empty-tip data-v-4021c372">请尝试调整筛选条件</text>
+                        </view>
                     </scroll-view>
                 </view>
             </view>
