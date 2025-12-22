@@ -35,7 +35,8 @@
         SELECT
         <choose>
             <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
-            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <!-- 按周统计：显示该周的周一日期，格式更友好 -->
+            <when test="dimension == 'week'">DATE_FORMAT(DATE_SUB(created_at, INTERVAL WEEKDAY(created_at) DAY), '%Y-%m-%d') as period</when>
             <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
             <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
             <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
@@ -55,7 +56,8 @@
         SELECT
         <choose>
             <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
-            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <!-- 按周统计：显示该周的周一日期 -->
+            <when test="dimension == 'week'">DATE_FORMAT(DATE_SUB(created_at, INTERVAL WEEKDAY(created_at) DAY), '%Y-%m-%d') as period</when>
             <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
             <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
             <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
@@ -131,7 +133,8 @@
         SELECT
         <choose>
             <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
-            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <!-- 按周统计：显示该周的周一日期 -->
+            <when test="dimension == 'week'">DATE_FORMAT(DATE_SUB(created_at, INTERVAL WEEKDAY(created_at) DAY), '%Y-%m-%d') as period</when>
             <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
             <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
             <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>
@@ -149,7 +152,8 @@
         SELECT
         <choose>
             <when test="dimension == 'day'">DATE_FORMAT(created_at, '%Y-%m-%d') as period</when>
-            <when test="dimension == 'week'">DATE_FORMAT(created_at, '%Y-%u') as period</when>
+            <!-- 按周统计：显示该周的周一日期 -->
+            <when test="dimension == 'week'">DATE_FORMAT(DATE_SUB(created_at, INTERVAL WEEKDAY(created_at) DAY), '%Y-%m-%d') as period</when>
             <when test="dimension == 'month'">DATE_FORMAT(created_at, '%Y-%m') as period</when>
             <when test="dimension == 'year'">DATE_FORMAT(created_at, '%Y') as period</when>
             <otherwise>DATE_FORMAT(created_at, '%Y-%m-%d') as period</otherwise>

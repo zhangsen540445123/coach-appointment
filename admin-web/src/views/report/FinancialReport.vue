@@ -154,6 +154,16 @@ const loadData = async () => {
   }
 }
 
+// 格式化周期标签，让周统计显示更友好
+const formatPeriodLabel = (period) => {
+  if (!period) return ''
+  // 按周统计时，后端返回的是该周周一的日期，添加"周起"后缀
+  if (dimension.value === 'week') {
+    return period + ' 周起'
+  }
+  return period
+}
+
 const renderRevenueChart = (data) => {
   if (!revenueChart) {
     revenueChart = echarts.init(revenueChartRef.value)
@@ -161,7 +171,14 @@ const renderRevenueChart = (data) => {
   const option = {
     tooltip: { trigger: 'axis' },
     legend: { data: ['收入', '订单数'] },
-    xAxis: { type: 'category', data: data.map(d => d.period) },
+    xAxis: {
+      type: 'category',
+      data: data.map(d => formatPeriodLabel(d.period)),
+      axisLabel: {
+        rotate: data.length > 10 ? 45 : 0, // 数据多时倾斜显示
+        interval: 0
+      }
+    },
     yAxis: [{ type: 'value', name: '金额(元)' }, { type: 'value', name: '订单数' }],
     series: [
       { name: '收入', type: 'bar', data: data.map(d => d.amount), itemStyle: { color: '#409EFF' } },
