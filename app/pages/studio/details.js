@@ -35,7 +35,7 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                             }.bind(null, t)).catch(t.oe)
                         }
                     }, setup: function () {
-                        var n = (0, u.ref)({}), t = (0, u.ref)([]), o = (0, u.getCurrentInstance)(), d = (0, l.default)(),
+                        var n = (0, u.ref)({studioCoverImgList: [], studioName: '', studioOpenTime: '', studioDetail: '', summaryAddress: '', concatPhone: ''}), t = (0, u.ref)([]), o = (0, u.getCurrentInstance)(), d = (0, l.default)(),
                             f = (0, u.computed)((function () {
                                 return [{text: "工作室介绍", value: "details", visible: !0}, {
                                     text: "教练",

@@ -77,7 +77,7 @@ var __APP_CONFIG__ = {
             e.getStudioList = d;
             var p = function() {
                 var t = (0, o.default)(u.default.mark((function t(e) {
-                    var r;
+                    var r, studio;
                     return u.default.wrap((function(t) {
                         for (;;) switch (t.prev = t.next) {
                             case 0:
@@ -87,7 +87,7 @@ var __APP_CONFIG__ = {
                                     data: { studioId: e }
                                 });
                             case 2:
-                                return r = t.sent, t.abrupt("return", c(c({}, r.data.data.consultStudio), {}, { studioCoverImgList: JSON.parse(r.data.data.consultStudio.studioCoverImgList || "[]") }));
+                                return r = t.sent, studio = r.data.data.consultStudio || {}, t.abrupt("return", c(c({}, studio), {}, { studioCoverImgList: JSON.parse(studio.studioCoverImgList || "[]") }));
                             case 4:
                             case "end":
                                 return t.stop()

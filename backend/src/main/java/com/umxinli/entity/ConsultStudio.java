@@ -26,6 +26,9 @@ public class ConsultStudio {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
+    // 小程序端兼容字段，返回studioId作为id的别名
+    public Long getStudioId() { return id; }
+
     public String getStudioName() { return studioName; }
     public void setStudioName(String studioName) { this.studioName = studioName; }
 

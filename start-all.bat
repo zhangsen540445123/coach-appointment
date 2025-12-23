@@ -27,7 +27,7 @@ echo ========================================
 echo.
 echo    MySQL:        localhost:3306
 echo    Backend API:  https://localhost
-echo    Admin Web:    http://localhost:3000
+echo    Admin Web:    https://localhost/admin/dashboard
 echo    Nginx:        http://localhost:80
 echo.
 echo    View logs:    docker-compose logs -f

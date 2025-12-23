@@ -1,14 +1,14 @@
 <view class="page-studio-list _div data-v-22f248b4">
-    <image class="background-private__img _img data-v-22f248b4" mode="widthFix" src="{{$root.m0}}"></image>
-    <navbar bind:__l="__l" class="data-v-22f248b4" isBack="{{true}}" theme="theme-private" vueId="4237be10-1" vueSlots="{{['content-name']}}">
-        <view class="data-v-22f248b4" slot="content-name">线下活动</view>
-    </navbar>
-    <view class="page-studio-list__list _div data-v-22f248b4">
-        <studio-item bind:__l="__l" class="data-v-22f248b4" studio="{{item}}" vueId="{{'4237be10-2-'+__i0__}}" wx:for="{{list}}" wx:for-index="__i0__" wx:key="studioId"></studio-item>
-        <view class="empty-state data-v-22f248b4" wx:if="{{list.length === 0}}">
-            <view class="empty-icon-text data-v-22f248b4">📅</view>
-            <text class="empty-text data-v-22f248b4">暂无线下活动</text>
-            <text class="empty-tip data-v-22f248b4">敬请期待更多精彩活动</text>
-        </view>
+  <image class="background-private__img _img data-v-22f248b4" mode="widthFix" src="{{$root.m0}}"></image>
+  <navbar bind:__l="__l" class="data-v-22f248b4" isBack="{{true}}" theme="theme-private" vueId="4237be10-1" vueSlots="{{['content-name']}}">
+    <view class="data-v-22f248b4" slot="content-name">线下活动</view>
+  </navbar>
+  <view class="page-studio-list__list _div data-v-22f248b4">
+    <studio-item bind:__l="__l" class="data-v-22f248b4" studio="{{item}}" vueId="{{'4237be10-2-'+__i0__}}" wx:for="{{list}}" wx:for-index="__i0__" wx:key="studioId"></studio-item>
+    <view class="empty-state data-v-22f248b4" wx:if="{{list.length === 0}}">
+      <view class="empty-icon-text data-v-22f248b4">📅</view>
+      <text class="empty-text data-v-22f248b4">暂无线下活动</text>
+      <text class="empty-tip data-v-22f248b4">敬请期待更多精彩活动</text>
     </view>
+  </view>
 </view>
