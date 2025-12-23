@@ -9,6 +9,7 @@ import com.umxinli.admin.mapper.CounselorAuditMapper;
 import com.umxinli.admin.service.AdminCounselorService;
 import com.umxinli.entity.Counselor;
 import com.umxinli.mapper.CounselorMapper;
+import com.umxinli.service.CounselorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
 
     @Autowired
     private CounselorAuditMapper counselorAuditMapper;
+
+    @Autowired
+    private CounselorService counselorService;
 
     @Override
     public PageResponse getList(PageRequest request) {
@@ -67,7 +71,8 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
         if (existing == null) {
             throw new Exception("教练不存在");
         }
-        counselorMapper.update(counselor);
+        // 使用 CounselorService 更新，确保清除缓存
+        counselorService.updateCounselor(counselor);
         return counselor;
     }
 
@@ -124,13 +129,16 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
         if (audit.getAuditStatus() != CounselorAudit.STATUS_PENDING) {
             throw new Exception("该记录已审核");
         }
-        
+
         // 如果审核通过，更新教练信息
         if (status == CounselorAudit.STATUS_APPROVED) {
             Counselor counselor = JSON.parseObject(audit.getAfterData(), Counselor.class);
-            counselorMapper.update(counselor);
+            // 使用 CounselorService 更新，确保清除缓存
+            // CounselorServiceImpl.updateCounselor() 有 @CacheEvict 注解
+            log.info("审核通过，更新教练信息并清除缓存，counselorId: {}", counselor.getId());
+            counselorService.updateCounselor(counselor);
         }
-        
+
         // 更新审核状态
         counselorAuditMapper.updateStatus(auditId, status, currentUser.getId(), remark);
         return true;
@@ -141,7 +149,8 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
         Counselor counselor = counselorMapper.selectById(id);
         if (counselor != null) {
             counselor.setCanConsult(canConsult);
-            return counselorMapper.update(counselor) > 0;
+            // 使用 CounselorService 更新，确保清除缓存
+            return counselorService.updateCounselor(counselor) > 0;
         }
         return false;
     }
@@ -157,7 +166,8 @@ public class AdminCounselorServiceImpl implements AdminCounselorService {
             } else {
                 counselor.setSortOrder(0);
             }
-            return counselorMapper.update(counselor) > 0;
+            // 使用 CounselorService 更新，确保清除缓存
+            return counselorService.updateCounselor(counselor) > 0;
         }
         return false;
     }

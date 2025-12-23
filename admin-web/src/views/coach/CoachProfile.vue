@@ -42,7 +42,7 @@
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload"
             >
-              <el-avatar v-if="form.headUrl" :size="100" :src="getImageUrl(form.headUrl)" />
+              <img v-if="form.headUrl" :src="getImageUrl(form.headUrl)" class="avatar" />
               <el-icon v-else class="avatar-uploader-icon" :size="100"><Plus /></el-icon>
             </el-upload>
             <div class="upload-tip">点击上传头像（支持JPG/PNG，最大10MB）</div>
@@ -273,7 +273,12 @@ const beforeAvatarUpload = (file) => {
 const handleAvatarSuccess = (response, file) => {
   console.log('Avatar upload response:', response)
   if (response.code === 200 || response.code === 0) {
-    form.value.headUrl = response.data
+    // 从响应中获取url字段，与CounselorEdit.vue保持一致
+    if (response.data && response.data.url) {
+      form.value.headUrl = response.data.url
+    } else if (response.data) {
+      form.value.headUrl = response.data
+    }
     ElMessage.success('头像上传成功')
   } else {
     ElMessage.error(response.msg || '上传失败')
@@ -284,8 +289,9 @@ const handleAvatarSuccess = (response, file) => {
 <style scoped>
 .card-header { display: flex; justify-content: space-between; align-items: center; }
 .avatar-upload { display: flex; flex-direction: column; align-items: flex-start; }
-.avatar-uploader { border: 1px dashed #d9d9d9; border-radius: 6px; cursor: pointer; overflow: hidden; transition: border-color 0.3s; }
+.avatar-uploader { border: 1px dashed #d9d9d9; border-radius: 6px; cursor: pointer; overflow: hidden; transition: border-color 0.3s; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; }
 .avatar-uploader:hover { border-color: #409eff; }
+.avatar { width: 100px; height: 100px; object-fit: cover; }
 .avatar-uploader-icon { font-size: 28px; color: #8c939d; width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; }
 .upload-tip { color: #909399; font-size: 12px; margin-top: 8px; }
 

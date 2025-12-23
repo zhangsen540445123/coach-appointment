@@ -93,10 +93,16 @@ public class ReportService {
         Map<String, Object> orderStats = new HashMap<>();
         int totalOrders = reportMapper.getOrderCount(startDate, endDate, null, null);
         int completedOrders = reportMapper.getOrderCount(startDate, endDate, 3, null);
+        // 已支付订单数（status=1,2,3，排除待支付0、已取消4、已退款5）
+        int paidOrders = reportMapper.getOrderCount(startDate, endDate, 1, null)
+                       + reportMapper.getOrderCount(startDate, endDate, 2, null)
+                       + reportMapper.getOrderCount(startDate, endDate, 3, null);
         orderStats.put("totalOrders", totalOrders);
         orderStats.put("completedOrders", completedOrders);
-        if (totalOrders > 0) {
-            orderStats.put("completionRate", BigDecimal.valueOf(completedOrders * 100.0 / totalOrders).setScale(1, RoundingMode.HALF_UP));
+        orderStats.put("paidOrders", paidOrders);
+        // 完成率 = 已完成订单 / 已支付订单（不包含待支付订单）
+        if (paidOrders > 0) {
+            orderStats.put("completionRate", BigDecimal.valueOf(completedOrders * 100.0 / paidOrders).setScale(1, RoundingMode.HALF_UP));
         } else {
             orderStats.put("completionRate", BigDecimal.ZERO);
         }

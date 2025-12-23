@@ -12,6 +12,7 @@
             <el-option label="按日" value="day" />
             <el-option label="按周" value="week" />
             <el-option label="按月" value="month" />
+            <el-option label="按年" value="year" />
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -38,7 +39,7 @@
           <div class="info">
             <div class="label">教练总数</div>
             <div class="value">{{ counselorStats.totalCounselors || 0 }}</div>
-            <div class="sub">活跃 {{ counselorStats.activeCounselors || 0 }}</div>
+            <div class="sub">新增 +{{ counselorStats.newCounselors || 0 }} / 活跃 {{ counselorStats.activeCounselors || 0 }}</div>
           </div>
         </el-card>
       </el-col>
@@ -181,12 +182,26 @@ watch([dateRange, dimension], () => {
   }
 })
 
+// 格式化周期标签，让周统计显示更友好
+const formatPeriodLabel = (period) => {
+  if (!period) return ''
+  // 按周统计时，后端返回的是该周周一的日期，添加"周起"后缀
+  if (dimension.value === 'week') {
+    return period + ' 周起'
+  }
+  return period
+}
+
 const renderOrderChart = (data) => {
   if (!orderChart) orderChart = echarts.init(orderChartRef.value)
   orderChart.setOption({
     tooltip: { trigger: 'axis' },
     legend: { data: ['总订单', '已支付', '已完成', '已取消'] },
-    xAxis: { type: 'category', data: data.map(d => d.period) },
+    xAxis: {
+      type: 'category',
+      data: data.map(d => formatPeriodLabel(d.period)),
+      axisLabel: { rotate: data.length > 10 ? 45 : 0, interval: 0 }
+    },
     yAxis: { type: 'value' },
     series: [
       { name: '总订单', type: 'line', data: data.map(d => d.total), smooth: true },
@@ -201,7 +216,11 @@ const renderUserChart = (data) => {
   if (!userChart) userChart = echarts.init(userChartRef.value)
   userChart.setOption({
     tooltip: { trigger: 'axis' },
-    xAxis: { type: 'category', data: data.map(d => d.period) },
+    xAxis: {
+      type: 'category',
+      data: data.map(d => formatPeriodLabel(d.period)),
+      axisLabel: { rotate: data.length > 10 ? 45 : 0, interval: 0 }
+    },
     yAxis: { type: 'value' },
     series: [{ name: '新增用户', type: 'bar', data: data.map(d => d.count), itemStyle: { color: '#409EFF' } }]
   })
@@ -211,7 +230,11 @@ const renderStarChart = (data) => {
   if (!starChart) starChart = echarts.init(starChartRef.value)
   starChart.setOption({
     tooltip: { trigger: 'axis' },
-    xAxis: { type: 'category', data: data.map(d => d.period) },
+    xAxis: {
+      type: 'category',
+      data: data.map(d => formatPeriodLabel(d.period)),
+      axisLabel: { rotate: data.length > 10 ? 45 : 0, interval: 0 }
+    },
     yAxis: { type: 'value' },
     series: [{ name: '新增收藏', type: 'line', data: data.map(d => d.count), smooth: true, areaStyle: {}, itemStyle: { color: '#E6A23C' } }]
   })
