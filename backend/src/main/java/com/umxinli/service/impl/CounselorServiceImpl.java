@@ -3,6 +3,7 @@ package com.umxinli.service.impl;
 import com.umxinli.dto.CounselorFilterRequest;
 import com.umxinli.dto.CounselorFilterResponse;
 import com.umxinli.entity.Counselor;
+import com.umxinli.mapper.CounselorCalendarMapper;
 import com.umxinli.mapper.CounselorMapper;
 import com.umxinli.service.CounselorService;
 import org.slf4j.Logger;
@@ -13,6 +14,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +24,12 @@ import java.util.Map;
 public class CounselorServiceImpl implements CounselorService {
 
     private static final Logger log = LoggerFactory.getLogger(CounselorServiceImpl.class);
-    
+
     @Autowired
     private CounselorMapper counselorMapper;
+
+    @Autowired
+    private CounselorCalendarMapper counselorCalendarMapper;
 
 
     @Value("${app.base-url:https://localhost}")
@@ -70,7 +76,26 @@ public class CounselorServiceImpl implements CounselorService {
             }
             switch (shortcut) {
                 case "0":
-                    // 近期可约 - 按最近可预约时间排序
+                    // 近期可约 - 查询近2天内有可预约时间段的教练，并按最近可预约时间排序
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate today = LocalDate.now();
+                    String startDate = today.format(formatter);
+                    String endDate = today.plusDays(2).format(formatter);
+
+                    List<Long> availableCounselorIds = counselorCalendarMapper.selectCounselorIdsWithAvailableSlots(startDate, endDate);
+                    log.info("Found {} counselors with available slots between {} and {}",
+                        availableCounselorIds.size(), startDate, endDate);
+
+                    if (availableCounselorIds.isEmpty()) {
+                        // 如果没有近期可约的教练，返回空结果
+                        CounselorFilterResponse emptyResponse = new CounselorFilterResponse();
+                        emptyResponse.setList(new ArrayList<>());
+                        emptyResponse.setTotal(0);
+                        emptyResponse.setPages(0);
+                        return emptyResponse;
+                    }
+
+                    filter.setRecentAvailableCounselorIds(availableCounselorIds);
                     filter.setSort(3);
                     break;
                 case "1":

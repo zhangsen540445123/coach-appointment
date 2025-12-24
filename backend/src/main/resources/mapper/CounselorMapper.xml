@@ -85,6 +85,13 @@
                 <if test="filter.direction != null and filter.direction != ''">
                     AND JSON_SEARCH(directions, 'one', #{filter.direction}, NULL, '$[*].name') IS NOT NULL
                 </if>
+                <!-- 近期可约过滤：只查询在指定教练ID列表中的教练 -->
+                <if test="filter.recentAvailableCounselorIds != null and !filter.recentAvailableCounselorIds.isEmpty()">
+                    AND id IN
+                    <foreach item="counselorId" collection="filter.recentAvailableCounselorIds" open="(" separator="," close=")">
+                        #{counselorId}
+                    </foreach>
+                </if>
             </if>
         </where>
     </sql>

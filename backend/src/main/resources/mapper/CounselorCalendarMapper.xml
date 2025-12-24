@@ -84,5 +84,14 @@
         DELETE FROM counselor_calendar WHERE counselor_id = #{counselorId} AND date = #{date}
     </delete>
 
+    <!-- 查询指定日期范围内有可预约时间的教练ID列表 -->
+    <select id="selectCounselorIdsWithAvailableSlots" resultType="java.lang.Long">
+        SELECT DISTINCT counselor_id FROM counselor_calendar
+        WHERE date >= #{startDate}
+        AND date &lt;= #{endDate}
+        AND status = 0
+        ORDER BY counselor_id
+    </select>
+
 </mapper>
 

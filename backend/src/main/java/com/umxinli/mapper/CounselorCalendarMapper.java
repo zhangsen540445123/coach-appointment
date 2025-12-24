@@ -37,5 +37,16 @@ public interface CounselorCalendarMapper {
     int deleteByCounselorId(@Param("counselorId") Long counselorId);
     
     int deleteByCounselorIdAndDate(@Param("counselorId") Long counselorId, @Param("date") String date);
+
+    /**
+     * 查询指定日期范围内有可预约时间的教练ID列表
+     * @param startDate 开始日期 (yyyy-MM-dd)
+     * @param endDate 结束日期 (yyyy-MM-dd)
+     * @return 有可预约时间的教练ID列表
+     */
+    List<Long> selectCounselorIdsWithAvailableSlots(
+        @Param("startDate") String startDate,
+        @Param("endDate") String endDate
+    );
 }
 

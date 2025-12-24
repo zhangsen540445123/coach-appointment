@@ -60,6 +60,7 @@ public class CounselorFilterRequest {
         private Integer sort;
         private Integer consultWay;
         private String direction; // 话题方向筛选
+        private List<Long> recentAvailableCounselorIds; // 近期可约的教练ID列表（内部使用）
 
         public FilterCriteria() {}
 
@@ -74,6 +75,14 @@ public class CounselorFilterRequest {
             this.sort = sort;
             this.consultWay = consultWay;
             this.direction = direction;
+        }
+
+        public List<Long> getRecentAvailableCounselorIds() {
+            return recentAvailableCounselorIds;
+        }
+
+        public void setRecentAvailableCounselorIds(List<Long> recentAvailableCounselorIds) {
+            this.recentAvailableCounselorIds = recentAvailableCounselorIds;
         }
 
         public String getDirection() {
