@@ -1104,6 +1104,7 @@
   background: rgba(156, 112, 90, .7);
   bottom: 74rpx;
   content: "";
+  left: 24rpx;
   position: absolute;
   top: 54rpx;
   width: 1rpx;

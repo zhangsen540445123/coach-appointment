@@ -93,7 +93,7 @@
         <view class="page-title _div data-v-5f0bf7ec">受训背景</view>
         <view class="page-train-content _div data-v-5f0bf7ec">
             <view class="train-item _div data-v-5f0bf7ec" wx:for="{{$root.l3}}" wx:key="index">
-                <view class="content _p data-v-5f0bf7ec">{{item[$orig].content}}</view>
+                <view class="content _p data-v-5f0bf7ec">{{item.content}}</view>
                 <view class="time _p data-v-5f0bf7ec">{{''+item.m12+' - '+item.m13+''}}</view>
             </view>
         </view>

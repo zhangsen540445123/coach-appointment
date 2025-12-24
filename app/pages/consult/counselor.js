@@ -254,7 +254,7 @@
               userImageListCurrent: 0,
               articleList: [],
               getDateConsult: {},
-              consultDateList: {},
+              consultDateList: [],
               chooseDateTime: {
                 date: "",
                 time: ""
@@ -407,6 +407,7 @@
               return "".concat(t, "年").concat(o, "月")
             },
             checkGood: function (e) {
+              if (!e || !Array.isArray(e)) return "";
               for (var n = [], t = 0; t < e.length; t++) !1 != !!e[t].name && n.push(e[t].name);
               return n.join(" ")
             },
@@ -436,6 +437,7 @@
               this.checkConfirm()
             },
             checkDate: function (e) {
+              if (!e) return "";
               return e.replace(/-/g, ".")
             },
             change: function (e) {
@@ -544,23 +546,21 @@
                     case 0:
                       return o = n, t.next = 3, (0, m.getCounselor)(e);
                     case 3:
-                      if (r = t.sent, o.formUserInfo = r, o.userImageList = [], o.canSubmitOrder = 1, o.articleList = [], o.consultTypeChooed = r.consult[0].consultType, r.articleList && (o.articleList = JSON.parse(r.articleList)), null !== r.videoUrl && r.videoUrl.length > 0 && o.userImageList.push({
+                      r = t.sent, console.log("getCounselor response:", JSON.stringify(r)), console.log("directions:", JSON.stringify(r.directions)), console.log("training:", JSON.stringify(r.training)), o.formUserInfo = r, o.userImageList = [], o.canSubmitOrder = 1, o.articleList = [], o.consultTypeChooed = r.consult[0].consultType, r.articleList && (o.articleList = JSON.parse(r.articleList)), null !== r.videoUrl && r.videoUrl.length > 0 && o.userImageList.push({
                           video: r.videoUrl
-                        }), null !== o.formUserInfo.imageUrls && 0 !== o.formUserInfo.imageUrls.length) {
-                        t.next = 13;
-                        break
+                        });
+                      if (null !== o.formUserInfo.imageUrls && o.formUserInfo.imageUrls.length > 0) {
+                        for (i = 0; i < o.formUserInfo.imageUrls.length; i++) o.userImageList.push({
+                          image: o.formUserInfo.imageUrls[i]
+                        });
                       }
-                      return t.abrupt("return");
-                    case 13:
-                      for (i = 0; i < o.formUserInfo.imageUrls.length; i++) o.userImageList.push({
-                        image: o.formUserInfo.imageUrls[i]
-                      });
-                      return (c = (n.formUserInfo.consultStudioList || []).find((function (e) {
+                      (c = (n.formUserInfo.consultStudioList || []).find((function (e) {
                         return 0 === e.studioType
                       }))) && (n.studio = b(b({}, c), {}, {
                         studioCoverImgList: JSON.parse(c.studioCoverImgList || "[]")
-                      })), t.next = 18, n.getCalendar(e);
-                    case 18:
+                      }));
+                      return t.next = 10, n.getCalendar(e);
+                    case 10:
                     case "end":
                       return t.stop()
                   }

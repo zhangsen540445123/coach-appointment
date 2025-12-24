@@ -297,7 +297,7 @@ require("../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = gl
                 }],
                 currectDay: null,
                 getDateConsult: {},
-                consultDateList: {},
+                consultDateList: [],
                 chooseDateTime: {
                   date: "",
                   time: ""
