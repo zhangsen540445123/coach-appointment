@@ -92,6 +92,10 @@
                     return "".concat(n, "年").concat(r, "月")
                 }, chooseTime: function (e, t) {
                     this.$emit("input", {time: e, date: t.date})
+                }, onTimeClick: function (e) {
+                    var t = e.currentTarget.dataset.time;
+                    var n = e.currentTarget.dataset.date;
+                    this.$emit("input", {time: t, date: n})
                 }
             }
         };

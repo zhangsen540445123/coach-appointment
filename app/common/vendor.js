@@ -5980,6 +5980,13 @@ var e = require("../@babel/runtime/helpers/typeof");
                         date: o
                     }
                 }).then((function(e) {
+                    // 添加空数据检查
+                    if (!e || !e.data || !e.data.data || !e.data.data.list || e.data.data.list.length === 0) {
+                        return {
+                            canSubmitOrder: e && e.data && e.data.data ? e.data.data.canSubmitOrder : 0,
+                            dateList: []
+                        };
+                    }
                     var t, n, o = e.data.data.list.sort((function(e, t) {
                         return new Date(e.date) - new Date(t.date)
                     })).reduce((function(e, t) {
@@ -6026,6 +6033,12 @@ var e = require("../@babel/runtime/helpers/typeof");
                             }))
                         }))
                     }
+                })).catch((function(e) {
+                    console.error("getCalendar error:", e);
+                    return {
+                        canSubmitOrder: 0,
+                        dateList: []
+                    };
                 }))
             }, t.getCounselor = function(e) {
                 return (0, a.default)({
