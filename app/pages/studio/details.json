@@ -1,4 +1,9 @@
 {
   "navigationBarTitleText": "",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "page-container": "/components/PageContainer",
+    "content-tab": "/components/ContentTab",
+    "consultant-item": "/components/consult/Consultant"
+  }
 }

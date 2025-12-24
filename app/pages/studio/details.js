@@ -35,9 +35,9 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                             }.bind(null, t)).catch(t.oe)
                         }
                     }, setup: function () {
-                        var n = (0, u.ref)({studioCoverImgList: [], studioName: '', studioOpenTime: '', studioDetail: '', summaryAddress: '', concatPhone: ''}), t = (0, u.ref)([]), o = (0, u.getCurrentInstance)(), d = (0, l.default)(),
+                        var n = (0, u.ref)({studioCoverImgList: [], studioName: '', studioOpenTime: '', studioDetail: '', summaryAddress: '', concatPhone: '', studioType: 0, locationLongitude: null, locationLatitude: null}), t = (0, u.ref)([]), o = (0, u.getCurrentInstance)(), d = (0, l.default)(),
                             f = (0, u.computed)((function () {
-                                return [{text: "工作室介绍", value: "details", visible: !0}, {
+                                return [{text: "活动介绍", value: "details", visible: !0}, {
                                     text: "教练",
                                     value: "recommends",
                                     visible: t.value.length > 0
@@ -60,9 +60,9 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                                                 e.intersectionRatio > 0 ? m.value = "recommends" : m.value = "details"
                                             })), i.next = 6, (0, s.getStudioDetails)(c.id);
                                         case 6:
-                                            return n.value = i.sent, i.next = 9, (0, s.getStudioCounselorList)(c.id);
+                                            return n.value = i.sent, console.log('Studio details loaded:', n.value), i.next = 9, (0, s.getStudioCounselorList)(c.id);
                                         case 9:
-                                            t.value = i.sent;
+                                            t.value = i.sent, console.log('Counselor list loaded:', t.value);
                                         case 10:
                                         case"end":
                                             return i.stop()
@@ -87,7 +87,14 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                             }
                         }
                     }, data: function () {
-                        return {studioCoverImgListIndex: 0}
+                        return {studioCoverImgListIndex: 0, showQrModal: false}
+                    }, methods: {
+                        previewQrCode: function () {
+                            this.showQrModal = true
+                        },
+                        closeQrModal: function () {
+                            this.showQrModal = false
+                        }
                     }
                 };
             n.default = d
@@ -109,7 +116,7 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                 n = (e.$createElement, e._self._c, e.details.studioCoverImgList ? e.details.studioCoverImgList.length : null),
                 o = 0 === e.details.studioType && e.details.summaryAddress && e.details.locationLongitude && e.details.locationLatitude ? t("fd98") : null,
                 i = e.consultorList.length,
-                r = e.$refs.pageContainer.isShowAdviser && e.$refs.pageContainer.isShowAdviser();
+                r = e.$refs.pageContainer && e.$refs.pageContainer.isShowAdviser && e.$refs.pageContainer.isShowAdviser();
             e._isMounted || (e.e0 = function (n) {
                 e.studioCoverImgListIndex = n.detail.current
             }, e.e1 = function (n) {
