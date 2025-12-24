@@ -73,7 +73,7 @@
                 <view class="box" wx:for="{{page.itemSubmenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
                     <view class="title" wx:if="{{!box.hideName}}">{{box.name}}</view>
                     <view class="labels">
-                        <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[page_index,box_index,label_index] ],[ 'setFilterData',[page_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">
+                        <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[page_index,box_index,label_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">
                             <view class="_p" style="display:flex;align-items:center;">
                                 <view class="{{['_i',label.icon,'label__icon']}}" wx:if="{{label.icon}}"></view>{{''+label.name+''}}</view>
                             <label class="label__tip _span" wx:if="{{label.tip}}">{{label.tip}}</label>
@@ -85,7 +85,7 @@
                 <view class="text _p">没有所在的城市？试试<label bindtap="__e" class="highlight _span" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[0,0,1] ],[ 'selectRadioLabel',[3,0,1] ],[ 'setFilterData',[page_index] ] ] ] ]}}">视频咨询</label>
                 </view>
             </view>
-            <view class="btn-box" wx:if="{{false}}">
+            <view class="btn-box" wx:if="{{true}}">
                 <view bindtap="__e" class="reset" data-event-opts="{{[ [ 'tap',[ [ 'resetFilterData',[page_index] ] ] ] ]}}">重置</view>
                 <view bindtap="__e" class="submit" data-event-opts="{{[ [ 'tap',[ [ 'setFilterData',[page_index] ] ] ] ]}}">确定</view>
             </view>

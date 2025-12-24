@@ -15268,7 +15268,7 @@ var e = require("../@babel/runtime/helpers/typeof");
             }];
             var r = [{
                 name: "话题方向",
-                type: "radio",
+                type: "filter",
                 submenu: [{
                     name: "话题方向",
                     hideName: !0,

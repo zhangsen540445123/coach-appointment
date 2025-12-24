@@ -202,14 +202,32 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                 });
                             },
                             confirm: function(e) {
-                                // 新的筛选结构：[话题方向, 排序]
-                                // e.value[0][0][0] = 话题方向值 (null 或 "身心健康" 等)
-                                // e.value[1][0][0] = 排序值 (0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先)
-                                var direction = e.value[0] && e.value[0][0] ? e.value[0][0][0] : null,
-                                    sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
+                                // 新的筛选结构：[话题方向(多选filter), 排序(单选radio)]
+                                // 对于 filter 类型：e.value[0][0] 已经是转换后的 value 数组 (如 [1, 5, 8])
+                                // 对于 radio 类型：e.value[1][0][0] = 排序值
+                                console.log('confirm e.value:', JSON.stringify(e.value));
+                                console.log('confirm e.index:', JSON.stringify(e.index));
 
-                                // 设置筛选条件
-                                this.seachData.direction = direction;
+                                // 获取话题方向的多选值
+                                // HM-filterDropdown 的 confirm 方法已将索引转换为 value
+                                // e.value[0][0] 直接就是 value 数组
+                                var directions = [];
+                                if (e.value[0] && e.value[0][0] && Array.isArray(e.value[0][0])) {
+                                    // filter 类型：e.value[0][0] 已经是转换后的 value 数组
+                                    for (var i = 0; i < e.value[0][0].length; i++) {
+                                        var val = e.value[0][0][i];
+                                        if (val !== null && val !== undefined) {
+                                            directions.push(val);
+                                        }
+                                    }
+                                }
+
+                                var sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
+                                console.log('directions:', JSON.stringify(directions), 'sortValue:', sortValue);
+
+                                // 设置筛选条件 - directions 为数组
+                                this.seachData.directions = directions.length > 0 ? directions : null;
+                                this.seachData.direction = null; // 清除旧的单选字段
                                 this.seachData.sort = sortValue;
                                 // 清空其他不再使用的筛选条件
                                 this.seachData.consultTypeList = [];

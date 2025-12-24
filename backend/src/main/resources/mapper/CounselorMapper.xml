@@ -83,7 +83,20 @@
                     )
                 </if>
                 <if test="filter.direction != null and filter.direction != ''">
-                    AND JSON_SEARCH(directions, 'one', #{filter.direction}, NULL, '$[*].name') IS NOT NULL
+                    <!-- 单选方向 - 向后兼容 -->
+                    AND (
+                        JSON_CONTAINS(directions, CONCAT('"', #{filter.direction}, '"'))
+                        OR directions LIKE CONCAT('%', #{filter.direction}, '%')
+                    )
+                </if>
+                <if test="filter.directions != null and !filter.directions.isEmpty()">
+                    <!-- 多选方向 - 匹配任意一个即可 -->
+                    AND (
+                    <foreach item="dir" collection="filter.directions" separator=" OR ">
+                        JSON_CONTAINS(directions, CONCAT('"', #{dir}, '"'))
+                        OR directions LIKE CONCAT('%', #{dir}, '%')
+                    </foreach>
+                    )
                 </if>
                 <!-- 近期可约过滤：只查询在指定教练ID列表中的教练 -->
                 <if test="filter.recentAvailableCounselorIds != null and !filter.recentAvailableCounselorIds.isEmpty()">

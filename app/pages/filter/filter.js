@@ -183,14 +183,40 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                 });
                             },
                             confirm: function(e) {
-                                // 新的筛选结构：[话题方向, 排序]
-                                // e.value[0][0][0] = 话题方向值 (null 或 "身心健康" 等)
+                                // 新的筛选结构：[话题方向(多选), 排序(单选)]
+                                // e.value[0][0] = 话题方向选中的索引数组 (如 [0,2,3] 表示选中第0、2、3个选项)
                                 // e.value[1][0][0] = 排序值 (0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先)
-                                var direction = e.value[0] && e.value[0][0] ? e.value[0][0][0] : null,
-                                    sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
+                                console.log('confirm e.value:', JSON.stringify(e.value));
 
-                                // 设置筛选条件
-                                this.seachData.direction = direction;
+                                // 获取话题方向的多选值
+                                var directions = [];
+                                if (e.value[0] && e.value[0][0] && Array.isArray(e.value[0][0])) {
+                                    // filter 类型：e.value[0][0] 是选中的索引数组
+                                    var selectedIndices = e.value[0][0];
+                                    var filterData = this.filterData;
+                                    if (filterData && filterData[0] && filterData[0].submenu && filterData[0].submenu[0] && filterData[0].submenu[0].submenu) {
+                                        var submenu = filterData[0].submenu[0].submenu;
+                                        for (var i = 0; i < selectedIndices.length; i++) {
+                                            var idx = selectedIndices[i];
+                                            if (submenu[idx] && submenu[idx].value !== null) {
+                                                directions.push(submenu[idx].value);
+                                            }
+                                        }
+                                    }
+                                } else if (e.value[0] && e.value[0][0] && e.value[0][0][0]) {
+                                    // radio 类型兼容：单选值
+                                    var val = e.value[0][0][0];
+                                    if (val !== null) {
+                                        directions.push(val);
+                                    }
+                                }
+
+                                var sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
+                                console.log('directions:', directions, 'sortValue:', sortValue);
+
+                                // 设置筛选条件 - directions 为数组
+                                this.seachData.directions = directions.length > 0 ? directions : null;
+                                this.seachData.direction = null; // 清除旧的单选字段
                                 this.seachData.sort = sortValue;
                                 // 清空其他不再使用的筛选条件
                                 this.seachData.consultTypeList = [];

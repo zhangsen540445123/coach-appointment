@@ -142,28 +142,28 @@ INSERT INTO `consult_order` (`id`, `order_no`, `user_id`, `counselor_id`, `consu
 -- 数据来源：小程序前端 app/common/vendor.js 第15252-15289行
 -- =====================================================
 
-INSERT INTO `topic_direction` (`name`, `value`, `icon_url`, `sort_order`, `enabled`) VALUES
-('全部', NULL, NULL, 0, 1),
-('身心健康', '身心健康', 'https://localhost/api/file/image/身心健康@3x.png', 1, 1),
-('人际关系', '人际关系', 'https://localhost/api/file/image/人际关系@3x.png', 2, 1),
-('婚姻恋爱', '婚姻恋爱', 'https://localhost/api/file/image/婚姻恋爱@3x.png', 3, 1),
-('亲子教育', '亲子教育', 'https://localhost/api/file/image/亲子教育@3x.png', 4, 1),
-('个人成长', '个人成长', 'https://localhost/api/file/image/个人成长@3x.png', 5, 1),
-('情绪困扰', '情绪困扰', 'https://localhost/api/file/image/情绪困扰@3x.png', 6, 1),
-('学业职场', '学业职场', 'https://localhost/api/file/image/学业职场@3x.png', 7, 1),
-('家庭困扰', '家庭困扰', 'https://localhost/api/file/image/家庭困扰@3x.png', 8, 1),
-('性心理', '性心理', 'https://localhost/api/file/image/性心理@3x.png', 9, 1);
+INSERT IGNORE INTO `topic_direction` (`id`, `name`, `value`, `icon_url`, `sort_order`, `enabled`) VALUES
+(1, '全部', NULL, NULL, 0, 1),
+(2, '身心健康', '身心健康', 'https://localhost/api/file/image/身心健康@3x.png', 1, 1),
+(3, '人际关系', '人际关系', 'https://localhost/api/file/image/人际关系@3x.png', 2, 1),
+(4, '婚姻恋爱', '婚姻恋爱', 'https://localhost/api/file/image/婚姻恋爱@3x.png', 3, 1),
+(5, '亲子教育', '亲子教育', 'https://localhost/api/file/image/亲子教育@3x.png', 4, 1),
+(6, '个人成长', '个人成长', 'https://localhost/api/file/image/个人成长@3x.png', 5, 1),
+(7, '情绪困扰', '情绪困扰', 'https://localhost/api/file/image/情绪困扰@3x.png', 6, 1),
+(8, '学业职场', '学业职场', 'https://localhost/api/file/image/学业职场@3x.png', 7, 1),
+(9, '家庭困扰', '家庭困扰', 'https://localhost/api/file/image/家庭困扰@3x.png', 8, 1),
+(10, '性心理', '性心理', 'https://localhost/api/file/image/性心理@3x.png', 9, 1);
 
 -- =====================================================
 -- 初始化排序选项数据
 -- 数据来源：小程序前端 app/common/vendor.js 第15291-15310行
 -- =====================================================
 
-INSERT INTO `sort_option` (`name`, `value`, `sort_order`, `enabled`) VALUES
-('推荐排序', 0, 0, 1),
-('低价优先', 1, 1, 1),
-('高价优先', 2, 2, 1),
-('近期可预约优先', 3, 3, 1);
+INSERT IGNORE INTO `sort_option` (`id`, `name`, `value`, `sort_order`, `enabled`) VALUES
+(1, '推荐排序', 0, 0, 1),
+(2, '低价优先', 1, 1, 1),
+(3, '高价优先', 2, 2, 1),
+(4, '近期可预约优先', 3, 3, 1);
 
 -- =====================================================
 -- 初始化教练可预约时间数据

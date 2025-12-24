@@ -90,10 +90,10 @@ public class FilterConfigController {
     private List<Map<String, Object>> buildFilterData(List<?> topicDirections, List<?> sortOptions) {
         List<Map<String, Object>> result = new ArrayList<>();
         
-        // 话题方向
+        // 话题方向 - 使用filter类型支持多选
         Map<String, Object> topicMenu = new HashMap<>();
         topicMenu.put("name", "话题方向");
-        topicMenu.put("type", "radio");
+        topicMenu.put("type", "filter");
         
         List<Map<String, Object>> topicSubmenu = new ArrayList<>();
         Map<String, Object> topicGroup = new HashMap<>();

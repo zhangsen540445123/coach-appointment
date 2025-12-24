@@ -59,7 +59,8 @@ public class CounselorFilterRequest {
         private AddressFilter address;
         private Integer sort;
         private Integer consultWay;
-        private String direction; // 话题方向筛选
+        private String direction; // 话题方向筛选（单选，向后兼容）
+        private List<String> directions; // 话题方向筛选（多选）
         private List<Long> recentAvailableCounselorIds; // 近期可约的教练ID列表（内部使用）
 
         public FilterCriteria() {}
@@ -91,6 +92,14 @@ public class CounselorFilterRequest {
 
         public void setDirection(String direction) {
             this.direction = direction;
+        }
+
+        public List<String> getDirections() {
+            return directions;
+        }
+
+        public void setDirections(List<String> directions) {
+            this.directions = directions;
         }
 
         public List<Integer> getConsultTypeList() {
