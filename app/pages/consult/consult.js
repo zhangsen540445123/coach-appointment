@@ -145,16 +145,13 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                         },
                         onLoad: function() {
                             var self = this;
-                            // 从后端API获取筛选配置
-                            this.loadFilterConfig().then(function() {
-                                self.formData.pager.index = 1;
-                                self.counselorUserList();
-                            }).catch(function(err) {
-                                console.error('加载筛选配置失败，使用默认配置:', err);
-                                self.filterData = l.default;
-                                self.formData.pager.index = 1;
-                                self.counselorUserList();
-                            });
+                            // 先设置默认数据，确保组件初始化时有数据
+                            this.filterData = l.default;
+                            console.log('onLoad 设置默认 filterData:', JSON.stringify(this.filterData));
+                            // 然后从后端API获取最新筛选配置
+                            this.loadFilterConfig();
+                            this.formData.pager.index = 1;
+                            this.counselorUserList();
                         },
                         onShow: function() {
                             // [修复] 预约咨询页面无需登录，移除自动登录调用
@@ -184,28 +181,24 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                         methods: {
                             loadFilterConfig: function() {
                                 var self = this;
-                                return new Promise(function(resolve, reject) {
-                                    var loginManager = require('../../utils/loginManager');
-                                    wx.request({
-                                        url: loginManager.BASE_URL + '/filter/config',
-                                        method: 'GET',
-                                        success: function(res) {
-                                            console.log('筛选配置响应:', res);
-                                            if (res.data && res.data.code === 200 && res.data.data && res.data.data.filterData) {
-                                                self.filterData = res.data.data.filterData;
-                                                console.log('从后端加载筛选配置成功:', self.filterData);
-                                                resolve();
-                                            } else {
-                                                console.warn('筛选配置数据格式不正确，使用默认配置');
-                                                self.filterData = l.default;
-                                                resolve();
-                                            }
-                                        },
-                                        fail: function(err) {
-                                            console.error('获取筛选配置失败:', err);
-                                            reject(err);
+                                var loginManager = require('../../utils/loginManager');
+                                wx.request({
+                                    url: loginManager.BASE_URL + '/filter/config',
+                                    method: 'GET',
+                                    success: function(res) {
+                                        console.log('筛选配置响应:', res);
+                                        if (res.data && res.data.code === 200 && res.data.data && res.data.data.filterData) {
+                                            var filterData = res.data.data.filterData;
+                                            console.log('从后端加载筛选配置成功，长度:', filterData.length);
+                                            // 直接赋值更新
+                                            self.filterData = filterData;
+                                        } else {
+                                            console.warn('筛选配置数据格式不正确，保持默认配置');
                                         }
-                                    });
+                                    },
+                                    fail: function(err) {
+                                        console.error('获取筛选配置失败，使用默认配置:', err);
+                                    }
                                 });
                             },
                             confirm: function(e) {
