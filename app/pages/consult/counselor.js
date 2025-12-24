@@ -65,6 +65,7 @@
             d = e.__map(e.formUserInfo.training, (function (n, t) {
               return {
                 $orig: e.__get_orig(n),
+                content: n.content,
                 m12: e.checkDate(n.beginDate),
                 m13: e.checkDate(n.endDate)
               }
