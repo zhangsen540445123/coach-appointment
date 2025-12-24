@@ -95,8 +95,11 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                     troubleList: [],
                                     address: null,
                                     sort: null,
-                                    consultWay: 0
+                                    consultWay: 0,
+                                    direction: null,
+                                    directions: null
                                 },
+                                shortcutValue: null, // 保存原始 shortcut 值
                                 totalPages: 0,
                                 orderNo: null,
                                 chooseOnFace: !1,
@@ -128,10 +131,36 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                                 "线下咨询": p.default,
                                                 "青少年父母": m.default
                                             }[t.mode];
+                                            // 保存原始 shortcut 值，用于初始化 sort 选项
+                                            e.shortcutValue = +t.shortcut;
+                                            // 保持 shortcut 值传递给后端
                                             e.formData.shortcut = +t.shortcut;
-                                            n.next = 7;
+                                            // 初始化 filter 对象，根据 shortcut 设置默认排序
+                                            // shortcut: 0=近期可约, 1=低价咨询, 2=线下咨询, 3=青少年父母
+                                            // sort: 0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先
+                                            var defaultSort = 0;
+                                            if (e.shortcutValue === 0) {
+                                                // 近期可约 -> 近期可预约优先
+                                                defaultSort = 3;
+                                            } else if (e.shortcutValue === 1) {
+                                                // 低价咨询 -> 低价优先
+                                                defaultSort = 1;
+                                            }
+                                            e.seachData.sort = defaultSort;
+                                            e.seachData.consultTypeList = [];
+                                            e.seachData.serviceType = [];
+                                            e.seachData.sexList = [];
+                                            e.seachData.priceList = null;
+                                            e.seachData.consultTimeList = [];
+                                            e.seachData.troubleList = [];
+                                            e.seachData.address = null;
+                                            e.seachData.consultWay = null;
+                                            e.seachData.direction = null;
+                                            e.seachData.directions = null;
+                                            e.formData.filter = e.seachData;
+                                            n.next = 17;
                                             return e.counselorUserList();
-                                        case 7:
+                                        case 17:
                                         case "end":
                                             return n.stop()
                                     }
@@ -183,36 +212,28 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                 });
                             },
                             confirm: function(e) {
-                                // 新的筛选结构：[话题方向(多选), 排序(单选)]
-                                // e.value[0][0] = 话题方向选中的索引数组 (如 [0,2,3] 表示选中第0、2、3个选项)
-                                // e.value[1][0][0] = 排序值 (0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先)
+                                // 新的筛选结构：[话题方向(多选filter), 排序(单选radio)]
+                                // 对于 filter 类型：e.value[0][0] 已经是转换后的 value 数组 (如 ["身心健康", "人际关系"])
+                                // 对于 radio 类型：e.value[1][0][0] = 排序值
                                 console.log('confirm e.value:', JSON.stringify(e.value));
+                                console.log('confirm e.index:', JSON.stringify(e.index));
 
                                 // 获取话题方向的多选值
+                                // HM-filterDropdown 的 confirm 方法已将索引转换为 value
+                                // e.value[0][0] 直接就是 value 数组
                                 var directions = [];
                                 if (e.value[0] && e.value[0][0] && Array.isArray(e.value[0][0])) {
-                                    // filter 类型：e.value[0][0] 是选中的索引数组
-                                    var selectedIndices = e.value[0][0];
-                                    var filterData = this.filterData;
-                                    if (filterData && filterData[0] && filterData[0].submenu && filterData[0].submenu[0] && filterData[0].submenu[0].submenu) {
-                                        var submenu = filterData[0].submenu[0].submenu;
-                                        for (var i = 0; i < selectedIndices.length; i++) {
-                                            var idx = selectedIndices[i];
-                                            if (submenu[idx] && submenu[idx].value !== null) {
-                                                directions.push(submenu[idx].value);
-                                            }
+                                    // filter 类型：e.value[0][0] 已经是转换后的 value 数组
+                                    for (var i = 0; i < e.value[0][0].length; i++) {
+                                        var val = e.value[0][0][i];
+                                        if (val !== null && val !== undefined) {
+                                            directions.push(val);
                                         }
-                                    }
-                                } else if (e.value[0] && e.value[0][0] && e.value[0][0][0]) {
-                                    // radio 类型兼容：单选值
-                                    var val = e.value[0][0][0];
-                                    if (val !== null) {
-                                        directions.push(val);
                                     }
                                 }
 
                                 var sortValue = e.value[1] && e.value[1][0] ? e.value[1][0][0] : 0;
-                                console.log('directions:', directions, 'sortValue:', sortValue);
+                                console.log('directions:', JSON.stringify(directions), 'sortValue:', sortValue);
 
                                 // 设置筛选条件 - directions 为数组
                                 this.seachData.directions = directions.length > 0 ? directions : null;
@@ -230,18 +251,43 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
 
                                 this.formData.filter = this.seachData;
                                 this.formData.name = null;
-                                this.formData.shortcut = null;
+                                // 保持原始 shortcut 值
+                                this.formData.shortcut = this.shortcutValue;
                                 this.resetIndex();
                                 this.counselorUserList();
                             },
                             searchCounselorByName: function() {
-                                this.formData.shortcut = null, this.formData.filter = null, this.resetIndex(), this.counselorUserList()
+                                // 搜索时保持 shortcut 值
+                                this.formData.shortcut = this.shortcutValue;
+                                this.seachData.directions = null;
+                                this.seachData.direction = null;
+                                this.seachData.sort = 0;
+                                this.formData.filter = this.seachData;
+                                this.resetIndex();
+                                this.counselorUserList();
                             },
                             resetIndex: function() {
                                 this.formData.pager.index = 1
                             },
                             toSearchCounselorList: function(t) {
-                                this.formData.shortcut === t ? this.formData.shortcut = null : this.formData.shortcut = t, this.formData.filter = null, this.formData.name = null, this.resetIndex(), this.counselorUserList()
+                                // 快捷方式筛选时保持 shortcut 值
+                                this.formData.shortcut = this.shortcutValue;
+                                this.formData.name = null;
+                                // 根据快捷方式设置默认排序
+                                var defaultSort = 0;
+                                if (t === 0) {
+                                    // 近期可约 -> 近期可预约优先
+                                    defaultSort = 3;
+                                } else if (t === 1) {
+                                    // 低价咨询 -> 低价优先
+                                    defaultSort = 1;
+                                }
+                                this.seachData.sort = defaultSort;
+                                this.seachData.directions = null;
+                                this.seachData.direction = null;
+                                this.formData.filter = this.seachData;
+                                this.resetIndex();
+                                this.counselorUserList();
                             },
                             getAddressList: function() {
                                 var t = this;
