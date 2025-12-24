@@ -54,9 +54,9 @@
                 </block>
             </block>
         </block>
-        <view class="filter" wx:if="{{page[$orig].type=='filter'}}">
+        <view class="filter" wx:if="{{page.itemType=='filter'}}">
             <scroll-view class="menu-box" scrollY="{{true}}">
-                <view class="box" wx:for="{{page[$orig].submenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
+                <view class="box" wx:for="{{page.itemSubmenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
                     <view class="title" wx:if="{{!box.hideName}}">{{box.name}}</view>
                     <view class="labels">
                         <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectFilterLabel',[page_index,box_index,label_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">{{label.name}}</view>
@@ -68,9 +68,9 @@
                 <view bindtap="__e" class="submit" data-event-opts="{{[ [ 'tap',[ [ 'setFilterData',[page_index] ] ] ] ]}}">确定</view>
             </view>
         </view>
-        <view class="filter" wx:if="{{page[$orig].type=='radio'}}">
+        <view class="filter" wx:if="{{page.itemType=='radio'}}">
             <scroll-view class="menu-box" scrollY="{{true}}">
-                <view class="box" wx:for="{{page[$orig].submenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
+                <view class="box" wx:for="{{page.itemSubmenu}}" wx:for-index="box_index" wx:for-item="box" wx:key="box_index">
                     <view class="title" wx:if="{{!box.hideName}}">{{box.name}}</view>
                     <view class="labels">
                         <view bindtap="__e" class="{{[label.selected?'on':'',true?'label__container':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[page_index,box_index,label_index] ],[ 'setFilterData',[page_index] ] ] ] ]}}" wx:for="{{box.submenu}}" wx:for-index="label_index" wx:for-item="label" wx:key="label_index">
@@ -81,7 +81,7 @@
                     </view>
                 </view>
             </scroll-view>
-            <view class="footer" wx:if="{{page[$orig].name==='城市'}}">
+            <view class="footer" wx:if="{{page.itemName==='城市'}}">
                 <view class="text _p">没有所在的城市？试试<label bindtap="__e" class="highlight _span" data-event-opts="{{[ [ 'tap',[ [ 'selectRadioLabel',[0,0,1] ],[ 'selectRadioLabel',[3,0,1] ],[ 'setFilterData',[page_index] ] ] ] ]}}">视频咨询</label>
                 </view>
             </view>
