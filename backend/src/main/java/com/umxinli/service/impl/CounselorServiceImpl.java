@@ -65,7 +65,7 @@ public class CounselorServiceImpl implements CounselorService {
             pager = new CounselorFilterRequest.Pager(1, 7);
         }
 
-        // 处理 shortcut 参数，映射到 filter.sort
+        // 处理 shortcut 参数，映射到 filter 条件
         // shortcut: 0=近期可约, 1=低价咨询, 2=线下咨询
         String shortcut = request.getShortcut();
         CounselorFilterRequest.FilterCriteria filter = request.getFilter();
@@ -74,9 +74,12 @@ public class CounselorServiceImpl implements CounselorService {
                 filter = new CounselorFilterRequest.FilterCriteria();
                 request.setFilter(filter);
             }
+            // 保存用户选择的 sort 值（如果有）
+            Integer userSelectedSort = filter.getSort();
+
             switch (shortcut) {
                 case "0":
-                    // 近期可约 - 查询近2天内有可预约时间段的教练，并按最近可预约时间排序
+                    // 近期可约 - 查询近2天内有可预约时间段的教练
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate today = LocalDate.now();
                     String startDate = today.format(formatter);
@@ -96,11 +99,16 @@ public class CounselorServiceImpl implements CounselorService {
                     }
 
                     filter.setRecentAvailableCounselorIds(availableCounselorIds);
-                    filter.setSort(3);
+                    // 只有当用户没有明确选择排序时，才使用默认排序（近期可预约优先）
+                    if (userSelectedSort == null) {
+                        filter.setSort(3);
+                    }
                     break;
                 case "1":
-                    // 低价咨询 - 按价格从低到高排序
-                    filter.setSort(1);
+                    // 低价咨询 - 只有当用户没有明确选择排序时，才使用默认排序（低价优先）
+                    if (userSelectedSort == null) {
+                        filter.setSort(1);
+                    }
                     break;
                 case "2":
                     // 线下咨询 - 筛选支持线下的教练
