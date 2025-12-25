@@ -485,13 +485,17 @@ public class VisitorController {
     /**
      * 获取用户优惠券列表
      * GET /visitor/coupon/list
+     * 前端传参：valid=1表示查询可使用的优惠券，valid=0表示查询不可使用的优惠券
      */
     @GetMapping("/coupon/list")
     public ApiResponse getCouponList(@RequestParam Long userId, @RequestParam(defaultValue = "1") Integer valid) {
         log.info("Get coupon list for userId: {}, valid: {}", userId, valid);
         try {
-            // valid: 0=可使用, 1=已使用/过期
-            Integer status = valid == 1 ? 0 : null; // 0=未使用
+            // 前端逻辑：current=0(可使用tab) -> valid=1, current=1(不可使用tab) -> valid=0
+            // 数据库 status: 0=未使用(可用), 1=已使用(不可用)
+            // valid=1 -> 查询可使用的(status=0)
+            // valid=0 -> 查询不可使用的(status=1 或已过期)
+            Integer status = valid == 1 ? 0 : 1;
             List<Map<String, Object>> list = userCouponMapper.selectUserCouponList(userId, status, 0, 100);
 
             // 转换为小程序期望的格式
@@ -511,10 +515,11 @@ public class VisitorController {
                 couponItem.put("coachIds", item.get("coachIds"));
                 result.add(couponItem);
             }
+            log.info("Found {} coupons for user {}", result.size(), userId);
             return ApiResponse.success(result);
         } catch (Exception e) {
             log.error("Error getting coupon list", e);
-            return ApiResponse.error("Failed to get coupon list");
+            return ApiResponse.error("Failed to get coupon list: " + e.getMessage());
         }
     }
 

@@ -5,15 +5,16 @@ import java.time.LocalDateTime;
 
 /**
  * 用户优惠券
+ * 对应数据库表 user_coupon
  */
 public class UserCoupon {
     private Long id;
     private Long userId;
     private Long couponId;
-    private Integer status;
-    private Integer receiveType;
-    private LocalDateTime usedAt;
-    private Long orderId;
+    private Integer status;       // 状态 0-未使用 1-已使用 2-已过期
+    private Integer receiveType;  // 领取方式 1-推送 2-兑换码
+    private LocalDateTime usedAt; // 使用时间
+    private Long orderId;         // 使用的订单ID
     private LocalDateTime createdAt;
 
     // 非数据库字段 - 关联查询

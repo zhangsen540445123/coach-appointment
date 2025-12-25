@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.umxinli.mapper.UserCouponMapper">
-    
+
     <!-- 查询用户优惠券列表（含优惠券详情） -->
     <select id="selectUserCouponList" resultType="java.util.Map">
         SELECT
@@ -25,7 +25,7 @@
         ORDER BY uc.created_at DESC
         LIMIT #{offset}, #{limit}
     </select>
-    
+
     <!-- 统计用户优惠券数量 -->
     <select id="countUserCouponList" resultType="int">
         SELECT COUNT(*) FROM user_coupon uc
@@ -38,7 +38,7 @@
             </if>
         </where>
     </select>
-    
+
     <!-- 查询优惠券发放记录 -->
     <select id="selectCouponDistributionList" resultType="java.util.Map">
         SELECT
@@ -52,12 +52,12 @@
         ORDER BY uc.created_at DESC
         LIMIT #{offset}, #{limit}
     </select>
-    
+
     <!-- 统计优惠券发放数量 -->
     <select id="countCouponDistribution" resultType="int">
         SELECT COUNT(*) FROM user_coupon WHERE coupon_id = #{couponId}
     </select>
-    
+
     <!-- 批量插入用户优惠券 -->
     <insert id="batchInsertUserCoupon">
         INSERT INTO user_coupon (user_id, coupon_id, status, receive_type, created_at)

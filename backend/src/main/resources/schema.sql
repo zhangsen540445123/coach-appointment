@@ -152,19 +152,19 @@ CREATE TABLE IF NOT EXISTS `coupon` (
   INDEX idx_end_time (end_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='优惠券表';
 
-
-
 -- 用户优惠券表
-CREATE TABLE IF NOT EXISTS `user_coupon` (
-  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '用户优惠券ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `coupon_id` BIGINT NOT NULL COMMENT '优惠券ID',
-  `used` INT DEFAULT 0 COMMENT '是否已使用',
-  `used_time` TIMESTAMP NULL COMMENT '使用时间',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  INDEX idx_user_id (user_id),
-  INDEX idx_coupon_id (coupon_id),
-  UNIQUE KEY uk_user_coupon (user_id, coupon_id)
+CREATE TABLE `user_coupon` (
+                               `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '用户优惠券ID',
+                               `user_id` BIGINT NOT NULL COMMENT '用户ID',
+                               `coupon_id` BIGINT NOT NULL COMMENT '优惠券ID',
+                               `status` INT DEFAULT 0 COMMENT '状态 0-未使用 1-已使用 2-已过期',
+                               `receive_type` INT DEFAULT 1 COMMENT '领取方式 1-推送 2-兑换码',
+                               `used_at` DATETIME COMMENT '使用时间',
+                               `order_id` BIGINT COMMENT '使用的订单ID',
+                               `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                               INDEX idx_user_id (user_id),
+                               INDEX idx_coupon_id (coupon_id),
+                               INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户优惠券表';
 
 -- 文章表
