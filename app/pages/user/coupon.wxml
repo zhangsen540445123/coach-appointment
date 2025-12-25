@@ -1,3 +1,6 @@
+<navbar bind:__l="__l" class="data-v-6016921d" isBack="{{true}}" vueId="82ce79b6-0" vueSlots="{{['content-name']}}">
+  <view class="data-v-6016921d" slot="content-name">我的优惠券</view>
+</navbar>
 <view class="content-box data-v-6016921d">
   <view class="list-area data-v-6016921d">
     <view bindtap="__e" class="{{['item-box','data-v-6016921d',current===index?'item-active':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'itemClick',[index] ] ] ] ]}}" wx:for="{{tabLists}}" wx:key="index">
