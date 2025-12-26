@@ -4,60 +4,102 @@
       <template #header>
         <div class="card-header">
           <span>基础数据管理</span>
-          <el-button type="primary" @click="showAddTypeDialog">新增字典类型</el-button>
         </div>
       </template>
 
-      <el-row :gutter="20">
-        <!-- 左侧：字典类型列表 -->
-        <el-col :span="8">
-          <div class="type-list">
-            <div v-for="type in dictTypes" :key="type.id"
-              :class="['type-item', { active: selectedType?.id === type.id }]"
-              @click="selectType(type)">
-              <div class="type-info">
-                <span class="type-name">{{ type.name }}</span>
-                <span class="type-code">{{ type.code }}</span>
-              </div>
-              <div class="type-actions">
-                <el-button link type="primary" size="small" @click.stop="editType(type)">编辑</el-button>
-                <el-button link type="danger" size="small" @click.stop="deleteType(type)">删除</el-button>
-              </div>
-            </div>
+      <el-tabs v-model="activeTab">
+        <!-- 字典管理 Tab -->
+        <el-tab-pane label="字典管理" name="dict">
+          <div class="tab-header">
+            <el-button type="primary" @click="showAddTypeDialog">新增字典类型</el-button>
           </div>
-        </el-col>
+          <el-row :gutter="20">
+            <!-- 左侧：字典类型列表 -->
+            <el-col :span="8">
+              <div class="type-list">
+                <div v-for="type in dictTypes" :key="type.id"
+                  :class="['type-item', { active: selectedType?.id === type.id }]"
+                  @click="selectType(type)">
+                  <div class="type-info">
+                    <span class="type-name">{{ type.name }}</span>
+                    <span class="type-code">{{ type.code }}</span>
+                  </div>
+                  <div class="type-actions">
+                    <el-button link type="primary" size="small" @click.stop="editType(type)">编辑</el-button>
+                    <el-button link type="danger" size="small" @click.stop="deleteType(type)">删除</el-button>
+                  </div>
+                </div>
+              </div>
+            </el-col>
 
-        <!-- 右侧：字典项列表 -->
-        <el-col :span="16">
-          <div v-if="selectedType" class="item-list">
-            <div class="item-header">
-              <span>{{ selectedType.name }} - 选项列表</span>
-              <el-button type="primary" size="small" @click="showAddItemDialog">新增选项</el-button>
-            </div>
-            <el-table :data="dictItems" border stripe>
-              <el-table-column prop="label" label="显示标签" />
-              <el-table-column prop="value" label="值" width="150" />
-              <el-table-column prop="sortOrder" label="排序" width="80" />
-              <el-table-column prop="enabled" label="状态" width="80">
-                <template #default="{ row }">
-                  <el-tag :type="row.enabled === 1 ? 'success' : 'danger'">
-                    {{ row.enabled === 1 ? '启用' : '禁用' }}
-                  </el-tag>
-                </template>
-              </el-table-column>
-              <el-table-column label="操作" width="150">
-                <template #default="{ row }">
-                  <el-button link type="primary" size="small" @click="editItem(row)">编辑</el-button>
-                  <el-button link type="danger" size="small" @click="deleteItem(row)">删除</el-button>
-                </template>
-              </el-table-column>
-            </el-table>
+            <!-- 右侧：字典项列表 -->
+            <el-col :span="16">
+              <div v-if="selectedType" class="item-list">
+                <div class="item-header">
+                  <span>{{ selectedType.name }} - 选项列表</span>
+                  <el-button type="primary" size="small" @click="showAddItemDialog">新增选项</el-button>
+                </div>
+                <el-table :data="dictItems" border stripe>
+                  <el-table-column prop="label" label="显示标签" />
+                  <el-table-column prop="value" label="值" width="150" />
+                  <el-table-column prop="sortOrder" label="排序" width="80" />
+                  <el-table-column prop="enabled" label="状态" width="80">
+                    <template #default="{ row }">
+                      <el-tag :type="row.enabled === 1 ? 'success' : 'danger'">
+                        {{ row.enabled === 1 ? '启用' : '禁用' }}
+                      </el-tag>
+                    </template>
+                  </el-table-column>
+                  <el-table-column label="操作" width="150">
+                    <template #default="{ row }">
+                      <el-button link type="primary" size="small" @click="editItem(row)">编辑</el-button>
+                      <el-button link type="danger" size="small" @click="deleteItem(row)">删除</el-button>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </div>
+              <div v-else class="no-selection">
+                <el-empty description="请选择左侧的字典类型" />
+              </div>
+            </el-col>
+          </el-row>
+        </el-tab-pane>
+
+        <!-- 话题方向 Tab -->
+        <el-tab-pane label="话题方向" name="topic">
+          <div class="tab-header">
+            <el-button type="primary" @click="showAddTopicDialog">新增话题方向</el-button>
           </div>
-          <div v-else class="no-selection">
-            <el-empty description="请选择左侧的字典类型" />
-          </div>
-        </el-col>
-      </el-row>
+          <el-table :data="topicDirections" border stripe v-loading="topicLoading">
+            <el-table-column prop="name" label="名称" />
+            <el-table-column prop="value" label="值" width="150">
+              <template #default="{ row }">
+                {{ row.value || '（全部）' }}
+              </template>
+            </el-table-column>
+            <el-table-column prop="iconUrl" label="图标" width="100">
+              <template #default="{ row }">
+                <el-image v-if="row.iconUrl" :src="row.iconUrl" style="width: 32px; height: 32px" fit="contain" />
+                <span v-else>-</span>
+              </template>
+            </el-table-column>
+            <el-table-column prop="sortOrder" label="排序" width="80" />
+            <el-table-column prop="enabled" label="状态" width="80">
+              <template #default="{ row }">
+                <el-tag :type="row.enabled === 1 ? 'success' : 'danger'">
+                  {{ row.enabled === 1 ? '启用' : '禁用' }}
+                </el-tag>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" width="150">
+              <template #default="{ row }">
+                <el-button link type="primary" size="small" @click="editTopic(row)">编辑</el-button>
+                <el-button link type="danger" size="small" @click="deleteTopic(row)">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+      </el-tabs>
     </el-card>
 
     <!-- 字典类型对话框 -->
@@ -106,14 +148,44 @@
         <el-button type="primary" @click="saveItem">保存</el-button>
       </template>
     </el-dialog>
+
+    <!-- 话题方向对话框 -->
+    <el-dialog v-model="topicDialogVisible" :title="topicDialogTitle" width="500px">
+      <el-form :model="topicForm" label-width="100px">
+        <el-form-item label="名称" required>
+          <el-input v-model="topicForm.name" placeholder="如：身心健康、人际关系" />
+        </el-form-item>
+        <el-form-item label="值">
+          <el-input v-model="topicForm.value" placeholder="存储的值（留空表示'全部'）" />
+        </el-form-item>
+        <el-form-item label="图标URL">
+          <el-input v-model="topicForm.iconUrl" placeholder="图标图片地址" />
+        </el-form-item>
+        <el-form-item label="排序">
+          <el-input-number v-model="topicForm.sortOrder" :min="0" />
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-switch v-model="topicForm.enabled" :active-value="1" :inactive-value="0" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="topicDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="saveTopic">保存</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { dictApi } from '@/api/dict'
+import { filterConfigApi } from '@/api/filterConfig'
 
+// Tab 控制
+const activeTab = ref('dict')
+
+// 字典管理相关
 const dictTypes = ref([])
 const selectedType = ref(null)
 const dictItems = ref([])
@@ -126,7 +198,21 @@ const itemDialogVisible = ref(false)
 const itemDialogTitle = ref('新增选项')
 const itemForm = ref({ typeId: 0, label: '', value: '', sortOrder: 0, enabled: 1 })
 
+// 话题方向相关
+const topicDirections = ref([])
+const topicLoading = ref(false)
+const topicDialogVisible = ref(false)
+const topicDialogTitle = ref('新增话题方向')
+const topicForm = ref({ name: '', value: '', iconUrl: '', sortOrder: 0, enabled: 1 })
+
 onMounted(() => { loadTypes() })
+
+// 切换到话题方向Tab时加载数据
+watch(activeTab, (newVal) => {
+  if (newVal === 'topic' && topicDirections.value.length === 0) {
+    loadTopicDirections()
+  }
+})
 
 async function loadTypes() {
   const res = await dictApi.getAllTypes()
@@ -222,11 +308,78 @@ async function deleteItem(item) {
     ElMessage.error(res.message || '删除失败')
   }
 }
+
+// ==================== 话题方向管理 ====================
+
+async function loadTopicDirections() {
+  topicLoading.value = true
+  try {
+    const res = await filterConfigApi.getTopicDirectionList({ pageSize: 100 })
+    if (res.code === 200) {
+      topicDirections.value = res.data?.list || []
+    }
+  } catch (e) {
+    ElMessage.error('加载话题方向失败')
+  } finally {
+    topicLoading.value = false
+  }
+}
+
+function showAddTopicDialog() {
+  topicForm.value = { name: '', value: '', iconUrl: '', sortOrder: 0, enabled: 1 }
+  topicDialogTitle.value = '新增话题方向'
+  topicDialogVisible.value = true
+}
+
+function editTopic(topic) {
+  topicForm.value = { ...topic }
+  topicDialogTitle.value = '编辑话题方向'
+  topicDialogVisible.value = true
+}
+
+async function saveTopic() {
+  if (!topicForm.value.name) {
+    ElMessage.warning('请填写名称')
+    return
+  }
+  try {
+    const res = topicForm.value.id
+      ? await filterConfigApi.updateTopicDirection(topicForm.value.id, topicForm.value)
+      : await filterConfigApi.createTopicDirection(topicForm.value)
+    if (res.code === 200) {
+      ElMessage.success('保存成功')
+      topicDialogVisible.value = false
+      loadTopicDirections()
+    } else {
+      ElMessage.error(res.message || '保存失败')
+    }
+  } catch (e) {
+    ElMessage.error('保存失败')
+  }
+}
+
+async function deleteTopic(topic) {
+  try {
+    await ElMessageBox.confirm(`确定删除话题方向"${topic.name}"吗？`, '确认删除', { type: 'warning' })
+    const res = await filterConfigApi.deleteTopicDirection(topic.id)
+    if (res.code === 200) {
+      ElMessage.success('删除成功')
+      loadTopicDirections()
+    } else {
+      ElMessage.error(res.message || '删除失败')
+    }
+  } catch (e) {
+    if (e !== 'cancel') {
+      ElMessage.error('删除失败')
+    }
+  }
+}
 </script>
 
 <style scoped>
 .dict-manage { padding: 20px; }
 .card-header { display: flex; justify-content: space-between; align-items: center; }
+.tab-header { display: flex; justify-content: flex-end; margin-bottom: 16px; }
 .type-list { border: 1px solid #ebeef5; border-radius: 4px; max-height: 500px; overflow-y: auto; }
 .type-item { padding: 12px 16px; border-bottom: 1px solid #ebeef5; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
 .type-item:hover { background-color: #f5f7fa; }

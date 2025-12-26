@@ -19,7 +19,8 @@ public class CacheConfig {
             "counselors",
             "city",
             "cities",
-            "settings"
+            "settings",
+            "filterConfig"
         );
     }
 }
