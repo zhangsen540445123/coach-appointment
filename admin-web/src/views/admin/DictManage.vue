@@ -99,6 +99,31 @@
             </el-table-column>
           </el-table>
         </el-tab-pane>
+
+        <!-- 排序选项 Tab -->
+        <el-tab-pane label="排序选项" name="sort">
+          <div class="tab-header">
+            <el-button type="primary" @click="showAddSortDialog">新增排序选项</el-button>
+          </div>
+          <el-table :data="sortOptions" border stripe v-loading="sortLoading">
+            <el-table-column prop="name" label="名称" />
+            <el-table-column prop="value" label="值" width="100" />
+            <el-table-column prop="sortOrder" label="排序" width="80" />
+            <el-table-column prop="enabled" label="状态" width="80">
+              <template #default="{ row }">
+                <el-tag :type="row.enabled === 1 ? 'success' : 'danger'">
+                  {{ row.enabled === 1 ? '启用' : '禁用' }}
+                </el-tag>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" width="150">
+              <template #default="{ row }">
+                <el-button link type="primary" size="small" @click="editSort(row)">编辑</el-button>
+                <el-button link type="danger" size="small" @click="deleteSort(row)">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
       </el-tabs>
     </el-card>
 
@@ -173,6 +198,28 @@
         <el-button type="primary" @click="saveTopic">保存</el-button>
       </template>
     </el-dialog>
+
+    <!-- 排序选项对话框 -->
+    <el-dialog v-model="sortDialogVisible" :title="sortDialogTitle" width="500px">
+      <el-form :model="sortForm" label-width="100px">
+        <el-form-item label="名称" required>
+          <el-input v-model="sortForm.name" placeholder="如：推荐排序、低价优先" />
+        </el-form-item>
+        <el-form-item label="值" required>
+          <el-input-number v-model="sortForm.value" :min="0" placeholder="选项值（0=推荐, 1=低价, 2=高价, 3=近期可约）" />
+        </el-form-item>
+        <el-form-item label="排序">
+          <el-input-number v-model="sortForm.sortOrder" :min="0" />
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-switch v-model="sortForm.enabled" :active-value="1" :inactive-value="0" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="sortDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="saveSort">保存</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -205,12 +252,22 @@ const topicDialogVisible = ref(false)
 const topicDialogTitle = ref('新增话题方向')
 const topicForm = ref({ name: '', value: '', iconUrl: '', sortOrder: 0, enabled: 1 })
 
+// 排序选项相关
+const sortOptions = ref([])
+const sortLoading = ref(false)
+const sortDialogVisible = ref(false)
+const sortDialogTitle = ref('新增排序选项')
+const sortForm = ref({ name: '', value: 0, sortOrder: 0, enabled: 1 })
+
 onMounted(() => { loadTypes() })
 
-// 切换到话题方向Tab时加载数据
+// 切换Tab时加载数据
 watch(activeTab, (newVal) => {
   if (newVal === 'topic' && topicDirections.value.length === 0) {
     loadTopicDirections()
+  }
+  if (newVal === 'sort' && sortOptions.value.length === 0) {
+    loadSortOptions()
   }
 })
 
@@ -365,6 +422,76 @@ async function deleteTopic(topic) {
     if (res.code === 200) {
       ElMessage.success('删除成功')
       loadTopicDirections()
+    } else {
+      ElMessage.error(res.message || '删除失败')
+    }
+  } catch (e) {
+    if (e !== 'cancel') {
+      ElMessage.error('删除失败')
+    }
+  }
+}
+
+// ==================== 排序选项管理 ====================
+
+async function loadSortOptions() {
+  sortLoading.value = true
+  try {
+    const res = await filterConfigApi.getSortOptionList({ pageSize: 100 })
+    if (res.code === 200) {
+      sortOptions.value = res.data?.list || []
+    }
+  } catch (e) {
+    ElMessage.error('加载排序选项失败')
+  } finally {
+    sortLoading.value = false
+  }
+}
+
+function showAddSortDialog() {
+  sortForm.value = { name: '', value: 0, sortOrder: 0, enabled: 1 }
+  sortDialogTitle.value = '新增排序选项'
+  sortDialogVisible.value = true
+}
+
+function editSort(sort) {
+  sortForm.value = { ...sort }
+  sortDialogTitle.value = '编辑排序选项'
+  sortDialogVisible.value = true
+}
+
+async function saveSort() {
+  if (!sortForm.value.name) {
+    ElMessage.warning('请填写名称')
+    return
+  }
+  if (sortForm.value.value === null || sortForm.value.value === undefined) {
+    ElMessage.warning('请填写值')
+    return
+  }
+  try {
+    const res = sortForm.value.id
+      ? await filterConfigApi.updateSortOption(sortForm.value.id, sortForm.value)
+      : await filterConfigApi.createSortOption(sortForm.value)
+    if (res.code === 200) {
+      ElMessage.success('保存成功')
+      sortDialogVisible.value = false
+      loadSortOptions()
+    } else {
+      ElMessage.error(res.message || '保存失败')
+    }
+  } catch (e) {
+    ElMessage.error('保存失败')
+  }
+}
+
+async function deleteSort(sort) {
+  try {
+    await ElMessageBox.confirm(`确定删除排序选项"${sort.name}"吗？`, '确认删除', { type: 'warning' })
+    const res = await filterConfigApi.deleteSortOption(sort.id)
+    if (res.code === 200) {
+      ElMessage.success('删除成功')
+      loadSortOptions()
     } else {
       ElMessage.error(res.message || '删除失败')
     }

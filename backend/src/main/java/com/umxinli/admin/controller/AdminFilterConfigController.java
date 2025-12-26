@@ -158,5 +158,69 @@ public class AdminFilterConfigController {
             return ApiResponse.error("获取排序选项失败");
         }
     }
+
+    /**
+     * 新增排序选项
+     */
+    @PostMapping("/sortOptions")
+    public ApiResponse addSortOption(@RequestBody SortOption sortOption) {
+        log.info("Add sort option - name: {}", sortOption.getName());
+        try {
+            if (sortOption.getEnabled() == null) {
+                sortOption.setEnabled(1);
+            }
+            int result = filterConfigService.addSortOption(sortOption);
+            return result > 0 ? ApiResponse.success(sortOption) : ApiResponse.error("新增失败");
+        } catch (Exception e) {
+            log.error("Error adding sort option", e);
+            return ApiResponse.error("新增排序选项失败");
+        }
+    }
+
+    /**
+     * 更新排序选项
+     */
+    @PutMapping("/sortOptions/{id}")
+    public ApiResponse updateSortOption(@PathVariable Long id, @RequestBody SortOption sortOption) {
+        log.info("Update sort option - id: {}", id);
+        try {
+            sortOption.setId(id);
+            int result = filterConfigService.updateSortOption(sortOption);
+            return result > 0 ? ApiResponse.success(null) : ApiResponse.error("更新失败");
+        } catch (Exception e) {
+            log.error("Error updating sort option", e);
+            return ApiResponse.error("更新排序选项失败");
+        }
+    }
+
+    /**
+     * 删除排序选项
+     */
+    @DeleteMapping("/sortOptions/{id}")
+    public ApiResponse deleteSortOption(@PathVariable Long id) {
+        log.info("Delete sort option - id: {}", id);
+        try {
+            int result = filterConfigService.deleteSortOption(id);
+            return result > 0 ? ApiResponse.success(null) : ApiResponse.error("删除失败");
+        } catch (Exception e) {
+            log.error("Error deleting sort option", e);
+            return ApiResponse.error("删除排序选项失败");
+        }
+    }
+
+    /**
+     * 更新排序选项启用状态
+     */
+    @PutMapping("/sortOptions/{id}/enabled")
+    public ApiResponse updateSortOptionEnabled(@PathVariable Long id, @RequestBody Map<String, Integer> body) {
+        log.info("Update sort option enabled - id: {}, enabled: {}", id, body.get("enabled"));
+        try {
+            int result = filterConfigService.updateSortOptionEnabled(id, body.get("enabled"));
+            return result > 0 ? ApiResponse.success(null) : ApiResponse.error("更新状态失败");
+        } catch (Exception e) {
+            log.error("Error updating sort option enabled", e);
+            return ApiResponse.error("更新状态失败");
+        }
+    }
 }
 
