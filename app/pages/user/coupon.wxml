@@ -16,10 +16,10 @@
   <view class="list-coupon data-v-6016921d">
     <view class="item-card data-v-6016921d" wx:for="{{couponList}}" wx:key="index">
       <view class="item-box data-v-6016921d">
-        <view class="money-type data-v-6016921d">¥</view>
         <view class="time-money data-v-6016921d">
+          <view class="money-type data-v-6016921d">¥</view>
           <view class="money-text data-v-6016921d">{{item.amount}}</view>
-          <view class="data-v-6016921d">代金券</view>
+          <view class="coupon-type data-v-6016921d">代金券</view>
         </view>
       </view>
       <view class="item-right data-v-6016921d">

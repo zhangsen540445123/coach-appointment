@@ -4,11 +4,13 @@ import com.umxinli.dto.ApiResponse;
 import com.umxinli.entity.Coupon;
 import com.umxinli.entity.CouponCode;
 import com.umxinli.entity.Counselor;
+import com.umxinli.entity.User;
 import com.umxinli.entity.UserCoupon;
 import com.umxinli.mapper.CouponCodeMapper;
 import com.umxinli.mapper.CouponMapper;
 import com.umxinli.mapper.CounselorMapper;
 import com.umxinli.mapper.UserCouponMapper;
+import com.umxinli.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +34,8 @@ public class AdminCouponController {
     private CouponCodeMapper couponCodeMapper;
     @Autowired
     private CounselorMapper counselorMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     // ==================== 优惠券模板管理 ====================
 
@@ -224,8 +228,13 @@ public class AdminCouponController {
     }
 
     private List<Long> getAllUserIds() {
-        // 简化实现：返回user_star表中的用户ID（有收藏行为的用户）
-        return new ArrayList<>();
+        // 获取所有用户ID
+        List<User> allUsers = userMapper.selectAll();
+        List<Long> userIds = new ArrayList<>();
+        for (User user : allUsers) {
+            userIds.add(user.getId());
+        }
+        return userIds;
     }
 
     // ==================== 兑换码管理 ====================

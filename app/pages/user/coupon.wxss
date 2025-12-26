@@ -2,26 +2,34 @@
   color: #262626;
   font-family: PingFangSC-Regular, PingFang SC;
   font-size: 30rpx;
-  min-height: 100vh
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
 .top-top.data-v-6016921d {
   display: -webkit-flex;
   display: flex;
-  padding-bottom: 30rpx;
-  padding-left: 80rpx;
-  padding-top: 10rpx
+  align-items: center;
+  padding: 20rpx 30rpx;
+  margin-top: 180rpx;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
 }
 
 .top-top image.data-v-6016921d {
   flex-shrink: 0;
-  margin-right: 20rpx;
-  width: 60rpx
+  margin-right: 15rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .top-top view.data-v-6016921d {
   color: var(--common-pink-color);
-  padding: 12rpx
+  font-size: 32rpx;
+  font-weight: 500;
 }
 
 .list-area.data-v-6016921d {
@@ -30,29 +38,33 @@
   display: -webkit-flex;
   display: flex;
   left: 0;
-  position: relative;
+  position: fixed;
   right: 0;
+  top: 80rpx;
   z-index: 10
 }
 
 .list-area .item-box.data-v-6016921d {
-  border-bottom: 2px solid #f6f6f6;
-  color: #aaa;
-  flex: 49%;
+  border-bottom: 3px solid transparent;
+  color: #666;
+  flex: 1;
   height: 88rpx;
   line-height: 88rpx;
-  text-align: center
+  text-align: center;
+  font-size: 32rpx;
+  transition: all 0.3s ease;
 }
 
 .list-area .item-active.data-v-6016921d {
-  border-bottom: 2px solid var(--common-pink-color);
-  color: var(--common-pink-color)
+  border-bottom: 3px solid var(--common-pink-color);
+  color: var(--common-pink-color);
+  font-weight: 500;
 }
 
 .list-coupon.data-v-6016921d {
-  margin: 0;
-  min-height: calc(100% - 100rpx);
-  padding-bottom: 10rpx
+  /* margin: 180rpx 0 0; */
+  min-height: calc(100% - 180rpx);
+  padding-bottom: 30rpx;
 }
 
 .list-coupon .item-card.data-v-6016921d {
@@ -60,23 +72,27 @@
   border-radius: 10px;
   display: -webkit-flex;
   display: flex;
-  margin: 30rpx
+  margin: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .list-coupon .item-card .item-box.data-v-6016921d {
-  background-color: var(--common-pink-color);
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffa5c0 100%);
   color: #fff;
   display: -webkit-flex;
   display: flex;
+  flex-direction: column;
   flex-shrink: 0;
-  padding: 15rpx;
-  width: 200rpx
+  padding: 30rpx 20rpx;
+  width: 200rpx;
+  position: relative;
 }
 
 .list-coupon .item-card .item-box .money-type.data-v-6016921d {
-  align-self: flex-start
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 5rpx;
 }
 
 .list-coupon .item-card .item-box .time-money.data-v-6016921d {
@@ -85,23 +101,42 @@
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  text-align: center
+  align-items: center;
+  text-align: center;
 }
 
 .list-coupon .item-card .item-box .time-money .money-text.data-v-6016921d {
-  font-size: 70rpx;
-  margin-top: 36rpx
+  font-size: 80rpx;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10rpx;
+}
+
+.list-coupon .item-card .item-box .time-money .coupon-type.data-v-6016921d {
+  font-size: 24rpx;
+  opacity: 0.9;
 }
 
 .list-coupon .item-card .item-right.data-v-6016921d {
-  padding: 15rpx;
-  width: calc(100% - 260rpx)
+  padding: 20rpx;
+  width: calc(100% - 260rpx);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .list-coupon .item-card .item-right .top-stype.data-v-6016921d {
-  height: 42rpx;
-  line-height: 42rpx;
-  text-align: end
+  font-size: 24rpx;
+  color: #52c41a;
+  margin-bottom: 10rpx;
+}
+
+.list-coupon .item-card .item-right .title-rule.data-v-6016921d {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 10rpx;
+  line-height: 1.4;
 }
 
 .list-coupon .item-card .item-right .mid-btn.data-v-6016921d {
@@ -122,9 +157,33 @@
 }
 
 .list-coupon .item-card .item-right .time-box.data-v-6016921d {
-  border-top: 1px solid #eee;
-  font-size: 26rpx;
-  margin-top: 30rpx
+  border-top: 1px solid #f0f0f0;
+  font-size: 22rpx;
+  color: #999;
+  padding-top: 12rpx;
+  margin-top: auto;
+  line-height: 1.6;
+}
+
+/* 已使用/已过期优惠券样式 */
+.list-coupon .item-card.disabled.data-v-6016921d {
+  opacity: 0.6;
+}
+
+.list-coupon .item-card.disabled .item-box.data-v-6016921d {
+  background: linear-gradient(135deg, #bbb 0%, #ddd 100%);
+}
+
+.list-coupon .item-card .item-right .top-stype.unavailable.data-v-6016921d {
+  color: #999;
+}
+
+/* 空状态 */
+.empty-state.data-v-6016921d {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
 }
 
 .dialog-box.data-v-6016921d {
@@ -149,7 +208,8 @@
   display: -webkit-flex;
   display: flex;
   justify-content: space-between;
-  padding: 20rpx 20rpx 10rpx
+  padding: 30rpx 30rpx 20rpx;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .dialog-box .dialog-content .dia-top .top-flex.data-v-6016921d {
@@ -167,7 +227,10 @@
 }
 
 .dialog-box .dialog-content .dia-top .top-mid.data-v-6016921d {
-  flex: 1
+  /* flex: 1; */
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #262626;
 }
 
 .dialog-box .dialog-content .item-box.data-v-6016921d {
@@ -191,11 +254,14 @@
 }
 
 .dialog-box .dialog-content .item-box .input-duihuan-box.data-v-6016921d {
-  border: 1px solid #eee;
+  border: 1px solid #e0e0e0;
+  border-radius: 8rpx;
   height: 60rpx;
   line-height: 60rpx;
   margin-left: 40rpx;
-  width: 380rpx
+  width: 380rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
 }
 
 .dialog-box .dialog-content .item-box .btn-right.data-v-6016921d {
@@ -252,19 +318,22 @@
 }
 
 .dialog-box .dialog-content .btm-btn .btn-box.data-v-6016921d {
-  border: 1px solid #eee;
-  margin: 40rpx;
-  padding: 10rpx 20rpx;
-  width: 160rpx
+  margin: 40rpx 20rpx;
+  padding: 18rpx 40rpx;
+  width: 200rpx;
+  font-size: 32rpx;
+  border-radius: 50rpx;
+  transition: all 0.3s ease;
 }
 
 .dialog-box .dialog-content .btm-btn .btn-main-color-1.data-v-6016921d {
-  border: 1px solid var(--common-pink-color);
-  border-radius: 5px
+  border: 2px solid var(--common-pink-color);
+  color: var(--common-pink-color);
+  background-color: #fff;
 }
 
 .dialog-box .dialog-content .btm-btn .btn-main-color-2.data-v-6016921d {
   background-color: var(--common-pink-color);
-  border-radius: 5px;
-  color: #fff
+  color: #fff;
+  border: 2px solid var(--common-pink-color);
 }

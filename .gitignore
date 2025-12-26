@@ -1,7 +1,7 @@
 *.iml
 /.idea/
 *.log
-nginx-gate/logs
+nginx-gate
 admin-web/node_modules/.package-lock.json
 admin-web/node_modules/.bin/detect-libc
 admin-web/node_modules/.bin/detect-libc.cmd
@@ -16834,3 +16834,6 @@ admin-web/node_modules/zrender/src/tool/path.ts
 admin-web/node_modules/zrender/src/tool/transformPath.ts
 nginx-gate/logs/access.log
 nginx-gate/logs/error.log
+nginx-gate/logs/access.log
+nginx-gate/logs/access.log
+nginx-gate/logs/access.log
