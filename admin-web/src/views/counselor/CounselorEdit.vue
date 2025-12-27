@@ -348,6 +348,10 @@ const removeDirection = (index) => {
 const addDirectionChild = (dirIndex) => {
   const childName = newChildName.value[dirIndex]
   if (childName && childName.trim()) {
+    // 确保 child 数组存在
+    if (!form.directionsList[dirIndex].child) {
+      form.directionsList[dirIndex].child = []
+    }
     form.directionsList[dirIndex].child.push({
       name: childName.trim(),
       value: form.directionsList[dirIndex].child.length + 1
@@ -436,7 +440,7 @@ const loadData = async () => {
         consultTypeList: data.consultType || [],
         imageUrls: data.imageUrls || [],
         directionsList: Array.isArray(data.directions) ? data.directions.map((d, i) =>
-          typeof d === 'string' ? { name: d, value: i, child: [] } : d
+          typeof d === 'string' ? { name: d, value: i, child: [] } : { ...d, child: d.child || [] }
         ) : [],
         trainingList: data.training || [],
         consultList: data.consult || []

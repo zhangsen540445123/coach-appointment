@@ -42,6 +42,7 @@
             u = e.Exp.years(e.formUserInfo.experience.date),
             a = e.Exp.hours(e.formUserInfo.experience.time),
             l = e.__map(e.formUserInfo.directions, (function (n, o) {
+              console.log("Processing direction:", n.name, "child:", n.child);
               return {
                 $orig: e.__get_orig(n),
                 m2: "情绪困扰" == n.name ? t("3c22") : null,
@@ -53,7 +54,8 @@
                 m8: "亲子教育" == n.name ? t("bdc3") : null,
                 m9: "身心健康" == n.name ? t("e542") : null,
                 m10: "性心理" == n.name ? t("62ba") : null,
-                m11: e.checkGood(n.child)
+                m11: e.checkGood(n.child),
+                m12: n.name
               }
             })),
             f = e.__map(e.formUserInfo.consult, (function (n, t) {
@@ -408,7 +410,7 @@
               return "".concat(t, "年").concat(o, "月")
             },
             checkGood: function (e) {
-              if (!e || !Array.isArray(e)) return "";
+              if (!e || !Array.isArray(e) || e.length === 0) return "";
               for (var n = [], t = 0; t < e.length; t++) !1 != !!e[t].name && n.push(e[t].name);
               return n.join(" ")
             },
@@ -547,9 +549,9 @@
                     case 0:
                       return o = n, t.next = 3, (0, m.getCounselor)(e);
                     case 3:
-                      r = t.sent, console.log("getCounselor response:", JSON.stringify(r)), console.log("directions:", JSON.stringify(r.directions)), console.log("training:", JSON.stringify(r.training)), o.formUserInfo = r, o.userImageList = [], o.canSubmitOrder = 1, o.articleList = [], o.consultTypeChooed = r.consult[0].consultType, r.articleList && (o.articleList = JSON.parse(r.articleList)), null !== r.videoUrl && r.videoUrl.length > 0 && o.userImageList.push({
-                          video: r.videoUrl
-                        });
+                      r = t.sent, console.log("getCounselor response:", JSON.stringify(r)), console.log("directions:", JSON.stringify(r.directions)), console.log("directions length:", r.directions ? r.directions.length : 0), console.log("training:", JSON.stringify(r.training)), o.formUserInfo = r, o.userImageList = [], o.canSubmitOrder = 1, o.articleList = [], o.consultTypeChooed = r.consult[0].consultType, r.articleList && (o.articleList = JSON.parse(r.articleList)), null !== r.videoUrl && r.videoUrl.length > 0 && o.userImageList.push({
+                        video: r.videoUrl
+                      });
                       if (null !== o.formUserInfo.imageUrls && o.formUserInfo.imageUrls.length > 0) {
                         for (i = 0; i < o.formUserInfo.imageUrls.length; i++) o.userImageList.push({
                           image: o.formUserInfo.imageUrls[i]

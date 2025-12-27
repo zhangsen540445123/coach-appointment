@@ -125,10 +125,11 @@ public class AdminCounselorController {
      */
     @PutMapping("/{id}")
     public ApiResponse update(@PathVariable Long id, @RequestBody Counselor counselor) {
-        log.info("Update counselor: {}", id);
+        log.info("Update counselor: {}, directions: {}", id, counselor.getDirections());
         try {
             counselor.setId(id);
             Counselor updated = adminCounselorService.updateByAdmin(counselor);
+            log.info("Counselor updated successfully, directions saved: {}", updated.getDirections());
             return ApiResponse.success("更新成功", updated);
         } catch (Exception e) {
             log.error("Error updating counselor", e);

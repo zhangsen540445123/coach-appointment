@@ -164,7 +164,7 @@ const loadProfile = async () => {
         ...data,
         directionsList: Array.isArray(data.directions)
           ? data.directions.map((d, i) =>
-              typeof d === 'string' ? { name: d, value: i, child: [] } : d
+              typeof d === 'string' ? { name: d, value: i, child: [] } : { ...d, child: d.child || [] }
             )
           : []
       }

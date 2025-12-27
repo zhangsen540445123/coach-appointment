@@ -61,17 +61,17 @@
         <view class="page-title _div data-v-5f0bf7ec">擅长领域</view>
         <view class="area _div data-v-5f0bf7ec">
             <view class="area-item data-v-5f0bf7ec" wx:for="{{$root.l1}}" wx:key="index">
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m2}}" wx:if="{{item[$orig].name=='情绪困扰'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m3}}" wx:if="{{item[$orig].name=='婚姻恋爱'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m4}}" wx:if="{{item[$orig].name=='人际关系'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m5}}" wx:if="{{item[$orig].name=='家庭困扰'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m6}}" wx:if="{{item[$orig].name=='个人成长'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m7}}" wx:if="{{item[$orig].name=='学业职场'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m8}}" wx:if="{{item[$orig].name=='亲子教育'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m9}}" wx:if="{{item[$orig].name=='身心健康'}}"></image>
-                <image alt class="_img data-v-5f0bf7ec" src="{{item.m10}}" wx:if="{{item[$orig].name=='性心理'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" ></image>
+                <!-- <image alt class="_img data-v-5f0bf7ec" src="{{item.m3}}" wx:if="{{item.$orig..name=='婚姻恋爱'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m4}}" wx:if="{{item.$orig..name=='人际关系'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m5}}" wx:if="{{item.$orig..name=='家庭困扰'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m6}}" wx:if="{{item.$orig..name=='个人成长'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m7}}" wx:if="{{item.$orig.name=='学业职场'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m8}}" wx:if="{{item.$orig.name=='亲子教育'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m9}}" wx:if="{{item.$orig.name=='身心健康'}}"></image>
+                <image alt class="_img data-v-5f0bf7ec" src="{{item.m10}}" wx:if="{{item.$orig.name=='性心理'}}"></image> -->
                 <view class="area-item-content data-v-5f0bf7ec">
-                    <view class="title data-v-5f0bf7ec">{{item[$orig].name}}</view>
+                    <view class="title data-v-5f0bf7ec">{{item.$orig.name}}</view>
                     <view class="text data-v-5f0bf7ec">{{item.m11}}</view>
                 </view>
             </view>

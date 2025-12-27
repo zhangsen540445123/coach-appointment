@@ -77,7 +77,10 @@ public class CoachController {
             AdminUser user = getCurrentUser(token);
             if (user == null) return ApiResponse.error(401, "未登录");
             if (!user.isCoach()) return ApiResponse.error(403, "无权限访问");
-            
+
+            log.info("Coach submitting profile update, counselorId: {}, directions: {}",
+                user.getCounselorId(), counselor.getDirections());
+
             // 确保只能修改自己的信息
             counselor.setId(user.getCounselorId());
             CounselorAudit audit = adminCounselorService.submitUpdate(counselor, user);

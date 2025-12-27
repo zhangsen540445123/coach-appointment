@@ -68,7 +68,7 @@ Page({
 
         // 使用原生 wx.request
         wx.request({
-            url: loginManager.BASE_URL + '/api/visitor/feedback/submit',
+            url: loginManager.BASE_URL + '/visitor/feedback/submit',
             method: 'POST',
             header: {
                 'Content-Type': 'application/json',
