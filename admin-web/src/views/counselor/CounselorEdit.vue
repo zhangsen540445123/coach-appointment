@@ -459,6 +459,24 @@ const handleSubmit = async () => {
     if (!valid) return
     submitting.value = true
     try {
+      // 在提交前，将所有未添加的子领域输入框内容添加到对应的 child 数组中
+      form.directionsList.forEach((dir, dirIndex) => {
+        const childName = newChildName.value[dirIndex]
+        if (childName && childName.trim()) {
+          // 确保 child 数组存在
+          if (!dir.child) {
+            dir.child = []
+          }
+          // 添加子领域
+          dir.child.push({
+            name: childName.trim(),
+            value: dir.child.length + 1
+          })
+          // 清空输入框
+          newChildName.value[dirIndex] = ''
+        }
+      })
+
       const submitData = {
         ...form,
         qualifications: form.qualificationsList,
