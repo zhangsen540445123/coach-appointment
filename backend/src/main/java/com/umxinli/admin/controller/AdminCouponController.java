@@ -117,10 +117,20 @@ public class AdminCouponController {
 
             // 处理时间字段 - 支持 ISO 8601 格式（如 2025-12-21T16:00:00.000Z）
             if (requestData.get("startTime") != null) {
-                coupon.setStartTime(parseDateTime(requestData.get("startTime").toString()));
+                LocalDateTime startTime = parseDateTime(requestData.get("startTime").toString());
+                // 开始时间设置为当天的 00:00:00
+                if (startTime != null) {
+                    startTime = startTime.withHour(0).withMinute(0).withSecond(0).withNano(0);
+                }
+                coupon.setStartTime(startTime);
             }
             if (requestData.get("endTime") != null) {
-                coupon.setEndTime(parseDateTime(requestData.get("endTime").toString()));
+                LocalDateTime endTime = parseDateTime(requestData.get("endTime").toString());
+                // 结束时间设置为当天的 23:59:59
+                if (endTime != null) {
+                    endTime = endTime.withHour(23).withMinute(59).withSecond(59).withNano(0);
+                }
+                coupon.setEndTime(endTime);
             }
 
             if (coupon.getId() == null) {

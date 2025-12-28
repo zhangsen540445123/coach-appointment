@@ -223,32 +223,55 @@
                             getPhoneNumber: function(t) {
                                 console.log("getPhoneNumber event", t);
                                 var o = this;
-                                "getPhoneNumber:ok" === t.detail.errMsg ? (0, a.irequestdata)({
-                                    url: "/wx/user/".concat(n.appid, "/phone"),
-                                    data: {
-                                        code: t.detail.code,
-                                        // openid: o.openid // Uncomment and provide if openid is available and you want to auto-update
-                                    },
-                                    method: "get",
-                                    success: function(e) {
-                                        console.log('getPhoneNumber success', e)
-                                        if (200 == e.data.code && e.data && e.data.data && e.data.data.phoneNumber) {
-                                            o.formData.mobile = e.data.data.phoneNumber
-                                            o.$forceUpdate()
+                                if ("getPhoneNumber:ok" === t.detail.errMsg) {
+                                    // 获取 openid
+                                    var openid = e.getStorageSync('openid') || '';
+                                    console.log('使用 openid:', openid);
+
+                                    (0, a.irequestdata)({
+                                        url: "/wx/user/".concat(n.appid, "/phone"),
+                                        data: {
+                                            code: t.detail.code,
+                                            openid: openid // 传入 openid 以便后端自动更新用户手机号
+                                        },
+                                        method: "get",
+                                        success: function(res) {
+                                            console.log('getPhoneNumber success', res)
+                                            if (200 == res.data.code && res.data && res.data.data && res.data.data.phoneNumber) {
+                                                o.formData.mobile = res.data.data.phoneNumber
+                                                o.formData.mobileArea = res.data.data.countryCode || '86'
+                                                o.$forceUpdate()
+                                                // 显示成功提示
+                                                e.showToast({
+                                                    title: "手机号更新成功",
+                                                    icon: "success"
+                                                })
+                                            } else {
+                                                e.showToast({
+                                                    title: res.data.msg || "获取手机号失败",
+                                                    icon: "none"
+                                                })
+                                            }
+                                        },
+                                        error: function(err) {
+                                            console.log('getPhoneNumber error', err)
+                                            e.showToast({
+                                                title: "获取手机号失败，请重试",
+                                                icon: "none"
+                                            })
                                         }
-                                    },
-                                    error: function(e) {
-                                        console.log('getPhoneNumber error', e)
-                                    }
-                                }) : e.showModal({
-                                    title: "警告",
-                                    content: "绑定手机能够提供更加方便的服务!!!",
-                                    showCancel: !1,
-                                    confirmText: "返回授权",
-                                    success: function(e) {
-                                        e.confirm && console.log("用户拒绝授权！")
-                                    }
-                                })
+                                    })
+                                } else {
+                                    e.showModal({
+                                        title: "提示",
+                                        content: "绑定手机号能够提供更加方便的服务",
+                                        showCancel: !1,
+                                        confirmText: "我知道了",
+                                        success: function(res) {
+                                            res.confirm && console.log("用户拒绝授权")
+                                        }
+                                    })
+                                }
                             },
                             verificationPhone: function() {
                                 this.$refs.registerDialog.open("center")

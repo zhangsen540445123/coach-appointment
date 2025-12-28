@@ -19,23 +19,18 @@
         <view class="time-money data-v-6016921d">
           <view class="money-type data-v-6016921d">¥</view>
           <view class="money-text data-v-6016921d">{{item.amount}}</view>
-          <view class="coupon-type data-v-6016921d">代金券</view>
+          <view class="coupon-type data-v-6016921d">{{item.typeName || '代金券'}}</view>
         </view>
       </view>
       <view class="item-right data-v-6016921d">
         <view class="top-stype data-v-6016921d">
-          <view class="data-v-6016921d" wx:if="{{item.used===0}}">可使用</view>
+          <view class="data-v-6016921d" wx:if="{{item.statusText}}" style="{{item.statusText==='可使用'?'color:#52c41a':item.statusText==='已使用'?'color:#999':item.statusText==='已过期'?'color:#ff4d4f':'color:#faad14'}}">{{item.statusText}}</view>
+          <view class="data-v-6016921d" wx:elif="{{item.used===0}}" style="color:#52c41a">可使用</view>
+          <view class="data-v-6016921d" wx:else style="color:#999">已使用</view>
         </view>
-        <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===0}}">适用于网络咨询</view>
-        <block wx:else>
-          <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===1}}">适用于低价咨询</view>
-          <block wx:else>
-            <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===2}}">适用于地面咨询</view>
-            <block wx:else>
-              <view class="title-rule data-v-6016921d" wx:if="{{item.consultType===3}}">适用于青少年父母咨询</view>
-            </block>
-          </block>
-        </block>
+        <view class="title-rule data-v-6016921d" wx:if="{{item.description}}">{{item.description}}</view>
+        <view class="title-rule data-v-6016921d" wx:elif="{{item.couponType===1&&item.minAmount}}">满{{item.minAmount}}减{{item.amount}}</view>
+        <view class="title-rule data-v-6016921d" wx:elif="{{item.couponType===2}}">立减{{item.amount}}元</view>
         <view class="time-box data-v-6016921d">{{'有效期'+item.beginTime+'至'+item.endTime+''}}</view>
       </view>
     </view>

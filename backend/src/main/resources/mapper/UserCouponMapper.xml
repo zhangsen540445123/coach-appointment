@@ -11,15 +11,33 @@
             c.name as couponName, c.type as couponType,
             c.discount_amount as discountAmount, c.min_amount as minAmount,
             c.start_time as startTime, c.end_time as endTime,
-            c.coach_scope as coachScope, c.coach_ids as coachIds
+            c.coach_scope as coachScope, c.coach_ids as coachIds,
+            c.status as couponStatus,
+            <!-- 判断优惠券是否已过期 -->
+            CASE
+                WHEN c.end_time IS NOT NULL AND c.end_time &lt; NOW() THEN 1
+                ELSE 0
+            END as isExpired
         FROM user_coupon uc
         LEFT JOIN coupon c ON uc.coupon_id = c.id
         <where>
             <if test="userId != null">
                 AND uc.user_id = #{userId}
             </if>
-            <if test="status != null">
-                AND uc.status = #{status}
+            <!-- 查询可用优惠券：未使用且未过期 -->
+            <if test="status != null and status == 0">
+                AND uc.status = 0
+                AND c.status = 1
+                AND (c.end_time IS NULL OR c.end_time >= NOW())
+                AND (c.start_time IS NULL OR c.start_time &lt;= NOW())
+            </if>
+            <!-- 查询不可用优惠券：已使用、已过期或优惠券模板已停用 -->
+            <if test="status != null and status == 1">
+                AND (
+                    uc.status = 1
+                    OR (c.end_time IS NOT NULL AND c.end_time &lt; NOW())
+                    OR c.status = 0
+                )
             </if>
         </where>
         ORDER BY uc.created_at DESC
