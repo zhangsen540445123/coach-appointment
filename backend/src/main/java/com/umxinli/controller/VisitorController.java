@@ -450,6 +450,8 @@ public class VisitorController {
     /**
      * 获取访客信息
      * GET /visitor/visitorInfo/showUserVisitorInfoByUserid
+     * @param userId 用户ID
+     * @param type 客户类型：0-成人，1-儿童（用于过滤，目前只支持成人）
      */
     @GetMapping("/visitorInfo/showUserVisitorInfoByUserid")
     public ApiResponse getVisitorInfo(@RequestParam(required = false) Long userId,
@@ -461,8 +463,28 @@ public class VisitorController {
             }
             VisitorInfo info = visitorInfoMapper.selectByUserId(userId);
             if (info != null) {
-                List<VisitorInfo> list = new ArrayList<>();
-                list.add(info);
+                // 转换为 Map 并添加 type 字段，前端需要 type 字段来区分成人/儿童
+                List<Map<String, Object>> list = new ArrayList<>();
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", info.getId());
+                item.put("userId", info.getUserId());
+                item.put("name", info.getName() != null ? info.getName() : "");
+                // age 字段必须有值，前端显示需要。如果为 null 则返回 0
+                item.put("age", info.getAge() != null ? info.getAge() : 0);
+                item.put("sex", info.getSex() != null ? info.getSex() : 0);
+                item.put("otherCity", info.getOtherCity());
+                item.put("otherCareer", info.getOtherCareer());
+                item.put("otherMarrage", info.getOtherMarrage());
+                item.put("otherChildren", info.getOtherChildren());
+                item.put("otherIncome", info.getOtherIncome());
+                item.put("otherUm", info.getOtherUm());
+                item.put("consultOther", info.getConsultOther());
+                item.put("realizeChannel", info.getRealizeChannel());
+                item.put("createdAt", info.getCreatedAt());
+                item.put("updatedAt", info.getUpdatedAt());
+                // 添加 type 字段：0-成人，1-儿童（目前只有成人客户）
+                item.put("type", type != null ? type : 0);
+                list.add(item);
                 return ApiResponse.success(list);
             }
             return ApiResponse.success(Collections.emptyList());

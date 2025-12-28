@@ -14,16 +14,17 @@
     <view class="page-visitor _div data-v-57102c46" wx:if="{{!isNewUser}}">
       <view class="page-title _div data-v-57102c46">客户</view>
       <view class="visitor-list _div data-v-57102c46">
-        <view bindtap="__e" class="{{['_div','data-v-57102c46','visitor-item',item.g0?'selected':'unselected']}}" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" data-item="{{item[$orig]}}" wx:for="{{$root.l0}}" wx:for-index="__i1__" wx:key="id">
+        <view bindtap="__e" class="{{['_div','data-v-57102c46','visitor-item',item.g0?'selected':'unselected']}}" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" data-item="{{item.$orig}}" wx:for="{{$root.l0}}" wx:for-index="__i1__" wx:key="id">
           <view class="header _div data-v-57102c46">
-            <view class="text _p data-v-57102c46">{{item[$orig].name}}</view>
-            <view class="mark _p data-v-57102c46">{{item[$orig].type===0?'成人':'儿童'}}</view>
+            <view class="text _p data-v-57102c46">{{item.$orig.name}}</view>
+            <view class="mark _p data-v-57102c46">{{item.$orig.type===0?'成人':'儿童'}}</view>
           </view>
           <view class="footer _div data-v-57102c46">
-            <label class="_span data-v-57102c46">{{item[$orig].sex===1?'男':'女'}}</label>
-            <label class="_span data-v-57102c46">{{item[$orig].age+'岁'}}</label>
+            <label class="_span data-v-57102c46">{{item.$orig.sex===1?'男':'女'}}</label>
+            <label class="_span data-v-57102c46" wx:if="{{item.$orig.age}}">{{item.$orig.age+'岁'}}</label>
+            <label class="_span data-v-57102c46" wx:else>年龄未填</label>
             <view class="_p data-v-57102c46" style="flex:1;"></view>
-            <view bindtap="__e" class="cuIcon-writefill icon _i data-v-57102c46" data-event-opts="{{[ [ 'tap',[ [ 'e1',['$event'] ] ] ] ]}}" data-item="{{item[$orig]}}"></view>
+            <view bindtap="__e" class="cuIcon-writefill icon _i data-v-57102c46" data-event-opts="{{[ [ 'tap',[ [ 'e1',['$event'] ] ] ] ]}}" data-item="{{item.$orig}}"></view>
           </view>
         </view>
         <view bindtap="__e" class="visitor-item empty _div data-v-57102c46" data-event-opts="{{[ [ 'tap',[ ['toAdultsInfo'] ] ] ]}}" wx:if="{{!$root.g1}}">
