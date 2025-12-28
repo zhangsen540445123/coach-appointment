@@ -29,7 +29,11 @@
         <result column="consult_way" property="consultWay"/>
         <result column="consult_date" property="consultDate"/>
         <result column="consult_time" property="consultTime"/>
-        <result column="price" property="payAmount"/>
+        <result column="start_timeslot" property="startTimeslot"/>
+        <result column="end_timeslot" property="endTimeslot"/>
+        <result column="is_am" property="isAm"/>
+        <result column="order_create_time" property="orderCreateTime"/>
+        <result column="pay_amount" property="payAmount"/>
         <result column="price" property="price"/>
         <result column="payment_available_minutes" property="paymentAvailableMinutes"/>
         <result column="created_at" property="createTime"/>
@@ -41,6 +45,40 @@
 
     <select id="selectById" resultMap="BaseResultMap">
         SELECT * FROM consult_order WHERE id = #{id}
+    </select>
+
+    <!-- 根据ID查询订单详情，包含教练信息（用于前端展示） -->
+    <select id="selectByIdWithCounselor" resultMap="OrderDTOResultMap">
+        SELECT
+            o.id,
+            o.order_no,
+            o.user_id,
+            o.counselor_id,
+            o.consult_type,
+            o.consult_way,
+            o.price,
+            o.price as pay_amount,
+            o.status,
+            o.consult_time,
+            DATE_FORMAT(o.consult_time, '%Y-%m-%d') as consult_date,
+            DATE_FORMAT(o.consult_time, '%H:%i') as start_timeslot,
+            DATE_FORMAT(DATE_ADD(o.consult_time, INTERVAL 50 MINUTE), '%H:%i') as end_timeslot,
+            CASE WHEN HOUR(o.consult_time) &lt; 12 THEN 1 ELSE 0 END as is_am,
+            DATE_FORMAT(o.created_at, '%Y-%m-%d %H:%i:%s') as order_create_time,
+            o.created_at,
+            CASE
+                WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
+                ELSE 0
+            END as payment_available_minutes,
+            c.name as counselor_name,
+            c.head_url as counselor_head_url,
+            vi.name as visitor_name,
+            0 as consult_stage,
+            0 as creator_type
+        FROM consult_order o
+        LEFT JOIN counselor c ON o.counselor_id = c.id
+        LEFT JOIN visitor_info vi ON o.user_id = vi.user_id
+        WHERE o.id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.umxinli.entity.Order" useGeneratedKeys="true" keyProperty="id">

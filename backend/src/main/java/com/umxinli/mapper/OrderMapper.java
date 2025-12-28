@@ -10,6 +10,7 @@ import java.util.List;
 @Mapper
 public interface OrderMapper {
     Order selectById(@Param("id") Long id);
+    OrderDTO selectByIdWithCounselor(@Param("id") Long id);
     int insert(Order order);
     int updateStatus(@Param("id") Long id, @Param("status") int status);
     int updateById(Order order);

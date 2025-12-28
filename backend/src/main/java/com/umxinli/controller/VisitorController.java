@@ -16,6 +16,8 @@ import com.umxinli.mapper.CouponMapper;
 import com.umxinli.mapper.CouponCodeMapper;
 import com.umxinli.mapper.UserCouponMapper;
 import com.umxinli.mapper.UserFeedbackMapper;
+import com.umxinli.mapper.CounselorMapper;
+import com.umxinli.entity.Counselor;
 import com.umxinli.entity.User;
 import com.umxinli.service.OrderService;
 import com.umxinli.service.SettingsService;
@@ -65,6 +67,9 @@ public class VisitorController {
 
     @Autowired
     private UserFeedbackMapper userFeedbackMapper;
+
+    @Autowired
+    private CounselorMapper counselorMapper;
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -130,9 +135,17 @@ public class VisitorController {
             return ApiResponse.error("orderId is required");
         }
         try {
-            Order order = orderService.getOrderById(orderId);
-            if (order != null) {
-                return ApiResponse.success(order);
+            // 使用 getOrderDTOById 返回包含教练信息的完整订单数据
+            var orderDTO = orderService.getOrderDTOById(orderId);
+            if (orderDTO != null) {
+                // 拼接完整的头像URL
+                String headUrl = orderDTO.getHeadUrl();
+                if (headUrl != null && !headUrl.startsWith("http")) {
+                    String fullUrl = baseUrl + headUrl;
+                    orderDTO.setHeadUrl(fullUrl);
+                    orderDTO.setCounselorHeadUrl(fullUrl);
+                }
+                return ApiResponse.success(orderDTO);
             } else {
                 return ApiResponse.error("Order not found");
             }
@@ -197,8 +210,10 @@ public class VisitorController {
             order.setUserId(userId);
 
             // 解析请求参数
+            Long counselorId = null;
             if (payload.get("counselorId") != null) {
-                order.setCounselorId(Long.valueOf(payload.get("counselorId").toString()));
+                counselorId = Long.valueOf(payload.get("counselorId").toString());
+                order.setCounselorId(counselorId);
             }
             if (payload.get("consultType") != null) {
                 order.setConsultType(Integer.valueOf(payload.get("consultType").toString()));
@@ -206,8 +221,15 @@ public class VisitorController {
             if (payload.get("consultWay") != null) {
                 order.setConsultWay(Integer.valueOf(payload.get("consultWay").toString()));
             }
+            // 优先使用前端传递的价格，否则从教练信息获取
             if (payload.get("price") != null) {
                 order.setPrice(new java.math.BigDecimal(payload.get("price").toString()));
+            } else if (counselorId != null) {
+                // 从教练信息获取价格
+                Counselor counselor = counselorMapper.selectById(counselorId);
+                if (counselor != null && counselor.getConsultPrice() != null) {
+                    order.setPrice(counselor.getConsultPrice());
+                }
             }
             if (payload.get("consultTime") != null) {
                 // 解析咨询时间

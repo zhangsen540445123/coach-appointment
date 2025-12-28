@@ -29,6 +29,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public OrderDTO getOrderDTOById(Long id) {
+        log.info("Getting order DTO by id: {}", id);
+        return orderMapper.selectByIdWithCounselor(id);
+    }
+
+    @Override
     public Order createOrder(Order order) {
         log.info("Creating order: {}", order);
         try {

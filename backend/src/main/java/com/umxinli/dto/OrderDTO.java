@@ -57,6 +57,18 @@ public class OrderDTO {
     // 创建时间
     private Date createTime;
 
+    // 下单时间（格式化字符串，前端需要）
+    private String orderCreateTime;
+
+    // 开始时间段 (如 "14:00")
+    private String startTimeslot;
+
+    // 结束时间段 (如 "14:50")
+    private String endTimeslot;
+
+    // 是否上午 (1-上午, 0-下午)
+    private Integer isAm;
+
     // 用户ID
     private Long userId;
 
@@ -117,6 +129,18 @@ public class OrderDTO {
 
     public Date getCreateTime() { return createTime; }
     public void setCreateTime(Date createTime) { this.createTime = createTime; }
+
+    public String getOrderCreateTime() { return orderCreateTime; }
+    public void setOrderCreateTime(String orderCreateTime) { this.orderCreateTime = orderCreateTime; }
+
+    public String getStartTimeslot() { return startTimeslot; }
+    public void setStartTimeslot(String startTimeslot) { this.startTimeslot = startTimeslot; }
+
+    public String getEndTimeslot() { return endTimeslot; }
+    public void setEndTimeslot(String endTimeslot) { this.endTimeslot = endTimeslot; }
+
+    public Integer getIsAm() { return isAm; }
+    public void setIsAm(Integer isAm) { this.isAm = isAm; }
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
