@@ -18,8 +18,9 @@
           </view>
         </view>
       </view>
-      <view class="data-v-9507d446">
+      <view class="list-coupon data-v-9507d446">
         <scroll-view class="scroll-box data-v-9507d446" scrollY="{{true}}">
+<<<<<<< HEAD
           <view class="data-v-9507d446" wx:for="{{couponList}}" wx:key="index">
             <view bindtap="__e" class="{{['coupon-box','data-v-9507d446',selectCountCode===item.couponDetailId?'coupon-ac':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'couponClick',['$0'],[ [ ['couponList','',index] ] ] ] ] ] ]}}" wx:if="{{isConsultType===item.consultType}}">
               <view class="data-v-9507d446">{{'¥'+item.amount+'元'}}</view>
@@ -27,6 +28,29 @@
               <view class="data-v-9507d446" wx:elif="{{item.couponType===1&&item.minAmount}}">满{{item.minAmount}}减{{item.amount}}</view>
               <view class="data-v-9507d446" wx:elif="{{item.couponType===2}}">立减{{item.amount}}元</view>
               <view class="data-v-9507d446" wx:else>{{item.typeName || '可用优惠券'}}</view>
+=======
+          <view wx:if="{{couponList.length === 0}}" class="empty-state data-v-9507d446">暂无优惠券</view>
+          <view bindtap="__e" class="{{['item-card','data-v-9507d446',selectCountCode===item.couponDetailId?'item-selected':'',current===1?'disabled':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'couponClick',['$0'],[ [ ['couponList','',index] ] ] ] ] ] ]}}" wx:for="{{couponList}}" wx:key="couponDetailId">
+            <view class="item-box data-v-9507d446">
+              <view class="time-money data-v-9507d446">
+                <view class="money-type data-v-9507d446">¥</view>
+                <view class="money-text data-v-9507d446">{{item.amount}}</view>
+                <view class="coupon-type data-v-9507d446">代金券</view>
+              </view>
+            </view>
+            <view class="item-right data-v-9507d446">
+              <view class="top-stype data-v-9507d446">
+                <view class="data-v-9507d446" wx:if="{{current===0}}">可使用</view>
+                <view class="data-v-9507d446 unavailable" wx:else>{{item.used===1?'已使用':'已过期'}}</view>
+              </view>
+              <view class="title-rule data-v-9507d446">{{item.couponName || '优惠券'}}</view>
+              <view class="condition-text data-v-9507d446" wx:if="{{item.minAmount > 0}}">满{{item.minAmount}}元可用</view>
+              <view class="condition-text data-v-9507d446" wx:else>无门槛</view>
+              <view class="time-box data-v-9507d446" wx:if="{{item.beginTime && item.endTime}}">有效期 {{item.beginTime}} 至 {{item.endTime}}</view>
+            </view>
+            <view class="select-icon data-v-9507d446" wx:if="{{selectCountCode===item.couponDetailId && current===0}}">
+              <text class="cuIcon-check data-v-9507d446"></text>
+>>>>>>> 6191b92d152583cd3586c5f38a29ef3d16516478
             </view>
           </view>
         </scroll-view>

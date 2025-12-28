@@ -45,7 +45,14 @@ require("../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = gl
                                 g3: s ? t.cancelTimec.getText(e.orderId) : null,
                                 g4: [0].includes(e.orderStatus),
                                 g5: [1, 2, 3, 4].includes(e.orderStatus),
-                                g6: [2, 3, 4].includes(e.orderStatus)
+                                g6: [2, 3, 4].includes(e.orderStatus),
+                                orderId: e.orderId,
+                                orderStatus: e.orderStatus,
+                                counselorHeadUrl: e.counselorHeadUrl,
+                                headUrl: e.headUrl,
+                                counselorName: e.counselorName,
+                                name: e.name,
+                                consultDate: e.consultDate
                             }
                         })),
                         s = a("d344"),
@@ -59,7 +66,10 @@ require("../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = gl
                         g = t.__map(t.selectedOrderLists, (function(e, a) {
                             return {
                                 $orig: t.__get_orig(e),
-                                m11: t.checkConsultType(e.consultType)
+                                m11: t.checkConsultType(e.consultType),
+                                consultDate: e.consultDate,
+                                counselorName: e.counselorName,
+                                payAmount: e.payAmount
                             }
                         })),
                         p = 1 === t.protocolCheckStatus ? a("1d4f") : null,

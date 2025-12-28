@@ -27736,7 +27736,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                                         }
                                     });
                                 case 2:
-                                    return o = e.sent, e.abrupt("return", o.data.data.price);
+                                    return o = e.sent, e.abrupt("return", o.data.data);
                                 case 4:
                                 case "end":
                                     return e.stop()

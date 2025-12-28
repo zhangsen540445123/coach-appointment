@@ -10,23 +10,23 @@
       <view class="page-order__empty _p data-v-0c52853b">暂无订单</view>
     </view>
     <view class="page-order _div data-v-0c52853b" wx:else>
-      <view bindtap="__e" class="order-item _div data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="orderId">
+      <view bindtap="__e" class="order-item _div data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item.orderId] ] ] ] ] ] ]}}" wx:for="{{$root.l0}}" wx:for-index="__i0__" wx:key="orderId">
         <view class="content _div data-v-0c52853b">
-          <image alt class="avatar _img data-v-0c52853b" src="{{item[$orig].counselorHeadUrl||item[$orig].headUrl}}"></image>
+          <image alt class="avatar _img data-v-0c52853b" src="{{item.counselorHeadUrl||item.headUrl}}"></image>
           <view class="info _div data-v-0c52853b">
-            <view class="name _p data-v-0c52853b">{{''+(item[$orig].counselorName||item[$orig].name)+''}}<label class="type _span data-v-0c52853b">{{'（'+item.g1+'）'}}</label>
+            <view class="name _p data-v-0c52853b">{{''+(item.counselorName||item.name)+''}}<label class="type _span data-v-0c52853b">{{'（'+item.g1+'）'}}</label>
             </view>
-            <view class="time _p data-v-0c52853b">{{item[$orig].consultDate}}</view>
+            <view class="time _p data-v-0c52853b">{{item.consultDate}}</view>
           </view>
-          <view class="{{['_p','data-v-0c52853b','status','status--'+item[$orig].orderStatus]}}">{{item.m2}}</view>
+          <view class="{{['_p','data-v-0c52853b','status','status--'+item.orderStatus]}}">{{item.m2}}</view>
         </view>
         <view class="footer _div data-v-0c52853b">
           <view class="delay _p data-v-0c52853b" wx:if="{{item.g2}}">还剩<label class="highlight _span data-v-0c52853b">{{item.g3}}</label>订单自动取消</view>
           <view class="delay _p data-v-0c52853b" wx:else></view>
-          <view catchtap="__e" class="cancel _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showNote',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g4}}">取消订单</view>
-          <view catchtap="__e" class="check _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g5}}">查看订单</view>
-          <view catchtap="__e" class="renew _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'gotoRenew',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item.g6}}">续约</view>
-          <view catchtap="__e" class="pay _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'pageSubmit',['$0'],[ [ ['dataList','orderId',item[$orig].orderId] ] ] ] ] ] ]}}" wx:if="{{item[$orig].orderStatus===0}}">立即支付</view>
+          <view catchtap="__e" class="cancel _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'showNote',['$0'],[ [ ['dataList','orderId',item.orderId] ] ] ] ] ] ]}}" wx:if="{{item.g4}}">取消订单</view>
+          <view catchtap="__e" class="check _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'checkDetail',['$0'],[ [ ['dataList','orderId',item.orderId] ] ] ] ] ] ]}}" wx:if="{{item.g5}}">查看订单</view>
+          <view catchtap="__e" class="renew _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'gotoRenew',['$0'],[ [ ['dataList','orderId',item.orderId] ] ] ] ] ] ]}}" wx:if="{{item.g6}}">续约</view>
+          <view catchtap="__e" class="pay _p data-v-0c52853b" data-event-opts="{{[ [ 'tap',[ [ 'pageSubmit',['$0'],[ [ ['dataList','orderId',item.orderId] ] ] ] ] ] ]}}" wx:if="{{item.orderStatus===0}}">立即支付</view>
         </view>
       </view>
     </view>
@@ -116,15 +116,15 @@
                 <view class="dialog-line data-v-0c52853b"></view>
                 <view class="counselor_item data-v-0c52853b">
                   <text class="data-v-0c52853b">咨询时间</text>
-                  <text class="data-v-0c52853b">{{item[$orig].consultDate}}</text>
+                  <text class="data-v-0c52853b">{{item.consultDate}}</text>
                 </view>
                 <view class="counselor_item data-v-0c52853b">
                   <text class="data-v-0c52853b">教练</text>
-                  <text class="data-v-0c52853b">{{item[$orig].counselorName}}</text>
+                  <text class="data-v-0c52853b">{{item.counselorName}}</text>
                 </view>
                 <view class="counselor_item data-v-0c52853b">
                   <text class="data-v-0c52853b">订单金额</text>
-                  <text class="data-v-0c52853b">{{item[$orig].payAmount}}</text>
+                  <text class="data-v-0c52853b">{{item.payAmount}}</text>
                 </view>
               </view>
             </scroll-view>

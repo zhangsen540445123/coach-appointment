@@ -234,11 +234,34 @@ public class VisitorController {
                     order.setPrice(counselor.getConsultPrice());
                 }
             }
+            // 解析咨询时间 - 优先使用 consultTime，否则组合 date 和 time
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
             if (payload.get("consultTime") != null) {
-                // 解析咨询时间
                 String consultTimeStr = payload.get("consultTime").toString();
-                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
                 order.setConsultTime(sdf.parse(consultTimeStr));
+            } else if (payload.get("date") != null && payload.get("time") != null) {
+                // 前端传递的是 date（如 "2025-01-05"）和 time（如 "-09:00-10:00"）
+                String dateStr = payload.get("date").toString();
+                String timeStr = payload.get("time").toString();
+                // 从 time 字段提取开始时间（格式如 "-09:00-10:00"，取第一个时间）
+                String startTime = timeStr;
+                if (timeStr.startsWith("-")) {
+                    // 格式为 "-09:00-10:00"，提取 "09:00"
+                    String[] parts = timeStr.substring(1).split("-");
+                    if (parts.length > 0) {
+                        startTime = parts[0];
+                    }
+                } else if (timeStr.contains("-")) {
+                    // 格式为 "09:00-10:00"，提取 "09:00"
+                    startTime = timeStr.split("-")[0];
+                }
+                String consultTimeStr = dateStr + " " + startTime;
+                log.info("Parsed consult time from date and time: {}", consultTimeStr);
+                order.setConsultTime(sdf.parse(consultTimeStr));
+            } else {
+                // 如果都没有传递，使用当前时间作为默认值
+                log.info("No consult time provided, using current time as default");
+                order.setConsultTime(new java.util.Date());
             }
 
             // 创建订单
@@ -289,6 +312,17 @@ public class VisitorController {
 
             // 使用新的联表查询方法获取订单列表（包含教练信息）
             var orders = orderService.getOrderListWithCounselor(page, pageSize, status, userId);
+
+            // 拼接教练头像的完整URL（与 getOrderInfo 接口保持一致）
+            for (var order : orders) {
+                String headUrl = order.getCounselorHeadUrl();
+                if (headUrl != null && !headUrl.isEmpty() && !headUrl.startsWith("http")) {
+                    String fullUrl = baseUrl + headUrl;
+                    order.setCounselorHeadUrl(fullUrl);
+                    order.setHeadUrl(fullUrl);
+                }
+            }
+
             int total = orderService.countOrders(status == 0 ? null : status);
             int pages = (int) Math.ceil((double) total / pageSize);
 
