@@ -23,7 +23,10 @@
           <view class="data-v-9507d446" wx:for="{{couponList}}" wx:key="index">
             <view bindtap="__e" class="{{['coupon-box','data-v-9507d446',selectCountCode===item.couponDetailId?'coupon-ac':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'couponClick',['$0'],[ [ ['couponList','',index] ] ] ] ] ] ]}}" wx:if="{{isConsultType===item.consultType}}">
               <view class="data-v-9507d446">{{'¥'+item.amount+'元'}}</view>
-              <view class="data-v-9507d446">可用优惠券</view>
+              <view class="data-v-9507d446" wx:if="{{item.description}}">{{item.description}}</view>
+              <view class="data-v-9507d446" wx:elif="{{item.couponType===1&&item.minAmount}}">满{{item.minAmount}}减{{item.amount}}</view>
+              <view class="data-v-9507d446" wx:elif="{{item.couponType===2}}">立减{{item.amount}}元</view>
+              <view class="data-v-9507d446" wx:else>{{item.typeName || '可用优惠券'}}</view>
             </view>
           </view>
         </scroll-view>

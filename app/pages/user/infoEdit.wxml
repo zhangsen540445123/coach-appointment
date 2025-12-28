@@ -16,39 +16,11 @@
             <view class="bottom-line data-v-16bb483b"></view>
             <view class="input-list-item data-v-16bb483b">
                 <view class="input-item-label data-v-16bb483b">手机号</view>
-                <input bindinput="__e" bindtap="__e" class="item-input data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'verificationPhone',['$event'] ] ] ],[ 'input',[ [ '__set_model',[ '$0','mobile','$event',[] ],['formData'] ] ] ] ]}}" disabled="true" maxlength="20" placeholder="请输入" type="text" value="{{formData.mobile}}"></input>
+                <input class="item-input data-v-16bb483b" disabled="true" maxlength="20" placeholder="请输入" type="text" value="{{formData.mobile}}"></input>
                 <button bindgetphonenumber="__e" class="get-wx-phone data-v-16bb483b" data-event-opts="{{[ [ 'getphonenumber',[ [ 'getPhoneNumber',['$event'] ] ] ] ]}}" openType="getPhoneNumber">更改手机号</button>
             </view>
             <view class="bottom-line data-v-16bb483b"></view>
         </view>
         <button bindtap="__e" class="submitBtn data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'submitFrom',['$event'] ] ] ] ]}}">点击完善成功</button>
     </view>
-    <uni-popup bind:__l="__l" catchtouchmove="ture" class="data-v-16bb483b vue-ref" data-ref="registerDialog" type="dialog" vueId="23024773-2" vueSlots="{{['default']}}">
-        <view class="dialog-box data-v-16bb483b">
-            <view class="dialog-content data-v-16bb483b">
-                <view class="dia-top data-v-16bb483b">
-                    <view class="top-flex data-v-16bb483b"></view>
-                    <view class="top-mid data-v-16bb483b">绑定手机号</view>
-                    <view class="top-flex data-v-16bb483b">
-                        <image bindtap="__e" class="right-img data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}" src="{{$root.m0}}"></image>
-                    </view>
-                </view>
-                <view class="item-box data-v-16bb483b">
-                    <view bindtap="__e" class="item-left data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'chooseCountryCode',['$event'] ] ] ] ]}}" style="font-size:30rpx;margin-top:2rpx;">{{'+'+verificationPhoneData.mobileArea}}</view>
-                    <view class="data-v-16bb483b" style="color:#cbcbcb;">|</view>
-                    <input bindinput="__e" class="input-box data-v-16bb483b" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','phone','$event',[] ],['verificationPhoneData'] ] ] ] ]}}" maxlength="11" placeholder="请填写您的手机号" type="text" value="{{verificationPhoneData.phone}}"></input>
-                </view>
-                <view class="item-box data-v-16bb483b">
-                    <text class="item-left data-v-16bb483b">验证码</text>
-                    <input bindinput="__e" class="input-box data-v-16bb483b" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','msgCode','$event',[] ],['verificationPhoneData'] ] ] ] ]}}" maxlength="11" placeholder="请输入验证码" type="text" value="{{verificationPhoneData.msgCode}}"></input>
-                    <button bindtap="__e" class="btn-right data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'getMsgCode',['$event'] ] ] ] ]}}" wx:if="{{showSendCode}}">获取验证码</button>
-                    <view class="btn-right-none data-v-16bb483b" wx:else>{{countMin+'s'}}</view>
-                </view>
-                <view class="btm-btn data-v-16bb483b">
-                    <view bindtap="__e" class="btn-box btn-main-color-1 data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'dialogClose',['$event'] ] ] ] ]}}">取消</view>
-                    <view bindtap="__e" class="btn-box btn-main-color-2 data-v-16bb483b" data-event-opts="{{[ [ 'tap',[ [ 'bindMobile',['$event'] ] ] ] ]}}">确定</view>
-                </view>
-            </view>
-        </view>
-    </uni-popup>
 </view>

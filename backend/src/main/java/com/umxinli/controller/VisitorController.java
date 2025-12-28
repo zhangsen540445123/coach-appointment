@@ -28,6 +28,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -554,6 +557,9 @@ public class VisitorController {
 
             // 转换为小程序期望的格式
             List<Map<String, Object>> result = new ArrayList<>();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+
             for (Map<String, Object> item : list) {
                 Map<String, Object> couponItem = new HashMap<>();
                 couponItem.put("couponDetailId", item.get("id"));
@@ -561,10 +567,93 @@ public class VisitorController {
                 couponItem.put("couponName", item.get("couponName"));
                 couponItem.put("amount", item.get("discountAmount"));
                 couponItem.put("minAmount", item.get("minAmount"));
-                couponItem.put("couponType", item.get("couponType"));
-                couponItem.put("beginTime", item.get("startTime"));
-                couponItem.put("endTime", item.get("endTime"));
-                couponItem.put("used", item.get("status"));
+
+                // 获取优惠券类型
+                Object typeObj = item.get("couponType");
+                Integer couponType = null;
+                if (typeObj instanceof Number) {
+                    couponType = ((Number) typeObj).intValue();
+                }
+                couponItem.put("couponType", couponType);
+
+                // 生成优惠券类型名称和描述
+                String typeName = "代金券";
+                String description = "";
+                if (couponType != null) {
+                    if (couponType == 1) {
+                        // 满减券
+                        typeName = "满减券";
+                        Object minAmountObj = item.get("minAmount");
+                        Object discountAmountObj = item.get("discountAmount");
+                        if (minAmountObj != null && discountAmountObj != null) {
+                            int minAmount = minAmountObj instanceof Number ? ((Number) minAmountObj).intValue() : 0;
+                            int discountAmount = discountAmountObj instanceof Number ? ((Number) discountAmountObj).intValue() : 0;
+                            description = "满" + minAmount + "减" + discountAmount;
+                        }
+                    } else if (couponType == 2) {
+                        // 抵扣券
+                        typeName = "抵扣券";
+                        Object discountAmountObj = item.get("discountAmount");
+                        if (discountAmountObj != null) {
+                            int discountAmount = discountAmountObj instanceof Number ? ((Number) discountAmountObj).intValue() : 0;
+                            description = "立减" + discountAmount + "元";
+                        }
+                    }
+                }
+                couponItem.put("typeName", typeName);
+                couponItem.put("description", description);
+
+                // 格式化时间，去掉 T
+                Object startTime = item.get("startTime");
+                Object endTime = item.get("endTime");
+                if (startTime instanceof LocalDateTime) {
+                    couponItem.put("beginTime", ((LocalDateTime) startTime).format(formatter));
+                } else {
+                    couponItem.put("beginTime", startTime);
+                }
+                if (endTime instanceof LocalDateTime) {
+                    couponItem.put("endTime", ((LocalDateTime) endTime).format(formatter));
+                } else {
+                    couponItem.put("endTime", endTime);
+                }
+
+                // 判断优惠券状态 - 安全地获取数值类型
+                Object statusObj = item.get("status");
+                Object couponStatusObj = item.get("couponStatus");
+                Object isExpiredObj = item.get("isExpired");
+
+                Integer userCouponStatus = null;
+                Integer couponStatus = null;
+                Integer isExpired = null;
+
+                if (statusObj instanceof Number) {
+                    userCouponStatus = ((Number) statusObj).intValue();
+                }
+                if (couponStatusObj instanceof Number) {
+                    couponStatus = ((Number) couponStatusObj).intValue();
+                }
+                if (isExpiredObj instanceof Number) {
+                    isExpired = ((Number) isExpiredObj).intValue();
+                }
+
+                String statusText = "可使用";
+
+                if (userCouponStatus != null && userCouponStatus == 1) {
+                    // 已使用
+                    statusText = "已使用";
+                } else if (couponStatus != null && couponStatus == 0) {
+                    // 优惠券模板已停用
+                    statusText = "已失效";
+                } else if (isExpired != null && isExpired == 1) {
+                    // 已过期
+                    statusText = "已过期";
+                } else if (endTime instanceof LocalDateTime && ((LocalDateTime) endTime).isBefore(now)) {
+                    // 双重检查：如果结束时间早于当前时间，标记为已过期
+                    statusText = "已过期";
+                }
+
+                couponItem.put("used", userCouponStatus);
+                couponItem.put("statusText", statusText);
                 couponItem.put("coachScope", item.get("coachScope"));
                 couponItem.put("coachIds", item.get("coachIds"));
                 result.add(couponItem);

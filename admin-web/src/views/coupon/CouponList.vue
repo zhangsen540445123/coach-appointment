@@ -87,7 +87,7 @@
     </el-card>
 
     <!-- 新增/编辑对话框 -->
-    <el-dialog v-model="dialogVisible" :title="editingId ? '编辑优惠券' : '新增优惠券'" width="600px">
+    <el-dialog v-model="dialogVisible" :title="editingId ? '编辑优惠券' : '新增优惠券'" width="600px" class="coupon-dialog">
       <el-form :model="formData" :rules="formRules" ref="formRef" label-width="100px">
         <el-form-item label="优惠券名称" prop="name">
           <el-input v-model="formData.name" placeholder="请输入优惠券名称" />
@@ -117,9 +117,11 @@
             <el-option v-for="coach in coachList" :key="coach.id" :label="coach.name" :value="coach.id" />
           </el-select>
         </el-form-item>
-        <el-form-item label="有效期">
+        <el-form-item label="有效期" class="date-range-item">
           <el-date-picker v-model="formData.dateRange" type="datetimerange"
-            start-placeholder="开始时间" end-placeholder="结束时间" />
+            start-placeholder="开始时间" end-placeholder="结束时间"
+            :default-time="[new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 1, 1, 23, 59, 59)]"
+            popper-class="coupon-date-picker" />
         </el-form-item>
       </el-form>
       <template #footer>
@@ -352,5 +354,38 @@ onMounted(() => { loadData(); loadCoaches() })
 .search-form { margin-bottom: 20px; }
 .form-tip { margin-left: 10px; color: #999; }
 .el-pagination { margin-top: 20px; justify-content: flex-end; }
+
+/* 优化对话框样式 */
+.coupon-dialog :deep(.el-dialog__body) {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.coupon-dialog :deep(.el-date-editor) {
+  width: 100%;
+}
+
+/* 优化有效期表单项的布局 */
+.date-range-item :deep(.el-form-item__content) {
+  line-height: normal;
+}
+</style>
+
+<style>
+/* 全局样式：优化时间选择器弹出框的位置 */
+.coupon-date-picker {
+  margin-top: 5px !important;
+}
+
+.coupon-date-picker .el-picker-panel__body {
+  margin-bottom: 10px;
+}
+
+.coupon-date-picker .el-picker-panel__footer {
+  padding: 8px 12px;
+  background-color: #fff;
+  border-top: 1px solid #e4e7ed;
+}
 </style>
 
