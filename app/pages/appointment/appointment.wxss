@@ -627,7 +627,8 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 10
+  z-index: 10;
+  background: transparent
 }
 
 .tab-item.data-v-0c52853b {
@@ -644,6 +645,11 @@
   font-family: PingFangSC-Semibold;
   font-size: 36rpx;
   font-weight: 600
+}
+
+.page-order.data-v-0c52853b {
+  padding-top: 24rpx;
+  margin-top: 100rpx
 }
 
 .page-order__empty.data-v-0c52853b {
