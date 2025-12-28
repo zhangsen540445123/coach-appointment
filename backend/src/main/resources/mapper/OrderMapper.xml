@@ -59,11 +59,11 @@
             o.price,
             o.price as pay_amount,
             o.status,
-            o.consult_time,
-            DATE_FORMAT(o.consult_time, '%Y-%m-%d') as consult_date,
-            DATE_FORMAT(o.consult_time, '%H:%i') as start_timeslot,
-            DATE_FORMAT(DATE_ADD(o.consult_time, INTERVAL 50 MINUTE), '%H:%i') as end_timeslot,
-            CASE WHEN HOUR(o.consult_time) &lt; 12 THEN 1 ELSE 0 END as is_am,
+            COALESCE(o.consult_time, o.created_at) as consult_time,
+            DATE_FORMAT(COALESCE(o.consult_time, o.created_at), '%Y-%m-%d') as consult_date,
+            DATE_FORMAT(COALESCE(o.consult_time, o.created_at), '%H:%i') as start_timeslot,
+            DATE_FORMAT(DATE_ADD(COALESCE(o.consult_time, o.created_at), INTERVAL 50 MINUTE), '%H:%i') as end_timeslot,
+            CASE WHEN HOUR(COALESCE(o.consult_time, o.created_at)) &lt; 12 THEN 1 ELSE 0 END as is_am,
             DATE_FORMAT(o.created_at, '%Y-%m-%d %H:%i:%s') as order_create_time,
             o.created_at,
             CASE
@@ -129,8 +129,8 @@
             o.consult_way,
             o.price,
             o.status,
-            o.consult_time,
-            DATE_FORMAT(o.consult_time, '%Y-%m-%d %H:%i') as consult_date,
+            COALESCE(o.consult_time, o.created_at) as consult_time,
+            DATE_FORMAT(COALESCE(o.consult_time, o.created_at), '%Y-%m-%d %H:%i') as consult_date,
             o.created_at,
             CASE
                 WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
