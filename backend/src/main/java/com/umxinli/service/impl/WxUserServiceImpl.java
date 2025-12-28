@@ -340,11 +340,11 @@ public class WxUserServiceImpl implements WxUserService {
             // 创建新用户
             user = new User();
             user.setOpenid(openId);
-            user.setId(System.currentTimeMillis()); // 简单生成ID，实际应该用数据库自增
+            // ID 由数据库自增生成，insert 后会自动填充到 user.id
 
             if (userMapper != null) {
                 userMapper.insert(user);
-                log.info("创建新用户: openid={}", openId);
+                log.info("创建新用户: openid={}, id={}", openId, user.getId());
             } else {
                 log.warn("UserMapper 未注入，使用模拟用户数据");
             }
@@ -371,13 +371,13 @@ public class WxUserServiceImpl implements WxUserService {
         if (user == null) {
             // 创建新用户
             user = new User();
-            user.setId(System.currentTimeMillis());
+            // ID 由数据库自增生成，insert 后会自动填充到 user.id
             user.setPhone(phone);
             user.setOpenid(openId);
 
             if (userMapper != null) {
                 userMapper.insert(user);
-                log.info("创建新用户: phone={}, openid={}", phone, openId);
+                log.info("创建新用户: phone={}, openid={}, id={}", phone, openId, user.getId());
             }
         } else {
             // 更新现有用户的手机号和openid

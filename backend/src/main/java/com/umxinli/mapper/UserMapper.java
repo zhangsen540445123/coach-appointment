@@ -69,10 +69,11 @@ public interface UserMapper {
     int count(@Param("keyword") String keyword);
 
     /**
-     * 插入用户
+     * 插入用户（id 由数据库自增生成）
      */
-    @Insert("INSERT INTO user (id, phone, name, avatar, gender, city, province, openid, status, last_login_time, created_at, updated_at) " +
-            "VALUES (#{id}, #{phone}, #{name}, #{avatar}, #{gender}, #{city}, #{province}, #{openid}, COALESCE(#{status}, 1), NOW(), NOW(), NOW())")
+    @Insert("INSERT INTO user (phone, name, avatar, gender, city, province, openid, status, last_login_time, created_at, updated_at) " +
+            "VALUES (#{phone}, #{name}, #{avatar}, #{gender}, #{city}, #{province}, #{openid}, COALESCE(#{status}, 1), NOW(), NOW(), NOW())")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(User user);
 
     /**

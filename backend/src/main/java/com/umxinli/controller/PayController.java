@@ -2,12 +2,12 @@ package com.umxinli.controller;
 
 import com.umxinli.dto.ApiResponse;
 import com.umxinli.service.PayService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +20,29 @@ public class PayController {
 
     @Autowired
     private PayService payService;
+
+    /**
+     * 获取客户端真实IP地址
+     */
+    private String getClientIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+    }
 
     /**
      * 获取价格
@@ -46,14 +69,17 @@ public class PayController {
      * POST /pay/toPay/{orderId}
      */
     @PostMapping("/toPay/{orderId}")
-    public ApiResponse toPay(@PathVariable Long orderId, @RequestBody(required = false) Map payload) {
+    public ApiResponse toPay(@PathVariable Long orderId,
+                             @RequestBody(required = false) Map payload,
+                             HttpServletRequest request) {
         log.info("To pay request for orderId: {}", orderId);
         try {
-            Map payResult = payService.toPay(orderId);
+            String clientIp = getClientIp(request);
+            Map payResult = payService.toPay(orderId, clientIp);
             return ApiResponse.success(payResult);
         } catch (Exception e) {
             log.error("Error processing payment", e);
-            return ApiResponse.error("Failed to process payment");
+            return ApiResponse.error(e.getMessage());
         }
     }
 
@@ -62,15 +88,16 @@ public class PayController {
      * POST /pay/toBatchPay
      */
     @PostMapping("/toBatchPay")
-    public ApiResponse toBatchPay(@RequestBody Map payload) {
+    public ApiResponse toBatchPay(@RequestBody Map payload, HttpServletRequest request) {
         log.info("To batch pay request: {}", payload);
         try {
+            String clientIp = getClientIp(request);
             List orderIds = (List) payload.get("orderIds");
-            Map payResult = payService.toBatchPay(orderIds);
+            Map payResult = payService.toBatchPay(orderIds, clientIp);
             return ApiResponse.success(payResult);
         } catch (Exception e) {
             log.error("Error processing batch payment", e);
-            return ApiResponse.error("Failed to process batch payment");
+            return ApiResponse.error(e.getMessage());
         }
     }
 

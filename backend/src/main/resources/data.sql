@@ -316,3 +316,6 @@ INSERT IGNORE INTO `dict_item` (`type_id`, `type_code`, `label`, `value`, `sort_
 (11, 'audit_status', '已通过', '1', 2, 1),
 (11, 'audit_status', '已拒绝', '2', 3, 1);
 
+-- 微信支付配置（测试数据，生产环境请替换为真实配置）
+INSERT IGNORE INTO `wx_pay_config` (`id`, `app_id`, `mch_id`, `api_key`, `api_v3_key`, `notify_url`, `status`) VALUES
+(1, 'wx_your_appid', 'your_mch_id', 'your_api_key_32_chars_xxxxxxxxxx', 'your_api_v3_key_32_chars_xxxxxxx', 'https://your-domain.com/pay/notify', 1);

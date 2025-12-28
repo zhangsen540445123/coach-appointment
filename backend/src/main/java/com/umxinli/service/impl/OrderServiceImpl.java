@@ -32,11 +32,12 @@ public class OrderServiceImpl implements OrderService {
     public Order createOrder(Order order) {
         log.info("Creating order: {}", order);
         try {
-            // 生成订单号
+            // 生成订单号（使用时间戳）
             String orderNo = "ORD" + System.currentTimeMillis();
             order.setOrderNo(orderNo);
             order.setStatus(0); // 0 = 待支付
             orderMapper.insert(order);
+            // ID 由数据库自增生成，insert 后会自动填充到 order.id
             return order;
         } catch (Exception e) {
             log.error("Error creating order", e);

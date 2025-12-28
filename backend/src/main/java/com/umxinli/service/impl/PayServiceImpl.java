@@ -2,9 +2,11 @@ package com.umxinli.service.impl;
 
 import com.umxinli.entity.Order;
 import com.umxinli.entity.PaymentRecord;
+import com.umxinli.entity.User;
 import com.umxinli.entity.WxPayConfig;
 import com.umxinli.mapper.OrderMapper;
 import com.umxinli.mapper.PaymentRecordMapper;
+import com.umxinli.mapper.UserMapper;
 import com.umxinli.mapper.WxPayConfigMapper;
 import com.umxinli.service.PayService;
 import com.umxinli.util.WxPayUtil;
@@ -33,6 +35,9 @@ public class PayServiceImpl implements PayService {
     @Autowired
     private PaymentRecordMapper paymentRecordMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public Map getPrice(Long counselorId, Integer consultType, Integer consultWay) {
         log.info("Getting price for counselor: {}, type: {}, way: {}", counselorId, consultType, consultWay);
@@ -52,12 +57,22 @@ public class PayServiceImpl implements PayService {
 
     @Override
     @Transactional
-    public Map toPay(Long orderId) throws Exception {
-        log.info("Processing payment for order: {}", orderId);
+    public Map toPay(Long orderId, String clientIp) throws Exception {
+        log.info("Processing payment for order: {}, clientIp: {}", orderId, clientIp);
 
         Order order = orderMapper.selectById(orderId);
         if (order == null) {
             throw new Exception("订单不存在");
+        }
+
+        // 获取用户信息以获取 openid
+        User user = userMapper.selectById(order.getUserId());
+        if (user == null) {
+            throw new Exception("用户不存在");
+        }
+        String openid = user.getOpenid();
+        if (openid == null || openid.isEmpty()) {
+            throw new Exception("用户未绑定微信，无法支付");
         }
 
         // 获取微信支付配置
@@ -73,6 +88,13 @@ public class PayServiceImpl implements PayService {
         // 生成商户订单号
         String outTradeNo = WxPayUtil.generateOutTradeNo();
 
+        // 客户端IP处理
+        String spbillCreateIp = (clientIp != null && !clientIp.isEmpty()) ? clientIp : "127.0.0.1";
+        // 处理多级代理情况，取第一个IP
+        if (spbillCreateIp.contains(",")) {
+            spbillCreateIp = spbillCreateIp.split(",")[0].trim();
+        }
+
         // 构建统一下单参数
         Map<String, String> params = new HashMap<>();
         params.put("appid", config.getAppId());
@@ -81,10 +103,10 @@ public class PayServiceImpl implements PayService {
         params.put("body", "教练预约-咨询服务");
         params.put("out_trade_no", outTradeNo);
         params.put("total_fee", String.valueOf(totalFee));
-        params.put("spbill_create_ip", "127.0.0.1");
+        params.put("spbill_create_ip", spbillCreateIp);
         params.put("notify_url", config.getNotifyUrl());
         params.put("trade_type", "JSAPI");
-        params.put("openid", ""); // 需要从用户信息获取
+        params.put("openid", openid);
 
         // 生成签名
         String sign = WxPayUtil.signMD5(params, config.getApiKey());
@@ -143,7 +165,7 @@ public class PayServiceImpl implements PayService {
 
     @Override
     @Transactional
-    public Map toBatchPay(List orderIds) throws Exception {
+    public Map toBatchPay(List orderIds, String clientIp) throws Exception {
         log.info("Processing batch payment for orders: {}", orderIds);
 
         if (orderIds == null || orderIds.isEmpty()) {
@@ -162,7 +184,7 @@ public class PayServiceImpl implements PayService {
 
         // 使用第一个订单ID发起支付
         Long firstOrderId = Long.valueOf(orderIds.get(0).toString());
-        Map result = toPay(firstOrderId);
+        Map result = toPay(firstOrderId, clientIp);
         result.put("totalAmount", totalAmount);
         result.put("orderCount", orderIds.size());
 
@@ -177,6 +199,7 @@ public class PayServiceImpl implements PayService {
         // 获取微信支付配置
         WxPayConfig config = wxPayConfigMapper.selectEnabled();
         if (config == null) {
+            log.error("微信支付未配置");
             throw new Exception("微信支付未配置");
         }
 
@@ -189,31 +212,46 @@ public class PayServiceImpl implements PayService {
         String calculatedSign = WxPayUtil.signMD5(notifyData, config.getApiKey());
 
         if (!calculatedSign.equals(sign)) {
-            log.error("签名验证失败");
+            log.error("签名验证失败, 收到的签名: {}, 计算的签名: {}", sign, calculatedSign);
             return false;
         }
 
         // 检查支付结果
         if (!"SUCCESS".equals(notifyData.get("return_code")) ||
             !"SUCCESS".equals(notifyData.get("result_code"))) {
-            log.error("支付结果异常: {}", notifyData);
+            log.error("支付结果异常: return_code={}, result_code={}, err_code={}",
+                    notifyData.get("return_code"),
+                    notifyData.get("result_code"),
+                    notifyData.get("err_code"));
             return false;
         }
 
         String outTradeNo = notifyData.get("out_trade_no");
         String transactionId = notifyData.get("transaction_id");
+        String totalFeeStr = notifyData.get("total_fee");
 
         // 查询支付记录
         PaymentRecord record = paymentRecordMapper.selectByOutTradeNo(outTradeNo);
         if (record == null) {
-            log.error("支付记录不存在: {}", outTradeNo);
+            log.error("支付记录不存在: outTradeNo={}", outTradeNo);
             return false;
         }
 
-        // 已处理过的不再处理
-        if (record.getStatus() == 1) {
-            log.info("支付已处理: {}", outTradeNo);
+        // 幂等性检查：已处理过的不再处理
+        if (record.getStatus() != null && record.getStatus() == 1) {
+            log.info("支付已处理，跳过重复回调: outTradeNo={}, transactionId={}", outTradeNo, record.getTransactionId());
             return true;
+        }
+
+        // 验证支付金额（防止篡改）
+        if (totalFeeStr != null && record.getAmount() != null) {
+            int notifyTotalFee = Integer.parseInt(totalFeeStr);
+            int expectedTotalFee = record.getAmount().multiply(new BigDecimal("100")).intValue();
+            if (notifyTotalFee != expectedTotalFee) {
+                log.error("支付金额不匹配: 回调金额={}分, 订单金额={}分, outTradeNo={}",
+                        notifyTotalFee, expectedTotalFee, outTradeNo);
+                return false;
+            }
         }
 
         // 更新支付记录
@@ -229,7 +267,10 @@ public class PayServiceImpl implements PayService {
             order.setStatus(1); // 已支付
             order.setPaymentTime(new Date());
             orderMapper.updateById(order);
-            log.info("订单已支付: orderId={}, transactionId={}", record.getOrderId(), transactionId);
+            log.info("订单支付成功: orderId={}, orderNo={}, transactionId={}, amount={}元",
+                    record.getOrderId(), record.getOrderNo(), transactionId, record.getAmount());
+        } else {
+            log.warn("订单不存在，但支付记录已更新: orderId={}, outTradeNo={}", record.getOrderId(), outTradeNo);
         }
 
         return true;

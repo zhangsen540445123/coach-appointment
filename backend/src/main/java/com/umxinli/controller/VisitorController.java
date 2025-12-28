@@ -19,6 +19,7 @@ import com.umxinli.mapper.UserFeedbackMapper;
 import com.umxinli.entity.User;
 import com.umxinli.service.OrderService;
 import com.umxinli.service.SettingsService;
+import com.umxinli.util.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,31 @@ public class VisitorController {
 
     @Autowired
     private UserFeedbackMapper userFeedbackMapper;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    /**
+     * 从 Authorization token 中获取 userId
+     */
+    private Long getUserIdFromToken(String token) {
+        if (token == null || token.isEmpty()) {
+            return null;
+        }
+        // 去掉 Bearer 前缀
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        String userIdStr = jwtUtil.getUserIdFromToken(token);
+        if (userIdStr != null) {
+            try {
+                return Long.valueOf(userIdStr);
+            } catch (NumberFormatException e) {
+                log.warn("Invalid userId in token: {}", userIdStr);
+            }
+        }
+        return null;
+    }
 
     @GetMapping("/user/hasMessage")
     public ApiResponse<Object> hasMessage() {
@@ -157,10 +183,18 @@ public class VisitorController {
      * POST /visitor/order/submit
      */
     @PostMapping("/order/submit")
-    public ApiResponse submitOrder(@RequestBody Map<String, Object> payload) {
+    public ApiResponse submitOrder(@RequestBody Map<String, Object> payload,
+                                   @RequestHeader(value = "Authorization", required = false) String token) {
         log.info("Submit order request: {}", payload);
         try {
+            // 从 token 中获取用户ID
+            Long userId = getUserIdFromToken(token);
+            if (userId == null) {
+                return ApiResponse.error(401, "请先登录");
+            }
+
             Order order = new Order();
+            order.setUserId(userId);
 
             // 解析请求参数
             if (payload.get("counselorId") != null) {
@@ -204,7 +238,8 @@ public class VisitorController {
      * POST /visitor/order/getList
      */
     @PostMapping("/order/getList")
-    public ApiResponse getOrderList(@RequestBody Map<String, Object> payload) {
+    public ApiResponse getOrderList(@RequestBody Map<String, Object> payload,
+                                    @RequestHeader(value = "Authorization", required = false) String token) {
         log.info("Get order list request: {}", payload);
         try {
             // 解析分页参数
@@ -222,11 +257,8 @@ public class VisitorController {
                 status = Integer.valueOf(payload.get("orderStatus").toString());
             }
 
-            // 解析用户ID
-            Long userId = null;
-            if (payload.get("visitoruserId") != null) {
-                userId = Long.valueOf(payload.get("visitoruserId").toString());
-            }
+            // 从 token 获取 userId
+            Long userId = getUserIdFromToken(token);
 
             log.info("Parsed params - page: {}, pageSize: {}, status: {}, userId: {}", page, pageSize, status, userId);
 
