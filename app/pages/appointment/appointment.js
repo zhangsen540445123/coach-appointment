@@ -290,7 +290,22 @@ require("../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = gl
                                 return 0 === t ? "待支付" : 1 === t ? "待服务" : 2 === t ? "已完成" : 3 === t || 4 === t ? "已取消" : ""
                             },
                             itemClick: function(t) {
-                                // this.current !== t && (this.current = t, this.formData.orderStatus = this.current, this.dataList = [], this.toTop(), this.formData.pager.index = 1, this.orderList(), null !== this.paymentCountTime && (clearInterval(this.paymentCountTime), this.paymentCountTime = null))
+                                if (this.current !== t) {
+                                    this.current = t;
+                                    // 后端期望的 orderStatus:
+                                    // 0或null-全部, 1-待支付, 2-进行中, 3-已完成
+                                    // 前端 tabLists id: 0-全部, 1-待支付, 2-进行中, 3-已完成
+                                    // 直接使用 tab 索引作为 orderStatus
+                                    this.formData.orderStatus = t;
+                                    this.dataList = [];
+                                    this.toTop();
+                                    this.formData.pager.index = 1;
+                                    this.orderList();
+                                    if (null !== this.paymentCountTime) {
+                                        clearInterval(this.paymentCountTime);
+                                        this.paymentCountTime = null;
+                                    }
+                                }
                             },
                             visitorCancelOrder: function() {
                                 var e = this,
