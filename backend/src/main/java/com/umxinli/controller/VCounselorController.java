@@ -130,10 +130,12 @@ public class VCounselorController {
         // consult 咨询项目列表 - 确保至少有一个默认项，避免前端 consult[0].consultType 报错
         Object consultData = counselor.getConsult();
         if (consultData == null || (consultData instanceof List && ((List<?>) consultData).isEmpty())) {
-            // 提供默认的 consult 项
+            // 提供默认的 consult 项，使用教练的 consultPrice 作为默认价格
             Map<String, Object> defaultConsult = new LinkedHashMap<>();
             defaultConsult.put("consultType", 4); // 默认类型
-            defaultConsult.put("consultPrice", 0);
+            // 使用教练的 consultPrice 字段，如果也为空则默认为 0
+            Object defaultPrice = counselor.getConsultPrice() != null ? counselor.getConsultPrice() : 0;
+            defaultConsult.put("consultPrice", defaultPrice);
             result.put("consult", Collections.singletonList(defaultConsult));
         } else {
             result.put("consult", consultData);
