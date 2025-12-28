@@ -45,22 +45,38 @@ public class PayController {
     }
 
     /**
-     * 获取价格
+     * 获取订单价格（支持优惠券计算）
      * POST /pay/getPrice
+     * 请求参数：
+     * - orderId: 订单ID（必填）
+     * - couponDetailId: 用户优惠券ID（选填，传null表示不使用优惠券）
      */
     @PostMapping("/getPrice")
     public ApiResponse getPrice(@RequestBody Map payload) {
         log.info("Get price request: {}", payload);
         try {
-            Long counselorId = Long.valueOf(payload.get("counselorId").toString());
-            Integer consultType = (Integer) payload.get("consultType");
-            Integer consultWay = (Integer) payload.get("consultWay");
-            
-            Map priceInfo = payService.getPrice(counselorId, consultType, consultWay);
+            // 安全地获取订单ID
+            Long orderId = null;
+            if (payload.get("orderId") != null) {
+                orderId = Long.valueOf(payload.get("orderId").toString());
+            }
+
+            // 安全地获取优惠券ID（可能为null）
+            Long couponDetailId = null;
+            if (payload.get("couponDetailId") != null && !"null".equals(payload.get("couponDetailId").toString())) {
+                couponDetailId = Long.valueOf(payload.get("couponDetailId").toString());
+            }
+
+            if (orderId == null) {
+                return ApiResponse.error("订单ID不能为空");
+            }
+
+            // 调用服务层计算价格
+            Map priceInfo = payService.calculateOrderPrice(orderId, couponDetailId);
             return ApiResponse.success(priceInfo);
         } catch (Exception e) {
             log.error("Error getting price", e);
-            return ApiResponse.error("Failed to get price");
+            return ApiResponse.error("获取价格失败: " + e.getMessage());
         }
     }
 

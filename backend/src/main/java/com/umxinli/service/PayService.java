@@ -6,9 +6,12 @@ import java.util.Map;
 public interface PayService {
 
     /**
-     * 获取价格信息
+     * 计算订单价格（支持优惠券）
+     * @param orderId 订单ID
+     * @param userCouponId 用户优惠券ID（可为null）
+     * @return 价格信息，包含原价、优惠金额、最终价格等
      */
-    Map getPrice(Long counselorId, Integer consultType, Integer consultWay);
+    Map calculateOrderPrice(Long orderId, Long userCouponId);
 
     /**
      * 发起支付

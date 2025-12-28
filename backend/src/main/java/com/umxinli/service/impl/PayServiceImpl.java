@@ -1,11 +1,15 @@
 package com.umxinli.service.impl;
 
+import com.umxinli.entity.Coupon;
 import com.umxinli.entity.Order;
 import com.umxinli.entity.PaymentRecord;
 import com.umxinli.entity.User;
+import com.umxinli.entity.UserCoupon;
 import com.umxinli.entity.WxPayConfig;
+import com.umxinli.mapper.CouponMapper;
 import com.umxinli.mapper.OrderMapper;
 import com.umxinli.mapper.PaymentRecordMapper;
+import com.umxinli.mapper.UserCouponMapper;
 import com.umxinli.mapper.UserMapper;
 import com.umxinli.mapper.WxPayConfigMapper;
 import com.umxinli.service.PayService;
@@ -17,6 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -38,19 +44,114 @@ public class PayServiceImpl implements PayService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserCouponMapper userCouponMapper;
+
+    @Autowired
+    private CouponMapper couponMapper;
+
     @Override
-    public Map getPrice(Long counselorId, Integer consultType, Integer consultWay) {
-        log.info("Getting price for counselor: {}, type: {}, way: {}", counselorId, consultType, consultWay);
+    public Map calculateOrderPrice(Long orderId, Long userCouponId) {
+        log.info("Calculating order price for orderId: {}, userCouponId: {}", orderId, userCouponId);
 
         Map result = new HashMap();
-        BigDecimal basePrice = new BigDecimal("200.00");
-        BigDecimal discount = new BigDecimal("1.0");
-        BigDecimal finalPrice = basePrice.multiply(discount);
 
-        result.put("basePrice", basePrice);
-        result.put("discount", discount);
-        result.put("finalPrice", finalPrice);
-        result.put("currency", "CNY");
+        try {
+            // 1. 查询订单信息
+            Order order = orderMapper.selectById(orderId);
+            if (order == null) {
+                throw new Exception("订单不存在");
+            }
+
+            // 2. 获取订单原价
+            BigDecimal originalPrice = order.getPrice() != null ? order.getPrice() : BigDecimal.ZERO;
+            result.put("originalPrice", originalPrice);
+            result.put("basePrice", originalPrice); // 兼容旧字段
+
+            // 3. 初始化优惠金额和最终价格
+            BigDecimal discountAmount = BigDecimal.ZERO;
+            BigDecimal finalPrice = originalPrice;
+            String couponName = null;
+
+            // 4. 如果使用了优惠券，计算优惠
+            if (userCouponId != null) {
+                UserCoupon userCoupon = userCouponMapper.selectById(userCouponId);
+
+                if (userCoupon == null) {
+                    log.warn("User coupon not found: {}", userCouponId);
+                } else if (userCoupon.getStatus() != null && userCoupon.getStatus() != 0) {
+                    log.warn("User coupon is not available, status: {}", userCoupon.getStatus());
+                } else {
+                    // 查询优惠券模板
+                    Coupon coupon = couponMapper.selectById(userCoupon.getCouponId());
+
+                    if (coupon == null) {
+                        log.warn("Coupon template not found: {}", userCoupon.getCouponId());
+                    } else if (!coupon.isValid()) {
+                        log.warn("Coupon is not valid: {}", coupon.getId());
+                    } else {
+                        // 检查优惠券是否适用于该教练
+                        String coachId = order.getCounselorId() != null ? order.getCounselorId().toString() : null;
+                        if (!coupon.isApplicableToCoach(coachId)) {
+                            log.warn("Coupon is not applicable to coach: {}", coachId);
+                        } else {
+                            // 计算优惠金额
+                            if (coupon.getType() == Coupon.TYPE_FULL_REDUCTION) {
+                                // 满减券：检查是否满足最低消费
+                                BigDecimal minAmount = coupon.getMinAmount() != null ? coupon.getMinAmount() : BigDecimal.ZERO;
+                                if (originalPrice.compareTo(minAmount) >= 0) {
+                                    discountAmount = coupon.getDiscountAmount() != null ? coupon.getDiscountAmount() : BigDecimal.ZERO;
+                                    couponName = coupon.getName();
+                                } else {
+                                    log.warn("Order price {} is less than coupon min amount {}", originalPrice, minAmount);
+                                }
+                            } else if (coupon.getType() == Coupon.TYPE_DIRECT_DISCOUNT) {
+                                // 直接抵扣券
+                                discountAmount = coupon.getDiscountAmount() != null ? coupon.getDiscountAmount() : BigDecimal.ZERO;
+                                couponName = coupon.getName();
+                            }
+
+                            // 确保优惠金额不超过订单金额
+                            if (discountAmount.compareTo(originalPrice) > 0) {
+                                discountAmount = originalPrice;
+                            }
+
+                            // 计算最终价格
+                            finalPrice = originalPrice.subtract(discountAmount);
+                            if (finalPrice.compareTo(BigDecimal.ZERO) < 0) {
+                                finalPrice = BigDecimal.ZERO;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 5. 设置返回结果
+            result.put("discountAmount", discountAmount.setScale(2, RoundingMode.HALF_UP));
+            result.put("discount", discountAmount.setScale(2, RoundingMode.HALF_UP)); // 兼容旧字段
+            result.put("finalPrice", finalPrice.setScale(2, RoundingMode.HALF_UP));
+            result.put("price", finalPrice.setScale(2, RoundingMode.HALF_UP)); // 前端期望的字段
+            result.put("currency", "CNY");
+
+            if (couponName != null) {
+                result.put("couponName", couponName);
+            }
+
+            log.info("Price calculation result: originalPrice={}, discountAmount={}, finalPrice={}",
+                     originalPrice, discountAmount, finalPrice);
+
+        } catch (Exception e) {
+            log.error("Error calculating order price", e);
+            // 发生错误时返回订单原价
+            result.put("originalPrice", BigDecimal.ZERO);
+            result.put("basePrice", BigDecimal.ZERO);
+            result.put("discountAmount", BigDecimal.ZERO);
+            result.put("discount", BigDecimal.ZERO);
+            result.put("finalPrice", BigDecimal.ZERO);
+            result.put("price", BigDecimal.ZERO);
+            result.put("currency", "CNY");
+            result.put("error", e.getMessage());
+        }
 
         return result;
     }
