@@ -20,7 +20,9 @@ public class CacheConfig {
             "city",
             "cities",
             "settings",
-            "filterConfig"
+            "filterConfig",
+            "order",
+            "orders"
         );
     }
 }
