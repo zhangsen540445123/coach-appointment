@@ -599,17 +599,27 @@ public class VisitorController {
      * 获取用户优惠券列表
      * GET /visitor/coupon/list
      * 前端传参：valid=1表示查询可使用的优惠券，valid=0表示查询不可使用的优惠券
+     * 可选参数：counselorId - 教练ID，用于过滤只适用于该教练的优惠券
      */
     @GetMapping("/coupon/list")
-    public ApiResponse getCouponList(@RequestParam Long userId, @RequestParam(defaultValue = "1") Integer valid) {
-        log.info("Get coupon list for userId: {}, valid: {}", userId, valid);
+    public ApiResponse getCouponList(@RequestParam Long userId,
+                                     @RequestParam(defaultValue = "1") Integer valid,
+                                     @RequestParam(required = false) Long counselorId) {
+        log.info("Get coupon list for userId: {}, valid: {}, counselorId: {}", userId, valid, counselorId);
         try {
             // 前端逻辑：current=0(可使用tab) -> valid=1, current=1(不可使用tab) -> valid=0
             // 数据库 status: 0=未使用(可用), 1=已使用(不可用)
             // valid=1 -> 查询可使用的(status=0)
             // valid=0 -> 查询不可使用的(status=1 或已过期)
             Integer status = valid == 1 ? 0 : 1;
-            List<Map<String, Object>> list = userCouponMapper.selectUserCouponList(userId, status, 0, 100);
+
+            // 如果提供了 counselorId，使用新的按教练过滤的查询方法
+            List<Map<String, Object>> list;
+            if (counselorId != null) {
+                list = userCouponMapper.selectUserCouponListByCounselor(userId, status, counselorId, 0, 100);
+            } else {
+                list = userCouponMapper.selectUserCouponList(userId, status, 0, 100);
+            }
 
             // 转换为小程序期望的格式
             List<Map<String, Object>> result = new ArrayList<>();

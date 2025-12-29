@@ -88,13 +88,16 @@ public class PayServiceImpl implements PayService {
 
                     if (coupon == null) {
                         log.warn("Coupon template not found: {}", userCoupon.getCouponId());
+                        result.put("couponError", "优惠券不存在");
                     } else if (!coupon.isValid()) {
                         log.warn("Coupon is not valid: {}", coupon.getId());
+                        result.put("couponError", "优惠券已失效");
                     } else {
                         // 检查优惠券是否适用于该教练
                         String coachId = order.getCounselorId() != null ? order.getCounselorId().toString() : null;
                         if (!coupon.isApplicableToCoach(coachId)) {
                             log.warn("Coupon is not applicable to coach: {}", coachId);
+                            result.put("couponError", "该优惠券不适用于当前教练");
                         } else {
                             // 计算优惠金额
                             if (coupon.getType() == Coupon.TYPE_FULL_REDUCTION) {
