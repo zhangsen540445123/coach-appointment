@@ -19,7 +19,7 @@
             <el-tag :type="scope.row.status === 1 ? 'success' : 'danger'">{{ scope.row.status === 1 ? 'Active' : 'Inactive' }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="Actions" width="200">
+        <el-table-column label="Actions" width="280">
           <template #default="scope">
             <el-button type="primary" size="small" @click="handleEdit(scope.row)">Edit</el-button>
             <el-button :type="scope.row.status === 1 ? 'warning' : 'success'" size="small" @click="handleToggle(scope.row)">{{ scope.row.status === 1 ? 'Disable' : 'Enable' }}</el-button>
