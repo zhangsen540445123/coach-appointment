@@ -450,6 +450,8 @@ public class VisitorController {
     /**
      * 获取访客信息
      * GET /visitor/visitorInfo/showUserVisitorInfoByUserid
+     * @param userId 用户ID
+     * @param type 客户类型：0-成人，1-儿童（用于过滤，目前只支持成人）
      */
     @GetMapping("/visitorInfo/showUserVisitorInfoByUserid")
     public ApiResponse getVisitorInfo(@RequestParam(required = false) Long userId,
@@ -461,8 +463,28 @@ public class VisitorController {
             }
             VisitorInfo info = visitorInfoMapper.selectByUserId(userId);
             if (info != null) {
-                List<VisitorInfo> list = new ArrayList<>();
-                list.add(info);
+                // 转换为 Map 并添加 type 字段，前端需要 type 字段来区分成人/儿童
+                List<Map<String, Object>> list = new ArrayList<>();
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", info.getId());
+                item.put("userId", info.getUserId());
+                item.put("name", info.getName() != null ? info.getName() : "");
+                // age 字段必须有值，前端显示需要。如果为 null 则返回 0
+                item.put("age", info.getAge() != null ? info.getAge() : 0);
+                item.put("sex", info.getSex() != null ? info.getSex() : 0);
+                item.put("otherCity", info.getOtherCity());
+                item.put("otherCareer", info.getOtherCareer());
+                item.put("otherMarrage", info.getOtherMarrage());
+                item.put("otherChildren", info.getOtherChildren());
+                item.put("otherIncome", info.getOtherIncome());
+                item.put("otherUm", info.getOtherUm());
+                item.put("consultOther", info.getConsultOther());
+                item.put("realizeChannel", info.getRealizeChannel());
+                item.put("createdAt", info.getCreatedAt());
+                item.put("updatedAt", info.getUpdatedAt());
+                // 添加 type 字段：0-成人，1-儿童（目前只有成人客户）
+                item.put("type", type != null ? type : 0);
+                list.add(item);
                 return ApiResponse.success(list);
             }
             return ApiResponse.success(Collections.emptyList());
@@ -577,17 +599,27 @@ public class VisitorController {
      * 获取用户优惠券列表
      * GET /visitor/coupon/list
      * 前端传参：valid=1表示查询可使用的优惠券，valid=0表示查询不可使用的优惠券
+     * 可选参数：counselorId - 教练ID，用于过滤只适用于该教练的优惠券
      */
     @GetMapping("/coupon/list")
-    public ApiResponse getCouponList(@RequestParam Long userId, @RequestParam(defaultValue = "1") Integer valid) {
-        log.info("Get coupon list for userId: {}, valid: {}", userId, valid);
+    public ApiResponse getCouponList(@RequestParam Long userId,
+                                     @RequestParam(defaultValue = "1") Integer valid,
+                                     @RequestParam(required = false) Long counselorId) {
+        log.info("Get coupon list for userId: {}, valid: {}, counselorId: {}", userId, valid, counselorId);
         try {
             // 前端逻辑：current=0(可使用tab) -> valid=1, current=1(不可使用tab) -> valid=0
             // 数据库 status: 0=未使用(可用), 1=已使用(不可用)
             // valid=1 -> 查询可使用的(status=0)
             // valid=0 -> 查询不可使用的(status=1 或已过期)
             Integer status = valid == 1 ? 0 : 1;
-            List<Map<String, Object>> list = userCouponMapper.selectUserCouponList(userId, status, 0, 100);
+
+            // 如果提供了 counselorId，使用新的按教练过滤的查询方法
+            List<Map<String, Object>> list;
+            if (counselorId != null) {
+                list = userCouponMapper.selectUserCouponListByCounselor(userId, status, counselorId, 0, 100);
+            } else {
+                list = userCouponMapper.selectUserCouponList(userId, status, 0, 100);
+            }
 
             // 转换为小程序期望的格式
             List<Map<String, Object>> result = new ArrayList<>();

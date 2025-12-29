@@ -7,7 +7,8 @@
             var e = t("9359"),
                 u = {
                     props: {
-                        isConsultType: Number
+                        isConsultType: Number,
+                        counselorId: [Number, String] // 教练ID，用于过滤优惠券
                     },
                     data: function() {
                         return {
@@ -74,9 +75,13 @@
                                 n.unAvailableCount = 0;
                                 return;
                             }
+                            // 构建请求URL，如果有 counselorId 则添加到查询参数中
+                            var baseUrl = "/visitor/coupon/list?userId=" + userId;
+                            var counselorIdParam = n.counselorId ? "&counselorId=" + n.counselorId : "";
+
                             // 获取可用优惠券 (valid=1)
                             (0, e.irequestdata)({
-                                url: "/visitor/coupon/list?userId=" + userId + "&valid=1",
+                                url: baseUrl + "&valid=1" + counselorIdParam,
                                 method: "get",
                                 success: function(o) {
                                     if (200 === o.data.code) {
@@ -93,9 +98,9 @@
                                     n.availableCount = 0;
                                 }
                             });
-                            // 获取不可用优惠券 (valid=0)
+                            // 获取不可用优惠券 (valid=0) - 不可用优惠券不需要按教练过滤
                             (0, e.irequestdata)({
-                                url: "/visitor/coupon/list?userId=" + userId + "&valid=0",
+                                url: baseUrl + "&valid=0",
                                 method: "get",
                                 success: function(o) {
                                     if (200 === o.data.code) {

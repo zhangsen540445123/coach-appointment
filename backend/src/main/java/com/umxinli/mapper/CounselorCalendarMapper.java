@@ -48,5 +48,31 @@ public interface CounselorCalendarMapper {
         @Param("startDate") String startDate,
         @Param("endDate") String endDate
     );
+
+    /**
+     * 释放教练的预约时段（将已预约状态改为可预约）
+     * @param counselorId 教练ID
+     * @param date 日期 (yyyy-MM-dd)
+     * @param startTime 开始时间 (HH:mm)
+     * @return 更新的记录数
+     */
+    int releaseSlot(
+        @Param("counselorId") Long counselorId,
+        @Param("date") String date,
+        @Param("startTime") String startTime
+    );
+
+    /**
+     * 预约教练的时段（将可预约状态改为已预约）
+     * @param counselorId 教练ID
+     * @param date 日期 (yyyy-MM-dd)
+     * @param startTime 开始时间 (HH:mm)
+     * @return 更新的记录数
+     */
+    int bookSlot(
+        @Param("counselorId") Long counselorId,
+        @Param("date") String date,
+        @Param("startTime") String startTime
+    );
 }
 

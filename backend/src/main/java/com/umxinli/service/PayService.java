@@ -38,5 +38,15 @@ public interface PayService {
      * 查询支付状态
      */
     Map queryPayStatus(Long orderId);
+
+    /**
+     * 自动退款（用于订单被取消后支付回调到达的情况）
+     * @param orderId 订单ID
+     * @param transactionId 微信支付交易号
+     * @param refundAmount 退款金额
+     * @param reason 退款原因
+     * @return 退款结果
+     */
+    boolean autoRefund(Long orderId, String transactionId, java.math.BigDecimal refundAmount, String reason);
 }
 

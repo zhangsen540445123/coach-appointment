@@ -28,6 +28,21 @@ public interface UserCouponMapper {
                                                     @Param("offset") int offset,
                                                     @Param("limit") int limit);
 
+    /**
+     * 查询用户优惠券列表（支持按教练ID过滤）
+     * @param userId 用户ID
+     * @param status 优惠券状态
+     * @param counselorId 教练ID（可选，用于过滤适用于特定教练的优惠券）
+     * @param offset 偏移量
+     * @param limit 数量限制
+     * @return 优惠券列表
+     */
+    List<Map<String, Object>> selectUserCouponListByCounselor(@Param("userId") Long userId,
+                                                               @Param("status") Integer status,
+                                                               @Param("counselorId") Long counselorId,
+                                                               @Param("offset") int offset,
+                                                               @Param("limit") int limit);
+
     int countUserCouponList(@Param("userId") Long userId, @Param("status") Integer status);
 
     List<Map<String, Object>> selectCouponDistributionList(@Param("couponId") Long couponId,

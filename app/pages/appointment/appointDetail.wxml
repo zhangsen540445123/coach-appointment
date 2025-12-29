@@ -56,5 +56,5 @@
       </view>
     </view>
   </uni-popup>
-  <coupon-dialog bind:__l="__l" bind:change="__e" class="data-v-7c721620 vue-ref" data-event-opts="{{[ [ '^change',[ [ 'selectCoupon',['$0','$event'],['orderDetail.orderId'] ] ] ] ]}}" data-ref="couponDialog" isConsultType="{{orderDetail.consultType}}" vueId="7d7b9b4d-6"></coupon-dialog>
+  <coupon-dialog bind:__l="__l" bind:change="__e" class="data-v-7c721620 vue-ref" data-event-opts="{{[ [ '^change',[ [ 'selectCoupon',['$0','$event'],['orderDetail.orderId'] ] ] ] ]}}" data-ref="couponDialog" isConsultType="{{orderDetail.consultType}}" counselorId="{{orderDetail.counselorId}}" vueId="7d7b9b4d-6"></coupon-dialog>
 </view>

@@ -1582,14 +1582,20 @@ var e = require("../@babel/runtime/helpers/typeof");
                     start: function(o) {
                         o.forEach((function(e) {
                             return function(e) {
-                                n.value = i(i({}, n.value), {}, (0, c.default)({}, "".concat(e.orderId, "---").concat(e.paymentAvailableMinutes), new Date))
+                                // 使用秒数作为唯一key，如果没有秒数则使用分钟数
+                                var seconds = e.paymentAvailableSeconds || (e.paymentAvailableMinutes * 60);
+                                n.value = i(i({}, n.value), {}, (0, c.default)({}, "".concat(e.orderId, "---").concat(seconds), new Date))
                             }(e)
                         })), clearInterval(e);
                         var a = function() {
                             t.value = o.reduce((function(e, t) {
-                                return t.paymentAvailableMinutes ? e[t.orderId] = function(e, t) {
-                                    var n = new Date(e);
-                                    n.setMinutes(n.getMinutes() + t);
+                                // 优先使用秒数，如果没有则使用分钟数转换
+                                var hasTime = t.paymentAvailableSeconds || t.paymentAvailableMinutes;
+                                return hasTime ? e[t.orderId] = function(startTime, order) {
+                                    var n = new Date(startTime);
+                                    // 使用秒数计算结束时间
+                                    var seconds = order.paymentAvailableSeconds || (order.paymentAvailableMinutes * 60);
+                                    n.setSeconds(n.getSeconds() + seconds);
                                     var o = n.getTime() - Date.now();
                                     return o <= 0 ? null : function(e) {
                                         var t = Math.floor(e / 36e5),
@@ -1600,9 +1606,10 @@ var e = require("../@babel/runtime/helpers/typeof");
                                             r = o.toString().padStart(2, "0");
                                         return "".concat(c, ":").concat(a, ":").concat(r)
                                     }(o)
-                                }(function(e) {
-                                    return n.value["".concat(e.orderId, "---").concat(e.paymentAvailableMinutes)]
-                                }(t), t.paymentAvailableMinutes) : e[t.orderId] = null, e
+                                }(function(order) {
+                                    var seconds = order.paymentAvailableSeconds || (order.paymentAvailableMinutes * 60);
+                                    return n.value["".concat(order.orderId, "---").concat(seconds)]
+                                }(t), t) : e[t.orderId] = null, e
                             }), {})
                         };
                         a(), e = setInterval((function() {

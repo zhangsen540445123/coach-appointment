@@ -18,6 +18,9 @@ public class OrderServiceImpl implements OrderService {
 
     private static final Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
 
+    /** 订单支付超时时间（分钟） */
+    private static final int ORDER_TIMEOUT_MINUTES = 30;
+
     @Autowired
     private OrderMapper orderMapper;
 
@@ -25,13 +28,32 @@ public class OrderServiceImpl implements OrderService {
     @Cacheable(value = "order", key = "#id")
     public Order getOrderById(Long id) {
         log.info("Getting order by id: {}", id);
+        // 懒取消：查询前先检查订单是否超时
+        checkAndCancelTimeoutOrder(id);
         return orderMapper.selectById(id);
     }
 
     @Override
     public OrderDTO getOrderDTOById(Long id) {
         log.info("Getting order DTO by id: {}", id);
+        // 懒取消：查询前先检查订单是否超时
+        checkAndCancelTimeoutOrder(id);
         return orderMapper.selectByIdWithCounselor(id);
+    }
+
+    /**
+     * 检查单个订单是否超时，如果超时则自动取消
+     * @param orderId 订单ID
+     */
+    private void checkAndCancelTimeoutOrder(Long orderId) {
+        try {
+            int updated = orderMapper.cancelIfTimeout(orderId, ORDER_TIMEOUT_MINUTES);
+            if (updated > 0) {
+                log.info("Order {} was auto-cancelled due to payment timeout", orderId);
+            }
+        } catch (Exception e) {
+            log.error("Error checking timeout for order {}", orderId, e);
+        }
     }
 
     @Override
@@ -73,11 +95,30 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDTO> getOrderListWithCounselor(Integer page, Integer pageSize, Integer status, Long userId) {
         log.info("Getting order list with counselor - page: {}, pageSize: {}, status: {}, userId: {}", page, pageSize, status, userId);
         try {
+            // 懒取消：查询待支付订单前，先批量处理该用户的超时订单
+            if (status == null || status == 0 || status == 1) {
+                // status=0 待支付, status=1 全部, status=null 全部
+                batchCancelTimeoutOrders();
+            }
             int offset = (page - 1) * pageSize;
             return orderMapper.selectListWithCounselor(offset, pageSize, status, userId);
         } catch (Exception e) {
             log.error("Error getting order list with counselor", e);
             return Collections.emptyList();
+        }
+    }
+
+    /**
+     * 批量取消超时订单（懒取消）
+     */
+    private void batchCancelTimeoutOrders() {
+        try {
+            int cancelled = orderMapper.cancelTimeoutOrders(ORDER_TIMEOUT_MINUTES);
+            if (cancelled > 0) {
+                log.info("Batch cancelled {} timeout orders", cancelled);
+            }
+        } catch (Exception e) {
+            log.error("Error batch cancelling timeout orders", e);
         }
     }
 
