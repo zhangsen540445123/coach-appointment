@@ -93,5 +93,25 @@
         ORDER BY counselor_id
     </select>
 
+    <!-- 释放教练的预约时段（将已预约状态改为可预约） -->
+    <update id="releaseSlot">
+        UPDATE counselor_calendar
+        SET status = 0, updated_at = NOW()
+        WHERE counselor_id = #{counselorId}
+        AND date = #{date}
+        AND start_time = #{startTime}
+        AND status = 1
+    </update>
+
+    <!-- 预约教练的时段（将可预约状态改为已预约） -->
+    <update id="bookSlot">
+        UPDATE counselor_calendar
+        SET status = 1, updated_at = NOW()
+        WHERE counselor_id = #{counselorId}
+        AND date = #{date}
+        AND start_time = #{startTime}
+        AND status = 0
+    </update>
+
 </mapper>
 

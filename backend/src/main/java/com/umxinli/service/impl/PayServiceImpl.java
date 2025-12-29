@@ -31,6 +31,7 @@ public class PayServiceImpl implements PayService {
     private static final Logger log = LoggerFactory.getLogger(PayServiceImpl.class);
     private static final String UNIFIED_ORDER_URL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     private static final String ORDER_QUERY_URL = "https://api.mch.weixin.qq.com/pay/orderquery";
+    private static final String REFUND_URL = "https://api.mch.weixin.qq.com/secapi/pay/refund";
 
     @Autowired
     private OrderMapper orderMapper;
@@ -156,6 +157,9 @@ public class PayServiceImpl implements PayService {
         return result;
     }
 
+    /** 订单支付超时时间（分钟） */
+    private static final int ORDER_TIMEOUT_MINUTES = 30;
+
     @Override
     @Transactional
     public Map toPay(Long orderId, String clientIp) throws Exception {
@@ -164,6 +168,22 @@ public class PayServiceImpl implements PayService {
         Order order = orderMapper.selectById(orderId);
         if (order == null) {
             throw new Exception("订单不存在");
+        }
+
+        // 检查订单状态
+        if (order.getStatus() != null && order.getStatus() != 0) {
+            if (order.getStatus() == 4) {
+                throw new Exception("订单已取消，无法支付");
+            } else if (order.getStatus() >= 1) {
+                throw new Exception("订单已支付，请勿重复支付");
+            }
+        }
+
+        // 检查订单是否已超时（在发起支付前检查）
+        int cancelled = orderMapper.cancelIfTimeout(orderId, ORDER_TIMEOUT_MINUTES);
+        if (cancelled > 0) {
+            log.warn("Order {} was cancelled due to timeout when trying to pay", orderId);
+            throw new Exception("订单已超时，请重新下单");
         }
 
         // 获取用户信息以获取 openid
@@ -365,6 +385,16 @@ public class PayServiceImpl implements PayService {
         // 更新订单状态为已支付
         Order order = orderMapper.selectById(record.getOrderId());
         if (order != null) {
+            // 检查订单是否已被取消（边界情况：支付回调到达时订单刚好被超时取消）
+            if (order.getStatus() != null && order.getStatus() == 4) {
+                log.warn("订单已被取消，但收到支付回调，需要触发退款流程: orderId={}, transactionId={}",
+                        record.getOrderId(), transactionId);
+                // 触发自动退款流程
+                autoRefund(record.getOrderId(), transactionId, record.getAmount(), "订单超时取消后支付，自动退款");
+                return true; // 仍返回成功，避免微信重复回调
+            }
+
+            // 正常情况：更新订单状态为已支付
             order.setStatus(1); // 已支付
             order.setPaymentTime(new Date());
             orderMapper.updateById(order);
@@ -402,5 +432,97 @@ public class PayServiceImpl implements PayService {
         }
 
         return result;
+    }
+
+    @Override
+    @Transactional
+    public boolean autoRefund(Long orderId, String transactionId, BigDecimal refundAmount, String reason) {
+        log.info("Processing auto refund for order: {}, transactionId: {}, amount: {}, reason: {}",
+                orderId, transactionId, refundAmount, reason);
+
+        try {
+            // 1. 获取支付记录
+            PaymentRecord record = paymentRecordMapper.selectByOrderId(orderId);
+            if (record == null) {
+                log.error("Payment record not found for order: {}", orderId);
+                return false;
+            }
+
+            // 2. 检查是否已退款
+            if (record.getStatus() != null && record.getStatus() == 3) {
+                log.info("Order {} already refunded, skipping", orderId);
+                return true;
+            }
+
+            // 3. 获取微信支付配置
+            WxPayConfig config = wxPayConfigMapper.selectEnabled();
+            if (config == null) {
+                log.error("微信支付未配置，无法执行退款");
+                return false;
+            }
+
+            // 4. 计算退款金额（分）
+            int totalFee = record.getAmount().multiply(new BigDecimal("100")).intValue();
+            int refundFee = refundAmount.multiply(new BigDecimal("100")).intValue();
+
+            // 5. 生成退款单号
+            String outRefundNo = "REF" + System.currentTimeMillis();
+
+            // 6. 构建退款请求参数
+            Map<String, String> params = new HashMap<>();
+            params.put("appid", config.getAppId());
+            params.put("mch_id", config.getMchId());
+            params.put("nonce_str", WxPayUtil.generateNonceStr());
+            params.put("transaction_id", transactionId);
+            params.put("out_trade_no", record.getOutTradeNo());
+            params.put("out_refund_no", outRefundNo);
+            params.put("total_fee", String.valueOf(totalFee));
+            params.put("refund_fee", String.valueOf(refundFee));
+            params.put("refund_desc", reason != null ? reason : "订单超时取消自动退款");
+
+            // 7. 生成签名
+            String sign = WxPayUtil.signMD5(params, config.getApiKey());
+            params.put("sign", sign);
+
+            // 8. 调用微信退款API
+            // 注意：微信退款API需要双向证书，这里使用简化处理
+            // 实际生产环境需要配置SSL证书
+            String xmlRequest = WxPayUtil.mapToXml(params);
+            log.info("Refund request: {}", xmlRequest);
+
+            // 检查是否配置了证书
+            if (config.getCertPath() == null || config.getCertPath().isEmpty()) {
+                log.warn("微信支付证书未配置，退款将在后台手动处理。订单ID: {}, 交易号: {}, 退款金额: {}元",
+                        orderId, transactionId, refundAmount);
+                // 更新支付记录状态为待退款（需要人工处理）
+                record.setStatus(4); // 4 = 待人工退款
+                paymentRecordMapper.update(record);
+                // 更新订单状态为待退款
+                orderMapper.updateStatus(orderId, 6); // 6 = 待退款
+                return true; // 标记为处理成功，等待人工处理
+            }
+
+            // 调用退款API（需要双向证书，这里仅作示例）
+            String xmlResponse = WxPayUtil.postWithCert(REFUND_URL, xmlRequest, config.getCertPath(), config.getMchId());
+            log.info("Refund response: {}", xmlResponse);
+
+            Map<String, String> responseMap = WxPayUtil.xmlToMap(xmlResponse);
+            if ("SUCCESS".equals(responseMap.get("return_code")) && "SUCCESS".equals(responseMap.get("result_code"))) {
+                // 退款成功
+                record.setStatus(3); // 3 = 已退款
+                paymentRecordMapper.update(record);
+                orderMapper.updateStatus(orderId, 5); // 5 = 已退款
+                log.info("退款成功: orderId={}, transactionId={}, refundAmount={}元", orderId, transactionId, refundAmount);
+                return true;
+            } else {
+                log.error("退款失败: return_code={}, result_code={}, err_code={}, err_code_des={}",
+                        responseMap.get("return_code"), responseMap.get("result_code"),
+                        responseMap.get("err_code"), responseMap.get("err_code_des"));
+                return false;
+            }
+        } catch (Exception e) {
+            log.error("Error processing auto refund for order: {}", orderId, e);
+            return false;
+        }
     }
 }

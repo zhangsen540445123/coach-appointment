@@ -207,4 +207,40 @@
             payment_time = #{paymentTime}
         WHERE id = #{id}
     </update>
+
+    <!-- 批量取消超时未支付的订单 -->
+    <update id="cancelTimeoutOrders">
+        UPDATE consult_order
+        SET status = 4,
+            updated_at = NOW()
+        WHERE status = 0
+          AND created_at &lt; DATE_SUB(NOW(), INTERVAL #{timeoutMinutes} MINUTE)
+    </update>
+
+    <!-- 查询超时未支付的订单ID列表 -->
+    <select id="selectTimeoutOrderIds" resultType="java.lang.Long">
+        SELECT id
+        FROM consult_order
+        WHERE status = 0
+          AND created_at &lt; DATE_SUB(NOW(), INTERVAL #{timeoutMinutes} MINUTE)
+    </select>
+
+    <!-- 检查单个订单是否超时，如果超时则取消 -->
+    <update id="cancelIfTimeout">
+        UPDATE consult_order
+        SET status = 4,
+            updated_at = NOW()
+        WHERE id = #{orderId}
+          AND status = 0
+          AND created_at &lt; DATE_SUB(NOW(), INTERVAL #{timeoutMinutes} MINUTE)
+    </update>
+
+    <!-- 查询超时未支付的订单详情列表（用于释放教练时段） -->
+    <select id="selectTimeoutOrders" resultMap="BaseResultMap">
+        SELECT id, order_no, user_id, counselor_id, consult_type, consult_way,
+               price, status, payment_time, consult_time, created_at
+        FROM consult_order
+        WHERE status = 0
+          AND created_at &lt; DATE_SUB(NOW(), INTERVAL #{timeoutMinutes} MINUTE)
+    </select>
 </mapper>

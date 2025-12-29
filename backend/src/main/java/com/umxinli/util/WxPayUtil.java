@@ -5,12 +5,17 @@ import org.slf4j.LoggerFactory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.security.MessageDigest;
 import java.util.*;
 
@@ -152,11 +157,60 @@ public class WxPayUtil {
         conn.setRequestProperty("Content-Type", "application/xml; charset=UTF-8");
         conn.setConnectTimeout(30000);
         conn.setReadTimeout(30000);
-        
+
         try (OutputStream os = conn.getOutputStream()) {
             os.write(data.getBytes(StandardCharsets.UTF_8));
         }
-        
+
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+        }
+        return response.toString();
+    }
+
+    /**
+     * 发送带证书的POST请求（用于退款等需要双向证书的接口）
+     * @param urlStr 请求URL
+     * @param data 请求数据
+     * @param certPath 证书路径（PKCS12格式，通常是.p12文件）
+     * @param mchId 商户号（作为证书密码）
+     * @return 响应内容
+     */
+    public static String postWithCert(String urlStr, String data, String certPath, String mchId) throws Exception {
+        // 加载证书
+        KeyStore keyStore = KeyStore.getInstance("PKCS12");
+        try (FileInputStream fis = new FileInputStream(certPath)) {
+            keyStore.load(fis, mchId.toCharArray());
+        }
+
+        // 初始化KeyManagerFactory
+        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        kmf.init(keyStore, mchId.toCharArray());
+
+        // 初始化SSLContext
+        SSLContext sslContext = SSLContext.getInstance("TLS");
+        sslContext.init(kmf.getKeyManagers(), null, new java.security.SecureRandom());
+
+        // 发送请求
+        URL url = new URL(urlStr);
+        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+        conn.setSSLSocketFactory(sslContext.getSocketFactory());
+        conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
+        conn.setRequestProperty("Content-Type", "application/xml; charset=UTF-8");
+        conn.setConnectTimeout(30000);
+        conn.setReadTimeout(30000);
+
+        try (OutputStream os = conn.getOutputStream()) {
+            os.write(data.getBytes(StandardCharsets.UTF_8));
+        }
+
         StringBuilder response = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
