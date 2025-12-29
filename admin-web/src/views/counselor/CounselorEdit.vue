@@ -158,7 +158,7 @@
         <!-- 媒体资源 -->
         <el-divider content-position="left">{{ t('mediaResources') }}</el-divider>
 
-        <el-form-item :label="t('videoUrl')">
+        <el-form-item :label="t('videoUrl')" style="display:none">
           <el-input v-model="form.videoUrl" :placeholder="t('enterVideoUrl')" />
         </el-form-item>
 
