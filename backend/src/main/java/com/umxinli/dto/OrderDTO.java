@@ -53,7 +53,10 @@ public class OrderDTO {
     
     // 支付剩余时间（分钟）
     private Integer paymentAvailableMinutes;
-    
+
+    // 支付剩余时间（秒）- 用于精确倒计时
+    private Integer paymentAvailableSeconds;
+
     // 创建时间
     private Date createTime;
 
@@ -126,6 +129,9 @@ public class OrderDTO {
 
     public Integer getPaymentAvailableMinutes() { return paymentAvailableMinutes; }
     public void setPaymentAvailableMinutes(Integer paymentAvailableMinutes) { this.paymentAvailableMinutes = paymentAvailableMinutes; }
+
+    public Integer getPaymentAvailableSeconds() { return paymentAvailableSeconds; }
+    public void setPaymentAvailableSeconds(Integer paymentAvailableSeconds) { this.paymentAvailableSeconds = paymentAvailableSeconds; }
 
     public Date getCreateTime() { return createTime; }
     public void setCreateTime(Date createTime) { this.createTime = createTime; }

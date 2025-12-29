@@ -36,6 +36,7 @@
         <result column="pay_amount" property="payAmount"/>
         <result column="price" property="price"/>
         <result column="payment_available_minutes" property="paymentAvailableMinutes"/>
+        <result column="payment_available_seconds" property="paymentAvailableSeconds"/>
         <result column="created_at" property="createTime"/>
         <result column="user_id" property="userId"/>
         <result column="visitor_name" property="visitorName"/>
@@ -66,6 +67,10 @@
             CASE WHEN HOUR(COALESCE(o.consult_time, o.created_at)) &lt; 12 THEN 1 ELSE 0 END as is_am,
             DATE_FORMAT(o.created_at, '%Y-%m-%d %H:%i:%s') as order_create_time,
             o.created_at,
+            CASE
+                WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(SECOND, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
+                ELSE 0
+            END as payment_available_seconds,
             CASE
                 WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
                 ELSE 0
@@ -132,6 +137,11 @@
             COALESCE(o.consult_time, o.created_at) as consult_time,
             DATE_FORMAT(COALESCE(o.consult_time, o.created_at), '%Y-%m-%d %H:%i') as consult_date,
             o.created_at,
+            DATE_FORMAT(o.created_at, '%Y-%m-%d %H:%i:%s') as order_create_time,
+            CASE
+                WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(SECOND, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
+                ELSE 0
+            END as payment_available_seconds,
             CASE
                 WHEN o.status = 0 THEN GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), DATE_ADD(o.created_at, INTERVAL 30 MINUTE)))
                 ELSE 0
