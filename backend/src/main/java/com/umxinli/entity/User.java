@@ -12,6 +12,7 @@ public class User extends BaseEntity {
     private Integer gender;
     private String city;
     private String province;
+    private String growthMemberTag; // 成长会会员标签
     private String openid;
     private Integer status; // 0-禁用 1-正常
     private Date lastLoginTime;
@@ -85,6 +86,14 @@ public class User extends BaseEntity {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public String getGrowthMemberTag() {
+        return growthMemberTag;
+    }
+
+    public void setGrowthMemberTag(String growthMemberTag) {
+        this.growthMemberTag = growthMemberTag;
     }
 
     public String getOpenid() {

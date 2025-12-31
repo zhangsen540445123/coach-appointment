@@ -63,6 +63,8 @@ const routes = [{
                     import ('@/views/admin/DictManage.vue'), meta: { title: '基础数据', roles: [1] } },
             { path: 'studio', name: 'StudioList', component: () =>
                     import ('@/views/studio/StudioList.vue'), meta: { title: '线下活动管理', roles: [1] } },
+            { path: 'growth-member', name: 'GrowthMemberList', component: () =>
+                    import ('@/views/growth-member/GrowthMemberList.vue'), meta: { title: '成长会会员', roles: [1] } },
 
             // 报表页面
             { path: 'report/financial', name: 'FinancialReport', component: () =>

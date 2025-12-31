@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.GrowthMemberMapper">
+
+    <!-- 分页查询（带筛选条件） -->
+    <select id="selectPageWithFilter" resultType="com.umxinli.entity.GrowthMember">
+        SELECT *
+        FROM growth_member
+        <where>
+            <if test="xiaoeNickname != null and xiaoeNickname != ''">
+                AND xiaoe_nickname LIKE CONCAT('%', #{xiaoeNickname}, '%')
+            </if>
+            <if test="latestPhone != null and latestPhone != ''">
+                AND latest_phone = #{latestPhone}
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+            <if test="joinType != null and joinType != ''">
+                AND join_type = #{joinType}
+            </if>
+            <if test="xiaoeUserId != null and xiaoeUserId != ''">
+                AND xiaoe_user_id = #{xiaoeUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        <if test="offset != null and size != null">
+            LIMIT #{offset}, #{size}
+        </if>
+    </select>
+
+    <!-- 查询总数（带筛选条件） -->
+    <select id="selectCountWithFilter" resultType="long">
+        SELECT COUNT(*)
+        FROM growth_member
+        <where>
+            <if test="xiaoeNickname != null and xiaoeNickname != ''">
+                AND xiaoe_nickname LIKE CONCAT('%', #{xiaoeNickname}, '%')
+            </if>
+            <if test="latestPhone != null and latestPhone != ''">
+                AND latest_phone = #{latestPhone}
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+            <if test="joinType != null and joinType != ''">
+                AND join_type = #{joinType}
+            </if>
+            <if test="xiaoeUserId != null and xiaoeUserId != ''">
+                AND xiaoe_user_id = #{xiaoeUserId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询所有（用于导出，带筛选条件） -->
+    <select id="selectAllWithFilter" resultType="com.umxinli.entity.GrowthMember">
+        SELECT *
+        FROM growth_member
+        <where>
+            <if test="xiaoeNickname != null and xiaoeNickname != ''">
+                AND xiaoe_nickname LIKE CONCAT('%', #{xiaoeNickname}, '%')
+            </if>
+            <if test="latestPhone != null and latestPhone != ''">
+                AND latest_phone = #{latestPhone}
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+            <if test="joinType != null and joinType != ''">
+                AND join_type = #{joinType}
+            </if>
+            <if test="xiaoeUserId != null and xiaoeUserId != ''">
+                AND xiaoe_user_id = #{xiaoeUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID更新 -->
+    <update id="updateById" parameterType="com.umxinli.entity.GrowthMember">
+        UPDATE growth_member
+        <set>
+            <if test="xiaoeNickname != null">xiaoe_nickname = #{xiaoeNickname},</if>
+            <if test="latestPhone != null">latest_phone = #{latestPhone},</if>
+            <if test="phoneNumber != null">phone_number = #{phoneNumber},</if>
+            <if test="courseCompletionCount != null">course_completion_count = #{courseCompletionCount},</if>
+            <if test="joinDate != null">join_date = #{joinDate},</if>
+            <if test="expireDate != null">expire_date = #{expireDate},</if>
+            <if test="joinType != null">join_type = #{joinType},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="xiaoeUserId != null">xiaoe_user_id = #{xiaoeUserId},</if>
+            xiaoe_tags = #{xiaoeTags},
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="birthday != null">birthday = #{birthday},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="city != null">city = #{city},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="sourceChannel != null">source_channel = #{sourceChannel},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="wechatName != null">wechat_name = #{wechatName},</if>
+            <if test="wechatId != null">wechat_id = #{wechatId},</if>
+            <if test="lastSyncTime != null">last_sync_time = #{lastSyncTime},</if>
+            update_time = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 批量删除 -->
+    <delete id="deleteByIds">
+        DELETE FROM growth_member
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
+

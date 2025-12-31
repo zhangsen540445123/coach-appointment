@@ -54,6 +54,10 @@
             <el-icon><OfficeBuilding /></el-icon>
             <span>线下活动管理</span>
           </el-menu-item>
+          <el-menu-item index="/growth-member">
+            <el-icon><Medal /></el-icon>
+            <span>成长会会员</span>
+          </el-menu-item>
           <el-menu-item index="/account">
             <el-icon><UserFilled /></el-icon>
             <span>账号管理</span>
@@ -141,6 +145,7 @@ const activeMenu = computed(() => {
   if (path.startsWith('/feedback')) return '/feedback'
   if (path.startsWith('/star')) return '/star'
   if (path.startsWith('/coupon')) return '/coupon'
+  if (path.startsWith('/growth-member')) return '/growth-member'
   if (path.startsWith('/account')) return '/account'
   if (path.startsWith('/report')) return '/report'
   if (path.startsWith('/settings')) return '/settings'

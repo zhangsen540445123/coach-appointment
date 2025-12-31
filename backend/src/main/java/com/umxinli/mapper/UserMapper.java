@@ -87,8 +87,14 @@ public interface UserMapper {
      * 根据ID更新用户（别名方法，与 update 相同）
      */
     @Update("UPDATE user SET phone = #{phone}, name = #{name}, avatar = #{avatar}, gender = #{gender}, " +
-            "city = #{city}, province = #{province}, updated_at = NOW() WHERE id = #{id}")
+            "city = #{city}, province = #{province}, growth_member_tag = #{growthMemberTag}, updated_at = NOW() WHERE id = #{id}")
     int updateById(User user);
+
+    /**
+     * 更新用户的成长会会员标签
+     */
+    @Update("UPDATE user SET growth_member_tag = #{growthMemberTag}, updated_at = NOW() WHERE id = #{id}")
+    int updateGrowthMemberTag(@Param("id") Long id, @Param("growthMemberTag") String growthMemberTag);
 
     /**
      * 删除用户

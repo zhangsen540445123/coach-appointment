@@ -23,6 +23,14 @@
           </template>
         </el-table-column>
         <el-table-column prop="city" label="城市" width="120" />
+        <el-table-column prop="growthMemberTag" label="成长会标签" width="150">
+          <template #default="scope">
+            <el-tag v-if="scope.row.growthMemberTag" type="warning" size="small">
+              {{ scope.row.growthMemberTag }}
+            </el-tag>
+            <span v-else>-</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="status" label="状态" width="100">
           <template #default="scope">
             <el-tag :type="scope.row.status === 1 ? 'success' : 'danger'">
