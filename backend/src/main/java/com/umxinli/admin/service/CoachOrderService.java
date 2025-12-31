@@ -13,8 +13,11 @@ public interface CoachOrderService {
 
     /**
      * 获取教练的订单列表
+     * @param request 分页请求
+     * @param counselorId 教练ID
+     * @param statusList 订单状态列表（支持多选，null或空列表表示查询全部）
      */
-    PageResponse getOrderList(PageRequest request, Long counselorId, Integer status);
+    PageResponse getOrderList(PageRequest request, Long counselorId, List<Integer> statusList);
 
     /**
      * 获取教练的收益统计

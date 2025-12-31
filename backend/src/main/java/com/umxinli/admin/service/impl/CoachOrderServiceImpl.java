@@ -26,27 +26,70 @@ public class CoachOrderServiceImpl implements CoachOrderService {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public PageResponse getOrderList(PageRequest request, Long counselorId, Integer status) {
+    public PageResponse getOrderList(PageRequest request, Long counselorId, List<Integer> statusList) {
         // 查询教练的订单
-        String sql = "SELECT o.*, u.name as user_name, u.avatar as user_avatar " +
-                     "FROM consult_order o " +
-                     "LEFT JOIN user u ON o.user_id = u.id " +
-                     "WHERE o.counselor_id = ? ";
+        StringBuilder sql = new StringBuilder(
+            "SELECT o.*, u.name as user_name, u.avatar as user_avatar " +
+            "FROM consult_order o " +
+            "LEFT JOIN user u ON o.user_id = u.id " +
+            "WHERE o.counselor_id = ? "
+        );
 
-        if (status != null && status >= 0) {
-            sql += "AND o.status = " + status + " ";
+        // 支持多状态查询
+        if (statusList != null && !statusList.isEmpty()) {
+            sql.append("AND o.status IN (");
+            for (int i = 0; i < statusList.size(); i++) {
+                sql.append("?");
+                if (i < statusList.size() - 1) {
+                    sql.append(", ");
+                }
+            }
+            sql.append(") ");
         }
-        sql += "ORDER BY o.created_at DESC LIMIT ?, ?";
+        sql.append("ORDER BY o.created_at DESC LIMIT ?, ?");
 
-        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, counselorId,
-                request.getOffset(), request.getPageSize());
+        // 构建参数列表
+        Object[] params;
+        if (statusList != null && !statusList.isEmpty()) {
+            params = new Object[statusList.size() + 3];
+            params[0] = counselorId;
+            for (int i = 0; i < statusList.size(); i++) {
+                params[i + 1] = statusList.get(i);
+            }
+            params[statusList.size() + 1] = request.getOffset();
+            params[statusList.size() + 2] = request.getPageSize();
+        } else {
+            params = new Object[]{counselorId, request.getOffset(), request.getPageSize()};
+        }
+
+        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql.toString(), params);
 
         // 统计总数
-        String countSql = "SELECT COUNT(*) FROM consult_order WHERE counselor_id = ?";
-        if (status != null && status >= 0) {
-            countSql += " AND status = " + status;
+        StringBuilder countSql = new StringBuilder("SELECT COUNT(*) FROM consult_order WHERE counselor_id = ?");
+        if (statusList != null && !statusList.isEmpty()) {
+            countSql.append(" AND status IN (");
+            for (int i = 0; i < statusList.size(); i++) {
+                countSql.append("?");
+                if (i < statusList.size() - 1) {
+                    countSql.append(", ");
+                }
+            }
+            countSql.append(")");
         }
-        int total = jdbcTemplate.queryForObject(countSql, Integer.class, counselorId);
+
+        // 构建统计参数列表
+        Object[] countParams;
+        if (statusList != null && !statusList.isEmpty()) {
+            countParams = new Object[statusList.size() + 1];
+            countParams[0] = counselorId;
+            for (int i = 0; i < statusList.size(); i++) {
+                countParams[i + 1] = statusList.get(i);
+            }
+        } else {
+            countParams = new Object[]{counselorId};
+        }
+
+        int total = jdbcTemplate.queryForObject(countSql.toString(), Integer.class, countParams);
 
         return new PageResponse(list, total, request.getPage(), request.getPageSize());
     }
