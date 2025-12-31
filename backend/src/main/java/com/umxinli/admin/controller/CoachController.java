@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -207,6 +208,9 @@ public class CoachController {
 
     /**
      * 获取教练订单列表
+     * 支持多状态查询：
+     * - status: 单个状态（向下兼容）
+     * - statusList: 多个状态数组
      */
     @PostMapping("/order/list")
     public ApiResponse getOrderList(@RequestBody Map<String, Object> payload,
@@ -218,10 +222,21 @@ public class CoachController {
 
             int page = (Integer) payload.getOrDefault("page", 1);
             int pageSize = (Integer) payload.getOrDefault("pageSize", 10);
-            Integer status = payload.get("status") != null ? (Integer) payload.get("status") : null;
+
+            // 支持多状态查询，同时保持向下兼容
+            List<Integer> statusList = null;
+            if (payload.containsKey("statusList") && payload.get("statusList") instanceof List) {
+                // 新方式：接收状态数组
+                statusList = (List<Integer>) payload.get("statusList");
+            } else if (payload.containsKey("status") && payload.get("status") != null) {
+                // 旧方式：接收单个状态（向下兼容）
+                Integer status = (Integer) payload.get("status");
+                statusList = new ArrayList<>();
+                statusList.add(status);
+            }
 
             PageRequest request = new PageRequest(page, pageSize);
-            PageResponse response = coachOrderService.getOrderList(request, user.getCounselorId(), status);
+            PageResponse response = coachOrderService.getOrderList(request, user.getCounselorId(), statusList);
             return ApiResponse.success(response);
         } catch (Exception e) {
             log.error("获取订单列表失败", e);

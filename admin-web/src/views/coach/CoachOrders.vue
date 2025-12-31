@@ -2,11 +2,19 @@
   <div class="coach-orders">
     <el-card>
       <template #header><span>我的订单</span></template>
-      
+
       <el-form :inline="true" class="filter-form">
         <el-form-item label="订单状态">
-          <el-select v-model="filter.status" placeholder="全部" clearable @change="loadData">
-            <el-option label="全部" :value="null" />
+          <el-select
+            v-model="filter.statusList"
+            placeholder="全部"
+            multiple
+            collapse-tags
+            collapse-tags-tooltip
+            clearable
+            @change="loadData"
+            style="width: 300px"
+          >
             <el-option v-for="(label, index) in orderStatusOptions" :key="index" :label="label" :value="index" />
           </el-select>
         </el-form-item>
@@ -69,7 +77,7 @@ import { useDict } from '@/composables/useDict'
 const loading = ref(false)
 const tableData = ref([])
 const total = ref(0)
-const filter = ref({ status: null })
+const filter = ref({ statusList: [] })  // 改为数组支持多选
 const pagination = ref({ page: 1, pageSize: 10 })
 const detailVisible = ref(false)
 const currentOrder = ref(null)
@@ -90,11 +98,17 @@ onMounted(async () => {
 const loadData = async () => {
   loading.value = true
   try {
-    const res = await coachApi.getOrderList({
+    const params = {
       page: pagination.value.page,
-      pageSize: pagination.value.pageSize,
-      status: filter.value.status
-    })
+      pageSize: pagination.value.pageSize
+    }
+
+    // 如果选择了状态，传递 statusList；否则不传（查询全部）
+    if (filter.value.statusList && filter.value.statusList.length > 0) {
+      params.statusList = filter.value.statusList
+    }
+
+    const res = await coachApi.getOrderList(params)
     tableData.value = res.data?.list || []
     total.value = res.data?.total || 0
   } catch (e) {
