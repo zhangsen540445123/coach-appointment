@@ -4,10 +4,11 @@ import com.umxinli.entity.GrowthMember;
 import com.umxinli.entity.User;
 import com.umxinli.mapper.GrowthMemberMapper;
 import com.umxinli.mapper.UserMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,13 +21,16 @@ import java.util.*;
 /**
  * 成长会会员服务
  */
-@Slf4j
 @Service
-@RequiredArgsConstructor
 public class GrowthMemberService {
 
-    private final GrowthMemberMapper growthMemberMapper;
-    private final UserMapper userMapper;
+    private static final Logger log = LoggerFactory.getLogger(GrowthMemberService.class);
+
+    @Autowired
+    private GrowthMemberMapper growthMemberMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * 分页查询成长会会员列表

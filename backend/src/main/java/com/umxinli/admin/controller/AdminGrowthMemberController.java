@@ -1,10 +1,11 @@
 package com.umxinli.admin.controller;
 
 import com.umxinli.admin.service.GrowthMemberService;
-import com.umxinli.common.ApiResponse;
+import com.umxinli.dto.ApiResponse;
 import com.umxinli.entity.GrowthMember;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,13 +16,14 @@ import java.util.Map;
 /**
  * 管理端成长会员管理控制器
  */
-@Slf4j
 @RestController
 @RequestMapping("/admin/growth-members")
-@RequiredArgsConstructor
 public class AdminGrowthMemberController {
 
-    private final GrowthMemberService growthMemberService;
+    private static final Logger log = LoggerFactory.getLogger(AdminGrowthMemberController.class);
+
+    @Autowired
+    private GrowthMemberService growthMemberService;
 
     /**
      * 分页查询成长会员列表

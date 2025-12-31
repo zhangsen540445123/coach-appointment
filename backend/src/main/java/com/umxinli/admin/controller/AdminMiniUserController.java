@@ -57,6 +57,7 @@ public class AdminMiniUserController {
                 item.put("city", user.getCity());
                 item.put("province", user.getProvince());
                 item.put("status", user.getStatus() != null ? user.getStatus() : 1);
+                item.put("growthMemberTag", user.getGrowthMemberTag());
                 item.put("role", 0);  // 小程序用户角色为0（区别于管理员1和教练2）
                 // 格式化日期
                 item.put("createdAt", user.getCreatedAt() != null ? dateFormat.format(user.getCreatedAt()) : null);
