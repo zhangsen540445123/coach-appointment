@@ -97,6 +97,18 @@ public interface UserMapper {
     int updateGrowthMemberTag(@Param("id") Long id, @Param("growthMemberTag") String growthMemberTag);
 
     /**
+     * 获取所有不为空的用户标签（去重）
+     */
+    @Select("SELECT DISTINCT growth_member_tag FROM user WHERE growth_member_tag IS NOT NULL AND growth_member_tag != '' ORDER BY growth_member_tag")
+    List<String> selectDistinctGrowthMemberTags();
+
+    /**
+     * 根据标签查询用户ID列表
+     */
+    @Select("SELECT id FROM user WHERE growth_member_tag = #{tag}")
+    List<Long> selectUserIdsByTag(@Param("tag") String tag);
+
+    /**
      * 删除用户
      */
     @Delete("DELETE FROM user WHERE id = #{id}")

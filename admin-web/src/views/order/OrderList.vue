@@ -12,8 +12,18 @@
       <el-table :data="tableData" v-loading="loading">
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="orderNo" label="订单号" width="180" />
-        <el-table-column prop="userId" label="用户ID" width="100" />
-        <el-table-column prop="counselorId" label="教练ID" width="100" />
+        <el-table-column label="用户" width="150">
+          <template #default="scope">
+            <span v-if="scope.row.userName">{{ scope.row.userName }}</span>
+            <span v-else style="color: #909399;">ID: {{ scope.row.userId }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="教练" width="150">
+          <template #default="scope">
+            <span v-if="scope.row.counselorName">{{ scope.row.counselorName }}</span>
+            <span v-else style="color: #909399;">ID: {{ scope.row.counselorId }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="price" label="价格" width="100">
           <template #default="scope">¥{{ scope.row.price }}</template>
         </el-table-column>

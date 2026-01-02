@@ -57,6 +57,43 @@ public class AdminCouponController {
         }
     }
 
+    /**
+     * 获取所有用户标签列表（去重）
+     */
+    @GetMapping("/user-tags")
+    public ApiResponse<?> getUserTags() {
+        try {
+            List<String> tags = userMapper.selectDistinctGrowthMemberTags();
+            return ApiResponse.success(tags);
+        } catch (Exception e) {
+            return ApiResponse.error(500, "获取用户标签列表失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 搜索用户（用于优惠券推送时选择用户）
+     */
+    @GetMapping("/search-users")
+    public ApiResponse<?> searchUsers(@RequestParam(required = false) String keyword) {
+        try {
+            // 使用现有的 selectList 方法进行搜索，限制返回20条
+            List<User> users = userMapper.selectList(0, 20, keyword);
+
+            // 只返回必要的字段
+            List<Map<String, Object>> result = new ArrayList<>();
+            for (User user : users) {
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", user.getId());
+                item.put("name", user.getName());
+                item.put("phone", user.getPhone());
+                result.add(item);
+            }
+            return ApiResponse.success(result);
+        } catch (Exception e) {
+            return ApiResponse.error(500, "搜索用户失败: " + e.getMessage());
+        }
+    }
+
     @GetMapping("/list")
     public ApiResponse<?> getCouponList(
             @RequestParam(defaultValue = "1") int page,
@@ -177,6 +214,7 @@ public class AdminCouponController {
         try {
             Long couponId = Long.parseLong(params.get("couponId").toString());
             String pushType = params.get("pushType") != null ? params.get("pushType").toString() : null;
+            String userTag = params.get("userTag") != null ? params.get("userTag").toString() : null;
             @SuppressWarnings("unchecked")
             List<?> userIdList = (List<?>) params.get("userIds");
 
@@ -191,7 +229,15 @@ public class AdminCouponController {
                     UserCoupon uc = createUserCoupon(userId, couponId, UserCoupon.RECEIVE_TYPE_PUSH);
                     toInsert.add(uc);
                 }
+            } else if ("tag".equals(pushType) && userTag != null && !userTag.isEmpty()) {
+                // 按标签推送 - 获取具有指定标签的用户ID
+                List<Long> tagUserIds = userMapper.selectUserIdsByTag(userTag);
+                for (Long userId : tagUserIds) {
+                    UserCoupon uc = createUserCoupon(userId, couponId, UserCoupon.RECEIVE_TYPE_PUSH);
+                    toInsert.add(uc);
+                }
             } else if (userIdList != null && !userIdList.isEmpty()) {
+                // 指定用户推送
                 for (Object userIdObj : userIdList) {
                     Long userId = Long.parseLong(userIdObj.toString());
                     UserCoupon uc = createUserCoupon(userId, couponId, UserCoupon.RECEIVE_TYPE_PUSH);

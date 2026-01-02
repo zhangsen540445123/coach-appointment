@@ -3,8 +3,14 @@
     <el-card v-loading="loading">
       <el-descriptions title="订单详情" :column="2" border>
         <el-descriptions-item label="订单号">{{ order.orderNo }}</el-descriptions-item>
-        <el-descriptions-item label="用户ID">{{ order.userId }}</el-descriptions-item>
-        <el-descriptions-item label="教练ID">{{ order.counselorId }}</el-descriptions-item>
+        <el-descriptions-item label="用户">
+          <span v-if="order.userName">{{ order.userName }} <span style="color: #909399;">(ID: {{ order.userId }})</span></span>
+          <span v-else>ID: {{ order.userId }}</span>
+        </el-descriptions-item>
+        <el-descriptions-item label="教练">
+          <span v-if="order.counselorName">{{ order.counselorName }} <span style="color: #909399;">(ID: {{ order.counselorId }})</span></span>
+          <span v-else>ID: {{ order.counselorId }}</span>
+        </el-descriptions-item>
         <el-descriptions-item label="价格">¥{{ order.price }}</el-descriptions-item>
         <el-descriptions-item label="状态">{{ getStatusText(order.status) }}</el-descriptions-item>
         <el-descriptions-item label="咨询类型">{{ getConsultTypeText(order.consultType) }}</el-descriptions-item>

@@ -13,6 +13,8 @@
         <result column="payment_time" property="paymentTime"/>
         <result column="consult_time" property="consultTime"/>
         <result column="created_at" property="createdAt"/>
+        <result column="user_name" property="userName"/>
+        <result column="counselor_name" property="counselorName"/>
     </resultMap>
 
     <!-- 订单DTO结果映射，包含教练信息 -->
@@ -45,7 +47,14 @@
     </resultMap>
 
     <select id="selectById" resultMap="BaseResultMap">
-        SELECT * FROM consult_order WHERE id = #{id}
+        SELECT
+            o.*,
+            u.name as user_name,
+            c.name as counselor_name
+        FROM consult_order o
+        LEFT JOIN user u ON o.user_id = u.id
+        LEFT JOIN counselor c ON o.counselor_id = c.id
+        WHERE o.id = #{id}
     </select>
 
     <!-- 根据ID查询订单详情，包含教练信息（用于前端展示） -->
@@ -108,18 +117,24 @@
 
     <!-- 查询订单列表，支持关键词搜索 -->
     <select id="selectListWithKeyword" resultMap="BaseResultMap">
-        SELECT * FROM consult_order
+        SELECT
+            o.*,
+            u.name as user_name,
+            c.name as counselor_name
+        FROM consult_order o
+        LEFT JOIN user u ON o.user_id = u.id
+        LEFT JOIN counselor c ON o.counselor_id = c.id
         <where>
             <if test="status != null">
-                AND status = #{status}
+                AND o.status = #{status}
             </if>
             <if test="keyword != null and keyword != ''">
-                AND (order_no LIKE CONCAT('%', #{keyword}, '%')
-                     OR user_id = #{keyword}
-                     OR counselor_id = #{keyword})
+                AND (o.order_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR o.user_id = #{keyword}
+                     OR o.counselor_id = #{keyword})
             </if>
         </where>
-        ORDER BY id DESC
+        ORDER BY o.id DESC
         LIMIT #{offset}, #{limit}
     </select>
 

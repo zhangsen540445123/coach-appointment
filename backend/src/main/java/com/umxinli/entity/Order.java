@@ -17,6 +17,10 @@ public class Order extends BaseEntity {
     private Date paymentTime;
     private Date consultTime;
 
+    // 关联查询字段
+    private String userName;
+    private String counselorName;
+
     public Order() {}
 
     public Order(Long id, String orderNo, Long userId, Long counselorId, Integer consultType, Integer consultWay, BigDecimal price, Integer status, Date paymentTime, Date consultTime) {
@@ -110,5 +114,21 @@ public class Order extends BaseEntity {
 
     public void setConsultTime(Date consultTime) {
         this.consultTime = consultTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getCounselorName() {
+        return counselorName;
+    }
+
+    public void setCounselorName(String counselorName) {
+        this.counselorName = counselorName;
     }
 }

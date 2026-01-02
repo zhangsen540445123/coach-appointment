@@ -137,12 +137,39 @@
         <el-form-item label="推送方式">
           <el-radio-group v-model="pushForm.pushType">
             <el-radio value="all">全员推送</el-radio>
+            <el-radio value="tag">按标签推送</el-radio>
             <el-radio value="users">指定用户</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="用户ID" v-if="pushForm.pushType === 'users'">
-          <el-input v-model="pushForm.userIdsText" type="textarea" :rows="3"
-            placeholder="请输入用户ID，多个用逗号或换行分隔" />
+        <el-form-item label="用户标签" v-if="pushForm.pushType === 'tag'">
+          <el-select v-model="pushForm.userTag" placeholder="请选择用户标签" style="width: 100%">
+            <el-option label="全部用户" value="" />
+            <el-option v-for="tag in userTags" :key="tag" :label="tag" :value="tag" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="选择用户" v-if="pushForm.pushType === 'users'">
+          <el-select
+            v-model="pushForm.selectedUserIds"
+            multiple
+            filterable
+            remote
+            reserve-keyword
+            placeholder="请输入手机号或姓名搜索用户"
+            :remote-method="searchUsers"
+            :loading="searchingUsers"
+            style="width: 100%"
+            clearable
+          >
+            <el-option
+              v-for="user in userOptions"
+              :key="user.id"
+              :label="`${user.name} (${user.phone})`"
+              :value="user.id"
+            />
+          </el-select>
+          <div v-if="pushForm.selectedUserIds.length > 0" style="margin-top: 8px; color: #909399; font-size: 12px;">
+            已选择 {{ pushForm.selectedUserIds.length }} 位用户
+          </div>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -163,8 +190,11 @@ const router = useRouter()
 const loading = ref(false)
 const saving = ref(false)
 const pushing = ref(false)
+const searchingUsers = ref(false)
 const tableData = ref([])
 const coachList = ref([])
+const userTags = ref([])
+const userOptions = ref([])
 const dialogVisible = ref(false)
 const pushDialogVisible = ref(false)
 const editingId = ref(null)
@@ -200,7 +230,7 @@ const formRules = {
   ]
 }
 
-const pushForm = reactive({ pushType: 'users', userIdsText: '' })
+const pushForm = reactive({ pushType: 'users', selectedUserIds: [], userTag: '' })
 
 const loadData = async () => {
   loading.value = true
@@ -233,6 +263,56 @@ const loadCoaches = async () => {
   } catch (e) {
     console.error('Error loading coaches:', e)
     ElMessage.error('加载教练列表失败')
+  }
+}
+
+const loadUserTags = async () => {
+  try {
+    const res = await request.get('/admin/coupon/user-tags')
+    if (res.code === 200) {
+      userTags.value = res.data || []
+    } else {
+      ElMessage.error(res.msg || '加载用户标签失败')
+    }
+  } catch (e) {
+    console.error('Error loading user tags:', e)
+    ElMessage.error('加载用户标签失败')
+  }
+}
+
+const searchUsers = async (query) => {
+  if (query === '') {
+    // 如果搜索关键词为空，加载默认用户列表
+    searchingUsers.value = true
+    try {
+      const res = await request.get('/admin/coupon/search-users')
+      if (res.code === 200) {
+        userOptions.value = res.data || []
+      }
+    } catch (e) {
+      console.error('Error loading users:', e)
+    } finally {
+      searchingUsers.value = false
+    }
+    return
+  }
+
+  // 搜索用户
+  searchingUsers.value = true
+  try {
+    const res = await request.get('/admin/coupon/search-users', {
+      params: { keyword: query }
+    })
+    if (res.code === 200) {
+      userOptions.value = res.data || []
+    } else {
+      ElMessage.error(res.msg || '搜索用户失败')
+    }
+  } catch (e) {
+    console.error('Error searching users:', e)
+    ElMessage.error('搜索用户失败')
+  } finally {
+    searchingUsers.value = false
   }
 }
 
@@ -306,22 +386,44 @@ const deleteCoupon = async (row) => {
   } catch (e) { if (e !== 'cancel') ElMessage.error('删除失败') }
 }
 
-const showPushDialog = (row) => {
+const showPushDialog = async (row) => {
   currentCoupon.value = row
   pushForm.pushType = 'users'
-  pushForm.userIdsText = ''
+  pushForm.selectedUserIds = []
+  pushForm.userTag = ''
+  userOptions.value = []
   pushDialogVisible.value = true
+  // 加载用户标签列表
+  await loadUserTags()
+  // 加载默认用户列表
+  await searchUsers('')
 }
 
 const pushCoupon = async () => {
+  // 验证：如果是指定用户推送，必须选择至少一个用户
+  if (pushForm.pushType === 'users' && pushForm.selectedUserIds.length === 0) {
+    ElMessage.warning('请至少选择一个用户')
+    return
+  }
+
+  // 验证：如果是按标签推送，必须选择标签
+  if (pushForm.pushType === 'tag' && !pushForm.userTag) {
+    ElMessage.warning('请选择用户标签')
+    return
+  }
+
   pushing.value = true
   try {
-    const userIds = pushForm.pushType === 'users'
-      ? pushForm.userIdsText.split(/[,\n]/).map(s => s.trim()).filter(Boolean)
-      : []
-    const res = await request.post('/admin/coupon/push', {
-      couponId: currentCoupon.value.id, pushType: pushForm.pushType, userIds
-    })
+    const payload = {
+      couponId: currentCoupon.value.id,
+      pushType: pushForm.pushType,
+      userIds: pushForm.pushType === 'users' ? pushForm.selectedUserIds : []
+    }
+    // 如果是按标签推送，添加userTag参数
+    if (pushForm.pushType === 'tag') {
+      payload.userTag = pushForm.userTag
+    }
+    const res = await request.post('/admin/coupon/push', payload)
     if (res.code === 200) {
       ElMessage.success(res.data || '推送成功')
       pushDialogVisible.value = false
