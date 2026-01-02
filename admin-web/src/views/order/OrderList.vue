@@ -3,8 +3,7 @@
     <el-card>
       <div class="search-bar">
         <el-input v-model="searchKeyword" placeholder="搜索订单号/用户ID" clearable style="width: 200px" />
-        <el-select v-model="statusFilter" placeholder="状态筛选" clearable style="width: 150px">
-          <el-option label="全部" :value="null" />
+        <el-select v-model="statusFilter" placeholder="状态筛选（可多选）" clearable multiple collapse-tags style="width: 200px">
           <el-option v-for="(label, index) in orderStatusOptions" :key="index" :label="label" :value="index" />
         </el-select>
         <el-button type="primary" @click="handleSearch">搜索</el-button>
@@ -58,7 +57,7 @@ const loading = ref(false)
 const tableData = ref([])
 const total = ref(0)
 const searchKeyword = ref('')
-const statusFilter = ref(null)
+const statusFilter = ref([])
 const pagination = ref({ page: 1, pageSize: 10 })
 
 // 使用字典数据
@@ -79,7 +78,8 @@ const loadData = async () => {
     const params = {
       ...pagination.value,
       keyword: searchKeyword.value,
-      status: statusFilter.value
+      // 将状态数组传递给后端，如果为空数组则传 null
+      status: statusFilter.value.length > 0 ? statusFilter.value : null
     }
     const res = await orderApi.getList(params)
     if (res.code === 200) {

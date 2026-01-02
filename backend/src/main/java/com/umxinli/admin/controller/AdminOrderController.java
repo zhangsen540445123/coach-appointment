@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,17 +35,32 @@ public class AdminOrderController {
     public ApiResponse getList(@RequestBody Map<String, Object> params) {
         Integer page = (Integer) params.getOrDefault("page", 1);
         Integer pageSize = (Integer) params.getOrDefault("pageSize", 10);
-        Integer status = params.get("status") != null ? (Integer) params.get("status") : null;
         String keyword = (String) params.get("keyword");
         Long counselorId = params.get("counselorId") != null ? ((Number) params.get("counselorId")).longValue() : null;
 
-        log.info("Get order list, page: {}, pageSize: {}, status: {}, keyword: {}, counselorId: {}",
-            page, pageSize, status, keyword, counselorId);
+        // 支持单个状态值或状态数组
+        List<Integer> statusList = null;
+        Object statusParam = params.get("status");
+        if (statusParam != null) {
+            if (statusParam instanceof List) {
+                // 如果是数组，转换为 List<Integer>
+                statusList = new java.util.ArrayList<>();
+                for (Object item : (List<?>) statusParam) {
+                    statusList.add(((Number) item).intValue());
+                }
+            } else if (statusParam instanceof Number) {
+                // 如果是单个数字，转换为包含一个元素的列表
+                statusList = java.util.Collections.singletonList(((Number) statusParam).intValue());
+            }
+        }
+
+        log.info("Get order list, page: {}, pageSize: {}, statusList: {}, keyword: {}, counselorId: {}",
+            page, pageSize, statusList, keyword, counselorId);
         try {
             PageRequest request = new PageRequest();
             request.setPage(page);
             request.setPageSize(pageSize);
-            PageResponse response = adminOrderService.getList(request, status, keyword, counselorId);
+            PageResponse response = adminOrderService.getList(request, statusList, keyword, counselorId);
             return ApiResponse.success(response);
         } catch (Exception e) {
             log.error("Error getting order list", e);

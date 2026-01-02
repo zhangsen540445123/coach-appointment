@@ -115,7 +115,7 @@
         LIMIT #{offset}, #{limit}
     </select>
 
-    <!-- 查询订单列表，支持关键词搜索 -->
+    <!-- 查询订单列表，支持关键词搜索和多状态筛选 -->
     <select id="selectListWithKeyword" resultMap="BaseResultMap">
         SELECT
             o.*,
@@ -125,8 +125,11 @@
         LEFT JOIN user u ON o.user_id = u.id
         LEFT JOIN counselor c ON o.counselor_id = c.id
         <where>
-            <if test="status != null">
-                AND o.status = #{status}
+            <if test="statusList != null and statusList.size() > 0">
+                AND o.status IN
+                <foreach collection="statusList" item="status" open="(" separator="," close=")">
+                    #{status}
+                </foreach>
             </if>
             <if test="keyword != null and keyword != ''">
                 AND (o.order_no LIKE CONCAT('%', #{keyword}, '%')
@@ -197,8 +200,11 @@
     <select id="countByStatusAndKeyword" resultType="int">
         SELECT COUNT(*) FROM consult_order
         <where>
-            <if test="status != null">
-                AND status = #{status}
+            <if test="statusList != null and statusList.size() > 0">
+                AND status IN
+                <foreach collection="statusList" item="status" open="(" separator="," close=")">
+                    #{status}
+                </foreach>
             </if>
             <if test="keyword != null and keyword != ''">
                 AND (order_no LIKE CONCAT('%', #{keyword}, '%')

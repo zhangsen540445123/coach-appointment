@@ -23,9 +23,9 @@ public class AdminOrderServiceImpl implements AdminOrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public PageResponse getList(PageRequest request, Integer status, String keyword, Long counselorId) {
-        List list = orderMapper.selectListWithKeyword(request.getOffset(), request.getPageSize(), status, keyword);
-        int total = orderMapper.countByStatusAndKeyword(status, keyword);
+    public PageResponse getList(PageRequest request, List<Integer> statusList, String keyword, Long counselorId) {
+        List list = orderMapper.selectListWithKeyword(request.getOffset(), request.getPageSize(), statusList, keyword);
+        int total = orderMapper.countByStatusAndKeyword(statusList, keyword);
         return new PageResponse(list, total, request.getPage(), request.getPageSize());
     }
 
