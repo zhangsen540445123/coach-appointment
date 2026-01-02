@@ -27621,7 +27621,7 @@ var e = require("../@babel/runtime/helpers/typeof");
                     minute: 50
                 }, {
                     value: 1,
-                    name: "低价咨询",
+                    name: "低价教练",
                     minute: 50
                 }, {
                     value: 2,

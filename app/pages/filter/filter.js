@@ -127,7 +127,7 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                             e.formData.pager.index = 1;
                                             e.bg = {
                                                 "近期可约": d.default,
-                                                "低价咨询": h.default,
+                                                "低价教练": h.default,
                                                 "线下咨询": p.default,
                                                 "青少年父母": m.default
                                             }[t.mode];
@@ -136,14 +136,14 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                             // 保持 shortcut 值传递给后端
                                             e.formData.shortcut = +t.shortcut;
                                             // 初始化 filter 对象，根据 shortcut 设置默认排序
-                                            // shortcut: 0=近期可约, 1=低价咨询, 2=线下咨询, 3=青少年父母
+                                            // shortcut: 0=近期可约, 1=低价教练, 2=线下咨询, 3=青少年父母
                                             // sort: 0=推荐排序, 1=低价优先, 2=高价优先, 3=近期可预约优先
                                             var defaultSort = 0;
                                             if (e.shortcutValue === 0) {
                                                 // 近期可约 -> 近期可预约优先
                                                 defaultSort = 3;
                                             } else if (e.shortcutValue === 1) {
-                                                // 低价咨询 -> 低价优先
+                                                // 低价教练 -> 低价优先
                                                 defaultSort = 1;
                                             }
                                             e.seachData.sort = defaultSort;
@@ -279,7 +279,7 @@ require("../../@babel/runtime/helpers/Objectvalues"), require("../../@babel/runt
                                     // 近期可约 -> 近期可预约优先
                                     defaultSort = 3;
                                 } else if (t === 1) {
-                                    // 低价咨询 -> 低价优先
+                                    // 低价教练 -> 低价优先
                                     defaultSort = 1;
                                 }
                                 this.seachData.sort = defaultSort;

@@ -115,7 +115,7 @@ require("../../@babel/runtime/helpers/Arrayincludes"), (global.webpackJsonp = gl
                 return !1 != !!e ? e.split("-")[1] + "-" + e.split("-")[2] : ""
               },
               checkConsultType: function (e) {
-                return 0 === e ? "网络咨询" : 1 === e ? "低价咨询" : 2 === e ? "地面咨询" : 3 === e ? "青少年父母咨询" : ""
+                return 0 === e ? "网络咨询" : 1 === e ? "低价教练" : 2 === e ? "地面咨询" : 3 === e ? "青少年父母咨询" : ""
               }
             },
             setup: function () {

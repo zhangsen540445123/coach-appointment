@@ -66,7 +66,7 @@ public class CounselorServiceImpl implements CounselorService {
         }
 
         // 处理 shortcut 参数，映射到 filter 条件
-        // shortcut: 0=近期可约, 1=低价咨询, 2=线下咨询
+        // shortcut: 0=近期可约, 1=低价教练, 2=线下咨询
         String shortcut = request.getShortcut();
         CounselorFilterRequest.FilterCriteria filter = request.getFilter();
         if (shortcut != null && !shortcut.isEmpty()) {
@@ -105,7 +105,7 @@ public class CounselorServiceImpl implements CounselorService {
                     }
                     break;
                 case "1":
-                    // 低价咨询 - 只有当用户没有明确选择排序时，才使用默认排序（低价优先）
+                    // 低价教练 - 只有当用户没有明确选择排序时，才使用默认排序（低价优先）
                     if (userSelectedSort == null) {
                         filter.setSort(1);
                     }

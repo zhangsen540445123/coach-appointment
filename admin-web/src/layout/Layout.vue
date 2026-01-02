@@ -52,7 +52,7 @@
           </el-menu-item>
           <el-menu-item index="/studio">
             <el-icon><OfficeBuilding /></el-icon>
-            <span>线下活动管理</span>
+            <span>悦行活动管理</span>
           </el-menu-item>
           <el-menu-item index="/growth-member">
             <el-icon><Medal /></el-icon>

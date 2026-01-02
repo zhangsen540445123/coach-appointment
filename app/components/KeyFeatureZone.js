@@ -24,7 +24,7 @@
             d = {
               setup: function () {
                 return {
-                  list: (0, c.ref)([i(a.default, "近期可约", "/pages/filter/filter?mode=近期可约&shortcut=0"), i(u.default, "低价咨询", "/pages/filter/filter?mode=低价咨询&shortcut=1"), i(r.default, "线下活动", "/pages/studio/list")]),
+                  list: (0, c.ref)([i(a.default, "近期可约", "/pages/filter/filter?mode=近期可约&shortcut=0"), i(u.default, "低价教练", "/pages/filter/filter?mode=低价教练&shortcut=1"), i(r.default, "悦行活动", "/pages/studio/list")]),
                   onClick: function (t) {
                     t.url ? e.navigateTo({
                       url: t.url

@@ -3,8 +3,8 @@
     <el-card>
       <template #header>
         <div class="card-header">
-          <span>线下活动管理</span>
-          <el-button type="primary" @click="handleAdd">新增线下活动</el-button>
+          <span>悦行活动管理</span>
+          <el-button type="primary" @click="handleAdd">新增悦行活动</el-button>
         </div>
       </template>
 
@@ -46,14 +46,14 @@
     </el-card>
 
     <!-- 编辑弹窗 -->
-    <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑线下活动' : '新增线下活动'" width="800px" top="3vh" destroy-on-close>
+    <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑悦行活动' : '新增悦行活动'" width="800px" top="3vh" destroy-on-close>
       <el-form :model="form" label-width="100px" class="studio-form">
         <el-form-item label="活动名称" required>
           <el-input v-model="form.studioName" placeholder="请输入活动名称" />
         </el-form-item>
         <el-form-item label="类型">
           <el-radio-group v-model="form.studioType">
-            <el-radio :label="0">线下活动</el-radio>
+            <el-radio :label="0">悦行活动</el-radio>
             <el-radio :label="1">线上活动</el-radio>
           </el-radio-group>
         </el-form-item>
@@ -237,7 +237,7 @@ const handleToggle = async (row) => {
 }
 
 const handleDelete = (row) => {
-  ElMessageBox.confirm('确定要删除该线下活动吗？', '确认删除', { type: 'warning' })
+  ElMessageBox.confirm('确定要删除该悦行活动吗？', '确认删除', { type: 'warning' })
     .then(async () => {
       await request.delete(`/admin/studio/${row.id}`)
       ElMessage.success('删除成功')
