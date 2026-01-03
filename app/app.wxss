@@ -5253,33 +5253,11 @@ scroll-view.cu-steps .cu-item {
 }
 
 page::after {
-  animation: shadow-preload .1s;
-  animation-delay: 3s;
   content: "";
-  left: -1000px;
-  position: fixed;
-  top: -1000px
+  display: none;
 }
 
-@-webkit-keyframes shadow-preload {
-  0% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
-  }
-
-  100% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
-  }
-}
-
-@keyframes shadow-preload {
-  0% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
-  }
-
-  100% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
-  }
-}
+/* 移除了外部CDN图片预加载动画以提升首次加载速度 */
 
 [bind-data-custom-hidden="true"],
 [data-custom-hidden="true"] {
