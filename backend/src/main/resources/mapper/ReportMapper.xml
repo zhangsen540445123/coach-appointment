@@ -7,7 +7,7 @@
         SELECT COALESCE(SUM(price), 0) FROM consult_order
         WHERE status >= 1 AND status != 4 AND status != 5
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
     </select>
 
@@ -17,7 +17,7 @@
         WHERE 1=1
         <if test="status != null">AND status = #{status}</if>
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
     </select>
 
@@ -26,7 +26,7 @@
         SELECT COALESCE(SUM(price), 0) FROM consult_order
         WHERE status = 5
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
     </select>
 
@@ -46,7 +46,7 @@
         FROM consult_order
         WHERE status >= 1 AND status != 4 AND status != 5
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
         GROUP BY period ORDER BY period
     </select>
@@ -69,7 +69,7 @@
         FROM consult_order
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         <if test="counselorId != null">AND counselor_id = #{counselorId}</if>
         GROUP BY period ORDER BY period
     </select>
@@ -78,9 +78,10 @@
     <select id="getCounselorRevenueRank" resultType="java.util.Map">
         SELECT c.id, c.name, c.head_url as headUrl, COALESCE(SUM(o.price), 0) as revenue, COUNT(o.id) as orderCount
         FROM counselor c
-        LEFT JOIN consult_order o ON c.id = o.counselor_id AND o.status >= 1 AND o.status != 4 AND o.status != 5
-        <if test="startDate != null">AND o.created_at >= #{startDate}</if>
-        <if test="endDate != null">AND o.created_at &lt;= #{endDate}</if>
+        LEFT JOIN consult_order o ON c.id = o.counselor_id
+            AND o.status >= 1 AND o.status != 4 AND o.status != 5
+            <if test="startDate != null">AND o.created_at >= #{startDate}</if>
+            <if test="endDate != null">AND o.created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         GROUP BY c.id ORDER BY revenue DESC LIMIT #{limit}
     </select>
 
@@ -89,7 +90,7 @@
         SELECT COUNT(*) FROM user
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
     </select>
 
     <!-- 总用户数 -->
@@ -102,7 +103,7 @@
         SELECT COUNT(*) FROM counselor
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
     </select>
 
     <!-- 总教练数 -->
@@ -120,7 +121,7 @@
         SELECT COUNT(*) FROM user_star
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
     </select>
 
     <!-- 总收藏数 -->
@@ -143,7 +144,7 @@
         FROM user
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         GROUP BY period ORDER BY period
     </select>
 
@@ -162,7 +163,7 @@
         FROM user_star
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         GROUP BY period ORDER BY period
     </select>
 
@@ -176,7 +177,7 @@
         FROM consult_order
         WHERE 1=1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
     </select>
 
     <!-- 平均评分 -->
@@ -184,7 +185,7 @@
         SELECT COALESCE(AVG(rating), 0) FROM order_review
         WHERE is_visible = 1
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
     </select>
 
     <!-- 热门城市分布 -->
@@ -204,7 +205,7 @@
         FROM consult_order
         WHERE status >= 1 AND status != 4 AND status != 5
         <if test="startDate != null">AND created_at >= #{startDate}</if>
-        <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        <if test="endDate != null">AND created_at &lt; DATE_ADD(#{endDate}, INTERVAL 1 DAY)</if>
         GROUP BY consult_way
     </select>
 </mapper>
