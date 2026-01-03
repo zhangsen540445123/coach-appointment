@@ -3,8 +3,10 @@ package com.umxinli.controller;
 import com.umxinli.dto.ApiResponse;
 import com.umxinli.dto.CounselorFilterRequest;
 import com.umxinli.dto.CounselorFilterResponse;
+import com.umxinli.entity.ConsultGuide;
 import com.umxinli.service.CarouselService;
 import com.umxinli.service.CityService;
+import com.umxinli.service.ConsultGuideService;
 import com.umxinli.service.CounselorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,15 +22,18 @@ import java.util.Map;
 public class OrderConsultController {
 
     private static final Logger log = LoggerFactory.getLogger(OrderConsultController.class);
-    
+
     @Autowired
     private CounselorService counselorService;
-    
+
     @Autowired
     private CarouselService carouselService;
-    
+
     @Autowired
     private CityService cityService;
+
+    @Autowired
+    private ConsultGuideService consultGuideService;
 
     @PostMapping("/filter")
     public ApiResponse<CounselorFilterResponse> filterCounselors(@RequestBody CounselorFilterRequest request) {
@@ -62,6 +67,29 @@ public class OrderConsultController {
         } catch (Exception e) {
             log.error("Error getting city list", e);
             return ApiResponse.error("Failed to get city list");
+        }
+    }
+
+    /**
+     * 获取咨询指南列表
+     * GET /orderConsult/getConsultGuide
+     * 
+     * @param category 可选，分类 0=预约需知 1=常见问题
+     */
+    @GetMapping("/getConsultGuide")
+    public ApiResponse<Object> getConsultGuide(@RequestParam(required = false) Integer category) {
+        log.info("Get consult guide request, category: {}", category);
+        try {
+            List<ConsultGuide> list;
+            if (category != null) {
+                list = consultGuideService.getActiveByCateogry(category);
+            } else {
+                list = consultGuideService.getActiveList();
+            }
+            return ApiResponse.success(list);
+        } catch (Exception e) {
+            log.error("Error getting consult guide", e);
+            return ApiResponse.error("获取咨询指南失败");
         }
     }
 }

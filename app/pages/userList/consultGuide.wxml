@@ -1,2 +1,43 @@
 <!--pages/userList/consultGuide.wxml-->
-<text>pages/userList/consultGuide.wxml</text>
+<view class="consult-guide-page">
+  <!-- Tab 切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{activeTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">
+      预约需知
+    </view>
+    <view class="tab-item {{activeTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">
+      常见问题
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-area">
+    <view class="section-title">{{activeTab === 0 ? '预约需知' : '常见问题'}}</view>
+    
+    <!-- 列表 -->
+    <view class="guide-list" wx:if="{{guideList.length > 0}}">
+      <view class="guide-item" wx:for="{{guideList}}" wx:key="id" bindtap="toggleItem" data-index="{{index}}">
+        <view class="item-header">
+          <view class="item-title">{{index + 1}}. {{item.title}}</view>
+          <view class="item-arrow {{item.expanded ? 'expanded' : ''}}">
+            <text class="arrow-icon">∨</text>
+          </view>
+        </view>
+        <view class="item-content {{item.expanded ? 'show' : ''}}">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && guideList.length === 0}}">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无内容</text>
+    </view>
+
+    <!-- 加载中 -->
+    <view class="loading-state" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>
