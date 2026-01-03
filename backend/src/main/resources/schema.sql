@@ -158,6 +158,8 @@ CREATE TABLE IF NOT EXISTS `coupon` (
   `min_amount` DECIMAL(10, 2) DEFAULT 0 COMMENT '最低消费金额',
   `coach_scope` INT DEFAULT 1 COMMENT '适用范围: 1-全部教练 2-指定教练',
   `coach_ids` TEXT COMMENT '指定教练ID列表(JSON)',
+  `coupon_type` INT DEFAULT 0 COMMENT '优惠券类型：0=教练咨询优惠券，1=活动优惠券',
+  `applicable_studio_id` BIGINT NULL COMMENT '适用活动ID，NULL表示适用所有活动',
   `start_time` DATETIME COMMENT '有效期开始时间',
   `end_time` DATETIME COMMENT '有效期结束时间',
   `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-启用',
@@ -165,7 +167,9 @@ CREATE TABLE IF NOT EXISTS `coupon` (
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_status (status),
   INDEX idx_start_time (start_time),
-  INDEX idx_end_time (end_time)
+  INDEX idx_end_time (end_time),
+  INDEX idx_coupon_type (coupon_type),
+  INDEX idx_applicable_studio_id (applicable_studio_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='优惠券表';
 
 -- 用户优惠券表
@@ -419,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `dict_item` (
   INDEX idx_enabled (enabled)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='数据字典项表';
 
--- 咨询工作室表
+-- 咨询工作室表（悦行活动）
 CREATE TABLE IF NOT EXISTS `consult_studio` (
   `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '工作室ID',
   `studio_name` VARCHAR(200) NOT NULL COMMENT '工作室名称',
@@ -433,14 +437,18 @@ CREATE TABLE IF NOT EXISTS `consult_studio` (
   `location_latitude` DECIMAL(10, 6) COMMENT '纬度',
   `concat_phone` VARCHAR(50) COMMENT '联系电话',
   `qr_code_url` VARCHAR(500) COMMENT '二维码图片URL',
+  `price` DECIMAL(10, 2) DEFAULT 0 COMMENT '活动价格，0表示免费',
+  `booking_type` INT DEFAULT 1 COMMENT '预约方式：0=仅电话预约，1=支持线上预约，2=两者都支持',
+  `max_participants` INT DEFAULT 0 COMMENT '最大参与人数，0表示不限制',
   `sort_order` INT DEFAULT 0 COMMENT '排序',
   `enabled` TINYINT DEFAULT 1 COMMENT '是否启用 0-禁用 1-启用',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   INDEX idx_studio_type (studio_type),
   INDEX idx_enabled (enabled),
-  INDEX idx_sort_order (sort_order)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='咨询工作室表';
+  INDEX idx_sort_order (sort_order),
+  INDEX idx_booking_type (booking_type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='咨询工作室表（悦行活动）';
 
 -- 工作室教练关联表
 CREATE TABLE IF NOT EXISTS `studio_counselor` (
@@ -453,6 +461,24 @@ CREATE TABLE IF NOT EXISTS `studio_counselor` (
   INDEX idx_studio_id (studio_id),
   INDEX idx_counselor_id (counselor_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='工作室教练关联表';
+
+-- 活动预约表
+CREATE TABLE IF NOT EXISTS `studio_booking` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '预约ID',
+  `studio_id` BIGINT NOT NULL COMMENT '活动ID',
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `order_no` VARCHAR(50) COMMENT '订单号（收费活动）',
+  `status` INT DEFAULT 0 COMMENT '预约状态：0=待支付，1=已支付/预约成功，2=已取消',
+  `price` DECIMAL(10, 2) DEFAULT 0 COMMENT '实际支付金额',
+  `payment_time` TIMESTAMP NULL COMMENT '支付时间',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '预约时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_studio_id (studio_id),
+  INDEX idx_user_id (user_id),
+  INDEX idx_order_no (order_no),
+  INDEX idx_status (status),
+  UNIQUE KEY uk_studio_user (studio_id, user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='活动预约表';
 
 -- 为 counselor 表添加置顶相关字段
 ALTER TABLE counselor ADD COLUMN is_top TINYINT DEFAULT 0 COMMENT '是否置顶：0-否，1-是';

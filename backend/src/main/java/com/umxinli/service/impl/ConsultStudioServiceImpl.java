@@ -28,15 +28,27 @@ public class ConsultStudioServiceImpl implements ConsultStudioService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired(required = false)
+    private com.umxinli.mapper.StudioBookingMapper studioBookingMapper;
+
     @Override
     public Map<String, Object> getStudioList(int page, int size) {
         List<ConsultStudio> list = studioMapper.selectAll();
+
+        // 填充当前参与人数
+        if (studioBookingMapper != null) {
+            for (ConsultStudio studio : list) {
+                int count = studioBookingMapper.countByStudioIdAndStatus(studio.getId(), 1);
+                studio.setCurrentParticipants(count);
+            }
+        }
+
         int total = list.size();
         int start = (page - 1) * size;
         int end = Math.min(start + size, total);
-        
+
         List<ConsultStudio> pageList = start < total ? list.subList(start, end) : new ArrayList<>();
-        
+
         Map<String, Object> result = new HashMap<>();
         result.put("list", pageList);
         result.put("total", total);

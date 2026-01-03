@@ -26,6 +26,20 @@
         </el-table-column>
         <el-table-column prop="studioOpenTime" label="活动时间" min-width="180" />
         <el-table-column prop="summaryAddress" label="地址" min-width="200" show-overflow-tooltip />
+        <el-table-column label="价格" width="100">
+          <template #default="{ row }">
+            <span v-if="row.price && row.price > 0">¥{{ row.price }}</span>
+            <el-tag v-else type="success" size="small">免费</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="预约方式" width="120">
+          <template #default="{ row }">
+            <span v-if="row.bookingType === 0">仅电话</span>
+            <span v-else-if="row.bookingType === 1">线上预约</span>
+            <span v-else-if="row.bookingType === 2">两者都支持</span>
+            <span v-else>-</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="enabled" label="状态" width="80">
           <template #default="{ row }">
             <el-tag :type="row.enabled === 1 ? 'success' : 'info'" size="small">
@@ -33,9 +47,10 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="220" fixed="right">
+        <el-table-column label="操作" width="280" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" link size="small" @click="handleEdit(row)">编辑</el-button>
+            <el-button type="info" link size="small" @click="handleViewBookings(row)">查看预约</el-button>
             <el-button :type="row.enabled === 1 ? 'warning' : 'success'" link size="small" @click="handleToggle(row)">
               {{ row.enabled === 1 ? '禁用' : '启用' }}
             </el-button>
@@ -88,6 +103,21 @@
         <el-form-item label="联系电话">
           <el-input v-model="form.concatPhone" placeholder="请输入联系电话" style="width: 300px;" />
         </el-form-item>
+        <el-form-item label="活动价格">
+          <el-input-number v-model="form.price" :min="0" :precision="2" :step="10" style="width: 200px;" />
+          <span class="form-tip" style="margin-left: 10px;">0表示免费活动</span>
+        </el-form-item>
+        <el-form-item label="预约方式">
+          <el-radio-group v-model="form.bookingType">
+            <el-radio :label="0">仅电话预约</el-radio>
+            <el-radio :label="1">支持线上预约</el-radio>
+            <el-radio :label="2">两者都支持</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="人数限制">
+          <el-input-number v-model="form.maxParticipants" :min="0" :step="1" style="width: 200px;" />
+          <span class="form-tip" style="margin-left: 10px;">0表示不限制人数</span>
+        </el-form-item>
         <el-form-item label="二维码">
           <div class="qrcode-section">
             <el-image v-if="form.qrCodeUrl" :src="getImageUrl(form.qrCodeUrl)" fit="contain" class="qrcode-preview" />
@@ -136,7 +166,8 @@ const coverImages = ref([])
 const form = reactive({
   id: null, studioName: '', studioType: 0, studioCoverImgList: '', studioOpenTime: '',
   summaryAddress: '', fullAddress: '', locationLongitude: '', locationLatitude: '',
-  concatPhone: '', qrCodeUrl: '', studioDetail: '', sortOrder: 0, enabled: 1
+  concatPhone: '', qrCodeUrl: '', studioDetail: '', sortOrder: 0, enabled: 1,
+  price: 0, bookingType: 1, maxParticipants: 0
 })
 
 const getImageUrl = (url) => {
@@ -168,7 +199,8 @@ const resetForm = () => {
   Object.assign(form, {
     id: null, studioName: '', studioType: 0, studioCoverImgList: '', studioOpenTime: '',
     summaryAddress: '', fullAddress: '', locationLongitude: '', locationLatitude: '',
-    concatPhone: '', qrCodeUrl: '', studioDetail: '', sortOrder: 0, enabled: 1
+    concatPhone: '', qrCodeUrl: '', studioDetail: '', sortOrder: 0, enabled: 1,
+    price: 0, bookingType: 1, maxParticipants: 0
   })
   coverImages.value = []
 }
@@ -243,6 +275,11 @@ const handleDelete = (row) => {
       ElMessage.success('删除成功')
       loadData()
     }).catch(() => {})
+}
+
+const handleViewBookings = (row) => {
+  // 跳转到预约列表页面
+  window.open(`/admin/studio/${row.id}/bookings`, '_blank')
 }
 
 onMounted(() => loadData())

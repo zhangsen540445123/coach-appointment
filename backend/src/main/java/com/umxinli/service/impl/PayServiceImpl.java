@@ -51,6 +51,9 @@ public class PayServiceImpl implements PayService {
     @Autowired
     private CouponMapper couponMapper;
 
+    @Autowired(required = false)
+    private com.umxinli.mapper.StudioBookingMapper studioBookingMapper;
+
     @Override
     public Map calculateOrderPrice(Long orderId, Long userCouponId) {
         log.info("Calculating order price for orderId: {}, userCouponId: {}", orderId, userCouponId);
@@ -385,26 +388,47 @@ public class PayServiceImpl implements PayService {
         record.setNotifyData(xmlData);
         paymentRecordMapper.update(record);
 
-        // 更新订单状态为已支付
-        Order order = orderMapper.selectById(record.getOrderId());
-        if (order != null) {
-            // 检查订单是否已被取消（边界情况：支付回调到达时订单刚好被超时取消）
-            if (order.getStatus() != null && order.getStatus() == 4) {
-                log.warn("订单已被取消，但收到支付回调，需要触发退款流程: orderId={}, transactionId={}",
-                        record.getOrderId(), transactionId);
-                // 触发自动退款流程
-                autoRefund(record.getOrderId(), transactionId, record.getAmount(), "订单超时取消后支付，自动退款");
-                return true; // 仍返回成功，避免微信重复回调
+        // 判断是教练订单还是活动预约订单
+        if (outTradeNo.startsWith("STUDIO")) {
+            // 活动预约订单
+            if (studioBookingMapper != null) {
+                com.umxinli.entity.StudioBooking booking = studioBookingMapper.selectByOrderNo(outTradeNo);
+                if (booking != null) {
+                    if (booking.getStatus() == 1) {
+                        log.info("活动预约已支付，跳过重复回调: orderNo={}", outTradeNo);
+                        return true;
+                    }
+                    booking.setStatus(1);
+                    booking.setPaymentTime(new Date());
+                    studioBookingMapper.update(booking);
+                    log.info("活动预约支付成功: bookingId={}, orderNo={}, transactionId={}, amount={}元",
+                            booking.getId(), outTradeNo, transactionId, record.getAmount());
+                } else {
+                    log.warn("活动预约不存在: orderNo={}", outTradeNo);
+                }
             }
-
-            // 正常情况：更新订单状态为已支付
-            order.setStatus(1); // 已支付
-            order.setPaymentTime(new Date());
-            orderMapper.updateById(order);
-            log.info("订单支付成功: orderId={}, orderNo={}, transactionId={}, amount={}元",
-                    record.getOrderId(), record.getOrderNo(), transactionId, record.getAmount());
         } else {
-            log.warn("订单不存在，但支付记录已更新: orderId={}, outTradeNo={}", record.getOrderId(), outTradeNo);
+            // 教练咨询订单
+            Order order = orderMapper.selectById(record.getOrderId());
+            if (order != null) {
+                // 检查订单是否已被取消（边界情况：支付回调到达时订单刚好被超时取消）
+                if (order.getStatus() != null && order.getStatus() == 4) {
+                    log.warn("订单已被取消，但收到支付回调，需要触发退款流程: orderId={}, transactionId={}",
+                            record.getOrderId(), transactionId);
+                    // 触发自动退款流程
+                    autoRefund(record.getOrderId(), transactionId, record.getAmount(), "订单超时取消后支付，自动退款");
+                    return true; // 仍返回成功，避免微信重复回调
+                }
+
+                // 正常情况：更新订单状态为已支付
+                order.setStatus(1); // 已支付
+                order.setPaymentTime(new Date());
+                orderMapper.updateById(order);
+                log.info("订单支付成功: orderId={}, orderNo={}, transactionId={}, amount={}元",
+                        record.getOrderId(), record.getOrderNo(), transactionId, record.getAmount());
+            } else {
+                log.warn("订单不存在，但支付记录已更新: orderId={}, outTradeNo={}", record.getOrderId(), outTradeNo);
+            }
         }
 
         return true;

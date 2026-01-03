@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.StudioBookingMapper">
+
+    <resultMap id="BaseResultMap" type="com.umxinli.entity.StudioBooking">
+        <id column="id" property="id"/>
+        <result column="studio_id" property="studioId"/>
+        <result column="user_id" property="userId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="status" property="status"/>
+        <result column="price" property="price"/>
+        <result column="payment_time" property="paymentTime"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="studio_name" property="studioName"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, studio_id, user_id, order_no, status, price, payment_time, created_at, updated_at
+    </sql>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM studio_booking
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByStudioAndUser" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM studio_booking
+        WHERE studio_id = #{studioId} AND user_id = #{userId}
+    </select>
+
+    <select id="selectByOrderNo" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM studio_booking
+        WHERE order_no = #{orderNo}
+    </select>
+
+    <select id="selectByStudioId" resultMap="BaseResultMap">
+        SELECT 
+            sb.*,
+            u.name as user_name,
+            u.phone as user_phone
+        FROM studio_booking sb
+        LEFT JOIN user u ON sb.user_id = u.id
+        WHERE sb.studio_id = #{studioId}
+        ORDER BY sb.created_at DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT 
+            sb.*,
+            cs.studio_name
+        FROM studio_booking sb
+        LEFT JOIN consult_studio cs ON sb.studio_id = cs.id
+        WHERE sb.user_id = #{userId}
+        ORDER BY sb.created_at DESC
+    </select>
+
+    <select id="countByStudioId" resultType="int">
+        SELECT COUNT(*) FROM studio_booking WHERE studio_id = #{studioId}
+    </select>
+
+    <select id="countByStudioIdAndStatus" resultType="int">
+        SELECT COUNT(*) FROM studio_booking 
+        WHERE studio_id = #{studioId} AND status = #{status}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO studio_booking (studio_id, user_id, order_no, status, price, payment_time)
+        VALUES (#{studioId}, #{userId}, #{orderNo}, #{status}, #{price}, #{paymentTime})
+    </insert>
+
+    <update id="update">
+        UPDATE studio_booking
+        <set>
+            <if test="status != null">status = #{status},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="paymentTime != null">payment_time = #{paymentTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE studio_booking SET status = #{status} WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM studio_booking WHERE id = #{id}
+    </delete>
+
+</mapper>
+

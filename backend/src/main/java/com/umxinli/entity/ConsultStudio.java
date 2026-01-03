@@ -19,8 +19,15 @@ public class ConsultStudio {
     private String qrCodeUrl;
     private Integer sortOrder;
     private Integer enabled;
+    private BigDecimal price; // 活动价格，0表示免费
+    private Integer bookingType; // 预约方式：0=仅电话预约，1=支持线上预约，2=两者都支持
+    private Integer maxParticipants; // 最大参与人数，0表示不限制
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    // 扩展字段
+    private Integer currentParticipants; // 当前参与人数
+    private Boolean hasBooked; // 当前用户是否已预约
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -67,6 +74,21 @@ public class ConsultStudio {
 
     public Integer getEnabled() { return enabled; }
     public void setEnabled(Integer enabled) { this.enabled = enabled; }
+
+    public BigDecimal getPrice() { return price; }
+    public void setPrice(BigDecimal price) { this.price = price; }
+
+    public Integer getBookingType() { return bookingType; }
+    public void setBookingType(Integer bookingType) { this.bookingType = bookingType; }
+
+    public Integer getMaxParticipants() { return maxParticipants; }
+    public void setMaxParticipants(Integer maxParticipants) { this.maxParticipants = maxParticipants; }
+
+    public Integer getCurrentParticipants() { return currentParticipants; }
+    public void setCurrentParticipants(Integer currentParticipants) { this.currentParticipants = currentParticipants; }
+
+    public Boolean getHasBooked() { return hasBooked; }
+    public void setHasBooked(Boolean hasBooked) { this.hasBooked = hasBooked; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }

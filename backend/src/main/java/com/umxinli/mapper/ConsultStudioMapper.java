@@ -22,6 +22,8 @@ public interface ConsultStudioMapper {
         @Result(property = "concatPhone", column = "concat_phone"),
         @Result(property = "qrCodeUrl", column = "qr_code_url"),
         @Result(property = "sortOrder", column = "sort_order"),
+        @Result(property = "bookingType", column = "booking_type"),
+        @Result(property = "maxParticipants", column = "max_participants"),
         @Result(property = "createdAt", column = "created_at"),
         @Result(property = "updatedAt", column = "updated_at")
     })
@@ -41,6 +43,8 @@ public interface ConsultStudioMapper {
         @Result(property = "concatPhone", column = "concat_phone"),
         @Result(property = "qrCodeUrl", column = "qr_code_url"),
         @Result(property = "sortOrder", column = "sort_order"),
+        @Result(property = "bookingType", column = "booking_type"),
+        @Result(property = "maxParticipants", column = "max_participants"),
         @Result(property = "createdAt", column = "created_at"),
         @Result(property = "updatedAt", column = "updated_at")
     })
@@ -60,6 +64,8 @@ public interface ConsultStudioMapper {
         @Result(property = "concatPhone", column = "concat_phone"),
         @Result(property = "qrCodeUrl", column = "qr_code_url"),
         @Result(property = "sortOrder", column = "sort_order"),
+        @Result(property = "bookingType", column = "booking_type"),
+        @Result(property = "maxParticipants", column = "max_participants"),
         @Result(property = "createdAt", column = "created_at"),
         @Result(property = "updatedAt", column = "updated_at")
     })
@@ -67,10 +73,10 @@ public interface ConsultStudioMapper {
 
     @Insert("INSERT INTO consult_studio (studio_name, studio_type, studio_cover_img_list, studio_open_time, " +
             "studio_detail, summary_address, full_address, location_longitude, location_latitude, " +
-            "concat_phone, qr_code_url, sort_order, enabled) VALUES " +
+            "concat_phone, qr_code_url, sort_order, enabled, price, booking_type, max_participants) VALUES " +
             "(#{studioName}, #{studioType}, #{studioCoverImgList}, #{studioOpenTime}, #{studioDetail}, " +
             "#{summaryAddress}, #{fullAddress}, #{locationLongitude}, #{locationLatitude}, " +
-            "#{concatPhone}, #{qrCodeUrl}, #{sortOrder}, #{enabled})")
+            "#{concatPhone}, #{qrCodeUrl}, #{sortOrder}, #{enabled}, #{price}, #{bookingType}, #{maxParticipants})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(ConsultStudio studio);
 
@@ -79,7 +85,7 @@ public interface ConsultStudioMapper {
             "studio_detail = #{studioDetail}, summary_address = #{summaryAddress}, full_address = #{fullAddress}, " +
             "location_longitude = #{locationLongitude}, location_latitude = #{locationLatitude}, " +
             "concat_phone = #{concatPhone}, qr_code_url = #{qrCodeUrl}, sort_order = #{sortOrder}, " +
-            "enabled = #{enabled} WHERE id = #{id}")
+            "enabled = #{enabled}, price = #{price}, booking_type = #{bookingType}, max_participants = #{maxParticipants} WHERE id = #{id}")
     int update(ConsultStudio studio);
 
     @Delete("DELETE FROM consult_studio WHERE id = #{id}")
