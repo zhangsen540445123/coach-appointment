@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "咨询指南",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
 }

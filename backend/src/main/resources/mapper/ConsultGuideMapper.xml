@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umxinli.mapper.ConsultGuideMapper">
+
+    <resultMap id="consultGuideResultMap" type="com.umxinli.entity.ConsultGuide">
+        <id column="id" property="id"/>
+        <result column="category" property="category"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="selectById" parameterType="Long" resultMap="consultGuideResultMap">
+        SELECT * FROM consult_guide WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="consultGuideResultMap">
+        SELECT * FROM consult_guide ORDER BY category ASC, sort_order ASC, created_at DESC
+    </select>
+
+    <select id="selectByStatus" parameterType="Integer" resultMap="consultGuideResultMap">
+        SELECT * FROM consult_guide WHERE status = #{status} ORDER BY category ASC, sort_order ASC, created_at DESC
+    </select>
+
+    <select id="selectByCategory" parameterType="Integer" resultMap="consultGuideResultMap">
+        SELECT * FROM consult_guide WHERE category = #{category} ORDER BY sort_order ASC, created_at DESC
+    </select>
+
+    <select id="selectByCategoryAndStatus" resultMap="consultGuideResultMap">
+        SELECT * FROM consult_guide WHERE category = #{category} AND status = #{status} ORDER BY sort_order ASC, created_at DESC
+    </select>
+
+    <insert id="insert" parameterType="com.umxinli.entity.ConsultGuide">
+        INSERT INTO consult_guide (category, title, content, sort_order, status, created_at, updated_at)
+        VALUES (#{category}, #{title}, #{content}, #{sortOrder}, #{status}, NOW(), NOW())
+    </insert>
+
+    <update id="update" parameterType="com.umxinli.entity.ConsultGuide">
+        UPDATE consult_guide SET
+            category = #{category},
+            title = #{title},
+            content = #{content},
+            sort_order = #{sortOrder},
+            status = #{status},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM consult_guide WHERE id = #{id}
+    </delete>
+</mapper>

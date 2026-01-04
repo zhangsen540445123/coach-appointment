@@ -102,6 +102,21 @@ CREATE TABLE IF NOT EXISTS `carousel` (
   INDEX idx_sort_order (sort_order)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='轮播图表';
 
+-- 咨询指南表
+CREATE TABLE IF NOT EXISTS `consult_guide` (
+  `id` BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '咨询指南ID',
+  `category` INT NOT NULL DEFAULT 0 COMMENT '分类 0-预约需知 1-常见问题',
+  `title` VARCHAR(500) NOT NULL COMMENT '标题',
+  `content` LONGTEXT COMMENT '内容',
+  `sort_order` INT DEFAULT 0 COMMENT '排序',
+  `status` INT DEFAULT 1 COMMENT '状态 0-禁用 1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  INDEX idx_category (category),
+  INDEX idx_status (status),
+  INDEX idx_sort_order (sort_order)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='咨询指南表';
+
 -- 全局设置表
 CREATE TABLE IF NOT EXISTS `global_settings` (
   `id` INT PRIMARY KEY AUTO_INCREMENT COMMENT '设置ID',

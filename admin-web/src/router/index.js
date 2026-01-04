@@ -41,6 +41,10 @@ const routes = [{
                     import ('@/views/review/ReviewList.vue'), meta: { title: '评价管理', roles: [1] } },
             { path: 'carousel', name: 'CarouselList', component: () =>
                     import ('@/views/carousel/CarouselList.vue'), meta: { title: '轮播图管理', roles: [1] } },
+            {
+                path: 'consult-guide', name: 'ConsultGuideList', component: () =>
+                    import('@/views/consult-guide/ConsultGuideList.vue'), meta: { title: '咨询指南', roles: [1] }
+            },
             { path: 'feedback', name: 'FeedbackList', component: () =>
                     import ('@/views/feedback/Feedback.vue'), meta: { title: '用户反馈', roles: [1] } },
             { path: 'customer', name: 'CustomerList', component: () =>

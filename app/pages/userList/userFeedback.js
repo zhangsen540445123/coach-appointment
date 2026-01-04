@@ -1,6 +1,6 @@
 // pages/userList/userFeedback.js
 var app = getApp();
-var util = require('../../common/util.js');
+var config = require('../../utils/config');
 
 Page({
   data: {
@@ -45,17 +45,17 @@ Page({
         userName: that.data.globalData.nickName || '',
         content: that.data.content
       },
-      success: function(res) {
+      success: function (res) {
         if (res.data.code === 200) {
           wx.showToast({ title: '提交成功', icon: 'success' });
-          setTimeout(function() {
+          setTimeout(function () {
             wx.navigateBack();
           }, 1500);
         } else {
           wx.showToast({ title: res.data.msg || '提交失败', icon: 'none' });
         }
       },
-      fail: function() {
+      fail: function () {
         wx.showToast({ title: '网络错误', icon: 'none' });
       }
     });

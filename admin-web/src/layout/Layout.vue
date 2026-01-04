@@ -34,6 +34,10 @@
             <el-icon><Picture /></el-icon>
             <span>轮播图管理</span>
           </el-menu-item>
+          <el-menu-item index="/consult-guide">
+            <el-icon><QuestionFilled /></el-icon>
+            <span>咨询指南</span>
+          </el-menu-item>
           <el-menu-item index="/feedback">
             <el-icon><ChatDotRound /></el-icon>
             <span>用户反馈</span>
@@ -142,6 +146,7 @@ const activeMenu = computed(() => {
   if (path.startsWith('/audit')) return '/audit'
   if (path.startsWith('/review')) return '/review'
   if (path.startsWith('/carousel')) return '/carousel'
+  if (path.startsWith('/consult-guide')) return '/consult-guide'
   if (path.startsWith('/feedback')) return '/feedback'
   if (path.startsWith('/star')) return '/star'
   if (path.startsWith('/coupon')) return '/coupon'

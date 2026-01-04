@@ -1,12 +1,8 @@
-<view class="zhixun-guide _div data-v-99479f8e" wx:if="{{content}}">
+<view class="zhixun-guide _div data-v-99479f8e" wx:if="{{content}}" bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'goto',['$event'] ] ] ] ]}}">
   <view class="name _p data-v-99479f8e">咨询指南</view>
   <view class="line _div data-v-99479f8e"></view>
-  <!-- <view bindtap="__e" class="content _div data-v-99479f8e" data-event-opts="{{[ [ 'tap',[ [ 'goto',['$event'] ] ] ] ]}}">
-        <view class="_div data-v-99479f8e">
-            <uni-transition bind:__l="__l" class="data-v-99479f8e" duration="{{300}}" modeClass="slide-bottom" show="{{true}}" vueId="6a6107e6-1" vueSlots="{{['default']}}">
-                <view class="_p data-v-99479f8e">{{content.title}}</view>
-            </uni-transition>
-        </view>
-    </view> -->
+  <view class="content _div data-v-99479f8e" style="flex: 1;">
+    <view class="_p data-v-99479f8e">{{content.title}}</view>
+  </view>
   <image alt class="arrow _img data-v-99479f8e" src="{{$root.m0}}"></image>
 </view>
