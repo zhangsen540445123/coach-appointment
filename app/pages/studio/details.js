@@ -62,7 +62,12 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                                         case 6:
                                             return n.value = i.sent, console.log('Studio details loaded:', n.value), i.next = 9, (0, s.getStudioCounselorList)(c.id);
                                         case 9:
-                                            t.value = i.sent, console.log('Counselor list loaded:', t.value);
+                                            t.value = i.sent, console.log('Counselor list loaded:', t.value), setTimeout((function() {
+                                                var pageInstance = getCurrentPages()[getCurrentPages().length - 1];
+                                                if (pageInstance && pageInstance.loadBookingStatus) {
+                                                    pageInstance.loadBookingStatus();
+                                                }
+                                            }), 100);
                                         case 10:
                                         case"end":
                                             return i.stop()
@@ -84,16 +89,222 @@ require("./common/vendor.js"), (global.webpackJsonp = global.webpackJsonp || [])
                                     success: console.log,
                                     fail: console.log
                                 })
+                            }, handleBooking: function () {
+                                console.log('handleBooking called');
+                                var studioId = n.value.studioId;
+                                if (!studioId) {
+                                    console.log('studioId is empty');
+                                    e.showToast({title: '活动信息加载中', icon: 'none'});
+                                    return;
+                                }
+                                // 检查登录状态
+                                var loginManager = require('../../utils/loginManager.js');
+                                if (!loginManager.isLogined()) {
+                                    console.log('未登录');
+                                    e.showToast({title: '请先登录', icon: 'none'});
+                                    return;
+                                }
+                                // 检查手机号
+                                var userInfo = loginManager.getInfo();
+                                if (!userInfo.mobile) {
+                                    e.showModal({
+                                        title: '提示',
+                                        content: '预约活动需要绑定手机号',
+                                        confirmText: '去绑定',
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                e.navigateTo({url: '/pages/consult/completeInfo'});
+                                            }
+                                        }
+                                    });
+                                    return;
+                                }
+                                // 调用预约接口
+                                e.showLoading({title: '预约中...'});
+                                var api = require('../../utils/api.js');
+                                api.studioApi.bookStudio(studioId).then(function (res) {
+                                    e.hideLoading();
+                                    console.log('预约结果:', res);
+                                    if (res.data && res.data.code === 200) {
+                                        e.showToast({title: '预约成功', icon: 'success'});
+                                    } else {
+                                        e.showToast({title: res.data.message || '预约失败', icon: 'none'});
+                                    }
+                                }).catch(function (err) {
+                                    e.hideLoading();
+                                    console.error('预约失败:', err);
+                                    e.showToast({title: '预约失败', icon: 'none'});
+                                });
                             }
                         }
                     }, data: function () {
-                        return {studioCoverImgListIndex: 0, showQrModal: false}
+                        return {studioCoverImgListIndex: 0, showQrModal: false, bookingStatus: null}
                     }, methods: {
                         previewQrCode: function () {
                             this.showQrModal = true
                         },
                         closeQrModal: function () {
                             this.showQrModal = false
+                        }
+                            // 检查登录状态
+                            var loginManager = require('../../utils/loginManager.js');
+                            if (!loginManager.isLogined()) {
+                                console.log('未登录，打开登录面板');
+                                this.$refs.pageContainer.openLoginPanel();
+                                return;
+                            }
+                            // 检查手机号绑定
+                            var userInfo = loginManager.getInfo();
+                            if (!userInfo.mobile) {
+                                e.showModal({
+                                    title: '提示',
+                                    content: '预约活动需要绑定手机号，请先完善个人信息',
+                                    confirmText: '去绑定',
+                                    success: function (res) {
+                                        if (res.confirm) {
+                                            e.navigateTo({
+                                                url: '/pages/consult/completeInfo'
+                                            });
+                                        }
+                                    }
+                                });
+                                return;
+                            }
+                            // 如果是待支付状态，调起支付
+                            if (n.bookingStatus && n.bookingStatus.status === 0) {
+                                n.payForBooking(n.bookingStatus.bookingId);
+                                return;
+                            }
+                            // 如果已预约，提示
+                            if (n.bookingStatus && n.bookingStatus.status === 1) {
+                                e.showToast({
+                                    title: '您已预约该活动',
+                                    icon: 'none'
+                                });
+                                return;
+                            }
+                            // 调用预约接口
+                            n.bookStudio();
+                        },
+                        bookStudio: function () {
+                            var n = this;
+                            var studioId = n.details.studioId;
+                            console.log('开始预约活动:', studioId);
+                            e.showLoading({
+                                title: '预约中...'
+                            });
+                            var api = require('../../utils/api.js');
+                            api.studioApi.bookStudio(studioId).then(function (res) {
+                                e.hideLoading();
+                                console.log('预约结果:', res);
+                                if (res.data.code === 200) {
+                                    var data = res.data.data;
+                                    if (data.isFree) {
+                                        // 免费活动，直接预约成功
+                                        e.showToast({
+                                            title: '预约成功',
+                                            icon: 'success'
+                                        });
+                                        n.bookingStatus = {
+                                            status: 1,
+                                            bookingId: data.bookingId
+                                        };
+                                    } else {
+                                        // 收费活动，调起支付
+                                        n.bookingStatus = {
+                                            status: 0,
+                                            bookingId: data.bookingId
+                                        };
+                                        n.payForBooking(data.bookingId);
+                                    }
+                                } else {
+                                    e.showToast({
+                                        title: res.data.message || '预约失败',
+                                        icon: 'none'
+                                    });
+                                }
+                            }).catch(function (err) {
+                                e.hideLoading();
+                                console.error('预约失败:', err);
+                                e.showToast({
+                                    title: '预约失败，请重试',
+                                    icon: 'none'
+                                });
+                            });
+                        },
+                        payForBooking: function (bookingId) {
+                            var n = this;
+                            console.log('开始支付:', bookingId);
+                            e.showLoading({
+                                title: '获取支付参数...'
+                            });
+                            var api = require('../../utils/api.js');
+                            api.studioApi.payForBooking(bookingId).then(function (res) {
+                                e.hideLoading();
+                                console.log('支付参数:', res);
+                                if (res.data.code === 200) {
+                                    var payParams = res.data.data;
+                                    e.requestPayment({
+                                        timeStamp: payParams.timeStamp,
+                                        nonceStr: payParams.nonceStr,
+                                        package: payParams.package,
+                                        signType: payParams.signType,
+                                        paySign: payParams.paySign,
+                                        success: function () {
+                                            e.showToast({
+                                                title: '支付成功',
+                                                icon: 'success'
+                                            });
+                                            n.bookingStatus = {
+                                                status: 1,
+                                                bookingId: bookingId
+                                            };
+                                        },
+                                        fail: function (err) {
+                                            console.error('支付失败:', err);
+                                            if (err.errMsg.indexOf('cancel') > -1) {
+                                                e.showToast({
+                                                    title: '已取消支付',
+                                                    icon: 'none'
+                                                });
+                                            } else {
+                                                e.showToast({
+                                                    title: '支付失败',
+                                                    icon: 'none'
+                                                });
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    e.showToast({
+                                        title: res.data.message || '获取支付参数失败',
+                                        icon: 'none'
+                                    });
+                                }
+                            }).catch(function (err) {
+                                e.hideLoading();
+                                console.error('获取支付参数失败:', err);
+                                e.showToast({
+                                    title: '获取支付参数失败',
+                                    icon: 'none'
+                                });
+                            });
+                        },
+                        loadBookingStatus: function () {
+                            var n = this;
+                            var studioId = n.details.studioId;
+                            if (!studioId) return;
+                            var loginManager = require('../../utils/loginManager.js');
+                            if (!loginManager.isLogined()) return;
+                            var api = require('../../utils/api.js');
+                            api.studioApi.getBookingStatus(studioId).then(function (res) {
+                                console.log('预约状态:', res);
+                                if (res.data.code === 200 && res.data.data) {
+                                    n.bookingStatus = res.data.data;
+                                }
+                            }).catch(function (err) {
+                                console.error('获取预约状态失败:', err);
+                            });
                         }
                     }
                 };

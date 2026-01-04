@@ -12,6 +12,17 @@
         </view>
         <view class="studio-info__name _p data-v-a87f5706">{{details.studioName}}</view>
         <view class="studio-info__time _p data-v-a87f5706">{{'营业时间：'+details.studioOpenTime}}</view>
+        <!-- 价格信息 -->
+        <view class="studio-info__price _div data-v-a87f5706" wx:if="{{details.price !== undefined}}">
+            <text class="price-label _span data-v-a87f5706">活动价格：</text>
+            <text class="price-value _span data-v-a87f5706" wx:if="{{details.price > 0}}">¥{{details.price}}</text>
+            <text class="price-free _span data-v-a87f5706" wx:else>免费</text>
+        </view>
+        <!-- 预约状态 -->
+        <view class="studio-info__booking-status _div data-v-a87f5706" wx:if="{{bookingStatus}}">
+            <text class="status-booked _span data-v-a87f5706" wx:if="{{bookingStatus.status === 1}}">✓ 已预约</text>
+            <text class="status-pending _span data-v-a87f5706" wx:elif="{{bookingStatus.status === 0}}">待支付</text>
+        </view>
         <view class="studio-info__footer _div data-v-a87f5706" wx:if="{{details.studioType===0&&details.summaryAddress}}">
             <view class="studio-info__address _p data-v-a87f5706">{{'地址：'+details.summaryAddress+''}}</view>
             <view bindtap="__e" class="studio-info__navigation _div data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'openLocation',['$event'] ] ] ] ]}}" wx:if="{{details.locationLongitude&&details.locationLatitude}}">
@@ -38,7 +49,14 @@
     <view class="_div data-v-a87f5706" style="height:200rpx;"></view>
     <view class="studio-footer _div data-v-a87f5706">
         <view bindtap="previewQrCode" class="studio-footer__contact _p data-v-a87f5706" wx:if="{{details.qrCodeUrl}}">联系助理</view>
+        <!-- 电话预约按钮 -->
         <view bindtap="__e" class="studio-footer__mobile _p data-v-a87f5706" data-event-opts="{{[ [ 'tap',[ [ 'call',['$event'] ] ] ] ]}}" wx:if="{{details.concatPhone}}">电话预约</view>
+        <!-- 立即预约按钮 - 始终显示 -->
+        <view bindtap="handleBooking" class="studio-footer__booking _p data-v-a87f5706">
+            <text wx:if="{{bookingStatus && bookingStatus.status === 1}}">已预约</text>
+            <text wx:elif="{{bookingStatus && bookingStatus.status === 0}}">去支付</text>
+            <text wx:else>立即预约</text>
+        </view>
     </view>
     <!-- 二维码弹窗 -->
     <view class="qrcode-modal _div data-v-a87f5706" wx:if="{{showQrModal}}" bindtap="closeQrModal">

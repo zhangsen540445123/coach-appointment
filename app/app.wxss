@@ -5263,21 +5263,21 @@ page::after {
 
 @-webkit-keyframes shadow-preload {
   0% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
+    background-image: url(/static/img/shadow-grey.png)
   }
 
   100% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
+    background-image: url(/static/img/shadow-grey.png)
   }
 }
 
 @keyframes shadow-preload {
   0% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
+    background-image: url(/static/img/shadow-grey.png)
   }
 
   100% {
-    background-image: url(https://cdn1.dcloud.net.cn/517a5977516a63315179556c6433686859324668596d466a5a6a51355a6a686c4e474d78/img/shadow-grey.png)
+    background-image: url(/static/img/shadow-grey.png)
   }
 }
 

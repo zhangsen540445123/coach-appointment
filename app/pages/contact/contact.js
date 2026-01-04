@@ -34,7 +34,7 @@ Page({
                 } else {
                     console.error("获取客服二维码失败:", res.data.msg);
                     that.setData({
-                        qrCodeUrl: 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20211115/351753974260_.pic_hd.jpg',
+                        qrCodeUrl: '',
                         loading: false
                     });
                 }
@@ -42,7 +42,7 @@ Page({
             fail: function(err) {
                 console.error("获取客服二维码网络错误:", err);
                 that.setData({
-                    qrCodeUrl: 'https://umxinli.oss-cn-shanghai.aliyuncs.com/resource/20211115/351753974260_.pic_hd.jpg',
+                    qrCodeUrl: '',
                     loading: false
                 });
                 wx.showToast({

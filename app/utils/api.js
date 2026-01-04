@@ -265,6 +265,68 @@ const payApi = {
 };
 
 /**
+ * 活动相关 API
+ */
+const studioApi = {
+  // 获取活动列表
+  getList() {
+    return request({
+      url: '/api/studio/list',
+      method: 'GET'
+    });
+  },
+
+  // 获取活动详情
+  getDetail(id) {
+    return request({
+      url: `/api/studio/${id}`,
+      method: 'GET'
+    });
+  },
+
+  // 预约活动
+  bookStudio(studioId) {
+    return request({
+      url: `/api/studio/${studioId}/book`,
+      method: 'POST'
+    });
+  },
+
+  // 查询预约状态
+  getBookingStatus(studioId) {
+    return request({
+      url: `/api/studio/${studioId}/booking-status`,
+      method: 'GET'
+    });
+  },
+
+  // 取消预约
+  cancelBooking(bookingId) {
+    return request({
+      url: `/api/studio/booking/${bookingId}/cancel`,
+      method: 'POST'
+    });
+  },
+
+  // 我的预约列表
+  getMyBookings(page, pageSize) {
+    return request({
+      url: '/api/studio/my-bookings',
+      method: 'GET',
+      data: { page: page || 1, pageSize: pageSize || 10 }
+    });
+  },
+
+  // 活动预约支付
+  payBooking(bookingId) {
+    return request({
+      url: `/api/studio/booking/${bookingId}/pay`,
+      method: 'POST'
+    });
+  }
+};
+
+/**
  * 订单评价相关 API
  */
 const reviewApi = {
@@ -335,6 +397,7 @@ module.exports = {
   appointmentApi,
   payApi,
   filterApi,
-  reviewApi
+  reviewApi,
+  studioApi
 };
 
